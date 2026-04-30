@@ -59,17 +59,33 @@ export default function HomePage() {
             </div>
 
             {/* Full-width trust pill */}
-            <div className="mt-10 flex items-center justify-center gap-0 bg-good-bg border border-good-fg/15 rounded-full px-6 py-2.5 flex-wrap">
-              <span className="flex items-center gap-1.5 font-mono text-xs text-good-fg pr-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse flex-shrink-0" />
-                2026 rates
-              </span>
-              {["US EIA + AAA data", "50 states + DC", "130+ EV models", "Free forever", "No signup"].map((item) => (
-                <span key={item} className="flex items-center font-mono text-xs text-good-fg/70">
-                  <span className="px-3 text-good-fg/30">·</span>
-                  {item}
+            <div className="mt-10 flex items-center justify-center bg-good-bg border border-good-fg/15 rounded-full px-5 py-2">
+              {/* Mobile: show only the 3 most important items */}
+              <div className="flex sm:hidden items-center gap-0 font-mono text-[10px] text-good-fg">
+                <span className="flex items-center gap-1.5 pr-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse flex-shrink-0" />
+                  2026 rates
                 </span>
-              ))}
+                {["50 states + DC", "130+ EV models"].map((item) => (
+                  <span key={item} className="flex items-center text-good-fg/70">
+                    <span className="px-2 text-good-fg/30">·</span>
+                    {item}
+                  </span>
+                ))}
+              </div>
+              {/* Desktop: all items */}
+              <div className="hidden sm:flex items-center gap-0 font-mono text-xs text-good-fg">
+                <span className="flex items-center gap-1.5 pr-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse flex-shrink-0" />
+                  2026 rates
+                </span>
+                {["US EIA + AAA data", "50 states + DC", "130+ EV models", "Free forever", "No signup"].map((item) => (
+                  <span key={item} className="flex items-center text-good-fg/70">
+                    <span className="px-3 text-good-fg/30">·</span>
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </section>
