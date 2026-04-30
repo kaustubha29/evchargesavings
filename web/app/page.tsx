@@ -43,15 +43,6 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
               {/* Left: headline */}
               <div>
-                <div className="inline-flex flex-wrap items-center gap-x-3 gap-y-1.5 bg-good-bg text-good-fg font-mono text-xs px-4 py-2 rounded-full border border-good-fg/15 mb-5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse flex-shrink-0" />
-                  {["2026 rates", "US EIA + AAA data", "50 states + DC", "130+ EV models", "Free forever", "No signup"].map((item, i) => (
-                    <span key={item} className="flex items-center gap-x-3">
-                      {i > 0 && <span className="text-good-fg/30">·</span>}
-                      {item}
-                    </span>
-                  ))}
-                </div>
                 <h1 className="font-serif font-medium tracking-tight text-ink mb-4 overflow-visible" style={{ fontSize: "clamp(2.25rem,6vw,3.75rem)", lineHeight: 1.15 }}>
                   <span className="block">How much would going</span>
                   <em className="block italic text-forest">electric save you?</em>
@@ -65,6 +56,20 @@ export default function HomePage() {
               <div>
                 <SavingsSlot />
               </div>
+            </div>
+
+            {/* Full-width trust pill */}
+            <div className="mt-10 flex items-center justify-center gap-0 bg-good-bg border border-good-fg/15 rounded-full px-6 py-2.5 flex-wrap">
+              <span className="flex items-center gap-1.5 font-mono text-xs text-good-fg pr-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse flex-shrink-0" />
+                2026 rates
+              </span>
+              {["US EIA + AAA data", "50 states + DC", "130+ EV models", "Free forever", "No signup"].map((item) => (
+                <span key={item} className="flex items-center font-mono text-xs text-good-fg/70">
+                  <span className="px-3 text-good-fg/30">·</span>
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
         </section>

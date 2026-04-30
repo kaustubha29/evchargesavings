@@ -106,7 +106,7 @@ export function SavingsSlot() {
       {/* Reel labels */}
       <div className="flex gap-2 px-5 pt-4 pb-2">
         {["EV model", "State", "Saves / yr"].map((l) => (
-          <div key={l} className="flex-1 text-center font-mono text-[9px] uppercase tracking-widest text-cream/30">
+          <div key={l} className="flex-1 text-center font-mono text-[11px] uppercase tracking-wider text-cream/50">
             {l}
           </div>
         ))}
@@ -120,10 +120,10 @@ export function SavingsSlot() {
       </div>
 
       {/* EV fact strip */}
-      <div className="border-t border-white/8 px-5 py-3 flex items-center gap-2">
-        <span className="text-emerald text-[11px] flex-shrink-0">⚡</span>
+      <div className="border-t border-white/8 px-5 py-3.5 flex items-center gap-2.5">
+        <span className="text-emerald text-sm flex-shrink-0">⚡</span>
         <p
-          className="font-mono text-[10px] text-cream/45 leading-snug transition-all duration-300 line-clamp-2"
+          className="font-mono text-[12px] text-cream/60 leading-snug transition-all duration-300 line-clamp-2"
           style={{ opacity: factFade ? 1 : 0, transform: factFade ? "translateY(0)" : "translateY(3px)" }}
         >
           {FACTS[factIdx]}
