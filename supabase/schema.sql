@@ -17,5 +17,5 @@ create index if not exists leads_email_idx on leads (lower(email));
 create index if not exists leads_state_idx on leads (state_code);
 create index if not exists leads_zip_idx   on leads (zip);
 
--- Row-level security: only service role can access (no public reads/writes)
-alter table leads enable row level security;
+-- No RLS needed — this table is only accessed via the service_role key
+-- from the server-side API route, never from the browser directly.
