@@ -10,8 +10,8 @@ create table if not exists leads (
   contacted_at timestamptz
 );
 
--- Fast deduplication lookups by email
-create index if not exists leads_email_idx on leads (lower(email));
+-- Unique constraint handles deduplication at the database level
+create unique index if not exists leads_email_unique on leads (lower(email));
 
 -- Fast filtering by state/zip for routing leads to electricians
 create index if not exists leads_state_idx on leads (state_code);

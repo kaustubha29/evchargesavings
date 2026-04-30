@@ -46,33 +46,15 @@ export async function POST(req: NextRequest) {
   // Init clients here — avoids module-load crash if env vars were missing
   const supabase = createClient(supabaseUrl, supabaseKey);
 
-  // Deduplicate: same email within 7 days → silently succeed
-  const { data: dupes, error: dupError } = await supabase
-    .from("leads")
-    .select("id")
-    .eq("email", email)
-    .gte("created_at", new Date(Date.now() - 7 * 86400_000).toISOString())
-    .limit(1);
-
-  if (dupError) {
-    console.error("[lead] Dedup query failed:", dupError);
-    return NextResponse.json({ error: "Database error" }, { status: 500 });
-  }
-
-  if (dupes && dupes.length > 0) {
-    return NextResponse.json({ ok: true });
-  }
-
-  // Insert
-  const { error: insertError } = await supabase.from("leads").insert({
-    email,
-    zip:         zip || null,
-    state_code:  stateCode,
-    source_page: sourcePage,
-  });
+  // Upsert — unique index on lower(email) handles dedup at the DB level.
+  // ON CONFLICT DO NOTHING means a duplicate email silently succeeds.
+  const { error: insertError } = await supabase.from("leads").upsert(
+    { email, zip: zip || null, state_code: stateCode, source_page: sourcePage },
+    { onConflict: "email", ignoreDuplicates: true }
+  );
 
   if (insertError) {
-    console.error("[lead] Insert failed:", insertError);
+    console.error("[lead] Upsert failed:", insertError);
     return NextResponse.json({ error: "Database error" }, { status: 500 });
   }
 
