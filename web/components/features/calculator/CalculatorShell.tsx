@@ -71,38 +71,72 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
   const brands = useMemo(() => [...new Set(evSummaries.map((e) => e.brand))], [evSummaries]);
 
   return (
-    <div id="calculator" className="space-y-10">
-      {/* Location pill + zip override */}
-      <div className="flex items-center gap-2 flex-wrap">
-        <span className="inline-flex items-center gap-2 bg-ink text-cream text-xs font-mono px-3 py-1.5 rounded-full">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
-          {locationLabel} · {fmt.cents1(stateData.kwhCents)}/kWh · {fmt.money2(stateData.gasDollar)}/gal
-        </span>
-        {stateData.hasTOU && (
-          <span className="bg-okay-bg text-okay-fg font-mono text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wide">
-            TOU rates available
+    <div id="calculator" className="space-y-8">
+
+      {/* ── Vehicle selectors + location ── */}
+      <div className="bg-paper border border-line rounded-3xl p-6 shadow-1">
+        <h3 className="font-serif text-xl font-medium tracking-tight mb-5">Pick your vehicles</h3>
+        <div className="grid sm:grid-cols-2 gap-4 mb-5">
+          <label className="space-y-1.5">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Your EV</span>
+            <select
+              value={evSlug}
+              onChange={(e) => setEvSlug(e.target.value)}
+              className="w-full border border-line rounded-xl px-4 py-3 text-sm bg-paper font-sans appearance-none focus:outline-none focus:ring-2 focus:ring-emerald"
+            >
+              {brands.map((brand) => (
+                <optgroup key={brand} label={brand}>
+                  {evSummaries.filter((e) => e.brand === brand).map((e) => (
+                    <option key={e.slug} value={e.slug}>{e.name}</option>
+                  ))}
+                </optgroup>
+              ))}
+            </select>
+          </label>
+          <label className="space-y-1.5">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Your gas car</span>
+            <select
+              value={gasId}
+              onChange={(e) => setGasId(e.target.value)}
+              className="w-full border border-line rounded-xl px-4 py-3 text-sm bg-paper font-sans appearance-none focus:outline-none focus:ring-2 focus:ring-emerald"
+            >
+              {gasVehicles.map((g) => (
+                <option key={g.id} value={g.id}>{g.name}</option>
+              ))}
+            </select>
+          </label>
+        </div>
+
+        {/* Location row */}
+        <div className="flex items-center gap-2 flex-wrap pt-4 border-t border-line">
+          <span className="inline-flex items-center gap-2 bg-ink text-cream text-xs font-mono px-3 py-1.5 rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
+            {locationLabel} · {fmt.cents1(stateData.kwhCents)}/kWh · {fmt.money2(stateData.gasDollar)}/gal
           </span>
-        )}
-        <form
-          onSubmit={(e) => { e.preventDefault(); applyZip(zipInput); }}
-          className="flex items-center gap-1"
-        >
-          <input
-            type="text"
-            inputMode="numeric"
-            maxLength={5}
-            placeholder="ZIP code"
-            value={zipInput}
-            onChange={(e) => { setZipInput(e.target.value); setZipError(false); }}
-            className={`w-24 border rounded-lg px-2.5 py-1.5 font-mono text-xs bg-paper focus:outline-none focus:ring-1 focus:ring-forest ${zipError ? "border-rust text-rust placeholder:text-rust/50" : "border-line"}`}
-          />
-          <button type="submit" className="font-mono text-[10px] text-ink-mute hover:text-forest px-1">
-            →
-          </button>
-        </form>
-        {zipError && (
-          <span className="font-mono text-[10px] text-rust">ZIP not found</span>
-        )}
+          {stateData.hasTOU && (
+            <span className="bg-okay-bg text-okay-fg font-mono text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wide">
+              TOU rates available
+            </span>
+          )}
+          <form
+            onSubmit={(e) => { e.preventDefault(); applyZip(zipInput); }}
+            className="flex items-center gap-1"
+          >
+            <input
+              type="text"
+              inputMode="numeric"
+              enterKeyHint="go"
+              maxLength={5}
+              placeholder="ZIP code"
+              value={zipInput}
+              onChange={(e) => { setZipInput(e.target.value); setZipError(false); }}
+              onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); applyZip(zipInput); } }}
+              className={`w-24 border rounded-lg px-2.5 py-1.5 font-mono text-xs bg-paper focus:outline-none focus:ring-1 focus:ring-forest ${zipError ? "border-rust text-rust placeholder:text-rust/50" : "border-line"}`}
+            />
+            <button type="submit" className="font-mono text-[10px] text-ink-mute hover:text-forest px-1">→</button>
+          </form>
+          {zipError && <span className="font-mono text-[10px] text-rust">ZIP not found</span>}
+        </div>
       </div>
 
       {/* Hero grid: saving card + meter */}
@@ -182,39 +216,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
 
       {/* Inputs panel */}
       <div className="bg-paper border border-line rounded-3xl p-7 shadow-1 space-y-6">
-        <h3 className="font-serif text-xl font-medium tracking-tight">Customize your estimate</h3>
-
-        {/* Vehicle selectors */}
-        <div className="grid sm:grid-cols-2 gap-4">
-          <label className="space-y-1.5">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Your EV</span>
-            <select
-              value={evSlug}
-              onChange={(e) => setEvSlug(e.target.value)}
-              className="w-full border border-line rounded-xl px-4 py-3 text-sm bg-paper font-sans appearance-none focus:outline-none focus:ring-2 focus:ring-emerald"
-            >
-              {brands.map((brand) => (
-                <optgroup key={brand} label={brand}>
-                  {evSummaries.filter((e) => e.brand === brand).map((e) => (
-                    <option key={e.slug} value={e.slug}>{e.name}</option>
-                  ))}
-                </optgroup>
-              ))}
-            </select>
-          </label>
-          <label className="space-y-1.5">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Your gas car</span>
-            <select
-              value={gasId}
-              onChange={(e) => setGasId(e.target.value)}
-              className="w-full border border-line rounded-xl px-4 py-3 text-sm bg-paper font-sans appearance-none focus:outline-none focus:ring-2 focus:ring-emerald"
-            >
-              {gasVehicles.map((g) => (
-                <option key={g.id} value={g.id}>{g.name}</option>
-              ))}
-            </select>
-          </label>
-        </div>
+        <h3 className="font-serif text-xl font-medium tracking-tight">Fine-tune your estimate</h3>
 
         {/* Sliders */}
         {[
