@@ -1,7 +1,8 @@
 "use client";
-import { useMemo, useEffect } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { useCalculatorStore, computeSavings, computeCO2 } from "@/store/calculator";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
+import { stateFromZip, getStateData } from "@/features/location/queries";
 import { fmt } from "@/lib/format";
 import { FeelGoodFact } from "@/components/shared/FeelGoodFact";
 import { StatCard } from "@/components/shared/StatCard";
@@ -22,8 +23,19 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
     homeRateKwh, publicRateKwh, gasPriceDollar,
     stateCode, stateData, isDetecting,
     setEvSlug, setGasId, setMiles, setHomePct,
-    setHomeRate, setPublicRate, setGasPrice,
+    setHomeRate, setPublicRate, setGasPrice, setLocation,
   } = store;
+
+  const [zipInput, setZipInput] = useState("");
+  const [zipError, setZipError] = useState(false);
+
+  function applyZip(zip: string) {
+    const code = stateFromZip(zip.trim());
+    if (!code) { setZipError(true); return; }
+    setZipError(false);
+    setZipInput("");
+    setLocation(code, getStateData(code), zip.trim());
+  }
 
   const ev  = useMemo(() => evRepository.getBySlug(evSlug) ?? evRepository.getAll()[0], [evSlug]);
   const gas = useMemo(() => gasRepository.getById(gasId) ?? gasRepository.getAll()[0], [gasId]);
@@ -51,7 +63,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
 
   return (
     <div id="calculator" className="space-y-10">
-      {/* Location pill */}
+      {/* Location pill + zip override */}
       <div className="flex items-center gap-2 flex-wrap">
         <span className="inline-flex items-center gap-2 bg-ink text-cream text-xs font-mono px-3 py-1.5 rounded-full">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
@@ -61,6 +73,26 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
           <span className="bg-okay-bg text-okay-fg font-mono text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wide">
             TOU rates available
           </span>
+        )}
+        <form
+          onSubmit={(e) => { e.preventDefault(); applyZip(zipInput); }}
+          className="flex items-center gap-1"
+        >
+          <input
+            type="text"
+            inputMode="numeric"
+            maxLength={5}
+            placeholder="ZIP code"
+            value={zipInput}
+            onChange={(e) => { setZipInput(e.target.value); setZipError(false); }}
+            className={`w-24 border rounded-lg px-2.5 py-1.5 font-mono text-xs bg-paper focus:outline-none focus:ring-1 focus:ring-forest ${zipError ? "border-rust text-rust placeholder:text-rust/50" : "border-line"}`}
+          />
+          <button type="submit" className="font-mono text-[10px] text-ink-mute hover:text-forest px-1">
+            →
+          </button>
+        </form>
+        {zipError && (
+          <span className="font-mono text-[10px] text-rust">ZIP not found</span>
         )}
       </div>
 
