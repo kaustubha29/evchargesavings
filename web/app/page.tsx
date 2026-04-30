@@ -44,11 +44,11 @@ export default function HomePage() {
               {/* Left: headline */}
               <div>
                 <h1 className="font-serif font-medium tracking-tight text-ink mb-4 overflow-visible" style={{ fontSize: "clamp(2.25rem,6vw,3.75rem)", lineHeight: 1.15 }}>
-                  <span className="block">How much would going</span>
-                  <em className="block italic text-forest">electric save you?</em>
+                  <span className="block">Going electric</span>
+                  <em className="block italic text-forest">saves you thousands.</em>
                 </h1>
                 <p className="text-ink-3 text-lg max-w-xl leading-relaxed">
-                  Real electricity and gas rates for your state. Pick your EV and your current car — see the savings instantly.
+                  How much exactly? Pick your EV and your current car — get your number in seconds, using live rates for your state.
                 </p>
               </div>
 
