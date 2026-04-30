@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     url: "https://evchargesavings.com",
   },
   twitter: { card: "summary_large_image" },
+  other: {
+    "google-adsense-account": "ca-pub-6904215876470010",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -25,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Google AdSense — replace XXXXXXXXXXXXXXXX with your publisher ID */}
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6904215876470010"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
