@@ -1,0 +1,2398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EV Charge Savings — How Much Will You Save Going Electric?</title>
+<meta name="description" content="See exactly how much an EV would save you in your zip code. Real 2026 electricity and gas rates for all 50 US states, 30+ EV models, free forever." />
+<meta name="keywords" content="ev savings calculator, ev charging cost, electric car savings, ev vs gas calculator, level 2 charger install" />
+<meta name="author" content="EV Charge Savings" />
+<link rel="canonical" href="https://evchargesavings.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="EV Charge Savings — Live calculator for all 50 states" />
+<meta property="og:description" content="Real savings, your zip code, in 30 seconds. No signup." />
+<meta property="og:url" content="https://evchargesavings.com/" />
+<meta property="og:site_name" content="EV Charge Savings" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"EV Charge Savings Calculator","url":"https://evchargesavings.com/","applicationCategory":"FinanceApplication","operatingSystem":"Any","description":"Free calculator comparing EV charging costs at home, on public networks, and against gasoline for any US zip code.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+
+<!-- GA4 — replace G-XXXXXXXXXX -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX',{anonymize_ip:true});</script> -->
+
+<!-- AdSense -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --cream: #f7f1e3;
+    --cream-soft: #faf6ec;
+    --paper: #fffdf7;
+    --ink: #0f1f17;
+    --ink-2: #1d3128;
+    --ink-3: #4a5b52;
+    --ink-mute: #788a80;
+    --line: #e3dcc4;
+    --line-soft: #efe8d2;
+    --forest: #1a4d36;
+    --forest-deep: #0d2c1f;
+    --emerald: #2a7e54;
+    --emerald-bright: #34a960;
+    --emerald-glow: #6ad394;
+    --moss: #5a8a6f;
+    --sage: #9eb6a4;
+    --gold: #c69138;
+    --gold-soft: #e3bd75;
+    --honey: #f0d8a4;
+    --rust: #b15327;
+    --rust-deep: #8a3d1c;
+    --gas: #c25234;
+    --good-bg: #e8f5ec;
+    --good-fg: #1a6b3f;
+    --okay-bg: #fef3dc;
+    --okay-fg: #8a5e0f;
+
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Geist", -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: "Geist Mono", "SF Mono", Menlo, monospace;
+
+    --r-sm: 6px;
+    --r: 10px;
+    --r-lg: 16px;
+    --r-xl: 24px;
+
+    --sh-1: 0 1px 2px rgba(13,44,31,.05);
+    --sh-2: 0 6px 24px rgba(13,44,31,.08);
+    --sh-3: 0 16px 48px rgba(13,44,31,.14);
+    --sh-glow: 0 0 0 6px rgba(52,169,96,.12);
+
+    --ease: cubic-bezier(.4,.14,.3,1);
+  }
+
+  * { box-sizing: border-box; }
+  *:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: var(--r-sm); }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    padding-bottom: 76px;
+  }
+
+  ::selection { background: var(--forest); color: var(--cream); }
+
+  a { color: var(--forest); text-decoration: underline; text-decoration-color: var(--gold-soft); text-underline-offset: 3px; transition: color .15s; }
+  a:hover { color: var(--rust); }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(1200px 600px at 90% -10%, rgba(34,126,84,.08), transparent 60%),
+      radial-gradient(800px 400px at -10% 30%, rgba(198,145,56,.06), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body > * { position: relative; z-index: 1; }
+
+  /* ─── Top status bar ─── */
+  .topbar {
+    background: var(--forest-deep);
+    color: var(--cream);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 9px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .pulse-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--emerald-bright);
+    margin-right: 8px;
+    box-shadow: 0 0 0 0 rgba(52,169,96,.7);
+    animation: pulse 2s infinite;
+    vertical-align: middle;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(52,169,96,.7); }
+    70% { box-shadow: 0 0 0 8px rgba(52,169,96,0); }
+    100% { box-shadow: 0 0 0 0 rgba(52,169,96,0); }
+  }
+  .topbar .live { color: var(--honey); }
+  .topbar nav { display: flex; gap: 22px; }
+  .topbar nav a { color: var(--cream); opacity: .75; text-decoration: none; transition: opacity .15s, color .15s; }
+  .topbar nav a:hover { opacity: 1; color: var(--gold-soft); }
+
+  /* ─── Header ─── */
+  header.masthead {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 28px 28px 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 38px);
+    letter-spacing: -.025em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .brand em { font-style: italic; font-weight: 400; color: var(--forest); }
+  .brand-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: var(--ink-mute);
+    background: var(--cream-soft);
+    border: 1px solid var(--line);
+    padding: 5px 10px;
+    border-radius: 100px;
+  }
+
+  /* ─── Hero ─── */
+  .hero {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 28px 24px;
+  }
+
+  .trust-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--good-bg);
+    color: var(--good-fg);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .04em;
+    padding: 7px 14px;
+    border-radius: 100px;
+    border: 1px solid rgba(26,107,63,.15);
+    margin-bottom: 20px;
+    animation: fadeIn .6s var(--ease);
+  }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 56px;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 960px) { .hero-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+  .hero-question {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(40px, 5.5vw, 64px);
+    line-height: 1;
+    letter-spacing: -.03em;
+    color: var(--ink);
+    margin: 0 0 18px;
+    max-width: 620px;
+  }
+  .hero-question .save-word {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-bright) 50%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+  }
+  .hero-question .save-word::after {
+    content: "";
+    position: absolute;
+    bottom: 0.05em;
+    left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, var(--emerald-glow), var(--honey));
+    opacity: .35;
+    z-index: -1;
+    border-radius: 4px;
+    transform: skewX(-3deg);
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--ink-3);
+    max-width: 540px;
+    margin: 0 0 28px;
+    line-height: 1.5;
+  }
+  .hero-sub b { color: var(--ink); font-weight: 500; }
+
+  .saving-card {
+    background: linear-gradient(160deg, var(--paper) 0%, var(--cream-soft) 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+    padding: 32px;
+    box-shadow: var(--sh-2);
+    position: relative;
+    overflow: hidden;
+  }
+  .saving-card::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle at top right, rgba(52,169,96,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .saving-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    color: var(--ink-mute);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .saving-figure {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(64px, 11vw, 116px);
+    letter-spacing: -.04em;
+    line-height: .95;
+    color: var(--forest);
+    margin: 8px 0 4px;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+    transition: color .3s;
+    background: linear-gradient(135deg, var(--forest) 0%, var(--emerald-bright) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .saving-period {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--ink-2);
+  }
+  .saving-period b { color: var(--forest); font-weight: 500; font-style: normal; }
+  .saving-context {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--line);
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .ctx-item { font-size: 13px; color: var(--ink-mute); }
+  .ctx-item b { display: block; font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--ink); margin-bottom: 2px; letter-spacing: -.01em; font-feature-settings: "tnum" 1; }
+
+  /* ─── Live meter (right side of hero) ─── */
+  .meter {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: var(--r-xl);
+    padding: 28px;
+    box-shadow: var(--sh-3);
+    position: relative;
+    overflow: hidden;
+  }
+  .meter::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(52,169,96,.15), transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(194,82,52,.1), transparent 50%);
+    pointer-events: none;
+  }
+  .meter-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 22px;
+    position: relative;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .meter-title { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .18em; color: var(--gold-soft); }
+  .meter-state { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--cream); font-weight: 400; }
+  .meter-state b { color: var(--honey); font-weight: 500; font-style: normal; }
+  .meter-row {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .meter-row:last-child { margin-bottom: 0; }
+  .meter-label { font-family: var(--mono); font-size: 12px; color: var(--cream); display: flex; align-items: center; gap: 7px; }
+  .meter-icon { width: 14px; height: 14px; opacity: .9; }
+  .meter-track { height: 28px; background: rgba(255,255,255,.06); border-radius: 5px; overflow: hidden; position: relative; }
+  .meter-fill { height: 100%; border-radius: 5px; transition: width 1s var(--ease); position: relative; }
+  .meter-fill.gas { background: linear-gradient(90deg, var(--rust-deep), var(--gas)); }
+  .meter-fill.ev { background: linear-gradient(90deg, var(--emerald), var(--emerald-bright)); }
+  .meter-fill::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+    opacity: 0;
+  }
+  .meter-fill.shine::after { animation: shine 1.6s var(--ease); }
+  @keyframes shine { 0%{opacity:0;transform:translateX(-100%);} 50%{opacity:1;} 100%{opacity:0;transform:translateX(100%);} }
+  .meter-value { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--cream); min-width: 80px; text-align: right; font-feature-settings: "tnum" 1; }
+  .meter-foot {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    font-size: 12px;
+    color: var(--sage);
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    position: relative;
+  }
+  .meter-foot b { color: var(--honey); }
+
+  /* ─── Trust strip ─── */
+  .trust-strip {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 14px 28px;
+    margin-top: 4px;
+    box-shadow: var(--sh-1);
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    border-right: 1px solid var(--line-soft);
+  }
+  .trust-item:last-child { border-right: none; }
+  .trust-item .check {
+    width: 18px; height: 18px;
+    background: var(--good-bg);
+    color: var(--good-fg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 11px;
+  }
+  @media (max-width: 720px) {
+    .trust-strip { border-radius: var(--r-lg); padding: 16px; flex-direction: column; gap: 10px; }
+    .trust-item { border-right: none; padding: 0; justify-content: center; }
+  }
+
+  /* ─── Sticky location strip ─── */
+  .locstrip {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,31,23,.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--cream);
+    padding: 12px 28px;
+    margin-top: 32px;
+    border-top: 1px solid rgba(255,255,255,.06);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .locstrip-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .loc-pill {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .loc-pill b { color: var(--honey); font-weight: 500; }
+  .loc-stat { font-size: 12px; color: var(--sage); font-family: var(--mono); }
+  .loc-stat b { color: var(--cream); font-weight: 500; }
+  .loc-form { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+  .loc-form input {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    color: var(--cream);
+    padding: 7px 12px;
+    border-radius: var(--r-sm);
+    font-family: var(--mono);
+    font-size: 13px;
+    width: 100px;
+    letter-spacing: .04em;
+    transition: border-color .15s, background .15s;
+  }
+  .loc-form input::placeholder { color: rgba(255,255,255,.4); }
+  .loc-form input:focus { outline: none; border-color: var(--gold-soft); background: rgba(255,255,255,.1); }
+  .loc-form button {
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    padding: 7px 16px;
+    border-radius: var(--r-sm);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    cursor: pointer;
+    transition: background .15s, transform .1s;
+  }
+  .loc-form button:hover { background: var(--gold-soft); }
+  .loc-form button:active { transform: translateY(1px); }
+  @media (max-width: 720px) {
+    .loc-form { margin-left: 0; width: 100%; }
+    .loc-form input { flex: 1; width: auto; }
+  }
+
+  /* ─── Section headings ─── */
+  .section-head {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 56px 28px 0;
+    text-align: center;
+  }
+  .section-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: var(--rust);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 500;
+    letter-spacing: -.025em;
+    margin: 0 0 12px;
+    line-height: 1.05;
+  }
+  .section-title em { font-style: italic; color: var(--forest); }
+  .section-sub {
+    font-size: 17px;
+    color: var(--ink-3);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* ─── Calculator main grid ─── */
+  main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 28px 60px;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 1040px) {
+    main { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  /* ─── Input panels (left side) ─── */
+  .panel {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+    padding: 24px 26px;
+    box-shadow: var(--sh-1);
+    margin-bottom: 20px;
+    transition: box-shadow .25s;
+  }
+  .panel:hover { box-shadow: var(--sh-2); }
+  .panel:last-child { margin-bottom: 0; }
+
+  .panel-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .panel-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--good-bg), var(--cream-soft));
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--forest);
+  }
+  .panel-icon svg { width: 18px; height: 18px; }
+  .panel-title-wrap { flex: 1; }
+  .panel-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: -.015em;
+    color: var(--ink);
+  }
+  .panel-sub {
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-top: 1px;
+  }
+  .panel-tag {
+    background: var(--good-bg);
+    color: var(--good-fg);
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: 4px 10px;
+    border-radius: 100px;
+    border: 1px solid rgba(26,107,63,.15);
+  }
+
+  /* Field grid */
+  .field-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 22px;
+  }
+  @media (max-width: 600px) { .field-grid { grid-template-columns: 1fr; } }
+
+  .field { display: flex; flex-direction: column; gap: 7px; }
+  .field label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--ink-3);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .field-help { font-size: 12px; color: var(--ink-mute); font-style: italic; line-height: 1.4; }
+  .field input, .field select {
+    font-family: var(--mono);
+    font-size: 15px;
+    padding: 11px 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    background: var(--cream-soft);
+    color: var(--ink);
+    transition: border-color .15s, box-shadow .15s, background .15s;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+  }
+  .field select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%231a4d36' stroke-width='2'><path d='M4 6l4 4 4-4'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+  }
+  .field input:hover, .field select:hover { border-color: var(--moss); }
+  .field input:focus, .field select:focus {
+    outline: none;
+    border-color: var(--forest);
+    background: var(--paper);
+    box-shadow: var(--sh-glow);
+  }
+  .ip { position: relative; display: flex; align-items: center; }
+  .ip-pre, .ip-suf { position: absolute; color: var(--ink-mute); font-family: var(--mono); font-size: 13px; pointer-events: none; }
+  .ip-pre { left: 14px; }
+  .ip-suf { right: 14px; }
+  .ip-pre + input { padding-left: 28px; }
+  .ip:has(.ip-suf) input { padding-right: 50px; }
+
+  /* ─── Slider ─── */
+  .slider-row {
+    margin-bottom: 18px;
+  }
+  .slider-row:last-child { margin-bottom: 0; }
+  .slider-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+  }
+  .slider-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+  .slider-value {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--forest);
+    letter-spacing: -.01em;
+    font-feature-settings: "tnum" 1;
+  }
+  .slider-value small { font-family: var(--mono); font-size: 12px; color: var(--ink-mute); margin-left: 4px; font-weight: 400; }
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    outline: none;
+    margin: 0;
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: var(--paper);
+    border: 2px solid var(--forest);
+    border-radius: 50%;
+    cursor: grab;
+    box-shadow: var(--sh-1), 0 0 0 4px rgba(26,77,54,0);
+    transition: box-shadow .2s, border-color .2s, transform .15s;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: var(--paper);
+    border: 2px solid var(--forest);
+    border-radius: 50%;
+    cursor: grab;
+    box-shadow: var(--sh-1);
+    transition: box-shadow .2s, border-color .2s, transform .15s;
+  }
+  input[type="range"]:hover::-webkit-slider-thumb { border-color: var(--emerald); transform: scale(1.08); }
+  input[type="range"]:hover::-moz-range-thumb { border-color: var(--emerald); transform: scale(1.08); }
+  input[type="range"]:active::-webkit-slider-thumb, input[type="range"]:focus::-webkit-slider-thumb { box-shadow: var(--sh-1), 0 0 0 6px rgba(52,169,96,.18); cursor: grabbing; }
+  input[type="range"]:active::-moz-range-thumb, input[type="range"]:focus::-moz-range-thumb { box-shadow: var(--sh-1), 0 0 0 6px rgba(52,169,96,.18); cursor: grabbing; }
+  .slider-foot {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  /* Toggle */
+  .toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    margin-bottom: 4px;
+  }
+  .toggle-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+  .toggle {
+    position: relative;
+    width: 44px; height: 24px;
+    background: var(--line);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background .25s;
+    flex-shrink: 0;
+  }
+  .toggle::after {
+    content: "";
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 20px; height: 20px;
+    background: var(--paper);
+    border-radius: 50%;
+    box-shadow: var(--sh-1);
+    transition: transform .25s var(--ease);
+  }
+  .toggle input { display: none; }
+  .toggle.on { background: var(--emerald-bright); }
+  .toggle.on::after { transform: translateX(20px); }
+
+  /* ─── Vehicle picker cards ─── */
+  .vehicle-card {
+    background: var(--cream-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 14px 16px;
+    margin-top: 8px;
+    display: grid;
+    grid-template-columns: 38px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    transition: border-color .2s, background .2s;
+  }
+  .vehicle-card.ev { border-left: 3px solid var(--emerald-bright); }
+  .vehicle-card.gas { border-left: 3px solid var(--gas); }
+  .vehicle-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .vehicle-card.ev .vehicle-icon { color: var(--emerald-bright); background: var(--good-bg); border-color: rgba(26,107,63,.2); }
+  .vehicle-card.gas .vehicle-icon { color: var(--gas); background: #fbe9e2; border-color: rgba(177,83,39,.2); }
+  .vehicle-icon svg { width: 20px; height: 20px; }
+  .vehicle-info { font-size: 13px; }
+  .vehicle-info b { font-family: var(--serif); font-size: 17px; font-weight: 500; color: var(--ink); display: block; margin-bottom: 2px; letter-spacing: -.01em; }
+  .vehicle-info span { color: var(--ink-mute); font-family: var(--mono); font-size: 12px; }
+  .vehicle-spec {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .vehicle-spec b { display: block; font-family: var(--serif); font-size: 16px; color: var(--forest); font-weight: 500; letter-spacing: -.01em; text-transform: none; font-feature-settings: "tnum" 1; }
+
+  /* ─── Advanced collapsible ─── */
+  .advanced {
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background: var(--cream-soft);
+    margin-top: 4px;
+  }
+  .advanced summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    user-select: none;
+  }
+  .advanced summary::-webkit-details-marker { display: none; }
+  .advanced summary::after {
+    content: "▾";
+    color: var(--forest);
+    transition: transform .25s;
+    font-size: 12px;
+  }
+  .advanced[open] summary::after { transform: rotate(180deg); }
+  .advanced-body { padding: 4px 18px 18px; border-top: 1px solid var(--line-soft); }
+
+  /* ─── Right column: Live results ─── */
+  .results-col { display: flex; flex-direction: column; gap: 16px; }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .stat-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 18px 20px;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card:hover { transform: translateY(-2px); box-shadow: var(--sh-2); }
+  .stat-card.headline {
+    background: linear-gradient(135deg, var(--paper) 0%, var(--good-bg) 100%);
+    border-color: rgba(52,169,96,.3);
+    grid-column: span 2;
+  }
+  .stat-card.headline::before {
+    content: "";
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, rgba(52,169,96,.2), transparent 70%);
+  }
+  .stat-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--ink-3);
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .stat-head svg { width: 14px; height: 14px; color: var(--emerald); }
+  .stat-card.headline .stat-head { color: var(--good-fg); }
+  .stat-card.headline .stat-head svg { color: var(--good-fg); }
+  .stat-value {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -.025em;
+    color: var(--ink);
+    font-feature-settings: "tnum" 1;
+    position: relative;
+    transition: color .3s;
+  }
+  .stat-card.headline .stat-value {
+    font-size: clamp(40px, 6vw, 60px);
+    color: var(--forest);
+    background: linear-gradient(135deg, var(--forest), var(--emerald-bright));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .stat-sub { font-size: 12px; color: var(--ink-mute); margin-top: 4px; position: relative; }
+
+  /* Comparison chart */
+  .comp-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 22px;
+  }
+  .comp-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -.01em;
+    margin: 0 0 14px;
+  }
+  .comp-row {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .comp-row:last-child { margin-bottom: 0; }
+  .comp-row .label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .comp-track {
+    height: 24px;
+    background: var(--cream);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--line-soft);
+  }
+  .comp-fill { height: 100%; transition: width .8s var(--ease); }
+  .comp-fill.gas { background: linear-gradient(90deg, var(--rust-deep), var(--gas)); }
+  .comp-fill.ev { background: linear-gradient(90deg, var(--emerald), var(--emerald-bright)); }
+  .comp-row .val {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    text-align: right;
+    min-width: 80px;
+    font-feature-settings: "tnum" 1;
+  }
+
+  .save-callout {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: var(--good-bg);
+    border: 1px solid rgba(26,107,63,.15);
+    border-radius: var(--r-sm);
+    font-size: 13px;
+    color: var(--good-fg);
+    line-height: 1.45;
+  }
+  .save-callout b { font-weight: 600; }
+
+  /* ─── Charging Networks Section ─── */
+  .networks {
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 0 0 60px;
+  }
+  .networks-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  .networks-summary {
+    background: linear-gradient(120deg, var(--good-bg) 0%, var(--cream-soft) 50%, var(--okay-bg) 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+    padding: 24px 28px;
+    margin: 32px 0 28px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  @media (max-width: 720px) {
+    .networks-summary { grid-template-columns: 1fr; gap: 16px; text-align: center; }
+  }
+  .summary-cell .summary-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--ink-mute);
+    margin-bottom: 4px;
+  }
+  .summary-cell .summary-val {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 36px);
+    font-weight: 500;
+    letter-spacing: -.02em;
+    color: var(--ink);
+    font-feature-settings: "tnum" 1;
+  }
+  .summary-cell.cheap .summary-val { color: var(--good-fg); }
+  .summary-cell.expensive .summary-val { color: var(--rust); }
+  .summary-cell.expensive { text-align: right; }
+  @media (max-width: 720px) { .summary-cell.expensive { text-align: center; } }
+  .summary-mid {
+    text-align: center;
+    padding: 16px 24px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    box-shadow: var(--sh-1);
+  }
+  .summary-mid .bolt { color: var(--emerald-bright); margin-bottom: 4px; }
+  .summary-mid .save-up { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-mute); }
+  .summary-mid .save-amt { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--emerald-bright); letter-spacing: -.01em; font-feature-settings: "tnum" 1; }
+
+  .net-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 980px) { .net-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 580px) { .net-grid { grid-template-columns: 1fr; } }
+
+  .net-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 22px;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .net-card:hover { transform: translateY(-3px); box-shadow: var(--sh-2); }
+  .net-card.best {
+    border-color: var(--emerald-bright);
+    background: linear-gradient(160deg, var(--paper) 0%, var(--good-bg) 100%);
+    box-shadow: 0 0 0 1px var(--emerald-bright), var(--sh-2);
+  }
+  .net-card.best::before {
+    content: "Best for you";
+    position: absolute;
+    top: 14px; right: 14px;
+    background: var(--emerald-bright);
+    color: white;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .net-card.priciest { opacity: .92; }
+
+  .net-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .net-logo {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: -.02em;
+    flex-shrink: 0;
+  }
+  .net-name { flex: 1; }
+  .net-name b { font-family: var(--serif); font-size: 17px; font-weight: 500; display: block; letter-spacing: -.01em; }
+  .net-name span { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: .04em; }
+  .net-rating {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: 4px 9px;
+    border-radius: 100px;
+    font-weight: 600;
+  }
+  .net-rating.ex { background: var(--good-bg); color: var(--good-fg); }
+  .net-rating.gd { background: #e8eef6; color: #2c4f7c; }
+  .net-rating.fr { background: var(--okay-bg); color: var(--okay-fg); }
+  .net-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 14px;
+    padding: 12px 0;
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .net-stats span { color: var(--ink-mute); }
+  .net-stats b { color: var(--ink); font-weight: 600; }
+  .net-cost {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: var(--cream-soft);
+    border-radius: var(--r-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .net-cost-label { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: .08em; }
+  .net-cost-val { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--ink); letter-spacing: -.02em; font-feature-settings: "tnum" 1; }
+  .net-card.best .net-cost-val { color: var(--good-fg); }
+  .net-card.priciest .net-cost-val { color: var(--rust); }
+  .net-tags { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+  .net-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .net-tag.yes { background: var(--good-bg); color: var(--good-fg); }
+  .net-tag.no { background: #f4ece0; color: var(--ink-mute); }
+  .net-tag.star { background: var(--cream); color: var(--ink-3); }
+  .net-desc { font-size: 12px; color: var(--ink-3); margin-top: 12px; line-height: 1.5; font-style: italic; }
+
+  /* ─── Lead capture ─── */
+  .leadbox {
+    margin: 32px 0 0;
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+    padding: 32px;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(198,145,56,.16), transparent 60%),
+      linear-gradient(135deg, var(--cream-soft), var(--cream));
+    position: relative;
+    overflow: hidden;
+  }
+  .leadbox h3 { font-family: var(--serif); font-size: clamp(22px, 2.4vw, 28px); font-weight: 500; letter-spacing: -.015em; margin: 0 0 6px; }
+  .leadbox h3 em { font-style: italic; color: var(--forest); }
+  .leadbox p { font-size: 14px; color: var(--ink-3); margin: 0 0 16px; max-width: 480px; }
+  .lead-form { display: flex; gap: 10px; flex-wrap: wrap; }
+  .lead-form input {
+    flex: 1;
+    min-width: 180px;
+    padding: 12px 14px;
+    font-family: var(--sans);
+    font-size: 15px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    background: var(--paper);
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .lead-form input:focus { outline: none; border-color: var(--forest); box-shadow: var(--sh-glow); }
+  .lead-form input.zip-in { flex: 0 0 100px; min-width: 100px; }
+  .lead-form button {
+    background: var(--forest);
+    color: var(--cream);
+    border: none;
+    padding: 12px 22px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    transition: background .15s, transform .1s, box-shadow .15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .lead-form button::after { content: "→"; transition: transform .2s; }
+  .lead-form button:hover { background: var(--forest-deep); box-shadow: 0 6px 18px rgba(13,44,31,.2); }
+  .lead-form button:hover::after { transform: translateX(3px); }
+  .lead-disclaimer { font-size: 11px; color: var(--ink-mute); margin-top: 12px; }
+  .lead-success {
+    display: none;
+    background: var(--forest);
+    color: var(--cream);
+    padding: 14px 18px;
+    border-radius: var(--r-sm);
+    font-size: 14px;
+    margin-top: 12px;
+    animation: fadeUp .4s var(--ease);
+  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .lead-success.show { display: block; }
+
+  /* ─── Editorial / Articles ─── */
+  .editorial {
+    max-width: 1280px;
+    margin: 56px auto 0;
+    padding: 0 28px 24px;
+  }
+  .editorial-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .editorial h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 34px); font-weight: 500; letter-spacing: -.02em; margin: 0; }
+  .editorial h2 em { font-style: italic; color: var(--forest); }
+  .editorial-link { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; }
+  .editorial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 880px) { .editorial-grid { grid-template-columns: 1fr; } }
+  .article {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 24px;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+    text-decoration: none;
+    display: block;
+  }
+  .article:hover { transform: translateY(-3px); box-shadow: var(--sh-2); border-color: var(--gold-soft); }
+  .article .eyebrow { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .18em; color: var(--rust); margin-bottom: 10px; }
+  .article h6 { font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1.2; letter-spacing: -.015em; margin: 0 0 8px; color: var(--ink); }
+  .article p { font-size: 14px; color: var(--ink-3); margin: 0; }
+  .article-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line-soft); display: flex; justify-content: space-between; }
+
+  /* ─── Footer ─── */
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 56px 28px 28px;
+    margin-top: 48px;
+  }
+  .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+  @media (max-width: 760px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
+  .footer-brand h2 { font-family: var(--serif); font-size: 32px; font-weight: 500; letter-spacing: -.02em; margin: 0 0 10px; color: var(--cream); }
+  .footer-brand h2 em { font-style: italic; color: var(--gold-soft); }
+  .footer-brand p { font-size: 13px; color: var(--sage); max-width: 320px; line-height: 1.55; }
+  footer h6 { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .15em; color: var(--gold-soft); margin: 0 0 14px; }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer ul li { margin-bottom: 8px; }
+  footer ul a { color: var(--cream); text-decoration: none; font-size: 13px; opacity: .8; transition: opacity .15s, color .15s; }
+  footer ul a:hover { opacity: 1; color: var(--gold-soft); }
+  .affiliate { max-width: 1280px; margin: 36px auto 0; padding: 22px 0 0; border-top: 1px solid rgba(255,255,255,.08); font-size: 12px; color: var(--sage); line-height: 1.6; }
+  .affiliate b { color: var(--gold-soft); font-weight: 500; }
+  .legal-row { max-width: 1280px; margin: 16px auto 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-family: var(--mono); font-size: 11px; color: var(--sage); text-transform: uppercase; letter-spacing: .08em; }
+
+  /* ─── Sticky bottom save bar ─── */
+  .save-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(15,31,23,.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--cream);
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding: 12px 24px;
+    z-index: 200;
+    box-shadow: 0 -8px 32px rgba(0,0,0,.15);
+    transform: translateY(100%);
+    transition: transform .35s var(--ease);
+  }
+  .save-bar.show { transform: none; }
+  .save-bar-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .save-bar-bolt {
+    width: 38px; height: 38px;
+    background: var(--good-bg);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--good-fg);
+    flex-shrink: 0;
+  }
+  .save-bar-text { flex: 1; min-width: 200px; }
+  .save-bar-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--sage); }
+  .save-bar-amt { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--cream); letter-spacing: -.01em; line-height: 1.1; font-feature-settings: "tnum" 1; }
+  .save-bar-amt b { color: var(--honey); font-weight: 500; }
+  .save-bar-actions { display: flex; gap: 10px; }
+  .save-bar-actions a {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 9px 16px;
+    border-radius: var(--r-sm);
+    text-decoration: none;
+    transition: background .15s, transform .1s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .save-bar-actions .ghost { color: var(--cream); border: 1px solid rgba(255,255,255,.18); }
+  .save-bar-actions .ghost:hover { background: rgba(255,255,255,.06); color: var(--cream); }
+  .save-bar-actions .primary { background: var(--gold); color: var(--ink); border: 1px solid var(--gold); }
+  .save-bar-actions .primary:hover { background: var(--gold-soft); }
+  @media (max-width: 600px) {
+    .save-bar-amt { font-size: 18px; }
+    .save-bar-actions a { padding: 8px 12px; font-size: 12px; }
+  }
+
+  /* ─── Cookie banner ─── */
+  .cookie {
+    position: fixed;
+    bottom: 90px;
+    left: 18px; right: 18px;
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 18px 22px;
+    border-radius: var(--r-lg);
+    box-shadow: var(--sh-3);
+    font-size: 13px;
+    line-height: 1.55;
+    display: none;
+    z-index: 1000;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .cookie.show { display: flex; animation: slideUp .35s var(--ease); }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  .cookie p { margin: 0; flex: 1; min-width: 220px; }
+  .cookie a { color: var(--gold-soft); }
+  .cookie-actions { display: flex; gap: 8px; }
+  .cookie button {
+    border: 1px solid rgba(255,255,255,.18);
+    background: transparent;
+    color: var(--cream);
+    padding: 9px 16px;
+    border-radius: var(--r-sm);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+  }
+  .cookie button:hover { background: rgba(255,255,255,.05); }
+  .cookie button.primary { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  .cookie button.primary:hover { background: var(--gold-soft); }
+
+  .skip-link { position: absolute; left: -10000px; }
+  .skip-link:focus { position: fixed; left: 16px; top: 16px; background: var(--gold); color: var(--ink); padding: 10px 16px; border-radius: var(--r); z-index: 9999; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#calculator" class="skip-link">Skip to calculator</a>
+
+<div class="topbar">
+  <div><span class="pulse-dot" aria-hidden="true"></span><span class="live">Live rates</span> · Updated monthly · <span style="opacity:.7">EIA + AAA data</span></div>
+  <nav aria-label="Top">
+    <a href="#calculator">Calculator</a>
+    <a href="#networks">Networks</a>
+    <a href="#guides">Guides</a>
+  </nav>
+</div>
+
+<header class="masthead">
+  <div class="brand">EV Charge <em>Savings</em></div>
+  <div class="brand-tag">Independent · No utility kickbacks</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="trust-pill">
+    <span class="pulse-dot" aria-hidden="true" style="margin-right:0"></span>
+    2026 rates · 50 states · 30+ EV models
+  </div>
+  <div class="hero-grid">
+    <div>
+      <h1 class="hero-question">How much could going electric <span class="save-word">save you?</span></h1>
+      <p class="hero-sub">Get your personalized EV savings in <b>30 seconds</b>. Real electricity rates. Real gas prices. <b>No signup.</b></p>
+
+      <div class="saving-card">
+        <div class="saving-label">
+          <span class="pulse-dot" aria-hidden="true" style="margin-right:0"></span>
+          An EV would save you
+        </div>
+        <div class="saving-figure" id="hero-saving" aria-live="polite">$0</div>
+        <div class="saving-period">per year, in <b id="hero-state">United States</b></div>
+        <div class="saving-context">
+          <div class="ctx-item"><b id="hero-gas">$0</b>Gas car / yr</div>
+          <div class="ctx-item"><b id="hero-ev">$0</b>EV / yr</div>
+          <div class="ctx-item"><b id="hero-pct">0%</b>Lower fuel cost</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="meter">
+      <div class="meter-head">
+        <div class="meter-title">Cost of fuel · 13,500 mi/yr</div>
+        <div class="meter-state">in <b id="meter-state">United States</b></div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-label">
+          <svg class="meter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 22V8h6v14M5 22h14V11l-3-3M14 11h2M16 11V7M16 7c0-1.1.9-2 2-2s2 .9 2 2v8a2 2 0 0 1-4 0"/></svg>
+          Gas car
+        </div>
+        <div class="meter-track"><div class="meter-fill gas" id="bar-gas" style="width:0%"></div></div>
+        <div class="meter-value" id="val-gas">$0</div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-label">
+          <svg class="meter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+          EV (home)
+        </div>
+        <div class="meter-track"><div class="meter-fill ev" id="bar-ev" style="width:0%"></div></div>
+        <div class="meter-value" id="val-ev">$0</div>
+      </div>
+      <div class="meter-foot">Defaults: 28 mpg gas car · 3.5 mi/kWh EV · <b id="meter-rate">—</b></div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-item"><span class="check">✓</span> US EIA Data</div>
+    <div class="trust-item"><span class="check">✓</span> 30+ EV Models</div>
+    <div class="trust-item"><span class="check">✓</span> 50 States + DC</div>
+    <div class="trust-item"><span class="check">✓</span> Free Forever</div>
+    <div class="trust-item"><span class="check">✓</span> No Signup</div>
+  </div>
+</section>
+
+<!-- Sticky location strip -->
+<section class="locstrip" aria-label="Your location">
+  <div class="locstrip-inner">
+    <div class="loc-pill">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Showing rates for <b id="loc-state">Detecting…</b></span>
+    </div>
+    <div class="loc-stat">⚡ <b id="loc-kwh">—</b>/kWh</div>
+    <div class="loc-stat">⛽ <b id="loc-gas">—</b>/gal</div>
+    <form class="loc-form" id="zip-form" autocomplete="off">
+      <input type="text" id="zip-input" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="ZIP" aria-label="Zip code" />
+      <button type="submit">Update</button>
+    </form>
+  </div>
+</section>
+
+<div class="section-head">
+  <div class="section-eyebrow">— Customize your calculation</div>
+  <h2 class="section-title">Tweak the inputs, <em>watch the savings update</em></h2>
+  <p class="section-sub">Pick your dream EV, your daily driver, and your driving habits. Everything below recalculates in real time.</p>
+</div>
+
+<main id="calculator">
+  <!-- LEFT: Inputs -->
+  <div>
+    <!-- Vehicle picker -->
+    <div class="panel">
+      <div class="panel-head">
+        <div class="panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 17H3v-5l3-7h12l3 7v5h-2M5 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0M15 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0"/></svg></div>
+        <div class="panel-title-wrap">
+          <h3 class="panel-title">Compare vehicles</h3>
+          <div class="panel-sub">Pick a real EV and a real gas car for an honest matchup.</div>
+        </div>
+      </div>
+      <div class="field-grid">
+        <div class="field">
+          <label for="ev-pick">Electric vehicle</label>
+          <select id="ev-pick"></select>
+        </div>
+        <div class="field">
+          <label for="gas-pick">Compare against</label>
+          <select id="gas-pick"></select>
+        </div>
+      </div>
+      <div class="vehicle-card ev" id="ev-card">
+        <div class="vehicle-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+        </div>
+        <div class="vehicle-info">
+          <b id="ev-name">—</b>
+          <span id="ev-detail">—</span>
+        </div>
+        <div class="vehicle-spec">
+          <b id="ev-range">—</b>
+          mi range
+        </div>
+      </div>
+      <div class="vehicle-card gas" id="gas-card">
+        <div class="vehicle-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 22V8h6v14M5 22h14V11l-3-3M14 11h2M16 11V7M16 7c0-1.1.9-2 2-2s2 .9 2 2v8a2 2 0 0 1-4 0"/></svg>
+        </div>
+        <div class="vehicle-info">
+          <b id="gas-name">—</b>
+          <span id="gas-detail">—</span>
+        </div>
+        <div class="vehicle-spec">
+          <b id="gas-mpg">—</b>
+          mpg combined
+        </div>
+      </div>
+    </div>
+
+    <!-- Driving panel -->
+    <div class="panel">
+      <div class="panel-head">
+        <div class="panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="panel-title-wrap">
+          <h3 class="panel-title">Your driving</h3>
+          <div class="panel-sub">Slide to match your weekly habits.</div>
+        </div>
+      </div>
+      <div class="slider-row">
+        <div class="slider-head">
+          <div class="slider-label">Annual miles</div>
+          <div class="slider-value" id="miles-val">13,500<small>mi/yr</small></div>
+        </div>
+        <input type="range" id="miles" min="2000" max="30000" step="500" value="13500" />
+        <div class="slider-foot"><span>2,000 mi</span><span>US avg ≈ 13,500</span><span>30,000 mi</span></div>
+      </div>
+      <div class="slider-row">
+        <div class="slider-head">
+          <div class="slider-label">Home charging share</div>
+          <div class="slider-value" id="home-val">85<small>%</small></div>
+        </div>
+        <input type="range" id="home-pct" min="0" max="100" step="5" value="85" />
+        <div class="slider-foot"><span>All public</span><span>Most apt-dwellers ≈ 50%</span><span>All home</span></div>
+      </div>
+    </div>
+
+    <!-- Energy rates panel -->
+    <div class="panel">
+      <div class="panel-head">
+        <div class="panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+        <div class="panel-title-wrap">
+          <h3 class="panel-title">Energy rates</h3>
+          <div class="panel-sub">Auto-set from your state. Tweak if you know your bill.</div>
+        </div>
+        <div class="panel-tag" id="tou-tag" style="display:none;">TOU available</div>
+      </div>
+      <div class="field-grid">
+        <div class="field">
+          <label for="rate-flat">Flat / blended rate</label>
+          <div class="ip"><input type="number" id="rate-flat" step="0.01" min="0" /><span class="ip-suf">¢/kWh</span></div>
+        </div>
+        <div class="field">
+          <label for="gas-price">Gas price</label>
+          <div class="ip"><span class="ip-pre">$</span><input type="number" id="gas-price" step="0.01" min="0" /></div>
+        </div>
+      </div>
+      <div class="toggle-row">
+        <span class="toggle-label">Use Time-of-Use rates</span>
+        <div class="toggle" id="tou-toggle" role="switch" aria-checked="false" tabindex="0">
+          <input type="checkbox" id="tou-on" />
+        </div>
+      </div>
+      <div id="tou-fields" style="display:none;">
+        <div class="field-grid">
+          <div class="field">
+            <label for="rate-off">Off-peak rate</label>
+            <div class="ip"><input type="number" id="rate-off" step="0.01" min="0" value="6.5" /><span class="ip-suf">¢/kWh</span></div>
+          </div>
+          <div class="field">
+            <label for="rate-peak">Peak rate</label>
+            <div class="ip"><input type="number" id="rate-peak" step="0.01" min="0" value="18" /><span class="ip-suf">¢/kWh</span></div>
+          </div>
+        </div>
+        <div class="slider-row" style="margin-top: 16px;">
+          <div class="slider-head">
+            <div class="slider-label">Off-peak charging</div>
+            <div class="slider-value" id="offpeak-val">80<small>%</small></div>
+          </div>
+          <input type="range" id="offpeak-pct" min="0" max="100" step="5" value="80" />
+          <div class="slider-foot"><span>0%</span><span>Most overnight chargers ≈ 80%</span><span>100%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advanced -->
+    <details class="advanced">
+      <summary>Advanced settings (battery override, charging losses)</summary>
+      <div class="advanced-body">
+        <div class="field-grid">
+          <div class="field">
+            <label for="adv-battery">Battery size</label>
+            <div class="ip"><input type="number" id="adv-battery" step="1" min="20" /><span class="ip-suf">kWh</span></div>
+          </div>
+          <div class="field">
+            <label for="adv-eff">EV efficiency</label>
+            <div class="ip"><input type="number" id="adv-eff" step="0.1" min="1" /><span class="ip-suf">mi/kWh</span></div>
+          </div>
+          <div class="field">
+            <label for="adv-loss">Charging losses</label>
+            <div class="ip"><input type="number" id="adv-loss" value="10" step="1" min="0" max="30" /><span class="ip-suf">%</span></div>
+          </div>
+          <div class="field">
+            <label for="adv-years">Years to project</label>
+            <input type="number" id="adv-years" value="5" step="1" min="1" max="15" />
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- RIGHT: Results -->
+  <div class="results-col">
+    <div class="stat-grid">
+      <div class="stat-card headline">
+        <div class="stat-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+          Annual savings
+        </div>
+        <div class="stat-value" id="s-annual">$0</div>
+        <div class="stat-sub" id="s-annual-sub">Switching to an EV from your gas car</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          Per month
+        </div>
+        <div class="stat-value" id="s-monthly">$0</div>
+        <div class="stat-sub">Pocketed every month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg>
+          5-year savings
+        </div>
+        <div class="stat-value" id="s-5yr">$0</div>
+        <div class="stat-sub">If gas + electric stay flat</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4 19 2c1 5 .45 10.4-2 13.5C14.5 18 13 19 11 20"/><path d="M2 22c1.5-3 3-4 5-4"/></svg>
+          CO₂ saved / yr
+        </div>
+        <div class="stat-value" id="s-co2">0 lbs</div>
+        <div class="stat-sub" id="s-co2-sub">vs your gas car</div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <h4 class="comp-title">Annual fuel cost · head to head</h4>
+      <div class="comp-row">
+        <span class="label">Gas</span>
+        <div class="comp-track"><div class="comp-fill gas" id="comp-gas" style="width:0%"></div></div>
+        <span class="val" id="comp-gas-val">$0</span>
+      </div>
+      <div class="comp-row">
+        <span class="label">EV</span>
+        <div class="comp-track"><div class="comp-fill ev" id="comp-ev" style="width:0%"></div></div>
+        <span class="val" id="comp-ev-val">$0</span>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <h4 class="comp-title">Cost per mile</h4>
+      <div class="comp-row">
+        <span class="label">Gas</span>
+        <div class="comp-track"><div class="comp-fill gas" id="mi-gas" style="width:0%"></div></div>
+        <span class="val" id="mi-gas-val">0¢</span>
+      </div>
+      <div class="comp-row">
+        <span class="label">EV</span>
+        <div class="comp-track"><div class="comp-fill ev" id="mi-ev" style="width:0%"></div></div>
+        <span class="val" id="mi-ev-val">0¢</span>
+      </div>
+      <div class="save-callout" id="permile-callout">You save <b id="permile-save">0¢</b> on every mile driven with an EV.</div>
+    </div>
+  </div>
+</main>
+
+<!-- ─── Charging Networks Deep Dive ─── -->
+<section class="networks" id="networks">
+  <div class="section-head">
+    <div class="section-eyebrow">— Compare charging networks</div>
+    <h2 class="section-title">Where to plug in <em>on the road</em></h2>
+    <p class="section-sub">Public charging is more expensive than home — but not always by the same amount. Here's how the big networks stack up for your driving.</p>
+  </div>
+  <div class="networks-inner">
+    <div class="networks-summary">
+      <div class="summary-cell cheap">
+        <div class="summary-label">Cheapest network for you</div>
+        <div class="summary-val" id="cheapest-name">—</div>
+        <div class="summary-label" style="margin-top:4px">≈ <b id="cheapest-cost" style="color:inherit;font-family:var(--mono)">$0</b>/year</div>
+      </div>
+      <div class="summary-mid">
+        <div class="bolt">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+        </div>
+        <div class="save-up">Save up to</div>
+        <div class="save-amt" id="net-save">$0/yr</div>
+      </div>
+      <div class="summary-cell expensive">
+        <div class="summary-label">Most expensive</div>
+        <div class="summary-val" id="costly-name">—</div>
+        <div class="summary-label" style="margin-top:4px">≈ <b id="costly-cost" style="color:inherit;font-family:var(--mono)">$0</b>/year</div>
+      </div>
+    </div>
+    <div class="net-grid" id="net-grid"></div>
+    <div style="margin-top: 14px; font-size: 12px; color: var(--ink-mute); text-align: center; font-family: var(--mono);">
+      Based on <b id="public-kwh" style="color: var(--ink); font-weight: 500;">0 kWh</b> of public charging per year (your home/public split).
+    </div>
+  </div>
+</section>
+
+<!-- Lead capture -->
+<section class="hero" style="padding-top: 0; padding-bottom: 0;">
+  <div class="leadbox">
+    <h3>Get <em>three</em> Level 2 installer quotes in your zip.</h3>
+    <p>Vetted, licensed installers across all 50 states. Drop your email and zip — they'll reach out within 24 hours with no-obligation quotes for your home charger.</p>
+    <form class="lead-form" id="lead-form">
+      <input type="email" name="email" placeholder="you@email.com" required aria-label="Email" />
+      <input type="text" name="zip" placeholder="ZIP" maxlength="5" pattern="[0-9]{5}" required aria-label="ZIP" id="lead-zip" class="zip-in" />
+      <button type="submit">Get quotes</button>
+    </form>
+    <div class="lead-success" id="lead-success" role="status">✓ Got it. We'll match you with installers in your area within 24 hours.</div>
+    <p class="lead-disclaimer">We never sell or share your email. By submitting you agree to be contacted by up to 3 vetted installers. <a href="/privacy">Privacy policy</a>.</p>
+  </div>
+</section>
+
+<!-- Editorial -->
+<section class="editorial" id="guides">
+  <div class="editorial-head">
+    <h2>Guides &amp; <em>analysis</em></h2>
+    <a class="editorial-link" href="#">Browse all →</a>
+  </div>
+  <div class="editorial-grid">
+    <a href="#" class="article">
+      <div class="eyebrow">Install</div>
+      <h6>How much does it really cost to install a Level 2 charger?</h6>
+      <p>What you'll pay your electrician, what rebates cover, and the four panel-upgrade scenarios that blow up budgets.</p>
+      <div class="article-meta"><span>Guide</span><span>12 min read</span></div>
+    </a>
+    <a href="#" class="article">
+      <div class="eyebrow">Networks</div>
+      <h6>Tesla Supercharger vs Electrify America: full breakdown</h6>
+      <p>Pricing, reliability, plug types, app friction, and which network actually wins on a coast-to-coast trip.</p>
+      <div class="article-meta"><span>Comparison</span><span>9 min read</span></div>
+    </a>
+    <a href="#" class="article">
+      <div class="eyebrow">By State</div>
+      <h6>EV vs gas in your state: where switching saves the most</h6>
+      <p>Washington saves you $1,500/yr. Massachusetts barely $450. The state-by-state map every EV-curious driver needs.</p>
+      <div class="article-meta"><span>Data</span><span>15 min read</span></div>
+    </a>
+  </div>
+</section>
+
+<footer id="about">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h2>EV Charge <em>Savings</em></h2>
+      <p>Independent EV cost analysis. We make money when readers click affiliate links — never from utilities, automakers, or charging networks.</p>
+    </div>
+    <div>
+      <h6>Calculator</h6>
+      <ul>
+        <li><a href="#calculator">Compare vehicles</a></li>
+        <li><a href="#calculator">Driving habits</a></li>
+        <li><a href="#networks">Charging networks</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Guides</h6>
+      <ul>
+        <li><a href="#">By state</a></li>
+        <li><a href="#">By model</a></li>
+        <li><a href="#">By network</a></li>
+        <li><a href="#">Used EVs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Site</h6>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="mailto:hello@evchargesavings.com">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="affiliate">
+    <b>Affiliate disclosure.</b> This site contains affiliate links to charger manufacturers, EV insurance providers, and used EV marketplaces. If you click and buy, we may earn a commission at no extra cost to you. We never recommend products we wouldn't use ourselves, and our calculator results are never altered to favor sponsors. Rate data is sourced from the U.S. Energy Information Administration (EIA) and AAA, refreshed monthly. Calculations are estimates — your actual utility bill, charging behavior, and driving conditions will vary.
+  </div>
+  <div class="legal-row">
+    <span>© 2026 EV Charge Savings</span>
+    <span>Made in Beaverton, OR</span>
+    <span>Not legal or financial advice</span>
+  </div>
+</footer>
+
+<!-- Sticky bottom save bar -->
+<div class="save-bar" id="save-bar" role="region" aria-label="Your savings summary">
+  <div class="save-bar-inner">
+    <div class="save-bar-bolt">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+    </div>
+    <div class="save-bar-text">
+      <div class="save-bar-label">Your annual savings in <span id="bar-state">—</span></div>
+      <div class="save-bar-amt"><b id="bar-amt">$0</b>/year</div>
+    </div>
+    <div class="save-bar-actions">
+      <a href="#calculator" class="ghost">↑ Top</a>
+      <a href="#calculator" class="primary">Refine →</a>
+    </div>
+  </div>
+</div>
+
+<div class="cookie" id="cookie" role="dialog" aria-labelledby="cookie-text">
+  <p id="cookie-text">We use cookies and IP-based geolocation to show electricity and gas rates for your state. Anonymous usage data goes to Google Analytics. <a href="/privacy">Privacy policy</a>.</p>
+  <div class="cookie-actions">
+    <button id="cookie-decline">Decline</button>
+    <button class="primary" id="cookie-accept">Accept</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================================
+   EV MODELS — curated list, updated for 2026 model year
+   battery (kWh usable) · efficiency (mi/kWh EPA combined) · range (mi)
+   ============================================================================ */
+const EV_MODELS = [
+  { id:"tesla-m3-long", name:"Tesla Model 3 Long Range", brand:"Tesla", battery:75, eff:4.2, range:333, msrp:46000 },
+  { id:"tesla-m3-rwd", name:"Tesla Model 3 RWD", brand:"Tesla", battery:60, eff:4.4, range:272, msrp:39000 },
+  { id:"tesla-my-long", name:"Tesla Model Y Long Range", brand:"Tesla", battery:75, eff:3.8, range:310, msrp:48000 },
+  { id:"tesla-my-rwd", name:"Tesla Model Y RWD", brand:"Tesla", battery:60, eff:3.9, range:260, msrp:42000 },
+  { id:"tesla-ms", name:"Tesla Model S", brand:"Tesla", battery:100, eff:3.6, range:402, msrp:75000 },
+  { id:"tesla-mx", name:"Tesla Model X", brand:"Tesla", battery:100, eff:3.0, range:335, msrp:80000 },
+  { id:"tesla-cybertruck", name:"Tesla Cybertruck AWD", brand:"Tesla", battery:123, eff:2.4, range:318, msrp:80000 },
+  { id:"hyundai-ioniq5", name:"Hyundai Ioniq 5", brand:"Hyundai", battery:77, eff:3.2, range:303, msrp:42000 },
+  { id:"hyundai-ioniq6", name:"Hyundai Ioniq 6", brand:"Hyundai", battery:77, eff:3.9, range:361, msrp:42000 },
+  { id:"hyundai-kona", name:"Hyundai Kona Electric", brand:"Hyundai", battery:64, eff:3.6, range:261, msrp:34000 },
+  { id:"kia-ev6", name:"Kia EV6", brand:"Kia", battery:77, eff:3.4, range:310, msrp:43000 },
+  { id:"kia-ev9", name:"Kia EV9 Wind AWD", brand:"Kia", battery:99, eff:2.8, range:280, msrp:60000 },
+  { id:"kia-niro", name:"Kia Niro EV", brand:"Kia", battery:64, eff:3.3, range:253, msrp:40000 },
+  { id:"ford-mache", name:"Ford Mustang Mach-E", brand:"Ford", battery:88, eff:2.9, range:300, msrp:43000 },
+  { id:"ford-lightning", name:"Ford F-150 Lightning ER", brand:"Ford", battery:131, eff:2.0, range:320, msrp:65000 },
+  { id:"chevy-equinox", name:"Chevy Equinox EV", brand:"Chevrolet", battery:85, eff:3.1, range:319, msrp:35000 },
+  { id:"chevy-blazer", name:"Chevy Blazer EV", brand:"Chevrolet", battery:85, eff:2.8, range:279, msrp:45000 },
+  { id:"chevy-silverado", name:"Chevy Silverado EV", brand:"Chevrolet", battery:170, eff:2.0, range:440, msrp:75000 },
+  { id:"rivian-r1t", name:"Rivian R1T", brand:"Rivian", battery:135, eff:2.1, range:328, msrp:73000 },
+  { id:"rivian-r1s", name:"Rivian R1S", brand:"Rivian", battery:135, eff:2.0, range:321, msrp:78000 },
+  { id:"honda-prologue", name:"Honda Prologue", brand:"Honda", battery:85, eff:2.9, range:296, msrp:48000 },
+  { id:"nissan-leaf", name:"Nissan Leaf SV Plus", brand:"Nissan", battery:60, eff:3.5, range:212, msrp:30000 },
+  { id:"nissan-ariya", name:"Nissan Ariya", brand:"Nissan", battery:87, eff:2.9, range:289, msrp:40000 },
+  { id:"vw-id4", name:"Volkswagen ID.4", brand:"VW", battery:82, eff:3.2, range:275, msrp:40000 },
+  { id:"bmw-i4", name:"BMW i4 eDrive40", brand:"BMW", battery:84, eff:3.6, range:301, msrp:55000 },
+  { id:"bmw-ix", name:"BMW iX xDrive50", brand:"BMW", battery:111, eff:2.8, range:309, msrp:90000 },
+  { id:"polestar-2", name:"Polestar 2 Long Range", brand:"Polestar", battery:82, eff:3.4, range:320, msrp:50000 },
+  { id:"genesis-gv60", name:"Genesis GV60", brand:"Genesis", battery:77, eff:3.0, range:248, msrp:53000 },
+  { id:"subaru-solterra", name:"Subaru Solterra", brand:"Subaru", battery:71, eff:2.9, range:228, msrp:46000 },
+  { id:"toyota-bz4x", name:"Toyota bZ4X", brand:"Toyota", battery:71, eff:3.1, range:252, msrp:44000 },
+  { id:"volvo-ex30", name:"Volvo EX30", brand:"Volvo", battery:64, eff:3.6, range:253, msrp:36000 },
+  { id:"lucid-air", name:"Lucid Air Pure", brand:"Lucid", battery:88, eff:4.6, range:419, msrp:69000 }
+];
+
+/* Gas vehicles — combined MPG */
+const GAS_MODELS = [
+  { id:"toyota-camry", name:"Toyota Camry", mpg:32, type:"Sedan" },
+  { id:"toyota-rav4", name:"Toyota RAV4", mpg:30, type:"SUV" },
+  { id:"honda-civic", name:"Honda Civic", mpg:36, type:"Sedan" },
+  { id:"honda-cr-v", name:"Honda CR-V", mpg:30, type:"SUV" },
+  { id:"honda-accord", name:"Honda Accord", mpg:33, type:"Sedan" },
+  { id:"ford-f150", name:"Ford F-150 (V6)", mpg:22, type:"Truck" },
+  { id:"ford-explorer", name:"Ford Explorer", mpg:23, type:"SUV" },
+  { id:"chevy-silverado", name:"Chevy Silverado 1500", mpg:20, type:"Truck" },
+  { id:"chevy-equinox", name:"Chevy Equinox", mpg:28, type:"SUV" },
+  { id:"hyundai-elantra", name:"Hyundai Elantra", mpg:36, type:"Sedan" },
+  { id:"hyundai-tucson", name:"Hyundai Tucson", mpg:28, type:"SUV" },
+  { id:"jeep-grand-cherokee", name:"Jeep Grand Cherokee", mpg:22, type:"SUV" },
+  { id:"jeep-wrangler", name:"Jeep Wrangler", mpg:20, type:"SUV" },
+  { id:"subaru-outback", name:"Subaru Outback", mpg:28, type:"Wagon" },
+  { id:"subaru-forester", name:"Subaru Forester", mpg:29, type:"SUV" },
+  { id:"bmw-x5", name:"BMW X5", mpg:24, type:"SUV" },
+  { id:"bmw-3", name:"BMW 3 Series", mpg:30, type:"Sedan" },
+  { id:"mercedes-glc", name:"Mercedes GLC", mpg:25, type:"SUV" },
+  { id:"audi-q5", name:"Audi Q5", mpg:25, type:"SUV" },
+  { id:"ram-1500", name:"Ram 1500", mpg:21, type:"Truck" },
+  { id:"avg-sedan", name:"Average sedan (US)", mpg:32, type:"Reference" },
+  { id:"avg-suv", name:"Average SUV (US)", mpg:25, type:"Reference" },
+  { id:"avg-truck", name:"Average truck (US)", mpg:19, type:"Reference" }
+];
+
+/* ============================================================================
+   STATE DATA
+   ============================================================================ */
+const STATE_DATA = {
+  AL:{name:"Alabama",kwh:14.7,gas:3.05,tou:false},AK:{name:"Alaska",kwh:24.5,gas:3.85,tou:false},
+  AZ:{name:"Arizona",kwh:14.2,gas:3.45,tou:true},AR:{name:"Arkansas",kwh:11.8,gas:2.95,tou:false},
+  CA:{name:"California",kwh:30.2,gas:4.65,tou:true},CO:{name:"Colorado",kwh:14.8,gas:3.25,tou:true},
+  CT:{name:"Connecticut",kwh:27.5,gas:3.35,tou:true},DE:{name:"Delaware",kwh:15.3,gas:3.20,tou:false},
+  DC:{name:"District of Columbia",kwh:16.4,gas:3.55,tou:false},FL:{name:"Florida",kwh:14.9,gas:3.30,tou:false},
+  GA:{name:"Georgia",kwh:14.1,gas:3.15,tou:true},HI:{name:"Hawaii",kwh:41.2,gas:4.85,tou:true},
+  ID:{name:"Idaho",kwh:11.4,gas:3.55,tou:false},IL:{name:"Illinois",kwh:15.8,gas:3.50,tou:true},
+  IN:{name:"Indiana",kwh:15.2,gas:3.20,tou:false},IA:{name:"Iowa",kwh:13.4,gas:3.10,tou:false},
+  KS:{name:"Kansas",kwh:14.0,gas:3.05,tou:false},KY:{name:"Kentucky",kwh:12.5,gas:3.10,tou:false},
+  LA:{name:"Louisiana",kwh:12.1,gas:2.95,tou:false},ME:{name:"Maine",kwh:25.4,gas:3.40,tou:true},
+  MD:{name:"Maryland",kwh:17.6,gas:3.30,tou:true},MA:{name:"Massachusetts",kwh:30.8,gas:3.40,tou:true},
+  MI:{name:"Michigan",kwh:18.4,gas:3.30,tou:true},MN:{name:"Minnesota",kwh:15.2,gas:3.20,tou:true},
+  MS:{name:"Mississippi",kwh:13.8,gas:2.95,tou:false},MO:{name:"Missouri",kwh:12.6,gas:3.00,tou:false},
+  MT:{name:"Montana",kwh:11.9,gas:3.40,tou:false},NE:{name:"Nebraska",kwh:11.5,gas:3.10,tou:false},
+  NV:{name:"Nevada",kwh:15.1,gas:4.15,tou:true},NH:{name:"New Hampshire",kwh:23.2,gas:3.30,tou:true},
+  NJ:{name:"New Jersey",kwh:18.4,gas:3.25,tou:true},NM:{name:"New Mexico",kwh:14.3,gas:3.20,tou:false},
+  NY:{name:"New York",kwh:23.6,gas:3.50,tou:true},NC:{name:"North Carolina",kwh:13.6,gas:3.10,tou:true},
+  ND:{name:"North Dakota",kwh:11.2,gas:3.20,tou:false},OH:{name:"Ohio",kwh:15.8,gas:3.20,tou:false},
+  OK:{name:"Oklahoma",kwh:12.8,gas:2.95,tou:false},OR:{name:"Oregon",kwh:13.2,gas:3.95,tou:true},
+  PA:{name:"Pennsylvania",kwh:18.2,gas:3.45,tou:true},RI:{name:"Rhode Island",kwh:28.4,gas:3.40,tou:true},
+  SC:{name:"South Carolina",kwh:14.2,gas:3.05,tou:false},SD:{name:"South Dakota",kwh:12.8,gas:3.15,tou:false},
+  TN:{name:"Tennessee",kwh:13.1,gas:3.05,tou:false},TX:{name:"Texas",kwh:14.8,gas:2.95,tou:true},
+  UT:{name:"Utah",kwh:11.6,gas:3.50,tou:true},VT:{name:"Vermont",kwh:21.4,gas:3.35,tou:true},
+  VA:{name:"Virginia",kwh:14.8,gas:3.20,tou:true},WA:{name:"Washington",kwh:11.8,gas:4.05,tou:true},
+  WV:{name:"West Virginia",kwh:14.6,gas:3.20,tou:false},WI:{name:"Wisconsin",kwh:16.4,gas:3.20,tou:true},
+  WY:{name:"Wyoming",kwh:11.7,gas:3.30,tou:false}
+};
+const NATIONAL_AVG = { name: "United States", kwh: 16.2, gas: 3.42, tou: false };
+
+const ZIP_PREFIX = (function(){
+  const ranges = {
+    AL:[["350","369"]], AK:[["995","999"]], AZ:[["850","865"]], AR:[["716","729"]],
+    CA:[["900","966"]], CO:[["800","816"]], CT:[["060","069"]], DE:[["197","199"]],
+    DC:[["200","205"],["569","569"]], FL:[["320","349"]], GA:[["300","319"],["398","399"]],
+    HI:[["967","968"]], ID:[["832","838"]], IL:[["600","629"]], IN:[["460","479"]],
+    IA:[["500","528"]], KS:[["660","679"]], KY:[["400","427"]], LA:[["700","714"]],
+    ME:[["039","049"]], MD:[["206","219"]], MA:[["010","027"],["055","055"]],
+    MI:[["480","499"]], MN:[["550","567"]], MS:[["386","397"]], MO:[["630","658"]],
+    MT:[["590","599"]], NE:[["680","693"]], NV:[["889","898"]], NH:[["030","038"]],
+    NJ:[["070","089"]], NM:[["870","884"]], NY:[["005","005"],["100","149"]],
+    NC:[["270","289"]], ND:[["580","588"]], OH:[["430","459"]], OK:[["730","749"]],
+    OR:[["970","979"]], PA:[["150","196"]], RI:[["028","029"]], SC:[["290","299"]],
+    SD:[["570","577"]], TN:[["370","385"]], TX:[["750","799"],["885","885"]],
+    UT:[["840","847"]], VT:[["050","054"],["056","059"]], VA:[["220","246"]],
+    WA:[["980","994"]], WV:[["247","268"]], WI:[["530","549"]], WY:[["820","831"]]
+  };
+  const map = {};
+  for (const state in ranges) {
+    for (const [lo, hi] of ranges[state]) {
+      const a = parseInt(lo, 10), b = parseInt(hi, 10);
+      for (let i = a; i <= b; i++) map[String(i).padStart(3, "0")] = state;
+    }
+  }
+  return map;
+})();
+
+function stateFromZip(zip) {
+  if (!zip || zip.length < 3) return null;
+  return ZIP_PREFIX[zip.slice(0, 3)] || null;
+}
+
+/* ============================================================================
+   CHARGING NETWORKS
+   ============================================================================ */
+const NETWORKS = [
+  { id:"tesla", short:"T", name:"Tesla Supercharger", maxKw:250, perKwh:0.36, stations:2500, color:"#cc0000", bgColor:"#cc0000",
+    rating:"ex", connectors:["NACS","CCS"], stars:4.8, desc:"Best reliability, now open to most EVs with adapter." },
+  { id:"ea", short:"EA", name:"Electrify America", maxKw:350, perKwh:0.48, stations:950, color:"#00b3e3", bgColor:"#00b3e3",
+    rating:"gd", connectors:["CCS","CHAdeMO"], stars:3.8, desc:"Fastest speeds available, Hyundai/Kia owners often get free charging." },
+  { id:"cp", short:"CP", name:"ChargePoint", maxKw:62, perKwh:0.42, stations:38000, color:"#0066b3", bgColor:"#0066b3",
+    rating:"gd", connectors:["CCS","NACS"], stars:4.2, desc:"Largest L2 network in the US — prices vary widely by host." },
+  { id:"evgo", short:"EG", name:"EVgo", maxKw:350, perKwh:0.45, stations:1000, color:"#5cb85c", bgColor:"#3da34d",
+    rating:"gd", connectors:["CCS","CHAdeMO","NACS"], stars:4.0, desc:"GM, Nissan, and Subaru partnerships for free or discounted charging." },
+  { id:"rivian", short:"R", name:"Rivian Adventure", maxKw:200, perKwh:0.32, stations:400, color:"#ffcb47", bgColor:"#d4a429",
+    rating:"ex", connectors:["CCS"], stars:4.5, desc:"Scenic locations, currently exclusive to Rivian vehicles." },
+  { id:"ionity", short:"IO", name:"IONITY (US coming)", maxKw:350, perKwh:0.50, stations:100, color:"#0080c0", bgColor:"#0080c0",
+    rating:"ex", connectors:["CCS"], stars:4.3, desc:"Premium European network expanding to the US in 2026." }
+];
+
+/* ============================================================================
+   ANIMATED COUNTER
+   ============================================================================ */
+const counters = new Map();
+function animateNumber(el, targetVal, options = {}) {
+  const { duration = 700, formatter = (v) => v.toFixed(0) } = options;
+  const id = el.id || (el.id = "anim_" + Math.random().toString(36).slice(2));
+  const current = counters.get(id);
+  if (current) cancelAnimationFrame(current.raf);
+  const startVal = current ? current.last : 0;
+  const start = performance.now();
+  const ease = (t) => 1 - Math.pow(1 - t, 3);
+  const step = (now) => {
+    const t = Math.min(1, (now - start) / duration);
+    const v = startVal + (targetVal - startVal) * ease(t);
+    el.textContent = formatter(v);
+    if (t < 1) counters.set(id, { raf: requestAnimationFrame(step), last: v });
+    else counters.set(id, { raf: 0, last: targetVal });
+  };
+  counters.set(id, { raf: requestAnimationFrame(step), last: startVal });
+}
+
+const fmtMoney0 = (v) => "$" + Math.round(v).toLocaleString();
+const fmtMoney2 = (v) => "$" + v.toFixed(2);
+const fmtCents1 = (v) => v.toFixed(1) + "¢";
+const fmtPct = (v) => Math.round(v) + "%";
+
+/* ============================================================================
+   STATE MANAGEMENT
+   ============================================================================ */
+const STORAGE_KEY = "ecs_state_v3";
+let CURRENT = { state: null, data: NATIONAL_AVG, zip: null };
+let TOU_ON = false;
+
+function setLocation(stateCode, zip) {
+  const data = stateCode && STATE_DATA[stateCode] ? STATE_DATA[stateCode] : NATIONAL_AVG;
+  CURRENT = { state: stateCode || null, data, zip: zip || null };
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...CURRENT, ts: Date.now() }));
+  } catch(e) {}
+  renderLocation();
+  applyDefaultsToInputs();
+  recomputeAll();
+}
+
+function renderLocation() {
+  const d = CURRENT.data;
+  document.getElementById("loc-state").textContent = d.name;
+  document.getElementById("loc-kwh").textContent = `${d.kwh.toFixed(1)}¢`;
+  document.getElementById("loc-gas").textContent = `$${d.gas.toFixed(2)}`;
+  document.getElementById("hero-state").textContent = d.name;
+  document.getElementById("meter-state").textContent = d.name;
+  document.getElementById("meter-rate").textContent = `${d.kwh.toFixed(1)}¢/kWh · $${d.gas.toFixed(2)}/gal`;
+  document.getElementById("bar-state").textContent = d.name;
+  document.getElementById("tou-tag").style.display = d.tou ? "" : "none";
+}
+
+function applyDefaultsToInputs() {
+  const d = CURRENT.data;
+  const setIf = (id, val) => {
+    const el = document.getElementById(id);
+    if (!el.dataset.userTouched) el.value = val;
+  };
+  setIf("rate-flat", d.kwh.toFixed(1));
+  setIf("gas-price", d.gas.toFixed(2));
+  if (CURRENT.zip) {
+    const lz = document.getElementById("lead-zip");
+    if (!lz.dataset.userTouched) lz.value = CURRENT.zip;
+  }
+}
+
+/* ============================================================================
+   IP GEOLOCATION
+   ============================================================================ */
+async function detectByIP() {
+  try {
+    const res = await fetch("https://ipapi.co/json/", { cache: "no-store" });
+    if (!res.ok) throw new Error("ip lookup failed");
+    const j = await res.json();
+    if (j.country_code === "US" && j.region_code && STATE_DATA[j.region_code]) {
+      setLocation(j.region_code, j.postal && /^\d{5}$/.test(j.postal) ? j.postal : null);
+      if (j.postal && /^\d{5}$/.test(j.postal)) document.getElementById("zip-input").value = j.postal;
+    }
+  } catch(e) {}
+}
+
+/* ============================================================================
+   VEHICLE PICKERS
+   ============================================================================ */
+function populatePickers() {
+  const evSel = document.getElementById("ev-pick");
+  const gasSel = document.getElementById("gas-pick");
+  // Group EVs by brand
+  const brands = [...new Set(EV_MODELS.map(m => m.brand))];
+  brands.forEach(brand => {
+    const og = document.createElement("optgroup");
+    og.label = brand;
+    EV_MODELS.filter(m => m.brand === brand).forEach(m => {
+      const o = document.createElement("option");
+      o.value = m.id;
+      o.textContent = m.name + ` · ${m.range}mi`;
+      og.appendChild(o);
+    });
+    evSel.appendChild(og);
+  });
+  // Set default Tesla M3 LR
+  evSel.value = "tesla-m3-long";
+
+  // Gas: group by type
+  const types = [...new Set(GAS_MODELS.map(m => m.type))];
+  types.forEach(type => {
+    const og = document.createElement("optgroup");
+    og.label = type;
+    GAS_MODELS.filter(m => m.type === type).forEach(m => {
+      const o = document.createElement("option");
+      o.value = m.id;
+      o.textContent = m.name + ` · ${m.mpg} mpg`;
+      og.appendChild(o);
+    });
+    gasSel.appendChild(og);
+  });
+  gasSel.value = "honda-cr-v";
+}
+
+function getEV() { return EV_MODELS.find(m => m.id === document.getElementById("ev-pick").value) || EV_MODELS[0]; }
+function getGas() { return GAS_MODELS.find(m => m.id === document.getElementById("gas-pick").value) || GAS_MODELS[0]; }
+
+function renderVehicleCards() {
+  const ev = getEV(), gas = getGas();
+  document.getElementById("ev-name").textContent = ev.name;
+  document.getElementById("ev-detail").textContent = `${ev.battery} kWh · ${ev.eff} mi/kWh · $${(ev.msrp/1000).toFixed(0)}K MSRP`;
+  document.getElementById("ev-range").textContent = ev.range;
+  document.getElementById("gas-name").textContent = gas.name;
+  document.getElementById("gas-detail").textContent = `${gas.type} · combined fuel economy`;
+  document.getElementById("gas-mpg").textContent = gas.mpg;
+  // Update advanced overrides if not user-touched
+  const setIf = (id, val) => {
+    const el = document.getElementById(id);
+    if (!el.dataset.userTouched) el.value = val;
+  };
+  setIf("adv-battery", ev.battery);
+  setIf("adv-eff", ev.eff);
+}
+
+/* ============================================================================
+   CALCULATION ENGINE
+   ============================================================================ */
+function num(id) { const v = parseFloat(document.getElementById(id).value); return isFinite(v) ? v : 0; }
+
+function getInputs() {
+  const ev = getEV();
+  const gas = getGas();
+  const miles = num("miles");
+  const homePct = num("home-pct") / 100;
+  const publicPct = 1 - homePct;
+  const flatRate = num("rate-flat") / 100; // $/kWh
+  const gasPrice = num("gas-price");
+  const lossPct = num("adv-loss") / 100;
+  const battery = num("adv-battery") || ev.battery;
+  const eff = num("adv-eff") || ev.eff;
+  const years = Math.max(1, num("adv-years"));
+
+  // Effective home rate: TOU adjusted, otherwise flat
+  let homeRate = flatRate;
+  if (TOU_ON) {
+    const off = num("rate-off") / 100;
+    const peak = num("rate-peak") / 100;
+    const offPct = num("offpeak-pct") / 100;
+    homeRate = (off * offPct) + (peak * (1 - offPct));
+  }
+
+  // Public charging blended rate (avg of major networks for hero)
+  const publicRate = 0.42; // ~average of Tesla 0.36, EA 0.48, EVgo 0.45, CP 0.42
+
+  // Annual kWh consumption (with charging losses)
+  const annualKwhDriving = miles / eff;
+  const annualKwhTotal = annualKwhDriving * (1 + lossPct);
+  const homeKwh = annualKwhTotal * homePct;
+  const publicKwh = annualKwhTotal * publicPct;
+
+  return { ev, gas, miles, homePct, publicPct, flatRate, gasPrice, lossPct, battery, eff, years,
+           homeRate, publicRate, annualKwhTotal, homeKwh, publicKwh };
+}
+
+function calcAll(animate=true) {
+  const i = getInputs();
+  // EV cost / yr
+  const evCost = (i.homeKwh * i.homeRate) + (i.publicKwh * i.publicRate);
+  // Gas cost / yr
+  const gasCost = (i.miles / i.gas.mpg) * i.gasPrice;
+  const annualSave = gasCost - evCost;
+  const monthly = annualSave / 12;
+  const fiveYr = annualSave * 5;
+  const pct = gasCost > 0 ? (annualSave / gasCost * 100) : 0;
+  // CO2 (gas: ~19.6 lbs/gal, EV grid ~0.85 lbs/kWh US avg)
+  const gasLbs = (i.miles / i.gas.mpg) * 19.6;
+  const evLbs = i.annualKwhTotal * 0.85;
+  const co2Saved = gasLbs - evLbs;
+  // Cost per mile
+  const evPerMile = evCost / i.miles;
+  const gasPerMile = gasCost / i.miles;
+  const milesSave = gasPerMile - evPerMile;
+
+  // ─── Hero ───
+  if (animate) {
+    animateNumber(document.getElementById("hero-saving"), annualSave, { formatter: fmtMoney0, duration: 900 });
+    animateNumber(document.getElementById("hero-gas"), gasCost, { formatter: fmtMoney0 });
+    animateNumber(document.getElementById("hero-ev"), evCost, { formatter: fmtMoney0 });
+    animateNumber(document.getElementById("hero-pct"), pct, { formatter: fmtPct });
+  } else {
+    document.getElementById("hero-saving").textContent = fmtMoney0(annualSave);
+    document.getElementById("hero-gas").textContent = fmtMoney0(gasCost);
+    document.getElementById("hero-ev").textContent = fmtMoney0(evCost);
+    document.getElementById("hero-pct").textContent = fmtPct(pct);
+  }
+
+  // ─── Hero meter ───
+  const max = Math.max(gasCost, evCost, 1);
+  const barGas = document.getElementById("bar-gas"), barEv = document.getElementById("bar-ev");
+  barGas.style.width = (gasCost / max * 100).toFixed(1) + "%";
+  barEv.style.width = (evCost / max * 100).toFixed(1) + "%";
+  barGas.classList.remove("shine"); barEv.classList.remove("shine");
+  void barGas.offsetWidth;
+  barGas.classList.add("shine"); barEv.classList.add("shine");
+  animateNumber(document.getElementById("val-gas"), gasCost, { formatter: (v) => "$" + Math.round(v).toLocaleString() + "/yr" });
+  animateNumber(document.getElementById("val-ev"), evCost, { formatter: (v) => "$" + Math.round(v).toLocaleString() + "/yr" });
+
+  // ─── Stat cards ───
+  animateNumber(document.getElementById("s-annual"), annualSave, { formatter: fmtMoney0 });
+  animateNumber(document.getElementById("s-monthly"), monthly, { formatter: fmtMoney0 });
+  animateNumber(document.getElementById("s-5yr"), fiveYr, { formatter: fmtMoney0 });
+  animateNumber(document.getElementById("s-co2"), co2Saved, { formatter: (v) => Math.round(v).toLocaleString() + " lbs" });
+  document.getElementById("s-annual-sub").textContent = `${i.ev.name} vs ${i.gas.name}`;
+  document.getElementById("s-co2-sub").textContent = `${(co2Saved / 2204).toFixed(1)} metric tons / yr`;
+
+  // ─── Comparison bars ───
+  const cMax = Math.max(gasCost, evCost, 1);
+  document.getElementById("comp-gas").style.width = (gasCost / cMax * 100).toFixed(1) + "%";
+  document.getElementById("comp-ev").style.width = (evCost / cMax * 100).toFixed(1) + "%";
+  animateNumber(document.getElementById("comp-gas-val"), gasCost, { formatter: fmtMoney0 });
+  animateNumber(document.getElementById("comp-ev-val"), evCost, { formatter: fmtMoney0 });
+
+  // Per mile bars (cents)
+  const mMax = Math.max(gasPerMile * 100, evPerMile * 100, 1);
+  document.getElementById("mi-gas").style.width = (gasPerMile * 100 / mMax * 100).toFixed(1) + "%";
+  document.getElementById("mi-ev").style.width = (evPerMile * 100 / mMax * 100).toFixed(1) + "%";
+  animateNumber(document.getElementById("mi-gas-val"), gasPerMile * 100, { formatter: fmtCents1 });
+  animateNumber(document.getElementById("mi-ev-val"), evPerMile * 100, { formatter: fmtCents1 });
+  document.getElementById("permile-save").textContent = (milesSave * 100).toFixed(1) + "¢";
+
+  // ─── Save bar ───
+  document.getElementById("bar-amt").textContent = fmtMoney0(annualSave);
+
+  // ─── Networks ───
+  renderNetworks(i.publicKwh);
+}
+
+function renderNetworks(publicKwh) {
+  const grid = document.getElementById("net-grid");
+  grid.innerHTML = "";
+  const costs = NETWORKS.map(n => ({ ...n, annualCost: publicKwh * n.perKwh }));
+  costs.sort((a,b) => a.annualCost - b.annualCost);
+  const cheapest = costs[0], priciest = costs[costs.length - 1];
+
+  costs.forEach((n, idx) => {
+    const card = document.createElement("div");
+    card.className = "net-card" + (idx === 0 ? " best" : "") + (idx === costs.length - 1 ? " priciest" : "");
+    const ratingLabel = n.rating === "ex" ? "Excellent" : n.rating === "gd" ? "Good" : "Fair";
+    card.innerHTML = `
+      <div class="net-head">
+        <div class="net-logo" style="background:${n.bgColor};">${n.short}</div>
+        <div class="net-name"><b>${n.name}</b><span>${n.maxKw} kW max</span></div>
+        <div class="net-rating ${n.rating}">${ratingLabel}</div>
+      </div>
+      <div class="net-stats">
+        <span>Per kWh</span><b>$${n.perKwh.toFixed(2)}</b>
+        <span>Stations</span><b>${n.stations.toLocaleString()}</b>
+      </div>
+      <div class="net-cost">
+        <span class="net-cost-label">Est. annual cost</span>
+        <span class="net-cost-val">$${Math.round(n.annualCost).toLocaleString()}</span>
+      </div>
+      <div class="net-tags">
+        ${n.connectors.map(c => `<span class="net-tag yes">✓ ${c}</span>`).join("")}
+        <span class="net-tag star">★ ${n.stars}</span>
+      </div>
+      <div class="net-desc">${n.desc}</div>
+    `;
+    grid.appendChild(card);
+  });
+
+  document.getElementById("cheapest-name").textContent = cheapest.name.replace(" (US coming)","");
+  document.getElementById("cheapest-cost").textContent = "$" + Math.round(cheapest.annualCost).toLocaleString();
+  document.getElementById("costly-name").textContent = priciest.name.replace(" (US coming)","");
+  document.getElementById("costly-cost").textContent = "$" + Math.round(priciest.annualCost).toLocaleString();
+  document.getElementById("net-save").textContent = "$" + Math.round(priciest.annualCost - cheapest.annualCost).toLocaleString() + "/yr";
+  document.getElementById("public-kwh").textContent = Math.round(publicKwh).toLocaleString() + " kWh";
+}
+
+function recomputeAll() { try { calcAll(true); } catch(e) { console.error(e); } }
+
+/* ============================================================================
+   EVENT WIRING
+   ============================================================================ */
+function init() {
+  populatePickers();
+  renderVehicleCards();
+
+  // Sliders update display + recompute
+  const milesEl = document.getElementById("miles");
+  const milesVal = document.getElementById("miles-val");
+  milesEl.addEventListener("input", () => {
+    milesEl.dataset.userTouched = "1";
+    milesVal.firstChild.textContent = parseInt(milesEl.value).toLocaleString();
+    recomputeAll();
+  });
+
+  const homeEl = document.getElementById("home-pct");
+  const homeVal = document.getElementById("home-val");
+  homeEl.addEventListener("input", () => {
+    homeEl.dataset.userTouched = "1";
+    homeVal.firstChild.textContent = homeEl.value;
+    recomputeAll();
+  });
+
+  const offEl = document.getElementById("offpeak-pct");
+  if (offEl) {
+    const offVal = document.getElementById("offpeak-val");
+    offEl.addEventListener("input", () => {
+      offEl.dataset.userTouched = "1";
+      offVal.firstChild.textContent = offEl.value;
+      recomputeAll();
+    });
+  }
+
+  // Vehicle pickers
+  document.getElementById("ev-pick").addEventListener("change", () => {
+    // Reset advanced overrides so they pick up new EV's specs
+    ["adv-battery", "adv-eff"].forEach(id => {
+      const el = document.getElementById(id);
+      delete el.dataset.userTouched;
+    });
+    renderVehicleCards();
+    recomputeAll();
+  });
+  document.getElementById("gas-pick").addEventListener("change", () => {
+    renderVehicleCards();
+    recomputeAll();
+  });
+
+  // Number inputs / selects
+  document.querySelectorAll(".panel input[type=number], .panel select, .advanced input").forEach((el) => {
+    const handler = () => { el.dataset.userTouched = "1"; recomputeAll(); };
+    el.addEventListener("input", handler);
+    el.addEventListener("change", handler);
+  });
+
+  // TOU toggle
+  const touToggle = document.getElementById("tou-toggle");
+  const touFields = document.getElementById("tou-fields");
+  function setTou(on) {
+    TOU_ON = on;
+    touToggle.classList.toggle("on", on);
+    touToggle.setAttribute("aria-checked", on ? "true" : "false");
+    touFields.style.display = on ? "" : "none";
+    recomputeAll();
+  }
+  touToggle.addEventListener("click", () => setTou(!TOU_ON));
+  touToggle.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setTou(!TOU_ON); }
+  });
+
+  // Zip form
+  document.getElementById("zip-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const zip = document.getElementById("zip-input").value.trim();
+    if (!/^\d{5}$/.test(zip)) { document.getElementById("zip-input").focus(); return; }
+    const code = stateFromZip(zip);
+    setLocation(code, zip);
+  });
+
+  // Lead form
+  document.getElementById("lead-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const payload = {
+      email: fd.get("email"),
+      zip: fd.get("zip"),
+      state: CURRENT.state,
+      source: "install_calculator",
+      ts: new Date().toISOString()
+    };
+    console.log("[LEAD]", payload);
+    document.getElementById("lead-success").classList.add("show");
+    e.target.reset();
+    if (CURRENT.zip) document.getElementById("lead-zip").value = CURRENT.zip;
+  });
+
+  // Cookie banner
+  const KEY = "ecs_cookie_v1";
+  const banner = document.getElementById("cookie");
+  if (!localStorage.getItem(KEY)) {
+    setTimeout(() => banner.classList.add("show"), 1200);
+  }
+  document.getElementById("cookie-accept").addEventListener("click", () => {
+    localStorage.setItem(KEY, "accept");
+    banner.classList.remove("show");
+  });
+  document.getElementById("cookie-decline").addEventListener("click", () => {
+    localStorage.setItem(KEY, "decline");
+    banner.classList.remove("show");
+  });
+
+  // Sticky save bar — show after user scrolls past hero
+  const saveBar = document.getElementById("save-bar");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) saveBar.classList.add("show");
+    else saveBar.classList.remove("show");
+  }, { passive: true });
+
+  // Load location: cache → IP fallback
+  setLocation(null);
+  try {
+    const cached = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    if (cached && cached.ts && Date.now() - cached.ts < 30 * 86400 * 1000 && cached.state) {
+      setLocation(cached.state, cached.zip);
+      if (cached.zip) document.getElementById("zip-input").value = cached.zip;
+      return;
+    }
+  } catch(e) {}
+  detectByIP();
+}
+
+init();
+</script>
+
+</body>
+</html>
