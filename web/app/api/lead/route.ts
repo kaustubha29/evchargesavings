@@ -47,19 +47,19 @@ export async function POST(req: NextRequest) {
   const supabase = createClient(supabaseUrl, supabaseKey);
 
   // Deduplicate: same email within 7 days → silently succeed
-  const { data: existing, error: dupError } = await supabase
+  const { data: dupes, error: dupError } = await supabase
     .from("leads")
     .select("id")
     .eq("email", email)
     .gte("created_at", new Date(Date.now() - 7 * 86400_000).toISOString())
-    .maybeSingle();
+    .limit(1);
 
   if (dupError) {
     console.error("[lead] Dedup query failed:", dupError);
     return NextResponse.json({ error: "Database error" }, { status: 500 });
   }
 
-  if (existing) {
+  if (dupes && dupes.length > 0) {
     return NextResponse.json({ ok: true });
   }
 
