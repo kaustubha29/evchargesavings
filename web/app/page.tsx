@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { CalculatorShell } from "@/components/features/calculator/CalculatorShell";
 import { LocationDetector } from "@/components/features/location/LocationDetector";
+import { PublicChargingSection } from "@/components/features/networks/PublicChargingSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,6 +10,18 @@ export const metadata: Metadata = {
   description:
     "See exactly how much an EV would save you in your zip code. Real 2026 electricity and gas rates for all 50 US states, 130+ EV models.",
 };
+
+function AdSlot({ label, size = "leaderboard" }: { label: string; size?: "leaderboard" | "rectangle" }) {
+  const dims = size === "leaderboard"
+    ? "h-24 w-full max-w-3xl"
+    : "h-64 w-full max-w-sm";
+  return (
+    <div className={`mx-auto ${dims} border-2 border-dashed border-line rounded-xl flex flex-col items-center justify-center gap-1 bg-cream-soft`}>
+      <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">Advertisement</span>
+      <span className="font-mono text-[9px] text-ink-mute/60">{label}</span>
+    </div>
+  );
+}
 
 export default function HomePage() {
   const evSummaries = evRepository.getSummaries();
@@ -25,8 +39,7 @@ export default function HomePage() {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
               2026 rates · 50 states · 130+ EV models
             </div>
-            {/* Two-line headline — keeps italic text on its own line so descenders aren't clipped */}
-            <h1 className="font-serif font-medium tracking-tight text-ink mb-4 max-w-2xl overflow-visible" style={{ fontSize:"clamp(2.25rem,6vw,3.75rem)", lineHeight:1.15 }}>
+            <h1 className="font-serif font-medium tracking-tight text-ink mb-4 max-w-2xl overflow-visible" style={{ fontSize: "clamp(2.25rem,6vw,3.75rem)", lineHeight: 1.15 }}>
               <span className="block">How much would going</span>
               <em className="block italic text-forest">electric save you?</em>
             </h1>
@@ -36,8 +49,15 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── Ad: leaderboard above calculator ── */}
+        <div className="py-4 border-b border-line bg-cream-soft">
+          <div className="section-wrap">
+            <AdSlot label="728×90 · leaderboard" size="leaderboard" />
+          </div>
+        </div>
+
         {/* ── Calculator ── */}
-        <section className="py-12">
+        <section className="bg-cream-soft py-12">
           <div className="section-wrap">
             <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} />
           </div>
@@ -63,7 +83,7 @@ export default function HomePage() {
                   desc: "Plug directly into any standard household outlet. Zero installation cost — just run the cord. Works fine if you drive under 40 miles a day.",
                   note: "Best for: low-mileage commuters, condo dwellers, secondary EVs",
                   cost: "Setup cost: $0",
-                  howto: "Plug the included EVSE into your dryer-style outlet or standard 120 V.",
+                  howto: "Use the included EVSE cable — plug into any standard 120 V outlet.",
                 },
                 {
                   level: "Level 2 · 240 V / EVSE",
@@ -71,7 +91,7 @@ export default function HomePage() {
                   desc: "A dedicated 240 V circuit with a wall-mounted charger. Most EVs charge fully in 6–10 hours overnight — wake up to a full battery every morning.",
                   note: "Top picks: Grizzl-E, JuiceBox 40, Emporia Energy, Tesla Wall Connector",
                   cost: "Setup cost: $500–$1,500 installed",
-                  howto: "Have a licensed electrician run a 50 A circuit; mount charger 18\" from ground.",
+                  howto: "Have a licensed electrician run a 50 A circuit; mount charger 18″ from ground.",
                   best: true,
                 },
                 {
@@ -102,7 +122,7 @@ export default function HomePage() {
         </section>
 
         {/* ── Level 2 installer quotes ── */}
-        <section className="bg-paper border-b border-line py-14" id="installer-quotes">
+        <section className="bg-cream-soft border-b border-line py-14" id="installer-quotes">
           <div className="section-wrap">
             <div className="mb-8">
               <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">Level 2 installation</div>
@@ -165,6 +185,12 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+
+            {/* Ad: rectangle inside installer section */}
+            <div className="flex justify-center mb-8">
+              <AdSlot label="300×250 · in-content rectangle" size="rectangle" />
+            </div>
+
             <div className="bg-cream-soft rounded-2xl p-6 flex flex-wrap items-center justify-between gap-4">
               <div>
                 <div className="font-serif text-lg font-medium text-ink mb-1">Get free quotes from local electricians</div>
@@ -184,91 +210,15 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── Where to plug in on the road ── */}
-        <section className="bg-paper border-b border-line py-14" id="public-charging">
+        {/* ── Where to plug in on the road (includes live network ranking) ── */}
+        <PublicChargingSection />
+
+        {/* ── Ad: leaderboard between road charging and connectors ── */}
+        <div className="py-6 border-b border-line bg-cream-soft">
           <div className="section-wrap">
-            <div className="mb-8">
-              <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">Public charging</div>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight mb-3">Where to plug in on the road</h2>
-              <p className="text-ink-3 max-w-xl leading-relaxed">
-                The US now has over 175,000 public charging outlets. Finding one is easier than finding a gas station — once you know which apps to use.
-              </p>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-              {[
-                {
-                  name: "PlugShare",
-                  type: "App · Free",
-                  desc: "Crowdsourced map of every charger in North America. Real-time availability, check-in reviews, and photos of each location.",
-                  tag: "Best overall finder",
-                  tagColor: "bg-good-bg text-good-fg",
-                },
-                {
-                  name: "ABRP",
-                  type: "App · Free / $3/mo",
-                  desc: "A Better Route Planner. Enter your destination and it plans charging stops automatically, accounting for elevation, speed, and weather.",
-                  tag: "Best for road trips",
-                  tagColor: "bg-blue-50 text-blue-700",
-                },
-                {
-                  name: "Tesla Supercharger",
-                  type: "Network · NACS + CCS",
-                  desc: "50,000+ stalls globally. Now open to non-Tesla EVs with CCS adapters. Fastest and most reliable network in the US.",
-                  tag: "Fastest network",
-                  tagColor: "bg-good-bg text-good-fg",
-                },
-                {
-                  name: "Electrify America",
-                  type: "Network · CCS + NACS",
-                  desc: "Largest DC fast-charge network outside Tesla. Located at Walmart, Target, and along major interstate corridors. Up to 350 kW.",
-                  tag: "Widest coverage",
-                  tagColor: "bg-okay-bg text-okay-fg",
-                },
-                {
-                  name: "ChargePoint",
-                  type: "Network · CCS",
-                  desc: "Largest charging network by station count. Strong in cities and workplace charging, plus hotel destination chargers across the US.",
-                  tag: "Best in cities",
-                  tagColor: "bg-blue-50 text-blue-700",
-                },
-                {
-                  name: "EVgo",
-                  type: "Network · CCS + NACS",
-                  desc: "Urban-focused fast chargers, often located at grocery stores and shopping centers. Good for quick top-ups while running errands.",
-                  tag: "Best for errands",
-                  tagColor: "bg-okay-bg text-okay-fg",
-                },
-              ].map((n) => (
-                <div key={n.name} className="bg-paper border border-line rounded-2xl p-5">
-                  <div className="flex items-start justify-between gap-2 mb-3">
-                    <div>
-                      <div className="font-serif text-base font-medium text-ink">{n.name}</div>
-                      <div className="font-mono text-[10px] text-ink-mute uppercase tracking-wide">{n.type}</div>
-                    </div>
-                    <span className={`font-mono text-[9px] uppercase tracking-wide px-2 py-0.5 rounded-full whitespace-nowrap ${n.tagColor}`}>{n.tag}</span>
-                  </div>
-                  <p className="text-sm text-ink-3 leading-relaxed">{n.desc}</p>
-                </div>
-              ))}
-            </div>
-            <div className="bg-ink text-cream rounded-2xl p-6">
-              <div className="font-mono text-[11px] uppercase tracking-widest text-emerald mb-3">Pro tips for fast charging</div>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {[
-                  "Charge to 80% on DC fast chargers — the last 20% charges at half the speed.",
-                  "Plan stops before you hit 20% battery — charging anxiety is real and avoidable.",
-                  "Check-in reports on PlugShare before you arrive; out-of-order stalls are common.",
-                  "Precondition your battery while still plugged in on cold mornings — saves 20–30% range.",
-                ].map((tip) => (
-                  <div key={tip} className="flex gap-3 text-sm text-cream/70">
-                    <span className="text-emerald font-bold flex-shrink-0 mt-0.5">→</span>
-                    {tip}
-                  </div>
-                ))}
-              </div>
-            </div>
+            <AdSlot label="728×90 · between sections" size="leaderboard" />
           </div>
-        </section>
+        </div>
 
         {/* ── NACS, CCS & CHAdeMO explained ── */}
         <section className="bg-cream-soft border-b border-line py-14" id="connectors">
@@ -277,7 +227,7 @@ export default function HomePage() {
               <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">Connector guide</div>
               <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight mb-3">NACS, CCS & CHAdeMO explained</h2>
               <p className="text-ink-3 max-w-xl leading-relaxed">
-                Three different plugs, one charging network world. Here&apos;s which connector your EV uses and where you can plug in.
+                Three different plugs, one charging-network world. Here&apos;s which connector your EV uses and where you can plug in.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-5">
@@ -298,7 +248,7 @@ export default function HomePage() {
                   badge: "Most common today",
                   badgeColor: "bg-blue-50 text-blue-700",
                   desc: "The incumbent DC fast-charge standard used by most non-Tesla EVs. Combines AC Level 2 and DC fast-charge into one plug. All major networks support it.",
-                  brands: "Hyundai · Kia · VW · Audi · Porsche · Mercedes · Nissan Ariya · Lucid · Rivian (older)",
+                  brands: "Hyundai · Kia · VW · Audi · Porsche · Mercedes · Nissan Ariya · Lucid",
                   networks: "Electrify America · EVgo · ChargePoint · BP Pulse · Blink (all native)",
                   speed: "Up to 350 kW",
                 },
@@ -307,9 +257,9 @@ export default function HomePage() {
                   full: "CHArge de MOve",
                   badge: "Legacy / fading",
                   badgeColor: "bg-okay-bg text-okay-fg",
-                  desc: "Japanese DC fast-charge standard used primarily by the Nissan Leaf. Network support is shrinking — many stations have removed CHAdeMO stalls. The Leaf will transition to NACS.",
+                  desc: "Japanese DC fast-charge standard used primarily by the Nissan Leaf. Network support is shrinking — many stations have removed CHAdeMO stalls.",
                   brands: "Nissan Leaf (2011–2025) · older Mitsubishi i-MiEV",
-                  networks: "EVgo · ChargePoint (select locations) · Blink (select locations)",
+                  networks: "EVgo · ChargePoint · Blink (select locations only)",
                   speed: "Up to 62 kW",
                 },
               ].map((c) => (
@@ -353,7 +303,7 @@ export default function HomePage() {
                   name: "Grizzl-E Classic 40A",
                   cat: "Level 2 charger",
                   price: "$279",
-                  desc: "The no-frills workhorse. Built in Canada, outdoor-rated, 40 A / 9.6 kW. No subscription, no app required. Just plug in and charge.",
+                  desc: "The no-frills workhorse. Built in Canada, outdoor-rated, 40 A / 9.6 kW. No subscription, no app required.",
                   tag: "Best value",
                   url: "https://www.amazon.com/s?k=grizzl-e+classic+40a",
                 },
@@ -361,7 +311,7 @@ export default function HomePage() {
                   name: "JuiceBox 40",
                   cat: "Level 2 charger · Smart",
                   price: "$399",
-                  desc: "Wi-Fi connected, 40 A, works with utility TOU schedules. Schedule charging to off-peak hours from the app. Energy Star certified.",
+                  desc: "Wi-Fi connected, 40 A, works with utility TOU schedules. Schedule charging to off-peak hours from the app.",
                   tag: "Best smart charger",
                   url: "https://www.amazon.com/s?k=juicebox+40+ev+charger",
                 },
@@ -369,7 +319,7 @@ export default function HomePage() {
                   name: "Tesla Wall Connector (Gen 3)",
                   cat: "Level 2 charger · NACS",
                   price: "$449",
-                  desc: "The best charger for Tesla and NACS-equipped EVs. 48 A, Wi-Fi enabled, load-sharing for multi-car households. Sleek and reliable.",
+                  desc: "The best charger for Tesla and NACS-equipped EVs. 48 A, Wi-Fi enabled, load-sharing for multi-car households.",
                   tag: "Best for Tesla / NACS",
                   url: "https://www.amazon.com/s?k=tesla+wall+connector+gen+3",
                 },
@@ -377,7 +327,7 @@ export default function HomePage() {
                   name: "Lectron CCS→NACS Adapter",
                   cat: "Charging adapter",
                   price: "$149",
-                  desc: "Lets CCS-equipped EVs use Tesla Superchargers without the Tesla app. Compatible with Hyundai, Kia, VW, Audi, and more.",
+                  desc: "Lets CCS-equipped EVs use Tesla Superchargers. Compatible with Hyundai, Kia, VW, Audi, and more.",
                   tag: "CCS owners",
                   url: "https://www.amazon.com/s?k=lectron+ccs+to+nacs+adapter",
                 },
@@ -385,7 +335,7 @@ export default function HomePage() {
                   name: "Emporia Level 2 (48A)",
                   cat: "Level 2 charger · Smart",
                   price: "$349",
-                  desc: "48 A / 11.5 kW with built-in energy monitoring. Pairs with the Emporia app for TOU scheduling and consumption tracking.",
+                  desc: "48 A / 11.5 kW with built-in energy monitoring. Pairs with the Emporia app for TOU scheduling.",
                   tag: "Best with energy monitor",
                   url: "https://www.amazon.com/s?k=emporia+ev+charger+48a",
                 },
@@ -393,7 +343,7 @@ export default function HomePage() {
                   name: "Lectron Level 1/2 Portable EVSE",
                   cat: "Portable charger",
                   price: "$159",
-                  desc: "Adjustable 16 A / 32 A. Travel with a 120 V and 240 V cable included. Perfect backup when you don't have a wall charger installed yet.",
+                  desc: "Adjustable 16 A / 32 A. Travel-ready with 120 V and 240 V cables included. Perfect backup charger.",
                   tag: "Best portable",
                   url: "https://www.amazon.com/s?k=lectron+portable+ev+charger",
                 },
@@ -428,59 +378,70 @@ export default function HomePage() {
               <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight mb-2">Everything you need to know</h2>
               <p className="text-ink-3 max-w-xl">Quick guides that answer the questions every new EV owner has — before they buy.</p>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {[
-                {
-                  title: "Is an EV right for you?",
-                  desc: "The 5 questions that determine whether an EV fits your life — apartment vs. home, commute length, access to public charging.",
-                  readTime: "5 min read",
-                  slug: "#guides",
-                },
-                {
-                  title: "How to claim the $7,500 EV tax credit",
-                  desc: "Income limits, vehicle eligibility, and the new point-of-sale option. Avoid the mistakes that disqualify thousands of buyers.",
-                  readTime: "6 min read",
-                  slug: "#guides",
-                },
-                {
-                  title: "Home charging setup checklist",
-                  desc: "Panel capacity check, charger selection, permit requirements, installer vetting — everything before your Level 2 EVSE goes on the wall.",
-                  readTime: "7 min read",
-                  slug: "#guides",
-                },
-                {
-                  title: "Road trip planning with an EV",
-                  desc: "How to use ABRP, picking the right charging stops, managing range anxiety, and why most people stop worrying after the first road trip.",
-                  readTime: "8 min read",
-                  slug: "#guides",
-                },
-                {
-                  title: "EV vs hybrid: which is right for you?",
-                  desc: "Plug-in hybrid, full hybrid, or battery electric — how each fits different driving patterns and why the math isn't always obvious.",
-                  readTime: "6 min read",
-                  slug: "#guides",
-                },
-                {
-                  title: "Understanding time-of-use (TOU) rates",
-                  desc: "How to slash your charging cost by 40–60% by shifting to off-peak electricity pricing. State-by-state program guide.",
-                  readTime: "5 min read",
-                  slug: "#guides",
-                },
-              ].map((g) => (
-                <a
-                  key={g.title}
-                  href={g.slug}
-                  className="block bg-paper border border-line rounded-2xl p-5 hover:border-forest/40 hover:shadow-1 transition-all group"
-                >
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-2">{g.readTime}</div>
-                  <div className="font-serif text-base font-medium text-ink mb-2 group-hover:text-forest transition-colors leading-snug">{g.title}</div>
-                  <p className="text-sm text-ink-3 leading-relaxed">{g.desc}</p>
-                  <div className="font-mono text-[10px] text-forest mt-3 group-hover:underline">Read guide →</div>
-                </a>
-              ))}
+
+            {/* Ad: rectangle inside guides (sidebar-style on desktop) */}
+            <div className="flex flex-col lg:flex-row gap-8">
+              <div className="grid sm:grid-cols-2 gap-4 flex-1">
+                {[
+                  {
+                    title: "Is an EV right for you?",
+                    desc: "The 5 questions that determine whether an EV fits your life — apartment vs. home, commute length, access to public charging.",
+                    readTime: "5 min read",
+                  },
+                  {
+                    title: "How to claim the $7,500 EV tax credit",
+                    desc: "Income limits, vehicle eligibility, and the new point-of-sale option. Avoid the mistakes that disqualify thousands of buyers.",
+                    readTime: "6 min read",
+                  },
+                  {
+                    title: "Home charging setup checklist",
+                    desc: "Panel capacity check, charger selection, permit requirements, installer vetting — everything before your Level 2 EVSE goes on the wall.",
+                    readTime: "7 min read",
+                  },
+                  {
+                    title: "Road trip planning with an EV",
+                    desc: "How to use ABRP, picking the right charging stops, managing range anxiety, and why most people stop worrying after the first road trip.",
+                    readTime: "8 min read",
+                  },
+                  {
+                    title: "EV vs hybrid: which is right for you?",
+                    desc: "Plug-in hybrid, full hybrid, or battery electric — how each fits different driving patterns.",
+                    readTime: "6 min read",
+                  },
+                  {
+                    title: "Understanding time-of-use (TOU) rates",
+                    desc: "How to slash your charging cost by 40–60% by shifting to off-peak electricity pricing. State-by-state program guide.",
+                    readTime: "5 min read",
+                  },
+                ].map((g) => (
+                  <a
+                    key={g.title}
+                    href="#guides"
+                    className="block bg-paper border border-line rounded-2xl p-5 hover:border-forest/40 hover:shadow-1 transition-all group"
+                  >
+                    <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-2">{g.readTime}</div>
+                    <div className="font-serif text-base font-medium text-ink mb-2 group-hover:text-forest transition-colors leading-snug">{g.title}</div>
+                    <p className="text-sm text-ink-3 leading-relaxed">{g.desc}</p>
+                    <div className="font-mono text-[10px] text-forest mt-3 group-hover:underline">Read guide →</div>
+                  </a>
+                ))}
+              </div>
+
+              {/* Ad: 300×600 half-page beside guide cards on desktop */}
+              <div className="hidden lg:flex flex-col gap-4 w-72 flex-shrink-0">
+                <AdSlot label="300×250 · sidebar rectangle" size="rectangle" />
+                <AdSlot label="300×250 · sidebar rectangle 2" size="rectangle" />
+              </div>
             </div>
           </div>
         </section>
+
+        {/* ── Ad: leaderboard above footer ── */}
+        <div className="py-6 bg-paper border-t border-line">
+          <div className="section-wrap">
+            <AdSlot label="728×90 · above footer" size="leaderboard" />
+          </div>
+        </div>
 
         {/* ── Footer ── */}
         <footer className="bg-ink text-cream/40 py-10 border-t border-white/10">
@@ -490,7 +451,7 @@ export default function HomePage() {
               <span className="text-cream/25 text-center max-w-2xl">
                 Rate data from EIA Nov 2025 + AAA monthly averages. Calculations are estimates — actual savings depend on your driving and utility.
               </span>
-              <span>evchargesavings.com</span>
+              <Link href="/privacy" className="hover:text-cream/60 transition-colors">Privacy</Link>
             </div>
           </div>
         </footer>

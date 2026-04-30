@@ -3,8 +3,6 @@ import { useMemo, useEffect } from "react";
 import { useCalculatorStore, computeSavings, computeCO2 } from "@/store/calculator";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { fmt } from "@/lib/format";
-import { cn } from "@/lib/cn";
-import { NetworkGrid } from "@/components/features/networks/NetworkGrid";
 import { FeelGoodFact } from "@/components/shared/FeelGoodFact";
 import { StatCard } from "@/components/shared/StatCard";
 import type { EVModelSummary } from "@/features/ev-data/types";
@@ -217,14 +215,6 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
         </div>
       </div>
 
-      {/* Networks section */}
-      <section>
-        <div className="mb-5">
-          <h2 className="font-serif text-2xl font-medium tracking-tight mb-1">Best charging network for you</h2>
-          <p className="text-sm text-ink-3">Ranked by your annual public charging cost · tap any card for full details</p>
-        </div>
-        <NetworkGrid publicKwh={savings.publicKwh} evConn={ev.connector} />
-      </section>
     </div>
   );
 }

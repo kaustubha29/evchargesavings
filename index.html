@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>EV Charge Savings — How Much Will You Save Going Electric?</title>
-<meta name="description" content="See exactly how much an EV would save you in your zip code. Real 2026 electricity and gas rates for all 50 US states, 30+ EV models, free forever." />
+<meta name="description" content="See exactly how much an EV would save you in your zip code. Real 2026 electricity and gas rates for all 50 US states, 130+ EV models, free forever." />
 <meta name="keywords" content="ev savings calculator, ev charging cost, electric car savings, ev vs gas calculator, level 2 charger install" />
 <meta name="author" content="EV Charge Savings" />
 <link rel="canonical" href="https://evchargesavings.com/" />
@@ -308,6 +308,19 @@
   }
   .ctx-item { font-size: 13px; color: var(--ink-mute); }
   .ctx-item b { display: block; font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--ink); margin-bottom: 2px; letter-spacing: -.01em; font-feature-settings: "tnum" 1; }
+  .feel-good {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: rgba(52,169,96,.08);
+    border-left: 3px solid var(--emerald);
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    transition: opacity .4s;
+  }
+  .feel-good b { color: var(--forest); }
+  .fact-icon { margin-right: 4px; }
 
   /* ─── Live meter (right side of hero) ─── */
   .meter {
@@ -1040,8 +1053,7 @@
     background: linear-gradient(160deg, var(--paper) 0%, var(--good-bg) 100%);
     box-shadow: 0 0 0 1px var(--emerald-bright), var(--sh-2);
   }
-  .net-card.best::before {
-    content: "Best for you";
+  .net-best-badge {
     position: absolute;
     top: 14px; right: 14px;
     background: var(--emerald-bright);
@@ -1055,6 +1067,73 @@
     border-radius: 100px;
   }
   .net-card.priciest { opacity: .92; }
+  .net-card { cursor: pointer; }
+  .net-tag.adapter { background: #fff3cd; color: #856404; }
+  .net-tag.incompat { background: #f8d7da; color: #842029; }
+  .net-compat-note { font-size: 11px; color: var(--ink-mute); margin-top: 6px; font-style: italic; }
+  /* ─── Bottom drawer ─── */
+  .drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 900;
+    backdrop-filter: blur(2px);
+  }
+  .drawer-overlay.open { display: block; }
+  .drawer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--paper);
+    border-radius: var(--r-xl) var(--r-xl) 0 0;
+    padding: 0 0 env(safe-area-inset-bottom);
+    z-index: 901;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform .35s cubic-bezier(.32,.72,0,1);
+    box-shadow: 0 -4px 32px rgba(0,0,0,.18);
+  }
+  .drawer.open { transform: translateY(0); }
+  .drawer-handle {
+    width: 40px; height: 4px;
+    background: var(--line);
+    border-radius: 2px;
+    margin: 14px auto 0;
+  }
+  .drawer-inner { padding: 20px 28px 32px; }
+  .drawer-head { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .drawer-logo {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-family: var(--sans); font-weight: 700; font-size: 15px;
+    flex-shrink: 0;
+  }
+  .drawer-title { font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: -.02em; }
+  .drawer-subtitle { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: .06em; margin-top: 2px; }
+  .drawer-section { margin-bottom: 20px; }
+  .drawer-section h4 { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-mute); margin-bottom: 10px; }
+  .drawer-stat-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 16px; }
+  .drawer-stat { background: var(--cream-soft); border-radius: var(--r-sm); padding: 12px; text-align: center; }
+  .drawer-stat .ds-val { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--ink); }
+  .drawer-stat .ds-lbl { font-family: var(--mono); font-size: 10px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: .06em; margin-top: 2px; }
+  .drawer-pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .drawer-pros h4 { color: var(--good-fg); }
+  .drawer-cons h4 { color: var(--rust); }
+  .drawer-list { list-style: none; padding: 0; margin: 0; }
+  .drawer-list li { font-size: 13px; color: var(--ink-2); line-height: 1.5; margin-bottom: 6px; padding-left: 16px; position: relative; }
+  .drawer-list li::before { content: "✓"; position: absolute; left: 0; color: var(--emerald); font-weight: 700; }
+  .drawer-cons .drawer-list li::before { content: "✗"; color: var(--rust); }
+  .drawer-membership { background: var(--cream-soft); border-radius: var(--r-sm); padding: 14px 16px; margin-bottom: 16px; font-size: 13px; color: var(--ink-2); }
+  .drawer-membership b { color: var(--ink); }
+  .drawer-close { width: 100%; margin-top: 8px; padding: 14px; background: var(--ink); color: var(--cream); border: none; border-radius: var(--r-md); font-family: var(--sans); font-size: 15px; font-weight: 600; cursor: pointer; letter-spacing: -.01em; }
+  @media (max-width: 520px) {
+    .drawer-pros-cons { grid-template-columns: 1fr; }
+    .drawer-stat-row { grid-template-columns: repeat(3,1fr); }
+    .drawer-inner { padding: 16px 18px 24px; }
+  }
 
   .net-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
   .net-logo {
@@ -1342,6 +1421,23 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   }
+
+  /* ─── Mobile fine-tuning (≤ 480px) ─── */
+  @media (max-width: 480px) {
+    .trust-pill { font-size: 10px; padding: 5px 10px; gap: 5px; }
+    .loc-pill { font-size: 11px; padding: 6px 10px; gap: 6px; }
+    .net-tag { font-size: 9px; padding: 2px 6px; }
+    .net-rating { font-size: 9px; padding: 3px 7px; }
+    .net-stats { font-size: 11px; }
+    input[type="range"]::-webkit-slider-thumb { width: 20px; height: 20px; }
+    input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; }
+    .panel { padding: 20px; }
+    .saving-card { padding: 22px; }
+    .saving-figure { font-size: clamp(52px, 16vw, 80px); }
+    .ctx-item b { font-size: 18px; }
+    .drawer-stat-row { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .drawer-stat .ds-val { font-size: 17px; }
+  }
 </style>
 </head>
 <body>
@@ -1366,7 +1462,7 @@
 <section class="hero">
   <div class="trust-pill">
     <span class="pulse-dot" aria-hidden="true" style="margin-right:0"></span>
-    2026 rates · 50 states · 30+ EV models
+    2026 rates · 50 states · 130+ EV models
   </div>
   <div class="hero-grid">
     <div>
@@ -1385,6 +1481,7 @@
           <div class="ctx-item"><b id="hero-ev">$0</b>EV / yr</div>
           <div class="ctx-item"><b id="hero-pct">0%</b>Lower fuel cost</div>
         </div>
+        <div class="feel-good" id="feel-good"></div>
       </div>
     </div>
 
@@ -1740,6 +1837,164 @@
   </div>
 </section>
 
+<!-- ── Home Charging Section ── -->
+<section id="home-charging" style="background:var(--ink);color:var(--cream);padding:72px 0;">
+  <div class="section-inner" style="max-width:1160px;margin:0 auto;padding:0 28px;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--emerald);margin-bottom:10px;">Home charging guide</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:400;letter-spacing:-.03em;margin:0 0 12px;">Where to plug in <em style="font-style:italic">at home</em></h2>
+      <p style="color:rgba(255,255,255,.6);font-size:16px;max-width:520px;margin:0 auto;line-height:1.6;">90% of EV charging happens at home. Here's what each level means for your morning routine.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:28px;">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:10px;">Level 1 · 120V outlet</div>
+        <div style="font-family:var(--serif);font-size:28px;font-weight:500;letter-spacing:-.02em;color:var(--cream);margin-bottom:6px;">4–5 miles/hr</div>
+        <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.6;margin:0 0 14px;">Use your standard household outlet and the EVSE cord that came with your car. No installation needed — just plug in overnight.</p>
+        <div style="font-size:13px;color:rgba(255,255,255,.5);">Best for: low daily mileage (&lt;40 mi/day), PHEVs, or as a backup</div>
+        <div style="margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--emerald);">Setup cost: $0</div>
+      </div>
+      <div style="background:rgba(52,169,96,.12);border:1px solid rgba(52,169,96,.3);border-radius:16px;padding:28px;position:relative;">
+        <div style="position:absolute;top:16px;right:16px;background:var(--emerald);color:white;font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:100px;">Recommended</div>
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:10px;">Level 2 · 240V / EVSE</div>
+        <div style="font-family:var(--serif);font-size:28px;font-weight:500;letter-spacing:-.02em;color:var(--cream);margin-bottom:6px;">20–35 miles/hr</div>
+        <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.6;margin:0 0 14px;">A dedicated 240V circuit with a home EVSE (Level 2 charger). Most EVs fully charge in 6–10 hours overnight.</p>
+        <div style="font-size:13px;color:rgba(255,255,255,.5);">Best brands: Grizzl-E, JuiceBox, Emporia, ChargePoint Home Flex</div>
+        <div style="margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--emerald);">Setup cost: $500–$1,500 installed · Rebates available in most states</div>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:28px;">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:10px;">DC Fast Charge · Public only</div>
+        <div style="font-family:var(--serif);font-size:28px;font-weight:500;letter-spacing:-.02em;color:var(--cream);margin-bottom:6px;">150–350 miles/hr</div>
+        <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.6;margin:0 0 14px;">DCFC isn't available for home installation — it requires commercial electrical infrastructure. Use it on road trips or when you need a quick top-up.</p>
+        <div style="font-size:13px;color:rgba(255,255,255,.5);">Networks: Tesla Supercharger, Electrify America, EVgo, ChargePoint</div>
+        <div style="margin-top:14px;font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.4);">Not available for home installation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Connector Education Section ── -->
+<section id="connectors" style="padding:72px 0;background:var(--cream-soft);">
+  <div style="max-width:1160px;margin:0 auto;padding:0 28px;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--emerald);margin-bottom:10px;">Connector guide</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:400;letter-spacing:-.03em;margin:0 0 12px;">NACS, CCS &amp; CHAdeMO <em style="font-style:italic">explained</em></h2>
+      <p style="color:var(--ink-2);font-size:16px;max-width:520px;margin:0 auto;line-height:1.6;">The connector on your car determines which charging networks you can use — with or without an adapter.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--sh-1);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <div style="width:48px;height:48px;border-radius:12px;background:#cc0000;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:13px;font-family:var(--sans);">NACS</div>
+          <div>
+            <div style="font-family:var(--serif);font-size:18px;font-weight:500;">NACS</div>
+            <div style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.04em;">North American Charging Standard</div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.6;margin:0 0 14px;">Originally developed by Tesla, NACS is now the industry standard adopted by most US automakers. Smaller and more ergonomic than CCS, with power delivery up to 500 kW in V4 Tesla stalls.</p>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">Cars using NACS</div>
+        <p style="font-size:13px;color:var(--ink-2);">Tesla (all), Ford, GM (Chevy, Cadillac, Buick), Rivian, Honda Prologue, Polestar 2/3, Volvo, BMW (2025+), Ram, Jeep, Dodge</p>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;margin-top:12px;">Compatible networks</div>
+        <p style="font-size:13px;color:var(--ink-2);">Tesla Supercharger (native), Rivian Adventure, ChargePoint, EVgo · Electrify America needs CCS→NACS adapter</p>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--sh-1);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <div style="width:48px;height:48px;border-radius:12px;background:#00b3e3;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:13px;font-family:var(--sans);">CCS</div>
+          <div>
+            <div style="font-family:var(--serif);font-size:18px;font-weight:500;">CCS</div>
+            <div style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.04em;">Combined Charging System</div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.6;margin:0 0 14px;">The previous industry standard, used by most non-Tesla EVs sold before 2024. CCS combines AC and DC charging in one connector. Most networks still support it and adapters are available.</p>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">Cars using CCS</div>
+        <p style="font-size:13px;color:var(--ink-2);">Hyundai, Kia, Genesis, VW, Audi, Porsche, Mercedes, Nissan Ariya, Toyota, Subaru, Lucid, VinFast, Mini, Mazda, Jaguar</p>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;margin-top:12px;">Compatible networks</div>
+        <p style="font-size:13px;color:var(--ink-2);">Electrify America (native), ChargePoint, EVgo · Tesla Supercharger needs NACS→CCS adapter (~$249)</p>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--sh-1);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <div style="width:48px;height:48px;border-radius:12px;background:#6c757d;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:11px;font-family:var(--sans);">CHd</div>
+          <div>
+            <div style="font-family:var(--serif);font-size:18px;font-weight:500;">CHAdeMO</div>
+            <div style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.04em;">Legacy DC fast charge</div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.6;margin:0 0 14px;">A legacy fast-charging standard developed in Japan. The only mainstream US car still using CHAdeMO is the Nissan Leaf (2023 and earlier). No adapter to CCS or NACS exists — CHAdeMO is a dead end.</p>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">Cars using CHAdeMO</div>
+        <p style="font-size:13px;color:var(--ink-2);">Nissan Leaf (2023 and earlier) · The 2024+ Ariya uses CCS</p>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;margin-top:12px;">Compatible networks</div>
+        <p style="font-size:13px;color:var(--ink-2);">Electrify America, EVgo (legacy CHAdeMO stalls) · Not compatible with NACS or CCS networks without adapters</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EV Products & Accessories ── -->
+<section id="products" style="padding:72px 0;">
+  <div style="max-width:1160px;margin:0 auto;padding:0 28px;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--emerald);margin-bottom:10px;">Recommended gear</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:400;letter-spacing:-.03em;margin:0 0 12px;">EV chargers &amp; <em style="font-style:italic">accessories</em></h2>
+      <p style="color:var(--ink-2);font-size:16px;max-width:520px;margin:0 auto;line-height:1.6;">Gear we've researched and recommend. Affiliate links — we earn a small commission if you buy, at no extra cost to you.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--sh-1);display:flex;flex-direction:column;">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald);margin-bottom:8px;">Level 2 Home Charger</div>
+        <div style="font-family:var(--serif);font-size:18px;font-weight:500;letter-spacing:-.01em;margin-bottom:6px;">Grizzl-E Classic 40A</div>
+        <p style="font-size:13px;color:var(--ink-2);line-height:1.5;flex:1;margin:0 0 16px;">The most reliable, weatherproof Level 2 EVSE on the market. UL listed, works with any EV, Canadian-made quality. 40A = up to 32 miles per hour of charge.</p>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-family:var(--serif);font-size:22px;font-weight:500;color:var(--forest);">~$399</div>
+          <a href="#" onclick="return false;" style="background:var(--forest);color:white;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--sans);">View →</a>
+        </div>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--sh-1);display:flex;flex-direction:column;">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald);margin-bottom:8px;">Level 2 Home Charger</div>
+        <div style="font-family:var(--serif);font-size:18px;font-weight:500;letter-spacing:-.01em;margin-bottom:6px;">JuiceBox 40 Smart EVSE</div>
+        <p style="font-size:13px;color:var(--ink-2);line-height:1.5;flex:1;margin:0 0 16px;">WiFi-connected smart charger with scheduling, energy monitoring, and utility TOU integration. Works with Alexa and Google Home. NACS and CCS adapters available.</p>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-family:var(--serif);font-size:22px;font-weight:500;color:var(--forest);">~$549</div>
+          <a href="#" onclick="return false;" style="background:var(--forest);color:white;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--sans);">View →</a>
+        </div>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--sh-1);display:flex;flex-direction:column;">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald);margin-bottom:8px;">Level 2 Home Charger</div>
+        <div style="font-family:var(--serif);font-size:18px;font-weight:500;letter-spacing:-.01em;margin-bottom:6px;">Emporia Level 2 EVSE</div>
+        <p style="font-size:13px;color:var(--ink-2);line-height:1.5;flex:1;margin:0 0 16px;">Best value smart charger — includes energy monitoring, load management, and pairs with Emporia's whole-home energy monitor. Excellent app and solar integration.</p>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-family:var(--serif);font-size:22px;font-weight:500;color:var(--forest);">~$289</div>
+          <a href="#" onclick="return false;" style="background:var(--forest);color:white;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--sans);">View →</a>
+        </div>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--sh-1);display:flex;flex-direction:column;">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7c5c00;margin-bottom:8px;">Adapter · NACS owners</div>
+        <div style="font-family:var(--serif);font-size:18px;font-weight:500;letter-spacing:-.01em;margin-bottom:6px;">Tesla NACS→CCS Adapter</div>
+        <p style="font-size:13px;color:var(--ink-2);line-height:1.5;flex:1;margin:0 0 16px;">Official Tesla adapter lets NACS vehicles (Tesla, Ford, GM, Rivian) charge at CCS-only networks like Electrify America and EVgo. A must-have for road trips.</p>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-family:var(--serif);font-size:22px;font-weight:500;color:var(--forest);">$249</div>
+          <a href="#" onclick="return false;" style="background:#7c5c00;color:white;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--sans);">View →</a>
+        </div>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--sh-1);display:flex;flex-direction:column;">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7c5c00;margin-bottom:8px;">Adapter · CCS owners</div>
+        <div style="font-family:var(--serif);font-size:18px;font-weight:500;letter-spacing:-.01em;margin-bottom:6px;">Lectron CCS→NACS Adapter</div>
+        <p style="font-size:13px;color:var(--ink-2);line-height:1.5;flex:1;margin:0 0 16px;">Lets CCS vehicles (Hyundai, Kia, VW, BMW, etc.) charge at Tesla Superchargers. Third-party but widely used. Unlocks 2,500+ Supercharger stalls across the US.</p>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-family:var(--serif);font-size:22px;font-weight:500;color:var(--forest);">~$149</div>
+          <a href="#" onclick="return false;" style="background:#7c5c00;color:white;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--sans);">View →</a>
+        </div>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--sh-1);display:flex;flex-direction:column;">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald);margin-bottom:8px;">Portable EVSE</div>
+        <div style="font-family:var(--serif);font-size:18px;font-weight:500;letter-spacing:-.01em;margin-bottom:6px;">Lectron Portable Level 1/2</div>
+        <p style="font-size:13px;color:var(--ink-2);line-height:1.5;flex:1;margin:0 0 16px;">Dual-voltage portable EVSE works on 120V (Level 1) and 240V (Level 2) outlets. Essential for travel or as a backup if your home charger needs service.</p>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-family:var(--serif);font-size:22px;font-weight:500;color:var(--forest);">~$119</div>
+          <a href="#" onclick="return false;" style="background:var(--forest);color:white;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;font-family:var(--sans);">View →</a>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--ink-mute);margin-top:24px;font-style:italic;">Affiliate disclosure: we earn a commission on purchases made through these links at no extra cost to you.</p>
+  </div>
+</section>
+
 <footer id="about">
   <div class="footer-inner">
     <div class="footer-brand">
@@ -1814,38 +2069,165 @@
    battery (kWh usable) · efficiency (mi/kWh EPA combined) · range (mi)
    ============================================================================ */
 const EV_MODELS = [
-  { id:"tesla-m3-long", name:"Tesla Model 3 Long Range", brand:"Tesla", battery:75, eff:4.2, range:333, msrp:46000 },
-  { id:"tesla-m3-rwd", name:"Tesla Model 3 RWD", brand:"Tesla", battery:60, eff:4.4, range:272, msrp:39000 },
-  { id:"tesla-my-long", name:"Tesla Model Y Long Range", brand:"Tesla", battery:75, eff:3.8, range:310, msrp:48000 },
-  { id:"tesla-my-rwd", name:"Tesla Model Y RWD", brand:"Tesla", battery:60, eff:3.9, range:260, msrp:42000 },
-  { id:"tesla-ms", name:"Tesla Model S", brand:"Tesla", battery:100, eff:3.6, range:402, msrp:75000 },
-  { id:"tesla-mx", name:"Tesla Model X", brand:"Tesla", battery:100, eff:3.0, range:335, msrp:80000 },
-  { id:"tesla-cybertruck", name:"Tesla Cybertruck AWD", brand:"Tesla", battery:123, eff:2.4, range:318, msrp:80000 },
-  { id:"hyundai-ioniq5", name:"Hyundai Ioniq 5", brand:"Hyundai", battery:77, eff:3.2, range:303, msrp:42000 },
-  { id:"hyundai-ioniq6", name:"Hyundai Ioniq 6", brand:"Hyundai", battery:77, eff:3.9, range:361, msrp:42000 },
-  { id:"hyundai-kona", name:"Hyundai Kona Electric", brand:"Hyundai", battery:64, eff:3.6, range:261, msrp:34000 },
-  { id:"kia-ev6", name:"Kia EV6", brand:"Kia", battery:77, eff:3.4, range:310, msrp:43000 },
-  { id:"kia-ev9", name:"Kia EV9 Wind AWD", brand:"Kia", battery:99, eff:2.8, range:280, msrp:60000 },
-  { id:"kia-niro", name:"Kia Niro EV", brand:"Kia", battery:64, eff:3.3, range:253, msrp:40000 },
-  { id:"ford-mache", name:"Ford Mustang Mach-E", brand:"Ford", battery:88, eff:2.9, range:300, msrp:43000 },
-  { id:"ford-lightning", name:"Ford F-150 Lightning ER", brand:"Ford", battery:131, eff:2.0, range:320, msrp:65000 },
-  { id:"chevy-equinox", name:"Chevy Equinox EV", brand:"Chevrolet", battery:85, eff:3.1, range:319, msrp:35000 },
-  { id:"chevy-blazer", name:"Chevy Blazer EV", brand:"Chevrolet", battery:85, eff:2.8, range:279, msrp:45000 },
-  { id:"chevy-silverado", name:"Chevy Silverado EV", brand:"Chevrolet", battery:170, eff:2.0, range:440, msrp:75000 },
-  { id:"rivian-r1t", name:"Rivian R1T", brand:"Rivian", battery:135, eff:2.1, range:328, msrp:73000 },
-  { id:"rivian-r1s", name:"Rivian R1S", brand:"Rivian", battery:135, eff:2.0, range:321, msrp:78000 },
-  { id:"honda-prologue", name:"Honda Prologue", brand:"Honda", battery:85, eff:2.9, range:296, msrp:48000 },
-  { id:"nissan-leaf", name:"Nissan Leaf SV Plus", brand:"Nissan", battery:60, eff:3.5, range:212, msrp:30000 },
-  { id:"nissan-ariya", name:"Nissan Ariya", brand:"Nissan", battery:87, eff:2.9, range:289, msrp:40000 },
-  { id:"vw-id4", name:"Volkswagen ID.4", brand:"VW", battery:82, eff:3.2, range:275, msrp:40000 },
-  { id:"bmw-i4", name:"BMW i4 eDrive40", brand:"BMW", battery:84, eff:3.6, range:301, msrp:55000 },
-  { id:"bmw-ix", name:"BMW iX xDrive50", brand:"BMW", battery:111, eff:2.8, range:309, msrp:90000 },
-  { id:"polestar-2", name:"Polestar 2 Long Range", brand:"Polestar", battery:82, eff:3.4, range:320, msrp:50000 },
-  { id:"genesis-gv60", name:"Genesis GV60", brand:"Genesis", battery:77, eff:3.0, range:248, msrp:53000 },
-  { id:"subaru-solterra", name:"Subaru Solterra", brand:"Subaru", battery:71, eff:2.9, range:228, msrp:46000 },
-  { id:"toyota-bz4x", name:"Toyota bZ4X", brand:"Toyota", battery:71, eff:3.1, range:252, msrp:44000 },
-  { id:"volvo-ex30", name:"Volvo EX30", brand:"Volvo", battery:64, eff:3.6, range:253, msrp:36000 },
-  { id:"lucid-air", name:"Lucid Air Pure", brand:"Lucid", battery:88, eff:4.6, range:419, msrp:69000 }
+  // Tesla (14)
+  { id:"t-m3-rwd",     brand:"Tesla",     name:"Model 3 RWD",                   battery:60,  eff:4.4, range:272, msrp:38990,  conn:"NACS" },
+  { id:"t-m3-lr-rwd",  brand:"Tesla",     name:"Model 3 Long Range RWD",        battery:75,  eff:4.2, range:333, msrp:45990,  conn:"NACS" },
+  { id:"t-m3-lr-awd",  brand:"Tesla",     name:"Model 3 Long Range AWD",        battery:75,  eff:4.0, range:341, msrp:49990,  conn:"NACS" },
+  { id:"t-m3-perf",    brand:"Tesla",     name:"Model 3 Performance",           battery:75,  eff:3.8, range:315, msrp:55990,  conn:"NACS" },
+  { id:"t-my-rwd",     brand:"Tesla",     name:"Model Y RWD",                   battery:60,  eff:3.9, range:260, msrp:43990,  conn:"NACS" },
+  { id:"t-my-lr-rwd",  brand:"Tesla",     name:"Model Y Long Range RWD",        battery:75,  eff:3.8, range:310, msrp:47990,  conn:"NACS" },
+  { id:"t-my-lr-awd",  brand:"Tesla",     name:"Model Y Long Range AWD",        battery:75,  eff:3.6, range:320, msrp:50990,  conn:"NACS" },
+  { id:"t-my-perf",    brand:"Tesla",     name:"Model Y Performance",           battery:75,  eff:3.5, range:303, msrp:54990,  conn:"NACS" },
+  { id:"t-ms-dual",    brand:"Tesla",     name:"Model S Dual Motor",            battery:100, eff:3.6, range:405, msrp:74990,  conn:"NACS" },
+  { id:"t-ms-plaid",   brand:"Tesla",     name:"Model S Plaid",                 battery:100, eff:3.4, range:396, msrp:89990,  conn:"NACS" },
+  { id:"t-mx-dual",    brand:"Tesla",     name:"Model X Dual Motor",            battery:100, eff:3.0, range:335, msrp:79990,  conn:"NACS" },
+  { id:"t-mx-plaid",   brand:"Tesla",     name:"Model X Plaid",                 battery:100, eff:2.8, range:326, msrp:99990,  conn:"NACS" },
+  { id:"t-ct-awd",     brand:"Tesla",     name:"Cybertruck AWD",                battery:123, eff:2.4, range:318, msrp:79990,  conn:"NACS" },
+  { id:"t-ct-beast",   brand:"Tesla",     name:"Cybertruck Cyberbeast",         battery:123, eff:2.2, range:301, msrp:99990,  conn:"NACS" },
+  // Hyundai (8)
+  { id:"h-i5-sr-rwd",  brand:"Hyundai",  name:"Ioniq 5 Standard Range RWD",    battery:58,  eff:3.7, range:220, msrp:42000,  conn:"CCS" },
+  { id:"h-i5-lr-rwd",  brand:"Hyundai",  name:"Ioniq 5 Long Range RWD",        battery:77,  eff:3.6, range:303, msrp:46000,  conn:"CCS" },
+  { id:"h-i5-lr-awd",  brand:"Hyundai",  name:"Ioniq 5 Long Range AWD",        battery:77,  eff:3.2, range:266, msrp:50000,  conn:"CCS" },
+  { id:"h-i5n",        brand:"Hyundai",  name:"Ioniq 5 N",                     battery:84,  eff:3.1, range:270, msrp:67000,  conn:"CCS" },
+  { id:"h-i6-lr-rwd",  brand:"Hyundai",  name:"Ioniq 6 Long Range RWD",        battery:77,  eff:4.2, range:361, msrp:42000,  conn:"CCS" },
+  { id:"h-i6-lr-awd",  brand:"Hyundai",  name:"Ioniq 6 Long Range AWD",        battery:77,  eff:3.9, range:305, msrp:46000,  conn:"CCS" },
+  { id:"h-ioniq9",     brand:"Hyundai",  name:"Ioniq 9 Standard AWD",          battery:110, eff:2.8, range:335, msrp:55000,  conn:"CCS" },
+  { id:"h-kona",       brand:"Hyundai",  name:"Kona Electric",                 battery:64,  eff:3.6, range:261, msrp:34000,  conn:"CCS" },
+  // Kia (8)
+  { id:"k-ev6-sr",     brand:"Kia",      name:"EV6 Standard Range RWD",        battery:58,  eff:3.4, range:232, msrp:42000,  conn:"CCS" },
+  { id:"k-ev6-lr-rwd", brand:"Kia",      name:"EV6 Long Range RWD",            battery:77,  eff:3.7, range:310, msrp:46000,  conn:"CCS" },
+  { id:"k-ev6-lr-awd", brand:"Kia",      name:"EV6 Long Range AWD",            battery:77,  eff:3.3, range:274, msrp:50000,  conn:"CCS" },
+  { id:"k-ev6-gt",     brand:"Kia",      name:"EV6 GT",                        battery:77,  eff:3.0, range:232, msrp:62000,  conn:"CCS" },
+  { id:"k-ev9-wind",   brand:"Kia",      name:"EV9 Wind RWD",                  battery:99,  eff:2.9, range:304, msrp:55000,  conn:"CCS" },
+  { id:"k-ev9-gt",     brand:"Kia",      name:"EV9 GT-Line AWD",               battery:99,  eff:2.8, range:280, msrp:63000,  conn:"CCS" },
+  { id:"k-ev3",        brand:"Kia",      name:"EV3 Standard Range",            battery:58,  eff:3.6, range:230, msrp:35000,  conn:"CCS" },
+  { id:"k-niro",       brand:"Kia",      name:"Niro EV",                       battery:64,  eff:3.3, range:253, msrp:40000,  conn:"CCS" },
+  // Chevrolet (8)
+  { id:"c-eq-lt",      brand:"Chevrolet",name:"Equinox EV LT FWD",             battery:85,  eff:3.1, range:319, msrp:34995,  conn:"NACS" },
+  { id:"c-eq-2rs",     brand:"Chevrolet",name:"Equinox EV 2RS AWD",            battery:85,  eff:2.9, range:280, msrp:41995,  conn:"NACS" },
+  { id:"c-bl-lt",      brand:"Chevrolet",name:"Blazer EV LT FWD",              battery:85,  eff:2.8, range:293, msrp:42995,  conn:"NACS" },
+  { id:"c-bl-rs",      brand:"Chevrolet",name:"Blazer EV RS AWD",              battery:85,  eff:2.6, range:279, msrp:47995,  conn:"NACS" },
+  { id:"c-bl-ss",      brand:"Chevrolet",name:"Blazer EV SS RWD",              battery:85,  eff:2.8, range:290, msrp:56000,  conn:"NACS" },
+  { id:"c-sv-wt",      brand:"Chevrolet",name:"Silverado EV Work Truck",       battery:170, eff:2.0, range:440, msrp:74800,  conn:"NACS" },
+  { id:"c-sv-rst",     brand:"Chevrolet",name:"Silverado EV RST",              battery:170, eff:1.9, range:440, msrp:96000,  conn:"NACS" },
+  { id:"c-bolt",       brand:"Chevrolet",name:"Bolt EV",                       battery:65,  eff:3.8, range:259, msrp:26500,  conn:"NACS" },
+  // Cadillac (5)
+  { id:"cd-lyriq-rwd", brand:"Cadillac", name:"Lyriq RWD",                     battery:102, eff:3.0, range:314, msrp:58590,  conn:"NACS" },
+  { id:"cd-lyriq-awd", brand:"Cadillac", name:"Lyriq AWD",                     battery:102, eff:2.7, range:288, msrp:64090,  conn:"NACS" },
+  { id:"cd-esciq",     brand:"Cadillac", name:"Escalade IQ",                   battery:212, eff:1.6, range:450, msrp:129990, conn:"NACS" },
+  { id:"cd-optiq",     brand:"Cadillac", name:"Optiq RWD",                     battery:85,  eff:2.8, range:302, msrp:54590,  conn:"NACS" },
+  { id:"cd-vistiq",    brand:"Cadillac", name:"Vistiq AWD",                    battery:102, eff:2.7, range:305, msrp:79990,  conn:"NACS" },
+  // Ford (5)
+  { id:"f-mache-sr",   brand:"Ford",     name:"Mustang Mach-E Standard RWD",   battery:70,  eff:3.1, range:247, msrp:40000,  conn:"NACS" },
+  { id:"f-mache-er",   brand:"Ford",     name:"Mustang Mach-E Extended RWD",   battery:91,  eff:2.9, range:312, msrp:46000,  conn:"NACS" },
+  { id:"f-mache-awd",  brand:"Ford",     name:"Mustang Mach-E Extended AWD",   battery:91,  eff:2.7, range:290, msrp:50000,  conn:"NACS" },
+  { id:"f-lt-sr",      brand:"Ford",     name:"F-150 Lightning Standard",      battery:98,  eff:2.4, range:240, msrp:57495,  conn:"NACS" },
+  { id:"f-lt-er",      brand:"Ford",     name:"F-150 Lightning Extended",      battery:131, eff:2.0, range:320, msrp:67495,  conn:"NACS" },
+  // Rivian (6)
+  { id:"r-r1t-dual",   brand:"Rivian",   name:"R1T Dual-Motor",                battery:135, eff:2.1, range:410, msrp:69900,  conn:"NACS" },
+  { id:"r-r1t-quad",   brand:"Rivian",   name:"R1T Quad-Motor",                battery:135, eff:1.9, range:390, msrp:79900,  conn:"NACS" },
+  { id:"r-r1t-perf",   brand:"Rivian",   name:"R1T Performance",               battery:149, eff:1.8, range:380, msrp:94900,  conn:"NACS" },
+  { id:"r-r1s-dual",   brand:"Rivian",   name:"R1S Dual-Motor",                battery:135, eff:2.0, range:410, msrp:75900,  conn:"NACS" },
+  { id:"r-r1s-quad",   brand:"Rivian",   name:"R1S Quad-Motor",                battery:135, eff:1.9, range:389, msrp:85900,  conn:"NACS" },
+  { id:"r-r2",         brand:"Rivian",   name:"R2",                            battery:75,  eff:3.1, range:300, msrp:45000,  conn:"NACS" },
+  // Volkswagen (5)
+  { id:"vw-id4-sr",    brand:"VW",       name:"ID.4 Standard Range RWD",       battery:62,  eff:3.2, range:209, msrp:38995,  conn:"CCS" },
+  { id:"vw-id4-pro",   brand:"VW",       name:"ID.4 Pro RWD",                  battery:82,  eff:3.2, range:275, msrp:43995,  conn:"CCS" },
+  { id:"vw-id4-awd",   brand:"VW",       name:"ID.4 Pro S AWD",                battery:82,  eff:2.9, range:255, msrp:48995,  conn:"CCS" },
+  { id:"vw-idbuzz",    brand:"VW",       name:"ID.Buzz AWD",                   battery:91,  eff:2.7, range:231, msrp:59995,  conn:"CCS" },
+  { id:"vw-id7",       brand:"VW",       name:"ID.7 Pro",                      battery:86,  eff:3.3, range:291, msrp:53000,  conn:"CCS" },
+  // BMW (12)
+  { id:"bmw-i4-35",    brand:"BMW",      name:"i4 eDrive35",                   battery:70,  eff:3.8, range:301, msrp:52900,  conn:"NACS" },
+  { id:"bmw-i4-40",    brand:"BMW",      name:"i4 eDrive40",                   battery:84,  eff:3.6, range:301, msrp:65900,  conn:"NACS" },
+  { id:"bmw-i4-m50",   brand:"BMW",      name:"i4 M50",                        battery:84,  eff:3.3, range:270, msrp:77900,  conn:"NACS" },
+  { id:"bmw-i5-40",    brand:"BMW",      name:"i5 eDrive40",                   battery:84,  eff:3.4, range:295, msrp:67900,  conn:"NACS" },
+  { id:"bmw-i5-m60",   brand:"BMW",      name:"i5 M60 xDrive",                 battery:84,  eff:3.1, range:256, msrp:89900,  conn:"NACS" },
+  { id:"bmw-i7-60",    brand:"BMW",      name:"i7 xDrive60",                   battery:101, eff:3.0, range:306, msrp:105900, conn:"NACS" },
+  { id:"bmw-i7-m70",   brand:"BMW",      name:"i7 M70 xDrive",                 battery:101, eff:2.8, range:280, msrp:185900, conn:"NACS" },
+  { id:"bmw-ix-40",    brand:"BMW",      name:"iX xDrive40",                   battery:76,  eff:2.9, range:257, msrp:87100,  conn:"NACS" },
+  { id:"bmw-ix-50",    brand:"BMW",      name:"iX xDrive50",                   battery:111, eff:2.8, range:324, msrp:95100,  conn:"NACS" },
+  { id:"bmw-ix-m60",   brand:"BMW",      name:"iX M60",                        battery:111, eff:2.6, range:288, msrp:109900, conn:"NACS" },
+  { id:"bmw-ix1",      brand:"BMW",      name:"iX1 xDrive30",                  battery:64,  eff:3.0, range:269, msrp:65900,  conn:"NACS" },
+  { id:"bmw-ix2",      brand:"BMW",      name:"iX2 xDrive30",                  battery:64,  eff:3.0, range:270, msrp:55900,  conn:"NACS" },
+  // Mercedes-Benz (7)
+  { id:"mb-eqb",       brand:"Mercedes", name:"EQB 300 4MATIC",                battery:66,  eff:2.8, range:227, msrp:53900,  conn:"CCS" },
+  { id:"mb-eqe-350",   brand:"Mercedes", name:"EQE 350+ Sedan",                battery:90,  eff:3.3, range:305, msrp:74900,  conn:"CCS" },
+  { id:"mb-eqe-500",   brand:"Mercedes", name:"EQE 500 4MATIC Sedan",          battery:90,  eff:3.1, range:270, msrp:85900,  conn:"CCS" },
+  { id:"mb-eqs-450",   brand:"Mercedes", name:"EQS 450+ Sedan",                battery:108, eff:3.4, range:350, msrp:104400, conn:"CCS" },
+  { id:"mb-eqs-580",   brand:"Mercedes", name:"EQS 580 4MATIC Sedan",          battery:108, eff:3.2, range:318, msrp:126400, conn:"CCS" },
+  { id:"mb-eqssv",     brand:"Mercedes", name:"EQS SUV 450+",                  battery:108, eff:2.9, range:305, msrp:104400, conn:"CCS" },
+  { id:"mb-g580",      brand:"Mercedes", name:"G 580 with EQ Technology",      battery:116, eff:2.4, range:248, msrp:178000, conn:"CCS" },
+  // Audi (7)
+  { id:"au-q4-40",     brand:"Audi",     name:"Q4 e-tron 40 RWD",              battery:82,  eff:3.4, range:265, msrp:45900,  conn:"CCS" },
+  { id:"au-q4sb-50",   brand:"Audi",     name:"Q4 Sportback e-tron 50 AWD",    battery:82,  eff:3.1, range:241, msrp:52900,  conn:"CCS" },
+  { id:"au-q6",        brand:"Audi",     name:"Q6 e-tron quattro",             battery:100, eff:3.2, range:321, msrp:65900,  conn:"CCS" },
+  { id:"au-q8-55",     brand:"Audi",     name:"Q8 e-tron 55 AWD",              battery:114, eff:2.7, range:300, msrp:74900,  conn:"CCS" },
+  { id:"au-q8sb-55",   brand:"Audi",     name:"Q8 Sportback e-tron 55",        battery:114, eff:2.8, range:297, msrp:79900,  conn:"CCS" },
+  { id:"au-sq8",       brand:"Audi",     name:"SQ8 e-tron AWD",                battery:114, eff:2.5, range:278, msrp:89900,  conn:"CCS" },
+  { id:"au-etgt",      brand:"Audi",     name:"e-tron GT quattro",             battery:93,  eff:3.0, range:300, msrp:104900, conn:"CCS" },
+  // Porsche (7)
+  { id:"po-tay-rwd",   brand:"Porsche",  name:"Taycan RWD",                    battery:79,  eff:3.2, range:263, msrp:92450,  conn:"CCS" },
+  { id:"po-tay-4s",    brand:"Porsche",  name:"Taycan 4S",                     battery:93,  eff:2.9, range:283, msrp:114950, conn:"CCS" },
+  { id:"po-tay-gts",   brand:"Porsche",  name:"Taycan GTS",                    battery:93,  eff:2.8, range:278, msrp:131950, conn:"CCS" },
+  { id:"po-tay-t",     brand:"Porsche",  name:"Taycan Turbo",                  battery:93,  eff:2.7, range:246, msrp:168950, conn:"CCS" },
+  { id:"po-tay-ts",    brand:"Porsche",  name:"Taycan Turbo S",                battery:93,  eff:2.6, range:234, msrp:218950, conn:"CCS" },
+  { id:"po-macan",     brand:"Porsche",  name:"Macan Electric AWD",            battery:100, eff:3.0, range:308, msrp:72950,  conn:"CCS" },
+  { id:"po-macan4",    brand:"Porsche",  name:"Macan 4 Electric",              battery:100, eff:3.2, range:316, msrp:68950,  conn:"CCS" },
+  // Nissan (4)
+  { id:"ni-leaf-s",    brand:"Nissan",   name:"Leaf S Plus",                   battery:60,  eff:3.5, range:212, msrp:29900,  conn:"CHADEMO" },
+  { id:"ni-leaf-sv",   brand:"Nissan",   name:"Leaf SV Plus",                  battery:60,  eff:3.5, range:212, msrp:31900,  conn:"CHADEMO" },
+  { id:"ni-ariya-fwd", brand:"Nissan",   name:"Ariya FWD",                     battery:87,  eff:2.9, range:304, msrp:40000,  conn:"CCS" },
+  { id:"ni-ariya-awd", brand:"Nissan",   name:"Ariya e-4ORCE AWD",             battery:87,  eff:2.7, range:265, msrp:48000,  conn:"CCS" },
+  // Honda (2)
+  { id:"ho-pro-fwd",   brand:"Honda",    name:"Prologue FWD",                  battery:85,  eff:2.9, range:296, msrp:47400,  conn:"NACS" },
+  { id:"ho-pro-awd",   brand:"Honda",    name:"Prologue AWD",                  battery:85,  eff:2.7, range:273, msrp:51400,  conn:"NACS" },
+  // Toyota (2)
+  { id:"to-bz4x-fwd",  brand:"Toyota",   name:"bZ4X FWD",                      battery:72,  eff:3.1, range:252, msrp:44420,  conn:"CCS" },
+  { id:"to-bz4x-awd",  brand:"Toyota",   name:"bZ4X AWD",                      battery:72,  eff:2.9, range:228, msrp:48420,  conn:"CCS" },
+  // Lexus (1)
+  { id:"lx-rz",        brand:"Lexus",    name:"RZ 450e AWD",                   battery:72,  eff:2.8, range:196, msrp:64000,  conn:"CCS" },
+  // Subaru (2)
+  { id:"su-sol-fwd",   brand:"Subaru",   name:"Solterra FWD",                  battery:71,  eff:2.9, range:228, msrp:45595,  conn:"CCS" },
+  { id:"su-sol-awd",   brand:"Subaru",   name:"Solterra AWD",                  battery:71,  eff:2.8, range:214, msrp:49595,  conn:"CCS" },
+  // Polestar (4)
+  { id:"ps-p2-lr1",    brand:"Polestar", name:"Polestar 2 Long Range Single",  battery:78,  eff:3.4, range:270, msrp:48400,  conn:"NACS" },
+  { id:"ps-p2-lr2",    brand:"Polestar", name:"Polestar 2 Long Range Dual",    battery:78,  eff:3.1, range:265, msrp:55300,  conn:"NACS" },
+  { id:"ps-p3",        brand:"Polestar", name:"Polestar 3 Long Range AWD",     battery:111, eff:2.8, range:315, msrp:73400,  conn:"NACS" },
+  { id:"ps-p4",        brand:"Polestar", name:"Polestar 4 Long Range Single",  battery:100, eff:3.0, range:300, msrp:60000,  conn:"NACS" },
+  // Genesis (5)
+  { id:"ge-gv60-sr",   brand:"Genesis",  name:"GV60 Standard RWD",             battery:74,  eff:3.1, range:248, msrp:43000,  conn:"CCS" },
+  { id:"ge-gv60-perf", brand:"Genesis",  name:"GV60 Performance AWD",          battery:77,  eff:2.8, range:235, msrp:57000,  conn:"CCS" },
+  { id:"ge-gv70e",     brand:"Genesis",  name:"GV70 Electrified AWD",          battery:77,  eff:2.9, range:236, msrp:67920,  conn:"CCS" },
+  { id:"ge-g80e",      brand:"Genesis",  name:"Electrified G80",               battery:87,  eff:3.1, range:282, msrp:82000,  conn:"CCS" },
+  { id:"ge-gv80c",     brand:"Genesis",  name:"GV80 Coupe Electrified",        battery:87,  eff:2.8, range:265, msrp:90000,  conn:"CCS" },
+  // Lucid (3)
+  { id:"lu-air-pure",  brand:"Lucid",    name:"Air Pure RWD",                  battery:88,  eff:4.5, range:419, msrp:69900,  conn:"CCS" },
+  { id:"lu-air-gt",    brand:"Lucid",    name:"Air Grand Touring",             battery:112, eff:4.3, range:516, msrp:138000, conn:"CCS" },
+  { id:"lu-air-saph",  brand:"Lucid",    name:"Air Sapphire",                  battery:118, eff:4.0, range:427, msrp:249000, conn:"CCS" },
+  // Volvo (4)
+  { id:"vo-ex30",      brand:"Volvo",    name:"EX30 Ultra Single",             battery:64,  eff:3.6, range:275, msrp:36245,  conn:"NACS" },
+  { id:"vo-ex40",      brand:"Volvo",    name:"EX40 Single Motor",             battery:79,  eff:3.2, range:260, msrp:54000,  conn:"NACS" },
+  { id:"vo-ec40",      brand:"Volvo",    name:"EC40 Single Motor",             battery:79,  eff:3.3, range:265, msrp:56000,  conn:"NACS" },
+  { id:"vo-ex90",      brand:"Volvo",    name:"EX90 Twin Motor",               battery:111, eff:2.8, range:310, msrp:80000,  conn:"NACS" },
+  // Mini (2)
+  { id:"mi-se",        brand:"Mini",     name:"Cooper SE",                     battery:40,  eff:4.0, range:114, msrp:30900,  conn:"CCS" },
+  { id:"mi-ace",       brand:"Mini",     name:"Aceman SE",                     battery:54,  eff:3.8, range:202, msrp:35900,  conn:"CCS" },
+  // Mazda (1)
+  { id:"ma-mx30",      brand:"Mazda",    name:"MX-30 EV",                      battery:35,  eff:3.8, range:100, msrp:33470,  conn:"CCS" },
+  // VinFast (2)
+  { id:"vf-vf8",       brand:"VinFast",  name:"VF8 Eco",                       battery:82,  eff:2.9, range:264, msrp:46000,  conn:"CCS" },
+  { id:"vf-vf9",       brand:"VinFast",  name:"VF9 Eco",                       battery:92,  eff:2.6, range:262, msrp:83000,  conn:"CCS" },
+  // Jaguar (1)
+  { id:"ja-ipace",     brand:"Jaguar",   name:"I-PACE EV400 AWD",              battery:90,  eff:2.7, range:246, msrp:70650,  conn:"CCS" },
+  // Ram (1)
+  { id:"ra-1500rev",   brand:"Ram",      name:"1500 REV",                      battery:168, eff:1.9, range:350, msrp:82995,  conn:"NACS" },
+  // Jeep (1)
+  { id:"je-wags",      brand:"Jeep",     name:"Wagoneer S",                    battery:100, eff:2.9, range:320, msrp:72000,  conn:"NACS" },
+  // Dodge (2)
+  { id:"do-charg-rt",  brand:"Dodge",    name:"Charger Daytona R/T",           battery:100, eff:2.9, range:318, msrp:59995,  conn:"NACS" },
+  { id:"do-charg-sp",  brand:"Dodge",    name:"Charger Daytona Scat Pack",     battery:100, eff:2.8, range:310, msrp:73995,  conn:"NACS" },
+  // Buick (1)
+  { id:"bu-electra",   brand:"Buick",    name:"Electra E4 AWD",                battery:85,  eff:2.9, range:303, msrp:54900,  conn:"NACS" },
 ];
 
 /* Gas vehicles — combined MPG */
@@ -1945,18 +2327,57 @@ function stateFromZip(zip) {
    ============================================================================ */
 const NETWORKS = [
   { id:"tesla", short:"T", name:"Tesla Supercharger", maxKw:250, perKwh:0.36, stations:2500, color:"#cc0000", bgColor:"#cc0000",
-    rating:"ex", connectors:["NACS","CCS"], stars:4.8, desc:"Best reliability, now open to most EVs with adapter." },
+    rating:"ex", connectors:["NACS","CCS"], stars:4.8, desc:"Best reliability, now open to most EVs with adapter.",
+    membershipLabel:"No membership required", memberPrice:null,
+    pros:["Best uptime and reliability in the US","NACS native for Tesla owners","Open to all EVs via adapter since 2023","V4 stalls up to 500 kW coming"],
+    cons:["Non-Tesla owners need NACS→CCS adapter (~$249)","Peak pricing during high-demand hours","Less common in rural areas than ChargePoint"] },
   { id:"ea", short:"EA", name:"Electrify America", maxKw:350, perKwh:0.48, stations:950, color:"#00b3e3", bgColor:"#00b3e3",
-    rating:"gd", connectors:["CCS","CHAdeMO"], stars:3.8, desc:"Fastest speeds available, Hyundai/Kia owners often get free charging." },
+    rating:"gd", connectors:["CCS","CHAdeMO"], stars:3.8, desc:"Fastest speeds available, Hyundai/Kia owners often get free charging.",
+    membershipLabel:"EA Pass+ ($4/mo)", memberPrice:4,
+    pros:["Fastest DCFC available (up to 350 kW)","Free charging plans for Hyundai, Kia, VW owners","Wide highway coverage along US corridors"],
+    cons:["Higher per-kWh pricing without a plan","Reliability issues reported at some locations","No NACS port yet — requires CCS connector"] },
   { id:"cp", short:"CP", name:"ChargePoint", maxKw:62, perKwh:0.42, stations:38000, color:"#0066b3", bgColor:"#0066b3",
-    rating:"gd", connectors:["CCS","NACS"], stars:4.2, desc:"Largest L2 network in the US — prices vary widely by host." },
+    rating:"gd", connectors:["CCS","NACS"], stars:4.2, desc:"Largest L2 network in the US — prices vary widely by host.",
+    membershipLabel:"ChargePoint plan ($9.99/mo saves up to 30%)", memberPrice:9.99,
+    pros:["Largest network in the US (38,000+ stations)","Both NACS and CCS connectors","Strong L2 presence in hotels, workplaces, parking"],
+    cons:["Pricing set by site hosts — can vary widely","Mostly L2, not ideal for quick top-ups on road trips","App required for some stations"] },
   { id:"evgo", short:"EG", name:"EVgo", maxKw:350, perKwh:0.45, stations:1000, color:"#5cb85c", bgColor:"#3da34d",
-    rating:"gd", connectors:["CCS","CHAdeMO","NACS"], stars:4.0, desc:"GM, Nissan, and Subaru partnerships for free or discounted charging." },
-  { id:"rivian", short:"R", name:"Rivian Adventure", maxKw:200, perKwh:0.32, stations:400, color:"#ffcb47", bgColor:"#d4a429",
-    rating:"ex", connectors:["CCS"], stars:4.5, desc:"Scenic locations, currently exclusive to Rivian vehicles." },
-  { id:"ionity", short:"IO", name:"IONITY (US coming)", maxKw:350, perKwh:0.50, stations:100, color:"#0080c0", bgColor:"#0080c0",
-    rating:"ex", connectors:["CCS"], stars:4.3, desc:"Premium European network expanding to the US in 2026." }
+    rating:"gd", connectors:["CCS","CHAdeMO","NACS"], stars:4.0, desc:"GM, Nissan, and Subaru partnerships for free or discounted charging.",
+    membershipLabel:"EVgo+ ($6.99/mo)", memberPrice:6.99,
+    pros:["All three connector types: NACS, CCS, CHAdeMO","GM, Nissan, Subaru partnership discounts","Urban-focused — good for apartment dwellers"],
+    cons:["Smaller network than EA or ChargePoint","Some older stations limited to 50 kW","Pricing can be higher without membership"] },
+  { id:"rivian", short:"R", name:"Rivian Adventure", maxKw:200, perKwh:0.32, stations:600, color:"#ffcb47", bgColor:"#d4a429",
+    rating:"ex", connectors:["NACS"], stars:4.5, desc:"Scenic locations, best rates — now open to all NACS vehicles.",
+    membershipLabel:"No membership — pay per session", memberPrice:null,
+    pros:["Lowest per-kWh pricing of any major DCFC network","Scenic adventure-focused locations","Expanding rapidly — open to all NACS EVs"],
+    cons:["NACS only — CCS vehicles need an adapter","Fewer stations than Tesla or Electrify America","Locations skewed toward outdoor destinations"] },
+  { id:"ionity", short:"IO", name:"IONITY (US coming)", maxKw:350, perKwh:0.50, stations:120, color:"#0080c0", bgColor:"#0080c0",
+    rating:"ex", connectors:["CCS"], stars:4.3, desc:"Premium European network expanding to the US in 2026.",
+    membershipLabel:"IONITY Pass ($17.99/mo)", memberPrice:17.99,
+    pros:["Up to 350 kW charging speed","Premium station experience","Strong growth planned for US in 2026"],
+    cons:["Very limited US presence currently","CCS only — no NACS","Higher per-kWh pricing without premium plan"] }
 ];
+
+/* ============================================================================
+   FEEL-GOOD FACTS — rotates on each recalculation
+   ============================================================================ */
+const FACTS = [
+  { icon:"🌲", tmpl:(save,co2)=>`Driving electric saves about <b>${Math.round(co2).toLocaleString()} lbs of CO₂</b> per year — like planting ${Math.round(co2/48)} trees annually.` },
+  { icon:"✈️", tmpl:(save,co2)=>`Your annual CO₂ savings equal roughly <b>${(co2/1100).toFixed(1)} round-trip flights</b> from New York to LA avoided.` },
+  { icon:"☕", tmpl:(save)=>`That <b>$${Math.round(save).toLocaleString()}/yr</b> savings buys about <b>${Math.round(save/5).toLocaleString()} coffees</b> a year.` },
+  { icon:"⛽", tmpl:(save,co2,gasYr)=>`You're replacing <b>${Math.round(gasYr/3.4).toLocaleString()} gallons</b> of gas per year with electrons from your wall.` },
+  { icon:"🏠", tmpl:(save)=>`Over 10 years, that adds up to <b>$${Math.round(save*10).toLocaleString()}</b> back in your pocket.` },
+  { icon:"🔋", tmpl:(save,co2,gasYr,evYr)=>`Your EV fuel bill of <b>$${Math.round(evYr).toLocaleString()}/yr</b> is ${Math.round((1-evYr/gasYr)*100)}% lower than the gas equivalent.` },
+  { icon:"🌍", tmpl:(save,co2)=>`${Math.round(co2/2204*10)/10} metric tons of CO₂ saved — that's equivalent to ${Math.round(co2/888)} months of the average car off the road.` },
+];
+let _lastFactIdx = -1;
+function pickFact(save, co2, gasYr, evYr) {
+  let idx;
+  do { idx = Math.floor(Math.random() * FACTS.length); } while (idx === _lastFactIdx);
+  _lastFactIdx = idx;
+  const f = FACTS[idx];
+  return `<span class="fact-icon">${f.icon}</span> ${f.tmpl(save, co2, gasYr, evYr)}`;
+}
 
 /* ============================================================================
    ANIMATED COUNTER
@@ -2005,13 +2426,14 @@ function setLocation(stateCode, zip) {
 
 function renderLocation() {
   const d = CURRENT.data;
-  document.getElementById("loc-state").textContent = d.name;
+  const label = CURRENT.state ? d.name : "Detecting…";
+  document.getElementById("loc-state").textContent = CURRENT.state ? d.name : "Detecting…";
   document.getElementById("loc-kwh").textContent = `${d.kwh.toFixed(1)}¢`;
   document.getElementById("loc-gas").textContent = `$${d.gas.toFixed(2)}`;
-  document.getElementById("hero-state").textContent = d.name;
-  document.getElementById("meter-state").textContent = d.name;
+  document.getElementById("hero-state").textContent = label;
+  document.getElementById("meter-state").textContent = label;
   document.getElementById("meter-rate").textContent = `${d.kwh.toFixed(1)}¢/kWh · $${d.gas.toFixed(2)}/gal`;
-  document.getElementById("bar-state").textContent = d.name;
+  document.getElementById("bar-state").textContent = label;
   document.getElementById("tou-tag").style.display = d.tou ? "" : "none";
 }
 
@@ -2211,8 +2633,36 @@ function calcAll(animate=true) {
   // ─── Save bar ───
   document.getElementById("bar-amt").textContent = fmtMoney0(annualSave);
 
+  // ─── Feel-good fact ───
+  const fgEl = document.getElementById("feel-good");
+  if (fgEl && annualSave > 0) {
+    fgEl.innerHTML = pickFact(annualSave, co2Saved, gasCost, evCost);
+    fgEl.style.display = "";
+  } else if (fgEl) {
+    fgEl.style.display = "none";
+  }
+
   // ─── Networks ───
-  renderNetworks(i.publicKwh);
+  renderNetworks(i.publicKwh, annualSave);
+}
+
+function connCompat(evConn, netConns) {
+  if (!evConn) return { label:"Check app", cls:"adapter", note:"Select your EV above to see compatibility" };
+  if (evConn === "NACS" && netConns.includes("NACS")) return { label:"✓ Native NACS", cls:"yes", note:"Your EV plugs in directly" };
+  if (evConn === "CCS" && netConns.includes("CCS")) return { label:"✓ Native CCS", cls:"yes", note:"Your EV plugs in directly" };
+  if (evConn === "CHADEMO" && netConns.includes("CHAdeMO")) return { label:"✓ CHAdeMO", cls:"yes", note:"Your EV plugs in directly" };
+  if (evConn === "NACS" && netConns.includes("CCS") && !netConns.includes("NACS")) return { label:"⚡ Needs adapter", cls:"adapter", note:"CCS→NACS adapter required (~$149)" };
+  if (evConn === "CCS" && netConns.includes("NACS") && !netConns.includes("CCS")) return { label:"⚡ Needs adapter", cls:"adapter", note:"NACS→CCS adapter required (~$249)" };
+  if (evConn === "CHADEMO") return { label:"✗ Not compatible", cls:"incompat", note:"CHAdeMO not supported at this network" };
+  return { label:"Check app", cls:"adapter", note:"Verify connector type with network app" };
+}
+
+function getSelectedEvConn() {
+  const evSel = document.getElementById("ev-pick");
+  if (!evSel) return null;
+  const evId = evSel.value;
+  const ev = EV_MODELS.find(m => m.id === evId);
+  return ev ? ev.conn : null;
 }
 
 function renderNetworks(publicKwh) {
@@ -2221,12 +2671,15 @@ function renderNetworks(publicKwh) {
   const costs = NETWORKS.map(n => ({ ...n, annualCost: publicKwh * n.perKwh }));
   costs.sort((a,b) => a.annualCost - b.annualCost);
   const cheapest = costs[0], priciest = costs[costs.length - 1];
+  const evConn = getSelectedEvConn();
 
   costs.forEach((n, idx) => {
     const card = document.createElement("div");
     card.className = "net-card" + (idx === 0 ? " best" : "") + (idx === costs.length - 1 ? " priciest" : "");
     const ratingLabel = n.rating === "ex" ? "Excellent" : n.rating === "gd" ? "Good" : "Fair";
+    const compat = connCompat(evConn, n.connectors);
     card.innerHTML = `
+      ${idx === 0 ? '<span class="net-best-badge">Best for you</span>' : ''}
       <div class="net-head">
         <div class="net-logo" style="background:${n.bgColor};">${n.short}</div>
         <div class="net-name"><b>${n.name}</b><span>${n.maxKw} kW max</span></div>
@@ -2241,11 +2694,15 @@ function renderNetworks(publicKwh) {
         <span class="net-cost-val">$${Math.round(n.annualCost).toLocaleString()}</span>
       </div>
       <div class="net-tags">
-        ${n.connectors.map(c => `<span class="net-tag yes">✓ ${c}</span>`).join("")}
+        <span class="net-tag ${compat.cls}">${compat.label}</span>
+        ${n.connectors.map(c => `<span class="net-tag yes">${c}</span>`).join("")}
         <span class="net-tag star">★ ${n.stars}</span>
       </div>
+      ${compat.note ? `<div class="net-compat-note">${compat.note}</div>` : ""}
       <div class="net-desc">${n.desc}</div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--emerald);margin-top:10px;letter-spacing:.04em">Tap for full details →</div>
     `;
+    card.addEventListener("click", () => openDrawer(n, evConn, n.annualCost));
     grid.appendChild(card);
   });
 
@@ -2255,6 +2712,34 @@ function renderNetworks(publicKwh) {
   document.getElementById("costly-cost").textContent = "$" + Math.round(priciest.annualCost).toLocaleString();
   document.getElementById("net-save").textContent = "$" + Math.round(priciest.annualCost - cheapest.annualCost).toLocaleString() + "/yr";
   document.getElementById("public-kwh").textContent = Math.round(publicKwh).toLocaleString() + " kWh";
+}
+
+function openDrawer(n, evConn, annualCost) {
+  const compat = connCompat(evConn, n.connectors);
+  document.getElementById("dr-logo").style.background = n.bgColor;
+  document.getElementById("dr-logo").textContent = n.short;
+  document.getElementById("dr-title").textContent = n.name;
+  document.getElementById("dr-subtitle").textContent = `${n.maxKw} kW max · ★ ${n.stars}`;
+  document.getElementById("dr-maxkw").textContent = n.maxKw;
+  document.getElementById("dr-perkwh").textContent = "$" + n.perKwh.toFixed(2);
+  document.getElementById("dr-stations").textContent = n.stations.toLocaleString();
+  document.getElementById("dr-annual-cost").textContent = "$" + Math.round(annualCost).toLocaleString() + "/yr";
+  document.getElementById("dr-cost-note").textContent = `Based on your public charging usage`;
+  document.getElementById("dr-compat").innerHTML = `<span class="net-tag ${compat.cls}" style="font-size:13px;padding:6px 14px">${compat.label}</span><div class="net-compat-note" style="margin-top:6px">${compat.note}</div>`;
+  document.getElementById("dr-membership").innerHTML = `<b>Membership:</b> ${n.membershipLabel}`;
+  const prosList = document.getElementById("dr-pros");
+  prosList.innerHTML = (n.pros||[]).map(p => `<li>${p}</li>`).join("");
+  const consList = document.getElementById("dr-cons");
+  consList.innerHTML = (n.cons||[]).map(c => `<li>${c}</li>`).join("");
+  document.getElementById("drawer-overlay").classList.add("open");
+  document.getElementById("net-drawer").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeDrawer() {
+  document.getElementById("drawer-overlay").classList.remove("open");
+  document.getElementById("net-drawer").classList.remove("open");
+  document.body.style.overflow = "";
 }
 
 function recomputeAll() { try { calcAll(true); } catch(e) { console.error(e); } }
@@ -2393,6 +2878,50 @@ function init() {
 
 init();
 </script>
+
+<!-- ── Bottom drawer ── -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="net-drawer" role="dialog" aria-modal="true" aria-label="Network details">
+  <div class="drawer-handle"></div>
+  <div class="drawer-inner">
+    <div class="drawer-head">
+      <div class="drawer-logo" id="dr-logo"></div>
+      <div>
+        <div class="drawer-title" id="dr-title"></div>
+        <div class="drawer-subtitle" id="dr-subtitle"></div>
+      </div>
+    </div>
+    <div class="drawer-stat-row">
+      <div class="drawer-stat"><div class="ds-val" id="dr-maxkw"></div><div class="ds-lbl">Max kW</div></div>
+      <div class="drawer-stat"><div class="ds-val" id="dr-perkwh"></div><div class="ds-lbl">Per kWh</div></div>
+      <div class="drawer-stat"><div class="ds-val" id="dr-stations"></div><div class="ds-lbl">Stations</div></div>
+    </div>
+    <div class="drawer-section">
+      <h4>Your annual cost estimate</h4>
+      <div style="font-family:var(--serif);font-size:32px;font-weight:500;letter-spacing:-.03em;color:var(--forest)" id="dr-annual-cost"></div>
+      <div style="font-size:12px;color:var(--ink-mute);margin-top:4px" id="dr-cost-note"></div>
+    </div>
+    <div class="drawer-section">
+      <h4>Connector compatibility</h4>
+      <div id="dr-compat" style="margin-bottom:8px"></div>
+    </div>
+    <div class="drawer-section">
+      <h4>Membership</h4>
+      <div class="drawer-membership" id="dr-membership"></div>
+    </div>
+    <div class="drawer-pros-cons">
+      <div class="drawer-pros">
+        <h4>Pros</h4>
+        <ul class="drawer-list" id="dr-pros"></ul>
+      </div>
+      <div class="drawer-cons">
+        <h4>Cons</h4>
+        <ul class="drawer-list" id="dr-cons"></ul>
+      </div>
+    </div>
+    <button class="drawer-close" onclick="closeDrawer()">Done</button>
+  </div>
+</div>
 
 </body>
 </html>
