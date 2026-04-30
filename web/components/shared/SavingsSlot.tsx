@@ -25,9 +25,9 @@ const FACTS = [
 
 function Reel({ value, spin, delay, accent }: { value: string; spin: boolean; delay: number; accent?: boolean }) {
   return (
-    <div className={`flex-1 min-w-0 rounded-2xl overflow-hidden ${accent ? "bg-emerald/10 border border-emerald/30" : "bg-white/8 border border-white/12"}`}>
+    <div className={`flex-1 min-w-0 rounded-xl overflow-hidden flex items-center justify-center ${accent ? "bg-emerald/10 border border-emerald/30" : "bg-white/8 border border-white/12"}`}>
       <div
-        className={`py-3.5 px-2 text-center transition-all ${accent ? "font-serif text-xl font-semibold" : "font-mono text-xs text-cream/80"}`}
+        className={`py-2 px-2 text-center w-full transition-all ${accent ? "font-serif text-base font-semibold" : "font-mono text-[11px] text-cream/80"}`}
         style={{
           transitionDuration: "220ms",
           transitionDelay: spin ? `${delay}ms` : "0ms",

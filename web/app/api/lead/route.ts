@@ -41,14 +41,14 @@ export async function POST(req: NextRequest) {
   const stateCode = zip ? stateFromZip(zip) : null;
   const stateName = stateCode ? getStateData(stateCode).name : null;
 
-  // Supabase write — non-blocking, never fails the request
+  // Supabase write — upsert so same email updates zip/state rather than creating duplicates
   try {
     const supabase = createClient(supabaseUrl, supabaseKey);
-    const { error } = await supabase.from("leads").insert(
+    const { error } = await supabase.from("leads").upsert(
       { email, zip: zip || null, state_code: stateCode, source_page: sourcePage },
+      { onConflict: "email" },
     );
-    if (error && error.code !== "23505") {
-      // 23505 = unique_violation (duplicate email) — silently ignore
+    if (error) {
       console.error("[lead] Supabase write failed:", error);
     } else {
       console.log("[lead] Supabase write OK");

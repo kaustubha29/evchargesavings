@@ -1,5 +1,6 @@
 "use client";
 import { useMemo, useEffect, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { useCalculatorStore, computeSavings, computeCO2 } from "@/store/calculator";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { stateFromZip, getStateData } from "@/features/location/queries";
@@ -26,6 +27,9 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
     setHomeRate, setPublicRate, setGasPrice, setLocation,
   } = store;
 
+  const router   = useRouter();
+  const pathname = usePathname();
+
   const [zipInput, setZipInput] = useState("");
   const [zipError, setZipError] = useState(false);
 
@@ -34,7 +38,12 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
     if (!code) { setZipError(true); return; }
     setZipError(false);
     setZipInput("");
-    setLocation(code, getStateData(code), zip.trim());
+    const info = getStateData(code);
+    setLocation(code, info, zip.trim());
+    // On state pages, navigate so the hero + URL reflect the new state
+    if (pathname.startsWith("/ev-cost/")) {
+      router.push(`/ev-cost/${info.slug}`);
+    }
   }
 
   const ev  = useMemo(() => evRepository.getBySlug(evSlug) ?? evRepository.getAll()[0], [evSlug]);

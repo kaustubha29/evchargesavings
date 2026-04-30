@@ -7,6 +7,7 @@ import { calculateCO2 } from "@/features/calculations/co2";
 import { statePageMeta } from "@/features/content/seo";
 import { CalculatorShell } from "@/components/features/calculator/CalculatorShell";
 import { LocationDetector } from "@/components/features/location/LocationDetector";
+import { SiteFooter } from "@/components/shared/SiteFooter";
 import { fmt } from "@/lib/format";
 
 interface Props {
@@ -172,18 +173,7 @@ export default async function StateCalculatorPage({ params }: Props) {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="bg-ink text-cream/40 py-10 border-t border-white/10">
-          <div className="section-wrap">
-            <div className="flex flex-wrap justify-between items-center gap-4 text-xs font-mono">
-              <span>© 2026 EV Charge Savings</span>
-              <span className="text-cream/25 text-center max-w-2xl">
-                Rate data from EIA Nov 2025 + AAA monthly averages. Calculations are estimates — actual savings depend on your driving and utility.
-              </span>
-              <span>evchargesavings.com</span>
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </main>
     </>
   );
