@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -21,6 +22,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="pb-20">
+        {/* Google AdSense — replace XXXXXXXXXXXXXXXX with your publisher ID */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
         {/* Top status bar */}
         <div className="bg-[#0d2c1f] text-cream font-mono text-[11px] uppercase tracking-[.08em] px-6 py-2.5 flex justify-between items-center gap-4 flex-wrap">
           <div>
