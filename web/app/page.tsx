@@ -6,7 +6,7 @@ import { PublicChargingSection } from "@/components/features/networks/PublicChar
 import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
 import { LeadCaptureBox } from "@/components/shared/LeadCaptureBox";
 import { SiteFooter } from "@/components/shared/SiteFooter";
-import { LiveReceipt } from "@/components/shared/LiveReceipt";
+import { SavingsSlot } from "@/components/shared/SavingsSlot";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -61,9 +61,9 @@ export default function HomePage() {
                 </p>
               </div>
 
-              {/* Right: live receipt */}
-              <div className="hidden lg:block">
-                <LiveReceipt />
+              {/* Right: savings slot */}
+              <div>
+                <SavingsSlot />
               </div>
             </div>
           </div>

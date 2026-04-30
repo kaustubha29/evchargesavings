@@ -12,11 +12,22 @@ const COMBOS = [
   { ev: "Lucid Air GT",     state: "Arizona",     saving: "$1,490" },
 ];
 
+const FACTS = [
+  "EVs have ~20 moving parts vs 2,000+ in a gas engine",
+  "The avg EV owner spends $900 less on fuel every year",
+  "90% of EV charging happens at home — overnight",
+  "Brake pads last 2× longer thanks to regenerative braking",
+  "EVs retain ~80% of battery capacity after 200,000 miles",
+  "Electricity prices are 3× more stable than gasoline",
+  "The Model Y is the world's best-selling car — any kind",
+  "A full charge costs less than a large pizza in most states",
+];
+
 function Reel({ value, spin, delay, accent }: { value: string; spin: boolean; delay: number; accent?: boolean }) {
   return (
     <div className={`flex-1 min-w-0 rounded-2xl overflow-hidden ${accent ? "bg-emerald/10 border border-emerald/30" : "bg-white/8 border border-white/12"}`}>
       <div
-        className={`py-4 px-3 text-center transition-all ${accent ? "font-serif text-2xl font-semibold" : "font-mono text-sm text-cream/80"}`}
+        className={`py-3.5 px-2 text-center transition-all ${accent ? "font-serif text-xl font-semibold" : "font-mono text-xs text-cream/80"}`}
         style={{
           transitionDuration: "220ms",
           transitionDelay: spin ? `${delay}ms` : "0ms",
@@ -37,8 +48,10 @@ function Reel({ value, spin, delay, accent }: { value: string; spin: boolean; de
 }
 
 export function SavingsSlot() {
-  const [idx, setIdx]   = useState(0);
-  const [spin, setSpin] = useState(false);
+  const [idx, setIdx]       = useState(0);
+  const [factIdx, setFactIdx] = useState(0);
+  const [spin, setSpin]     = useState(false);
+  const [factFade, setFactFade] = useState(true);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -47,7 +60,19 @@ export function SavingsSlot() {
         setIdx((i) => (i + 1) % COMBOS.length);
         setSpin(false);
       }, 500);
-    }, 3000);
+    }, 3200);
+    return () => clearInterval(id);
+  }, []);
+
+  // Facts cycle independently, slower
+  useEffect(() => {
+    const id = setInterval(() => {
+      setFactFade(false);
+      setTimeout(() => {
+        setFactIdx((i) => (i + 1) % FACTS.length);
+        setFactFade(true);
+      }, 400);
+    }, 5000);
     return () => clearInterval(id);
   }, []);
 
@@ -59,7 +84,7 @@ export function SavingsSlot() {
       <div className="h-0.5 bg-gradient-to-r from-forest via-emerald to-forest" />
 
       {/* Header */}
-      <div className="px-5 py-4 border-b border-white/8 flex items-center justify-between">
+      <div className="px-5 py-3.5 border-b border-white/8 flex items-center justify-between">
         <div className="font-mono text-[10px] uppercase tracking-widest text-cream/40">
           EV savings · real examples
         </div>
@@ -79,7 +104,7 @@ export function SavingsSlot() {
       </div>
 
       {/* Reel labels */}
-      <div className="flex gap-2.5 px-5 pt-5 pb-2">
+      <div className="flex gap-2 px-5 pt-4 pb-2">
         {["EV model", "State", "Saves / yr"].map((l) => (
           <div key={l} className="flex-1 text-center font-mono text-[9px] uppercase tracking-widest text-cream/30">
             {l}
@@ -88,14 +113,25 @@ export function SavingsSlot() {
       </div>
 
       {/* Reels */}
-      <div className="flex gap-2.5 px-5 pb-6">
+      <div className="flex gap-2 px-5 pb-4">
         <Reel value={ev}     spin={spin} delay={0}   />
         <Reel value={state}  spin={spin} delay={110} />
         <Reel value={saving} spin={spin} delay={220} accent />
       </div>
 
+      {/* EV fact strip */}
+      <div className="border-t border-white/8 px-5 py-3 flex items-center gap-2">
+        <span className="text-emerald text-[11px] flex-shrink-0">⚡</span>
+        <p
+          className="font-mono text-[10px] text-cream/45 leading-snug transition-all duration-300 line-clamp-2"
+          style={{ opacity: factFade ? 1 : 0, transform: factFade ? "translateY(0)" : "translateY(3px)" }}
+        >
+          {FACTS[factIdx]}
+        </p>
+      </div>
+
       {/* Footer */}
-      <div className="bg-white/4 border-t border-white/8 px-5 py-3.5 flex items-center justify-between">
+      <div className="bg-white/4 border-t border-white/8 px-5 py-3 flex items-center justify-between">
         <div className="font-mono text-[9px] text-cream/25">vs equivalent gas car · 13,500 mi/yr</div>
         <div className="flex items-center gap-1.5 font-mono text-[9px] text-emerald/70">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
