@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllStates } from "@/features/location/queries";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
+import { GUIDES } from "@/features/guides/data";
 
 const BASE = "https://evchargesavings.com";
 const NOW = new Date().toISOString();
@@ -53,9 +54,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  const guideUrls = GUIDES.map((g) => ({
+    url: `${BASE}/guides/${g.slug}`,
+    lastModified: NOW,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
   return [
     { url: BASE, lastModified: NOW, changeFrequency: "weekly", priority: 1.0 },
     { url: `${BASE}/privacy`, lastModified: NOW, changeFrequency: "yearly", priority: 0.2 },
+    ...guideUrls,
     ...stateUrls,
     ...evUrls,
     ...compareUrls,

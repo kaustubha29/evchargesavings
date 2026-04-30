@@ -1,4 +1,5 @@
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
+import { GUIDES } from "@/features/guides/data";
 import { CalculatorShell } from "@/components/features/calculator/CalculatorShell";
 import { LocationDetector } from "@/components/features/location/LocationDetector";
 import { PublicChargingSection } from "@/components/features/networks/PublicChargingSection";
@@ -37,22 +38,69 @@ export default function HomePage() {
         {/* ── Hero ── */}
         <section className="bg-paper border-b border-line py-14 md:py-20">
           <div className="section-wrap">
-            <div className="inline-flex flex-wrap items-center gap-x-3 gap-y-1.5 bg-good-bg text-good-fg font-mono text-xs px-4 py-2 rounded-full border border-good-fg/15 mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse flex-shrink-0" />
-              {["2026 rates", "US EIA + AAA data", "50 states + DC", "130+ EV models", "Free forever", "No signup"].map((item, i) => (
-                <span key={item} className="flex items-center gap-x-3">
-                  {i > 0 && <span className="text-good-fg/30">·</span>}
-                  {item}
-                </span>
-              ))}
+            <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
+              {/* Left: headline */}
+              <div>
+                <div className="inline-flex flex-wrap items-center gap-x-3 gap-y-1.5 bg-good-bg text-good-fg font-mono text-xs px-4 py-2 rounded-full border border-good-fg/15 mb-5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse flex-shrink-0" />
+                  {["2026 rates", "US EIA + AAA data", "50 states + DC", "130+ EV models", "Free forever", "No signup"].map((item, i) => (
+                    <span key={item} className="flex items-center gap-x-3">
+                      {i > 0 && <span className="text-good-fg/30">·</span>}
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <h1 className="font-serif font-medium tracking-tight text-ink mb-4 overflow-visible" style={{ fontSize: "clamp(2.25rem,6vw,3.75rem)", lineHeight: 1.15 }}>
+                  <span className="block">How much would going</span>
+                  <em className="block italic text-forest">electric save you?</em>
+                </h1>
+                <p className="text-ink-3 text-lg max-w-xl leading-relaxed">
+                  Real electricity and gas rates for your state. Pick your EV and your current car — see the savings instantly.
+                </p>
+              </div>
+
+              {/* Right: savings snapshot card */}
+              <div className="bg-paper border border-line rounded-3xl p-7 shadow-2 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-emerald opacity-[0.06] -translate-y-10 translate-x-10 pointer-events-none" />
+                <div className="relative">
+                  <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">National average estimate</div>
+                  <div className="font-mono text-[10px] text-ink-mute/60 mb-4">Model Y vs RAV4 · 13,500 mi/yr</div>
+
+                  <div className="mb-5">
+                    <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute/60 mb-1">You&apos;d save approx.</div>
+                    <div
+                      className="font-serif font-medium leading-none"
+                      style={{ fontSize: "clamp(48px,7vw,80px)", background: "linear-gradient(135deg,#1a4d36,#2ecc71)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                    >
+                      $907
+                    </div>
+                    <div className="font-serif italic text-lg text-ink-3 mt-1">per year going electric</div>
+                  </div>
+
+                  <div className="space-y-3 mb-5">
+                    {[
+                      { label: "Gas (RAV4)", val: 1648, max: 1648, color: "#c25234" },
+                      { label: "EV (Model Y)", val: 741, max: 1648, color: "#34a960" },
+                    ].map((row) => (
+                      <div key={row.label}>
+                        <div className="flex justify-between text-xs mb-1.5">
+                          <span className="text-ink-3">{row.label}</span>
+                          <span className="font-mono text-ink">${row.val.toLocaleString()}/yr</span>
+                        </div>
+                        <div className="h-2 bg-cream-soft rounded-full overflow-hidden">
+                          <div className="h-full rounded-full transition-all" style={{ width: `${(row.val / row.max * 100).toFixed(0)}%`, background: row.color }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="text-[10px] font-mono text-ink-mute mb-3">16.2¢/kWh avg · $3.42/gal avg · 80% home charging</div>
+                  <a href="#calculator" className="inline-flex items-center gap-1.5 font-mono text-xs text-forest hover:text-emerald transition-colors font-medium">
+                    Personalise for your car & state →
+                  </a>
+                </div>
+              </div>
             </div>
-            <h1 className="font-serif font-medium tracking-tight text-ink mb-4 max-w-2xl overflow-visible" style={{ fontSize: "clamp(2.25rem,6vw,3.75rem)", lineHeight: 1.15 }}>
-              <span className="block">How much would going</span>
-              <em className="block italic text-forest">electric save you?</em>
-            </h1>
-            <p className="text-ink-3 text-lg max-w-xl leading-relaxed">
-              Real electricity and gas rates for your state. Pick your EV and your current car — see the savings instantly.
-            </p>
           </div>
         </section>
 
@@ -381,46 +429,15 @@ export default function HomePage() {
             {/* Ad: rectangle inside guides (sidebar-style on desktop) */}
             <div className="flex flex-col lg:flex-row gap-8">
               <div className="grid sm:grid-cols-2 gap-4 flex-1">
-                {[
-                  {
-                    title: "Is an EV right for you?",
-                    desc: "The 5 questions that determine whether an EV fits your life — apartment vs. home, commute length, access to public charging.",
-                    readTime: "5 min read",
-                  },
-                  {
-                    title: "How to claim the $7,500 EV tax credit",
-                    desc: "Income limits, vehicle eligibility, and the new point-of-sale option. Avoid the mistakes that disqualify thousands of buyers.",
-                    readTime: "6 min read",
-                  },
-                  {
-                    title: "Home charging setup checklist",
-                    desc: "Panel capacity check, charger selection, permit requirements, installer vetting — everything before your Level 2 EVSE goes on the wall.",
-                    readTime: "7 min read",
-                  },
-                  {
-                    title: "Road trip planning with an EV",
-                    desc: "How to use ABRP, picking the right charging stops, managing range anxiety, and why most people stop worrying after the first road trip.",
-                    readTime: "8 min read",
-                  },
-                  {
-                    title: "EV vs hybrid: which is right for you?",
-                    desc: "Plug-in hybrid, full hybrid, or battery electric — how each fits different driving patterns.",
-                    readTime: "6 min read",
-                  },
-                  {
-                    title: "Understanding time-of-use (TOU) rates",
-                    desc: "How to slash your charging cost by 40–60% by shifting to off-peak electricity pricing. State-by-state program guide.",
-                    readTime: "5 min read",
-                  },
-                ].map((g) => (
+                {GUIDES.map((g) => (
                   <a
-                    key={g.title}
-                    href="#guides"
+                    key={g.slug}
+                    href={`/guides/${g.slug}`}
                     className="block bg-paper border border-line rounded-2xl p-5 hover:border-forest/40 hover:shadow-1 transition-all group"
                   >
                     <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-2">{g.readTime}</div>
                     <div className="font-serif text-base font-medium text-ink mb-2 group-hover:text-forest transition-colors leading-snug">{g.title}</div>
-                    <p className="text-sm text-ink-3 leading-relaxed">{g.desc}</p>
+                    <p className="text-sm text-ink-3 leading-relaxed">{g.description}</p>
                     <div className="font-mono text-[10px] text-forest mt-3 group-hover:underline">Read guide →</div>
                   </a>
                 ))}
