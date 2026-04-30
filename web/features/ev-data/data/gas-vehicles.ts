@@ -1,0 +1,27 @@
+import type { GasVehicle } from "@/features/ev-data/types";
+
+export const GAS_MODELS: GasVehicle[] = [
+  { id:"toyota-camry",          name:"Toyota Camry",           mpg:32, type:"Sedan"     },
+  { id:"toyota-rav4",           name:"Toyota RAV4",            mpg:30, type:"SUV"       },
+  { id:"honda-civic",           name:"Honda Civic",            mpg:36, type:"Sedan"     },
+  { id:"honda-cr-v",            name:"Honda CR-V",             mpg:30, type:"SUV"       },
+  { id:"honda-accord",          name:"Honda Accord",           mpg:33, type:"Sedan"     },
+  { id:"ford-f150",             name:"Ford F-150 (V6)",        mpg:22, type:"Truck"     },
+  { id:"ford-explorer",         name:"Ford Explorer",          mpg:23, type:"SUV"       },
+  { id:"chevy-silverado",       name:"Chevy Silverado 1500",   mpg:20, type:"Truck"     },
+  { id:"chevy-equinox",         name:"Chevy Equinox",          mpg:28, type:"SUV"       },
+  { id:"hyundai-elantra",       name:"Hyundai Elantra",        mpg:36, type:"Sedan"     },
+  { id:"hyundai-tucson",        name:"Hyundai Tucson",         mpg:28, type:"SUV"       },
+  { id:"jeep-grand-cherokee",   name:"Jeep Grand Cherokee",    mpg:22, type:"SUV"       },
+  { id:"jeep-wrangler",         name:"Jeep Wrangler",          mpg:20, type:"SUV"       },
+  { id:"subaru-outback",        name:"Subaru Outback",         mpg:28, type:"Wagon"     },
+  { id:"subaru-forester",       name:"Subaru Forester",        mpg:29, type:"SUV"       },
+  { id:"bmw-x5",                name:"BMW X5",                 mpg:24, type:"SUV"       },
+  { id:"bmw-3",                 name:"BMW 3 Series",           mpg:30, type:"Sedan"     },
+  { id:"mercedes-glc",          name:"Mercedes GLC",           mpg:25, type:"SUV"       },
+  { id:"audi-q5",               name:"Audi Q5",                mpg:25, type:"SUV"       },
+  { id:"ram-1500",              name:"Ram 1500",               mpg:21, type:"Truck"     },
+  { id:"avg-sedan",             name:"Average sedan (US)",     mpg:32, type:"Reference" },
+  { id:"avg-suv",               name:"Average SUV (US)",       mpg:25, type:"Reference" },
+  { id:"avg-truck",             name:"Average truck (US)",     mpg:19, type:"Reference" },
+];
