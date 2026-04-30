@@ -5,6 +5,8 @@ import { LocationDetector } from "@/components/features/location/LocationDetecto
 import { PublicChargingSection } from "@/components/features/networks/PublicChargingSection";
 import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
 import { LeadCaptureBox } from "@/components/shared/LeadCaptureBox";
+import { SiteFooter } from "@/components/shared/SiteFooter";
+import { LiveReceipt } from "@/components/shared/LiveReceipt";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -59,46 +61,9 @@ export default function HomePage() {
                 </p>
               </div>
 
-              {/* Right: savings snapshot card */}
-              <div className="bg-paper border border-line rounded-3xl p-7 shadow-2 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-emerald opacity-[0.06] -translate-y-10 translate-x-10 pointer-events-none" />
-                <div className="relative">
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">National average estimate</div>
-                  <div className="font-mono text-[10px] text-ink-mute/60 mb-4">Model Y vs RAV4 · 13,500 mi/yr</div>
-
-                  <div className="mb-5">
-                    <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute/60 mb-1">You&apos;d save approx.</div>
-                    <div
-                      className="font-serif font-medium leading-none"
-                      style={{ fontSize: "clamp(48px,7vw,80px)", background: "linear-gradient(135deg,#1a4d36,#2ecc71)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
-                    >
-                      $907
-                    </div>
-                    <div className="font-serif italic text-lg text-ink-3 mt-1">per year going electric</div>
-                  </div>
-
-                  <div className="space-y-3 mb-5">
-                    {[
-                      { label: "Gas (RAV4)", val: 1648, max: 1648, color: "#c25234" },
-                      { label: "EV (Model Y)", val: 741, max: 1648, color: "#34a960" },
-                    ].map((row) => (
-                      <div key={row.label}>
-                        <div className="flex justify-between text-xs mb-1.5">
-                          <span className="text-ink-3">{row.label}</span>
-                          <span className="font-mono text-ink">${row.val.toLocaleString()}/yr</span>
-                        </div>
-                        <div className="h-2 bg-cream-soft rounded-full overflow-hidden">
-                          <div className="h-full rounded-full transition-all" style={{ width: `${(row.val / row.max * 100).toFixed(0)}%`, background: row.color }} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="text-[10px] font-mono text-ink-mute mb-3">16.2¢/kWh avg · $3.42/gal avg · 80% home charging</div>
-                  <a href="#calculator" className="inline-flex items-center gap-1.5 font-mono text-xs text-forest hover:text-emerald transition-colors font-medium">
-                    Personalise for your car & state →
-                  </a>
-                </div>
+              {/* Right: live receipt */}
+              <div className="hidden lg:block">
+                <LiveReceipt />
               </div>
             </div>
           </div>
@@ -459,77 +424,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* ── Footer ── */}
-        <footer className="bg-ink text-cream pt-14 pb-8">
-          <div className="section-wrap">
-            {/* 4-column grid */}
-            <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 mb-10">
-              {/* Brand */}
-              <div className="col-span-2 md:col-span-1">
-                <div className="font-serif text-3xl font-medium mb-3">
-                  EV Charge <em className="italic text-gold">Savings</em>
-                </div>
-                <p className="text-sm text-cream/50 max-w-xs leading-relaxed">
-                  Independent EV cost analysis. We make money when readers click affiliate links — never from utilities, automakers, or charging networks.
-                </p>
-              </div>
-              {/* Calculator links */}
-              <div>
-                <div className="font-mono text-[11px] uppercase tracking-widest text-gold mb-4">Calculator</div>
-                <ul className="space-y-2">
-                  {[
-                    { href: "/#calculator", label: "Compare vehicles" },
-                    { href: "/#calculator", label: "Driving habits" },
-                    { href: "/#public-charging", label: "Charging networks" },
-                  ].map((l) => (
-                    <li key={l.label}><a href={l.href} className="text-sm text-cream/70 hover:text-gold transition-colors">{l.label}</a></li>
-                  ))}
-                </ul>
-              </div>
-              {/* Guides links */}
-              <div>
-                <div className="font-mono text-[11px] uppercase tracking-widest text-gold mb-4">Guides</div>
-                <ul className="space-y-2">
-                  {[
-                    { href: "/ev-cost/california", label: "By state" },
-                    { href: "/ev/t-my-lr-awd", label: "By model" },
-                    { href: "/#public-charging", label: "By network" },
-                    { href: "/#guides", label: "Used EVs" },
-                  ].map((l) => (
-                    <li key={l.label}><a href={l.href} className="text-sm text-cream/70 hover:text-gold transition-colors">{l.label}</a></li>
-                  ))}
-                </ul>
-              </div>
-              {/* Site links */}
-              <div>
-                <div className="font-mono text-[11px] uppercase tracking-widest text-gold mb-4">Site</div>
-                <ul className="space-y-2">
-                  {[
-                    { href: "/privacy", label: "Privacy" },
-                    { href: "mailto:hello@evchargesavings.com", label: "Contact" },
-                  ].map((l) => (
-                    <li key={l.label}><a href={l.href} className="text-sm text-cream/70 hover:text-gold transition-colors">{l.label}</a></li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Affiliate disclosure */}
-            <div className="border-t border-white/8 pt-6 mb-4">
-              <p className="text-xs text-cream/40 leading-relaxed max-w-4xl">
-                <b className="text-gold/70 font-medium">Affiliate disclosure.</b>{" "}
-                This site contains affiliate links to charger manufacturers and EV marketplaces. If you click and buy, we may earn a commission at no extra cost to you. Our calculator results are never altered to favor sponsors. Rate data is sourced from the U.S. Energy Information Administration (EIA) and AAA, refreshed monthly. Calculations are estimates — your actual savings will vary.
-              </p>
-            </div>
-
-            {/* Legal row */}
-            <div className="flex flex-wrap justify-between gap-4 font-mono text-[10px] uppercase tracking-widest text-cream/25">
-              <span>© 2026 EV Charge Savings</span>
-              <span>Not legal or financial advice</span>
-              <span>evchargesavings.com</span>
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
 
       </main>
     </>

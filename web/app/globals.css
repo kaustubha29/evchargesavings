@@ -77,6 +77,13 @@
   }
 }
 
+@keyframes stampIn {
+  0%   { opacity: 0; transform: rotate(-8deg) scale(2.5); }
+  65%  { opacity: 1; transform: rotate(-9deg) scale(0.92); }
+  82%  { transform: rotate(-7deg) scale(1.04); }
+  100% { opacity: 1; transform: rotate(-8deg) scale(1); }
+}
+
 @layer components {
   .section-wrap { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
 
