@@ -1,8 +1,9 @@
-import Link from "next/link";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { CalculatorShell } from "@/components/features/calculator/CalculatorShell";
 import { LocationDetector } from "@/components/features/location/LocationDetector";
 import { PublicChargingSection } from "@/components/features/networks/PublicChargingSection";
+import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
+import { LeadCaptureBox } from "@/components/shared/LeadCaptureBox";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -30,14 +31,20 @@ export default function HomePage() {
   return (
     <>
       <LocationDetector />
+      <StickySavingsBar />
       <main>
 
         {/* ── Hero ── */}
         <section className="bg-paper border-b border-line py-14 md:py-20">
           <div className="section-wrap">
-            <div className="inline-flex items-center gap-2 bg-good-bg text-good-fg font-mono text-xs px-3.5 py-1.5 rounded-full border border-good-fg/15 mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
-              2026 rates · 50 states · 130+ EV models
+            <div className="inline-flex flex-wrap items-center gap-x-3 gap-y-1.5 bg-good-bg text-good-fg font-mono text-xs px-4 py-2 rounded-full border border-good-fg/15 mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse flex-shrink-0" />
+              {["2026 rates", "US EIA + AAA data", "50 states + DC", "130+ EV models", "Free forever", "No signup"].map((item, i) => (
+                <span key={item} className="flex items-center gap-x-3">
+                  {i > 0 && <span className="text-good-fg/30">·</span>}
+                  {item}
+                </span>
+              ))}
             </div>
             <h1 className="font-serif font-medium tracking-tight text-ink mb-4 max-w-2xl overflow-visible" style={{ fontSize: "clamp(2.25rem,6vw,3.75rem)", lineHeight: 1.15 }}>
               <span className="block">How much would going</span>
@@ -191,22 +198,14 @@ export default function HomePage() {
               <AdSlot label="300×250 · in-content rectangle" size="rectangle" />
             </div>
 
-            <div className="bg-cream-soft rounded-2xl p-6 flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <div className="font-serif text-lg font-medium text-ink mb-1">Get free quotes from local electricians</div>
-                <p className="text-sm text-ink-3">Compare 3–5 quotes in your area — prices vary significantly by region.</p>
-              </div>
-              <div className="flex gap-3 flex-wrap">
-                <a href="https://www.angi.com/nearme/ev-charger-installation" target="_blank" rel="noopener noreferrer"
-                  className="btn-primary text-sm px-5 py-2.5">
-                  Angi quotes
-                </a>
-                <a href="https://www.thumbtack.com/k/ev-charger-installation/near-me" target="_blank" rel="noopener noreferrer"
-                  className="btn-ghost text-sm px-5 py-2.5">
-                  Thumbtack quotes
-                </a>
-              </div>
-            </div>
+            <LeadCaptureBox />
+            <p className="text-xs text-ink-mute mt-4 font-mono">
+              Prefer to browse yourself?{" "}
+              <a href="https://www.angi.com/nearme/ev-charger-installation" target="_blank" rel="noopener noreferrer" className="underline hover:text-forest">Angi</a>
+              {" "}and{" "}
+              <a href="https://www.thumbtack.com/k/ev-charger-installation/near-me" target="_blank" rel="noopener noreferrer" className="underline hover:text-forest">Thumbtack</a>
+              {" "}also list vetted electricians by zip.
+            </p>
           </div>
         </section>
 
@@ -444,14 +443,73 @@ export default function HomePage() {
         </div>
 
         {/* ── Footer ── */}
-        <footer className="bg-ink text-cream/40 py-10 border-t border-white/10">
+        <footer className="bg-ink text-cream pt-14 pb-8">
           <div className="section-wrap">
-            <div className="flex flex-wrap justify-between items-center gap-4 text-xs font-mono">
+            {/* 4-column grid */}
+            <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 mb-10">
+              {/* Brand */}
+              <div className="col-span-2 md:col-span-1">
+                <div className="font-serif text-3xl font-medium mb-3">
+                  EV Charge <em className="italic text-gold">Savings</em>
+                </div>
+                <p className="text-sm text-cream/50 max-w-xs leading-relaxed">
+                  Independent EV cost analysis. We make money when readers click affiliate links — never from utilities, automakers, or charging networks.
+                </p>
+              </div>
+              {/* Calculator links */}
+              <div>
+                <div className="font-mono text-[11px] uppercase tracking-widest text-gold mb-4">Calculator</div>
+                <ul className="space-y-2">
+                  {[
+                    { href: "/#calculator", label: "Compare vehicles" },
+                    { href: "/#calculator", label: "Driving habits" },
+                    { href: "/#public-charging", label: "Charging networks" },
+                  ].map((l) => (
+                    <li key={l.label}><a href={l.href} className="text-sm text-cream/70 hover:text-gold transition-colors">{l.label}</a></li>
+                  ))}
+                </ul>
+              </div>
+              {/* Guides links */}
+              <div>
+                <div className="font-mono text-[11px] uppercase tracking-widest text-gold mb-4">Guides</div>
+                <ul className="space-y-2">
+                  {[
+                    { href: "/ev-cost/california", label: "By state" },
+                    { href: "/ev/t-my-lr-awd", label: "By model" },
+                    { href: "/#public-charging", label: "By network" },
+                    { href: "/#guides", label: "Used EVs" },
+                  ].map((l) => (
+                    <li key={l.label}><a href={l.href} className="text-sm text-cream/70 hover:text-gold transition-colors">{l.label}</a></li>
+                  ))}
+                </ul>
+              </div>
+              {/* Site links */}
+              <div>
+                <div className="font-mono text-[11px] uppercase tracking-widest text-gold mb-4">Site</div>
+                <ul className="space-y-2">
+                  {[
+                    { href: "/privacy", label: "Privacy" },
+                    { href: "mailto:hello@evchargesavings.com", label: "Contact" },
+                  ].map((l) => (
+                    <li key={l.label}><a href={l.href} className="text-sm text-cream/70 hover:text-gold transition-colors">{l.label}</a></li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Affiliate disclosure */}
+            <div className="border-t border-white/8 pt-6 mb-4">
+              <p className="text-xs text-cream/40 leading-relaxed max-w-4xl">
+                <b className="text-gold/70 font-medium">Affiliate disclosure.</b>{" "}
+                This site contains affiliate links to charger manufacturers and EV marketplaces. If you click and buy, we may earn a commission at no extra cost to you. Our calculator results are never altered to favor sponsors. Rate data is sourced from the U.S. Energy Information Administration (EIA) and AAA, refreshed monthly. Calculations are estimates — your actual savings will vary.
+              </p>
+            </div>
+
+            {/* Legal row */}
+            <div className="flex flex-wrap justify-between gap-4 font-mono text-[10px] uppercase tracking-widest text-cream/25">
               <span>© 2026 EV Charge Savings</span>
-              <span className="text-cream/25 text-center max-w-2xl">
-                Rate data from EIA Nov 2025 + AAA monthly averages. Calculations are estimates — actual savings depend on your driving and utility.
-              </span>
-              <Link href="/privacy" className="hover:text-cream/60 transition-colors">Privacy</Link>
+              <span>Not legal or financial advice</span>
+              <span>evchargesavings.com</span>
             </div>
           </div>
         </footer>

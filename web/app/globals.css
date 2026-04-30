@@ -31,6 +31,9 @@
 
   body {
     background-color: var(--paper);
+    background-image:
+      radial-gradient(1100px 550px at 95% -5%, rgba(26,77,54,.07), transparent 60%),
+      radial-gradient(750px 380px at -8% 28%, rgba(198,145,56,.05), transparent 60%);
     color: var(--ink);
     font-family: "Geist", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
