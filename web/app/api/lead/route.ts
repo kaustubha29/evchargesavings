@@ -7,18 +7,17 @@ const OWNER_EMAIL = "hello@evchargesavings.com";
 const FROM_EMAIL  = "EV Charge Savings <noreply@evchargesavings.com>";
 
 export async function POST(req: NextRequest) {
-  // Guard: fail loudly in logs if env vars are missing
-  const supabaseUrl  = process.env.SUPABASE_URL;
-  const supabaseKey  = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  const resendKey    = process.env.RESEND_API_KEY;
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const resendKey   = process.env.RESEND_API_KEY;
+
+  // Diagnostic: log URL shape without exposing full value
+  console.log("[lead] SUPABASE_URL prefix:", supabaseUrl?.slice(0, 35));
+  console.log("[lead] KEY prefix:", supabaseKey?.slice(0, 10));
 
   if (!supabaseUrl || !supabaseKey) {
-    console.error("[lead] Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY");
+    console.error("[lead] Missing Supabase env vars");
     return NextResponse.json({ error: "Server misconfigured" }, { status: 500 });
-  }
-  if (!resendKey) {
-    console.error("[lead] Missing RESEND_API_KEY");
-    // Don't block lead capture if only email is misconfigured
   }
 
   // Parse + validate
@@ -39,26 +38,23 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid ZIP" }, { status: 422 });
   }
 
-  // Resolve zip → state
   const stateCode = zip ? stateFromZip(zip) : null;
   const stateName = stateCode ? getStateData(stateCode).name : null;
 
-  // Init clients here — avoids module-load crash if env vars were missing
-  const supabase = createClient(supabaseUrl, supabaseKey);
-
-  // Upsert — unique index on lower(email) handles dedup at the DB level.
-  // ON CONFLICT DO NOTHING means a duplicate email silently succeeds.
-  const { error: insertError } = await supabase.from("leads").upsert(
-    { email, zip: zip || null, state_code: stateCode, source_page: sourcePage },
-    { onConflict: "email", ignoreDuplicates: true }
-  );
-
-  if (insertError) {
-    console.error("[lead] Upsert failed:", insertError);
-    return NextResponse.json({ error: "Database error" }, { status: 500 });
+  // Supabase write — non-blocking, never fails the request
+  try {
+    const supabase = createClient(supabaseUrl, supabaseKey);
+    const { error } = await supabase.from("leads").upsert(
+      { email, zip: zip || null, state_code: stateCode, source_page: sourcePage },
+      { onConflict: "email", ignoreDuplicates: true },
+    );
+    if (error) console.error("[lead] Supabase write failed:", error);
+    else console.log("[lead] Supabase write OK");
+  } catch (e) {
+    console.error("[lead] Supabase exception:", e);
   }
 
-  // Send emails — fire-and-forget, never block the 200
+  // Resend emails — also non-blocking
   if (resendKey) {
     const resend = new Resend(resendKey);
     Promise.allSettled([
@@ -91,7 +87,10 @@ export async function POST(req: NextRequest) {
         if (r.status === "rejected") console.error("[lead] Email error:", r.reason);
       });
     });
+  } else {
+    console.error("[lead] Missing RESEND_API_KEY");
   }
 
+  // Always return success — user gets confirmation, we get the email
   return NextResponse.json({ ok: true });
 }
