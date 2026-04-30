@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -36,9 +35,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               { href: "/#public-charging", label: "Networks" },
               { href: "/#guides", label: "Guides" },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="text-cream/70 no-underline hover:text-cream transition-colors normal-case">
+              <a key={l.href} href={l.href} className="text-cream/70 no-underline hover:text-cream transition-colors normal-case">
                 {l.label}
-              </Link>
+              </a>
             ))}
           </nav>
         </div>
