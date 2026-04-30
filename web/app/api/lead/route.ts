@@ -44,12 +44,15 @@ export async function POST(req: NextRequest) {
   // Supabase write — non-blocking, never fails the request
   try {
     const supabase = createClient(supabaseUrl, supabaseKey);
-    const { error } = await supabase.from("leads").upsert(
+    const { error } = await supabase.from("leads").insert(
       { email, zip: zip || null, state_code: stateCode, source_page: sourcePage },
-      { onConflict: "email", ignoreDuplicates: true },
     );
-    if (error) console.error("[lead] Supabase write failed:", error);
-    else console.log("[lead] Supabase write OK");
+    if (error && error.code !== "23505") {
+      // 23505 = unique_violation (duplicate email) — silently ignore
+      console.error("[lead] Supabase write failed:", error);
+    } else {
+      console.log("[lead] Supabase write OK");
+    }
   } catch (e) {
     console.error("[lead] Supabase exception:", e);
   }
