@@ -6,9 +6,16 @@ import { LeadCaptureBox, LEAD_FORM_SUBMITTED_KEY } from "./LeadCaptureBox";
 interface Props {
   sourcePage?: string;
   children?: ReactNode;
+  sectionClassName?: string;
+  contentClassName?: string;
 }
 
-export function LeadCaptureBoxGate({ sourcePage = "/", children }: Props) {
+export function LeadCaptureBoxGate({
+  sourcePage = "/",
+  children,
+  sectionClassName,
+  contentClassName,
+}: Props) {
   const [isSubmitted, setIsSubmitted] = useState<boolean | null>(null);
   const gateId = useId();
 
@@ -34,10 +41,23 @@ export function LeadCaptureBoxGate({ sourcePage = "/", children }: Props) {
     return null;
   }
 
+  const leadBox = <LeadCaptureBox sourcePage={sourcePage} gateId={gateId} />;
+
+  if (sectionClassName) {
+    return (
+      <section className={sectionClassName}>
+        <div className={contentClassName}>
+          {children}
+          {leadBox}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <>
       {children}
-      <LeadCaptureBox sourcePage={sourcePage} gateId={gateId} />
+      {leadBox}
     </>
   );
 }

@@ -105,7 +105,7 @@ function ProductCard({
 
 export function HomeChargerProducts() {
   return (
-    <section className="bg-cream-soft border-b border-line py-14" id="charger-gear">
+    <section className="bg-cream-soft border-b border-line pt-14 pb-8" id="charger-gear">
       <div className="section-wrap">
 
         {/* Header */}

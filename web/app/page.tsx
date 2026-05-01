@@ -45,17 +45,15 @@ function AdSlot({
 
 function LeadCaptureSection({ sourcePage }: { sourcePage: string }) {
   return (
-    <section className="bg-cream-soft border-b border-line py-14">
-      <div className="section-wrap">
-        <div className="mt-12">
-          <LeadCaptureBoxGate sourcePage={sourcePage}>
-            <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-4">
-              Need help with quotes?
-            </div>
-          </LeadCaptureBoxGate>
-        </div>
+    <LeadCaptureBoxGate
+      sourcePage={sourcePage}
+      sectionClassName="bg-cream-soft border-b border-line py-8"
+      contentClassName="section-wrap"
+    >
+      <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-4">
+        Need help with quotes?
       </div>
-    </section>
+    </LeadCaptureBoxGate>
   );
 }
 
