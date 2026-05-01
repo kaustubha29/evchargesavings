@@ -85,7 +85,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
   const brands = useMemo(() => [...new Set(evSummaries.map((e) => e.brand))], [evSummaries]);
 
   return (
-    <div id="calculator" className="space-y-4">
+    <div id="calculator" className="space-y-3">
 
       {/* ── Vehicle selectors + location ── */}
       <div className="bg-paper border border-line rounded-3xl p-6 shadow-1">
@@ -181,7 +181,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
         </div>
 
         {/* Fuel cost bars */}
-        <div className="mt-5 pt-4 border-t border-line">
+        <div className="pt-4 border-t border-line">
           <div className="flex justify-between items-baseline mb-4 flex-wrap gap-1">
             <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Cost of fuel · {annualMiles.toLocaleString()} mi/yr</span>
             <span className="font-mono text-[11px] text-ink-mute">{fmt.cents1(stateData.kwhCents)}/kWh · {fmt.money2(stateData.gasDollar)}/gal</span>
@@ -220,7 +220,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
       </div>
 
       {/* Inputs panel */}
-      <div className="bg-paper border border-line rounded-3xl p-7 shadow-1 space-y-6 mt-4">
+      <div className="bg-paper border border-line rounded-3xl p-7 shadow-1 space-y-6">
         <h3 className="font-serif text-xl font-medium tracking-tight">Fine-tune your estimate</h3>
 
         {/* Sliders */}

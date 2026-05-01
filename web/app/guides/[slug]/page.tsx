@@ -51,10 +51,10 @@ export default async function GuidePage({ params }: Props) {
               </span>
               <span className="font-mono text-[10px] text-ink-mute">{guide.readTime}</span>
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-ink mb-4" style={{ lineHeight: 1.1 }}>
+            <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-ink mb-3" style={{ lineHeight: 1.1 }}>
               {guide.title}
             </h1>
-            <p className="text-ink-3 text-lg leading-relaxed max-w-2xl">{guide.description}</p>
+            <p className="text-ink-2 text-base leading-relaxed max-w-3xl">{guide.description}</p>
           </div>
 
           {/* Article body */}

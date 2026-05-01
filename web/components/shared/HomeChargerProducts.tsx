@@ -114,11 +114,11 @@ export function HomeChargerProducts() {
             EV gear
           </div>
 
-          <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight mb-3">
+          <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight mb-2">
             Best Level 2 home chargers
           </h2>
 
-          <p className="text-ink-3 max-w-xl leading-relaxed">
+          <p className="text-ink-3 max-w-xl leading-relaxed text-sm">
             Installing a Level 2 charger is the biggest convenience upgrade in EV ownership — full battery every morning.
           </p>
         </div>

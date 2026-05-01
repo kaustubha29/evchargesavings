@@ -9,9 +9,10 @@ type State = "idle" | "submitting" | "success" | "error";
 
 interface Props {
   sourcePage?: string;
+  gateId?: string;
 }
 
-export function LeadCaptureBox({ sourcePage = "/" }: Props) {
+export function LeadCaptureBox({ sourcePage = "/", gateId }: Props) {
   const { zip, setZip } = useCalculatorStore();
   const [email, setEmail] = useState("");
   const [formState, setFormState] = useState<State>("idle");
@@ -32,7 +33,9 @@ export function LeadCaptureBox({ sourcePage = "/" }: Props) {
       if (typeof window !== "undefined") {
         try {
           localStorage.setItem(LEAD_FORM_SUBMITTED_KEY, "true");
-          window.dispatchEvent(new Event("ecs-lead-submitted"));
+          window.dispatchEvent(
+            new CustomEvent("ecs-lead-submitted", { detail: { gateId } })
+          );
         } catch {
           // ignore storage failures
         }
