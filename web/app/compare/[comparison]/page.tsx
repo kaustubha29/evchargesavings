@@ -7,6 +7,7 @@ import { calculateBreakEven } from "@/features/calculations/break-even";
 import { comparePageMeta } from "@/features/content/seo";
 import { CalculatorShell } from "@/components/features/calculator/CalculatorShell";
 import { LocationDetector } from "@/components/features/location/LocationDetector";
+import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
 import { fmt } from "@/lib/format";
 
 interface Props {
@@ -231,6 +232,12 @@ export default async function ComparePage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        <SavingsSlotBand
+          eyebrow="Comparison context"
+          title="One matchup is useful. The wider savings range is better."
+          body={`The ${ev.name} vs ${gas.name} estimate is a starting point. Nearby rates, charging mix, and the EV you choose can reshape the annual savings.`}
+        />
 
         {/* Bar chart comparison */}
         <section className="py-12 bg-ink text-cream">

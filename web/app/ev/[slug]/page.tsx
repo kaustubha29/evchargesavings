@@ -7,6 +7,7 @@ import { calculateBreakEven } from "@/features/calculations/break-even";
 import { evPageMeta } from "@/features/content/seo";
 import { CalculatorShell } from "@/components/features/calculator/CalculatorShell";
 import { LocationDetector } from "@/components/features/location/LocationDetector";
+import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
 import { fmt } from "@/lib/format";
 
 interface Props {
@@ -138,6 +139,12 @@ export default async function EVDetailPage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        <SavingsSlotBand
+          eyebrow={`${ev.brand} context`}
+          title="Compare this EV against real-world savings examples"
+          body={`Use the calculator below for your ${ev.name}, then sanity-check the range of savings other drivers can see by location and model.`}
+        />
 
         {/* Calculator with this EV pre-selected */}
         <section className="py-12">

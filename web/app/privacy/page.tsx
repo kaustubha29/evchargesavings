@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 
 export const metadata: Metadata = {
@@ -103,6 +104,11 @@ export default function PrivacyPage() {
 
           </div>
         </div>
+        <SavingsSlotBand
+          eyebrow="Back to the calculator"
+          title="Your savings estimate stays private in your browser"
+          body="The slot shows example EV savings, while your own calculator inputs stay local unless you choose to submit a quote request."
+        />
       </main>
       <SiteFooter />
     </>

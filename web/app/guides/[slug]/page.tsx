@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { GUIDES, getGuideBySlug } from "@/features/guides/data";
+import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
 
@@ -55,6 +56,15 @@ export default async function GuidePage({ params }: Props) {
               {guide.title}
             </h1>
             <p className="text-ink-2 text-base leading-relaxed max-w-3xl">{guide.description}</p>
+          </div>
+
+          <div className="-mx-0 mb-12">
+            <SavingsSlotBand
+              eyebrow={`${guide.category} guide`}
+              title="Put the advice next to real savings examples"
+              body="The guide gives you the decision framework. The rolling examples show how much the numbers can move once model and location enter the picture."
+              className="rounded-3xl overflow-hidden border"
+            />
           </div>
 
           {/* Article body */}
@@ -111,8 +121,11 @@ export default async function GuidePage({ params }: Props) {
                     href={`/guides/${g.slug}`}
                     className="block bg-paper border border-line rounded-2xl p-5 hover:border-forest/40 hover:shadow-1 transition-all group"
                   >
-                    <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-2">{g.readTime}</div>
-                    <div className="font-serif text-sm font-medium text-ink group-hover:text-forest transition-colors leading-snug">{g.title}</div>
+                    <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-2">{g.category} · {g.readTime}</div>
+                    <div className="font-serif text-base font-medium text-ink group-hover:text-forest transition-colors leading-snug">{g.title}</div>
+                    <p className="text-xs text-ink-3 leading-relaxed mt-2 line-clamp-2">
+                      {g.hook ?? g.description}
+                    </p>
                   </a>
                 ))}
               </div>

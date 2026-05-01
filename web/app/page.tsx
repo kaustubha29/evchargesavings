@@ -203,20 +203,46 @@ export default function HomePage() {
         <PublicChargingSection />
 
         {/* GUIDES */}
-        <section className="bg-cream-soft border-b border-line py-14" id="guides">
+        <section className="bg-cream-soft border-b border-line py-16" id="guides">
           <div className="section-wrap">
-            <h2 className="font-serif text-3xl mb-6">
-              Everything you need to know
-            </h2>
+            <div className="mb-6">
+              <div>
+                <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">
+                  EV guides
+                </div>
+                <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight text-ink">
+                  Smarter EV decisions, minus the jargon
+                </h2>
+              </div>
+            </div>
 
-            <div className="grid lg:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {GUIDES.map((g) => (
                 <a
                   key={g.slug}
                   href={`/guides/${g.slug}`}
-                  className="border p-4 rounded-xl bg-paper"
+                  className="group relative overflow-hidden border border-line rounded-xl bg-paper p-4 min-h-36 flex flex-col hover:-translate-y-0.5 hover:border-forest/35 hover:shadow-1 transition-all"
                 >
-                  {g.title}
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-forest bg-forest/8 px-2.5 py-1 rounded-full">
+                      {g.category}
+                    </span>
+                    <span className="font-mono text-[10px] text-ink-mute">
+                      {g.readTime}
+                    </span>
+                  </div>
+
+                  <h3 className="font-serif text-lg font-medium tracking-tight text-ink leading-snug group-hover:text-forest transition-colors">
+                    {g.title}
+                  </h3>
+
+                  <p className="text-xs text-ink-3 leading-relaxed mt-2 line-clamp-2">
+                    {g.hook ?? g.description}
+                  </p>
+
+                  <div className="mt-auto pt-3 font-mono text-[10px] uppercase tracking-widest text-ink-mute group-hover:text-forest transition-colors">
+                    Read guide →
+                  </div>
                 </a>
               ))}
             </div>

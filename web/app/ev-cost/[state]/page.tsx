@@ -9,6 +9,7 @@ import { CalculatorShell } from "@/components/features/calculator/CalculatorShel
 import { LocationDetector } from "@/components/features/location/LocationDetector";
 import { StateSelector } from "@/components/features/location/StateSelector";
 import { EVMarketplaceAffiliates } from "@/components/shared/EVMarketplaceAffiliates";
+import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { fmt } from "@/lib/format";
 
@@ -147,6 +148,12 @@ export default async function StateCalculatorPage({ params }: Props) {
             )}
           </div>
         </section>
+
+        <SavingsSlotBand
+          eyebrow={`${stateData.name} context`}
+          title="See how local rates move the savings number"
+          body={`${stateData.name}'s electricity and gas prices are only part of the story. Vehicle efficiency, home charging, and mileage can swing the yearly total fast.`}
+        />
 
         {/* Calculator */}
         <section className="py-12">

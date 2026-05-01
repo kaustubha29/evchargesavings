@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 
 export const metadata: Metadata = {
@@ -96,6 +97,11 @@ export default function TermsPage() {
 
           </div>
         </div>
+        <SavingsSlotBand
+          eyebrow="Back to the calculator"
+          title="Estimate first, decide with context"
+          body="The examples are illustrative, and your final savings depend on your rates, vehicle, mileage, and charging habits."
+        />
       </main>
       <SiteFooter />
     </>

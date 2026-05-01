@@ -7,6 +7,7 @@ export interface GuideSection {
 export interface Guide {
   slug: string;
   title: string;
+  hook?: string;
   description: string;
   readTime: string;
   category: string;
@@ -552,6 +553,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "ev-insurance-rates-explained",
     title: "EV insurance rates explained",
+    hook: "Why EV premiums can surprise buyers, and the levers that actually lower them.",
     description: "What affects electric car insurance and how to lower your premium.",
     readTime: "6 min read",
     category: "Ownership",
@@ -583,6 +585,151 @@ export const GUIDES: Guide[] = [
       {
         heading: "Shopping tips for EV owners",
         body: "Get quotes from at least three insurers, including ones known for EV coverage. Verify whether they cover battery damage and replacement, and ask how they handle repairs for aluminum bodies and advanced driver assistance systems.",
+      },
+    ],
+  },
+  {
+    slug: "apartment-ev-charging",
+    title: "EV charging if you live in an apartment",
+    hook: "No garage? Build a charging routine that works before you buy.",
+    description: "How renters and apartment dwellers can charge an EV without a private garage.",
+    readTime: "6 min read",
+    category: "Charging",
+    sections: [
+      {
+        heading: "Start with your weekly routine",
+        body: "Apartment EV ownership works best when charging fits places you already go: work, grocery stores, gyms, public garages, or fast chargers near weekly errands. Before buying, map three reliable chargers within your normal routine and check recent app reviews for uptime.",
+      },
+      {
+        heading: "Ask your property manager the right way",
+        body: "Don't start with a vague request for an EV charger. Ask whether the property has spare electrical capacity near your parking spot, whether they allow tenant-paid installation, and whether they have considered shared Level 2 charging. A clear plan is easier to approve than a general idea.",
+        list: [
+          "Ask for a written policy on EV charging",
+          "Offer to use a licensed electrician and permitted work",
+          "Suggest a shared charger if assigned parking is limited",
+          "Check whether local right-to-charge laws apply",
+        ],
+      },
+      {
+        heading: "Use workplace charging if available",
+        body: "Workplace Level 2 charging can replace home charging for many commuters. Even two or three sessions per week may cover most driving. The key is consistency: check pricing, parking time limits, and whether chargers fill up before you arrive.",
+      },
+      {
+        heading: "When public fast charging is enough",
+        body: "If you drive modest miles and have a reliable fast charger nearby, you can live without home charging. Expect higher fuel costs than home charging, but still often less than gasoline. Pick an EV with strong fast-charging performance if this will be your main plan.",
+      },
+      {
+        heading: "When to wait",
+        body: "Wait if the nearest reliable charger is inconvenient, your commute is long, or you would need fast charging several times per week. The EV itself may be ready; your charging situation might not be. Solving charging first prevents most buyer regret.",
+      },
+    ],
+  },
+  {
+    slug: "level-1-vs-level-2-charging",
+    title: "Level 1 vs Level 2 charging: what you actually need",
+    hook: "A standard outlet may be enough, but Level 2 changes the whole ownership rhythm.",
+    description: "Compare Level 1 and Level 2 EV charging speeds, costs, and daily use cases.",
+    readTime: "5 min read",
+    category: "Installation",
+    sections: [
+      {
+        heading: "The simple difference",
+        body: "Level 1 charging uses a standard 120V outlet. Level 2 uses a 240V circuit like a dryer or oven. Level 1 is cheap and slow; Level 2 costs more to install but makes the car feel effortless because it can recover a full day of driving in a few hours.",
+      },
+      {
+        heading: "Level 1 is enough for many drivers",
+        body: "A standard outlet usually adds 3-5 miles of range per hour. Overnight, that can be 30-50 miles. If your commute is short and you can plug in consistently, Level 1 may cover nearly all daily driving without an installation bill.",
+        list: [
+          "Best for short commutes",
+          "Works with a normal outlet",
+          "Lowest upfront cost",
+          "Too slow for high-mileage households",
+        ],
+      },
+      {
+        heading: "Level 2 is the convenience upgrade",
+        body: "Level 2 charging usually adds 20-35 miles of range per hour. It is the better choice for long commutes, multiple drivers, cold winters, or anyone who wants to start every morning with a predictable charge.",
+      },
+      {
+        heading: "Cost difference",
+        body: "Level 1 usually costs nothing if you already have a safe outlet. Level 2 installation often costs $500-$1,500 depending on panel capacity, distance from the panel, permits, and whether a new circuit is needed.",
+      },
+      {
+        heading: "The verdict",
+        body: "Try Level 1 first if your daily driving is low and you already have a good outlet. Install Level 2 if you drive more than 40 miles a day, have two EVs, need faster recovery, or want the least friction long term.",
+      },
+    ],
+  },
+  {
+    slug: "ev-maintenance-costs",
+    title: "EV maintenance costs: what changes and what does not",
+    hook: "No oil changes, fewer brake jobs, but tires and software still matter.",
+    description: "A practical guide to EV maintenance costs, service intervals, and surprises.",
+    readTime: "6 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "What goes away",
+        body: "EVs remove many gas-car maintenance items: oil changes, spark plugs, timing belts, exhaust systems, and many transmission services. That is why routine service is usually simpler and cheaper over time.",
+      },
+      {
+        heading: "What still needs attention",
+        body: "EVs still need tires, cabin air filters, brake fluid, wiper blades, coolant checks, and suspension work. The car is simpler, but it is not maintenance-free. Heavy EV batteries can also make tire rotation more important.",
+        list: [
+          "Rotate tires on schedule",
+          "Replace cabin air filters",
+          "Check brake fluid and coolant intervals",
+          "Keep software updated",
+          "Inspect suspension and alignment",
+        ],
+      },
+      {
+        heading: "Brake pads usually last longer",
+        body: "Regenerative braking means the motor slows the car and recovers energy before the friction brakes do much work. Many EV owners go far longer between brake pad replacements, especially in city driving.",
+      },
+      {
+        heading: "Tires can be the surprise cost",
+        body: "EVs are quick and heavy, which can wear tires faster if you drive aggressively. Choose EV-rated or high-load tires where recommended, keep pressures correct, and rotate regularly to avoid uneven wear.",
+      },
+      {
+        heading: "Budget expectation",
+        body: "For most owners, annual maintenance is lower than a comparable gas car, but not zero. The biggest swing factors are tire choice, driving style, warranty coverage, and whether your model has expensive specialty parts.",
+      },
+    ],
+  },
+  {
+    slug: "lease-vs-buy-ev",
+    title: "Lease vs buy an EV: which saves more?",
+    hook: "Leasing can dodge technology risk; buying usually wins if you keep the car.",
+    description: "Compare EV leasing and buying based on tax credits, depreciation, mileage, and ownership plans.",
+    readTime: "6 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "Why EV leasing is popular",
+        body: "EV technology changes quickly, and leasing can reduce the risk of owning an older battery, slower charging standard, or fast-depreciating model. It also lets shoppers access deals where the lessor passes tax-credit value into the lease payment.",
+      },
+      {
+        heading: "When leasing makes sense",
+        body: "Lease if you want the lowest monthly payment, drive predictable miles, and like changing cars every 2-3 years. Leasing is also attractive if you are unsure about charging, range, or which connector standard you want long term.",
+        list: [
+          "You drive within the lease mileage cap",
+          "You want newer battery and charging tech sooner",
+          "The lease includes strong incentive discounts",
+          "You do not want resale-value risk",
+        ],
+      },
+      {
+        heading: "When buying makes sense",
+        body: "Buying usually wins if you keep the car 5+ years, drive high miles, or want to customize your charging setup and ownership experience. EV operating savings compound the longer you keep the vehicle.",
+      },
+      {
+        heading: "Watch depreciation",
+        body: "Some EVs depreciate faster than gas cars, especially when new prices drop or incentives change. That hurts buyers who sell quickly, but it can help used-EV shoppers. If buying new, choose a model with strong demand, good charging access, and a healthy warranty.",
+      },
+      {
+        heading: "The quick rule",
+        body: "Lease if uncertainty is high. Buy if your use case is clear, home charging is solved, and you plan to keep the car. The right financial answer depends less on EV hype and more on how long you will actually own it.",
       },
     ],
   },
