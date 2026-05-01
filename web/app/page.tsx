@@ -43,10 +43,11 @@ function AdSlot({
   );
 }
 
-function LeadCaptureSection({ sourcePage }: { sourcePage: string }) {
+function LeadCaptureSection({ sourcePage, id }: { sourcePage: string; id?: string }) {
   return (
     <LeadCaptureBoxGate
       sourcePage={sourcePage}
+      sectionId={id}
       sectionClassName="bg-cream-soft border-b border-line py-8"
       contentClassName="section-wrap"
     >
@@ -130,7 +131,7 @@ export default function HomePage() {
         <EVInsuranceCTA />
 
         {/* LEAD */}
-        <LeadCaptureSection sourcePage="/" />
+        <LeadCaptureSection sourcePage="/" id="installer-quotes" />
 
         {/* HOME CHARGING */}
         <section className="bg-ink text-cream py-16" id="home-charging">

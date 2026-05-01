@@ -2,10 +2,12 @@
 import { useEffect, useState, useMemo } from "react";
 import { useCalculatorStore, computeSavings } from "@/store/calculator";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
+import { LEAD_FORM_SUBMITTED_KEY } from "@/components/shared/LeadCaptureBox";
 import { fmt } from "@/lib/format";
 
 export function StickySavingsBar() {
   const [visible, setVisible] = useState(false);
+  const [leadSubmitted, setLeadSubmitted] = useState(false);
   const store = useCalculatorStore();
 
   const ev  = useMemo(() => evRepository.getBySlug(store.evSlug) ?? evRepository.getAll()[0], [store.evSlug]);
@@ -22,6 +24,21 @@ export function StickySavingsBar() {
     const handler = () => setVisible(window.scrollY > 480);
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  useEffect(() => {
+    const checkLeadSubmitted = () => {
+      try {
+        setLeadSubmitted(localStorage.getItem(LEAD_FORM_SUBMITTED_KEY) === "true");
+      } catch {
+        setLeadSubmitted(false);
+      }
+    };
+
+    checkLeadSubmitted();
+    window.addEventListener("ecs-lead-submitted", checkLeadSubmitted);
+
+    return () => window.removeEventListener("ecs-lead-submitted", checkLeadSubmitted);
   }, []);
 
   return (
@@ -58,13 +75,22 @@ export function StickySavingsBar() {
             <span className="text-cream/30 ml-1">({fmt.pct0(savings.savingsPct)} less)</span>
           </div>
 
-          {/* CTA */}
-          <a
-            href="#calculator"
-            className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-forest text-white border border-forest/50 hover:bg-emerald hover:border-emerald transition-all"
-          >
-            Adjust calculator ↑
-          </a>
+          <div className="flex flex-shrink-0 items-center gap-2">
+            {!leadSubmitted && (
+              <a
+                href="/#installer-quotes"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-honey text-ink border border-honey/70 hover:bg-gold hover:border-gold transition-all"
+              >
+                Get quotes
+              </a>
+            )}
+            <a
+              href="#calculator"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-forest text-white border border-forest/50 hover:bg-emerald hover:border-emerald transition-all"
+            >
+              Adjust calculator ↑
+            </a>
+          </div>
         </div>
       </div>
     </div>

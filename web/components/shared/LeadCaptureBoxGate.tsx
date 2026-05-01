@@ -6,6 +6,7 @@ import { LeadCaptureBox, LEAD_FORM_SUBMITTED_KEY } from "./LeadCaptureBox";
 interface Props {
   sourcePage?: string;
   children?: ReactNode;
+  sectionId?: string;
   sectionClassName?: string;
   contentClassName?: string;
 }
@@ -13,6 +14,7 @@ interface Props {
 export function LeadCaptureBoxGate({
   sourcePage = "/",
   children,
+  sectionId,
   sectionClassName,
   contentClassName,
 }: Props) {
@@ -45,7 +47,7 @@ export function LeadCaptureBoxGate({
 
   if (sectionClassName) {
     return (
-      <section className={sectionClassName}>
+      <section id={sectionId} className={sectionClassName}>
         <div className={contentClassName}>
           {children}
           {leadBox}
