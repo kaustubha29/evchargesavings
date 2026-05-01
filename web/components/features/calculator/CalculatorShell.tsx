@@ -44,7 +44,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
     let cityName: string | null = null;
     if (zipValue.trim()) {
       try {
-        const res = await fetch(`http://api.zippopotam.us/us/${zipValue.trim()}`, { signal: AbortSignal.timeout(2000) });
+        const res = await fetch(`https://api.zippopotam.us/us/${zipValue.trim()}`, { signal: AbortSignal.timeout(2000) });
         if (res.ok) {
           const data = await res.json();
           cityName = data.places?.[0]?.['place name'] || null;
