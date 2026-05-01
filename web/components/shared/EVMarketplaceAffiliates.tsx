@@ -4,6 +4,17 @@ import { useMemo } from "react";
 import { useCalculatorStore } from "@/store/calculator";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { getStateData } from "@/features/location/queries";
+import { LeadCaptureBox } from "@/components/shared/LeadCaptureBox";
+
+function buildAffiliateUrl(baseUrl: string, campaign: string, term: string, state?: string) {
+  const url = new URL(baseUrl);
+  url.searchParams.set("utm_source", "evchargesavings");
+  url.searchParams.set("utm_medium", "affiliate");
+  url.searchParams.set("utm_campaign", campaign);
+  url.searchParams.set("utm_term", term);
+  if (state) url.searchParams.set("utm_content", state);
+  return url.toString();
+}
 
 export function EVMarketplaceAffiliates() {
   const store = useCalculatorStore();
@@ -15,7 +26,9 @@ export function EVMarketplaceAffiliates() {
 
   if (!ev || !gas) return null;
 
-  // Brand-specific dealer URL mappings
+  const sourcePage = stateCode ? `/ev-cost/${stateCode}?ev=${evSlug}` : "/";
+  const stateTag = stateData ? stateData.slug || stateData.name : undefined;
+
   const brandDealerUrls: Record<string, string> = {
     Tesla: "https://www.tesla.com/findus",
     Ford: "https://www.ford.com/locator/",
@@ -29,20 +42,20 @@ export function EVMarketplaceAffiliates() {
     Lucid: "https://www.lucidmotors.com/experience",
   };
 
-  const dealerUrl = brandDealerUrls[ev.brand] || "https://www.google.com/maps/search/ev+dealer";
+  const dealerUrl = buildAffiliateUrl(
+    brandDealerUrls[ev.brand] || "https://www.google.com/maps/search/ev+dealer",
+    "dealer_locator",
+    ev.brand,
+    stateTag
+  );
 
-  // Build marketplace cards - first card is brand-specific
   const marketplaces = [
     {
       name: `${ev.brand} Dealers`,
       label: "Buy New",
       tag: "Official dealership",
-      desc: `Find authorized ${ev.brand} dealers${stateData ? ` in ${stateData.name}` : ""} to explore the ${ev.name} and current inventory. Ask about the federal $7,500 tax credit.`,
-      perks: [
-        `Browse ${ev.brand} lineup`,
-        "Federal $7,500 tax credit",
-        "Dealership test drives",
-      ],
+      desc: `Find authorized ${ev.brand} dealers${stateData ? ` in ${stateData.name}` : ""} to explore the ${ev.name}.`,
+      perks: ["Browse lineup", "Test drives", "Federal incentives"],
       cta: "Find dealers",
       url: dealerUrl,
       accent: true,
@@ -51,28 +64,43 @@ export function EVMarketplaceAffiliates() {
       name: "CarGurus",
       label: "Used EV",
       tag: "Marketplace",
-      desc: `Browse used ${ev.brand} models${stateData ? ` in ${stateData.name}` : ""} with certified pre-owned filters. Compare prices across dealers.`,
-      perks: ["Real dealer pricing", "Certified pre-owned filter", "Owner reviews"],
+      desc: `Browse used ${ev.brand} models with price comparison tools.`,
+      perks: ["Real pricing", "Certified options", "Owner reviews"],
       cta: "Find used",
-      url: `https://www.cargurus.com/Cars/inventorylisting/used-electric/`,
+      url: buildAffiliateUrl(
+        "https://www.cargurus.com/Cars/inventorylisting/used-electric/",
+        "cargurus_ev",
+        ev.brand,
+        stateTag
+      ),
     },
     {
       name: "Cars.com",
       label: "Trade-in",
       tag: "Classifieds",
-      desc: `Get an instant quote for your ${gas.name} and see how much equity you can apply to your next EV purchase.`,
-      perks: ["Instant trade-in quote", "Compare to market value", "Pre-approval in 60 seconds"],
+      desc: `Get a trade-in estimate for your current vehicle.`,
+      perks: ["Instant quote", "Market value", "Fast approval"],
       cta: "Get quote",
-      url: `https://www.cars.com/`,
+      url: buildAffiliateUrl(
+        "https://www.cars.com/shopping/electric-vehicles/",
+        "carsdotcom_ev",
+        ev.brand,
+        stateTag
+      ),
     },
     {
       name: "Carvana",
       label: "Used online",
-      tag: "Nationwide delivery",
-      desc: `Browse used EVs entirely online with 7-day test drive guarantee and free nationwide delivery${stateData ? ` to ${stateData.name}` : ""}.`,
-      perks: ["7-day test drive", "Free delivery", "As-is warranty"],
+      tag: "Nationwide",
+      desc: `Shop EVs online with delivery and return options.`,
+      perks: ["7-day returns", "Home delivery", "Warranty"],
       cta: "Shop Carvana",
-      url: `https://www.carvana.com/cars/type/electric`,
+      url: buildAffiliateUrl(
+        "https://www.carvana.com/cars/type/electric",
+        "carvana_ev",
+        ev.brand,
+        stateTag
+      ),
     },
   ];
 
@@ -85,11 +113,13 @@ export function EVMarketplaceAffiliates() {
           <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">
             Buy your {ev.brand}
           </div>
+
           <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight mb-3">
             Find your {ev.name}
           </h2>
+
           <p className="text-ink-3 max-w-xl leading-relaxed">
-            Shop for the ${ev.brand} model you selected. Browse new and used options${stateData ? ` in ${stateData.name}` : ""}, and estimate your trade-in value.
+            Compare new and used options{stateData ? ` in ${stateData.name}` : ""} and estimate trade-in value.
           </p>
         </div>
 
@@ -109,20 +139,16 @@ export function EVMarketplaceAffiliates() {
                   </div>
                   <div className="font-serif text-xl font-medium text-ink">{m.name}</div>
                 </div>
-                <span
-                  className={`font-mono text-[9px] uppercase tracking-widest px-2.5 py-1 rounded-full whitespace-nowrap ${
-                    m.accent
-                      ? "bg-forest/10 text-forest"
-                      : "bg-ink/5 text-ink-mute"
-                  }`}
-                >
+
+                <span className="font-mono text-[9px] uppercase tracking-widest px-2.5 py-1 rounded-full bg-ink/5 text-ink-mute">
                   {m.tag}
                 </span>
               </div>
 
-              <p className="text-sm text-ink-mute leading-relaxed mt-3 mb-4">{m.desc}</p>
+              <p className="text-sm text-ink-mute leading-relaxed mt-3 mb-4">
+                {m.desc}
+              </p>
 
-              {/* Perks */}
               <ul className="space-y-1 mb-6">
                 {m.perks.map((perk) => (
                   <li key={perk} className="flex items-center gap-2 text-xs text-ink-mute">
@@ -148,8 +174,18 @@ export function EVMarketplaceAffiliates() {
           ))}
         </div>
 
-        <p className="mt-8 font-mono text-[10px] text-ink-mute/60">
-          We may earn a commission on qualifying sales — at no extra cost to you. Calculator results are never altered based on marketplace partnerships.
+        {/* ✅ FIX: removed extra boxed wrapper */}
+        <div className="mt-12">
+          <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-4">
+            Need help with quotes?
+          </div>
+
+          <LeadCaptureBox sourcePage={sourcePage} />
+        </div>
+
+        <p className="font-mono text-[10px] text-ink-mute/60 mt-6">
+          We may earn a commission on qualifying sales — at no extra cost to you.
+          Calculator results are never influenced by partnerships.
         </p>
 
       </div>
