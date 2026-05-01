@@ -23,18 +23,26 @@ const FACTS = [
   "A full charge costs less than a large pizza in most states",
 ];
 
-function Reel({ value, spin, delay, accent }: { value: string; spin: boolean; delay: number; accent?: boolean }) {
+// Rolling phase: 5 × 30ms = 150ms of visible name flips, then settled for 700ms
+const ROLL_STEPS   = 5;
+const ROLL_STEP_MS = 30;
+const SETTLE_MS    = 700;
+
+function Reel({ value, rolling, delay, accent }: { value: string; rolling: boolean; delay: number; accent?: boolean }) {
   return (
     <div className={`flex-1 min-w-0 rounded-xl overflow-hidden flex items-center justify-center ${accent ? "bg-emerald/10 border border-emerald/30" : "bg-white/8 border border-white/12"}`}>
       <div
-        className={`py-2 px-2 text-center w-full transition-all ${accent ? "font-serif text-base font-semibold" : "font-mono text-[11px] text-cream/80"}`}
+        className={`py-2 px-2 text-center w-full ${accent ? "font-serif text-base font-semibold" : "font-mono text-[11px] text-cream/80"}`}
         style={{
-          transitionDuration: "220ms",
-          transitionDelay: spin ? `${delay}ms` : "0ms",
-          filter:    spin ? "blur(6px)" : "blur(0)",
-          opacity:   spin ? 0 : 1,
-          transform: spin ? "translateY(-10px)" : "translateY(0)",
-          ...(accent ? {
+          // Use longhand-only to avoid shorthand/transitionDelay conflict warning
+          transitionProperty:       rolling ? "none"     : "filter, opacity, transform",
+          transitionDuration:       rolling ? "0ms"      : "130ms",
+          transitionTimingFunction: rolling ? "linear"   : "ease-out",
+          transitionDelay:          rolling ? "0ms"      : `${delay}ms`,
+          filter:    rolling ? "blur(2px)"        : "blur(0)",
+          opacity:   rolling ? 0.6                : 1,
+          transform: rolling ? "translateY(-4px)" : "translateY(0)",
+          ...(accent && !rolling ? {
             background: "linear-gradient(135deg, #2ecc71, #1a9e52)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
@@ -48,20 +56,36 @@ function Reel({ value, spin, delay, accent }: { value: string; spin: boolean; de
 }
 
 export function SavingsSlot() {
-  const [idx, setIdx]       = useState(0);
-  const [factIdx, setFactIdx] = useState(0);
-  const [spin, setSpin]     = useState(false);
+  const [idx,      setIdx]      = useState(0);
+  const [factIdx,  setFactIdx]  = useState(0);
+  const [rolling,  setRolling]  = useState(true); // start rolling immediately on mount
   const [factFade, setFactFade] = useState(true);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setSpin(true);
-      setTimeout(() => {
+    let rollTimer: ReturnType<typeof setInterval> | null = null;
+    let phaseTimer: ReturnType<typeof setTimeout> | null = null;
+
+    function startRolling() {
+      setRolling(true);
+      let count = 0;
+      rollTimer = setInterval(() => {
         setIdx((i) => (i + 1) % COMBOS.length);
-        setSpin(false);
-      }, 500);
-    }, 3200);
-    return () => clearInterval(id);
+        count++;
+        if (count >= ROLL_STEPS) {
+          clearInterval(rollTimer!);
+          rollTimer = null;
+          setRolling(false);
+          phaseTimer = setTimeout(startRolling, SETTLE_MS);
+        }
+      }, ROLL_STEP_MS);
+    }
+
+    startRolling();
+
+    return () => {
+      if (rollTimer)  clearInterval(rollTimer);
+      if (phaseTimer) clearTimeout(phaseTimer);
+    };
   }, []);
 
   // Facts cycle independently, slower
@@ -92,11 +116,11 @@ export function SavingsSlot() {
           {[0, 1, 2].map((i) => (
             <div
               key={i}
-              className="w-2 h-2 rounded-full transition-all duration-300"
+              className="w-2 h-2 rounded-full transition-all duration-200"
               style={{
-                background: spin ? "#c6912a" : "rgba(46,204,113,0.5)",
-                transitionDelay: spin ? `${i * 70}ms` : "0ms",
-                boxShadow: spin ? "0 0 6px #c6912a" : "none",
+                background: rolling ? "#c6912a" : "rgba(46,204,113,0.5)",
+                transitionDelay: rolling ? `${i * 50}ms` : "0ms",
+                boxShadow: rolling ? "0 0 6px #c6912a" : "none",
               }}
             />
           ))}
@@ -114,9 +138,9 @@ export function SavingsSlot() {
 
       {/* Reels */}
       <div className="flex gap-2 px-5 pb-4">
-        <Reel value={ev}     spin={spin} delay={0}   />
-        <Reel value={state}  spin={spin} delay={110} />
-        <Reel value={saving} spin={spin} delay={220} accent />
+        <Reel value={ev}     rolling={rolling} delay={0}   />
+        <Reel value={state}  rolling={rolling} delay={60}  />
+        <Reel value={saving} rolling={rolling} delay={120} accent />
       </div>
 
       {/* EV fact strip */}
