@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         {/* Impact requires value= not content= — React.createElement bypasses JSX prop type checking */}
-        {React.createElement("meta", { name: "impact-site-verification", value: "de6c97d5-fa3b-4d25-904c-3eb7c2dedbac" })}
+        {React.createElement("meta", { name: "impact-site-verification", value: "'9b198be7-1e28-4638-9419-a03122b75d3d'" })}
       </head>
       <body className="pb-20">
         {/* Google AdSense — replace XXXXXXXXXXXXXXXX with your publisher ID */}
