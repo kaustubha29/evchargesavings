@@ -26,8 +26,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Impact affiliate verification — requires value= not content=, so can't use metadata.other */}
-        <meta name="impact-site-verification" {...{ value: "de6c97d5-fa3b-4d25-904c-3eb7c2dedbac" } as React.MetaHTMLAttributes<HTMLMetaElement>} />
+        {/* Impact requires value= not content= — React.createElement bypasses JSX prop type checking */}
+        {React.createElement("meta", { name: "impact-site-verification", value: "de6c97d5-fa3b-4d25-904c-3eb7c2dedbac" })}
       </head>
       <body className="pb-20">
         {/* Google AdSense — replace XXXXXXXXXXXXXXXX with your publisher ID */}
