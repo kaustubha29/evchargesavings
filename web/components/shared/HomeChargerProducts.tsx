@@ -114,13 +114,18 @@ export function HomeChargerProducts() {
             EV gear
           </div>
 
-          <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight mb-2">
+          <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight mb-4">
             Best Level 2 home chargers
           </h2>
 
-          <p className="text-ink-3 max-w-xl leading-relaxed text-sm">
-            Installing a Level 2 charger is the biggest convenience upgrade in EV ownership — full battery every morning.
-          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            <p className="text-ink-3 leading-relaxed text-sm">
+              Installing a Level 2 charger is the biggest convenience upgrade in EV ownership — full battery every morning.
+            </p>
+            <p className="text-ink-3 leading-relaxed text-sm">
+              Most homes do best with a 40–48 A charger on a dedicated 240 V circuit, but the right pick depends on your panel, connector type, and whether you want smart scheduling for off-peak utility rates.
+            </p>
+          </div>
         </div>
 
         {/* Charger grid */}
@@ -130,63 +135,13 @@ export function HomeChargerProducts() {
           ))}
         </div>
 
-        {/* Installation cost guide (COMPACT VERSION) */}
-        <div className="mb-10">
-
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-serif text-xl font-medium tracking-tight">
-              Level 2 installation costs
-            </h3>
-
-            <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">
-              What to budget
-            </span>
-          </div>
-
-          <p className="text-ink-3 text-sm max-w-2xl leading-relaxed mb-6">
-            Most homeowners pay <span className="text-ink font-semibold">$800–$1,500</span> all in. Cost depends on panel distance, permits, and whether upgrades are needed.
+        <div className="border-t border-line pt-6 grid md:grid-cols-2 gap-6">
+          <p className="text-sm text-ink-3 leading-relaxed">
+            Budget <span className="text-ink font-semibold">$800–$1,500 installed</span> for many Level 2 setups. A short wiring run from a modern panel can be less, while older homes, long conduit runs, permits, trenching, or panel upgrades can push the project higher.
           </p>
-
-          {/* Compact cards */}
-          <div className="grid sm:grid-cols-3 gap-4">
-
-            <div className="bg-paper border border-line rounded-xl p-4">
-              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">
-                Simple
-              </div>
-              <div className="font-serif text-lg font-medium text-ink mb-1">
-                $500–$900
-              </div>
-              <p className="text-xs text-ink-mute">
-                Panel nearby • 50A ready
-              </p>
-            </div>
-
-            <div className="bg-forest/5 border border-forest/20 rounded-xl p-4">
-              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">
-                Typical
-              </div>
-              <div className="font-serif text-lg font-medium text-forest mb-1">
-                $900–$1,500
-              </div>
-              <p className="text-xs text-ink-mute">
-                Most homes • standard install
-              </p>
-            </div>
-
-            <div className="bg-paper border border-line rounded-xl p-4">
-              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">
-                Complex
-              </div>
-              <div className="font-serif text-lg font-medium text-ink mb-1">
-                $1,500–$3,000+
-              </div>
-              <p className="text-xs text-ink-mute">
-                Older homes • upgrades needed
-              </p>
-            </div>
-
-          </div>
+          <p className="text-sm text-ink-3 leading-relaxed">
+            Before buying hardware, ask your electrician whether your home supports a plug-in NEMA 14-50 unit or should use a hardwired charger. Hardwired installs are often cleaner outdoors and can support higher amperage.
+          </p>
         </div>
 
         {/* Affiliate disclosure */}
