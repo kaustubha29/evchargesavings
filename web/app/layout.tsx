@@ -26,8 +26,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Impact affiliate verification — uses value= not content=, React.createElement bypasses JSX type check */}
-        {React.createElement("meta", { name: "impact-site-verification", value: "9b198be7-1e28-4638-9419-a03122b75d3d" })}
+       <meta
+    name="impact-site-verification"
+    content="9b198be7-1e28-4638-9419-a03122b75d3d"
+  />
       </head>
       <body className="pb-20">
         {/* Google AdSense */}
