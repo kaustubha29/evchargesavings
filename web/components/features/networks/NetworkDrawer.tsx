@@ -24,7 +24,7 @@ export function NetworkDrawer({ network, annualCost, evConn, onClose }: Props) {
   const compat = connCompat(evConn, network.connectors);
 
   return (
-    <BottomSheet open={!!network} onClose={onClose}>
+    <BottomSheet open={!!network} onClose={onClose} title={`${network.name} charging network details`}>
       <div className="px-6 pb-10 pt-4 max-w-2xl mx-auto w-full">
         {/* Header */}
         <div className="flex items-center gap-4 mb-5">

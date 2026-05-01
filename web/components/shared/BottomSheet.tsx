@@ -7,9 +7,10 @@ interface Props {
   onClose: () => void;
   children: React.ReactNode;
   className?: string;
+  title?: string;
 }
 
-export function BottomSheet({ open, onClose, children, className }: Props) {
+export function BottomSheet({ open, onClose, children, className, title = "Details" }: Props) {
   return (
     <Drawer.Root open={open} onOpenChange={(o) => !o && onClose()}>
       <Drawer.Portal>
@@ -21,6 +22,7 @@ export function BottomSheet({ open, onClose, children, className }: Props) {
             className,
           )}
         >
+          <Drawer.Title className="sr-only">{title}</Drawer.Title>
           <div className="w-10 h-1 bg-line rounded-full mx-auto mt-3 mb-1" />
           {children}
         </Drawer.Content>

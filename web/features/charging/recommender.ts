@@ -17,7 +17,21 @@ export function connCompat(evConn: ConnectorType | null, netConns: string[]): Co
 }
 
 export function rankNetworks(publicKwh: number, evConn: ConnectorType | null) {
+  const annualPublicKwh = Number.isFinite(publicKwh) ? Math.max(publicKwh, 0) : 0;
+  const compatRank: Record<ConnectorCompat["cls"], number> = {
+    yes: 0,
+    adapter: 1,
+    incompat: 2,
+  };
+
   return NETWORKS
-    .map((n) => ({ ...n, annualCost: publicKwh * n.perKwh, compat: connCompat(evConn, n.connectors) }))
-    .sort((a, b) => a.annualCost - b.annualCost);
+    .map((n) => {
+      const compat = connCompat(evConn, n.connectors);
+      return { ...n, annualCost: annualPublicKwh * n.perKwh, compat };
+    })
+    .sort((a, b) => {
+      const compatDiff = compatRank[a.compat.cls] - compatRank[b.compat.cls];
+      if (compatDiff !== 0) return compatDiff;
+      return a.annualCost - b.annualCost;
+    });
 }
