@@ -8,6 +8,8 @@ import { LeadCaptureBox } from "@/components/shared/LeadCaptureBox";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { SavingsSlot } from "@/components/shared/SavingsSlot";
 import { HomeChargerProducts } from "@/components/shared/HomeChargerProducts";
+import { EVInsuranceCTA } from "@/components/shared/EVInsuranceCTA";
+import { ChargingNetworkReferrals } from "@/components/shared/ChargingNetworkReferrals";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -105,6 +107,8 @@ export default function HomePage() {
           </div>
         </section>
 
+        <EVInsuranceCTA />
+
         {/* ── How to charge at home ── */}
         <section className="bg-ink text-cream py-16" id="home-charging">
           <div className="section-wrap">
@@ -164,6 +168,8 @@ export default function HomePage() {
         </section>
 
         <HomeChargerProducts />
+
+        <ChargingNetworkReferrals />
 
         {/* ── Level 2 installer quotes ── */}
         <section className="bg-cream-soft border-b border-line py-14" id="installer-quotes">
