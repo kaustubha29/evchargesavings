@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
   other: {
     "google-adsense-account": "ca-pub-6904215876470010",
+    "impact-site-verification": "de6c97d5-fa3b-4d25-904c-3eb7c2dedbac",
   },
 };
 
