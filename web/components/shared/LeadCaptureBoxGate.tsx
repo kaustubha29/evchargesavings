@@ -1,13 +1,14 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useState, type ReactNode } from "react";
 import { LeadCaptureBox, LEAD_FORM_SUBMITTED_KEY } from "./LeadCaptureBox";
 
 interface Props {
   sourcePage?: string;
+  children?: ReactNode;
 }
 
-export function LeadCaptureBoxGate({ sourcePage = "/" }: Props) {
+export function LeadCaptureBoxGate({ sourcePage = "/", children }: Props) {
   const [isSubmitted, setIsSubmitted] = useState<boolean | null>(null);
   const gateId = useId();
 
@@ -33,5 +34,10 @@ export function LeadCaptureBoxGate({ sourcePage = "/" }: Props) {
     return null;
   }
 
-  return <LeadCaptureBox sourcePage={sourcePage} gateId={gateId} />;
+  return (
+    <>
+      {children}
+      <LeadCaptureBox sourcePage={sourcePage} gateId={gateId} />
+    </>
+  );
 }

@@ -48,10 +48,11 @@ function LeadCaptureSection({ sourcePage }: { sourcePage: string }) {
     <section className="bg-cream-soft border-b border-line py-14">
       <div className="section-wrap">
         <div className="mt-12">
-          <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-4">
-            Need help with quotes?
-          </div>
-          <LeadCaptureBoxGate sourcePage={sourcePage} />
+          <LeadCaptureBoxGate sourcePage={sourcePage}>
+            <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-4">
+              Need help with quotes?
+            </div>
+          </LeadCaptureBoxGate>
         </div>
       </div>
     </section>
