@@ -101,10 +101,10 @@ export function LeadCaptureBox({ sourcePage = "/" }: Props) {
 
               <button
                 type="submit"
-                disabled={formState === "submitting"}
+                disabled={(formState as string) === "submitting"}
                 className="px-5 py-2.5 rounded-xl text-sm font-semibold bg-forest text-white border border-forest hover:bg-emerald hover:border-emerald transition-all disabled:opacity-60"
               >
-                {formState === "submitting" ? "Sending…" : "Get EV cost report"}
+                {(formState as string) === "submitting" ? "Sending…" : "Get EV cost report"}
               </button>
             </form>
 
@@ -124,7 +124,7 @@ export function LeadCaptureBox({ sourcePage = "/" }: Props) {
           We never sell your email. You may be contacted by up to 3 vetted local providers.{" "}
           <a href="/privacy" className="underline hover:text-forest">
             Privacy policy
-          </a>.
+          </a>. 
         </p>
 
       </div>
