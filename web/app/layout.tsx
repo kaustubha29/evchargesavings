@@ -29,6 +29,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {React.createElement("meta", { name: "impact-site-verification", value: "9b198be7-1e28-4638-9419-a03122b75d3d" })}
       </head>
       <body className="pb-20">
+        {/* Google Analytics GA4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Y4V4NBZ0YY"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-Y4V4NBZ0YY');
+        `}</Script>
+
         {/* Google AdSense */}
         <Script
           async
