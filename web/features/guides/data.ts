@@ -733,6 +733,144 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "ev-charging-cost-per-mile",
+    title: "EV charging cost per mile: 2026 guide",
+    hook: "Turn cents per kWh into the number shoppers actually understand: cost per mile.",
+    description: "Learn how to calculate EV charging cost per mile using electricity rates, efficiency, and charging mix.",
+    readTime: "5 min read",
+    category: "Savings",
+    sections: [
+      {
+        heading: "The quick formula",
+        body: "EV cost per mile is electricity price divided by efficiency. If electricity costs 16 cents per kWh and your EV gets 3.5 miles per kWh, your cost is about 4.6 cents per mile. A gas car at 28 MPG with $3.50 gas costs about 12.5 cents per mile.",
+      },
+      {
+        heading: "Home charging vs public charging",
+        body: "Most EV owners charge mostly at home, which is why EVs usually beat gas on operating cost. Public fast charging can cost two to three times more than home electricity, so your charging mix matters as much as the car's efficiency.",
+        list: [
+          "Mostly home charging: lowest cost per mile",
+          "Mixed home and public charging: still often cheaper than gas",
+          "Mostly DC fast charging: savings shrink quickly",
+          "Time-of-use plans can lower overnight charging costs",
+        ],
+      },
+      {
+        heading: "Example: efficient EV vs SUV",
+        body: "A 3.8 mi/kWh EV at 14 cents per kWh costs about 3.7 cents per mile. A 28 MPG SUV at $3.60 per gallon costs about 12.9 cents per mile. Over 15,000 miles, that difference is roughly $1,380 before maintenance savings.",
+      },
+      {
+        heading: "What changes the number",
+        body: "Efficiency, speed, weather, tire choice, and heater use all affect real-world EV cost per mile. Highway driving and winter weather usually raise energy use. City driving often improves EV efficiency because regenerative braking recovers energy.",
+      },
+      {
+        heading: "Use your own rate",
+        body: "The best estimate uses your utility rate, your EV model, your annual miles, and your home charging percentage. That is exactly what the EV Charge Savings calculator is built to compare.",
+      },
+    ],
+  },
+  {
+    slug: "tesla-vs-gas-savings-calculator",
+    title: "Tesla vs gas savings calculator: what changes the math?",
+    hook: "Tesla savings look great on paper, but rates, mileage, and charging habits decide the real number.",
+    description: "Compare Tesla fuel costs against gas cars and learn what drives the biggest savings.",
+    readTime: "6 min read",
+    category: "Savings",
+    sections: [
+      {
+        heading: "Why Tesla savings vary so much",
+        body: "A Tesla can save hundreds or thousands per year compared with a gas vehicle, but there is no single universal number. A Model 3 charged at home in a low-cost electricity state will look very different from a Model X that relies heavily on public fast charging.",
+      },
+      {
+        heading: "The three inputs that matter most",
+        body: "The biggest drivers are electricity rate, gas price, and annual miles. Efficiency matters too, but local energy prices usually move the savings estimate more than small differences between Tesla trims.",
+        list: [
+          "Your home electricity price",
+          "Your gas vehicle's MPG",
+          "Annual miles driven",
+          "Percent charged at home vs public chargers",
+        ],
+      },
+      {
+        heading: "Model 3 and Model Y are the savings sweet spot",
+        body: "Model 3 and Model Y tend to produce the strongest savings because they are efficient, common, and affordable relative to larger EVs. They also benefit from Tesla's charging ecosystem and mature route planning.",
+      },
+      {
+        heading: "Supercharging changes the comparison",
+        body: "Supercharging is convenient, especially on road trips, but it usually costs more than charging at home. A Tesla owner who charges at home 80-90% of the time will usually save more than one who uses fast charging as the main fuel source.",
+      },
+      {
+        heading: "Run the comparison",
+        body: "Use a Tesla vs your current gas car in the calculator, then adjust home charging percentage and annual miles. That will show whether the savings come from the vehicle, your local rates, or your driving pattern.",
+      },
+    ],
+  },
+  {
+    slug: "ev-vs-gas-savings-usa",
+    title: "EV vs gas savings in the USA",
+    hook: "EV savings are national, but the best states have the biggest electricity-to-gas advantage.",
+    description: "See how EV vs gas savings work across the United States and why state rates matter.",
+    readTime: "6 min read",
+    category: "Savings",
+    sections: [
+      {
+        heading: "The national pattern",
+        body: "Across the United States, EVs usually cost less to fuel than comparable gas vehicles because electric drivetrains are much more efficient. The exact savings depend on state electricity rates, local gas prices, and how often the vehicle charges at home.",
+      },
+      {
+        heading: "Why state rates matter",
+        body: "Two states can produce very different results for the same EV. A state with moderate electricity prices and high gasoline prices will usually show strong EV savings. A state with expensive electricity and cheap gas will still often favor EVs, but by a smaller margin.",
+      },
+      {
+        heading: "Home charging is the advantage",
+        body: "Home charging is the core reason EVs save money. Public fast charging is valuable for trips, but home electricity is usually cheaper and more predictable. Drivers who can charge overnight tend to get the best results.",
+        list: [
+          "Charge mostly at home for the strongest savings",
+          "Use time-of-use plans where available",
+          "Compare by cost per mile, not just annual totals",
+          "Recheck the math if gas or utility prices change",
+        ],
+      },
+      {
+        heading: "Bigger vehicles save more dollars",
+        body: "Replacing a low-MPG SUV or truck with an efficient EV often creates larger dollar savings than replacing a compact gas car. That is why EV trucks and crossovers can show dramatic fuel savings despite using more electricity than small EVs.",
+      },
+      {
+        heading: "Use state pages for local intent",
+        body: "For a better estimate, start with your state page and then select your EV and gas vehicle. Localized pages help show whether your state is above or below the national savings pattern.",
+      },
+    ],
+  },
+  {
+    slug: "level-2-charger-cost-breakdown",
+    title: "Level 2 charger cost breakdown",
+    hook: "Hardware is only one piece. Wiring, permits, and panel capacity usually decide the real bill.",
+    description: "Understand Level 2 EV charger hardware, installation, permit, and panel upgrade costs.",
+    readTime: "6 min read",
+    category: "Installation",
+    sections: [
+      {
+        heading: "What you are paying for",
+        body: "A Level 2 charger project has two main costs: the charger hardware and the electrical installation. Hardware can be a few hundred dollars, while installation varies based on panel capacity, distance, labor, conduit, permits, and whether the charger is plug-in or hardwired.",
+      },
+      {
+        heading: "Typical installed cost",
+        body: "Many homeowners land around $800-$1,500 installed. A simple job near the panel may cost less. A long wiring run, outdoor conduit, trenching, or an older electrical panel can raise the total quickly.",
+      },
+      {
+        heading: "Plug-in vs hardwired",
+        body: "Plug-in chargers use an outlet such as NEMA 14-50 and can be easier to replace later. Hardwired chargers are often cleaner, safer outdoors, and may support higher amperage. Your electrician can tell you which path fits your panel and local code.",
+      },
+      {
+        heading: "Panel capacity is the big variable",
+        body: "If your electrical panel has enough capacity, installation is usually straightforward. If not, you may need a panel upgrade, load management device, or lower-amperage charger. This is why quotes can vary widely for homes that look similar from the outside.",
+      },
+      {
+        heading: "How to avoid overpaying",
+        body: "Get multiple quotes, ask whether the permit is included, and confirm the amperage, breaker size, wire run, and charger mounting location. A clear written quote makes it easier to compare electricians fairly.",
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {

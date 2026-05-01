@@ -14,9 +14,9 @@ import { EVMarketplaceAffiliates } from "@/components/shared/EVMarketplaceAffili
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "EV Charge Savings — How Much Will You Save Going Electric?",
+  title: "EV Charging Cost Savings Calculator — EV vs Gas Savings 2026",
   description:
-    "See exactly how much an EV would save you in your zip code. Real 2026 electricity and gas rates for all 50 US states, 130+ EV models.",
+    "Calculate EV charging cost, EV vs gas savings, home charger costs, and local incentives using 2026 electricity and gas rates for all 50 states.",
 };
 
 function AdSlot({
@@ -217,31 +217,31 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-3">
               {GUIDES.map((g) => (
                 <a
                   key={g.slug}
                   href={`/guides/${g.slug}`}
-                  className="group relative overflow-hidden border border-line rounded-xl bg-paper p-4 min-h-36 flex flex-col hover:-translate-y-0.5 hover:border-forest/35 hover:shadow-1 transition-all"
+                  className="group relative overflow-hidden border border-line rounded-lg bg-paper p-3 min-h-28 md:min-h-32 flex flex-col hover:-translate-y-0.5 hover:border-forest/35 hover:shadow-1 transition-all"
                 >
-                  <div className="flex items-center justify-between gap-3 mb-3">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-forest bg-forest/8 px-2.5 py-1 rounded-full">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="font-mono text-[9px] uppercase tracking-wide text-forest bg-forest/8 px-2 py-0.5 rounded-full truncate">
                       {g.category}
                     </span>
-                    <span className="font-mono text-[10px] text-ink-mute">
+                    <span className="hidden sm:inline font-mono text-[9px] text-ink-mute whitespace-nowrap">
                       {g.readTime}
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-lg font-medium tracking-tight text-ink leading-snug group-hover:text-forest transition-colors">
+                  <h3 className="font-serif text-sm md:text-base font-medium tracking-tight text-ink leading-snug group-hover:text-forest transition-colors">
                     {g.title}
                   </h3>
 
-                  <p className="text-xs text-ink-3 leading-relaxed mt-2 line-clamp-2">
+                  <p className="hidden sm:block text-xs text-ink-3 leading-relaxed mt-2 line-clamp-2">
                     {g.hook ?? g.description}
                   </p>
 
-                  <div className="mt-auto pt-3 font-mono text-[10px] uppercase tracking-widest text-ink-mute group-hover:text-forest transition-colors">
+                  <div className="mt-auto pt-2 font-mono text-[9px] uppercase tracking-wide text-ink-mute group-hover:text-forest transition-colors">
                     Read guide →
                   </div>
                 </a>
