@@ -71,4 +71,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </body>
     </html>
   );
+
+  <head>
+  <meta
+    name="impact-site-verification"
+    content="9b198be7-1e28-4638-9419-a03122b75d3d"
+  />
+</head>
 }
