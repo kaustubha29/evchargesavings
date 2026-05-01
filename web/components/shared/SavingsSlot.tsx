@@ -30,9 +30,9 @@ const SETTLE_MS    = 700;
 
 function Reel({ value, rolling, delay, accent }: { value: string; rolling: boolean; delay: number; accent?: boolean }) {
   return (
-    <div className={`flex-1 min-w-0 rounded-xl overflow-hidden flex items-center justify-center ${accent ? "bg-emerald/10 border border-emerald/30" : "bg-white/8 border border-white/12"}`}>
+    <div className={`flex-1 min-w-0 h-9 rounded-xl overflow-hidden flex items-center justify-center ${accent ? "bg-emerald/10 border border-emerald/30" : "bg-white/8 border border-white/12"}`}>
       <div
-        className={`py-2 px-2 text-center w-full ${accent ? "font-serif text-base font-semibold" : "font-mono text-[11px] text-cream/80"}`}
+        className={`px-2 text-center w-full truncate ${accent ? "font-serif text-base font-semibold" : "font-mono text-[11px] text-cream/80"}`}
         style={{
           // Use longhand-only to avoid shorthand/transitionDelay conflict warning
           transitionProperty:       rolling ? "none"     : "filter, opacity, transform",
