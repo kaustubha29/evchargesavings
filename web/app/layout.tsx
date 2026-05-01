@@ -25,10 +25,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        {/* Impact requires value= not content= — React.createElement bypasses JSX prop type checking */}
-        {React.createElement("meta", { name: "impact-site-verification", value: "9b198be7-1e28-4638-9419-a03122b75d3d" })}
-      </head>
       <body className="pb-20">
         {/* Google AdSense — replace XXXXXXXXXXXXXXXX with your publisher ID */}
         <Script
