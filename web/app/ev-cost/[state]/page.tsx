@@ -7,6 +7,8 @@ import { calculateCO2 } from "@/features/calculations/co2";
 import { statePageMeta } from "@/features/content/seo";
 import { CalculatorShell } from "@/components/features/calculator/CalculatorShell";
 import { LocationDetector } from "@/components/features/location/LocationDetector";
+import { StateSelector } from "@/components/features/location/StateSelector";
+import { EVMarketplaceAffiliates } from "@/components/shared/EVMarketplaceAffiliates";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { fmt } from "@/lib/format";
 
@@ -27,7 +29,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     alternates: { canonical: `/ev-cost/${stateSlug}` },
-    openGraph: { title, description, url: `/ev-cost/${stateSlug}` },
+    openGraph: {
+      title,
+      description,
+      url: `/ev-cost/${stateSlug}`,
+      images: [
+        {
+          url: `/ev-cost/${stateSlug}/opengraph-image.png`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
   };
 }
 
@@ -87,6 +101,9 @@ export default async function StateCalculatorPage({ params }: Props) {
         {/* State hero */}
         <section className="bg-paper border-b border-line py-14 md:py-20">
           <div className="section-wrap">
+            <div className="mb-6">
+              <StateSelector currentStateSlug={stateData.slug} />
+            </div>
             <div className="inline-flex items-center gap-2 bg-good-bg text-good-fg font-mono text-xs px-3.5 py-1.5 rounded-full border border-good-fg/15 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
               {stateData.name} · {fmt.cents1(stateData.kwhCents)}/kWh · {fmt.money2(stateData.gasDollar)}/gal
@@ -137,6 +154,9 @@ export default async function StateCalculatorPage({ params }: Props) {
             <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} />
           </div>
         </section>
+
+        {/* EV Marketplace Affiliates */}
+        <EVMarketplaceAffiliates />
 
         {/* State comparison table */}
         <section className="bg-paper border-t border-line py-12">

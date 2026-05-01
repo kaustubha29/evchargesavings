@@ -10,6 +10,7 @@ import { SavingsSlot } from "@/components/shared/SavingsSlot";
 import { HomeChargerProducts } from "@/components/shared/HomeChargerProducts";
 import { EVInsuranceCTA } from "@/components/shared/EVInsuranceCTA";
 import { ChargingNetworkReferrals } from "@/components/shared/ChargingNetworkReferrals";
+import { EVMarketplaceAffiliates } from "@/components/shared/EVMarketplaceAffiliates";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -106,6 +107,8 @@ export default function HomePage() {
             <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} />
           </div>
         </section>
+
+        <EVMarketplaceAffiliates />
 
         <EVInsuranceCTA />
 

@@ -257,6 +257,205 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "ev-charging-connectors-explained",
+    title: "EV charging connectors explained: NACS vs CCS vs CHAdeMO",
+    description: "What are the differences? Which cars use which? Why is NACS becoming the standard? Everything you need to know about EV charging plugs.",
+    readTime: "6 min read",
+    category: "Charging",
+    sections: [
+      {
+        heading: "Why three standards exist",
+        body: "EVs arrived to market in the early 2010s without a unified connector standard. Europe went with CCS, Japan/Korea went with CHAdeMO, and the US had a mix. Tesla built proprietary Superchargers using their own connector (NACS). Now Tesla's connector is being adopted as the North American standard, and other networks are adding adapters or retrofitting.",
+      },
+      {
+        heading: "NACS (North American Charging Standard) — the future",
+        body: "Originally Tesla's proprietary standard, now adopted by Ford, GM, Rivian, and others. NACS is a compact design with two round male pins inside, designed for efficiency. All new Tesla Superchargers support NACS. Non-Tesla EVs now come with NACS ports or adapters. This is the standard you want if buying a new EV today.",
+        list: [
+          "Used by: Tesla, Ford, GM, Rivian, Lucid, and new adopters",
+          "Home charging: Level 2 and DC fast use NACS",
+          "Availability: Best for Supercharger access",
+          "Lifespan: Highest rated for durability (over 500k cycles)",
+        ],
+      },
+      {
+        heading: "CCS (Combined Charging System) — the mainstream standard until 2024",
+        body: "CCS combines a Type 2 AC connector with two additional DC pins underneath for fast charging. It's bulkier than NACS but was the standard across Hyundai, Kia, Volkswagen, BMW, and others until recently. Many public charging networks use CCS connectors.",
+        list: [
+          "Used by: Hyundai, Kia, Volkswagen, BMW, Mercedes (older models)",
+          "DC Fast chargers: Electrify America, Electrify Canada use CCS",
+          "Level 2 home charging: CCS Type 2 inlet for AC charging",
+          "Transition: Many CCS networks adding NACS cables alongside existing ones",
+        ],
+      },
+      {
+        heading: "CHAdeMO — declining, mainly Japan/Korea",
+        body: "CHAdeMO was championed by Nissan, Mitsubishi, and Kia. It uses a flat, rectangular plug. CHAdeMO supports DC fast charging but has lower power limits than CCS. Very few new EVs use CHAdeMO — it's mostly Nissan Leaf owners.",
+        list: [
+          "Used by: Nissan Leaf, Mitsubishi i-MiEV",
+          "Finding chargers: Rapidly shrinking — less than 5% of US public network",
+          "Future: Phasing out — very few new cars support it",
+        ],
+      },
+      {
+        heading: "Adapter strategy",
+        body: "If you own a CCS or CHAdeMO vehicle and want to access Tesla Superchargers, buy a CCS-to-NACS or CHAdeMO-to-NACS adapter ($200–400). These are passive adapters that simply change the connector shape. They work but add an extra step — you plug in the adapter, then plug into the charger.",
+      },
+      {
+        heading: "Buying advice for 2026",
+        body: "Choose an EV with NACS if possible. If you're buying a used 2020–2023 model, check if it's CCS or NACS before purchase — if CCS, budget for an adapter if you want Supercharger access. All new home Level 2 chargers are NACS, so no future-proofing worries there.",
+      },
+    ],
+  },
+  {
+    slug: "buying-used-ev",
+    title: "Buying a used EV: what to check",
+    description: "Battery health, mileage expectations, warranty coverage, and the red flags to avoid. Used EV prices have stabilized — here's how to find a good deal.",
+    readTime: "7 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "Used EV prices are stabilizing",
+        body: "Used EV prices spiked in 2021–2023 due to supply shortage. By 2026, the market has cooled and stabilized. You can now find good used EVs at near-historical lows. Certified pre-owned (CPO) vehicles typically come with extended battery warranty (8 years/100k miles is common).",
+      },
+      {
+        heading: "Battery health: the main factor",
+        body: "Battery degradation is the biggest concern for used EVs. Modern batteries degrade 2–5% per year under normal conditions (highway driving, varied temperatures, charging practices). An EV with 60k miles at age 4 years might be at 90–95% capacity. Most owners don't notice until 80% capacity or lower, and you can still road trip at 85% capacity.",
+        list: [
+          "Ask the dealer or owner for battery health report (most newer cars log this)",
+          "Tesla: check battery percentage in 'Trip Planner' or app",
+          "Other brands: request service history or degradation data from dealer",
+          "Red flag: car older than 6 years with over 100k miles and no battery report",
+        ],
+      },
+      {
+        heading: "Mileage expectations",
+        body: "EVs have fewer moving parts than gas cars — no oil changes, no transmission fluid, fewer brake jobs due to regen. A used EV with 80k miles is roughly equivalent to a gas car with 60k miles in terms of wear and tear. Brake pads and rotors on EVs last 2–3× longer than gas cars.",
+      },
+      {
+        heading: "Warranty coverage to check",
+        body: "Most manufacturers offer: 8-year/100k-mile battery warranty, 5-year/60k-mile powertrain, and 3-year/36k-mile comprehensive. Certified pre-owned vehicles often extend the battery warranty to 10 years/120k miles. Ask if the warranty transfers to the second owner.",
+        list: [
+          "Tesla: 8 yr / 120k mi on battery (2nd owner gets 5 yr / 80k mi)",
+          "Hyundai/Kia: 10 yr / 100k mi on battery",
+          "Ford: 8 yr / 100k mi on battery",
+          "BMW/Mercedes: 8 yr / 100k mi on battery (varies by model)",
+        ],
+      },
+      {
+        heading: "Test drive focus areas",
+        body: "Unlike gas cars, you're listening and feeling for different things. Quiet is normal — listen instead for any high-pitched whining (could be coolant pump) or clunking in the rear (suspension or loosened heat shield). Regenerative braking should feel smooth — not abrupt or delayed. Test the fast charger if possible.",
+      },
+      {
+        heading: "Price: what to expect",
+        body: "A 4-year-old EV with 50k miles should cost 50–65% of its original price. A 6-year-old EV with 80k miles around 35–50%. Base model used EVs (Nissan Leaf, Chevy Bolt, Hyundai Ioniq) can be found under $15k with warranty remaining.",
+      },
+      {
+        heading: "Red flags to avoid",
+        body: "Major accident history (look up Carfax), multiple owners in short timeframe, no service records, refusal to provide battery health data, and cosmetic issues (faded trim, interior wear beyond mileage).",
+      },
+    ],
+  },
+  {
+    slug: "ev-battery-degradation",
+    title: "EV battery degradation: what to expect over time",
+    description: "Will the battery fail? How fast does it degrade? Can you extend battery life? What does the warranty actually cover?",
+    readTime: "6 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "Modern EV batteries are very durable",
+        body: "Lithium-ion battery degradation is a known, measured phenomenon. Modern EV batteries (2015+) degrade slower than phones because they operate in a narrower state of charge window and have active thermal management. Real-world data shows degradation of 2–5% per 100k miles, not per year.",
+      },
+      {
+        heading: "Typical degradation rates by model",
+        body: "Tesla Supercharger data shows Model Y/Model 3 at 10% degradation after 200k miles. Chevy Bolt degradation studies show similar rates. Most owners don't perceive range loss until 80% capacity or lower, and very few cars reach end-of-life before the car itself is 15+ years old.",
+        list: [
+          "Year 1: 1–2% (initial settling, normal)",
+          "Years 2–5: 1–2% per year (typical use)",
+          "Years 6–10: 0.5–1% per year (stabilizes)",
+          "Long-term: most cars at 85–90% capacity after 10 years",
+        ],
+      },
+      {
+        heading: "What accelerates degradation?",
+        body: "Battery chemistry likes consistent, moderate temperatures and charge levels. The worst practices are: constant DC fast charging (generates heat), consistently charging to 100% daily, leaving the car parked for months uncharged in hot climates, and towing (generates heat and stress on battery thermal management).",
+        list: [
+          "❌ Daily DC fast charging from 5% to 100%: accelerates degradation 2–3×",
+          "❌ Parking in 110°F+ heat with full charge for weeks",
+          "❌ Deep discharge cycles (under 5% battery) repeatedly",
+          "✓ Charging to 80% most days, Level 2 charging",
+          "✓ Keeping car in moderate temperature environment",
+          "✓ Letting car sit at 50% charge if parked long-term",
+        ],
+      },
+      {
+        heading: "Can you extend battery life?",
+        body: "Yes — small choices compound. Enable 'limit charge to 80%' in your car's app for daily use. Charge during cooler hours if possible. Use Level 2 charging most of the time, DC fast charging only for road trips. Precondition (warm up) the battery in winter before driving.",
+        list: [
+          "Use 'charge limit to 80%' feature for daily drives",
+          "Charge overnight at Level 2 when possible",
+          "Avoid DC fast charging unless road tripping",
+          "Precondition battery 10 min before winter drives",
+          "Avoid leaving car in extreme heat with full charge",
+        ],
+      },
+      {
+        heading: "Warranty coverage for battery degradation",
+        body: "Almost all manufacturers cover battery degradation below 70–75% capacity. If your battery drops to 70% capacity before the warranty expires (typically 8 years / 100k miles), the manufacturer replaces it for free. This has never happened to a mainstream EV under real-world use.",
+      },
+      {
+        heading: "What's battery life really?",
+        body: "A car's engine wears out around 200k miles. EV batteries are designed to last 300k–500k miles — well beyond the car's usable life. The battery will degrade, but it won't suddenly fail. At 80% capacity, a 300-mile EV still does 240 miles between charges, which is plenty for most use cases.",
+      },
+    ],
+  },
+  {
+    slug: "winter-driving-ev",
+    title: "Winter driving with an EV: preconditioning, range, and charging",
+    description: "Cold weather cuts EV range 20–40%. Here's how to minimize the hit and stay warm without losing efficiency.",
+    readTime: "6 min read",
+    category: "Driving",
+    sections: [
+      {
+        heading: "Cold weather range loss is real but manageable",
+        body: "In freezing temperatures (below 32°F), EV range typically drops 20–40% compared to 70°F conditions. This isn't battery failure — it's physics. Cold batteries are less efficient, and cabin heating draws significant power. The good news: most drivers don't notice the loss on daily commutes, and the effect disappears once you precondition properly.",
+      },
+      {
+        heading: "Preconditioning: the game changer",
+        body: "Preconditioning warms the battery and cabin while the car is still plugged in, so you're not burning battery power. Nearly all modern EVs support this via their app or scheduled charging. Set a departure time 10–15 minutes before you leave, and the car automatically heats up while plugged in.",
+        list: [
+          "Tesla: Schedule Departure Time in app",
+          "Hyundai/Kia: Schedule Charging or Trip Planner in app",
+          "Ford/GM: Scheduled Charging → set desired departure temperature",
+          "Effect: recovers 80–90% of winter range loss when done correctly",
+        ],
+      },
+      {
+        heading: "Realistic winter mileage expectations",
+        body: "If your EV does 300 miles in 70°F conditions and you're not preconditioning, expect 180–240 miles in 32°F weather (40% loss). If you preheat while plugged in, expect 240–270 miles (10–20% loss). On highway driving (75 mph vs 55 mph) in cold, expect an additional 15–20% loss.",
+      },
+      {
+        heading: "Charging in winter",
+        body: "Cold batteries charge more slowly — what normally takes 6 hours might take 8 hours at 32°F. Fast chargers have built-in warmers, so DC fast charging works fine. Level 2 charging in cold is just slower, not harmful to the battery. Most modern EVs have battery heaters that activate before charging in cold.",
+      },
+      {
+        heading: "Driving tips for cold weather",
+        body: "Smooth acceleration, moderate speeds, and activated seat warmers (much more efficient than cabin heat) stretch range. Regen braking still works in winter but may be limited until the battery warms up. Avoid floor-it acceleration — it runs the battery heater harder and drains range faster.",
+        list: [
+          "Use seat and steering wheel warmers instead of high cabin heat",
+          "Smooth acceleration, no hard launches",
+          "Maintain 55–65 mph instead of 75 mph if range-constrained",
+          "Precondition before every winter drive",
+          "Plan road trip charging 20% earlier than you would in summer",
+        ],
+      },
+      {
+        heading: "Does cold damage the battery?",
+        body: "No. EV batteries are designed to operate in freezing temperatures. Cold slows charging and drains range temporarily, but the battery itself isn't harmed. Repeated deep discharges in cold might stress the battery, but normal driving and proper preconditioning prevent this.",
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {
