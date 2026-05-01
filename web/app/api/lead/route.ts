@@ -41,6 +41,20 @@ export async function POST(req: NextRequest) {
   const stateCode = zip ? stateFromZip(zip) : null;
   const stateName = stateCode ? getStateData(stateCode).name : null;
 
+  // Get city name from ZIP
+  let cityName: string | null = null;
+  if (zip) {
+    try {
+      const res = await fetch(`http://api.zippopotam.us/us/${zip}`, { signal: AbortSignal.timeout(2000) });
+      if (res.ok) {
+        const data = await res.json();
+        cityName = data.places?.[0]?.['place name'] || null;
+      }
+    } catch {
+      // Ignore errors, cityName remains null
+    }
+  }
+
   // Supabase write — insert first; on duplicate email update zip/state instead
   try {
     const supabase = createClient(supabaseUrl, supabaseKey);
@@ -65,17 +79,47 @@ export async function POST(req: NextRequest) {
   // Resend emails — also non-blocking
   if (resendKey) {
     const resend = new Resend(resendKey);
+
     Promise.allSettled([
       resend.emails.send({
         from: FROM_EMAIL,
-        to:   email,
-        subject: "We're matching you with EV charger installers",
+        to: email,
+        subject: "Your personalized EV cost & charger options are on the way",
         html: `
           <p>Hi,</p>
-          <p>Thanks — we're matching you with vetted, licensed electricians${stateName ? ` in <b>${stateName}</b>` : ""} who install Level 2 EV chargers.</p>
-          <p>You'll hear from up to 3 installers within 24 hours with no-obligation quotes.</p>
+
+          <p>Thanks for checking out EV ownership costs${
+            cityName && stateName
+              ? ` in <b>${cityName}, ${stateName}</b>`
+              : stateName
+              ? ` in <b>${stateName}</b>`
+              : ""
+          } — we’re putting together your personalized breakdown now.</p>
+
+          <p><b>Within the next 24 hours, you’ll receive:</b></p>
+          <ul>
+            <li>⚡ Estimated <b>EV pricing</b> based on your area</li>
+            <li>🔌 <b>Level 2 home charger installation costs</b></li>
+            <li>💸 Available <b>local incentives, rebates, and typical insurance costs in your area</b></li>
+          </ul>
+
+          <p>Most people are surprised by how much incentives and fuel savings can offset the upfront cost.</p>
+
+          <p>We’ll also match you with up to <b>3 vetted, licensed installers</b>${
+            cityName && stateName
+              ? ` in <b>${cityName}, ${stateName}</b>`
+              : stateName
+              ? ` in <b>${stateName}</b>`
+              : ""
+          } so you can compare quotes — no pressure, no obligation.</p>
+
+          <p>This gives you a clearer picture of the <b>true cost of owning an EV</b> before making any decisions.</p>
+
           <p>— EV Charge Savings</p>
-          <p style="font-size:11px;color:#999">Submitted at evchargesavings.com. We never sell your email.</p>
+
+          <p style="font-size:11px;color:#999">
+            Submitted at evchargesavings.com. We never sell your email. You may be contacted by up to 3 vetted local providers.
+          </p>
         `,
       }),
       resend.emails.send({
@@ -86,7 +130,7 @@ export async function POST(req: NextRequest) {
           <b>New installer lead</b><br/>
           Email: ${email}<br/>
           ZIP: ${zip || "—"}<br/>
-          State: ${stateName ?? stateCode ?? "—"}<br/>
+          Location: ${cityName ? `${cityName}, ` : ""}${stateName ?? stateCode ?? "—"}<br/>
           Source: ${sourcePage}
         `,
       }),

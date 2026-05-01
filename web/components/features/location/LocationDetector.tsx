@@ -11,12 +11,29 @@ interface Props {
 }
 
 export function LocationDetector({ forceState }: Props) {
-  const { setLocation, setDetecting } = useCalculatorStore();
+  const { setLocation, setZip, setDetecting } = useCalculatorStore();
+
+  async function setLocationWithCity(code: string, data: any, zip: string | null) {
+    let city: string | null = null;
+    if (zip) {
+      try {
+        const res = await fetch(`http://api.zippopotam.us/us/${zip}`, { signal: AbortSignal.timeout(2000) });
+        if (res.ok) {
+          const data = await res.json();
+          city = data.places?.[0]?.['place name'] || null;
+        }
+      } catch {
+        // Ignore errors
+      }
+    }
+    setLocation(code, data, zip, city);
+  }
 
   useEffect(() => {
     if (forceState) {
       const data = getStateData(forceState);
-      setLocation(forceState, data, null);
+      setLocation(forceState, data, null, null);
+      setZip(null);
       return;
     }
     // 1. Try localStorage cache
@@ -25,7 +42,8 @@ export function LocationDetector({ forceState }: Props) {
       if (raw) {
         const cached = JSON.parse(raw) as { code: string; zip?: string; ts: number };
         if (Date.now() - cached.ts < TTL_MS && cached.code) {
-          setLocation(cached.code, getStateData(cached.code), cached.zip ?? null);
+          const data = getStateData(cached.code);
+          setLocationWithCity(cached.code, data, cached.zip ?? null);
           return;
         }
       }
@@ -42,7 +60,7 @@ export function LocationDetector({ forceState }: Props) {
         const code = j.region_code;
         const zip  = j.postal && /^\d{5}$/.test(j.postal) ? j.postal : undefined;
         const data = getStateData(code);
-        setLocation(code, data, zip ?? null);
+        setLocationWithCity(code, data, zip ?? null);
         try {
           localStorage.setItem(STORAGE_KEY, JSON.stringify({ code, zip, ts: Date.now() }));
         } catch { /* ignore */ }

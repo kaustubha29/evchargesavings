@@ -2,14 +2,14 @@
 import { useEffect, useState } from "react";
 
 const COMBOS = [
-  { ev: "Model Y LR",       state: "California",  saving: "$1,847" },
-  { ev: "Ioniq 6 SE",       state: "Texas",       saving: "$1,203" },
-  { ev: "F-150 Lightning",  state: "New York",    saving: "$1,654" },
-  { ev: "Kia EV6 Wind",     state: "Florida",     saving: "$891"   },
-  { ev: "Chevy Equinox EV", state: "Washington",  saving: "$1,312" },
-  { ev: "VW ID.4 Pro",      state: "Colorado",    saving: "$1,141" },
-  { ev: "Model 3 LR AWD",   state: "Illinois",    saving: "$1,089" },
-  { ev: "Lucid Air GT",     state: "Arizona",     saving: "$1,490" },
+  { ev: "Model Y LR",       location: "Los Angeles, California",  saving: "$1,847" },
+  { ev: "Ioniq 6 SE",       location: "Houston, Texas",           saving: "$1,203" },
+  { ev: "F-150 Lightning",  location: "New York, New York",       saving: "$1,654" },
+  { ev: "Kia EV6 Wind",     location: "Miami, Florida",           saving: "$891"   },
+  { ev: "Chevy Equinox EV", location: "Seattle, Washington",      saving: "$1,312" },
+  { ev: "VW ID.4 Pro",      location: "Denver, Colorado",         saving: "$1,141" },
+  { ev: "Model 3 LR AWD",   location: "Chicago, Illinois",        saving: "$1,089" },
+  { ev: "Lucid Air GT",     location: "Phoenix, Arizona",         saving: "$1,490" },
 ];
 
 const FACTS = [
@@ -100,7 +100,7 @@ export function SavingsSlot() {
     return () => clearInterval(id);
   }, []);
 
-  const { ev, state, saving } = COMBOS[idx];
+  const { ev, location, saving } = COMBOS[idx];
 
   return (
     <div className="bg-ink rounded-3xl overflow-hidden border border-white/10 shadow-2">
@@ -129,7 +129,7 @@ export function SavingsSlot() {
 
       {/* Reel labels */}
       <div className="flex gap-2 px-5 pt-4 pb-2">
-        {["EV model", "State", "Saves / yr"].map((l) => (
+        {["EV model", "Location", "Saves / yr"].map((l) => (
           <div key={l} className="flex-1 text-center font-mono text-[11px] uppercase tracking-wider text-cream/50">
             {l}
           </div>
@@ -138,9 +138,9 @@ export function SavingsSlot() {
 
       {/* Reels */}
       <div className="flex gap-2 px-5 pb-4">
-        <Reel value={ev}     rolling={rolling} delay={0}   />
-        <Reel value={state}  rolling={rolling} delay={60}  />
-        <Reel value={saving} rolling={rolling} delay={120} accent />
+        <Reel value={ev}       rolling={rolling} delay={0}   />
+        <Reel value={location} rolling={rolling} delay={60}  />
+        <Reel value={saving}   rolling={rolling} delay={120} accent />
       </div>
 
       {/* EV fact strip */}

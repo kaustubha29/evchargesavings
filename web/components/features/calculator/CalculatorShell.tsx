@@ -22,24 +22,39 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
   const {
     evSlug, gasId, annualMiles, homePct,
     homeRateKwh, publicRateKwh, gasPriceDollar,
-    stateCode, stateData, isDetecting,
+    stateCode, stateData, city, zip,
+    isDetecting,
     setEvSlug, setGasId, setMiles, setHomePct,
-    setHomeRate, setPublicRate, setGasPrice, setLocation,
+    setHomeRate, setPublicRate, setGasPrice, setLocation, setZip,
   } = store;
 
   const router   = useRouter();
   const pathname = usePathname();
 
-  const [zipInput, setZipInput] = useState("");
   const [zipError, setZipError] = useState(false);
 
-  function applyZip(zip: string) {
-    const code = stateFromZip(zip.trim());
+  async function applyZip(zipValue: string) {
+    const code = stateFromZip(zipValue.trim());
     if (!code) { setZipError(true); return; }
     setZipError(false);
-    setZipInput("");
+    setZip("");
     const info = getStateData(code);
-    setLocation(code, info, zip.trim());
+
+    // Fetch city
+    let cityName: string | null = null;
+    if (zipValue.trim()) {
+      try {
+        const res = await fetch(`http://api.zippopotam.us/us/${zipValue.trim()}`, { signal: AbortSignal.timeout(2000) });
+        if (res.ok) {
+          const data = await res.json();
+          cityName = data.places?.[0]?.['place name'] || null;
+        }
+      } catch {
+        // Ignore errors
+      }
+    }
+
+    setLocation(code, info, zipValue.trim(), cityName);
     // On state pages, navigate so the hero + URL reflect the new state
     if (pathname.startsWith("/ev-cost/")) {
       router.push(`/ev-cost/${info.slug}`);
@@ -65,7 +80,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const locationLabel = isDetecting ? "Detecting…" : (stateCode ? stateData.name : "United States");
+  const locationLabel = isDetecting ? "Detecting…" : (stateCode ? (city ? `${city}, ${stateData.name}` : stateData.name) : "United States");
 
   // Group EVs by brand for <optgroup>
   const brands = useMemo(() => [...new Set(evSummaries.map((e) => e.brand))], [evSummaries]);
@@ -119,7 +134,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
             </span>
           )}
           <form
-            onSubmit={(e) => { e.preventDefault(); applyZip(zipInput); }}
+            onSubmit={(e) => { e.preventDefault(); applyZip(zip || ""); }}
             className="flex items-center gap-1"
           >
             <input
@@ -128,9 +143,9 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
               enterKeyHint="go"
               maxLength={5}
               placeholder="ZIP code"
-              value={zipInput}
-              onChange={(e) => { setZipInput(e.target.value); setZipError(false); }}
-              onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); applyZip(zipInput); } }}
+              value={zip || ""}
+              onChange={(e) => { setZip(e.target.value); setZipError(false); }}
+              onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); applyZip(zip || ""); } }}
               className={`w-24 border rounded-lg px-2.5 py-1.5 font-mono text-xs bg-paper focus:outline-none focus:ring-1 focus:ring-forest ${zipError ? "border-rust text-rust placeholder:text-rust/50" : "border-line"}`}
             />
             <button type="submit" className="font-mono text-[10px] text-ink-mute hover:text-forest px-1">→</button>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useCalculatorStore } from "@/store/calculator";
 
 type State = "idle" | "submitting" | "success" | "error";
 
@@ -9,8 +10,8 @@ interface Props {
 }
 
 export function LeadCaptureBox({ sourcePage = "/" }: Props) {
+  const { zip, setZip } = useCalculatorStore();
   const [email, setEmail] = useState("");
-  const [zip, setZip] = useState("");
   const [formState, setFormState] = useState<State>("idle");
 
   async function handleSubmit(e: React.FormEvent) {
@@ -94,7 +95,7 @@ export function LeadCaptureBox({ sourcePage = "/" }: Props) {
                 pattern="[0-9]{5}"
                 required
                 placeholder="ZIP"
-                value={zip}
+                value={zip || ""}
                 onChange={(e) => setZip(e.target.value)}
                 className="w-24 border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
               />

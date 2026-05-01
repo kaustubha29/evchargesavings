@@ -16,7 +16,7 @@ export function StickySavingsBar() {
     [ev.efficiency, gas.mpg, store.annualMiles, store.homePct, store.homeRateKwh, store.publicRateKwh, store.gasPriceDollar],
   );
 
-  const locationLabel = store.stateCode ? store.stateData.name : "the US";
+  const locationLabel = store.stateCode ? (store.city ? `${store.city}, ${store.stateData.name}` : store.stateData.name) : "the US";
 
   useEffect(() => {
     const handler = () => setVisible(window.scrollY > 480);
