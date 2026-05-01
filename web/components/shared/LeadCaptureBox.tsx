@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useCalculatorStore } from "@/store/calculator";
 
 type State = "idle" | "submitting" | "success" | "error";
@@ -26,6 +26,14 @@ export function LeadCaptureBox({ sourcePage = "/" }: Props) {
       });
 
       if (!res.ok) throw new Error("Failed");
+
+      if (typeof window !== "undefined") {
+        try {
+          localStorage.setItem("ecs-lead-submitted", "true");
+        } catch {
+          // ignore storage failures
+        }
+      }
 
       setFormState("success");
     } catch {

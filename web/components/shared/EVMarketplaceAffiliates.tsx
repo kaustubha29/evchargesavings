@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useCalculatorStore } from "@/store/calculator";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { getStateData } from "@/features/location/queries";
@@ -20,9 +20,19 @@ export function EVMarketplaceAffiliates() {
   const store = useCalculatorStore();
   const { evSlug, gasId, stateCode } = store;
 
+  const [hasSubmittedLead, setHasSubmittedLead] = useState(false);
   const ev = useMemo(() => evRepository.getBySlug(evSlug), [evSlug]);
   const gas = useMemo(() => gasRepository.getById(gasId), [gasId]);
   const stateData = useMemo(() => (stateCode ? getStateData(stateCode) : null), [stateCode]);
+
+  useEffect(() => {
+    try {
+      setHasSubmittedLead(localStorage.getItem("ecs-lead-submitted") === "true");
+    } catch {
+      setHasSubmittedLead(false);
+    }
+  }, []);
+
 
   if (!ev || !gas) return null;
 
@@ -175,13 +185,15 @@ export function EVMarketplaceAffiliates() {
         </div>
 
         {/* ✅ FIX: removed extra boxed wrapper */}
-        <div className="mt-12">
-          <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-4">
-            Need help with quotes?
-          </div>
+        {!hasSubmittedLead && (
+          <div className="mt-12">
+            <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-4">
+              Need help with quotes?
+            </div>
 
-          <LeadCaptureBox sourcePage={sourcePage} />
-        </div>
+            <LeadCaptureBox sourcePage={sourcePage} />
+          </div>
+        )}
 
         <p className="font-mono text-[10px] text-ink-mute/60 mt-6">
           We may earn a commission on qualifying sales — at no extra cost to you.
