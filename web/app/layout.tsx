@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   },
   description:
     "See exactly how much an EV would save you in your zip code. Real 2026 electricity and gas rates for all 50 US states, 130+ EV models, free forever.",
-  metadataBase: new URL("https://evchargesavings.com"),
+  metadataBase: new URL("https://www.evchargesavings.com"),
   openGraph: {
     type: "website",
     siteName: "EV Charge Savings",
-    url: "https://evchargesavings.com",
+    url: "https://www.evchargesavings.com",
   },
   twitter: { card: "summary_large_image" },
   other: {
