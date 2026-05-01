@@ -125,7 +125,7 @@ export default async function ComparePage({ params }: Props) {
 
       <main>
         {/* Hero */}
-        <section className="bg-paper border-b border-line py-14 md:py-20">
+        <section className="bg-paper border-b border-line py-16 md:py-24">
           <div className="section-wrap">
             <div className="inline-flex items-center gap-2 bg-good-bg text-good-fg font-mono text-xs px-3.5 py-1.5 rounded-full border border-good-fg/15 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
@@ -144,7 +144,7 @@ export default async function ComparePage({ params }: Props) {
             </p>
 
             {/* Side-by-side cards */}
-            <div className="grid sm:grid-cols-2 gap-5 mb-8">
+            <div className="grid sm:grid-cols-2 gap-6 mb-8">
               {/* EV card */}
               <div className="bg-good-bg border border-good-fg/20 rounded-2xl p-6">
                 <div className="font-mono text-[10px] uppercase tracking-widest text-good-fg/70 mb-2">Electric</div>
@@ -213,7 +213,7 @@ export default async function ComparePage({ params }: Props) {
             </div>
 
             {/* Summary stats */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-6">
               {[
                 { label: "Annual savings",  val: fmt.money0(savings.annualSavings),    accent: isEvCheaper },
                 { label: "5-year savings",  val: fmt.money0(savings.fiveYearSavings),  accent: false },
@@ -242,12 +242,12 @@ export default async function ComparePage({ params }: Props) {
             ].map((row) => {
               const max = Math.max(savings.gasAnnualCost, savings.evAnnualCost, 1);
               return (
-                <div key={row.label} className="mb-5">
+                <div key={row.label} className="mb-6">
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-cream/70">{row.label}</span>
                     <span className="font-mono text-cream">{fmt.money0(row.val)}/yr</span>
                   </div>
-                  <div className="h-3 bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-4 bg-white/10 rounded-full overflow-hidden">
                     <div
                       className="h-full rounded-full"
                       style={{ width: `${(row.val / max * 100).toFixed(1)}%`, background: row.color }}

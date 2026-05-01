@@ -37,7 +37,6 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
     const code = stateFromZip(zipValue.trim());
     if (!code) { setZipError(true); return; }
     setZipError(false);
-    setZip("");
     const info = getStateData(code);
 
     // Fetch city
@@ -86,7 +85,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
   const brands = useMemo(() => [...new Set(evSummaries.map((e) => e.brand))], [evSummaries]);
 
   return (
-    <div id="calculator" className="space-y-8">
+    <div id="calculator" className="space-y-4">
 
       {/* ── Vehicle selectors + location ── */}
       <div className="bg-paper border border-line rounded-3xl p-6 shadow-1">
@@ -198,7 +197,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
                   <span className="text-ink-mute">{row.label}</span>
                   <span className="font-mono font-medium text-ink">{fmt.money0(row.val)}/yr</span>
                 </div>
-                <div className="h-2 bg-black/8 rounded-full overflow-hidden">
+                <div className="h-3 bg-black/8 rounded-full overflow-hidden">
                   <div
                     className="h-full rounded-full transition-all duration-700"
                     style={{ width: `${(row.val / max * 100).toFixed(1)}%`, background: row.color }}
@@ -221,7 +220,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
       </div>
 
       {/* Inputs panel */}
-      <div className="bg-paper border border-line rounded-3xl p-7 shadow-1 space-y-6">
+      <div className="bg-paper border border-line rounded-3xl p-7 shadow-1 space-y-6 mt-4">
         <h3 className="font-serif text-xl font-medium tracking-tight">Fine-tune your estimate</h3>
 
         {/* Sliders */}
@@ -243,25 +242,27 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
         ))}
 
         {/* Rate inputs */}
-        <div className="grid sm:grid-cols-3 gap-4 pt-2 border-t border-line-soft">
-          {[
-            { label:"Electricity (home)", val:homeRateKwh, suffix:"¢/kWh", set:setHomeRate },
-            { label:"Electricity (public)", val:publicRateKwh, suffix:"¢/kWh", set:setPublicRate },
-            { label:"Gas price", val:gasPriceDollar, suffix:"$/gal", set:setGasPrice },
-          ].map((f) => (
-            <label key={f.label} className="space-y-1.5">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">{f.label}</span>
-              <div className="flex items-center border border-line rounded-xl overflow-hidden">
-                <input
-                  type="number" step="0.1" value={f.val}
-                  onChange={(e) => f.set(Number(e.target.value))}
-                  className="flex-1 px-3 py-2.5 text-sm bg-paper focus:outline-none"
-                />
-                <span className="px-3 text-ink-mute text-xs font-mono border-l border-line bg-cream-soft py-2.5">{f.suffix}</span>
-              </div>
-            </label>
-          ))}
-        </div>
+        {!stateCode && (
+          <div className="grid sm:grid-cols-3 gap-4 pt-2 border-t border-line-soft">
+            {[
+              { label:"Electricity (home)", val:homeRateKwh, suffix:"¢/kWh", set:setHomeRate },
+              { label:"Electricity (public)", val:publicRateKwh, suffix:"¢/kWh", set:setPublicRate },
+              { label:"Gas price", val:gasPriceDollar, suffix:"$/gal", set:setGasPrice },
+            ].map((f) => (
+              <label key={f.label} className="space-y-1.5">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">{f.label}</span>
+                <div className="flex items-center border border-line rounded-xl overflow-hidden">
+                  <input
+                    type="number" step="0.1" value={f.val}
+                    onChange={(e) => f.set(Number(e.target.value))}
+                    className="flex-1 px-3 py-2.5 text-sm bg-paper focus:outline-none"
+                  />
+                  <span className="px-3 text-ink-mute text-xs font-mono border-l border-line bg-cream-soft py-2.5">{f.suffix}</span>
+                </div>
+              </label>
+            ))}
+          </div>
+        )}
       </div>
 
     </div>
