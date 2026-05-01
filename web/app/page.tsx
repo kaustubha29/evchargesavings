@@ -7,6 +7,7 @@ import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
 import { LeadCaptureBox } from "@/components/shared/LeadCaptureBox";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { SavingsSlot } from "@/components/shared/SavingsSlot";
+import { HomeChargerProducts } from "@/components/shared/HomeChargerProducts";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -161,6 +162,8 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <HomeChargerProducts />
 
         {/* ── Level 2 installer quotes ── */}
         <section className="bg-cream-soft border-b border-line py-14" id="installer-quotes">
@@ -319,87 +322,6 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* ── Product links ── */}
-        <section className="bg-paper border-b border-line py-14" id="products">
-          <div className="section-wrap">
-            <div className="mb-8">
-              <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">EV gear</div>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight mb-2">Gear worth buying</h2>
-              <p className="text-ink-3 max-w-xl">The chargers, adapters, and accessories that actually make EV ownership easier.</p>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {[
-                {
-                  name: "Grizzl-E Classic 40A",
-                  cat: "Level 2 charger",
-                  price: "$279",
-                  desc: "The no-frills workhorse. Built in Canada, outdoor-rated, 40 A / 9.6 kW. No subscription, no app required.",
-                  tag: "Best value",
-                  url: "https://www.amazon.com/s?k=grizzl-e+classic+40a",
-                },
-                {
-                  name: "JuiceBox 40",
-                  cat: "Level 2 charger · Smart",
-                  price: "$399",
-                  desc: "Wi-Fi connected, 40 A, works with utility TOU schedules. Schedule charging to off-peak hours from the app.",
-                  tag: "Best smart charger",
-                  url: "https://www.amazon.com/s?k=juicebox+40+ev+charger",
-                },
-                {
-                  name: "Tesla Wall Connector (Gen 3)",
-                  cat: "Level 2 charger · NACS",
-                  price: "$449",
-                  desc: "The best charger for Tesla and NACS-equipped EVs. 48 A, Wi-Fi enabled, load-sharing for multi-car households.",
-                  tag: "Best for Tesla / NACS",
-                  url: "https://www.amazon.com/s?k=tesla+wall+connector+gen+3",
-                },
-                {
-                  name: "Lectron CCS→NACS Adapter",
-                  cat: "Charging adapter",
-                  price: "$149",
-                  desc: "Lets CCS-equipped EVs use Tesla Superchargers. Compatible with Hyundai, Kia, VW, Audi, and more.",
-                  tag: "CCS owners",
-                  url: "https://www.amazon.com/s?k=lectron+ccs+to+nacs+adapter",
-                },
-                {
-                  name: "Emporia Level 2 (48A)",
-                  cat: "Level 2 charger · Smart",
-                  price: "$349",
-                  desc: "48 A / 11.5 kW with built-in energy monitoring. Pairs with the Emporia app for TOU scheduling.",
-                  tag: "Best with energy monitor",
-                  url: "https://www.amazon.com/s?k=emporia+ev+charger+48a",
-                },
-                {
-                  name: "Lectron Level 1/2 Portable EVSE",
-                  cat: "Portable charger",
-                  price: "$159",
-                  desc: "Adjustable 16 A / 32 A. Travel-ready with 120 V and 240 V cables included. Perfect backup charger.",
-                  tag: "Best portable",
-                  url: "https://www.amazon.com/s?k=lectron+portable+ev+charger",
-                },
-              ].map((p) => (
-                <a
-                  key={p.name}
-                  href={p.url}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored"
-                  className="block bg-paper border border-line rounded-2xl p-5 hover:border-forest/40 hover:shadow-1 transition-all group"
-                >
-                  <div className="flex items-start justify-between gap-2 mb-1">
-                    <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">{p.cat}</div>
-                    <span className="bg-cream text-ink-3 font-mono text-[9px] px-2 py-0.5 rounded-full whitespace-nowrap">{p.tag}</span>
-                  </div>
-                  <div className="font-serif text-lg font-medium text-ink mb-0.5 group-hover:text-forest transition-colors">{p.name}</div>
-                  <div className="font-mono text-base font-semibold text-forest mb-3">{p.price}</div>
-                  <p className="text-sm text-ink-3 leading-relaxed">{p.desc}</p>
-                  <div className="font-mono text-[10px] text-forest mt-3 group-hover:underline">View on Amazon →</div>
-                </a>
-              ))}
-            </div>
-            <p className="text-xs text-ink-mute mt-4 font-mono">Links may be affiliate links — we may earn a commission at no cost to you.</p>
           </div>
         </section>
 

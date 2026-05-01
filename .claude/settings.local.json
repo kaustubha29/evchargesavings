@@ -4,7 +4,9 @@
       "PowerShell(Get-Command node, npm, npx, pnpm, bun 2>&1)",
       "Bash(npm run *)",
       "Bash(curl -s http://localhost:3000)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "WebFetch(domain:amzn.to)",
+      "WebFetch(domain:www.amazon.com)"
     ]
   }
 }
