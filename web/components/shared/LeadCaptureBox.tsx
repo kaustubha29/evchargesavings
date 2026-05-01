@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useCalculatorStore } from "@/store/calculator";
 
+export const LEAD_FORM_SUBMITTED_KEY = "ecs-lead-submitted";
+
 type State = "idle" | "submitting" | "success" | "error";
 
 interface Props {
@@ -29,7 +31,8 @@ export function LeadCaptureBox({ sourcePage = "/" }: Props) {
 
       if (typeof window !== "undefined") {
         try {
-          localStorage.setItem("ecs-lead-submitted", "true");
+          localStorage.setItem(LEAD_FORM_SUBMITTED_KEY, "true");
+          window.dispatchEvent(new Event("ecs-lead-submitted"));
         } catch {
           // ignore storage failures
         }

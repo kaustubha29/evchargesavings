@@ -1,10 +1,9 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useEffect } from "react";
 import { useCalculatorStore } from "@/store/calculator";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { getStateData } from "@/features/location/queries";
-import { LeadCaptureBox } from "@/components/shared/LeadCaptureBox";
 
 function buildAffiliateUrl(baseUrl: string, campaign: string, term: string, state?: string) {
   const url = new URL(baseUrl);
@@ -20,23 +19,12 @@ export function EVMarketplaceAffiliates() {
   const store = useCalculatorStore();
   const { evSlug, gasId, stateCode } = store;
 
-  const [hasSubmittedLead, setHasSubmittedLead] = useState(false);
   const ev = useMemo(() => evRepository.getBySlug(evSlug), [evSlug]);
   const gas = useMemo(() => gasRepository.getById(gasId), [gasId]);
   const stateData = useMemo(() => (stateCode ? getStateData(stateCode) : null), [stateCode]);
 
-  useEffect(() => {
-    try {
-      setHasSubmittedLead(localStorage.getItem("ecs-lead-submitted") === "true");
-    } catch {
-      setHasSubmittedLead(false);
-    }
-  }, []);
-
-
   if (!ev || !gas) return null;
 
-  const sourcePage = stateCode ? `/ev-cost/${stateCode}?ev=${evSlug}` : "/";
   const stateTag = stateData ? stateData.slug || stateData.name : undefined;
 
   const brandDealerUrls: Record<string, string> = {
@@ -183,17 +171,6 @@ export function EVMarketplaceAffiliates() {
             </div>
           ))}
         </div>
-
-        {/* ✅ FIX: removed extra boxed wrapper */}
-        {!hasSubmittedLead && (
-          <div className="mt-12">
-            <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-4">
-              Need help with quotes?
-            </div>
-
-            <LeadCaptureBox sourcePage={sourcePage} />
-          </div>
-        )}
 
         <p className="font-mono text-[10px] text-ink-mute/60 mt-6">
           We may earn a commission on qualifying sales — at no extra cost to you.

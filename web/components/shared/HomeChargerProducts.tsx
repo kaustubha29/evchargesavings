@@ -44,39 +44,6 @@ const CHARGERS = [
   },
 ];
 
-const ADAPTERS = [
-  {
-    name: "J1772 → NACS (LENZ)",
-    price: "$35",
-    desc: "Non-Tesla EV at Tesla Superchargers.",
-    url: "https://amzn.to/4w4xctg",
-  },
-  {
-    name: "J1772 → NACS (Lectron)",
-    price: "$30",
-    desc: "Plug any J1772 EV into a Tesla NACS port.",
-    url: "https://amzn.to/4udBOeU",
-  },
-  {
-    name: "NACS → J1772 (Lectron 48 A)",
-    price: "$55",
-    desc: "Tesla at public J1772 / Level 2 stations. Full 48 A rated.",
-    url: "https://amzn.to/4cSGTUt",
-  },
-  {
-    name: "NACS → J1772 (Lectron)",
-    price: "$30",
-    desc: "Tesla at any J1772 charger — compact everyday carry.",
-    url: "https://amzn.to/3OPhxxt",
-  },
-  {
-    name: "NACS → CCS1 (HUACAITU)",
-    price: "$79",
-    desc: "Ford, Rivian, GM, Polestar users at CCS1 DC fast chargers.",
-    url: "https://amzn.to/3QYFVxb",
-  },
-];
-
 function ProductCard({ name, tag, price, desc, url, accent }: {
   name: string; tag: string; price: string; desc: string; url: string; accent?: boolean;
 }) {
@@ -107,30 +74,6 @@ function ProductCard({ name, tag, price, desc, url, accent }: {
   );
 }
 
-function AdapterCard({ name, price, desc, url }: {
-  name: string; price: string; desc: string; url: string;
-}) {
-  return (
-    <div className="border border-line rounded-xl p-4 bg-paper flex items-center gap-4">
-      <div className="flex-1 min-w-0">
-        <div className="font-serif text-sm font-medium text-ink mb-0.5 truncate">{name}</div>
-        <p className="text-xs text-ink-mute leading-snug">{desc}</p>
-      </div>
-      <div className="flex flex-col items-end gap-1.5 shrink-0">
-        <span className="font-mono text-sm font-medium text-forest">{price}</span>
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer sponsored"
-          className="font-mono text-[9px] uppercase tracking-widest text-ink-mute hover:text-forest transition-colors whitespace-nowrap"
-        >
-          Buy →
-        </a>
-      </div>
-    </div>
-  );
-}
-
 export function HomeChargerProducts() {
   return (
     <section className="bg-cream-soft border-b border-line py-14" id="charger-gear">
@@ -154,15 +97,42 @@ export function HomeChargerProducts() {
           ))}
         </div>
 
-        {/* Adapters */}
-        <div>
+        {/* Installation cost guide */}
+        <div className="mb-10">
           <div className="flex items-baseline gap-3 mb-4">
-            <h3 className="font-serif text-xl font-medium tracking-tight">Charging adapters</h3>
-            <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">NACS · J1772 · CCS1</span>
+            <h3 className="font-serif text-xl font-medium tracking-tight">Level 2 installation costs</h3>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">What to budget</span>
           </div>
-          <div className="grid sm:grid-cols-2 gap-3">
-            {ADAPTERS.map((a) => (
-              <AdapterCard key={a.url} {...a} />
+          <p className="text-ink-3 max-w-2xl leading-relaxed mb-6">
+            Most homeowners pay <span className="text-ink font-semibold">$800–$1,500 all in</span> for a Level 2 charger install. The price depends on panel capacity, cable run length, permit fees, and whether you need a panel upgrade or trenching.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {[
+              {
+                tier: "Simple install",
+                range: "$500–$900",
+                note: "Panel nearby, 50 A available",
+              },
+              {
+                tier: "Typical install",
+                range: "$900–$1,500",
+                note: "Most suburban homes",
+                best: true,
+              },
+              {
+                tier: "Complex install",
+                range: "$1,500–$3,000+",
+                note: "Older homes, long runs, condos",
+              },
+            ].map((t) => (
+              <div key={t.tier} className={`rounded-2xl p-5 border ${t.best ? "border-forest/30 bg-forest/5" : "border-line bg-paper"}`}>
+                {t.best && (
+                  <div className="font-mono text-[10px] uppercase tracking-widest text-forest mb-2">Most common</div>
+                )}
+                <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">{t.tier}</div>
+                <div className="font-serif text-2xl font-medium text-ink mb-1">{t.range}</div>
+                <div className="text-xs text-ink-mute italic">{t.note}</div>
+              </div>
             ))}
           </div>
         </div>

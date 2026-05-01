@@ -17,7 +17,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "is-ev-right-for-you",
     title: "Is an EV right for you?",
-    description: "The 5 questions that determine whether an EV fits your life — apartment vs. home, commute length, access to public charging.",
+    description: "5 questions to see whether an EV fits your commute, parking, and lifestyle.",
     readTime: "5 min read",
     category: "Buying",
     sections: [
@@ -57,7 +57,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "ev-tax-credit-7500",
     title: "How to claim the $7,500 EV tax credit",
-    description: "Income limits, vehicle eligibility, and the new point-of-sale option. Avoid the mistakes that disqualify thousands of buyers.",
+    description: "Avoid the eligibility traps and get the full $7,500 EV credit.",
     readTime: "6 min read",
     category: "Finance",
     sections: [
@@ -98,7 +98,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "home-charging-setup",
     title: "Home charging setup checklist",
-    description: "Panel capacity check, charger selection, permit requirements, installer vetting — everything before your Level 2 EVSE goes on the wall.",
+    description: "A no-nonsense checklist for home EV charging, from panel to permit.",
     readTime: "7 min read",
     category: "Installation",
     sections: [
@@ -138,7 +138,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "road-trip-ev",
     title: "Road trip planning with an EV",
-    description: "How to use ABRP, picking the right charging stops, managing range anxiety, and why most people stop worrying after the first road trip.",
+    description: "Plan charging stops, manage range, and road trip confidently in an EV.",
     readTime: "8 min read",
     category: "Driving",
     sections: [
@@ -179,7 +179,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "ev-vs-hybrid",
     title: "EV vs hybrid: which is right for you?",
-    description: "Plug-in hybrid, full hybrid, or battery electric — how each fits different driving patterns.",
+    description: "Pick the right powertrain: hybrid, plug-in hybrid, or full EV.",
     readTime: "6 min read",
     category: "Buying",
     sections: [
@@ -219,7 +219,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "time-of-use-rates",
     title: "Understanding time-of-use (TOU) rates",
-    description: "How to slash your charging cost by 40–60% by shifting to off-peak electricity pricing. State-by-state program guide.",
+    description: "Slash charging cost 40–60% by shifting to off-peak electricity.",
     readTime: "5 min read",
     category: "Savings",
     sections: [
@@ -260,7 +260,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "ev-charging-connectors-explained",
     title: "EV charging connectors explained: NACS vs CCS vs CHAdeMO",
-    description: "What are the differences? Which cars use which? Why is NACS becoming the standard? Everything you need to know about EV charging plugs.",
+    description: "NACS, CCS, CHAdeMO — which plug your EV uses and why it matters.",
     readTime: "6 min read",
     category: "Charging",
     sections: [
@@ -310,7 +310,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "buying-used-ev",
     title: "Buying a used EV: what to check",
-    description: "Battery health, mileage expectations, warranty coverage, and the red flags to avoid. Used EV prices have stabilized — here's how to find a good deal.",
+    description: "Check battery health, warranty, and red flags before buying a used EV.",
     readTime: "7 min read",
     category: "Buying",
     sections: [
@@ -359,7 +359,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "ev-battery-degradation",
     title: "EV battery degradation: what to expect over time",
-    description: "Will the battery fail? How fast does it degrade? Can you extend battery life? What does the warranty actually cover?",
+    description: "How fast EV batteries age, what affects them, and how to preserve range.",
     readTime: "6 min read",
     category: "Ownership",
     sections: [
@@ -413,7 +413,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "winter-driving-ev",
     title: "Winter driving with an EV: preconditioning, range, and charging",
-    description: "Cold weather cuts EV range 20–40%. Here's how to minimize the hit and stay warm without losing efficiency.",
+    description: "Minimize cold-weather range loss with preconditioning and smart charging.",
     readTime: "6 min read",
     category: "Driving",
     sections: [
@@ -453,6 +453,136 @@ export const GUIDES: Guide[] = [
       {
         heading: "Does cold damage the battery?",
         body: "No. EV batteries are designed to operate in freezing temperatures. Cold slows charging and drains range temporarily, but the battery itself isn't harmed. Repeated deep discharges in cold might stress the battery, but normal driving and proper preconditioning prevent this.",
+      },
+    ],
+  },
+  {
+    slug: "best-home-ev-chargers-2026",
+    title: "Best home EV chargers in 2026",
+    description: "Compare the best Level 2 home chargers for price, features, and reliability.",
+    readTime: "5 min read",
+    category: "Installation",
+    sections: [
+      {
+        heading: "What matters most in 2026",
+        body: "A good home charger is reliable, easy to install, and supports the EV you own today. Smart features like scheduled charging, energy monitoring, and NACS compatibility matter more than ever. Pick a charger that fits your home, not just the lowest sticker price.",
+      },
+      {
+        heading: "Top charger choices",
+        body: "For most homeowners, a 40A Wi-Fi charger is the sweet spot. If you want the best long-term value, choose a brand with strong firmware support and good customer service. Cheap chargers can work, but they often lack reliable scheduling and weatherproofing.",
+        list: [
+          "JuiceBox 40 — best smart charger for utility-rate savings",
+          "Emporia 48A — best monitoring and reliability",
+          "Grizzl-E Classic — best budget charger with rugged build",
+          "Tesla Wall Connector Gen 3 — best choice for NACS-equipped homes",
+        ],
+      },
+      {
+        heading: "Installation and cost",
+        body: "Installation typically runs $500–$1,500 depending on panel capacity and cable length. A 40A charger usually needs a 60A circuit. Ask your electrician for a written quote that includes permit, wiring, and labor, not just the charger hardware.",
+      },
+      {
+        heading: "Rebate-ready chargers",
+        body: "Many state and utility rebates require a specific model or smart functionality. Choose a charger that qualifies for rebates in your area, then file the paperwork promptly. This can cut the installed cost by $200–$600.",
+      },
+    ],
+  },
+  {
+    slug: "state-ev-charging-incentives",
+    title: "EV charging incentives by state",
+    description: "Find the best state and utility rebates for home EV charging and installation.",
+    readTime: "6 min read",
+    category: "Savings",
+    sections: [
+      {
+        heading: "Why state incentives matter",
+        body: "Federal tax credits are only part of the story. Many states and utilities offer rebates for Level 2 chargers, panel upgrades, and EV-ready home circuits. These incentives can reduce upfront cost by hundreds or even thousands of dollars.",
+      },
+      {
+        heading: "Common incentive types",
+        body: "The most common programs include direct charger rebates, reimbursement for electrician costs, and waivers for permit fees. Some utilities also offer discounted off-peak rates specifically for EV charging. Check your utility website before you install.",
+        list: [
+          "Direct charger rebate — $200–$600",
+          "EVSE installation credit — $250–$1,000",
+          "Time-of-use bill credit — up to $100/year",
+          "Free smart charger program — select utilities only",
+        ],
+      },
+      {
+        heading: "How to claim the rebate",
+        body: "Save receipts, installer invoices, and product specs. Many programs require pre-approval before installation, so don’t finalize your electrician until you confirm the rules. Submit paperwork right after installation to avoid missing deadlines.",
+      },
+      {
+        heading: "States with the strongest programs",
+ body: "California, New York, Massachusetts, Oregon, and Washington lead on charger rebates and low-cost EV rates. But many other states still offer useful incentives — even a $200 rebate is worth claiming.",
+      },
+    ],
+  },
+  {
+    slug: "best-public-ev-charging-networks",
+    title: "Best public EV charging networks ranked",
+    description: "Compare public charger networks by coverage, reliability, and price.",
+    readTime: "6 min read",
+    category: "Charging",
+    sections: [
+      {
+        heading: "Network performance today",
+        body: "Not all public charging networks are equal. Some excel at reliability, others at coverage, and some at price. The best choice depends on whether you travel often, need urban charging, or want the simplest fast-charging experience.",
+      },
+      {
+        heading: "Top networks to know",
+        body: "Tesla Supercharger leads on uptime and speed for NACS vehicles. Electrify America has the widest fast-charger footprint for CCS cars. EVgo is strong in metro areas, while ChargePoint offers the best access to both Level 2 and fast chargers across brands.",
+        list: [
+          "Tesla Supercharger — best uptime and fastest for NACS",
+          "Electrify America — best fast-charger coverage for CCS",
+          "EVgo — strong urban fast charging and subscription options",
+          "ChargePoint — best mix of Level 2 and DC fast chargers",
+        ],
+      },
+      {
+        heading: "How to use multiple networks",
+        body: "Install the apps for the networks you're most likely to use, and save payment info ahead of time. Some networks require RFID cards or memberships for the lowest price, while others let you pay as a guest. A single backup app can save you from a long wait when one network station is down.",
+      },
+      {
+        heading: "What to watch for",
+        body: "Check charger status before you arrive. Favor stations with multiple stalls and recent check-ins. If a network is consistently expensive or unreliable in your area, plan around a different provider for your regular trips.",
+      },
+    ],
+  },
+  {
+    slug: "ev-insurance-rates-explained",
+    title: "EV insurance rates explained",
+    description: "What affects electric car insurance and how to lower your premium.",
+    readTime: "6 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "Why EV insurance can be different",
+        body: "Insurance for EVs often costs more because repair parts and battery replacements are expensive, but many companies now offer EV-specific discounts. Knowing the rate drivers and policy features can save you hundreds a year.",
+      },
+      {
+        heading: "Key factors insurers look at",
+        body: "Insurers price EV policies based on vehicle value, repair costs, theft risk, and driver profile. High-end EVs like Teslas tend to cost more to insure, while lower-cost mainstream EVs may be comparable to gas cars once you shop around.",
+        list: [
+          "Purchase price and repair costs",
+          "Battery replacement risk and crashworthiness",
+          "Your home charging setup and parking situation",
+          "Your driving record, location, and credit score",
+        ],
+      },
+      {
+        heading: "Ways to lower your premium",
+        body: "Bundle your auto policy with homeowners or renters insurance, ask for EV discounts, and compare companies that specialize in electric vehicles. Adding safety features and choosing a higher deductible can also reduce your cost.",
+        list: [
+          "Bundle auto + home/renters policies",
+          "Ask about EV or green vehicle discounts",
+          "Increase your deductible if you can afford it",
+          "Keep comprehensive coverage if you park off-street",
+        ],
+      },
+      {
+        heading: "Shopping tips for EV owners",
+        body: "Get quotes from at least three insurers, including ones known for EV coverage. Verify whether they cover battery damage and replacement, and ask how they handle repairs for aluminum bodies and advanced driver assistance systems.",
       },
     ],
   },
