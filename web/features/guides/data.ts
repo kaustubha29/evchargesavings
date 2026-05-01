@@ -871,6 +871,94 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "most-affordable-evs-2026",
+    title: "Most affordable EVs 2026",
+    hook: "Budget doesn't mean compromise. These EVs deliver range, features, and long-term savings under $40K.",
+    description: "Find the best affordable EVs in 2026 with real pricing, range, and total cost of ownership.",
+    readTime: "5 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "Affordable EVs that deliver real value",
+        body: "The cheapest EVs aren't always the best deals. True value means reliable range, warranty, charging speed, and low operating costs. Here are the top budget-friendly picks that check every box in 2026.",
+      },
+      {
+        heading: "Under $30,000 (after federal tax credit)",
+        body: "The Chevy Bolt EV and Nissan Leaf remain the workhorses of affordable EV ownership. Both offer 200+ mile range, proven reliability, and lower insurance costs than luxury EVs. The Bolt EV especially stands out with fast charging and comfortable daily driving.",
+        list: [
+          "Chevy Bolt EV — $26,500 after credit, 259 mi range",
+          "Nissan Leaf — $22,000 after credit, 149 mi range",
+          "Both have large, established owner communities",
+          "Insurance and maintenance costs stay low",
+        ],
+      },
+      {
+        heading: "$30,000–$40,000 range",
+        body: "This sweet spot offers new technology, longer warranties, and faster charging. The Hyundai Ioniq 6, Kia EV6, and upcoming affordable Nissan models fit here. You gain DC fast charging, modern infotainment, and often better real-world efficiency.",
+        list: [
+          "Hyundai Ioniq 6 — 300+ mi range, great efficiency",
+          "Kia EV6 — 310 mi range, quick charging speed",
+          "VW ID.4 Standard — $34K after credit, spacious",
+          "Better warranty and software support than Bolt",
+        ],
+      },
+      {
+        heading: "Don't forget the total cost of ownership",
+        body: "Fuel and maintenance savings add up. An affordable EV costs $0.03–$0.04 per mile to charge at home, while gas cars cost $0.10–$0.14. Over 5 years and 75,000 miles, that's $5,000–$8,000 in fuel savings alone — often enough to recoup the purchase price difference.",
+      },
+      {
+        heading: "Best strategy for budget buyers",
+        body: "Use our calculator to compare your specific EV to your current gas vehicle in your state. Include fuel costs, available incentives, and expected maintenance. You'll often find that a slightly pricier EV with better efficiency and charging speed saves more money over time than the absolute cheapest option.",
+      },
+    ],
+  },
+  {
+    slug: "ev-range-myths-debunked",
+    title: "EV range myths debunked",
+    hook: "Range anxiety is real, but the myths around it aren't. Modern EVs solve most real-world concerns.",
+    description: "Separate fact from fiction about EV range, charging networks, and what real owners actually experience.",
+    readTime: "6 min read",
+    category: "Education",
+    sections: [
+      {
+        heading: "Why range anxiety exists (and why it's usually overstated)",
+        body: "Range anxiety comes from a real change: you can't stop at any gas station. But modern EV networks and home charging have solved most practical problems. The gap between perception and reality has shrunk dramatically since 2020.",
+      },
+      {
+        heading: "Myth 1: You'll run out of charge unexpectedly",
+        body: "Reality: Modern EVs show accurate range estimates and alert you well before battery depletion. Home charging means you start most days with a full battery. Even on road trips, planning a 20-minute charging stop every 200 miles is routine — not an emergency.",
+        list: [
+          "Real-world range matches EPA estimates within 5-10%",
+          "Navigation apps show charging stations automatically",
+          "Most daily driving starts with a full battery",
+          "Degradation of 15-20% over 10 years is typical, not sudden",
+        ],
+      },
+      {
+        heading: "Myth 2: Cold weather makes EVs unusable",
+        body: "Reality: Winter reduces range 20-40%, but this affects ice and cabin heating, not the battery itself. Most modern EV owners in cold states report that range rarely limits their daily driving. Preheating while plugged in recovers much of the loss.",
+      },
+      {
+        heading: "Myth 3: DC fast charging ruins the battery",
+        body: "Reality: Modern batteries manage charging speed automatically and slow down when hot. Using DC fast charging occasionally won't significantly impact long-term battery life. Frequent overnight home charging at lower speeds is still ideal, but occasional fast charging is safe.",
+      },
+      {
+        heading: "Myth 4: Road trips are impossible",
+        body: "Reality: Road trips take longer than gas cars (add 20 minutes per 200 miles for charging), but they're entirely feasible. Most experienced EV owners find the rhythm easy after the first trip. Tesla's Supercharger network and NACS expansion make cross-country drives increasingly common.",
+        list: [
+          "Plan routes using built-in navigation or PlugShare",
+          "Typical road trip: 200 mi → 20 min charge stop",
+          "Superchargers and NACS networks keep expanding",
+          "Many gas-car drivers take the same breaks anyway",
+        ],
+      },
+      {
+        heading: "What real owners say",
+        body: "The consensus from 5+ years of EV ownership data: 90% of driving is predictable and local, starting from a full battery. Range only becomes an issue on unplanned long drives or in locations with poor charging infrastructure. For typical drivers in typical regions, this almost never happens.",
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {
