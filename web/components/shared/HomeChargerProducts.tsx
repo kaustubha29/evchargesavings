@@ -44,23 +44,52 @@ const CHARGERS = [
   },
 ];
 
-function ProductCard({ name, tag, price, desc, url, accent }: {
-  name: string; tag: string; price: string; desc: string; url: string; accent?: boolean;
+function ProductCard({
+  name,
+  tag,
+  price,
+  desc,
+  url,
+  accent,
+}: {
+  name: string;
+  tag: string;
+  price: string;
+  desc: string;
+  url: string;
+  accent?: boolean;
 }) {
   return (
-    <div className={`relative rounded-2xl border p-5 flex flex-col gap-3 ${accent ? "border-forest/40 bg-forest/5" : "border-line bg-paper"}`}>
+    <div
+      className={`relative rounded-2xl border p-5 flex flex-col gap-3 ${
+        accent ? "border-forest/40 bg-forest/5" : "border-line bg-paper"
+      }`}
+    >
       {accent && (
         <span className="absolute top-4 right-4 bg-forest text-cream font-mono text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full">
           Top pick
         </span>
       )}
+
       <div>
-        <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">{tag}</div>
-        <div className="font-serif text-base font-medium text-ink leading-snug">{name}</div>
+        <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">
+          {tag}
+        </div>
+
+        <div className="font-serif text-base font-medium text-ink leading-snug">
+          {name}
+        </div>
       </div>
-      <p className="text-xs text-ink-mute leading-relaxed flex-1">{desc}</p>
+
+      <p className="text-xs text-ink-mute leading-relaxed flex-1">
+        {desc}
+      </p>
+
       <div className="flex items-center justify-between mt-auto pt-3 border-t border-line">
-        <span className="font-serif font-medium text-forest text-lg">{price}</span>
+        <span className="font-serif font-medium text-forest text-lg">
+          {price}
+        </span>
+
         <a
           href={url}
           target="_blank"
@@ -81,12 +110,16 @@ export function HomeChargerProducts() {
 
         {/* Header */}
         <div className="mb-8">
-          <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">EV gear</div>
+          <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">
+            EV gear
+          </div>
+
           <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight mb-3">
             Best Level 2 home chargers
           </h2>
+
           <p className="text-ink-3 max-w-xl leading-relaxed">
-            Installing a Level 2 charger is the single biggest quality-of-life upgrade for EV ownership — wake up to a full battery every morning.
+            Installing a Level 2 charger is the biggest convenience upgrade in EV ownership — full battery every morning.
           </p>
         </div>
 
@@ -97,43 +130,62 @@ export function HomeChargerProducts() {
           ))}
         </div>
 
-        {/* Installation cost guide */}
+        {/* Installation cost guide (COMPACT VERSION) */}
         <div className="mb-10">
-          <div className="flex items-baseline gap-3 mb-4">
-            <h3 className="font-serif text-xl font-medium tracking-tight">Level 2 installation costs</h3>
-            <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">What to budget</span>
+
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="font-serif text-xl font-medium tracking-tight">
+              Level 2 installation costs
+            </h3>
+
+            <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">
+              What to budget
+            </span>
           </div>
-          <p className="text-ink-3 max-w-2xl leading-relaxed mb-6">
-            Most homeowners pay <span className="text-ink font-semibold">$800–$1,500 all in</span> for a Level 2 charger install. The price depends on panel capacity, cable run length, permit fees, and whether you need a panel upgrade or trenching.
+
+          <p className="text-ink-3 text-sm max-w-2xl leading-relaxed mb-6">
+            Most homeowners pay <span className="text-ink font-semibold">$800–$1,500</span> all in. Cost depends on panel distance, permits, and whether upgrades are needed.
           </p>
+
+          {/* Compact cards */}
           <div className="grid sm:grid-cols-3 gap-4">
-            {[
-              {
-                tier: "Simple install",
-                range: "$500–$900",
-                note: "Panel nearby, 50 A available",
-              },
-              {
-                tier: "Typical install",
-                range: "$900–$1,500",
-                note: "Most suburban homes",
-                best: true,
-              },
-              {
-                tier: "Complex install",
-                range: "$1,500–$3,000+",
-                note: "Older homes, long runs, condos",
-              },
-            ].map((t) => (
-              <div key={t.tier} className={`rounded-2xl p-5 border ${t.best ? "border-forest/30 bg-forest/5" : "border-line bg-paper"}`}>
-                {t.best && (
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-forest mb-2">Most common</div>
-                )}
-                <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">{t.tier}</div>
-                <div className="font-serif text-2xl font-medium text-ink mb-1">{t.range}</div>
-                <div className="text-xs text-ink-mute italic">{t.note}</div>
+
+            <div className="bg-paper border border-line rounded-xl p-4">
+              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">
+                Simple
               </div>
-            ))}
+              <div className="font-serif text-lg font-medium text-ink mb-1">
+                $500–$900
+              </div>
+              <p className="text-xs text-ink-mute">
+                Panel nearby • 50A ready
+              </p>
+            </div>
+
+            <div className="bg-forest/5 border border-forest/20 rounded-xl p-4">
+              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">
+                Typical
+              </div>
+              <div className="font-serif text-lg font-medium text-forest mb-1">
+                $900–$1,500
+              </div>
+              <p className="text-xs text-ink-mute">
+                Most homes • standard install
+              </p>
+            </div>
+
+            <div className="bg-paper border border-line rounded-xl p-4">
+              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">
+                Complex
+              </div>
+              <div className="font-serif text-lg font-medium text-ink mb-1">
+                $1,500–$3,000+
+              </div>
+              <p className="text-xs text-ink-mute">
+                Older homes • upgrades needed
+              </p>
+            </div>
+
           </div>
         </div>
 
