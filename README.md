@@ -28,7 +28,7 @@ web/
 │   ├── layout.tsx              # Root layout, AdSense, Impact verification
 │   ├── page.tsx                # Homepage (hero, calculator, all sections)
 │   ├── ev-cost/[state]/        # State pages (/ev-cost/california etc.)
-│   ├── guides/[slug]/          # Guide pages (/guides/level-2-home-charging etc.)
+│   ├── guides/[slug]/          # Guide pages — 22 comprehensive guides
 │   └── api/lead/route.ts       # Lead capture API (Supabase + Resend)
 ├── components/
 │   ├── features/
@@ -47,14 +47,19 @@ web/
 │       ├── FeelGoodFact.tsx
 │       └── SiteFooter.tsx
 ├── features/
-│   ├── ev-data/                # EV models, gas vehicles, efficiency data
-│   ├── guides/                 # Guide content (data.ts + GUIDES array)
+│   ├── ev-data/                # EV models, gas vehicles, efficiency data (130+ EVs)
+│   ├── guides/                 # 22 guides covering EV buying, charging, savings, myths
 │   └── location/               # ZIP→state map, state electricity/gas rates
 ├── store/
 │   └── calculator.ts           # Zustand store, computeSavings, computeCO2
 └── lib/
     └── format.ts               # fmt.money0, fmt.cents1, fmt.pct0, fmt.lbs
 ```
+
+### Latest guides added (May 2026)
+- **Most Affordable EVs 2026** — Budget EV recommendations under $40K with TCO focus
+- **EV Range Myths Debunked** — Addresses range anxiety with real-world facts and myths
+- **22 total guides** covering: buying decisions, charging setup, tax credits, road trips, winter driving, used EVs, maintenance costs, lease vs buy, apartment charging, and more
 
 ---
 

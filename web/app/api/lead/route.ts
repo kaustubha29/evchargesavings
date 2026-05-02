@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 import { stateFromZip, getStateData } from "@/features/location/queries";
 
-const OWNER_EMAIL = "hello@evchargesavings.com";
+const OWNER_EMAIL = "evchargesavings@gmail.com";
 const FROM_EMAIL  = "EV Charge Savings <noreply@evchargesavings.com>";
 
 export async function POST(req: NextRequest) {
@@ -56,21 +56,27 @@ export async function POST(req: NextRequest) {
   }
 
   // Supabase write — insert first; on duplicate email update zip/state instead
+  let leadId: string | null = null;
   try {
     const supabase = createClient(supabaseUrl, supabaseKey);
-    const { error } = await supabase.from("leads").insert(
+    const { data, error } = await supabase.from("leads").insert(
       { email, zip: zip || null, state_code: stateCode, source_page: sourcePage },
-    );
+    ).select("id").single();
+    
     if (error?.code === "23505") {
       // Duplicate email — update location fields with latest submission
-      await supabase.from("leads")
+      const { data: updated } = await supabase.from("leads")
         .update({ zip: zip || null, state_code: stateCode })
-        .eq("email", email);
+        .eq("email", email)
+        .select("id")
+        .single();
+      leadId = updated?.id || null;
       console.log("[lead] Supabase update OK (duplicate email)");
     } else if (error) {
       console.error("[lead] Supabase write failed:", error);
     } else {
-      console.log("[lead] Supabase insert OK");
+      leadId = data?.id || null;
+      console.log("[lead] Supabase insert OK, leadId:", leadId);
     }
   } catch (e) {
     console.error("[lead] Supabase exception:", e);
