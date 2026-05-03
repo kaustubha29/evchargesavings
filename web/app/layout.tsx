@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {React.createElement("meta", { name: "impact-site-verification", value: "9b198be7-1e28-4638-9419-a03122b75d3d" })}
+        {React.createElement("meta", { name: "impact-site-verification", value: "2a6edc07-86b0-43c7-a7da-2fc0fd135dbc" })}
       </head>
       <body className="pb-20">
         {/* Google Analytics GA4 */}
