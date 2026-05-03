@@ -11,7 +11,8 @@
       "Bash(Select-Object -ExpandProperty FullName)",
       "Bash(npx tsc *)",
       "Bash(git checkout *)",
-      "Bash(Get-ChildItem -Path \"c:\\\\Projects\\\\evchargesavings\\\\web\\\\app\\\\ev\" -Recurse)"
+      "Bash(Get-ChildItem -Path \"c:\\\\Projects\\\\evchargesavings\\\\web\\\\app\\\\ev\" -Recurse)",
+      "PowerShell(Get-ChildItem \"c:\\\\Projects\\\\evchargesavings\\\\web\\\\\" -Depth 0 | Where-Object { $_.Name -notmatch \"node_modules\" } | Select-Object -ExpandProperty Name)"
     ]
   }
 }

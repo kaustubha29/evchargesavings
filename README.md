@@ -16,7 +16,7 @@ Pick your EV and current gas car, enter your ZIP, and see exactly how much you'd
 | Database | Supabase (lead capture) |
 | Email | Resend (transactional) |
 | Hosting | Vercel |
-| Analytics | — (GA4 pending setup) |
+| Analytics | GA4 (`G-Y4V4NBZ0YY`) |
 
 ---
 
@@ -25,41 +25,64 @@ Pick your EV and current gas car, enter your ZIP, and see exactly how much you'd
 ```
 web/
 ├── app/
-│   ├── layout.tsx              # Root layout, AdSense, Impact verification
-│   ├── page.tsx                # Homepage (hero, calculator, all sections)
+│   ├── layout.tsx              # Root layout, GA4, AdSense, Impact verification
+│   ├── page.tsx                # Homepage — hero, calculator, top 25 guides (5×5), sections
 │   ├── ev-cost/[state]/        # State pages (/ev-cost/california etc.)
-│   ├── guides/[slug]/          # Guide pages — 22 comprehensive guides
-│   └── api/lead/route.ts       # Lead capture API (Supabase + Resend)
+│   ├── ev/[slug]/              # Individual EV detail pages
+│   ├── compare/[comparison]/   # EV vs gas comparison pages (/compare/tesla-model-y-vs-toyota-rav4)
+│   ├── guides/
+│   │   ├── page.tsx            # Guides index — 80 guides grouped by category
+│   │   └── [slug]/page.tsx     # Individual guide pages with affiliate sections
+│   ├── networks/               # Charging network directory page
+│   ├── privacy/                # Privacy policy
+│   ├── terms/                  # Terms of service
+│   ├── sitemap.ts              # Auto-generated sitemap (state + EV + compare + guide URLs)
+│   └── robots.ts               # robots.txt
 ├── components/
 │   ├── features/
 │   │   ├── calculator/         # CalculatorShell — main interactive calculator
-│   │   ├── ev-data/            # EV + gas vehicle repository + types
 │   │   ├── location/           # ZIP → state detection, LocationDetector
 │   │   └── networks/           # PublicChargingSection (PlugShare, ABRP)
 │   └── shared/
-│       ├── SavingsSlot.tsx     # Animated slot machine (hero right column)
+│       ├── SavingsSlot.tsx           # Animated slot machine (hero right column)
+│       ├── SavingsSlotBand.tsx       # Full-width slot band used across pages
 │       ├── HomeChargerProducts.tsx   # Level 2 charger + adapter affiliate grid
 │       ├── EVInsuranceCTA.tsx        # Insurance comparison affiliate section
-│       ├── ChargingNetworkReferrals.tsx  # ChargePoint + JuiceBox referral cards
-│       ├── LeadCaptureBox.tsx  # Email + ZIP form → installer quote flow
-│       ├── StickySavingsBar.tsx
-│       ├── StatCard.tsx
-│       ├── FeelGoodFact.tsx
-│       └── SiteFooter.tsx
+│       ├── EVMarketplaceAffiliates.tsx  # Marketplace affiliate cards
+│       ├── ChargingNetworkReferrals.tsx # ChargePoint + JuiceBox referral cards
+│       ├── LeadCaptureBoxGate.tsx    # Email + ZIP form → installer quote flow
+│       ├── StickySavingsBar.tsx      # Bottom sticky "get quotes" bar
+│       ├── SiteFooter.tsx            # Site footer with guide links
+│       └── StatCard.tsx
 ├── features/
-│   ├── ev-data/                # EV models, gas vehicles, efficiency data (130+ EVs)
-│   ├── guides/                 # 22 guides covering EV buying, charging, savings, myths
-│   └── location/               # ZIP→state map, state electricity/gas rates
+│   ├── ev-data/                # EV models (130+), gas vehicles, efficiency data
+│   ├── guides/
+│   │   └── data.ts             # 80 guides across 8 categories (10 per category)
+│   ├── calculations/           # savings, co2, break-even pure functions
+│   ├── content/                # SEO metadata generators
+│   └── location/               # ZIP → state map, state electricity/gas rates
 ├── store/
 │   └── calculator.ts           # Zustand store, computeSavings, computeCO2
 └── lib/
     └── format.ts               # fmt.money0, fmt.cents1, fmt.pct0, fmt.lbs
 ```
 
-### Latest guides added (May 2026)
-- **Most Affordable EVs 2026** — Budget EV recommendations under $40K with TCO focus
-- **EV Range Myths Debunked** — Addresses range anxiety with real-world facts and myths
-- **22 total guides** covering: buying decisions, charging setup, tax credits, road trips, winter driving, used EVs, maintenance costs, lease vs buy, apartment charging, and more
+---
+
+## Guides (80 total — 10 per category)
+
+| Category | Count | Sample topics |
+|---|---|---|
+| Buying | 10 | Used vs new, families, towing, depreciation, test drive checklist |
+| Finance | 10 | Federal tax credit, used EV credit, TCO, state rebates, business deduction |
+| Installation | 10 | Level 2 setup, panel upgrade, smart charger, outdoor install, utility rebates |
+| Driving | 10 | Hypermiling, highway efficiency, summer/winter, first week as owner |
+| Savings | 10 | High-mileage savings, true cost vs gas, free charging, utility rate plans |
+| Charging | 10 | How fast charging works, etiquette, overnight routine, DCFC vs L2 |
+| Ownership | 10 | OTA updates, tire guide, service schedule, road trips, home value impact |
+| Education | 10 | Battery chemistry, regen braking, V2G, NACS vs CCS, EV glossary |
+
+All guides are static data in `web/features/guides/data.ts` — each with `slug`, `title`, `description`, `readTime`, `category`, and structured `sections[]`.
 
 ---
 
@@ -91,18 +114,19 @@ Set in Vercel → Project → Settings → Environment Variables.
 ### Live / integrated
 | Stream | Status | Where |
 |---|---|---|
-| Google AdSense | Pending approval | Layout + ad slot divs in page.tsx |
+| Google AdSense (`ca-pub-6904215876470010`) | Pending approval | Layout + ad slot divs in `page.tsx` |
 | Amazon Associates — chargers + adapters | Active links | `HomeChargerProducts.tsx` |
-| Lead gen — installer quotes | Capturing to Supabase | `LeadCaptureBox.tsx` + `/api/lead` |
+| Lead gen — installer quotes | Capturing to Supabase | `LeadCaptureBoxGate.tsx` + `/api/lead` |
+| Impact — affiliate verification | Meta tag live | `layout.tsx` |
 
 ### Affiliate programs to complete (URLs are placeholders until approved)
 | Program | Platform | Replace in file |
 |---|---|---|
-| The Zebra (insurance) | Impact | `EVInsuranceCTA.tsx` line 11 |
-| Insurify (insurance) | CJ Affiliate | `EVInsuranceCTA.tsx` line 18 |
-| Jerry (insurance) | Impact | `EVInsuranceCTA.tsx` line 25 |
-| ChargePoint (hardware) | CJ Affiliate | `ChargingNetworkReferrals.tsx` line 13 |
-| JuiceBox / Enel X | Direct (email partners@enelxway.com) | `ChargingNetworkReferrals.tsx` line 24 |
+| The Zebra (insurance) | Impact | `EVInsuranceCTA.tsx` |
+| Insurify (insurance) | CJ Affiliate | `EVInsuranceCTA.tsx` |
+| Jerry (insurance) | Impact | `EVInsuranceCTA.tsx` |
+| ChargePoint (hardware) | CJ Affiliate | `ChargingNetworkReferrals.tsx` |
+| JuiceBox / Enel X | Direct (partners@enelxway.com) | `ChargingNetworkReferrals.tsx` |
 
 ### Revenue model
 1. **Display ads** — AdSense → Mediavine once 50K sessions/month
@@ -115,17 +139,9 @@ Set in Vercel → Project → Settings → Environment Variables.
 ## Remaining work
 
 ### Immediate (blocking revenue)
-- [ ] Fix bare domain DNS: add A record `@` → `76.76.21.21` in domain registrar
 - [ ] Verify domain on Impact affiliate platform
 - [ ] Get affiliate tracking URLs from Impact (The Zebra, Jerry) + CJ (Insurify, ChargePoint)
-- [ ] Replace placeholder URLs in `EVInsuranceCTA.tsx` and `ChargingNetworkReferrals.tsx`
-- [ ] Set up GA4 and add measurement ID to layout
-
-### SEO / content
-- [ ] Add `sitemap.xml` — Next.js `app/sitemap.ts` covering state + guide pages
-- [ ] Add `/privacy` and `/terms` pages (required for AdSense approval)
-- [ ] OG images for state pages (dynamic `opengraph-image.tsx`)
-- [ ] Expand guide content — more long-tail articles for organic search
+- [ ] Replace placeholder affiliate URLs in `EVInsuranceCTA.tsx` and `ChargingNetworkReferrals.tsx`
 
 ### Lead gen
 - [ ] Email drip sequence — currently sends one confirmation email, then nothing
@@ -134,6 +150,7 @@ Set in Vercel → Project → Settings → Environment Variables.
 ### Nice to have
 - [ ] More EV models (currently 130+; add new 2026 releases)
 - [ ] Monthly rate update process (EIA + AAA data)
+- [ ] OG images for state pages and guide pages (dynamic `opengraph-image.tsx`)
 - [ ] A/B test hero headline variants
 - [ ] Used EV marketplace affiliates (CarGurus, Cars.com, Carvana)
 

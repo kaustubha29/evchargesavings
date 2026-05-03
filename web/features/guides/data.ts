@@ -913,6 +913,2146 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  // ── Buying +6 ──────────────────────────────────────────────────────────────
+  {
+    slug: "best-ev-for-families",
+    title: "Best EVs for families in 2026",
+    hook: "Range and cargo matter, but charging speed and seat count close the deal.",
+    description: "Find the best family EVs in 2026 based on range, cargo space, seating, and charging speed.",
+    readTime: "6 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "What families actually need",
+        body: "Family EVs need real-world range over 250 miles, fast charging to minimize road-trip stops, at least 23 cubic feet of cargo space, and second-row legroom that fits car seats. A third row is a bonus. The $7,500 federal tax credit applies to most of the best options here.",
+      },
+      {
+        heading: "Best overall: Model Y Long Range",
+        body: "The Model Y remains the top family EV for most buyers. It offers 330 miles of range, a frunk plus 68 cu ft of cargo with rear seats folded, optional 7-seat configuration, and the fastest-ramping fast-charge network in North America. Family road trips are genuinely easy.",
+        list: [
+          "330-mile range, NACS, up to 250 kW DC fast charging",
+          "Optional 7-seat layout (+$3,000 on LR AWD)",
+          "68 cu ft cargo, 4.8 cu ft frunk",
+          "Starting at ~$46,990 before credit",
+        ],
+      },
+      {
+        heading: "Best value family EV: Kia EV9",
+        body: "The EV9 is a purpose-built 3-row electric SUV with 304 miles of range and a cavernous cabin. It charges at up to 240 kW and has a 99.8 kWh battery that handles long family trips comfortably. The GT-Line trim adds sports appearance; the base Wind trim is the value play.",
+        list: [
+          "304 miles range, standard 3 rows",
+          "Up to 240 kW DC fast charging",
+          "23.2 cu ft behind 3rd row, 98 cu ft fully folded",
+          "Hyundai/Kia 10-year/100k-mile battery warranty",
+        ],
+      },
+      {
+        heading: "Best cargo hauler: Rivian R1S",
+        body: "For families who camp, ski, or need maximum utility, the R1S offers a 316-mile range, a lockable gear tunnel, and a configurable cargo area. The dual-motor variant now qualifies for the tax credit under the $80,000 MSRP cap.",
+      },
+      {
+        heading: "Budget pick: VW ID.4",
+        body: "At around $38,000 after credit, the ID.4 is the most affordable 5-seat family EV with genuine cargo room (30.3 cu ft) and 291-mile range in Pro S trim. It qualifies for the full $7,500 credit and has a proven track record of reliability.",
+      },
+      {
+        heading: "Key checklist for family EV buyers",
+        body: "Before buying, verify the car fits your car seats in the second row with legroom to spare. Test the cargo floor loading height and the charger network near your most common road-trip routes.",
+        list: [
+          "Second-row legroom: look for 38+ inches",
+          "Cargo height: lower floor = easier loading",
+          "Road trip route: check Supercharger or Electrify America coverage",
+          "Tax credit: confirm income and MSRP eligibility",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ev-test-drive-checklist",
+    title: "EV test drive checklist",
+    hook: "An EV test drive feels nothing like a gas car — know what to look for.",
+    description: "What to check during an EV test drive: acceleration, regen braking, range display, charging, and software.",
+    readTime: "5 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "Why the EV test drive is different",
+        body: "You're not checking for engine noise, transmission feel, or exhaust smell. Instead you're evaluating instant torque delivery, one-pedal driving, software responsiveness, and how the car communicates its state of charge. Spend at least 30 minutes, not 10.",
+      },
+      {
+        heading: "Acceleration and one-pedal driving",
+        body: "EVs accelerate from standstill faster than their EPA numbers suggest — torque is instant. Test both gentle and moderate acceleration. Enable 'one-pedal driving' or maximum regenerative braking and try decelerating without touching the brake pedal. Some people love it immediately; others prefer two-pedal driving. Know which you are before you buy.",
+        list: [
+          "Try full acceleration once — feel the torque delivery",
+          "Enable max regen braking and drive a mile without touching the brake",
+          "Test hold-on-hill behavior (most EVs hold automatically)",
+          "Check how noisy the motor is at highway speeds",
+        ],
+      },
+      {
+        heading: "Range display and state of charge",
+        body: "At 80% charge, note the estimated range displayed. Compare it to EPA range × 0.8. If a 300-mile EV shows only 190 miles at 80% charge, either the display is conservative (some are) or this particular vehicle has degraded. Ask the dealer to explain the discrepancy.",
+      },
+      {
+        heading: "Infotainment and software",
+        body: "Spend five minutes with the infotainment before moving. EVs are heavily software-defined — if the screen is sluggish, buggy, or confusing, it will annoy you for years. Test the charging screen, navigation with a destination set, and voice control.",
+        list: [
+          "Set a charging destination in the nav — does it auto-route to chargers?",
+          "Check if phone mirroring (CarPlay/Android Auto) works instantly",
+          "Try voice commands for climate and navigation",
+          "Ask about over-the-air update history for this model",
+        ],
+      },
+      {
+        heading: "Charging port and connector",
+        body: "Physically inspect the charge port — is it NACS or CCS? Open and close the charge port door. Ask if an adapter comes with the car. If the car is CCS, verify the cost of a NACS adapter to access Tesla Superchargers.",
+      },
+      {
+        heading: "Questions to ask the dealer",
+        body: "Ask specifically: what is the battery warranty, does it transfer to a second owner, has this vehicle ever had a battery service, and what is the 30-minute DC fast charge speed at this vehicle's current charge level.",
+      },
+    ],
+  },
+  {
+    slug: "ev-depreciation-guide",
+    title: "EV depreciation: which models hold value best",
+    hook: "EV resale has stabilized — but some models depreciate twice as fast as others.",
+    description: "Learn which EVs depreciate fastest and how to protect resale value when buying electric.",
+    readTime: "6 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "EV depreciation has changed",
+        body: "In 2020–2022, used EV prices spiked due to supply shortages. By 2024–2026, the used EV market normalized. Some models now depreciate faster than comparable gas cars; others hold value well. Knowing which is which matters if you plan to sell within 5 years.",
+      },
+      {
+        heading: "Models that hold value well",
+        body: "Tesla Model Y and Model 3 have the strongest resale data among mainstream EVs. High demand, strong charging network, regular over-the-air updates, and a well-developed CPO program all support residuals. Rivian R1S and R1T also hold value well due to limited supply and strong enthusiast demand.",
+        list: [
+          "Tesla Model Y (LR AWD): ~60–65% residual at 3 years",
+          "Tesla Model 3 (LR AWD): ~58–62% residual at 3 years",
+          "Rivian R1S: ~62–68% residual (limited supply)",
+          "Hyundai Ioniq 6: improving steadily with strong ownership reviews",
+        ],
+      },
+      {
+        heading: "Models that depreciate faster",
+        body: "Nissan Leaf depreciates fast because of older battery chemistry and no active thermal management. Some Chevy Bolts and Volkswagen ID.4 base trims have also seen aggressive depreciation when EV prices were cut. High-MSRP luxury EVs from Audi, Mercedes, and BMW can lose 40–50% in 3 years.",
+      },
+      {
+        heading: "What drives EV depreciation",
+        body: "Key factors include battery chemistry (NMC vs LFP), thermal management quality, charging network access, OTA update support, and how often the manufacturer cuts new-vehicle prices. Tesla's price cuts hurt used Tesla resale temporarily; over time, network strength compensated.",
+        list: [
+          "Strong DC fast charging network → better residuals",
+          "Active battery thermal management → lower degradation fears",
+          "Regular OTA updates → keeps car feeling current",
+          "Popular segment (compact SUV) → more buyers, better resale",
+        ],
+      },
+      {
+        heading: "How to protect your resale value",
+        body: "Choose popular colors (white, gray, black), avoid unusual trims, maintain the battery properly (80% daily charge limit), keep software updated, and save all service records. A clean battery health report at sale time is worth several hundred dollars in negotiation.",
+      },
+    ],
+  },
+  {
+    slug: "new-vs-used-ev",
+    title: "New vs used EV: which is the smarter buy?",
+    hook: "The gap between new and used EV value has narrowed — but it depends on the model.",
+    description: "Compare buying a new EV vs a used one, including tax credits, warranty, and depreciation.",
+    readTime: "6 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "The case for new",
+        body: "Buying new gives you the $7,500 federal tax credit at point of sale (2024+ rule), full manufacturer warranty, the latest software and charging hardware, and no unknown battery history. You choose the exact configuration. New is best if you're keeping the car 7+ years and want certainty.",
+      },
+      {
+        heading: "The case for used",
+        body: "A 2–3 year old EV often costs 30–40% less than new while retaining most of the useful battery life. The $4,000 used EV credit (income limits: $75k single, $150k joint) applies to qualifying used EVs from dealers. You get most of the technology at significantly less cost.",
+        list: [
+          "3-year-old Tesla Model Y: ~$32,000 vs $47,000 new",
+          "3-year-old Hyundai Ioniq 5: ~$28,000 vs $43,000 new",
+          "Used EV credit: 30% of price up to $4,000",
+          "Battery warranty often transfers or still has years remaining",
+        ],
+      },
+      {
+        heading: "What to verify on a used EV",
+        body: "Battery health is the key due-diligence item. Request any service records, verify the VIN history, and get an independent inspection if possible. Ask specifically whether the battery warranty transfers and whether it has ever been claimed.",
+      },
+      {
+        heading: "Best candidates for used EV purchase",
+        body: "Model Y and Model 3 from 2021–2023 are the best-supported used EVs — huge service network, OTA updates, and strong resale data. Chevy Bolt 2022–2023 (after the battery recall fix) is an excellent budget used option under $20,000.",
+      },
+      {
+        heading: "Quick decision framework",
+        body: "Buy new if: you want maximum warranty, specific configuration, and plan to keep it 7+ years. Buy used if: you want maximum value per dollar, are comfortable doing pre-purchase due diligence, and the model has a known service track record.",
+      },
+    ],
+  },
+  {
+    slug: "ev-for-towing-guide",
+    title: "Can an EV tow? A practical guide",
+    hook: "EVs can tow — but range drops fast. Here's how to plan for it.",
+    description: "What to know about EV towing capacity, range loss, and which electric trucks and SUVs tow best.",
+    readTime: "6 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "EV towing is real but range-intensive",
+        body: "Several EVs have tow ratings of 7,000–14,000 lbs — comparable to gas trucks. The tradeoff is range. Towing a 5,000 lb trailer at highway speeds can cut range 50–60% because you're dragging additional weight and wind resistance. Planning charger stops every 80–100 miles instead of 180–200 is required.",
+      },
+      {
+        heading: "Best EVs for towing",
+        body: "The Rivian R1T and R1S lead on towing for consumer EVs, with up to 11,000 and 7,700 lb ratings respectively. The Ford F-150 Lightning (up to 10,000 lb) and Chevy Silverado EV (up to 10,000 lb) are also strong. The Cybertruck can tow up to 11,000 lb, though build quality concerns persist among early owners.",
+        list: [
+          "Rivian R1T: up to 11,000 lb, 314 mi range (untowing)",
+          "Ford F-150 Lightning XLT Max: up to 10,000 lb, 320 mi range",
+          "Chevy Silverado EV WT: up to 10,000 lb, 450 mi range untowing",
+          "Tesla Cybertruck: up to 11,000 lb, polarizing build quality",
+        ],
+      },
+      {
+        heading: "Real-world towing range",
+        body: "Expect 40–60% of EPA range when towing at highway speeds. A 314-mile Rivian R1T towing a 6,000 lb trailer at 65 mph might do 130–160 miles before needing a charge. Plan your route around Electrify America or Tesla Megacharger stops (not regular fast chargers, which may be too slow for practical towing trips).",
+      },
+      {
+        heading: "Charging while towing",
+        body: "Most fast chargers require you to unhitch the trailer to access the charge port, or you'll need to park in a pull-through stall with the trailer attached. Electrify America has been installing pull-through stalls at newer locations. Rivian's charging sites are also trailer-friendly by design.",
+      },
+      {
+        heading: "Is an EV truck right for you?",
+        body: "If you tow occasionally (camping weekends, boat ramp, moving), an EV truck works well with planning. If you tow every day for work over long distances, gas trucks still offer more practical refueling for now. The gap closes as fast-charging infrastructure grows.",
+      },
+    ],
+  },
+  {
+    slug: "ev-for-seniors",
+    title: "EVs for seniors: what to consider",
+    hook: "Ease of entry, visibility, and charging simplicity matter most for older buyers.",
+    description: "Guide for senior EV buyers covering ease of use, ride comfort, charging setup, and best model picks.",
+    readTime: "5 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "Why EVs can be a great fit for seniors",
+        body: "EVs remove two major friction points in car ownership: gas station trips and frequent oil changes. For retirees who drive primarily local routes, an EV charged at home overnight means you never need to visit a service station for fuel. Most service intervals drop to once a year or less.",
+      },
+      {
+        heading: "Ease of entry and exit",
+        body: "Compact crossovers at seat heights of 22–25 inches are generally easiest for seniors to enter and exit. Avoid very low sports cars (Model 3 is lower) and very high full-size trucks. The Model Y, Ioniq 5, and VW ID.4 all have comfortable seat heights in the 22–24 inch range.",
+        list: [
+          "Model Y: 22-inch seat height, wide door opening",
+          "Hyundai Ioniq 5: 22.7-inch seat height, large doors",
+          "VW ID.4: 22-inch seat height, upright posture",
+          "Kia EV6: lower at 20 inches — test before buying",
+        ],
+      },
+      {
+        heading: "Charging simplicity at home",
+        body: "For seniors who may not want to manage a charging app, a Level 2 home charger with a simple plug-in routine is the right approach. Plug in when you arrive home; unplug when you leave. No scheduling required for typical daily driving. The car's internal timer handles off-peak charging automatically if set once.",
+      },
+      {
+        heading: "Driver assistance features",
+        body: "All major EVs now include collision warning, automatic emergency braking, and lane departure warning. Tesla Autopilot, Ford BlueCruise, and GM Super Cruise offer hands-free highway driving for long trips. These features are genuinely useful, especially for drivers who want support on highway lanes.",
+      },
+      {
+        heading: "Range considerations",
+        body: "For seniors who drive under 50 miles per day, nearly any EV works fine. For longer drives to visit family, a 250+ mile range with easy Supercharger or Electrify America access is worth prioritizing. Ask your family members to map charger stops before suggesting a route.",
+      },
+    ],
+  },
+
+  // ── Finance +8 ─────────────────────────────────────────────────────────────
+  {
+    slug: "ev-financing-101",
+    title: "EV financing 101: loans, rates, and dealer tactics",
+    hook: "EV loans work like any car loan — but a few quirks can cost or save you thousands.",
+    description: "How to finance an EV, find the best loan rates, and avoid common dealer financing traps.",
+    readTime: "6 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "Get pre-approved before you visit the dealer",
+        body: "The single most powerful financing move is arriving at the dealer with a pre-approval from your bank or credit union. Dealers mark up financing rates — sometimes 1–3% above your actual best rate — and pocket the difference. A pre-approval gives you a rate floor and removes that leverage.",
+        list: [
+          "Check rates at your bank, local credit union, and LightStream (often competitive for auto)",
+          "Apply within a 14-day window — multiple inquiries count as one for scoring",
+          "Know your pre-approved rate before discussing finance at the dealer",
+          "Let the dealer try to beat your pre-approved rate — sometimes they can",
+        ],
+      },
+      {
+        heading: "How the $7,500 point-of-sale credit works with financing",
+        body: "Since January 2024, the federal tax credit can be applied at the dealer as a price reduction. If you finance after the credit, your loan amount is lower. If your vehicle qualifies for the full $7,500 credit and you finance $40,000 at 7% for 60 months, applying the credit reduces your monthly payment by about $150 — $9,000 over the loan term.",
+      },
+      {
+        heading: "Manufacturer financing vs bank financing",
+        body: "Automakers sometimes offer promotional rates (0.9%, 1.9%) on EVs to move inventory. These can be better than bank rates, but they often exclude the best trim or require full MSRP (no negotiation). Calculate total cost both ways — a 2% lower rate is worth more than a $1,000 discount if the loan is long.",
+      },
+      {
+        heading: "Loan term: shorter is almost always better",
+        body: "A 72 or 84-month EV loan is tempting because the monthly payment is lower. But you pay more interest and risk being upside-down (owing more than the car is worth) if EV prices decline. Stick to 48 or 60 months if you can afford it — you'll pay $1,500–$3,000 less in interest.",
+      },
+      {
+        heading: "Watch for add-ons",
+        body: "Finance managers will offer extended warranties, GAP insurance, paint protection, and tire warranties. Some are useful — GAP insurance makes sense on a depreciating EV if you're financing near MSRP. Extended warranties are rarely cost-effective given EV reliability and manufacturer battery coverage. Decline unless you've researched the specific product.",
+      },
+    ],
+  },
+  {
+    slug: "ev-total-cost-ownership",
+    title: "EV total cost of ownership: the complete picture",
+    hook: "Sticker price is only the beginning. Fuel, maintenance, insurance, and depreciation decide who wins.",
+    description: "Calculate EV total cost of ownership over 5 years including purchase, fuel, maintenance, insurance, and resale.",
+    readTime: "7 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "Why sticker price misleads",
+        body: "An EV might cost $5,000–$10,000 more than a comparable gas car at purchase. But ownership cost isn't just purchase price. Fuel savings of $1,000–$1,500 per year, maintenance savings of $700–$1,000 per year, and tax credits of $3,750–$7,500 can flip the comparison entirely over 5 years.",
+      },
+      {
+        heading: "5-year cost breakdown",
+        body: "For a Model Y Long Range at $47,000 (before credit) vs a Toyota RAV4 at $32,000, the gap looks like $15,000. After the $7,500 credit, it's $7,500. After 5 years of fuel savings ($1,200/yr × 5 = $6,000) and maintenance savings ($800/yr × 5 = $4,000), the gap is essentially closed — and that's before accounting for better resale on the Model Y.",
+        list: [
+          "Purchase gap: $15,000 (before credit)",
+          "Federal tax credit: −$7,500",
+          "5-yr fuel savings: −$6,000",
+          "5-yr maintenance savings: −$4,000",
+          "Net cost difference: ~$2,500 (Model Y still ahead in depreciation)",
+        ],
+      },
+      {
+        heading: "Insurance: often higher for EVs",
+        body: "EV insurance typically runs $200–$600/year more than a comparable gas car. This partially offsets fuel savings. Tesla insurance is particularly expensive due to high repair costs. Shop at least 3–4 insurers; some specialize in EVs and offer more competitive rates.",
+      },
+      {
+        heading: "Home charger installation",
+        body: "Add $500–$1,500 for a Level 2 charger installation if you don't already have one. This is a one-time cost that pays off in the first 1–2 years through the convenience of not visiting gas stations. Many utilities offer rebates of $200–$600 to offset this.",
+      },
+      {
+        heading: "Depreciation: the biggest variable",
+        body: "EVs depreciate differently by model. A Tesla Model Y loses about 35–40% of value over 5 years under normal conditions — similar to other popular crossovers. A Nissan Leaf or first-generation Bolt may lose 55–65%. Choosing a well-supported model matters for total cost.",
+      },
+      {
+        heading: "The bottom line",
+        body: "For drivers who keep their car 5+ years and charge mostly at home, EVs are usually cheaper to own than equivalent gas vehicles after factoring in all costs. The math is most favorable in states with high gas prices, low electricity rates, or strong state incentives on top of the federal credit.",
+      },
+    ],
+  },
+  {
+    slug: "state-ev-rebates",
+    title: "State EV rebates and incentives: 2026 guide",
+    hook: "Federal credits get the headlines, but state incentives can add another $2,000–$7,500.",
+    description: "Find state EV purchase rebates, HOV stickers, and charging incentives beyond the federal tax credit.",
+    readTime: "6 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "Why state incentives matter",
+        body: "The federal $7,500 tax credit is well known, but many states layer additional incentives on top: direct rebates, income-based bonuses, HOV lane access stickers, reduced registration fees, and utility rebates. In California and New York, the combined value can exceed $12,000 off purchase price.",
+      },
+      {
+        heading: "Strongest state programs in 2026",
+        body: "California leads with the Clean Vehicle Rebate Project (CVRP) offering $2,000–$4,500 and additional low-income bonuses. Colorado offers a $5,000 state tax credit stacked on the federal credit. New York offers $2,000 through Drive Clean Rebate. New Jersey charges no sales tax on EVs (saves $1,500–$3,000 depending on price).",
+        list: [
+          "California: up to $4,500 CVRP + CVRP+ for low income",
+          "Colorado: $5,000 state tax credit (stacks with federal)",
+          "New York: $2,000 Drive Clean Rebate",
+          "New Jersey: no sales tax on EVs",
+          "Massachusetts: $3,500 MOR-EV rebate",
+          "Oregon: $2,500 Clean Vehicle Rebate",
+        ],
+      },
+      {
+        heading: "HOV lane access",
+        body: "Many states let EVs use HOV (carpool) lanes with a solo driver. In California, this can save 20–30 minutes per commute in congested metro areas. The sticker costs $22 and must be applied for within 6 months of purchase.",
+      },
+      {
+        heading: "How to find your state's program",
+        body: "Search '[your state] electric vehicle incentive 2026' and look for the official DMV or energy office page. The AFDC (Alternative Fuels Data Center) at fueleconomy.gov maintains an up-to-date incentive database. Always verify with the official state source before purchasing.",
+      },
+      {
+        heading: "Low-income bonuses",
+        body: "Several states have separate programs for income-qualified buyers. California's CVRP+ adds $2,000–$4,500 on top of standard CVRP for households under 300% of the federal poverty level. If you qualify, apply immediately after purchase — these programs have limited funding and close early.",
+      },
+    ],
+  },
+  {
+    slug: "ev-resale-value",
+    title: "How to maximize EV resale value",
+    hook: "The choices you make at purchase and during ownership directly determine what you get back at sale.",
+    description: "Tips to protect and maximize EV resale value through model choice, color, battery care, and documentation.",
+    readTime: "5 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "Resale starts at purchase",
+        body: "The best resale value decisions happen before you drive the car off the lot. Model, trim, color, and optional features all affect how quickly you'll find a buyer and at what price. Neutral colors (white, gray, black, silver) outsell unusual colors by 20–30% in private sales.",
+      },
+      {
+        heading: "Choose models with long-term software support",
+        body: "EVs with active over-the-air update programs feel newer longer. Tesla, Rivian, and increasingly Hyundai/Kia keep adding features via software updates. An EV that received no updates in 4 years looks dated compared to one that gained new features. Ask your dealer about the model's OTA update history.",
+      },
+      {
+        heading: "Battery care pays off at resale",
+        body: "A battery health report showing 95% capacity at 60k miles commands a premium over one showing 88% capacity at the same mileage. Charging to 80% daily, avoiding frequent DC fast charging, and keeping the car in a garage in extreme climates all preserve measurable battery health.",
+        list: [
+          "Set daily charge limit to 80% in the car's settings",
+          "Charge to 100% only the night before a long trip",
+          "Avoid leaving fully charged in extreme heat for days",
+          "Request a battery health report from a dealer service before listing for sale",
+        ],
+      },
+      {
+        heading: "Documentation that commands price",
+        body: "Keep a folder (digital or physical) with: all service records, any recall completion letters, the original window sticker (Monroney label), and your charging history. Sellers who can produce these get asking price more often.",
+      },
+      {
+        heading: "Timing your sale",
+        body: "Sell before the manufacturer's big price cut on new models (usually announced at auto shows). Sell in spring or early summer when buyers are most active. Used EV prices fluctuate with new EV pricing — if the new version drops $3,000, your used car loses value the same day.",
+      },
+    ],
+  },
+  {
+    slug: "ev-monthly-budget",
+    title: "How to budget for an EV: monthly cost breakdown",
+    hook: "Your monthly EV cost is more than a loan payment — build a real number before you buy.",
+    description: "Break down EV monthly costs including loan, insurance, charging, maintenance, and registration.",
+    readTime: "5 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "The complete monthly cost",
+        body: "Most EV buyers calculate only the loan payment. A realistic monthly budget includes: loan or lease payment, insurance, electricity for charging, maintenance reserve, and registration amortized monthly. Each varies significantly by model, state, and driving habits.",
+      },
+      {
+        heading: "Example: Model Y at $47,000",
+        body: "Loan at 6.5% for 60 months on $39,500 (after $7,500 credit) = ~$774/mo. Insurance for mid-30s driver, good record: ~$200/mo. Monthly charging (1,250 miles at home at 16¢/kWh): ~$22. Maintenance reserve ($600/yr): ~$50/mo. Registration ($300/yr): ~$25/mo. Total: ~$1,071/mo before gas savings.",
+        list: [
+          "Loan payment: $774/mo",
+          "Insurance: $150–$250/mo (shop around)",
+          "Charging: $20–$50/mo (home only)",
+          "Maintenance reserve: $40–$60/mo",
+          "Registration: $20–$30/mo",
+          "Total all-in: ~$1,000–$1,200/mo",
+        ],
+      },
+      {
+        heading: "Gas car comparison",
+        body: "A Toyota RAV4 at $32,000, 6.5% for 60 months = ~$624/mo. Insurance typically $160/mo. Gas at 28 MPG, 1,250 miles/mo, $3.50/gal: ~$156/mo. Oil change amortized: ~$30/mo. Total: ~$970/mo. The Model Y runs about $50–$100/mo more but includes nicer features and better resale.",
+      },
+      {
+        heading: "Ways to lower your monthly EV cost",
+        body: "Maximize the tax credit at point of sale, get pre-approved for financing, shop insurance across 3+ companies, enroll in a TOU electricity plan, and choose a slightly used EV (2–3 years old) to lower the loan balance.",
+      },
+    ],
+  },
+  {
+    slug: "ev-down-payment",
+    title: "How much to put down on an EV",
+    hook: "A bigger down payment isn't always better — know the math before you write the check.",
+    description: "How to decide the right EV down payment based on loan rates, opportunity cost, and monthly budget.",
+    readTime: "5 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "The standard advice and why it's incomplete",
+        body: "Most financial advisors say put 20% down to avoid being underwater on the loan. That's good guidance for gas cars that depreciate predictably. For EVs, there are additional factors: federal credits change the effective price, manufacturer price cuts can cause sudden depreciation, and some EV models hold value better than others.",
+      },
+      {
+        heading: "The math: when to put down more",
+        body: "If your loan interest rate is 7% or higher, putting down more saves meaningful interest. On a $40,000 EV at 7% for 60 months, every $5,000 extra down saves about $900 in interest over the loan. If you have high-interest debt (credit card at 20%+), pay that off before making a large EV down payment.",
+      },
+      {
+        heading: "The math: when to put down less",
+        body: "If you have a low-rate loan (under 5%) and your money earns more elsewhere (index funds averaging 7%+), putting minimum down and investing the difference can come out ahead. This is a straightforward financial calculation — compare loan rate to expected investment return.",
+      },
+      {
+        heading: "GAP insurance consideration",
+        body: "If you're putting less than 20% down, buy GAP insurance. It covers the difference between what your insurance pays if the car is totaled and what you still owe on the loan. EVs can depreciate quickly in the first 1–2 years, making GAP particularly useful.",
+      },
+      {
+        heading: "Practical recommendation",
+        body: "For most EV buyers: put 10–20% down, maximize the point-of-sale tax credit as a virtual down payment, and keep 3–6 months of expenses liquid. Don't drain your emergency fund for a larger down payment.",
+      },
+    ],
+  },
+  {
+    slug: "ev-business-deduction",
+    title: "EV tax deductions for business owners",
+    hook: "Section 179 and bonus depreciation can make an EV purchase nearly tax-free for eligible businesses.",
+    description: "How self-employed workers and business owners can deduct EV purchases using Section 179 and bonus depreciation.",
+    readTime: "6 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "Two deductions, not one",
+        body: "Business owners can potentially claim both the §30D consumer EV credit (up to $7,500) and either Section 179 expensing or bonus depreciation on the same vehicle. These interact with each other and with your business structure — consult a CPA before filing. That said, the potential savings are enormous.",
+      },
+      {
+        heading: "Section 179: immediate full expensing",
+        body: "Section 179 lets you deduct the full purchase price of qualifying business property in the year of purchase rather than depreciating it over 5 years. For vehicles over 6,000 lb GVWR used more than 50% for business, the full MSRP can be expensed. Many EVs qualify: Tesla Model X, Rivian R1T, Ford F-150 Lightning, Kia EV9.",
+        list: [
+          "Must be used more than 50% for business purposes",
+          "Vehicles over 6,000 lb GVWR qualify for full expensing",
+          "2026 Section 179 limit: $1,160,000 (indexed)",
+          "Keep detailed mileage logs — IRS audits EV business claims",
+        ],
+      },
+      {
+        heading: "Vehicles under 6,000 lb GVWR",
+        body: "For lighter EVs (Model 3, Ioniq 6, Bolt), Section 179 is capped at $12,200 in 2026 for passenger vehicles. However, bonus depreciation allows additional deductions. Combined with the consumer credit, lighter EVs still offer significant business tax benefits.",
+      },
+      {
+        heading: "The §30D credit vs the §45W commercial credit",
+        body: "If your business buys an EV and it's titled to the business, you may qualify for the §45W Commercial Clean Vehicle Credit (up to $7,500 for under 14,000 GVWR) rather than the consumer §30D credit. These are separate credits — a business buying EVs should evaluate which applies.",
+      },
+      {
+        heading: "Documentation to keep",
+        body: "IRS Form 4562 for Section 179, mileage log for every business trip (date, destination, business purpose, miles), receipt and invoice for the vehicle purchase, and documentation that business use exceeded 50%. Use an app like MileIQ or TripLog from day one.",
+      },
+    ],
+  },
+  {
+    slug: "used-ev-tax-credit",
+    title: "Used EV tax credit: eligibility, limits, and how to claim it",
+    hook: "A $4,000 credit on a used EV under $25,000 sounds simple — the fine print trips up most buyers.",
+    description: "How the federal used EV tax credit works, income limits, vehicle eligibility, and how to claim it.",
+    readTime: "5 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "What the used EV credit is",
+        body: "The §25E used clean vehicle credit is a federal income tax credit equal to 30% of the sale price, up to $4,000. Unlike the new-vehicle credit, it's not transferable to the dealer — you claim it on your tax return or, as of 2024, you can elect to transfer it to the dealer at point of sale if the dealer registers with IRS Energy Credits Online.",
+      },
+      {
+        heading: "Income limits",
+        body: "The income caps are significantly lower than the new-vehicle credit. You must be below these MAGI limits in either the year of purchase or the prior year:",
+        list: [
+          "Single filer: $75,000",
+          "Head of household: $112,500",
+          "Married filing jointly: $150,000",
+          "No partial credit — it's all-or-nothing at these thresholds",
+        ],
+      },
+      {
+        heading: "Vehicle eligibility requirements",
+        body: "The used vehicle must: cost under $25,000, be at least 2 model years old at the time of sale, be purchased from a licensed dealer (not private party), have a battery of at least 7 kWh, and this must be the first time the credit is claimed on this specific VIN. The dealer reports the sale to the IRS.",
+        list: [
+          "Price: must be $25,000 or less (not including fees/taxes)",
+          "Age: at least 2 model years old",
+          "Source: must be from a registered dealer",
+          "First time: VIN can only qualify for this credit once ever",
+          "Battery: 7 kWh minimum capacity",
+        ],
+      },
+      {
+        heading: "Best used EVs that qualify",
+        body: "Strong candidates under $25,000 in 2026: Chevy Bolt EV (2020–2022), Nissan Leaf (2018–2022), Volkswagen ID.4 (2021 base), Kia Niro EV (2019–2021), and Hyundai Ioniq Electric (2018–2019). All easily fit under the $25,000 cap with remaining battery warranty.",
+      },
+      {
+        heading: "How to claim it",
+        body: "Ask the dealer if they're registered with IRS Energy Credits Online (enables point-of-sale transfer). If so, you can reduce the purchase price by up to $4,000 at signing. If not, you'll claim Form 8936 on your tax return. Keep the dealer-provided time-of-sale report — you'll need it at tax time.",
+      },
+    ],
+  },
+
+  // ── Installation +6 ────────────────────────────────────────────────────────
+  {
+    slug: "smart-charger-setup",
+    title: "How to set up a smart home EV charger",
+    hook: "A smart charger pays for itself if you connect it to your utility's off-peak rate.",
+    description: "Step-by-step guide to setting up a Wi-Fi smart EV charger with scheduling and energy monitoring.",
+    readTime: "5 min read",
+    category: "Installation",
+    sections: [
+      {
+        heading: "What makes a charger 'smart'",
+        body: "A smart charger connects to your home Wi-Fi and lets you control charging via an app: set a schedule, monitor energy use, pause charging remotely, and integrate with utility demand-response programs. The scheduling feature alone can cut charging cost 30–50% if your utility offers time-of-use rates.",
+      },
+      {
+        heading: "Installation is the same as a regular Level 2 charger",
+        body: "Smart chargers install identically to basic Level 2 chargers — a licensed electrician runs a 240V circuit from your panel. The 'smart' part is the internal Wi-Fi module. Budget the same $500–$1,500 for installation. The charger itself costs $50–$150 more than a basic model.",
+      },
+      {
+        heading: "Connecting to Wi-Fi and the app",
+        body: "After installation, download the manufacturer's app (JuiceBox, Emporia, Wallbox, or ChargePoint Home). Follow the in-app setup to connect the charger to your 2.4 GHz Wi-Fi network. Most chargers use 2.4 GHz only — not 5 GHz. If your router combines both bands under one SSID, you may need to split them in router settings.",
+        list: [
+          "Use 2.4 GHz band — check router settings if connection fails",
+          "Place router closer or use a Wi-Fi extender if garage signal is weak",
+          "Create account in manufacturer app before starting setup",
+          "Enable push notifications for charge-complete alerts",
+        ],
+      },
+      {
+        heading: "Setting up a charging schedule",
+        body: "In the app, find 'Scheduled Charging' or 'Smart Charging.' Set the schedule to align with your utility's off-peak window (typically 9pm–6am). Set a charge-complete target time 30 minutes before you leave in the morning. The charger calculates how long it needs and starts automatically.",
+      },
+      {
+        heading: "Utility integrations",
+        body: "Some smart chargers integrate directly with utilities for demand-response programs — the utility can delay your charging start by 15–30 minutes during grid stress events in exchange for bill credits ($50–$150/yr). JuiceBox works with many US utilities; Emporia has the broadest demand-response integrations.",
+      },
+    ],
+  },
+  {
+    slug: "ev-charger-rebates",
+    title: "EV charger rebates: find money for your home install",
+    hook: "Federal, state, and utility rebates can cover 30–60% of your charger install cost.",
+    description: "How to find and claim federal, state, and utility rebates for home EV charger installation.",
+    readTime: "5 min read",
+    category: "Installation",
+    sections: [
+      {
+        heading: "Three layers of rebates",
+        body: "Home EV charger incentives come from three sources: a federal tax credit, state programs, and utility rebates. Each has its own eligibility rules and paperwork. The federal credit alone covers 30% of installation cost up to $1,000.",
+      },
+      {
+        heading: "Federal Alternative Fuel Vehicle Refueling Property Credit",
+        body: "The §30C credit covers 30% of the cost of installing an EV charger at your home, up to $1,000 per year. This includes the charger hardware and all installation labor. Claim it on Form 8911 with your tax return. No income limit applies to individuals.",
+        list: [
+          "Credit: 30% of charger + installation cost",
+          "Maximum: $1,000 for personal use",
+          "Form: IRS Form 8911",
+          "Applies to: charger hardware + electrician labor + permit",
+        ],
+      },
+      {
+        heading: "State rebates",
+        body: "California, New York, Massachusetts, Oregon, and Colorado have dedicated home charger rebate programs ($200–$800). Many require pre-approval before installation, a specific list of qualifying chargers, and submission of electrician receipts within 90 days. Check your state energy office website before purchasing the charger.",
+      },
+      {
+        heading: "Utility rebates",
+        body: "Over 400 US utilities offer direct rebates for smart home chargers: typically $200–$600 for qualifying Wi-Fi models. Some also offer free smart chargers through demand-response programs. Search '[your utility name] EV charger rebate' or use the PlugStar Incentive Database.",
+      },
+      {
+        heading: "How to maximize the stack",
+        body: "Federal credit + state rebate + utility rebate can together cover $1,000–$2,000 of a typical $1,000–$1,500 install. The key: research before you buy the charger (some programs require specific models), get a licensed electrician who pulls a permit, and submit all paperwork within the deadline.",
+      },
+    ],
+  },
+  {
+    slug: "ev-charging-garage-setup",
+    title: "Setting up your garage for EV charging",
+    hook: "A proper garage charging setup is a one-time job that defines your ownership experience.",
+    description: "How to plan your garage EV charging setup: circuit, outlet, charger placement, and wiring options.",
+    readTime: "5 min read",
+    category: "Installation",
+    sections: [
+      {
+        heading: "Start with your panel",
+        body: "Before any planning, locate your electrical panel and note its total amperage (usually marked on the main breaker: 100A, 150A, or 200A) and how many open slots remain. A 40A charger needs a 50A breaker. If your panel is full or undersized, discuss a subpanel or load management device with your electrician before buying a charger.",
+      },
+      {
+        heading: "Hardwired vs outlet-based",
+        body: "You can install a NEMA 14-50 or NEMA 6-50 outlet and plug the charger in, or hardwire the charger directly. Hardwired is cleaner and often supports higher amperage (48A+). Outlet-based is easier to swap the charger later. For most homeowners, NEMA 14-50 with a plug-in 40A charger is the sweet spot.",
+      },
+      {
+        heading: "Charger placement",
+        body: "Mount the charger at a comfortable reach height (chest level) on the wall nearest your car's charge port. Measure the cable length — most chargers come with a 20–25 ft cable. If your car's port is on the rear driver's side, mount the charger on the driver's side wall. Confirm the cable can reach without a tight bend at the port.",
+        list: [
+          "Mount height: 42–48 inches from floor (outlet-based) or 36–48 inches (hardwired)",
+          "Cable length: standard 20–25 ft covers most garage layouts",
+          "Port location: check your car's charge port side before finalizing placement",
+          "Cable management: buy a charger with a cord holster to keep it off the floor",
+        ],
+      },
+      {
+        heading: "Conduit and weatherproofing",
+        body: "If the charger is in an attached garage, standard romex wire in the wall is sufficient. If the charger is in a detached garage or exposed area, use EMT conduit or liquid-tight flex conduit. All outdoor connections must be in weatherproof junction boxes.",
+      },
+      {
+        heading: "Future-proofing",
+        body: "If you plan to own two EVs, have your electrician rough in a second 40A circuit during the initial installation — adding a second charger later is much cheaper if the conduit is already run. This adds $200–$400 to the initial job but saves $600–$900 later.",
+      },
+    ],
+  },
+  {
+    slug: "outdoor-ev-charger-install",
+    title: "Installing an outdoor EV charger: what changes",
+    hook: "Outdoor charger installs have extra weatherproofing and conduit requirements that add cost.",
+    description: "What changes when installing a home EV charger outdoors: weatherproofing, conduit, permits, and charger selection.",
+    readTime: "5 min read",
+    category: "Installation",
+    sections: [
+      {
+        heading: "Outdoor vs indoor install",
+        body: "An outdoor installation — on an exterior wall, in a driveway carport, or near the street — requires weatherproof hardware, conduit protection for all exposed wiring, and often a GFCI breaker or outlet. Expect installation cost to run $200–$500 more than a straightforward indoor garage job.",
+      },
+      {
+        heading: "Choosing an outdoor-rated charger",
+        body: "Look for a NEMA 4X or NEMA 3R-rated enclosure on the charger body. NEMA 4X is the highest weatherproofing (rain, hose-down, corrosion resistant). The Grizzl-E Classic and Siemens US2 are popular for outdoor installs. The JuiceBox 40 and Wallbox Pulsar Plus are also outdoor-rated.",
+        list: [
+          "NEMA 4X: best for all climates, coastal areas",
+          "NEMA 3R: suitable for most residential outdoor environments",
+          "Avoid unrated chargers in outdoor locations even under a carport",
+          "Consider a locking charger or cord lock if your driveway is accessible",
+        ],
+      },
+      {
+        heading: "Conduit requirements",
+        body: "Any wiring exposed to the outdoors must run inside conduit — EMT or rigid metal for permanent runs, liquid-tight flex for short transition sections near the charger. Your electrician should run conduit from the panel all the way to the charger mounting location. No exposed romex is allowed outdoors.",
+      },
+      {
+        heading: "Trenching for detached garage",
+        body: "A detached garage requires underground wiring from your main panel. Use direct-burial wire or conduit buried at least 12–18 inches (depth depends on conduit type and local code). Trenching adds $300–$800 depending on distance and ground conditions. A 2-inch conduit gives you room to pull additional circuits later.",
+      },
+      {
+        heading: "Permit requirements",
+        body: "Outdoor electrical work almost always requires a permit. Your electrician should pull it. The inspector will verify conduit fill, grounding, weatherproof boxes, and breaker sizing. Skipping a permit on an outdoor circuit is a particular liability issue for homeowner's insurance.",
+      },
+    ],
+  },
+  {
+    slug: "panel-upgrade-for-ev",
+    title: "Do you need a panel upgrade for an EV charger?",
+    hook: "Most 200A panels are fine — but 100A panels often aren't. Know before you pay.",
+    description: "When EV charger installation requires an electrical panel upgrade and what it costs.",
+    readTime: "5 min read",
+    category: "Installation",
+    sections: [
+      {
+        heading: "The common question",
+        body: "The most frequent EV charging installation question is: does my panel need an upgrade? The honest answer: most homes built after 1990 with a 200A panel are fine. Homes with a 100A panel, especially older construction, often need either a panel upgrade or a load management device.",
+      },
+      {
+        heading: "How to assess your panel",
+        body: "Find your main breaker panel, open the door (carefully — the main lugs remain live), and note the amperage on the main breaker. Count how many slots are occupied and how many are open. A 40A Level 2 charger needs one open double-pole slot. If there are no open slots, your options are: tandem breakers, a subpanel, or a load management device.",
+        list: [
+          "200A panel with 2+ open slots: typically fine, no upgrade needed",
+          "150A panel with open slots: likely fine with load management",
+          "100A panel: often needs upgrade or load management device",
+          "Full panel with no open slots: subpanel or load management required",
+        ],
+      },
+      {
+        heading: "Panel upgrade cost",
+        body: "Upgrading from 100A to 200A typically costs $1,500–$3,500 depending on the utility connection, meter base condition, permit requirements, and local labor rates. It's a half-to-full-day job. On the upside, a panel upgrade also supports future additions: EV charger, heat pump, induction cooktop.",
+      },
+      {
+        heading: "Load management as an alternative",
+        body: "A load management device (like the Eaton EVEMS or ChargePoint Home's load management) monitors total home electrical load and throttles the charger when other appliances run simultaneously. Instead of needing a 40A dedicated circuit, the charger dynamically adjusts to use only available capacity. Cost: $200–$400 + installation. This can avoid a full panel upgrade.",
+      },
+      {
+        heading: "Get an electrician assessment first",
+        body: "Don't assume you need a panel upgrade before getting a licensed electrician to assess your actual load. Many homeowners with 'full' 100A panels have enough real-world headroom for a 24A or 32A charger. An assessment takes 15 minutes and costs nothing if bundled with a charger installation quote.",
+      },
+    ],
+  },
+  {
+    slug: "managed-ev-charging",
+    title: "Managed EV charging: how utilities control your charger (and why you'd let them)",
+    hook: "Letting your utility delay charging by 30 minutes can earn you $50–$150 a year.",
+    description: "What managed EV charging is, how demand-response programs work, and whether you should enroll.",
+    readTime: "5 min read",
+    category: "Installation",
+    sections: [
+      {
+        heading: "What managed charging means",
+        body: "Managed charging means your utility can signal your charger to delay, pause, or reduce charging speed during high-demand periods. In exchange, you get bill credits or discounted electricity rates. You still set a departure time; the utility works within your window. You can always override.",
+      },
+      {
+        heading: "Why utilities want this",
+        body: "If thousands of EV owners all plug in at 6pm when they get home from work, it spikes grid demand exactly when the grid is already strained from air conditioning. Utilities want to shift that load to 9pm–6am. Managed charging programs are a voluntary, incentivized way to do that without installing expensive peak-generation capacity.",
+      },
+      {
+        heading: "How demand-response events work",
+        body: "During a grid stress event (usually hot summer afternoons), the utility sends a signal to your charger: delay start by 30–60 minutes. Your charger waits, then resumes. Your car still reaches your target charge by departure time. Events happen 5–20 times per year. You receive a bill credit ($1–10/event) or ongoing rate discount.",
+        list: [
+          "Events: typically 5–20 per year, mostly summer afternoons",
+          "Delay: usually 15–60 minutes per event",
+          "Override: always available in the charger app",
+          "Credit: $50–$150/year in most programs",
+        ],
+      },
+      {
+        heading: "Compatible hardware",
+        body: "Managed charging requires a smart charger that supports your utility's protocol (OpenADR or the utility's proprietary API). JuiceBox and Emporia have the broadest utility integrations in the US. ChargePoint Home Flex also supports many programs. Confirm your charger model is compatible before enrolling.",
+      },
+      {
+        heading: "Should you enroll?",
+        body: "Yes, for most homeowners. You give up very little control (a 15–60 minute delay a few times a year, always overridable) and receive real money. Stack this with a TOU rate plan and you can reduce your annual charging cost by $150–$250 with essentially zero lifestyle change.",
+      },
+    ],
+  },
+
+  // ── Driving +8 ─────────────────────────────────────────────────────────────
+  {
+    slug: "ev-hypermiling-tips",
+    title: "EV hypermiling tips: stretch every mile of range",
+    hook: "Small habits consistently applied can add 15–25% to your real-world EV range.",
+    description: "Practical EV hypermiling techniques to maximize range: speed, regen, climate, and tire pressure.",
+    readTime: "5 min read",
+    category: "Driving",
+    sections: [
+      {
+        heading: "Why range optimization matters",
+        body: "Hypermiling in an EV isn't about extreme behavior — it's about understanding where your energy goes. The biggest draws are speed (aerodynamic drag grows with the square of velocity), climate control, and aggressive acceleration. Addressing these three areas can realistically add 40–60 miles of range on a road trip.",
+      },
+      {
+        heading: "Speed: the biggest lever",
+        body: "Aerodynamic drag increases with the square of speed. Driving 65 mph vs 75 mph uses 15–20% less energy. On a 300-mile EV, that difference is 45–60 miles of range. If you're range-constrained on a road trip, the easiest solution is slowing from 75 to 65 mph for the critical leg.",
+        list: [
+          "65 mph vs 75 mph: ~18% less energy consumption",
+          "55 mph vs 75 mph: ~30% less energy consumption",
+          "Highway tailwind: can add 10–20 miles vs a headwind",
+          "Drafting behind large vehicles at safe distance: modest gains",
+        ],
+      },
+      {
+        heading: "Maximize regenerative braking",
+        body: "Set regen to maximum and try to drive with one pedal in city environments. Every time you brake without using regen, you're wasting kinetic energy as heat. Anticipate stops: look 10–15 seconds ahead and lift off the accelerator early to let regen slow the car smoothly.",
+      },
+      {
+        heading: "Climate control strategy",
+        body: "Cabin heat in winter is the second-largest energy draw after speed. Use seat warmers and steering wheel warmers instead of HVAC heat — they warm you directly at far lower energy cost. In summer, precool the car while still plugged in and use recirculate mode to maintain cool air rather than cooling hot outside air.",
+      },
+      {
+        heading: "Tire pressure",
+        body: "Underinflated tires increase rolling resistance and reduce range noticeably. Check tire pressure monthly and maintain it at the manufacturer's specification (usually 42–50 PSI for EVs, which is higher than most gas cars). Cold weather reduces tire pressure approximately 1 PSI per 10°F drop — check more often in winter.",
+      },
+      {
+        heading: "Route planning",
+        body: "Choose routes that favor level ground and lower speed limits over highways when range is tight. Downhill sections recover energy through regen; uphill sections consume more. Apps like ABRP account for elevation changes automatically in range estimates.",
+      },
+    ],
+  },
+  {
+    slug: "city-driving-ev",
+    title: "City driving with an EV: why it works better than highway",
+    hook: "Stop-and-go traffic that kills gas car efficiency actually helps an EV.",
+    description: "Why EVs excel in city driving: regenerative braking, efficiency, charging options, and urban range.",
+    readTime: "5 min read",
+    category: "Driving",
+    sections: [
+      {
+        heading: "EVs are built for city driving",
+        body: "Gas cars hate stop-and-go traffic — every stop wastes the kinetic energy you built up, and engines run inefficiently at low speeds. EVs do the opposite: regenerative braking recovers energy from every stop, and electric motors run most efficiently at the low-to-moderate speeds of city driving.",
+      },
+      {
+        heading: "Real-world city efficiency",
+        body: "Most EVs achieve 20–30% better real-world efficiency in city conditions compared to their EPA combined ratings. A Model Y rated at 3.1 mi/kWh may return 3.8–4.2 mi/kWh in stop-and-go city driving. That means a 300-mile EPA range translates to 350–400 miles in city use.",
+      },
+      {
+        heading: "One-pedal driving in traffic",
+        body: "Enable maximum regenerative braking and practice driving with just the accelerator pedal in city traffic. Lift off the accelerator as you approach a red light; the car slows itself through regen and usually stops (or nearly stops) without touching the brake. You recover energy and reduce brake wear simultaneously.",
+        list: [
+          "Anticipate lights: look ahead and lift off early",
+          "Match the flow: don't accelerate to the next red light",
+          "Use regen hill holds: hold on steep slopes without brakes",
+          "Brake pads: with regen, expect pads to last 80,000+ miles in city use",
+        ],
+      },
+      {
+        heading: "Charging in cities",
+        body: "Urban EV charging has expanded dramatically. Most cities now have workplace Level 2 charging, fast chargers at grocery stores and malls, and increasing on-street Level 2 installations. If you live in an apartment, check which nearby parking garages have chargers — many major cities have mandated EV charging in new construction.",
+      },
+      {
+        heading: "Parking perks",
+        body: "Many US cities offer EV parking benefits: free or discounted meters, designated parking spots near entrances, and preferential spots in garages. Check your city's transportation site — the benefits vary widely but can add $200–$500/year in parking savings.",
+      },
+    ],
+  },
+  {
+    slug: "highway-ev-efficiency",
+    title: "Highway driving and EV efficiency: what to expect",
+    hook: "EVs lose ground to gas cars at highway speeds — here's how to plan for it.",
+    description: "How highway driving affects EV range and efficiency, with tips for managing range on long drives.",
+    readTime: "5 min read",
+    category: "Driving",
+    sections: [
+      {
+        heading: "The highway efficiency penalty",
+        body: "At highway speeds, EVs face the same aerodynamic drag as any vehicle — and drag grows with the square of speed. At 75 mph, most EVs return 15–25% less efficiency than their EPA combined rating. A 300-mile EPA-rated EV may do only 220–250 miles at consistent 75 mph in warm conditions.",
+      },
+      {
+        heading: "Speed vs range: the practical tradeoff",
+        body: "Slowing from 75 mph to 65 mph on a highway leg typically recovers 30–50 miles of range. On a long trip where you'd otherwise need an additional charging stop, this tradeoff is worth considering: 10 extra minutes of slower driving vs 20 minutes at a charging station. The math often favors the speed reduction.",
+        list: [
+          "75 mph → 65 mph: +30–50 miles range (approximate)",
+          "75 mph → 55 mph: +60–80 miles range (significant)",
+          "Weather: headwind at 20 mph can cut range 15–20%",
+          "Temperature: 25°F weather costs 20–35% range at highway speed",
+        ],
+      },
+      {
+        heading: "Using cruise control for range",
+        body: "Adaptive cruise control holds a steady speed without the surge-and-brake behavior of human driving, which wastes energy. Set it 5 mph below your natural cruising speed. The smoother speed profile makes a measurable efficiency difference over a 200-mile highway leg.",
+      },
+      {
+        heading: "Regen on the highway",
+        body: "Regenerative braking contributes less on the highway than in cities because you brake infrequently. At highway speeds, the dominant factor is aerodynamic drag, not braking behavior. Focus on speed management rather than regen technique for highway efficiency.",
+      },
+      {
+        heading: "Pre-planning charging stops",
+        body: "For highway trips, plan charging stops when you're at 20% charge or higher — not when the battery warning appears. Use ABRP or your car's built-in navigation to route via fast chargers with 6+ stalls. Aim to arrive at chargers with 15–20% charge, not 5%, to avoid range stress.",
+      },
+    ],
+  },
+  {
+    slug: "ev-driving-habits-savings",
+    title: "Driving habits that maximize EV savings",
+    hook: "How you drive determines whether your EV saves $1,000 or $2,000 per year versus gas.",
+    description: "EV driving habits that improve efficiency and savings: smooth acceleration, regen braking, route planning.",
+    readTime: "5 min read",
+    category: "Driving",
+    sections: [
+      {
+        heading: "Smooth acceleration is free efficiency",
+        body: "Aggressive acceleration from every light wastes energy and increases tire wear. Smooth acceleration over 5–10 seconds instead of 2–3 seconds uses 10–20% less energy for the same speed. In an EV that costs 4¢/mile at normal driving, aggressive driving can push that to 5–6¢/mile — meaningful over 15,000 annual miles.",
+      },
+      {
+        heading: "Charge at home most nights",
+        body: "The biggest efficiency lever isn't how you drive — it's where you charge. Home Level 2 charging at 14–16¢/kWh costs roughly 4–5¢/mile. Public DC fast charging at 35–50¢/kWh costs 9–14¢/mile. Maximizing home charging and minimizing public fast charging can double your effective savings vs gas.",
+      },
+      {
+        heading: "Time-of-use charging",
+        body: "Pair home charging with a TOU rate plan. Off-peak electricity at 7–12¢/kWh cuts cost to 2–3¢/mile. Over 15,000 annual miles, the difference between peak charging (18¢/kWh) and off-peak (9¢/kWh) is $200–$350/year — with zero change to your driving behavior.",
+      },
+      {
+        heading: "Avoid frequent DC fast charging",
+        body: "Public DC fast chargers are convenient but expensive. A driver who uses fast charging 30% of the time instead of 10% will spend an extra $300–$500/year in fuel — partially eroding EV savings. Use fast chargers for road trips and emergencies, not regular commuting.",
+      },
+      {
+        heading: "Consistent small habits",
+        body: "Maintain correct tire pressure (check monthly), precondition in winter while plugged in, use seat warmers instead of cabin heat, and drive at moderate highway speeds. These habits together can improve real-world efficiency 15–25% vs careless driving. The compounding effect over a year is significant.",
+        list: [
+          "Tire pressure: check monthly, add 1 PSI for every 10°F temperature drop",
+          "Precondition: warm up battery and cabin while still on charger",
+          "Seat warmers: use instead of full cabin heat in mild cold",
+          "Highway speed: 65 mph vs 75 mph saves ~$200/year at 15,000 miles",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ev-parking-charging-tips",
+    title: "Finding and using public EV charging: practical tips",
+    hook: "Public charging is reliable if you know which apps to use and which chargers to avoid.",
+    description: "How to reliably find, plan, and use public EV charging stations with the right apps and strategies.",
+    readTime: "5 min read",
+    category: "Driving",
+    sections: [
+      {
+        heading: "Have a plan before you're at 20%",
+        body: "The biggest mistake new EV owners make is waiting until the battery is low to think about charging. Plan charging into your trip when you're at 50% or earlier — find the right station, confirm it's working, and arrive with comfortable margin. Anxiety-driven charging (finding any charger in a panic) leads to expensive fast-charging mistakes.",
+      },
+      {
+        heading: "Best apps for finding chargers",
+        body: "PlugShare is the definitive public charger map — it has the most current check-in data from real users and lets you filter by connector type, network, and recent activity. Your EV's built-in navigation also routes to chargers automatically. Tesla drivers use the built-in nav; non-Tesla drivers should install PlugShare and ABRP.",
+        list: [
+          "PlugShare: real-time check-ins and reviews — install this first",
+          "ABRP: route planning with charging stops calculated automatically",
+          "ChargePoint app: manage ChargePoint sessions and find Level 2 chargers",
+          "Electrify America: required for EA fast chargers (pay-as-you-go or subscription)",
+        ],
+      },
+      {
+        heading: "Reading charger check-ins",
+        body: "In PlugShare, check the most recent 3–5 check-ins. Look for: were all stalls working? What was the peak charging speed? Any comments about the parking situation (time limits, tight spots)? A check-in from 4 hours ago reporting 'all stalls down' is a strong skip signal.",
+      },
+      {
+        heading: "Parking etiquette at public chargers",
+        body: "Move your car promptly when charging is complete. Many stations charge idle fees ($1–2/minute) after charging stops. If you'll be away from your car for hours, don't use a fast charger — use a Level 2 charger appropriate for longer dwell times. Don't park in EV charging spots if you're not charging.",
+      },
+      {
+        heading: "Paying efficiently",
+        body: "Save payment info in all the apps you'll use regularly. Many networks offer monthly memberships ($6–$10/month) that reduce per-kWh cost by 20–40%. For infrequent use, pay-as-you-go is usually fine. Electrify America's $4/month Pass+ plan pays off if you use EA more than twice per month.",
+      },
+    ],
+  },
+  {
+    slug: "summer-ev-driving",
+    title: "Summer EV driving: heat, range, and charging tips",
+    hook: "Heat affects EVs differently than cold — battery thermal management is the key factor.",
+    description: "How to manage EV range and battery health in hot summer weather, with tips on precooling and charging.",
+    readTime: "5 min read",
+    category: "Driving",
+    sections: [
+      {
+        heading: "Heat affects EVs differently than cold",
+        body: "Cold weather slows the chemical reactions in lithium-ion batteries, reducing range. Heat does the opposite — it accelerates chemical reactions, which can improve short-term performance but stresses the battery over time. Extreme heat (110°F+) is the biggest battery life risk, not cold weather.",
+      },
+      {
+        heading: "Summer range: modest gains, potential losses",
+        body: "Mild summer weather (65–80°F) produces the best EV range — this matches most EPA test conditions. Hot weather (90°F+) forces the battery thermal management system to work harder, consuming energy to keep the battery cool. Air conditioning also draws 1–3 kW continuously in extreme heat. Together, these can reduce range 10–20% in a 100°F heatwave.",
+      },
+      {
+        heading: "Precooling while plugged in",
+        body: "On hot days, run climate control while the car is still on the charger, so the battery and cabin reach target temperature before you unplug. This uses grid power instead of battery power and protects battery health. Set a departure time in the car's app 10–15 minutes before you leave.",
+        list: [
+          "Tesla: Scheduled Departure with precondition enabled",
+          "Hyundai/Kia: Scheduled Charging → Climate settings",
+          "Ford: FordPass → Scheduled Charging → Climate",
+          "Effect: saves 10–20 miles of range on 95°F+ days",
+        ],
+      },
+      {
+        heading: "Avoid parking in extreme heat with a full charge",
+        body: "Leaving a fully charged EV parked in 110°F+ direct sun for multiple days stresses the battery. If you're traveling by air and parking your EV, set the charge limit to 80% before parking and use a shaded or covered space. The thermal management system will run occasionally to protect the battery — check that the car has enough charge when you return.",
+      },
+      {
+        heading: "Charging in hot weather",
+        body: "DC fast charging in extreme heat works fine — the thermal management system cools the battery during fast charging. You may see slightly reduced peak charging speeds on a hot day as the system prioritizes battery temperature. Level 2 home charging is unaffected by ambient heat.",
+      },
+    ],
+  },
+  {
+    slug: "towing-with-ev",
+    title: "Towing with an EV: range, strategy, and planning",
+    hook: "EV towing is real but demands honest range planning — expect half your normal range.",
+    description: "How to plan EV towing trips, manage range loss, and choose charging stops when hauling a trailer.",
+    readTime: "6 min read",
+    category: "Driving",
+    sections: [
+      {
+        heading: "The range reality",
+        body: "Towing a trailer dramatically increases aerodynamic drag and rolling resistance. Expect 40–60% range loss depending on trailer weight and highway speed. A Rivian R1T with 314 miles of unladen range realistically delivers 130–180 miles towing a 6,000 lb trailer at 65 mph. This is the number you must plan around, not the EPA number.",
+      },
+      {
+        heading: "Calculate your towing range before you leave",
+        body: "Use a towing-aware planning app. ABRP (A Better Route Planner) has a towing mode that adjusts consumption estimates based on trailer weight, wind, temperature, and speed. Enter your actual trailer weight, not the maximum tow rating. This gives charging stop intervals you can actually hit.",
+        list: [
+          "ABRP towing mode: enter trailer weight + weather",
+          "Rivian: in-vehicle route planning accounts for trailer",
+          "Rule of thumb: budget 60% of unladen range when towing",
+          "Add 10% buffer: aim to arrive at chargers with 20%, not 10%",
+        ],
+      },
+      {
+        heading: "Choosing chargers with towing access",
+        body: "Not all fast chargers have pull-through stalls for vehicles with trailers. Look for Electrify America sites with truck-friendly spaces (listed in the EA app). Tesla Supercharger 4.0 locations often have pull-through stalls. Rivian Adventure Network sites are specifically designed for truck and trailer access.",
+      },
+      {
+        heading: "Unhitching strategy",
+        body: "At chargers without pull-through access, you'll need to unhitch, charge, then rehitch. This adds 10–15 minutes per stop. For long hauls, this is a reasonable trade. Plan charger stops at locations where unhitching is practical — large parking lots, travel plazas.",
+      },
+      {
+        heading: "Speed management when towing",
+        body: "Driving 60 mph instead of 70 mph while towing significantly improves range — aerodynamic drag from the trailer is the dominant force. The additional time is offset by needing fewer charging stops. On a 400-mile towing trip, driving 60 mph vs 70 mph might mean one fewer 30-minute charging stop.",
+      },
+    ],
+  },
+  {
+    slug: "new-ev-owner-first-week",
+    title: "New EV owner guide: your first week",
+    hook: "The first week shapes your EV habits for years. Set it up right and you'll never look back.",
+    description: "What to do in your first week with a new EV: charging setup, apps, settings, and habits to build.",
+    readTime: "6 min read",
+    category: "Driving",
+    sections: [
+      {
+        heading: "Day 1: Set up home charging",
+        body: "Plug into your outlet or Level 2 charger the first night. Set a charge limit of 80% in the car's app — this is the optimal daily limit for battery longevity. Only charge to 100% the night before a long trip. Starting this habit on day one costs nothing and protects your battery for the next decade.",
+      },
+      {
+        heading: "Day 2: Learn the charging screen",
+        body: "Spend 10 minutes on the car's charging screen or app. Find: current state of charge, estimated range, charge limit setting, scheduled charging time, and the charging history graph. Understanding what normal looks like (charge speed, state of charge progression) helps you identify issues early.",
+        list: [
+          "Set daily charge limit: 80% in car settings or app",
+          "Enable scheduled charging: set off-peak start time",
+          "Find charge port release: know how to open it manually",
+          "Bookmark a fast charger: know where the nearest DC fast charger is",
+        ],
+      },
+      {
+        heading: "Day 3: Practice regen braking",
+        body: "Set regenerative braking to maximum. Drive a 10-minute loop around your neighborhood using only the accelerator pedal to control speed — no brake pedal except for full stops. One-pedal driving feels odd for 20 minutes, then natural forever. You'll use it on every drive.",
+      },
+      {
+        heading: "Day 4: Set up navigation with charging",
+        body: "Enter a destination 100+ miles away in the car's navigation. Let it route with charging stops included. Note how it estimates charging time and arrival SoC. You're not actually going there — you're learning how the car thinks about range so long trips feel predictable, not stressful.",
+      },
+      {
+        heading: "Day 5: Install PlugShare",
+        body: "Download PlugShare, create an account, and save 2–3 nearby DC fast chargers as favorites. Add one positive check-in after you successfully use a public charger. The PlugShare community is what makes public charging work — participate in it.",
+      },
+      {
+        heading: "Day 6–7: Enroll in TOU pricing",
+        body: "Contact your utility or search their website for time-of-use EV rate plans. Enrollment takes 5 minutes online and takes effect in 1–4 weeks. While you wait, set your car's charging schedule to charge only during 9pm–6am. This alone saves $150–$300/year with zero other changes.",
+      },
+    ],
+  },
+
+  // ── Savings +5 ─────────────────────────────────────────────────────────────
+  {
+    slug: "ev-vs-gas-true-cost",
+    title: "EV vs gas true cost: beyond fuel savings",
+    hook: "Fuel is the headline, but insurance, depreciation, and financing shape the real comparison.",
+    description: "Complete EV vs gas cost comparison including fuel, insurance, maintenance, depreciation, and incentives.",
+    readTime: "7 min read",
+    category: "Savings",
+    sections: [
+      {
+        heading: "Why simple fuel comparisons mislead",
+        body: "Most EV vs gas comparisons stop at fuel cost. But ownership cost includes insurance (often higher for EVs), depreciation (varies hugely by model), financing cost, maintenance, and any state/federal incentives. Running all five variables together gives the true picture.",
+      },
+      {
+        heading: "Fuel savings: the foundation",
+        body: "At national averages (16¢/kWh, $3.50/gal), an EV saves $1,000–$1,500/year over a 28-MPG gas car at 15,000 annual miles. In high-gas states (California, Hawaii, Washington) or with a TOU electricity plan, savings reach $1,800–$2,500/year. In low-electricity-rate states like Texas, savings can be even higher.",
+        list: [
+          "National average: EV saves ~$1,100/yr vs 28 MPG gas car",
+          "California (expensive gas + TOU): $1,800–$2,500/yr savings",
+          "Texas (cheap overnight electricity): $1,400–$1,800/yr savings",
+          "Mostly fast charging: savings compress to $400–$700/yr",
+        ],
+      },
+      {
+        heading: "Maintenance savings",
+        body: "EVs avoid oil changes ($80–150/year), transmission service, spark plugs, timing belts, and exhaust system work. AAA's annual maintenance cost study consistently shows EVs saving $700–$1,000/year versus comparable gas vehicles. Brake pads often last twice as long due to regenerative braking.",
+      },
+      {
+        heading: "Insurance: often a headwind",
+        body: "EV insurance typically runs $200–$600/year more than equivalent gas cars. This partially offsets fuel savings. The gap is narrowing as more insurers develop EV pricing expertise. Tesla insurance is particularly expensive ($2,500–$4,000/year for many drivers); mainstream EVs from Hyundai and Kia are closer to parity.",
+      },
+      {
+        heading: "Depreciation: the biggest variable",
+        body: "A Model Y depreciates ~38% over 5 years — similar to a RAV4. A Nissan Leaf may depreciate 55–65%. Choose a model with strong demand and network support, and your total ownership cost improves significantly. Depreciation on popular EVs now looks similar to popular gas vehicles of the same segment.",
+      },
+      {
+        heading: "The bottom line",
+        body: "For most drivers who charge mostly at home and keep the car 5+ years, EVs come out $5,000–$15,000 cheaper in total cost of ownership vs a comparable gas vehicle over 5 years — after accounting for all five cost categories and the federal tax credit. The math gets better as gas prices rise and electricity rates hold steady.",
+      },
+    ],
+  },
+  {
+    slug: "ev-savings-high-mileage",
+    title: "EV savings for high-mileage drivers",
+    hook: "The more you drive, the better the EV savings case — every mile matters at scale.",
+    description: "How EV ownership costs and savings change for drivers who put on 20,000–30,000+ miles per year.",
+    readTime: "5 min read",
+    category: "Savings",
+    sections: [
+      {
+        heading: "Why high mileage amplifies EV savings",
+        body: "Every cost advantage of an EV — lower fuel cost, lower maintenance — compounds with mileage. At 30,000 miles/year, the fuel savings are roughly double those at 15,000 miles. High-mileage drivers see payback periods on EV price premiums measured in months, not years.",
+      },
+      {
+        heading: "Fuel savings at scale",
+        body: "At 30,000 miles/year, charging at home at 16¢/kWh vs a 28 MPG gas car at $3.50/gal: the EV costs ~$685/year vs $3,750/year for gas — a $3,065 annual savings. Over 5 years, that's $15,325 in fuel alone. This dwarfs the price premium on most EVs after the federal credit.",
+        list: [
+          "30k mi/yr EV fuel cost (home, 16¢/kWh): ~$685/yr",
+          "30k mi/yr gas cost (28 MPG, $3.50/gal): ~$3,750/yr",
+          "Annual savings: ~$3,065",
+          "5-year savings: ~$15,300 (fuel only)",
+        ],
+      },
+      {
+        heading: "Maintenance advantage grows too",
+        body: "Oil changes at $80/each every 5,000 miles = $480/year at 30,000 miles. Add transmission service, brake jobs, and spark plugs and a gas car at 30,000 miles/year costs $1,200–$1,800/year in maintenance. An EV at the same mileage: $400–$600/year (tires, filters, wiper blades).",
+      },
+      {
+        heading: "Battery degradation consideration",
+        body: "High-mileage driving accelerates battery degradation if most miles are from DC fast charging. For high-mileage drivers who can charge at home, degradation tracks normally. For rideshare/delivery drivers who fast charge frequently, battery health should be monitored and factored into the total cost calculation.",
+      },
+      {
+        heading: "Best EVs for high-mileage drivers",
+        body: "Prioritize: large battery for fewer charging stops, fast charging speed for road efficiency, and a reliable charging network. Model Y Long Range, Tesla Model 3, Hyundai Ioniq 6, and the Chevy Equinox EV are strong high-mileage candidates. Choose NACS or verify a good adapter situation for your primary fast-charging network.",
+      },
+    ],
+  },
+  {
+    slug: "ev-fuel-savings-calculator-guide",
+    title: "How to use an EV fuel savings calculator",
+    hook: "Plug in five numbers and get a personalised savings estimate — here's what each input actually means.",
+    description: "Step-by-step guide to using an EV fuel savings calculator with your real rates, mileage, and vehicle.",
+    readTime: "4 min read",
+    category: "Savings",
+    sections: [
+      {
+        heading: "Five inputs that determine everything",
+        body: "An accurate EV savings calculator needs: your current gas vehicle's MPG, your local gas price, the EV you're considering, your local electricity rate, and your annual miles. Each input can move the result by hundreds of dollars — using the right numbers matters.",
+      },
+      {
+        heading: "Finding your real electricity rate",
+        body: "Don't use the national average (16¢/kWh) if you can find your actual rate. Look at your last electricity bill: total charge divided by total kWh used = your effective rate. If you're on or considering a TOU plan, use the off-peak rate for the charging window you'll use — this can be 8–14¢/kWh instead of 18–22¢/kWh.",
+      },
+      {
+        heading: "MPG of your current car",
+        body: "Use your car's EPA combined rating, not the highway number. If you do mostly city driving, use the city MPG. Check fueleconomy.gov for your exact model year — manufacturers sometimes update EPA estimates. Real-world MPG is usually 5–10% lower than EPA, which makes the EV comparison even better.",
+      },
+      {
+        heading: "Home charging percentage",
+        body: "This input has an outsized effect on results. If you charge 90% at home and 10% at public fast chargers, your blended charging cost is close to your home rate. If you charge 50% at fast chargers, your blended cost roughly doubles. Be honest about your charging situation — this is where the most optimistic estimates go wrong.",
+      },
+      {
+        heading: "Interpreting the result",
+        body: "The calculator output is an estimate. Real-world savings vary ±20% based on driving style, seasonal variation, and actual charging behavior. Use the calculator to understand the ballpark and which variables matter most to you, then refine from there. A $1,000/year estimate means you should investigate seriously; a $200/year estimate means the math is marginal.",
+      },
+    ],
+  },
+  {
+    slug: "free-ev-charging-guide",
+    title: "How to find free EV charging",
+    hook: "Free charging exists — at workplaces, retailers, and select networks — but it takes a strategy.",
+    description: "Where to find free EV charging: workplace programs, retail locations, network promotions, and new car deals.",
+    readTime: "5 min read",
+    category: "Savings",
+    sections: [
+      {
+        heading: "Free charging is real and worth finding",
+        body: "Thousands of EV owners regularly add free kilowatt-hours through workplace chargers, retail destinations, hotel stays, and manufacturer programs. For some drivers, free charging covers 20–30% of annual energy needs — worth $200–$500/year.",
+      },
+      {
+        heading: "Workplace charging",
+        body: "This is the most valuable ongoing free charging source. Many employers offer Level 2 charging as a benefit. Ask your facilities team directly — if they don't have chargers, make the business case: it costs employers $1–2/day to offer a Level 2 charging perk, and it's increasingly a retention benefit in competitive talent markets.",
+        list: [
+          "Ask HR or facilities about existing chargers",
+          "Check if your company has a sustainability program that covers EV charging",
+          "Many large companies (Google, Microsoft, Amazon) offer free charging at offices",
+          "Even partial workplace coverage (30–40% of miles) changes the economics",
+        ],
+      },
+      {
+        heading: "Retail and destination chargers",
+        body: "Many retailers offer free Level 2 charging to customers: Whole Foods, Ikea, Trader Joe's, many malls, and some hotel chains. These are 20–30 mph chargers — park for 90 minutes, get 25–40 miles free. Use PlugShare filtered to 'free' to map these near your regular routes.",
+      },
+      {
+        heading: "Manufacturer free charging programs",
+        body: "Some EV purchases include free charging: Hyundai has offered free Electrify America sessions, Volkswagen included charging credit with ID.4 purchases, and Rivian provided Adventure Network credits. Check current offers on the manufacturer site — these promotions change quarterly.",
+      },
+      {
+        heading: "Hotel charging",
+        body: "Many hotels now offer EV charging as an amenity. When booking, filter for 'EV charging' in Google Hotels or Booking.com. Even Level 1 (120V) charging overnight adds 30–40 miles, which matters on road trips. A two-night trip with hotel charging can eliminate one fast-charging stop.",
+      },
+    ],
+  },
+  {
+    slug: "ev-utility-rebate-guide",
+    title: "How to claim utility rebates for your EV",
+    hook: "Your utility probably has money set aside for EV owners — most never claim it.",
+    description: "How to find and claim utility rebates for EVs, home chargers, and off-peak electricity plans.",
+    readTime: "5 min read",
+    category: "Savings",
+    sections: [
+      {
+        heading: "Utilities have EV budgets most customers don't use",
+        body: "US utilities have collectively committed billions to EV infrastructure programs under state utility commission mandates. These programs fund direct charger rebates, off-peak rate discounts, and sometimes EV purchase rebates. Claiming them takes 15–30 minutes per program and can be worth $300–$1,500 total.",
+      },
+      {
+        heading: "How to find your utility's EV programs",
+        body: "Search '[your utility name] electric vehicle program' on Google. Most major utilities have a dedicated EV page. Alternatively, use ENERGY STAR's rebate finder or the AFDC incentive database at fueleconomy.gov. If you can't find anything online, call your utility's residential energy team — they often know about programs the website buries.",
+      },
+      {
+        heading: "Charger rebates",
+        body: "The most common utility EV program is a Level 2 charger rebate: $200–$600 for purchasing and installing a qualifying smart charger. Requirements: licensed electrician, permit, and a qualifying model (usually Wi-Fi enabled). Submit within 90 days of installation with your receipt and electrician invoice.",
+      },
+      {
+        heading: "EV rate plans",
+        body: "Many utilities offer EV-specific rate plans with very cheap overnight electricity. Pacific Gas & Electric's EV2-A plan charges as little as 8¢/kWh overnight. APS in Arizona offers EV plans around 5¢/kWh off-peak. Enrollment is free. The annual savings of $200–$500 require no other behavior change except charging at night.",
+      },
+      {
+        heading: "Demand-response credits",
+        body: "Enroll your smart charger in demand-response programs where the utility can delay charging during peak events. You receive bill credits ($50–$150/year) for a few dozen 15–60 minute delay events per year. These are fully overridable and barely noticeable in daily use.",
+      },
+    ],
+  },
+
+  // ── Charging +7 ────────────────────────────────────────────────────────────
+  {
+    slug: "how-fast-charging-works",
+    title: "How DC fast charging works",
+    hook: "Fast charging is more chemistry than hardware — understanding it makes range planning easier.",
+    description: "How DC fast charging works, what limits charging speed, and why cars slow down near full.",
+    readTime: "6 min read",
+    category: "Charging",
+    sections: [
+      {
+        heading: "AC vs DC charging",
+        body: "Your home charger and Level 2 chargers provide alternating current (AC). The car's onboard charger converts AC to the DC current that actually goes into the battery. DC fast chargers bypass the onboard charger entirely — they send DC directly to the battery at much higher power. That's why fast chargers are limited by the battery and its thermal management, not the car's small onboard charger.",
+      },
+      {
+        heading: "The charge curve",
+        body: "EV batteries don't charge at constant speed. They charge fast from 5–80% and deliberately slow down from 80–100%. This is the charge curve. At 10% SoC, a Tesla Model 3 accepts 250 kW at a Supercharger V3. At 80% SoC, it might accept 50 kW. The BMS (battery management system) controls this precisely to protect the cells.",
+      },
+      {
+        heading: "Why the car slows down near 80%",
+        body: "Lithium-ion cells can be damaged by overcharging, especially when they're already full. The BMS reduces power input to prevent lithium plating on the anode — a condition that permanently reduces capacity. This is physics, not a manufacturer limitation. Charging from 80–100% takes as long as 10–80% in some vehicles.",
+      },
+      {
+        heading: "What determines your peak charging speed",
+        body: "Peak charging speed is limited by the lowest of: the charger's maximum output, the car's maximum DC acceptance rate, and the current battery temperature. A 350 kW Electrify America charger means nothing if your car accepts only 150 kW. Check your car's spec sheet for 'DC fast charge acceptance' — this is the real number.",
+        list: [
+          "Tesla Model Y LR: up to 250 kW (Supercharger V3)",
+          "Hyundai Ioniq 6: up to 240 kW (800V architecture)",
+          "Ford F-150 Lightning: up to 131 kW (lower acceptance rate)",
+          "Kia EV6: up to 240 kW (800V architecture)",
+        ],
+      },
+      {
+        heading: "Battery preconditioning for fast charging",
+        body: "Cold batteries can't accept full fast-charge speed. Most modern EVs automatically precondition the battery when navigation routing to a fast charger — the battery is warmed to optimal temperature before you arrive. Enable this by routing to the charger in your nav, not just driving to it without nav.",
+      },
+      {
+        heading: "The 20–80 rule for road trips",
+        body: "For road trips, arrive at a fast charger at ~20% and charge to ~80%. That's the bulk of the fast part of the charge curve. Charging from 80–100% at a fast charger wastes time and money at diminishing speed. Arrive with margin, charge to 80%, and move on.",
+      },
+    ],
+  },
+  {
+    slug: "ev-charging-etiquette",
+    title: "EV charging etiquette: the unwritten rules",
+    hook: "Charging stations are shared infrastructure — follow these norms and avoid conflict.",
+    description: "EV charging etiquette at public stations: when to unplug others, idle fees, and sharing fast chargers.",
+    readTime: "4 min read",
+    category: "Charging",
+    sections: [
+      {
+        heading: "Public charging is shared infrastructure",
+        body: "Public EV chargers are shared by a community of drivers. The unwritten rules around them exist for practical reasons: they keep chargers accessible, reduce conflict, and make everyone's experience better. Most issues come from a small number of drivers who don't know the norms.",
+      },
+      {
+        heading: "Move your car when charging is complete",
+        body: "This is the single most important rule. When your car finishes charging, you're occupying a resource other drivers need. Most fast chargers charge idle fees ($1–2/minute) after charging completes. For Level 2 chargers at destinations (malls, parking garages), set an alarm and move when full — even if you don't pay an idle fee, another EV owner is waiting.",
+        list: [
+          "Enable charge-complete notifications in your car's app",
+          "Set a reminder alarm on your phone for the expected completion time",
+          "At busy Superchargers, apps alert you to pending idle fees",
+          "Idle fee charges begin 5 minutes after charging completes at Tesla",
+        ],
+      },
+      {
+        heading: "Don't unplug another EV without permission",
+        body: "At Level 2 stations, it's generally accepted to unplug an ICE car (non-EV) blocking a charger when all other stalls are full. Unplugging another EV that's still charging is almost never acceptable — their charging session may be timed to a departure. If you need to charge urgently, leave a note with your number and ask.",
+      },
+      {
+        heading: "Don't park in charging spots if you're not charging",
+        body: "EV charging spots are not premium parking spots. Use them only while actively charging. Many jurisdictions have fines for ICE vehicles in EV spots — and increasing numbers for EVs that aren't plugged in. The general term for ICE cars blocking chargers is 'ICE-ing' — a common source of frustration in the community.",
+      },
+      {
+        heading: "Check-ins and reviews",
+        body: "Check in on PlugShare after using a public charger — especially if you have something to report (broken stall, pricing discrepancy, parking obstruction). The community maintains charging reliability through these check-ins. One 30-second review prevents multiple drivers from arriving at a broken station.",
+      },
+    ],
+  },
+  {
+    slug: "overnight-charging-routine",
+    title: "Building the perfect overnight EV charging routine",
+    hook: "Plug in when you get home and wake up full — the routine that makes EV ownership effortless.",
+    description: "How to set up an overnight EV charging routine with scheduled charging, charge limits, and TOU rates.",
+    readTime: "4 min read",
+    category: "Charging",
+    sections: [
+      {
+        heading: "Why overnight charging changes everything",
+        body: "The biggest psychological shift for EV owners is that the car fuels itself while you sleep. Gas car owners leave home with whatever was in the tank last time they stopped. EV owners leave with a predictable, optimized charge every morning. Building a simple routine around this transforms EV ownership from uncertain to effortless.",
+      },
+      {
+        heading: "The three-step nightly routine",
+        body: "1) Plug in when you arrive home — every time, not occasionally. 2) Leave the charge limit at 80% (already set). 3) Trust the schedule to handle the rest. That's it. The car starts charging at off-peak hours automatically, stops at 80%, and notifies you if anything is wrong.",
+        list: [
+          "Step 1: Plug in every night regardless of current charge level",
+          "Step 2: Charge limit at 80% (set once, leave it)",
+          "Step 3: Schedule charging to start at off-peak time (set once)",
+          "Adjust to 100% the night before any long trip",
+        ],
+      },
+      {
+        heading: "Setting the charge limit once",
+        body: "In your car's settings or app, find 'Charge Limit' and set it to 80%. This applies to every charging session automatically. Only change it to 100% the night before a long trip. Setting it back to 80% after the trip should be an automatic habit — treat it like resetting your alarm clock.",
+      },
+      {
+        heading: "Scheduled charging for TOU savings",
+        body: "In the same settings, find 'Scheduled Charging' or 'Off-Peak Charging.' Set the start time to when your utility's off-peak period begins (typically 9pm or 11pm). Set a target completion time of 6am. The car calculates how long it needs and starts automatically. You plug in, and the car does the math.",
+      },
+      {
+        heading: "What to do if you forget to plug in",
+        body: "Most EV apps let you start a charging session remotely. If you're in bed and realize you forgot to plug in, check the app — if you haven't plugged in the cable yet, you'll need to go out. The habit of plugging in immediately when you park is worth building from day one.",
+      },
+    ],
+  },
+  {
+    slug: "public-charging-apps",
+    title: "Best apps for public EV charging in 2026",
+    hook: "You need three apps: a map, a route planner, and your network's payment app.",
+    description: "Best EV charging apps for finding, planning, and paying at public charging stations.",
+    readTime: "4 min read",
+    category: "Charging",
+    sections: [
+      {
+        heading: "The three-app strategy",
+        body: "You don't need every network's app. You need a master map (PlugShare), a trip planner (ABRP), and the payment app for whichever network covers your region most. Three apps with pre-loaded payment handles 90% of situations.",
+      },
+      {
+        heading: "PlugShare: the community map",
+        body: "PlugShare aggregates chargers from every network onto one map and adds real-time check-ins from drivers. Filter by connector type (NACS, CCS, CHAdeMO), network, and recent check-in activity. Before arriving at a charger, look at the last 3–5 check-ins — this is more accurate than any network's own status display.",
+        list: [
+          "Filter: connector type, Level 2 vs DC fast, network",
+          "Check-in history: most reliable indicator of current charger status",
+          "Routes: plan a trip route with charging stops inside PlugShare",
+          "Free tier is sufficient for most use",
+        ],
+      },
+      {
+        heading: "ABRP: route planning with charging stops",
+        body: "A Better Route Planner calculates charging stops based on your car's real efficiency, weather, elevation, and speed. Enter your destination and departure SoC; it returns a step-by-step itinerary with estimated charge time at each stop. The $3/month paid tier connects to your car's live telemetry for much more accurate predictions.",
+      },
+      {
+        heading: "Network-specific apps",
+        body: "Depending on your region, you'll need one or two network apps for payment: Electrify America, ChargePoint, EVgo, or Blink. Install the one with best coverage on your most common routes. Pre-load a payment method — nothing is more frustrating than standing at a charger unable to authenticate.",
+        list: [
+          "Electrify America: required for EA fast chargers (most US highway coverage)",
+          "ChargePoint: huge Level 2 network, common at workplaces and destinations",
+          "EVgo: strong in urban areas, good mobile app",
+          "Tesla: required for Superchargers with non-Tesla EVs on NACS",
+        ],
+      },
+      {
+        heading: "Your car's built-in navigation",
+        body: "Don't ignore your car's native navigation. Tesla, Rivian, Hyundai, and Ford all route with charging stops automatically and precondition the battery for faster charging on arrival. Use it for planned road trips — it's the most integrated experience.",
+      },
+    ],
+  },
+  {
+    slug: "workplace-ev-charging",
+    title: "Workplace EV charging: how to get it at your office",
+    hook: "Workplace Level 2 charging is the most underutilized EV perk — here's how to make it happen.",
+    description: "How to advocate for workplace EV charging, what programs exist, and how employers benefit.",
+    readTime: "5 min read",
+    category: "Charging",
+    sections: [
+      {
+        heading: "Why workplace charging matters",
+        body: "A standard Level 2 charger at work adds 25–40 miles of range during an 8-hour workday. For commuters who drive 20–40 miles each way, this essentially covers the entire commute for free (or at the employer's electricity cost, which is often low on commercial rates). Workplace charging is increasingly common at large tech, financial, and corporate campuses.",
+      },
+      {
+        heading: "Making the business case to your employer",
+        body: "Employers benefit from EV chargers: they attract EV-driving talent, qualify for federal tax credits (Section 30C business credit: 30% of installation cost, up to $100,000), and can access utility programs that reduce installation cost. Frame the request in employer benefit language, not personal convenience.",
+        list: [
+          "Federal 30C business credit: 30% of install cost (up to $100k)",
+          "Utility programs: many utilities fund workplace charger installations",
+          "Talent retention: increasingly expected by EV-owning employees",
+          "CSG/sustainability reporting: workplace EV infrastructure counts",
+        ],
+      },
+      {
+        heading: "Proposing a pilot program",
+        body: "Propose starting with 2–4 Level 2 chargers rather than a full buildout. A pilot involves low capital, minimal facilities complexity, and gives the employer data on utilization before committing to expansion. Frame it as a 6-month experiment with defined success metrics (utilization rate, employee satisfaction).",
+      },
+      {
+        heading: "Managed workplace charging",
+        body: "Workplace charging works best with a management platform (ChargePoint, Blink Business, EVgo for Business) that handles access control, billing, and usage reporting. Employers can offer free charging, cost-shared charging, or employee billing. The platform removes the administrative burden.",
+      },
+      {
+        heading: "If your employer says no",
+        body: "Install PlugShare on your phone and map nearby Level 2 chargers — gyms, coffee shops, parking garages — within walking distance of your office. For some commuters, 2–3 charging sessions per week at nearby destinations provides enough supplemental charging without employer involvement.",
+      },
+    ],
+  },
+  {
+    slug: "ev-charging-speeds-explained",
+    title: "EV charging speeds explained: kW, kWh, and what they mean",
+    hook: "Kilowatts confuse new EV owners. Here's a plain-language translation.",
+    description: "Explanation of EV charging speeds, power levels, and how kW translates to miles added per hour.",
+    readTime: "5 min read",
+    category: "Charging",
+    sections: [
+      {
+        heading: "The three terms you need to know",
+        body: "kW (kilowatt) is charging power — how fast energy flows into the battery. kWh (kilowatt-hour) is battery capacity — how much energy fits in the battery. Miles per hour (mph of range) is what most drivers actually care about. The formula: charging speed in miles/hr = charger kW × car efficiency (mi/kWh).",
+      },
+      {
+        heading: "Level 1 charging",
+        body: "Level 1 uses a standard 120V outlet. Power output is typically 1.2–1.4 kW. At 3.5 mi/kWh efficiency (Model Y), that's 4–5 miles of range added per hour. Overnight (10 hours) adds 40–50 miles. This is enough for many commuters who drive under 40 miles daily.",
+        list: [
+          "Power: 1.2–1.4 kW",
+          "Range added: ~4–5 miles/hour",
+          "Overnight (10 hr): 40–50 miles",
+          "Use case: light daily commuters with no other option",
+        ],
+      },
+      {
+        heading: "Level 2 charging",
+        body: "Level 2 uses a 240V circuit. Charger output ranges from 7.2 kW (32A circuit) to 19.2 kW (80A circuit). Most home installations run 9.6–11.5 kW (40–48A). At 3.5 mi/kWh efficiency, a 9.6 kW charger adds ~34 miles of range per hour — a full battery overnight regardless of how depleted it is.",
+        list: [
+          "Power: 7.2 kW (32A) to 19.2 kW (80A)",
+          "Common home setup: 9.6–11.5 kW",
+          "Range added: 25–40 miles/hour",
+          "Overnight (8 hr): 200–320 miles",
+        ],
+      },
+      {
+        heading: "DC fast charging",
+        body: "DC fast chargers bypass the car's onboard charger and push DC directly to the battery. Power ranges from 50 kW (older CHAdeMO stations) to 350 kW (latest CCS/NACS stations). At 250 kW on a Supercharger V3, a Model Y can add 200 miles of range in 15 minutes.",
+        list: [
+          "Power: 50–350+ kW",
+          "Tesla Supercharger V3: up to 250 kW",
+          "Electrify America: up to 350 kW",
+          "Range added: 100–800 miles/hour (depending on car's max acceptance)",
+        ],
+      },
+      {
+        heading: "Why the charger's kW rating doesn't always match",
+        body: "A 350 kW charger connected to a car that accepts 150 kW max delivers 150 kW — the slower device wins. Your car's DC fast charge acceptance rate is the real ceiling. Check your car's spec sheet for 'max DC charging rate' to know your real peak speed.",
+      },
+    ],
+  },
+  {
+    slug: "battery-preconditioning-guide",
+    title: "Battery preconditioning: why and how to use it",
+    hook: "Preconditioning turns a 30-minute charging stop into a 15-minute one — on the same charger.",
+    description: "What EV battery preconditioning is, when to use it, and how to enable it on your car.",
+    readTime: "5 min read",
+    category: "Charging",
+    sections: [
+      {
+        heading: "What preconditioning is",
+        body: "Battery preconditioning warms or cools the battery to an optimal temperature range (typically 60–90°F / 15–32°C) before fast charging or driving. Cold batteries charge slowly and deliver less power; hot batteries need cooling to prevent damage. Preconditioning fixes both, using grid power when still plugged in or battery power when driving to a charger.",
+      },
+      {
+        heading: "Why it matters for fast charging",
+        body: "A Tesla battery at 40°F might accept 80 kW at a V3 Supercharger. The same battery preconditioned to 70°F accepts 250 kW. That's the difference between a 30-minute stop and a 12-minute stop for the same amount of energy. For road trips, preconditioning before every DC fast charger stop is one of the highest-value habits.",
+      },
+      {
+        heading: "How to enable it",
+        body: "The easiest method: route to your destination (or the charging stop) using the car's built-in navigation. Most modern EVs automatically precondition the battery when they know a fast charger is on the route. Some cars require you to add the charger as a waypoint explicitly.",
+        list: [
+          "Tesla: add Supercharger as a waypoint — preconditioning starts automatically",
+          "Hyundai/Kia: route to destination via in-vehicle nav (auto-preconditions before fast charge stops)",
+          "Ford: use FordPass navigation or in-car nav to auto-precondition",
+          "Rivian: automatic if charging stop is in the route",
+        ],
+      },
+      {
+        heading: "Preconditioning for morning drives in winter",
+        body: "Set a departure time in the car's app. The car activates climate control and battery heaters 10–15 minutes before you leave, while still plugged in. This uses grid power instead of battery power. You get a warm cabin, defrosted windows, and a preconditioned battery — all without depleting range.",
+      },
+      {
+        heading: "When preconditioning runs on battery power",
+        body: "If your car isn't plugged in and you're driving to a fast charger, preconditioning uses battery power. On a 100 kWh car, preconditioning the battery consumes 1–3 kWh — a small price for the charging speed improvement. The faster charging speed always more than makes up for this.",
+      },
+    ],
+  },
+
+  // ── Ownership +7 ───────────────────────────────────────────────────────────
+  {
+    slug: "ev-software-updates",
+    title: "EV over-the-air software updates: what changes and what to expect",
+    hook: "Your EV gets features, performance fixes, and charging improvements added wirelessly — like a phone.",
+    description: "How EV over-the-air updates work, what they can change, and which brands have the best OTA track records.",
+    readTime: "5 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "OTA updates: what they are",
+        body: "Over-the-air (OTA) updates let manufacturers push software changes to your car wirelessly via your home Wi-Fi or cellular. They can modify performance parameters, add new features, fix bugs, adjust charging curves, and update the user interface — without a dealer visit.",
+      },
+      {
+        heading: "What OTA updates can actually change",
+        body: "More than most owners expect. Tesla OTA updates have added: full self-driving beta, dog mode, sentry mode, streaming services, gaming, improved regen braking curves, increased charging speeds for certain battery configurations, and range improvements through thermal management optimization.",
+        list: [
+          "User interface and new feature additions",
+          "Charging curve optimization (improved speed)",
+          "Range improvements via energy management tuning",
+          "Safety system updates (AEB calibration, collision sensitivity)",
+          "Performance adjustments (sometimes temporary unlocks)",
+        ],
+      },
+      {
+        heading: "How to receive and install updates",
+        body: "Connect your car to your home Wi-Fi (or ensure cellular is active). Updates usually download in the background overnight. Installation takes 15–45 minutes and requires the car to be parked and not plugged in for charging (or complete after charging finishes). You receive an app notification when an update is ready.",
+      },
+      {
+        heading: "OTA track records by brand",
+        body: "Tesla has the most aggressive and frequent OTA update cadence — major updates every 4–8 weeks. Rivian updates frequently with meaningful feature additions. Ford, Hyundai/Kia, and VW update quarterly with meaningful improvements. Legacy automakers like GM and BMW update less frequently, but this is improving.",
+        list: [
+          "Tesla: most frequent — weekly minor, monthly major updates",
+          "Rivian: strong OTA cadence, adds features regularly",
+          "Ford/Hyundai/Kia: quarterly updates, meaningful improvements",
+          "GM/BMW/Mercedes: improving but historically slower OTA cadence",
+        ],
+      },
+      {
+        heading: "Updates that fixed real issues",
+        body: "OTA fixes have resolved: charging slowdowns at cold temperatures, regen braking calibration issues, battery thermal management errors, and cabin heating efficiency problems. These would have required dealer visits for gas cars. For EV owners, the car often improves itself overnight.",
+      },
+    ],
+  },
+  {
+    slug: "ev-home-value-impact",
+    title: "Does an EV charger increase home value?",
+    hook: "A Level 2 charger is increasingly expected — and increasingly priced in.",
+    description: "How a home EV charger affects home sale price, what buyers expect, and what to install.",
+    readTime: "4 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "Chargers are becoming expected",
+        body: "In 2019, a home with an EV charger was a niche feature. By 2026, buyers in EV-heavy markets (California, Washington, Colorado, Texas metro areas) increasingly expect Level 2 charging in the garage. A missing charger is now a negotiating point, not a curiosity.",
+      },
+      {
+        heading: "What the data shows",
+        body: "Zillow and Redfin data show that home listings mentioning EV charging sell 1–3% faster and command a small premium in markets with high EV adoption. In California, listings with Level 2 chargers sell faster with fewer price reductions. In Midwest markets with lower EV adoption, the premium is smaller but not zero.",
+      },
+      {
+        heading: "What kind of charger adds the most value",
+        body: "A hardwired 40–48A Level 2 charger in the garage, properly permitted and inspected, adds the most perceived value. It signals to buyers: this is a real installation, not a temporary solution. A basic NEMA 14-50 outlet is nearly as good for buyers who want to choose their own charger hardware.",
+        list: [
+          "Best: hardwired 40A+ charger, permitted, with cable management",
+          "Good: NEMA 14-50 outlet in garage (buyer brings their own charger)",
+          "OK: dedicated 240V circuit stubbed out (no charger, but ready)",
+          "Minimal value: Level 1 (120V) outlet — every house has one",
+        ],
+      },
+      {
+        heading: "Disclosure and marketing",
+        body: "When listing your home, explicitly mention the EV charger in the listing description. Specify the amperage, brand, and whether a permit was pulled. Include a photo of the charger in the listing. This adds zero cost and ensures buyers searching for 'EV charging' find your listing.",
+      },
+      {
+        heading: "Tax credit before you sell",
+        body: "If you haven't yet installed a charger and plan to sell in 2–3 years, installing now lets you claim the federal 30% tax credit (up to $1,000) and potentially a utility rebate ($200–$600), reducing your net cost significantly while adding a marketable feature.",
+      },
+    ],
+  },
+  {
+    slug: "ev-roadside-assistance",
+    title: "EV roadside assistance: what's different",
+    hook: "Running out of charge on the side of the road is rare but fixable — if you have the right plan.",
+    description: "How roadside assistance works for EVs, which services cover mobile charging, and what to do if you run out of charge.",
+    readTime: "4 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "EV breakdowns are less common but different",
+        body: "EVs have significantly fewer mechanical breakdowns than gas vehicles — no coolant leaks, timing belt failures, or fuel system issues. The main EV roadside situations are: running out of charge, flat tires (heavier EVs wear tires faster), and 12V auxiliary battery failures (yes, EVs have these too).",
+      },
+      {
+        heading: "What to do if you run out of charge",
+        body: "Most EVs stop at 0% estimated range with a few miles of safety reserve remaining. Turn off the heat/AC and drive slowly to a shoulder. Call your manufacturer's roadside assistance — Tesla, Hyundai, Rivian, and Ford all offer mobile charging service (a charge truck brings a temporary charge) in most metro areas.",
+        list: [
+          "Tesla Roadside Assistance: 24/7, free with warranty, mobile charging truck",
+          "Hyundai/Kia Roadside: 24/7 EV roadside with mobile charge where available",
+          "Ford Mobile Service: covers Lightning with roadside assistance",
+          "AAA: offers limited mobile EV charging in select markets (Level 1 only)",
+        ],
+      },
+      {
+        heading: "Why AAA's EV coverage has limits",
+        body: "AAA's standard tow service works fine for EVs. Their 'mobile charge' service is Level 1 only — enough to drive a few miles to a charger, not a real range rescue. For full roadside coverage, rely on your manufacturer's EV-specific service, which is included free for the warranty period.",
+      },
+      {
+        heading: "Flat tires in an EV",
+        body: "Many EVs don't include a spare tire — the weight savings matters for range. Instead they include a tire inflation kit (for small punctures) or run-flat tires. Know what your car came with before you need it. If your EV has no spare, purchase a compact spare kit specific to your model or subscribe to a tire-protection service.",
+      },
+      {
+        heading: "The 12V auxiliary battery",
+        body: "EVs use their main high-voltage battery for propulsion but also have a separate 12V lead-acid (or lithium, in some models) battery that powers accessories, door locks, and electronics. This 12V battery can fail like any car battery. If your EV's 12V dies, the car won't start even with a full main battery. Standard jump-start procedures work on the 12V.",
+      },
+    ],
+  },
+  {
+    slug: "ev-tire-guide",
+    title: "EV tire guide: what's different and what matters",
+    hook: "EVs are heavier and faster than gas cars — standard tires wear faster and perform worse.",
+    description: "What to know about EV tires: load ratings, rolling resistance, wear patterns, and how to choose replacements.",
+    readTime: "5 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "Why EVs need different tires",
+        body: "EV tires handle three unique stresses: more weight (battery pack adds 500–1,000 lbs), instant high torque from launch, and regenerative braking that applies force differently than friction brakes. Standard tires may wear faster, perform worse in wet conditions at EV weight ratings, and add unnecessary rolling resistance.",
+      },
+      {
+        heading: "EV-specific tires vs standard tires",
+        body: "EV-specific tires (marked with 'EV' or 'e' in tire specs, or OEM fitments) address all three factors: higher load rating (XL or Reinf.), low rolling resistance compounds, and reinforced sidewalls. They also include foam insulation inside the tire to reduce the higher road noise characteristic of quiet EV cabins.",
+        list: [
+          "Higher load rating (XL/Reinf.) — EV weight requires it",
+          "Low rolling resistance — improves efficiency and range",
+          "Internal foam layer — reduces cabin noise from road surface",
+          "Stiffer sidewall — handles instant torque from electric motor",
+        ],
+      },
+      {
+        heading: "Popular EV tire choices",
+        body: "Michelin Pilot Sport EV, Bridgestone Turanza EV, Continental EcoContact 7, and Hankook iON are leading EV-specific options. Pirelli P Zero Elect is the OEM fitment on several high-performance EVs. These typically cost $50–$100 more per tire than standard equivalents.",
+      },
+      {
+        heading: "Rotation and wear patterns",
+        body: "Rotate EV tires every 5,000–6,000 miles rather than the standard 7,500. Front-wheel-drive EVs wear front tires faster; rear-wheel-drive EVs (most Teslas) wear rear tires. All-wheel-drive EVs wear relatively evenly. Proper rotation significantly extends tire life and maintains handling balance.",
+      },
+      {
+        heading: "Tire pressure and range",
+        body: "Underinflated tires increase rolling resistance, reducing range 1–3% per PSI below spec. EVs typically specify higher pressures than gas cars (42–50 PSI). Check monthly and add 1 PSI for every 10°F drop in temperature. A tire pressure monitoring system (TPMS) alert means a significant loss — check immediately.",
+      },
+    ],
+  },
+  {
+    slug: "ev-winter-storage",
+    title: "How to store an EV for winter (or any extended period)",
+    hook: "Leave an EV sitting for months and you risk battery degradation — here's the right way.",
+    description: "How to properly store an EV for extended periods: charge level, temperature, and disconnection tips.",
+    readTime: "4 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "The challenge of EV long-term storage",
+        body: "Lithium-ion batteries self-discharge over time, and if the battery drops to near-zero charge while sitting, it can suffer permanent capacity loss. Extreme temperatures (hot or cold) accelerate this. Storing an EV correctly for 1–4 months takes 15 minutes of preparation.",
+      },
+      {
+        heading: "Optimal storage charge level",
+        body: "Store the battery at 50% charge for extended storage. This is the chemical 'rest point' for lithium-ion cells — neither fully charged (which stresses the cathode) nor fully discharged (which can damage the anode). 40–60% is a safe range. Do not store at 100% or below 20%.",
+        list: [
+          "Target: 50% state of charge (40–60% acceptable)",
+          "Not 100%: high SoC accelerates cathode stress in storage",
+          "Not below 20%: risk of cells dropping to damaging low voltage",
+          "Check level monthly if storing for over 30 days",
+        ],
+      },
+      {
+        heading: "Temperature matters",
+        body: "Store in the most temperature-stable environment available. An attached garage is better than outdoors; a climate-controlled space is best. Extremes above 95°F or below 14°F (-10°C) accelerate self-discharge and can stress thermal management systems even when parked.",
+      },
+      {
+        heading: "Trickle charging option",
+        body: "Some EVs support a 'storage mode' or trickle Level 1 charge that maintains the battery at the target level automatically. Check your manufacturer's app — Tesla, Rivian, and Hyundai all have this. If available, plug into Level 1 (120V) and set the charge limit to 50%: the car maintains itself.",
+      },
+      {
+        heading: "Before returning to use",
+        body: "Check tire pressure (cold storage deflates tires), inspect brakes (they may have light surface rust after weeks of disuse — normal, disappears after first few stops), and check that the 12V auxiliary battery is charged. Run through a normal Level 2 charge cycle before your first long drive.",
+      },
+    ],
+  },
+  {
+    slug: "ev-service-schedule",
+    title: "EV service schedule: what actually needs attention",
+    hook: "No oil changes — but EVs still have a real service schedule worth knowing.",
+    description: "Complete EV service schedule by mileage and time interval, covering what EVs need and what they skip.",
+    readTime: "5 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "What you skip entirely",
+        body: "EVs eliminate: oil changes, oil filter replacements, spark plugs, timing belts, fuel injector cleaning, transmission fluid, exhaust system maintenance, and most cooling system work beyond checks. Combined, these items cost gas car owners $1,200–$2,000 over 5 years that EV owners simply don't pay.",
+      },
+      {
+        heading: "What to do every 6,000–7,500 miles",
+        body: "Tire rotation is the most important regular EV maintenance. EVs are heavier and deliver instant torque, accelerating uneven tire wear. Rotate every 6,000–7,500 miles (sooner than gas cars). Check tire pressure at every rotation (costs nothing).",
+        list: [
+          "Tire rotation: every 6,000–7,500 miles",
+          "Tire pressure check: monthly or at each rotation",
+          "Visual brake inspection: at every tire rotation",
+          "TPMS sensor check: verify all reading correctly",
+        ],
+      },
+      {
+        heading: "Annual service items",
+        body: "Once a year: replace cabin air filter ($20–$40 DIY or $50–$80 at a shop), inspect wiper blades, check washer fluid, and top up windshield washer reservoir. Many EVs also require annual inspection of the high-voltage cable connections (included in dealer service visits, not a DIY item).",
+        list: [
+          "Cabin air filter: every 12 months or 15,000 miles",
+          "Wiper blades: inspect annually, replace when streaking",
+          "Washer fluid: top up seasonally",
+          "12V auxiliary battery: check annually, replace at ~4–5 years",
+        ],
+      },
+      {
+        heading: "Major service intervals",
+        body: "Every 2 years or 25,000 miles: inspect brake fluid and replace if contaminated (EV brakes are used less but fluid still absorbs moisture). Every 4 years: replace brake fluid regardless. Every 30,000–50,000 miles: check AC desiccant and cooling system. Battery coolant is typically a 150,000-mile or never-replace item depending on manufacturer.",
+      },
+      {
+        heading: "Don't skip brake inspections",
+        body: "EV brake pads last much longer than gas cars due to regen — but the calipers, rotors, and hydraulic lines still degrade. Brakes that are rarely used can seize or develop surface rust that causes intermittent grinding. Annual visual inspection and periodic brake fluid testing keeps the system healthy.",
+      },
+    ],
+  },
+  {
+    slug: "ev-charging-at-hotels",
+    title: "Charging your EV at hotels: what to expect",
+    hook: "Hotel EV charging varies wildly — check before you book, not after you arrive.",
+    description: "How to find hotel EV charging, what levels to expect, and how to plan road trips around overnight hotel charging.",
+    readTime: "4 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "Hotel EV charging is expanding fast",
+        body: "Hotel EV charging has grown dramatically since 2022. Major chains (Marriott, Hilton, Hyatt, IHG) have deployed Level 2 chargers at thousands of properties. Some flagship properties have DC fast chargers. For road trips, hotel charging can add 150–250 miles overnight, potentially eliminating a fast-charging stop.",
+      },
+      {
+        heading: "How to find hotels with charging",
+        body: "Filter for 'EV charging' in Google Hotels, Booking.com, or Hotels.com. PlugShare also shows chargers at hotel addresses. Marriott's Bonvoy app lists EV charging as a filterable amenity. Call the hotel to confirm charger availability and type (Level 1, Level 2, or DC fast) — listing data is sometimes outdated.",
+        list: [
+          "Google Hotels: filter by 'EV charging' amenity",
+          "PlugShare: search hotel address for charger details",
+          "Booking.com / Hotels.com: 'EV charging' amenity filter",
+          "Call ahead: confirm Level 2 (not just Level 1) and number of stalls",
+        ],
+      },
+      {
+        heading: "What levels to expect",
+        body: "Most hotels offer Level 2 charging at 7.2–11.5 kW — that's 50–90 miles per 8-hour overnight stay for an average EV. Some premium properties have 50–150 kW DC fast chargers. A few properties still only have Level 1 (120V outlets). Know which level you're getting before booking if range is critical.",
+      },
+      {
+        heading: "Cost and access",
+        body: "Hotel charging varies: some include it free, some charge $10–$25/session flat, some charge by the hour, and some require hotel key card access. Tesla Superchargers adjacent to hotels bill through the Tesla app at standard Supercharger rates. Ask at check-in for the charger access code or activation process.",
+      },
+      {
+        heading: "Planning hotel charging into road trips",
+        body: "On a multi-day road trip, plan your overnight stops at hotels with Level 2 or faster charging. Arriving at 30% SoC and departing at 90% SoC after 8 hours means you've added 200+ miles overnight for $0–$25. This often eliminates one daytime DC fast-charging stop, saving 20–30 minutes.",
+      },
+    ],
+  },
+
+  // ── Education +9 ───────────────────────────────────────────────────────────
+  {
+    slug: "how-ev-motors-work",
+    title: "How electric motors work in EVs",
+    hook: "An electric motor has one moving part. Understanding it explains why EVs feel so different.",
+    description: "Plain-language explanation of how electric motors work in EVs, including torque, efficiency, and motor types.",
+    readTime: "5 min read",
+    category: "Education",
+    sections: [
+      {
+        heading: "The fundamental difference",
+        body: "A gas engine converts chemical energy (fuel combustion) into rotational motion through dozens of moving parts: pistons, crankshaft, camshafts, valves, timing chain. An electric motor converts electrical energy into rotational motion with essentially one moving part: the rotor. This is why EVs are more reliable and why they feel different to drive.",
+      },
+      {
+        heading: "How an AC induction motor works",
+        body: "Tesla and most performance EVs use AC induction motors. The stator (stationary outer ring) contains copper coils. When AC electricity flows through them in sequence, it creates a rotating magnetic field. The rotor (spinning inner component) is a cage of aluminum bars. The rotating magnetic field induces currents in the rotor, which creates its own magnetic field, and the interaction between the two magnetic fields causes the rotor to spin. No physical contact, no brushes, no friction.",
+      },
+      {
+        heading: "Why instant torque happens",
+        body: "Torque is the rotational force that actually moves the car. Gas engines reach peak torque at a specific RPM range (usually 2,000–4,000 RPM) — you have to wait for the engine to spin up. Electric motors produce maximum torque from 0 RPM. The moment current flows, full torque is available. This is why even modest EVs accelerate faster from a standstill than their horsepower numbers suggest.",
+      },
+      {
+        heading: "Permanent magnet vs induction motors",
+        body: "Permanent magnet synchronous motors (PMSM) are more efficient at part load and are common in front motors of dual-motor EVs and most mainstream EVs. Induction motors are more robust under high heat (track driving, sustained towing). Many dual-motor EVs combine both: PMSM in front (efficiency), induction in rear (power). Tesla Model Y: PMSM front + induction rear.",
+      },
+      {
+        heading: "Regenerative braking: the motor in reverse",
+        body: "The same motor that drives the car also generates electricity when you lift off the accelerator. The car's kinetic energy spins the motor's rotor, generating current that flows back to the battery. This is regenerative braking — energy recovery from deceleration. Efficiency: roughly 65–70% of kinetic energy is recovered. Gas cars waste 100% of it as heat.",
+      },
+      {
+        heading: "Why motor efficiency matters",
+        body: "Electric motors are 85–97% efficient at converting electrical energy to mechanical motion (varies with load and speed). Gas engines are 20–40% efficient. This fundamental efficiency difference is why EVs use so much less energy per mile — not because electricity is cheaper (though it usually is), but because the motor wastes far less energy as heat.",
+      },
+    ],
+  },
+  {
+    slug: "ev-battery-chemistry-explained",
+    title: "EV battery chemistry explained: NMC, LFP, and what it means for you",
+    hook: "NMC batteries have more range. LFP batteries last longer. The choice affects your ownership.",
+    description: "Plain-language guide to EV battery chemistries: NMC, LFP, and how they differ in range, cycle life, and charging habits.",
+    readTime: "6 min read",
+    category: "Education",
+    sections: [
+      {
+        heading: "Two main chemistries in today's EVs",
+        body: "Most consumer EVs use one of two lithium-ion chemistries in their battery cells: NMC (lithium nickel manganese cobalt oxide) or LFP (lithium iron phosphate). They have meaningfully different trade-offs. Knowing which one your EV uses helps you set the right charging habits.",
+      },
+      {
+        heading: "NMC: higher energy density",
+        body: "NMC cells store more energy per kilogram — enabling longer range in a smaller, lighter pack. They're used in most premium and long-range EVs: Tesla Model Y Long Range (NCA, a nickel-cobalt-aluminum variant), Hyundai Ioniq 6, BMW iX. The trade-off: slightly faster degradation at sustained high SoC (above 90%) and more sensitivity to heat.",
+        list: [
+          "Higher energy density → longer range for same battery size",
+          "Faster charging speed (generally)",
+          "Better cold-weather performance",
+          "More sensitive to high SoC and high temperatures long-term",
+          "Best practice: charge to 80% daily",
+        ],
+      },
+      {
+        heading: "LFP: longer cycle life",
+        body: "LFP (lithium iron phosphate) cells have lower energy density but much better cycle life — 3,000–4,000 cycles vs 1,000–1,500 for NMC. LFP is also thermally stable and doesn't degrade as much when stored at 100% SoC. Used in: Tesla Standard Range models (some), many Chinese EVs, BYD, Rivian (some configurations).",
+        list: [
+          "Lower energy density → more battery weight for same range",
+          "Much longer cycle life (3,000–4,000+ cycles)",
+          "Safe to charge to 100% regularly",
+          "Better long-term health if you charge daily",
+          "Worse cold-weather performance than NMC",
+        ],
+      },
+      {
+        heading: "How to tell which chemistry your EV uses",
+        body: "Check the spec sheet on the manufacturer's website under 'battery type' or 'cell chemistry.' If unlisted, look up your model on EV community sites (like the Tesla forums or InsideEVs). Standard Range Tesla Model 3/Y often use LFP; Long Range use NMC/NCA. Hyundai/Kia use NMC throughout. BYD Blade battery = LFP.",
+      },
+      {
+        heading: "Charging habits by chemistry",
+        body: "NMC battery: charge to 80% for daily use, 100% only before long trips. LFP battery: can charge to 100% daily (Tesla specifically recommends this for LFP). LFP has an accuracy issue — its SoC gauge is less precise at partial charge levels, and full charges help recalibrate it.",
+      },
+    ],
+  },
+  {
+    slug: "regen-braking-explained",
+    title: "Regenerative braking explained",
+    hook: "Regen braking turns your brakes into a tiny generator — and extends range every time you slow down.",
+    description: "How regenerative braking works in EVs, how much energy it recovers, and how to use it effectively.",
+    readTime: "5 min read",
+    category: "Education",
+    sections: [
+      {
+        heading: "What regenerative braking actually does",
+        body: "When you lift off the accelerator in an EV, the electric motor reverses its function: instead of using electricity to spin the wheels, it uses the wheels spinning to generate electricity. This current flows back to the battery. The resistance created by this generation process slows the car. You're simultaneously slowing down and recharging.",
+      },
+      {
+        heading: "How much energy is actually recovered",
+        body: "Regenerative braking recovers roughly 65–70% of the kinetic energy that would otherwise be wasted as heat in friction brakes. In city driving with frequent stops, this can recover enough energy to improve real-world range 10–20% compared to driving with no regen. On highway driving with few stops, the gain is smaller — 3–5%.",
+        list: [
+          "Energy recovery efficiency: 65–70%",
+          "City driving range improvement: 10–20%",
+          "Highway driving range improvement: 3–5%",
+          "Brake pad life improvement: 2–3× longer than gas car pads",
+        ],
+      },
+      {
+        heading: "One-pedal driving vs standard regen",
+        body: "One-pedal driving uses maximum regen — the car decelerates strongly when you lift off the accelerator, down to a complete stop in many models. Standard regen provides lighter deceleration, requiring friction brakes for most stops. One-pedal driving maximizes energy recovery and minimizes brake wear. Most experienced EV drivers prefer it for city use.",
+      },
+      {
+        heading: "Regen in cold weather",
+        body: "Cold batteries have limited capacity to accept charge quickly — including from regen. At temperatures below 32°F, regen braking may be reduced or disabled until the battery warms up. You'll notice the car decelerate less than usual from regen. This is normal — the system protects the battery. Standard friction brakes still work fully.",
+      },
+      {
+        heading: "Regen and brake maintenance",
+        body: "EVs use friction brakes primarily for hard stops and emergencies. Light braking and deceleration use regen. This means brake pads and rotors last much longer — often 80,000–100,000 miles on city-driven EVs. The trade-off: rotors can develop surface rust if the car sits for weeks without friction braking. First stop after sitting will feel slightly grabby before rust clears.",
+      },
+    ],
+  },
+  {
+    slug: "ev-grid-impact",
+    title: "EVs and the electrical grid: what actually happens",
+    hook: "Millions of EVs plugging in each evening sounds like a grid crisis. The reality is more nuanced.",
+    description: "How EV adoption affects electricity demand, grid stability, and what smart charging does to help.",
+    readTime: "6 min read",
+    category: "Education",
+    sections: [
+      {
+        heading: "Will EVs overwhelm the grid?",
+        body: "This is the most common grid concern — and it deserves a direct answer. US electricity generation capacity is large, and most EV charging happens at night when industrial and commercial demand drops significantly. The US electric grid has substantial nighttime excess capacity that EVs use productively. The challenge isn't total capacity; it's distribution.",
+      },
+      {
+        heading: "The evening demand spike concern",
+        body: "The real grid challenge is the 5–9pm window when millions of EV owners arrive home and plug in simultaneously. This spike hits when the grid is already stressed from commercial and residential demand. Utilities across the US are managing this through time-of-use rate incentives that shift charging to off-peak hours — and it's working.",
+      },
+      {
+        heading: "Smart charging as the solution",
+        body: "Smart chargers delay charging start to off-peak hours automatically. When millions of EV owners charge at 11pm instead of 6pm, the evening spike flattens. Utility data shows that in markets with mature TOU rate programs (California, Washington), EV charging has shifted dramatically to overnight hours — which also provides the cheapest electricity for owners.",
+      },
+      {
+        heading: "The grid capacity numbers",
+        body: "The US uses roughly 4,000 TWh of electricity annually. Full electrification of the US vehicle fleet would add approximately 1,000 TWh/year — a 25% increase in total demand. That sounds large, but it would be added gradually over 20+ years, and most of it falls in off-peak hours that currently have underutilized generation capacity.",
+      },
+      {
+        heading: "Renewable energy and EVs",
+        body: "EVs are natural partners for renewable energy. Solar panels overproduce during midday; some utilities now offer EV owners incentives to charge between 10am–4pm when solar output peaks and electricity prices are lowest. In California, midnight charging is increasingly powered by wind and hydro. The more EVs on the grid, the better the match with renewable generation patterns.",
+      },
+      {
+        heading: "Grid modernization",
+        body: "Utilities are investing billions in grid upgrades to support EV growth: upgraded transformers in residential neighborhoods, bidirectional metering for V2G (vehicle-to-grid) programs, and grid-scale batteries to buffer peak demand. The grid is already evolving to support EVs — not waiting until the problem is critical.",
+      },
+    ],
+  },
+  {
+    slug: "v2g-vehicle-to-grid",
+    title: "Vehicle-to-grid (V2G): using your EV as a home battery",
+    hook: "Bidirectional charging lets your EV power your house — and sell electricity back to the grid.",
+    description: "What vehicle-to-grid technology is, which EVs support it, and whether V2G makes financial sense.",
+    readTime: "6 min read",
+    category: "Education",
+    sections: [
+      {
+        heading: "What V2G actually means",
+        body: "Vehicle-to-grid (V2G) allows electricity to flow both ways through a charger: into the car during charging (normal), and out of the car back to your home or the grid. Your EV's large battery becomes a dispatchable energy source. Vehicle-to-home (V2H) specifically powers your house. V2G sends power to the grid and can earn payments from utilities.",
+      },
+      {
+        heading: "Which EVs currently support bidirectional charging",
+        body: "Bidirectional charging requires compatible hardware in the car and a compatible charger. As of 2026, it's available in: Ford F-150 Lightning (Pro Power Onboard + Ford Intelligent Backup Power), Nissan Leaf (V2G via CHAdeMO), Hyundai Ioniq 5 and Ioniq 6, Genesis GV60, Kia EV6, and Rivian (announced). Tesla does not yet support V2G in the US.",
+        list: [
+          "Ford F-150 Lightning: home backup power built-in (V2H, up to 9.6 kW)",
+          "Hyundai Ioniq 5/6 and Kia EV6: V2H via compatible chargers",
+          "Nissan Leaf: V2G via CHAdeMO (older standard, declining)",
+          "GM and Tesla: V2G announced but not yet widely available (2026)",
+        ],
+      },
+      {
+        heading: "What V2H means in practice",
+        body: "A Ford F-150 Lightning with a 130 kWh battery can power an average US home for 3–4 days during a blackout. During a power outage, the car automatically switches to supply home power through a dedicated panel. The Intelligent Backup Power system works automatically — no manual intervention needed.",
+      },
+      {
+        heading: "V2G grid programs",
+        body: "Utilities in California, Virginia, and several Northeast states run V2G programs that pay EV owners to export power during peak demand events. A typical V2G event: 5–20 times per year, 1–3 hours, exporting 7–11 kW. Payments of $0.50–$1.50/kWh mean a 30 kWh export earns $15–$45 per event. Annual earnings: $100–$600 depending on program.",
+      },
+      {
+        heading: "Does V2G accelerate battery degradation?",
+        body: "Studies from early V2G programs show minimal additional degradation when the battery operates within its designed state of charge window (20–80%). Frequent deep-cycle V2G use (drawing the battery to near-zero repeatedly) would accelerate wear. Most V2G programs are designed with degradation limits built in.",
+      },
+    ],
+  },
+  {
+    slug: "ev-history-timeline",
+    title: "EV history: from 1880s to 2026",
+    hook: "Electric cars predate gas cars — and the reasons they lost and came back explain a lot about today's market.",
+    description: "A timeline of EV history from the 1880s through today, including key turning points and technological breakthroughs.",
+    readTime: "6 min read",
+    category: "Education",
+    sections: [
+      {
+        heading: "Electric cars came first",
+        body: "The first practical electric vehicles were built in the 1880s and 1890s — before gasoline cars. By 1900, EVs outsold gas cars in the United States. They were quiet, reliable, and didn't require hand-cranking. The Electrobat set a land speed record of 65 mph in 1899. Early taxi fleets in New York and Boston ran on electric power.",
+      },
+      {
+        heading: "Why gas won in the 1900s–1910s",
+        body: "Several factors killed the first wave of EVs: Ford's assembly line made gas cars dramatically cheaper (Model T: $260 in 1925). The electric starter eliminated gas cars' main practical disadvantage. Rural road expansion favored the longer range of gas cars. Cheap Texas oil made gasoline inexpensive. By 1920, EVs had retreated to golf carts and industrial forklifts.",
+      },
+      {
+        heading: "The 1970s–1990s: false starts",
+        body: "The 1973 oil crisis sparked renewed EV interest. GM, Ford, and many startups built experimental EVs, but battery technology hadn't progressed. The General Motors EV1 (1996–1999) was the most advanced consumer EV of its era — leased (never sold) to drivers in California under a regulatory mandate. GM recalled and crushed all EV1s in 2003 after lobbying to roll back the mandate.",
+      },
+      {
+        heading: "Tesla and the modern era (2006–2016)",
+        body: "Tesla Motors' 2006 announcement of the Roadster — a sports car using laptop battery cells — changed the EV narrative. The Roadster (2008) proved EVs could be fast and desirable. The Model S (2012) demonstrated that EVs could be practical luxury sedans with 265+ miles of range. The Supercharger network (2012) addressed the road trip problem. Mass-market skepticism began to crack.",
+      },
+      {
+        heading: "The mainstream shift (2017–2026)",
+        body: "The Model 3 (2017) brought EV pricing toward mass market. Government mandates in California, Europe, and China accelerated automaker investment. By 2021, nearly every major automaker had announced EV product plans. The EV6, Ioniq 5, Mustang Mach-E, and F-150 Lightning brought mainstream buyers in. The NACS standardization (2023–2024) simplified the charging landscape. By 2026, EVs account for roughly 15–20% of new US vehicle sales.",
+      },
+    ],
+  },
+  {
+    slug: "ev-carbon-footprint",
+    title: "EV carbon footprint: the real lifecycle comparison",
+    hook: "Manufacturing an EV creates more carbon than a gas car — but it pays back quickly.",
+    description: "Lifecycle carbon comparison of EVs vs gas cars, including manufacturing, charging source, and end-of-life.",
+    readTime: "6 min read",
+    category: "Education",
+    sections: [
+      {
+        heading: "Two phases of EV carbon impact",
+        body: "An EV's carbon footprint comes from two phases: manufacturing (including the battery) and operation (charging electricity source). Gas cars have lower manufacturing emissions but much higher operational emissions. The break-even point — where an EV's lifecycle emissions drop below a gas car's — depends on the grid you charge from.",
+      },
+      {
+        heading: "Manufacturing carbon debt",
+        body: "Building an EV with a large battery pack generates roughly 8–15 metric tons of CO₂ equivalent in manufacturing, versus 6–8 tons for a comparable gas car. The difference comes from battery cell production, which is energy-intensive. Battery manufacturing emissions are declining as factories shift to renewable energy — by 2026, the gap has narrowed significantly from 2020 levels.",
+      },
+      {
+        heading: "Carbon payback period",
+        body: "How long until the EV's lower operational emissions 'pay back' the manufacturing carbon debt? On the average US grid (still partially fossil-fueled), the payback is typically 1.5–3 years. In states with cleaner grids (California, Washington, New York), payback can be under 1 year. In coal-heavy grids, payback can stretch to 4–5 years — but is still achieved within the car's lifetime.",
+      },
+      {
+        heading: "Lifetime emissions comparison",
+        body: "Over a 15-year lifetime, an average EV in the US produces 50–70% fewer lifecycle CO₂ emissions than a gas car. In states with high renewable penetration, lifetime EV emissions can be 80%+ lower. Even on a coal-heavy grid, lifetime EV emissions are lower than gas car emissions due to the electric motor's efficiency advantage.",
+        list: [
+          "US average grid: 50–70% lower lifetime emissions vs gas",
+          "California/Washington: 75–85% lower",
+          "Coal-heavy grid: 30–40% lower",
+          "Global trend: EV emissions advantage growing as grids decarbonize",
+        ],
+      },
+      {
+        heading: "Battery end-of-life",
+        body: "EV battery recycling is a developing industry. Redwood Materials, Li-Cycle, and others can now recover 95%+ of battery materials (lithium, cobalt, nickel, manganese) for reuse. This closes the lifecycle loop. The carbon cost of primary mining decreases with each generation of recycled battery materials entering the supply chain.",
+      },
+    ],
+  },
+  {
+    slug: "nacs-vs-ccs-future",
+    title: "NACS vs CCS: the connector transition explained",
+    hook: "NACS is winning the connector war — here's what that means for every EV buyer today.",
+    description: "What the NACS vs CCS connector transition means for EV buyers, charging access, and future-proofing.",
+    readTime: "5 min read",
+    category: "Education",
+    sections: [
+      {
+        heading: "How we got here",
+        body: "For a decade, North American EVs used two DC fast charging connectors: Tesla's proprietary NACS (North American Charging Standard) connector and the SAE J1772 CCS (Combined Charging System) connector. Tesla's network was more reliable and widespread; CCS had broader OEM adoption. Drivers often needed adapters and paid a convenience penalty.",
+      },
+      {
+        heading: "Why NACS is winning",
+        body: "In 2023, Ford announced it would adopt NACS for future EVs and provide NACS adapters for current owners. GM, Rivian, Volvo, Polestar, and virtually every major non-Tesla automaker followed within months. The SAE officially standardized NACS as SAE J3400 in 2023. By 2025, most new non-Tesla EVs are delivered with NACS ports or included NACS adapters.",
+      },
+      {
+        heading: "What this means for current CCS owners",
+        body: "If you own a CCS vehicle, you can buy a CCS-to-NACS adapter ($200–$400 from Tesla or third parties) to access Tesla Superchargers. CCS charging networks (Electrify America, ChargePoint, EVgo) remain fully operational and are now adding NACS cables alongside CCS at their stations. You're not stranded — adapters work reliably.",
+        list: [
+          "CCS vehicle + NACS adapter: access Tesla Superchargers",
+          "CCS network stations: remaining fully operational through 2026+",
+          "Most new EA stations: adding NACS alongside CCS cables",
+          "Network transition: expect 3–5 more years of parallel standards",
+        ],
+      },
+      {
+        heading: "What this means for new EV buyers",
+        body: "Buy an EV with a NACS port if possible — you'll have native Supercharger access without adapters, and the transition is clearly moving in NACS's direction. If a CCS vehicle is the right choice for other reasons (price, model, features), the adapter situation is workable — it adds a small step but doesn't materially limit charging access.",
+      },
+      {
+        heading: "Level 2 charging: no change",
+        body: "The connector transition applies only to DC fast charging. Level 2 home and public charging uses the SAE J1772 connector for CCS vehicles and the NACS connector for NACS vehicles. Virtually all Level 2 public chargers now include both cable types. Home chargers: buy NACS if your car has a NACS port, J1772 if CCS.",
+      },
+    ],
+  },
+  {
+    slug: "ev-glossary",
+    title: "EV glossary: key terms explained",
+    hook: "kWh, SoC, NACS, regen, EVSE — decoded in plain language.",
+    description: "Plain-language definitions of key EV terms and acronyms: battery, charging, range, and more.",
+    readTime: "5 min read",
+    category: "Education",
+    sections: [
+      {
+        heading: "Battery terms",
+        body: "Understanding the basic energy terms makes every EV conversation easier.",
+        list: [
+          "kWh (kilowatt-hour): battery capacity, like gallons for a gas tank. A 75 kWh battery holds 75 kWh of energy.",
+          "kW (kilowatt): power, the rate energy flows. A 150 kW charger flows 150 kW of power.",
+          "SoC (state of charge): current battery percentage, like a fuel gauge. '80% SoC' = 80% full.",
+          "BMS (battery management system): the onboard computer that monitors each cell, controls charging speed, and manages temperature.",
+          "NMC / LFP: two common battery chemistries. NMC = higher energy density; LFP = longer cycle life.",
+        ],
+      },
+      {
+        heading: "Charging terms",
+        body: "Charging vocabulary trips up many new EV owners.",
+        list: [
+          "Level 1: standard 120V outlet, ~1.4 kW, ~5 miles/hr",
+          "Level 2: 240V circuit, 7–19 kW, ~25–40 miles/hr",
+          "DC fast charging / DCFC: direct current, bypasses onboard charger, 50–350+ kW",
+          "EVSE (Electric Vehicle Supply Equipment): official term for a charging station or home charger",
+          "NACS (North American Charging Standard): Tesla-derived connector now adopted by most automakers",
+          "CCS (Combined Charging System): previous mainstream DC fast charge standard",
+          "CHAdeMO: older DC fast charge standard, mainly Nissan Leaf, declining",
+          "Charge curve: how fast a battery charges at different SoC levels",
+        ],
+      },
+      {
+        heading: "Range and efficiency terms",
+        body: "Key numbers on every EV spec sheet.",
+        list: [
+          "EPA range: official range estimate from EPA testing — real-world is typically 5–15% less at highway speeds",
+          "mi/kWh: miles per kilowatt-hour, the EV equivalent of MPG — higher is more efficient",
+          "MPGe (miles per gallon equivalent): how far the EV would travel on energy equivalent to one gallon of gas",
+          "Regen (regenerative braking): recovering kinetic energy as electricity when decelerating",
+          "One-pedal driving: driving using only the accelerator, with regen handling all normal deceleration",
+          "Preconditioning: warming or cooling battery before driving or charging",
+        ],
+      },
+      {
+        heading: "Financial and policy terms",
+        body: "Incentive vocabulary matters at purchase time.",
+        list: [
+          "§30D credit: federal clean vehicle tax credit, up to $7,500 for new EVs",
+          "§25E credit: federal used clean vehicle tax credit, up to $4,000",
+          "MSRP cap: maximum vehicle price to qualify for federal credits ($55k sedans, $80k SUVs/trucks)",
+          "MAGI: modified adjusted gross income — the income limit threshold for federal credits",
+          "Point-of-sale transfer: claiming the tax credit as a price reduction at the dealer (available since 2024)",
+          "TOU (time-of-use): electricity rate plan with different prices by time of day",
+        ],
+      },
+      {
+        heading: "Vehicle and driving terms",
+        body: "Common EV-specific vehicle terminology.",
+        list: [
+          "BEV (battery electric vehicle): runs solely on electricity, no gas engine",
+          "PHEV (plug-in hybrid electric vehicle): gas engine + battery, can plug in for electric range",
+          "HEV (hybrid electric vehicle): gas engine + small battery, cannot plug in",
+          "Frunk: front trunk, storage space under the hood where the engine would be in a gas car",
+          "V2G (vehicle-to-grid): bidirectional charging allowing the EV to supply power back to the grid",
+          "V2H (vehicle-to-home): using EV battery to power your home",
+          "OTA (over-the-air): wireless software updates to the vehicle",
+          "ADAS (advanced driver assistance systems): collision warning, automatic emergency braking, lane keeping, adaptive cruise",
+        ],
+      },
+    ],
+  },
+
   {
     slug: "ev-range-myths-debunked",
     title: "EV range myths debunked",

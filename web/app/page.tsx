@@ -206,7 +206,7 @@ export default function HomePage() {
         {/* GUIDES */}
         <section className="bg-cream-soft border-b border-line py-16" id="guides">
           <div className="section-wrap">
-            <div className="mb-6">
+            <div className="flex items-end justify-between gap-4 mb-6 flex-wrap">
               <div>
                 <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">
                   EV guides
@@ -215,10 +215,16 @@ export default function HomePage() {
                   Smarter EV decisions, minus the jargon
                 </h2>
               </div>
+              <a
+                href="/guides"
+                className="shrink-0 font-mono text-[11px] uppercase tracking-widest text-forest border border-forest/30 hover:border-forest hover:bg-forest/5 rounded-full px-4 py-2 transition-all whitespace-nowrap"
+              >
+                All {GUIDES.length} guides →
+              </a>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-3">
-              {GUIDES.map((g) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 md:gap-3">
+              {GUIDES.slice(0, 25).map((g) => (
                 <a
                   key={g.slug}
                   href={`/guides/${g.slug}`}
@@ -233,19 +239,28 @@ export default function HomePage() {
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-sm md:text-base font-medium tracking-tight text-ink leading-snug group-hover:text-forest transition-colors">
+                  <h3 className="font-serif text-sm font-medium tracking-tight text-ink leading-snug group-hover:text-forest transition-colors">
                     {g.title}
                   </h3>
 
-                  <p className="hidden sm:block text-xs text-ink-3 leading-relaxed mt-2 line-clamp-2">
+                  <p className="hidden lg:block text-xs text-ink-3 leading-relaxed mt-2 line-clamp-2">
                     {g.hook ?? g.description}
                   </p>
 
                   <div className="mt-auto pt-2 font-mono text-[9px] uppercase tracking-wide text-ink-mute group-hover:text-forest transition-colors">
-                    Read guide →
+                    Read →
                   </div>
                 </a>
               ))}
+            </div>
+
+            <div className="mt-6 text-center">
+              <a
+                href="/guides"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold bg-forest text-white hover:bg-emerald transition-colors"
+              >
+                Browse all {GUIDES.length} guides →
+              </a>
             </div>
           </div>
         </section>
