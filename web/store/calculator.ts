@@ -39,7 +39,7 @@ interface CalculatorStore {
 export const useCalculatorStore = create<CalculatorStore>()(
   persist(
     (set) => ({
-      evSlug:         "t-my-lr-awd",
+      evSlug:         "tesla-model-y-long-range-awd",
       gasId:          "toyota-rav4",
       annualMiles:    13500,
       homePct:        80,
@@ -65,7 +65,7 @@ export const useCalculatorStore = create<CalculatorStore>()(
       setDetecting: (isDetecting) => set({ isDetecting }),
     }),
     {
-      name: "ecs-calc-v1",
+      name: "ecs-calc-v2",
       partialize: (s) => ({
         evSlug: s.evSlug, gasId: s.gasId,
         annualMiles: s.annualMiles, homePct: s.homePct,

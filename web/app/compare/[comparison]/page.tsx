@@ -14,13 +14,13 @@ interface Props {
   params: Promise<{ comparison: string }>;
 }
 
-// Top EV slugs × top gas IDs to pre-build
+// Top EV IDs × top gas IDs to pre-build
 const TOP_EV_SLUGS = [
   "t-my-lr-awd", "t-my-rwd", "t-m3-rwd", "t-m3-lr-awd",
-  "h-i5-lr-rwd", "h-i6-lr-rwd", "k-ev6-lr-rwd", "k-ev9-awd",
-  "f-mache-sr-rwd", "f-f150l-xlt", "r-r1t-dual", "r-r1s-dual",
-  "c-bolt-euv", "c-blaze-ev", "vw-id4-pro-s", "n-ariya-fwd",
-  "b-ix-xdrive50", "p-epa-lr-rwd", "lc-air-pure", "mb-eqs-450",
+  "h-i5-lr-rwd", "h-i6-lr-rwd", "k-ev6-lr-rwd", "k-ev9-wind",
+  "f-mache-sr", "f-lt-sr", "r-r1t-dual", "r-r1s-dual",
+  "c-bolt", "c-bl-lt", "vw-id4-pro", "ni-ariya-fwd",
+  "bmw-ix-50", "ps-p2-lr1", "lu-air-pure", "mb-eqs-450",
 ];
 const TOP_GAS_IDS = [
   "toyota-rav4", "honda-cr-v", "toyota-camry", "ford-f150",
@@ -35,10 +35,13 @@ function parseComparison(slug: string): { evSlug: string; gasId: string } | null
 }
 
 export function generateStaticParams() {
+  const allEvs = evRepository.getAll();
   const params: { comparison: string }[] = [];
-  for (const evSlug of TOP_EV_SLUGS) {
+  for (const evId of TOP_EV_SLUGS) {
+    const ev = allEvs.find((e) => e.id === evId);
+    if (!ev) continue;
     for (const gasId of TOP_GAS_IDS) {
-      params.push({ comparison: `${evSlug}-vs-${gasId}` });
+      params.push({ comparison: `${ev.slug}-vs-${gasId}` });
     }
   }
   return params;

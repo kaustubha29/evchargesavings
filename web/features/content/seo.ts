@@ -11,7 +11,7 @@ export function statePageMeta(state: StateData) {
 }
 
 export function evPageMeta(ev: EVModel) {
-  const title = `${ev.fullName} EV Cost Calculator (2026) — Real Savings`;
+  const title = `${ev.fullName} Charging Cost (2026) | EV Savings Calculator`;
   const description =
     `The ${ev.fullName} gets ${ev.efficiency} mi/kWh EPA and has ${ev.range} mi range. ` +
     `See how much you'd save vs gas in your state.`;

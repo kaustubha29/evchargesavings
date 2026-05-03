@@ -1,10 +1,15 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { GUIDES, getGuideBySlug } from "@/features/guides/data";
 import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
+import { HomeChargerProducts } from "@/components/shared/HomeChargerProducts";
+import { EVMarketplaceAffiliates } from "@/components/shared/EVMarketplaceAffiliates";
+import { EVInsuranceCTA } from "@/components/shared/EVInsuranceCTA";
+import { ChargingNetworkReferrals } from "@/components/shared/ChargingNetworkReferrals";
+
+const BASE = "https://evchargesavings.com";
 
 interface Props { params: Promise<{ slug: string }> }
 
@@ -19,7 +24,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: guide.title,
     description: guide.description,
+    alternates: { canonical: `/guides/${slug}` },
+    openGraph: {
+      title: guide.title,
+      description: guide.description,
+      url: `/guides/${slug}`,
+      type: "article",
+    },
   };
+}
+
+function AffiliateSection({ category }: { category: string }) {
+  if (category === "Installation" || category === "Charging" || category === "Savings") {
+    return <HomeChargerProducts />;
+  }
+  if (category === "Buying" || category === "Finance" || category === "Education") {
+    return <EVMarketplaceAffiliates />;
+  }
+  if (category === "Ownership") {
+    return <EVInsuranceCTA />;
+  }
+  if (category === "Driving") {
+    return <ChargingNetworkReferrals />;
+  }
+  return null;
 }
 
 export default async function GuidePage({ params }: Props) {
@@ -29,10 +57,29 @@ export default async function GuidePage({ params }: Props) {
 
   const others = GUIDES.filter((g) => g.slug !== slug).slice(0, 3);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: guide.title,
+    description: guide.description,
+    url: `${BASE}/guides/${slug}`,
+    publisher: {
+      "@type": "Organization",
+      name: "EV Charge Savings",
+      url: BASE,
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <StickySavingsBar />
       <main className="bg-paper min-h-screen">
+
+        {/* Narrow article column */}
         <div className="section-wrap py-12 max-w-3xl">
 
           {/* Breadcrumb */}
@@ -87,8 +134,16 @@ export default async function GuidePage({ params }: Props) {
             ))}
           </div>
 
+        </div>
+
+        {/* Full-width affiliate section */}
+        <AffiliateSection category={guide.category} />
+
+        {/* Narrow bottom column */}
+        <div className="section-wrap pb-12 max-w-3xl">
+
           {/* Calculator CTA */}
-          <div className="bg-ink text-cream rounded-3xl p-8 mb-8">
+          <div className="bg-ink text-cream rounded-3xl p-8 mb-8 mt-10">
             <div className="font-mono text-[10px] uppercase tracking-widest text-emerald mb-3">Free calculator</div>
             <h3 className="font-serif text-2xl font-medium mb-2">See your exact numbers</h3>
             <p className="text-cream/60 text-sm leading-relaxed mb-6 max-w-lg">
@@ -131,6 +186,7 @@ export default async function GuidePage({ params }: Props) {
               </div>
             </div>
           )}
+
         </div>
       </main>
       <SiteFooter />
