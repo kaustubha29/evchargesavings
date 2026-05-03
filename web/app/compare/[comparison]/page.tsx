@@ -68,10 +68,17 @@ const NATIONAL_GAS_DOLLAR = 3.45;
 const DEFAULT_MILES = 15000;
 const DEFAULT_HOME_PCT = 80;
 const GAS_VEHICLE_MSRPS: Record<string, number> = {
-  "toyota-rav4": 32000, "honda-cr-v": 31000, "toyota-camry": 27000,
-  "ford-f150": 35000, "honda-civic": 24000, "chevy-silverado": 36000,
-  "ford-explorer": 36000, "hyundai-tucson": 28000, "jeep-grand-cherokee": 40000,
-  "bmw-x5": 67000,
+  "toyota-rav4": 32000, "toyota-camry": 27000,
+  "honda-cr-v": 31000, "honda-civic": 24000, "honda-accord": 28000,
+  "ford-f150": 35000, "ford-explorer": 36000,
+  "chevy-silverado": 36000, "chevy-equinox": 28000,
+  "hyundai-tucson": 28000, "hyundai-elantra": 22000,
+  "jeep-grand-cherokee": 40000, "jeep-wrangler": 32000,
+  "subaru-outback": 29000, "subaru-forester": 28000,
+  "bmw-x5": 67000, "bmw-3": 44000,
+  "mercedes-glc": 48000,
+  "audi-q5": 45000,
+  "ram-1500": 36000,
 };
 
 export default async function ComparePage({ params }: Props) {

@@ -6,25 +6,28 @@ import { GUIDES } from "@/features/guides/data";
 const BASE = "https://evchargesavings.com";
 const NOW = new Date().toISOString();
 
-// Must match the EV IDs and gas IDs used in app/compare/[comparison]/page.tsx
-const TOP_EV_IDS = [
-  "t-my-lr-awd", "t-my-rwd", "t-m3-rwd", "t-m3-lr-awd",
-  "h-i5-lr-rwd", "h-i6-lr-rwd", "k-ev6-lr-rwd", "k-ev9-wind",
-  "f-mache-sr", "f-lt-sr", "r-r1t-dual", "r-r1s-dual",
-  "c-bolt", "c-bl-lt", "vw-id4-pro", "ni-ariya-fwd",
-  "bmw-ix-50", "ps-p2-lr1", "lu-air-pure", "mb-eqs-450",
-];
-
-const TOP_GAS_IDS = [
-  "toyota-rav4", "honda-cr-v", "toyota-camry", "ford-f150",
-  "honda-civic", "chevy-silverado", "ford-explorer",
-  "hyundai-tucson", "jeep-grand-cherokee", "bmw-x5",
+// All real gas vehicles — excludes avg-* reference entries
+const REAL_GAS_IDS = [
+  "toyota-rav4", "toyota-camry",
+  "honda-cr-v", "honda-civic", "honda-accord",
+  "ford-f150", "ford-explorer",
+  "chevy-silverado", "chevy-equinox",
+  "hyundai-tucson", "hyundai-elantra",
+  "jeep-grand-cherokee", "jeep-wrangler",
+  "subaru-outback", "subaru-forester",
+  "bmw-x5", "bmw-3",
+  "mercedes-glc",
+  "audi-q5",
+  "ram-1500",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const states = getAllStates();
   const evs = evRepository.getSummaries();
+  const allEvs = evRepository.getAll();
   const gases = gasRepository.getAll();
+
+  const realGasIds = REAL_GAS_IDS.filter((id) => gases.find((g) => g.id === id));
 
   const stateUrls = states.map((s) => ({
     url: `${BASE}/ev-cost/${s.slug}`,
@@ -40,13 +43,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const allEvs = evRepository.getAll();
   const compareUrls: MetadataRoute.Sitemap = [];
-  for (const evId of TOP_EV_IDS) {
-    const ev = allEvs.find((e) => e.id === evId);
-    if (!ev) continue;
-    for (const gasId of TOP_GAS_IDS) {
-      if (!gases.find((g) => g.id === gasId)) continue;
+  for (const ev of allEvs) {
+    for (const gasId of realGasIds) {
       compareUrls.push({
         url: `${BASE}/compare/${ev.slug}-vs-${gasId}`,
         lastModified: NOW,
@@ -64,9 +63,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return [
-    { url: BASE, lastModified: NOW, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${BASE}/privacy`, lastModified: NOW, changeFrequency: "yearly", priority: 0.2 },
-    { url: `${BASE}/terms`, lastModified: NOW, changeFrequency: "yearly", priority: 0.2 },
+    { url: BASE,                lastModified: NOW, changeFrequency: "weekly",  priority: 1.0 },
+    { url: `${BASE}/guides`,    lastModified: NOW, changeFrequency: "weekly",  priority: 0.85 },
+    { url: `${BASE}/privacy`,   lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
+    { url: `${BASE}/terms`,     lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
     ...guideUrls,
     ...stateUrls,
     ...evUrls,

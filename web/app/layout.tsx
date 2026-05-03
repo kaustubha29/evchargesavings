@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {[
                 { href: "/#calculator", label: "Calculator" },
                 { href: "/#public-charging", label: "Networks" },
-                { href: "/#guides", label: "Guides" },
+                { href: "/guides", label: "Guides" },
               ].map((l) => (
                 <a key={l.href} href={l.href} className="text-cream/60 no-underline hover:text-cream transition-colors normal-case">
                   {l.label}

@@ -49,7 +49,7 @@ export function SiteFooter() {
             <ul className="space-y-2">
               {[
                 { href: "/ev-cost/california", label: "Savings by state" },
-                { href: "/#guides", label: "All guides" },
+                { href: "/guides", label: "All guides" },
                 { href: "/privacy", label: "Privacy" },
                 { href: "/terms", label: "Terms" },
                 { href: "mailto:hello@evchargesavings.com", label: "Contact" },
