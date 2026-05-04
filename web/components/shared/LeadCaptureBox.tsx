@@ -18,14 +18,27 @@ function formatPhoneDisplay(raw: string): string {
 interface Props {
   sourcePage?: string;
   gateId?: string;
+  defaultIntent?: Intent[];
+  heading?: string;
+  description?: string;
+  submitLabel?: string;
+  successMessage?: string;
 }
 
-export function LeadCaptureBox({ sourcePage = "/", gateId }: Props) {
+export function LeadCaptureBox({
+  sourcePage = "/",
+  gateId,
+  defaultIntent,
+  heading = "See what it costs to own an EV in your area",
+  description = "Get personalized estimates for EV pricing, Level 2 home charger installation, and available incentives in your zip code.",
+  submitLabel = "Get EV cost report",
+  successMessage = "Got it — we'll send your EV cost and installation options within 24 hours.",
+}: Props) {
   const { zip, setZip } = useCalculatorStore();
   const [name, setName]           = useState("");
   const [email, setEmail]         = useState("");
   const [phone, setPhone]         = useState("");
-  const [intent, setIntent]       = useState<Intent[]>([]);
+  const [intent, setIntent]       = useState<Intent[]>(defaultIntent ?? []);
   const [formState, setFormState] = useState<State>("idle");
 
   function toggleIntent(value: Intent) {
@@ -82,19 +95,18 @@ export function LeadCaptureBox({ sourcePage = "/", gateId }: Props) {
         </div>
 
         <h3 className="font-serif text-xl font-medium text-ink mb-2 leading-snug">
-          See what it costs to own an <em className="italic text-forest">EV</em> in your area
+          {heading}
         </h3>
 
         <p className="text-sm text-ink-3 mb-4 leading-relaxed">
-          Get personalized estimates for EV pricing, Level 2 home charger installation,
-          and available incentives in your zip code.
+          {description}
         </p>
 
         {formState === "success" ? (
           <div className="flex items-center gap-3 bg-good-bg border border-good-fg/20 rounded-xl px-4 py-3">
             <span className="text-good-fg text-lg">✓</span>
             <span className="text-sm text-good-fg font-medium">
-              Got it — we'll send your EV cost and installation options within 24 hours.
+              {successMessage}
             </span>
           </div>
         ) : formState === "submitting" ? (
@@ -190,7 +202,7 @@ export function LeadCaptureBox({ sourcePage = "/", gateId }: Props) {
                 disabled={(formState as State) === "submitting" || intent.length === 0}
                 className="w-full px-5 py-2.5 rounded-xl text-sm font-semibold bg-forest text-white border border-forest hover:bg-emerald hover:border-emerald transition-all disabled:opacity-60"
               >
-                {(formState as State) === "submitting" ? "Sending…" : "Get EV cost report"}
+                {(formState as State) === "submitting" ? "Sending…" : submitLabel}
               </button>
             </form>
 

@@ -9,6 +9,11 @@ interface Props {
   sectionId?: string;
   sectionClassName?: string;
   contentClassName?: string;
+  defaultIntent?: ("ev" | "charger")[];
+  heading?: string;
+  description?: string;
+  submitLabel?: string;
+  successMessage?: string;
 }
 
 export function LeadCaptureBoxGate({
@@ -17,6 +22,11 @@ export function LeadCaptureBoxGate({
   sectionId,
   sectionClassName,
   contentClassName,
+  defaultIntent,
+  heading,
+  description,
+  submitLabel,
+  successMessage,
 }: Props) {
   const [isSubmitted, setIsSubmitted] = useState<boolean | null>(null);
   const gateId = useId();
@@ -43,7 +53,17 @@ export function LeadCaptureBoxGate({
     return null;
   }
 
-  const leadBox = <LeadCaptureBox sourcePage={sourcePage} gateId={gateId} />;
+  const leadBox = (
+    <LeadCaptureBox
+      sourcePage={sourcePage}
+      gateId={gateId}
+      defaultIntent={defaultIntent}
+      heading={heading}
+      description={description}
+      submitLabel={submitLabel}
+      successMessage={successMessage}
+    />
+  );
 
   if (sectionClassName) {
     return (

@@ -49,6 +49,7 @@ export function SiteFooter() {
             <ul className="space-y-2">
               {[
                 { href: "/ev-cost/california", label: "Savings by state" },
+                { href: "/ev-insurance", label: "EV insurance costs" },
                 { href: "/guides", label: "All guides" },
                 { href: "/privacy", label: "Privacy" },
                 { href: "/terms", label: "Terms" },
