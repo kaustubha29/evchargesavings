@@ -2,16 +2,21 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 import { stateFromZip, getStateData } from "@/features/location/queries";
+import { submitLeadToNetworks } from "@/lib/lead-networks";
+import type { NetworkResult } from "@/lib/lead-networks";
 
 const OWNER_EMAIL = "evchargesavings@gmail.com";
 const FROM_EMAIL  = "EV Charge Savings <noreply@evchargesavings.com>";
+
+function formatPhone(digits: string): string {
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+}
 
 export async function POST(req: NextRequest) {
   const supabaseUrl = process.env.SUPABASE_URL;
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const resendKey   = process.env.RESEND_API_KEY;
 
-  // Diagnostic: log URL shape without exposing full value
   console.log("[lead] SUPABASE_URL prefix:", supabaseUrl?.slice(0, 35));
   console.log("[lead] KEY prefix:", supabaseKey?.slice(0, 10));
 
@@ -20,13 +25,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Server misconfigured" }, { status: 500 });
   }
 
-  // Parse + validate
   let email: string, zip: string, sourcePage: string;
+  let name: string, phone: string, intent: string[];
   try {
     const body = await req.json();
     email      = (body.email      ?? "").trim().toLowerCase();
     zip        = (body.zip        ?? "").trim();
     sourcePage = (body.sourcePage ?? "/").trim();
+    name       = (body.name       ?? "").trim();
+    phone      = (body.phone      ?? "").replace(/\D/g, "");
+    intent     = Array.isArray(body.intent) ? body.intent : [];
   } catch {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
@@ -37,36 +45,63 @@ export async function POST(req: NextRequest) {
   if (zip && !/^\d{5}$/.test(zip)) {
     return NextResponse.json({ error: "Invalid ZIP" }, { status: 422 });
   }
+  if (!name) {
+    return NextResponse.json({ error: "Name required" }, { status: 422 });
+  }
+  if (!phone || phone.length !== 10) {
+    return NextResponse.json({ error: "Valid 10-digit US phone required" }, { status: 422 });
+  }
+  if (!intent.length || !intent.every((i) => ["ev", "charger"].includes(i))) {
+    return NextResponse.json({ error: "At least one intent required" }, { status: 422 });
+  }
 
   const stateCode = zip ? stateFromZip(zip) : null;
   const stateName = stateCode ? getStateData(stateCode).name : null;
 
-  // Get city name from ZIP
   let cityName: string | null = null;
   if (zip) {
     try {
       const res = await fetch(`https://api.zippopotam.us/us/${zip}`, { signal: AbortSignal.timeout(2000) });
       if (res.ok) {
         const data = await res.json();
-        cityName = data.places?.[0]?.['place name'] || null;
+        cityName = data.places?.[0]?.["place name"] || null;
       }
     } catch {
-      // Ignore errors, cityName remains null
+      // cityName remains null
     }
   }
 
-  // Supabase write — insert first; on duplicate email update zip/state instead
+  const locationStr = cityName && stateName
+    ? `${cityName}, ${stateName}`
+    : stateName ?? "";
+
+  const intentLabel = intent
+    .map((i) => i === "ev" ? "Buy an EV" : "Install a charger")
+    .join(" + ");
+
+  const networksSubmitted = [
+    ...(intent.includes("charger") ? ["Modernize"] : []),
+    ...(intent.includes("ev")      ? ["AutoWeb"]   : []),
+    "EverQuote",
+  ].join(", ");
+
+  // Supabase write
   let leadId: string | null = null;
+  const supabase = createClient(supabaseUrl, supabaseKey);
   try {
-    const supabase = createClient(supabaseUrl, supabaseKey);
-    const { data, error } = await supabase.from("leads").insert(
-      { email, zip: zip || null, state_code: stateCode, source_page: sourcePage },
-    ).select("id").single();
-    
+    const { data, error } = await supabase.from("leads").insert({
+      email,
+      zip: zip || null,
+      state_code: stateCode,
+      source_page: sourcePage,
+      name,
+      phone,
+      intent,
+    }).select("id").single();
+
     if (error?.code === "23505") {
-      // Duplicate email — update location fields with latest submission
       const { data: updated } = await supabase.from("leads")
-        .update({ zip: zip || null, state_code: stateCode })
+        .update({ zip: zip || null, state_code: stateCode, name, phone, intent })
         .eq("email", email)
         .select("id")
         .single();
@@ -82,47 +117,25 @@ export async function POST(req: NextRequest) {
     console.error("[lead] Supabase exception:", e);
   }
 
-  // Resend emails — also non-blocking
+  // Resend emails — non-blocking
   if (resendKey) {
     const resend = new Resend(resendKey);
-
     Promise.allSettled([
       resend.emails.send({
         from: FROM_EMAIL,
         to: email,
         subject: "Your personalized EV cost & charger options are on the way",
         html: `
-          <p>Hi,</p>
-
-          <p>Thanks for checking out EV ownership costs${
-            cityName && stateName
-              ? ` in <b>${cityName}, ${stateName}</b>`
-              : stateName
-              ? ` in <b>${stateName}</b>`
-              : ""
-          } — we’re putting together your personalized breakdown now.</p>
-
-          <p><b>Within the next 24 hours, you’ll receive:</b></p>
+          <p>Hi ${name},</p>
+          <p>Thanks for checking out EV ownership costs${locationStr ? ` in <b>${locationStr}</b>` : ""} — we're putting together your personalized breakdown now.</p>
+          <p><b>Within the next 24 hours, you'll receive:</b></p>
           <ul>
             <li>⚡ Estimated <b>EV pricing</b> based on your area</li>
             <li>🔌 <b>Level 2 home charger installation costs</b></li>
-            <li>💸 Available <b>local incentives, rebates, and typical insurance costs in your area</b></li>
+            <li>💸 Available <b>local incentives and rebates</b></li>
           </ul>
-
-          <p>Most people are surprised by how much incentives and fuel savings can offset the upfront cost.</p>
-
-          <p>We’ll also match you with up to <b>3 vetted, licensed installers</b>${
-            cityName && stateName
-              ? ` in <b>${cityName}, ${stateName}</b>`
-              : stateName
-              ? ` in <b>${stateName}</b>`
-              : ""
-          } so you can compare quotes — no pressure, no obligation.</p>
-
-          <p>This gives you a clearer picture of the <b>true cost of owning an EV</b> before making any decisions.</p>
-
+          <p>We'll match you with up to <b>3 vetted local professionals</b>${locationStr ? ` in <b>${locationStr}</b>` : ""} so you can compare quotes — no pressure, no obligation.</p>
           <p>— EV Charge Savings</p>
-
           <p style="font-size:11px;color:#999">
             Submitted at evchargesavings.com. We never sell your email. You may be contacted by up to 3 vetted local providers.
           </p>
@@ -130,14 +143,18 @@ export async function POST(req: NextRequest) {
       }),
       resend.emails.send({
         from: FROM_EMAIL,
-        to:   OWNER_EMAIL,
+        to: OWNER_EMAIL,
         subject: `New lead${stateName ? ` · ${stateName}` : ""}${zip ? ` · ${zip}` : ""}`,
         html: `
-          <b>New installer lead</b><br/>
+          <b>New lead</b><br/>
+          Name: ${name}<br/>
           Email: ${email}<br/>
+          Phone: ${formatPhone(phone)}<br/>
           ZIP: ${zip || "—"}<br/>
-          Location: ${cityName ? `${cityName}, ` : ""}${stateName ?? stateCode ?? "—"}<br/>
-          Source: ${sourcePage}
+          Location: ${locationStr || "—"}<br/>
+          Intent: ${intentLabel}<br/>
+          Source: ${sourcePage}<br/>
+          Networks submitted: ${networksSubmitted}
         `,
       }),
     ]).then((results) => {
@@ -149,6 +166,22 @@ export async function POST(req: NextRequest) {
     console.error("[lead] Missing RESEND_API_KEY");
   }
 
-  // Always return success — user gets confirmation, we get the email
+  // Submit to lead networks — non-blocking, log IDs back to Supabase
+  submitLeadToNetworks({ name, email, phone, zip, intent, stateName })
+    .then(async (networkResults: NetworkResult[]) => {
+      console.log("[lead] Network results:", JSON.stringify(networkResults));
+      if (!leadId) return;
+      const update: Record<string, unknown> = { network_payouts: networkResults };
+      for (const r of networkResults) {
+        if (r.accepted && r.leadId) {
+          if (r.network === "modernize") update.modernize_id = r.leadId;
+          if (r.network === "autoweb")   update.autoweb_id   = r.leadId;
+          if (r.network === "everquote") update.everquote_id = r.leadId;
+        }
+      }
+      await supabase.from("leads").update(update).eq("id", leadId);
+    })
+    .catch((err) => console.error("[lead] Network submission error:", err));
+
   return NextResponse.json({ ok: true });
 }
