@@ -112,7 +112,7 @@ export default function EVInsurancePage() {
           </div>
         </section>
 
-        {/* CTA — lead form with ev intent pre-selected */}
+        {/* CTA — lead form with insurance intent pre-selected */}
         <LeadCaptureBoxGate
           sourcePage="/ev-insurance"
           sectionClassName="bg-cream-soft border-b border-line py-12"

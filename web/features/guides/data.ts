@@ -3448,7 +3448,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Most expensive states for EV insurance",
-        body: "Michigan tops every list at an average of $3,150/yr for EV owners — more than double the national EV average of $2,048. Michigan's no-fault insurance law requires unlimited lifetime medical benefits, which drives up every policy in the state regardless of vehicle type. Louisiana ($2,860/yr) and New York ($2,840/yr) follow, both driven by high litigation rates and dense urban repair markets. Florida ($2,580/yr) adds hurricane and flood exposure on top of litigation costs. Rhode Island ($2,620/yr) is the most expensive New England state, driven by high labor costs and a disproportionately large share of uninsured drivers.",
+        body: "Michigan tops every list at an average of $3,150/yr for EV owners — more than double the national EV average of $2,048. Michigan's no-fault insurance law requires unlimited lifetime medical benefits, which drives up every policy in the state regardless of vehicle type. Louisiana ($2,860/yr) and New York ($2,840/yr) follow, both driven by high litigation rates and dense urban repair markets. Washington DC ($2,690/yr) ranks fourth, driven by urban density and high vehicle theft rates. Rhode Island ($2,620/yr) is the most expensive New England state, driven by high labor costs and a disproportionately large share of uninsured drivers. Florida ($2,580/yr) rounds out the top six, adding hurricane and flood exposure on top of already-high litigation costs.",
         list: [
           "Michigan: $3,150/yr EV avg (no-fault unlimited medical mandate)",
           "Louisiana: $2,860/yr (highest litigation rate in the US)",
