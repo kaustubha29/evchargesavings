@@ -3,7 +3,7 @@ import { getAllStates } from "@/features/location/queries";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { GUIDES } from "@/features/guides/data";
 
-const BASE = "https://evchargesavings.com";
+const BASE = "https://www.evchargesavings.com";
 const NOW = new Date().toISOString();
 
 // All real gas vehicles — excludes avg-* reference entries
@@ -63,10 +63,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return [
-    { url: BASE,                lastModified: NOW, changeFrequency: "weekly",  priority: 1.0 },
-    { url: `${BASE}/guides`,    lastModified: NOW, changeFrequency: "weekly",  priority: 0.85 },
-    { url: `${BASE}/privacy`,   lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
-    { url: `${BASE}/terms`,     lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
+    { url: BASE,                        lastModified: NOW, changeFrequency: "weekly",  priority: 1.0 },
+    { url: `${BASE}/guides`,            lastModified: NOW, changeFrequency: "weekly",  priority: 0.85 },
+    { url: `${BASE}/ev-insurance`,      lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/privacy`,           lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
+    { url: `${BASE}/terms`,             lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
     ...guideUrls,
     ...stateUrls,
     ...evUrls,

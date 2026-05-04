@@ -15,7 +15,9 @@
       "PowerShell(Get-ChildItem \"c:\\\\Projects\\\\evchargesavings\\\\web\\\\\" -Depth 0 | Where-Object { $_.Name -notmatch \"node_modules\" } | Select-Object -ExpandProperty Name)",
       "Bash(git -C c:\\\\Projects\\\\evchargesavings log --oneline -10)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(npx --no-install tsc --noEmit)",
+      "Bash(node_modules/.bin/tsc --noEmit)"
     ]
   }
 }

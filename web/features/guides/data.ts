@@ -3490,6 +3490,279 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "best-ev-lease-deals-2026",
+    title: "Best EV lease deals in 2026: what to look for and what to avoid",
+    hook: "Federal credits are gone — here's how to find a genuinely good EV lease now.",
+    description: "EV leasing looks different in 2026 now that federal credits have expired. Learn how to evaluate money factor, residual value, and cap cost to find real deals — not just low advertised payments.",
+    readTime: "6 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "Why EV leasing changed in late 2025",
+        body: "Before October 2025, dealers could pass a $7,500 commercial vehicle tax credit (§45W) through to lessees as a cap-cost reduction — effectively making leased EVs $7,500 cheaper. That mechanism no longer applies. Advertised lease payments you see today reflect the true manufacturer subsidy without a federal credit cushion. That means separating manufacturer-subsidized deals from genuinely competitive terms matters more than ever.",
+      },
+      {
+        heading: "The three numbers that determine whether a lease is a good deal",
+        body: "Money factor, residual value, and cap cost. Money factor is the interest rate in disguise — multiply it by 2,400 to get the APR equivalent. A money factor of 0.0015 = 3.6% APR. Residual value is what the manufacturer says the car is worth at lease-end, expressed as a percentage of MSRP. Higher residual = lower payment. Cap cost is the negotiated price of the car — you can and should negotiate this down from MSRP even on a lease. Most buyers don't.",
+        list: [
+          "Money factor × 2,400 = APR equivalent (0.0015 × 2,400 = 3.6%)",
+          "Residual above 55% of MSRP is strong for a 3-year lease",
+          "Cap cost is negotiable — dealer profit lives here",
+          "Acquisition fee ($595–$995) is usually non-negotiable but varies by brand",
+        ],
+      },
+      {
+        heading: "Which brands are running strong lease programs in 2026",
+        body: "Hyundai and Kia have consistently posted the best residual values on the Ioniq 6 and EV6 — residuals in the 58–62% range at 36 months are exceptional. BMW's i4 has a loyal lease base with competitive money factors. Chevy Equinox EV has the lowest cap cost entry point in the segment. Tesla's lease program runs through Tesla directly with non-negotiable terms — what you see is what you pay, but residuals on Model 3 and Y have been rising as used values stabilize.",
+        list: [
+          "Hyundai Ioniq 6: strong residuals, watch for regional loyalty bonuses",
+          "Kia EV6: similar program to Ioniq 6, slightly different trim structure",
+          "Chevy Equinox EV: lowest entry payment in the non-luxury segment",
+          "BMW i4: competitive money factors, strong brand residual support",
+          "Tesla Model 3/Y: fixed program, no negotiation, improving residuals",
+        ],
+      },
+      {
+        heading: "Red flags in EV lease advertising",
+        body: "Low advertised payments often assume a large drive-off (down payment). A $249/month payment with $4,999 at signing is actually ~$388/month when amortized over 36 months. Always calculate effective monthly cost: add all drive-off fees to total payments, divide by term. Mileage allowances of 10,000/yr sound reasonable but cost $0.25–$0.35/mile over — on a daily-driver EV, 12,000 or 15,000/yr allowances are worth the slightly higher payment.",
+        list: [
+          "Calculate effective monthly = (total payments + drive-off) ÷ term months",
+          "12,000 miles/yr is minimum for a typical commuter; 15,000 is safer",
+          "Avoid leases with no gap coverage — standard on most but verify",
+          "End-of-lease purchase price is set at signing — if residual is low, buyout value is low",
+        ],
+      },
+      {
+        heading: "When leasing beats buying in 2026",
+        body: "Leasing makes the most financial sense when: you drive under 12,000 miles/year, you want to upgrade to a new platform every 3 years (battery tech is improving fast), you're in a high-income-tax state where lease payments may be deductible for business use, or you want predictable monthly costs without worrying about EV resale value in an uncertain market. It makes less sense if you drive high mileage, keep cars 7+ years, or want to build equity.",
+      },
+    ],
+  },
+  {
+    slug: "best-ev-insurance-companies-2026",
+    title: "Best EV insurance companies in 2026: which carriers handle EVs well",
+    hook: "Not all insurers price EVs the same — some overcharge by 30%. Here's who to call first.",
+    description: "EV insurance costs 15–22% more on average, but the right carrier can cut that gap significantly. This guide covers which insurers specialize in EVs, offer EV-specific discounts, and handle EV claims well.",
+    readTime: "6 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "Why your choice of insurer matters more for EVs",
+        body: "For gas cars, carriers compete on essentially the same risk pool — the rate variance between insurers for the same driver and vehicle is typically 10–20%. For EVs, variance runs 25–40% because carriers differ dramatically in how they model battery replacement risk, EV repair costs, and the availability of EV-certified repair shops. Picking the wrong insurer for an EV isn't a minor financial decision — it can mean paying $600–$1,200 more per year for identical coverage.",
+      },
+      {
+        heading: "Tesla Insurance: worth it if you drive a Tesla, not otherwise",
+        body: "Tesla Insurance is available in about 12 states and uses real-time driving data (Safety Score) to set rates — good drivers can see rates 20–30% below traditional carriers for the same coverage. Drawback: it only covers Tesla vehicles, and customer service reviews are mixed when claims get complex. If you drive a Model 3, Y, S, or X and live in a supported state, get a Tesla Insurance quote before signing with a traditional carrier. It will often win.",
+        list: [
+          "Available: CA, TX, OH, AZ, CO, IL, MD, MN, NV, OR, TN, UT, VA (expanding)",
+          "Rate based on Safety Score — smooth driving = lower bill",
+          "Claims handled through Tesla's own service centers",
+          "Not available for non-Tesla EVs",
+        ],
+      },
+      {
+        heading: "Traditional carriers that price EVs well",
+        body: "Progressive and USAA consistently rank highly for EV owners in J.D. Power claims satisfaction surveys. Progressive's Snapshot telematics program can significantly reduce rates for low-mileage EV commuters — EVs typically drive fewer miles than gas cars, which works in your favor. USAA (military/veteran households only) has strong EV coverage terms and competitive rates. State Farm and Nationwide have expanded EV-specific training for adjusters, improving claim handling quality.",
+        list: [
+          "Progressive: strong telematics program, good EV claim handling",
+          "USAA: best overall satisfaction for eligible households",
+          "State Farm: large repair network, improving EV adjuster training",
+          "Nationwide: SmartRide discount beneficial for low-mileage EV drivers",
+          "Travelers: competitive for higher-value EVs (Rivian, Lucid, Mercedes EQ)",
+        ],
+      },
+      {
+        heading: "EV-specific discounts to ask about",
+        body: "Many carriers offer discounts that EV owners qualify for but don't know to ask about. Telematics/usage-based programs favor low-mileage drivers — EVs average fewer miles than gas cars. Green vehicle discounts (5–10% on premium) exist at many carriers but aren't always advertised. Some carriers give discounts for owning a home charger (reduces range anxiety claims from running out of charge). Bundling home + auto is worth $150–$400 regardless of vehicle type.",
+        list: [
+          "Telematics/UBI discount: 10–30% for safe, low-mileage driving",
+          "Green vehicle discount: 5–10% at carriers including Travelers, Farmers",
+          "Home charger ownership discount: available at select carriers",
+          "Multi-policy bundle: $150–$400/yr savings on home + auto",
+          "New car discount: applies to EV purchases same as gas cars",
+        ],
+      },
+      {
+        heading: "How to shop EV insurance effectively",
+        body: "Get at least 4 quotes — the carrier spread for EVs is wide enough that 3 quotes isn't enough. Use the same coverage limits across all quotes ($100K/$300K bodily injury, $100K property damage, $1,000 deductible is a reasonable baseline). Ask each carrier specifically about battery coverage: is battery degradation covered, or only sudden damage? How do they value a totaled EV — replacement cost or ACV minus depreciation? Carriers differ, and on a $55,000 EV those details matter.",
+        list: [
+          "Get 4+ quotes — EV carrier variance is 25–40%, not 10–20% like gas cars",
+          "Match coverage limits exactly across all quotes to compare apples to apples",
+          "Ask: is battery degradation covered under comprehensive?",
+          "Ask: how is total loss valued — replacement cost or ACV?",
+          "Ask: do you have EV-certified repair shops in my ZIP code?",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "first-time-ev-buyer-guide",
+    title: "First-time EV buyer guide: everything to do before and after delivery",
+    hook: "Decided on an EV — here's what to set up before delivery and what to check when it arrives.",
+    description: "A practical checklist for first-time EV buyers: home charging setup, delivery inspection, registration, insurance, and the first week habits that will shape your EV ownership experience.",
+    readTime: "7 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "Set up home charging before the car arrives",
+        body: "The single biggest mistake first-time EV buyers make is waiting until after delivery to think about home charging. A Level 2 charger (240V, 40–48A) adds 25–40 miles of range per hour — enough to top off any EV overnight. Scheduling an electrician takes 1–3 weeks in most markets. Order your charger and schedule the install as soon as you place your vehicle order. The §30C federal tax credit covers 30% of installation costs up to $1,000 for work completed before June 30, 2026.",
+        list: [
+          "Schedule electrician 4–6 weeks before delivery, not after",
+          "40A circuit is the standard — supports every EV charger sold today",
+          "Permit is required in most jurisdictions — a licensed electrician handles this",
+          "If your panel is full or undersized, plan for a panel upgrade (add $500–$2,000 and 2–4 weeks)",
+        ],
+      },
+      {
+        heading: "Delivery day: what to inspect before you drive away",
+        body: "EV delivery inspections miss issues that gas car buyers never need to check. Walk around all four panels looking for paint inconsistencies (EVs are often hand-finished and panel alignment varies). Check all four window seals for gaps or debris. Sit in the driver seat and verify the charge port opens/closes properly. Connect to a charger if one is available at the delivery center. Verify the 12V accessory battery is charged — a dead 12V brick the first week is common on cars that sat in inventory. Check that all software features work before driving off.",
+        list: [
+          "Panel gaps: run your finger along door edges — should be consistent, under 5mm",
+          "Charge port: verify it opens, closes, and latches correctly",
+          "12V battery: ask delivery staff when it was last charged or driven",
+          "Screen and software: verify all features are active and no 'limited mode' alerts",
+          "Walk-around video: record the car from all angles before accepting delivery",
+        ],
+      },
+      {
+        heading: "Registration, insurance, and state incentives",
+        body: "Register your EV promptly — some states require registration within 30 days of purchase. Check your state's DMV for any EV-specific registration fees (about 28 states charge annual EV fees of $50–$200 to offset lost gas-tax revenue). Get your insurance quote confirmed before delivery day — you need proof of insurance to drive off the lot. Check your state's energy office for any remaining purchase rebates or charging equipment grants — these are separate from the federal credit and often require applying within 90 days of purchase.",
+        list: [
+          "Register within 30 days — some states require it, all states have deadlines",
+          "Annual EV registration fee: $50–$200 in 28 states — budget for this",
+          "State rebates: check your state energy office within 90 days of purchase",
+          "Utility rebates: your electricity provider may offer $50–$500 for EV charger installation",
+        ],
+      },
+      {
+        heading: "First week: habits that change everything",
+        body: "EV ownership has a learning curve that flattens fast if you build the right habits in week one. Plug in every night, not just when low — EVs perform best when you treat charging like plugging in a phone, not filling up at a gas station. Set your charging schedule to end at 6 AM (most utilities have off-peak rates overnight). Set a daily charge limit to 80–90% for routine use; only charge to 100% before long trips. Download your EV's companion app and enable pre-conditioning — using climate while plugged in preserves your driving range.",
+        list: [
+          "Plug in every night — don't wait until the battery is low",
+          "Set charge limit to 80% for daily use; 100% only before long trips",
+          "Pre-condition cabin while plugged in, not while driving",
+          "Enable off-peak charging schedule — saves $100–$400/yr in most states",
+          "Locate the 3 nearest public fast chargers to your home and workplace — know your backup plan",
+        ],
+      },
+      {
+        heading: "What surprises most first-time EV owners",
+        body: "Three things catch new EV owners off guard: regenerative braking feels strong at first (it becomes intuitive in 1–2 weeks), one-pedal driving reduces brake pad wear dramatically so expect your first brake service to be many years away, and the fuel cost difference is immediately obvious but the maintenance savings are invisible until your gas-car-owning friends are paying for oil changes you're skipping. Most EV owners report the car 'changes how they think about driving' within the first month.",
+      },
+    ],
+  },
+  {
+    slug: "tesla-model-3-alternatives",
+    title: "Tesla Model 3 alternatives in 2026: best EVs in the same price range",
+    hook: "Model 3 is the benchmark — here's what beats it, matches it, and who it's wrong for.",
+    description: "The Tesla Model 3 remains the default choice for mid-size EV buyers, but 2026 has more genuine alternatives than any prior year. This guide compares the Hyundai Ioniq 6, BMW i4, Polestar 2, and VW ID.4 on range, charging, features, and real-world ownership.",
+    readTime: "7 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "Why Model 3 is still the benchmark",
+        body: "Tesla Model 3 Long Range AWD starts around $46,000 and delivers 341 miles EPA range, access to the 50,000+ Supercharger network, over-the-air updates, and the most mature EV software of any manufacturer. Resale value is strong (though declining from 2022 peaks). Autopilot is included; Full Self-Driving is $99/month. It's the EV everyone else is measured against because it's the one buyers think of first — and it deserves that status. But the gap has closed.",
+        list: [
+          "Tesla Model 3 LR AWD: ~$46K, 341mi EPA range, Supercharger access",
+          "Autopilot (basic ADAS) included; FSD is $99/month subscription",
+          "Supercharger network: ~50,000+ stalls, best reliability in North America",
+          "15-minute fast charge: adds ~170 miles at V3 Supercharger",
+        ],
+      },
+      {
+        heading: "Hyundai Ioniq 6: the range and efficiency winner",
+        body: "The Ioniq 6 Long Range RWD delivers 361 miles EPA — more than the Model 3 — and its 800V architecture means blazing-fast charging (10–80% in about 18 minutes at a 350kW charger). The interior is better-built than any previous Hyundai and the exterior is polarizing-but-intentional aerodynamic design. Hyundai's lease programs have consistently been among the best in the segment. Weakness: infotainment is good but not Model 3-level intuitive, and the charging network relies on Electrify America and IONIQ-branded DC Fast stations rather than a proprietary network.",
+        list: [
+          "Ioniq 6 LR RWD: ~$42K, 361mi EPA — more range than Model 3 at lower price",
+          "800V charging: 10–80% in 18 minutes at 350kW station",
+          "Lease programs: historically strong residuals and money factors",
+          "Charging network: relies on Electrify America (less reliable than Supercharger)",
+        ],
+      },
+      {
+        heading: "BMW i4: for buyers who want a traditional premium feel",
+        body: "The BMW i4 eDrive40 sits at ~$57,000 and offers 301 miles EPA range — less than Model 3 LR, but the ownership experience is fundamentally different. BMW's iDrive 9 infotainment is polished and physical controls remain alongside the screen. Build quality and interior materials are noticeably a step above Tesla. The i4 uses CCS charging and accesses Superchargers via NACS adapter. If you're coming from a 3 Series or 5 Series and want an EV with the same feel of premium build and driving dynamics, the i4 is the natural transition.",
+        list: [
+          "i4 eDrive40: ~$57K, 301mi EPA, premium materials and build quality",
+          "iDrive 9: polished software with physical controls retained",
+          "Supercharger access via NACS adapter (now standard)",
+          "Best for: BMW loyalists, buyers who value tactile interior over range",
+        ],
+      },
+      {
+        heading: "Polestar 2 and VW ID.4: honorable mentions",
+        body: "The Polestar 2 Long Range Single Motor (~$48K, 270mi EPA) offers a Google-built Android Automotive OS infotainment system and strong build quality for buyers prioritizing software openness over maximum range. The VW ID.4 Pro S (~$45K, 275mi EPA) targets family-oriented buyers who want a roomier rear seat than the Model 3 offers — the ID.4 is effectively a compact SUV where the Model 3 is a sedan. Neither beats the Model 3 on range or charging speed, but both offer different packaging priorities that some buyers prefer.",
+        list: [
+          "Polestar 2: Google-native infotainment, strong materials, lower range",
+          "VW ID.4: SUV body style, roomier rear, smaller range",
+          "Both use CCS with Supercharger adapter access now standard",
+        ],
+      },
+      {
+        heading: "Who should skip the Model 3 entirely",
+        body: "Buy a Model 3 alternative if: you want a physical volume knob (Model 3 removed it entirely), you have a household that requires a higher driving position (SUV body style), you're a BMW or Hyundai loyalist who gets better service experience at your local dealer, or you're doing most charging at DC fast stations that favor 800V architecture (Ioniq 6 and Kia EV6 charge dramatically faster at 350kW stations than the 250kW-max Model 3). The Model 3 wins on software, Supercharger network, and resale confidence. Alternatives win on interior feel, charging speed at high-power stations, and in some cases lease economics.",
+      },
+    ],
+  },
+  {
+    slug: "ev-charger-installer-how-to-choose",
+    title: "How to choose an EV charger installer: questions to ask, red flags to avoid",
+    hook: "A bad charger install can void your warranty and fail inspection. Here's how to pick the right electrician.",
+    description: "Choosing an EV charger installer is more than finding the cheapest quote. This guide covers licensing requirements, permit questions, what to ask before signing, and red flags that predict a poor installation.",
+    readTime: "5 min read",
+    category: "Installation",
+    sections: [
+      {
+        heading: "Why installer quality matters more than charger brand",
+        body: "The charger hardware — Chargepoint, Enel X, Tesla Wall Connector, Grizzl-E — is relatively standardized and reliable. The installation is where problems happen: an undersized wire run, a breaker that trips under load, a panel connection that passes inspection but runs hot over time, or a permit that was never pulled. A poor installation can void your EV charger warranty, fail a home inspection when you sell, or in worst cases create a fire hazard. The $200 you save by hiring an unlicensed installer is not worth the risk.",
+      },
+      {
+        heading: "Licensing and certification: minimum requirements",
+        body: "At minimum, your installer must be a licensed electrical contractor in your state — not just a handyman or general contractor who 'does electrical work.' Ask for their electrical contractor license number and verify it on your state licensing board's website (most have online lookup tools). EV-specific certification is a bonus, not a requirement — EVITP (Electric Vehicle Infrastructure Training Program) certification indicates the electrician has formal EV charging training, but a well-qualified licensed electrician without EVITP certification is better than a poorly qualified one who has it.",
+        list: [
+          "Required: state electrical contractor license — verify it before signing",
+          "Optional but valuable: EVITP certification (evitp.com to verify)",
+          "Do NOT use a general contractor who subcontracts electrical without disclosing who does the work",
+          "Ask for proof of general liability and workers compensation insurance",
+        ],
+      },
+      {
+        heading: "Permit questions every installer should answer confidently",
+        body: "In most jurisdictions, a permit is required to install a new 240V circuit for an EV charger. Ask your installer directly: will you pull a permit for this job? A permit-included installation means the work gets inspected by your local building department — that inspection protects you. An installer who says permits 'aren't necessary' or tries to talk you out of pulling one is a red flag. The inspection typically takes 15–30 minutes and happens after installation. Without it, you may face issues when selling your home or making an insurance claim.",
+        list: [
+          "Permit required: most jurisdictions for a new 240V circuit — confirm locally",
+          "Red flag: installer says permit 'isn't necessary' or offers to skip it for a discount",
+          "Inspection: happens after installation, usually same week as permit request",
+          "Permit cost: $50–$200, typically included in installer quote",
+        ],
+      },
+      {
+        heading: "Questions to ask before signing any quote",
+        body: "Get at least 3 quotes and ask each installer the same set of questions. A confident, detailed answer to all of these is a good sign. Vague or dismissive answers to any of them should give you pause.",
+        list: [
+          "Are you a licensed electrical contractor in this state? (Ask for license number)",
+          "Will you pull a permit for this installation?",
+          "Is the permit fee included in this quote?",
+          "Who specifically will do the work — you or a subcontractor?",
+          "What gauge wire will you run, and how long is the run?",
+          "Will you install a dedicated circuit or share with another load? (Dedicated is correct)",
+          "Do you warranty the installation labor separately from the charger warranty?",
+        ],
+      },
+      {
+        heading: "Red flags that predict a poor installation",
+        body: "Walk away if an installer: refuses to pull a permit or says permits aren't required in your area without checking local code (they often are), offers a price dramatically below other quotes without explaining why, can't name the wire gauge they'll use for your run length, wants to share the circuit with an existing load like a dryer or HVAC, or can't provide a license number when asked. Price is a poor proxy for quality in electrical work — the cheapest quote often reflects cut corners on wire gauge, conduit quality, or permit avoidance that will cost more to fix later.",
+        list: [
+          "Red flag: 'we don't need a permit for this' without checking local code",
+          "Red flag: quote is 50%+ lower than others with no explanation",
+          "Red flag: can't name wire gauge (10 AWG for 30A, 8 AWG for 40–50A runs)",
+          "Red flag: proposes sharing circuit with an existing 240V appliance",
+          "Red flag: won't provide license number when asked directly",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {

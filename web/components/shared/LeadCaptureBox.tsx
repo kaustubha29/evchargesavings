@@ -155,15 +155,15 @@ export function LeadCaptureBox({
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-2">
-              {/* Name + Email */}
-              <div className="flex flex-wrap gap-2">
+              {/* 2-col grid: Name | Email, Phone | ZIP */}
+              <div className="grid grid-cols-2 gap-2">
                 <input
                   type="text"
                   required
                   placeholder="First name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="flex-1 min-w-32 border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
+                  className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
                 />
                 <input
                   type="email"
@@ -171,19 +171,15 @@ export function LeadCaptureBox({
                   placeholder="you@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 min-w-44 border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
+                  className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
                 />
-              </div>
-
-              {/* Phone + ZIP */}
-              <div className="flex flex-wrap gap-2">
                 <input
                   type="tel"
                   required
                   placeholder="(555) 123-4567"
                   value={phone}
                   onChange={(e) => setPhone(formatPhoneDisplay(e.target.value))}
-                  className="flex-1 min-w-36 border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
+                  className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
                 />
                 <input
                   type="text"
@@ -194,7 +190,7 @@ export function LeadCaptureBox({
                   placeholder="ZIP"
                   value={zip || ""}
                   onChange={(e) => setZip(e.target.value)}
-                  className="w-24 border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
+                  className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
                 />
               </div>
 
