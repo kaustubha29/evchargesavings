@@ -3323,6 +3323,71 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "how-to-shop-ev-insurance",
+    title: "How to shop for EV insurance (and actually save money)",
+    hook: "Most EV owners overpay for insurance because they skip one step: getting a baseline quote before switching.",
+    description: "A step-by-step comparison guide covering what to tell insurers, which carriers price EVs fairly, and what coverage EV owners actually need.",
+    readTime: "6 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "Start with your current insurer",
+        body: "Before shopping anywhere, call your existing insurer and get an exact quote for your EV. This is your baseline. Switching blind — going straight to a comparison site without knowing your current rate — means you can't tell a good deal from an average one. Your insurer may also offer a loyalty discount that makes staying competitive. Know the number first.",
+      },
+      {
+        heading: "What to tell your insurer",
+        body: "EV-specific inputs move the rate more than most drivers realize. Be ready to provide: annual mileage (EVs driven under 7,500 miles/yr often qualify for low-mileage discounts), where you charge overnight (home charging in a locked garage reduces comprehensive risk), and whether your EV has advanced driver-assistance systems (ADAS). ADAS features like automatic emergency braking can reduce collision premiums 5–15% depending on the carrier.",
+        list: [
+          "Annual mileage — low-mileage discounts start around 7,500 miles/yr",
+          "Primary overnight charging location — garage vs. street matters",
+          "ADAS features — automatic emergency braking, lane-keep assist",
+          "VIN number — insurers need exact trim to price battery replacement risk",
+        ],
+      },
+      {
+        heading: "Which carriers are EV-friendly",
+        body: "Not every insurer has caught up to EV claims data. Carriers that write a lot of EV policies have better actuarial models and tend to price more competitively. Progressive and GEICO consistently rank among the lowest-rate carriers for popular EVs like the Model Y and Ioniq 6. Tesla Insurance (available in 12+ states) uses real-time driving data and prices well for careful drivers. Nationwide offers an OEM parts guarantee important for EV battery components. Avoid carriers with thin EV books — they price in uncertainty.",
+        list: [
+          "Progressive — strong EV pricing, widely available",
+          "GEICO — competitive base rates, straightforward bundling",
+          "Tesla Insurance — usage-based, low rates for safe drivers, Tesla vehicles only",
+          "Nationwide — OEM parts guarantee covers battery and charging components",
+          "Avoid: small regional carriers with no stated EV claims experience",
+        ],
+      },
+      {
+        heading: "What coverage EV owners actually need",
+        body: "Standard liability + comprehensive + collision covers the basics, but EV owners should look at three additional items. Gap coverage matters more for EVs because they depreciate faster in the first two years — if your EV is totaled, gap coverage pays the difference between the insurance payout and what you still owe. Battery and charging equipment coverage is offered by some carriers and covers the charging cord and home EVSE unit. OEM parts clauses ensure battery replacements use manufacturer parts, not aftermarket — critical given how much battery cost varies.",
+        list: [
+          "Gap coverage — especially important in years 1–2 of EV ownership",
+          "Battery/charging equipment rider — covers home EVSE unit (worth ~$500–$1,500)",
+          "OEM parts clause — ensures manufacturer battery cells, not aftermarket",
+        ],
+      },
+      {
+        heading: "Red flags in EV policies",
+        body: "Read the exclusions section before signing. Common EV-specific exclusions that catch owners off guard: battery degradation is almost never covered (that's a warranty issue, not insurance), some policies exclude damage from third-party charging stations citing 'electrical surge' exclusions, and software-related damage (rare but real) is excluded by most carriers. Also check whether your policy covers a rental car if your EV is in a repair shop — EV repairs take longer on average, so rental duration limits matter more.",
+        list: [
+          "Battery degradation — excluded everywhere, covered by manufacturer warranty instead",
+          "Third-party charger damage — check for 'electrical surge' exclusions",
+          "Rental duration cap — EV repairs average 18 days vs 12 for gas; make sure rental coverage matches",
+        ],
+      },
+      {
+        heading: "The comparison checklist",
+        body: "When you have quotes side-by-side, compare these six items — not just the annual premium. A quote that looks $200 cheaper can be worse value once you check deductibles and exclusions.",
+        list: [
+          "Annual premium (apples-to-apples: same deductibles, same liability limits)",
+          "Collision deductible — $500 vs $1,000 changes premium $200–$400/yr",
+          "OEM vs aftermarket parts policy",
+          "Rental reimbursement limit (days + daily dollar cap)",
+          "Gap coverage included or add-on cost",
+          "Bundling discount if you add home/renters insurance",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {
