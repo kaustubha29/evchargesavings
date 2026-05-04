@@ -6,7 +6,7 @@ import { useCalculatorStore } from "@/store/calculator";
 export const LEAD_FORM_SUBMITTED_KEY = "ecs-lead-submitted";
 
 type State = "idle" | "submitting" | "success" | "error";
-type Intent = "ev" | "charger";
+type Intent = "ev" | "charger" | "insurance";
 
 function formatPhoneDisplay(raw: string): string {
   const digits = raw.replace(/\D/g, "").slice(0, 10);
@@ -38,7 +38,7 @@ export function LeadCaptureBox({
   const [name, setName]           = useState("");
   const [email, setEmail]         = useState("");
   const [phone, setPhone]         = useState("");
-  const [intent, setIntent]       = useState<Intent[]>(defaultIntent ?? []);
+  const [intent, setIntent]       = useState<Intent[]>(defaultIntent ?? ["ev", "charger", "insurance"]);
   const [formState, setFormState] = useState<State>("idle");
 
   function toggleIntent(value: Intent) {
@@ -134,8 +134,9 @@ export function LeadCaptureBox({
               </div>
               <div className="flex flex-wrap gap-2">
                 {([
-                  { value: "ev"      as Intent, label: "Buy an EV" },
-                  { value: "charger" as Intent, label: "Install a home charger" },
+                  { value: "ev"        as Intent, label: "Buy an EV" },
+                  { value: "charger"   as Intent, label: "Install a home charger" },
+                  { value: "insurance" as Intent, label: "Compare EV insurance" },
                 ] as const).map(({ value, label }) => (
                   <button
                     key={value}

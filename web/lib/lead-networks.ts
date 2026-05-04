@@ -99,8 +99,8 @@ export async function submitToEverQuote(lead: LeadPayload): Promise<NetworkResul
 // postToNetwork never throws — safe to use Promise.all
 export async function submitLeadToNetworks(lead: LeadPayload): Promise<NetworkResult[]> {
   const tasks: Promise<NetworkResult>[] = [];
-  if (lead.intent.includes("charger")) tasks.push(submitToModernize(lead));
-  if (lead.intent.includes("ev"))      tasks.push(submitToAutoWeb(lead));
-  tasks.push(submitToEverQuote(lead)); // always
+  if (lead.intent.includes("charger"))   tasks.push(submitToModernize(lead));
+  if (lead.intent.includes("ev"))        tasks.push(submitToAutoWeb(lead));
+  if (lead.intent.includes("insurance")) tasks.push(submitToEverQuote(lead));
   return Promise.all(tasks);
 }

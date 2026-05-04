@@ -1,0 +1,85 @@
+* [33m819b959[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m feat: add /ev-insurance page with state-level cost comparison and EverQuote CTA
+* [33m139f06e[m fix: error state UX, move cityName lookup non-blocking, fix zip type
+* [33m1cdef01[m feat: add name, phone, intent fields to lead capture form
+* [33m22819cf[m fix: escape HTML in emails, remove key logs, guard getStateData, cap intent array
+* [33md236da7[m feat: validate name/phone/intent and route leads to networks
+* [33m79528a0[m fix: clean up leadId assignment and add fetch-mocked test
+* [33m839de04[m feat: add lead networks module (Modernize, AutoWeb, EverQuote)
+* [33m46fa571[m docs: add lead monetization implementation plan
+* [33mcf161dc[m docs: add lead monetization design spec
+* [33mee984f7[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Updated guides
+* [33m11d0803[m Ton of guides
+* [33m17da08c[m impact
+* [33m22a91ed[m impact
+* [33m14f41dd[m updated seo pages-- moree moreee moreeeee
+* [33m2a9a7af[m updated ompact
+* [33m871da17[m updated seo pages
+* [33m836eb07[m[33m ([m[1;32mclaude/confident-ishizaka-1ea410[m[33m)[m updated email
+* [33m267b943[m more guides
+* [33m52a5c5b[m more guides
+* [33m2810788[m text edits
+* [33m7beec87[m getQuotes in bottom bar
+* [33m7ee4219[m slotmachineeverywhere
+* [33m2fe908d[m slotmachineeverywhere
+* [33m0b97b58[m form only once
+* [33ma50f3da[m form only once
+* [33m1b454d0[m form only once
+* [33m5e47455[m form only once
+* [33mf58d2b5[m form updates
+* [33m212add0[m form updates
+* [33ma9bd537[m form updates
+* [33m7fe8d49[m form only once
+* [33m5c71d5f[m city https fix
+* [33m6b93666[m zipcode sticky and email template update
+* [33m25f9cd2[m combined lead form bug fix
+[31m|[m * [33mce6320c[m[33m ([m[1;35mrefs/stash[m[33m)[m WIP on main: 87558f3 combined lead form
+[31m|[m[31m/[m[33m|[m 
+[31m|[m * [33m2280eb5[m index on main: 87558f3 combined lead form
+[31m|[m[31m/[m  
+* [33m87558f3[m combined lead form
+*   [33mbacdb22[m Merge branch 'main' of https://github.com/kaustubha29/evchargesavings
+[34m|[m[35m\[m  
+[34m|[m * [33m36deaa2[m impact
+* [35m|[m [33mf0f8442[m buycarfeatures
+* [35m|[m [33m6ec0ae2[m GA4setup
+[35m|[m[35m/[m  
+* [33m7d94c3d[m impact
+* [33m4078c28[m impact
+* [33m473f5a9[m impact
+* [33mf541268[m impact
+* [33mb5c029e[m impact
+* [33m819a7ac[m impact
+* [33mb4bac57[m impact
+* [33ma7744fb[m impact
+* [33m5550d11[m impact
+* [33m4472172[m impact
+* [33mbf96cc1[m impact
+* [33m98fdfad[m impact
+* [33m821684f[m amzn links
+* [33m74fb12e[m speedup slotmachine
+* [33mc7bf6aa[m speedup slotmachine
+* [33mc171717[m title edit
+* [33m128294d[m merge cards
+* [33mf24e842[m mobile edits
+* [33m0fa0e3d[m mobile edits
+* [33m99e6956[m home redirect
+* [33m947d1dc[m slot and updates
+* [33ma36785b[m slot and updates
+* [33m24205f6[m slot and updates
+* [33made9196[m try receipt generator
+* [33m900bf34[m try receipt generator
+* [33m80a68d8[m add adsense
+* [33mcd75a66[m add adsense
+* [33m32cd9d5[m add links and contents
+* [33m58c950a[m db update bugfixx
+* [33m2fd4b8d[m form submission fix
+* [33m07e6d30[m form submission fix
+* [33m8ac95ac[m form submission fix
+* [33mf28e7e9[m form submission fix
+* [33m7af072f[m form submission fix
+* [33m73aec54[m deploy error fiz
+* [33mea097e6[m Ready for launch
+* [33m041ccc1[m Ready for launch
+* [33m9fefca9[m Ready for launch
+* [33m2a8e6b0[m Moved to Node
+* [33md3f0b4b[m feat: initial v2 calculator

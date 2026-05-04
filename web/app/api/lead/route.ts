@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
   if (!phone || phone.length !== 10) {
     return NextResponse.json({ error: "Valid 10-digit US phone required" }, { status: 422 });
   }
-  if (!intent.length || !intent.every((i) => ["ev", "charger"].includes(i))) {
+  if (!intent.length || !intent.every((i) => ["ev", "charger", "insurance"].includes(i))) {
     return NextResponse.json({ error: "At least one intent required" }, { status: 422 });
   }
 
@@ -65,13 +65,13 @@ export async function POST(req: NextRequest) {
   const stateName = stateCode ? (getStateData(stateCode)?.name ?? null) : null;
 
   const intentLabel = intent
-    .map((i) => i === "ev" ? "Buy an EV" : "Install a charger")
+    .map((i) => i === "ev" ? "Buy an EV" : i === "charger" ? "Install a charger" : "Compare EV insurance")
     .join(" + ");
 
   const networksSubmitted = [
-    ...(intent.includes("charger") ? ["Modernize"] : []),
-    ...(intent.includes("ev")      ? ["AutoWeb"]   : []),
-    "EverQuote",
+    ...(intent.includes("charger")   ? ["Modernize"] : []),
+    ...(intent.includes("ev")        ? ["AutoWeb"]   : []),
+    ...(intent.includes("insurance") ? ["EverQuote"] : []),
   ].join(", ");
 
   // Supabase write
