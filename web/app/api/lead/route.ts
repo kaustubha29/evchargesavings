@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 import { stateFromZip, getStateData } from "@/features/location/queries";
-import { submitLeadToNetworks, getNetworkNamesForIntent } from "@/lib/lead-networks";
+import { submitLeadToNetworks, getNetworkDisplayNamesForIntent } from "@/lib/lead-networks";
 import type { NetworkResult, IntentKind } from "@/lib/lead-networks";
 
 const OWNER_EMAIL = "evchargesavings@gmail.com";
@@ -61,6 +61,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "At least one intent required" }, { status: 422 });
   }
 
+  const validIntent = intent as IntentKind[];
   const stateCode = zip ? stateFromZip(zip) : null;
   const stateName = stateCode ? (getStateData(stateCode)?.name ?? null) : null;
 
@@ -68,7 +69,7 @@ export async function POST(req: NextRequest) {
     .map((i) => i === "ev" ? "Buy an EV" : i === "charger" ? "Install a charger" : "Compare EV insurance")
     .join(" + ");
 
-  const networksSubmitted = getNetworkNamesForIntent(intent as IntentKind[]).join(", ");
+  const networksSubmitted = getNetworkDisplayNamesForIntent(validIntent).join(", ");
 
   // Supabase write
   let leadId: string | null = null;
@@ -170,7 +171,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Submit to lead networks — non-blocking, log IDs back to Supabase
-  submitLeadToNetworks({ name, email, phone, zip, intent: intent as IntentKind[], stateName })
+  submitLeadToNetworks({ name, email, phone, zip, intent: validIntent, stateName })
     .then(async (networkResults: NetworkResult[]) => {
       console.log("[lead] Network results:", JSON.stringify(networkResults));
       if (!leadId) return;

@@ -18,6 +18,7 @@ export interface NetworkResult {
 
 interface NetworkConfig {
   id: string;
+  displayName: string;
   intent: IntentKind;
   envKey: string;
   envEndpoint: string;
@@ -28,6 +29,7 @@ const NETWORK_CONFIGS: NetworkConfig[] = [
   // ── charger ──────────────────────────────────────────────────────────────
   {
     id: "modernize",
+    displayName: "Modernize",
     intent: "charger",
     envKey: "MODERNIZE_API_KEY",
     envEndpoint: "MODERNIZE_ENDPOINT",
@@ -38,6 +40,7 @@ const NETWORK_CONFIGS: NetworkConfig[] = [
   },
   {
     id: "homeadvisor",
+    displayName: "HomeAdvisor",
     intent: "charger",
     envKey: "HOMEADVISOR_API_KEY",
     envEndpoint: "HOMEADVISOR_ENDPOINT",
@@ -49,6 +52,7 @@ const NETWORK_CONFIGS: NetworkConfig[] = [
   // ── ev ───────────────────────────────────────────────────────────────────
   {
     id: "autoweb",
+    displayName: "AutoWeb",
     intent: "ev",
     envKey: "AUTOWEB_API_KEY",
     envEndpoint: "AUTOWEB_ENDPOINT",
@@ -59,6 +63,7 @@ const NETWORK_CONFIGS: NetworkConfig[] = [
   },
   {
     id: "truecar",
+    displayName: "TrueCar",
     intent: "ev",
     envKey: "TRUECAR_API_KEY",
     envEndpoint: "TRUECAR_ENDPOINT",
@@ -69,6 +74,7 @@ const NETWORK_CONFIGS: NetworkConfig[] = [
   },
   {
     id: "edmunds",
+    displayName: "Edmunds",
     intent: "ev",
     envKey: "EDMUNDS_API_KEY",
     envEndpoint: "EDMUNDS_ENDPOINT",
@@ -80,6 +86,7 @@ const NETWORK_CONFIGS: NetworkConfig[] = [
   // ── insurance ─────────────────────────────────────────────────────────────
   {
     id: "everquote",
+    displayName: "EverQuote",
     intent: "insurance",
     envKey: "EVERQUOTE_API_KEY",
     envEndpoint: "EVERQUOTE_ENDPOINT",
@@ -89,6 +96,7 @@ const NETWORK_CONFIGS: NetworkConfig[] = [
   },
   {
     id: "quotewizard",
+    displayName: "QuoteWizard",
     intent: "insurance",
     envKey: "QUOTEWIZARD_API_KEY",
     envEndpoint: "QUOTEWIZARD_ENDPOINT",
@@ -98,6 +106,7 @@ const NETWORK_CONFIGS: NetworkConfig[] = [
   },
   {
     id: "mediaalpha",
+    displayName: "MediaAlpha",
     intent: "insurance",
     envKey: "MEDIAALPHA_API_KEY",
     envEndpoint: "MEDIAALPHA_ENDPOINT",
@@ -107,6 +116,7 @@ const NETWORK_CONFIGS: NetworkConfig[] = [
   },
   {
     id: "zebra",
+    displayName: "The Zebra",
     intent: "insurance",
     envKey: "ZEBRA_API_KEY",
     envEndpoint: "ZEBRA_ENDPOINT",
@@ -149,6 +159,12 @@ async function postToNetwork(
   } catch (err) {
     return { network, accepted: false, error: String(err) };
   }
+}
+
+export function getNetworkDisplayNamesForIntent(intents: IntentKind[]): string[] {
+  return NETWORK_CONFIGS
+    .filter((cfg) => intents.includes(cfg.intent))
+    .map((cfg) => cfg.displayName);
 }
 
 // Returns the network IDs that would be contacted for a given set of intents.
