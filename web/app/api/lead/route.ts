@@ -64,23 +64,6 @@ export async function POST(req: NextRequest) {
   const stateCode = zip ? stateFromZip(zip) : null;
   const stateName = stateCode ? (getStateData(stateCode)?.name ?? null) : null;
 
-  let cityName: string | null = null;
-  if (zip) {
-    try {
-      const res = await fetch(`https://api.zippopotam.us/us/${zip}`, { signal: AbortSignal.timeout(2000) });
-      if (res.ok) {
-        const data = await res.json();
-        cityName = data.places?.[0]?.["place name"] || null;
-      }
-    } catch {
-      // cityName remains null
-    }
-  }
-
-  const locationStr = cityName && stateName
-    ? `${cityName}, ${stateName}`
-    : stateName ?? "";
-
   const intentLabel = intent
     .map((i) => i === "ev" ? "Buy an EV" : "Install a charger")
     .join(" + ");
@@ -123,51 +106,69 @@ export async function POST(req: NextRequest) {
     console.error("[lead] Supabase exception:", e);
   }
 
-  // Resend emails — non-blocking
+  // Resend emails — non-blocking (cityName lookup happens here, not in hot path)
   if (resendKey) {
     const resend = new Resend(resendKey);
-    Promise.allSettled([
-      resend.emails.send({
-        from: FROM_EMAIL,
-        to: email,
-        subject: "Your personalized EV cost & charger options are on the way",
-        html: `
-          <p>Hi ${escHtml(name)},</p>
-          <p>Thanks for checking out EV ownership costs${locationStr ? ` in <b>${escHtml(locationStr)}</b>` : ""} — we're putting together your personalized breakdown now.</p>
-          <p><b>Within the next 24 hours, you'll receive:</b></p>
-          <ul>
-            <li>⚡ Estimated <b>EV pricing</b> based on your area</li>
-            <li>🔌 <b>Level 2 home charger installation costs</b></li>
-            <li>💸 Available <b>local incentives and rebates</b></li>
-          </ul>
-          <p>We'll match you with up to <b>3 vetted local professionals</b>${locationStr ? ` in <b>${escHtml(locationStr)}</b>` : ""} so you can compare quotes — no pressure, no obligation.</p>
-          <p>— EV Charge Savings</p>
-          <p style="font-size:11px;color:#999">
-            Submitted at evchargesavings.com. We never sell your email. You may be contacted by up to 3 vetted local providers.
-          </p>
-        `,
-      }),
-      resend.emails.send({
-        from: FROM_EMAIL,
-        to: OWNER_EMAIL,
-        subject: `New lead${stateName ? ` · ${stateName}` : ""}${zip ? ` · ${zip}` : ""}`,
-        html: `
-          <b>New lead</b><br/>
-          Name: ${escHtml(name)}<br/>
-          Email: ${escHtml(email)}<br/>
-          Phone: ${formatPhone(phone)}<br/>
-          ZIP: ${escHtml(zip || "—")}<br/>
-          Location: ${escHtml(locationStr || "—")}<br/>
-          Intent: ${escHtml(intentLabel)}<br/>
-          Source: ${escHtml(sourcePage)}<br/>
-          Networks submitted: ${escHtml(networksSubmitted)}
-        `,
-      }),
-    ]).then((results) => {
-      results.forEach((r) => {
-        if (r.status === "rejected") console.error("[lead] Email error:", r.reason);
+    (async () => {
+      let cityName: string | null = null;
+      if (zip) {
+        try {
+          const geoRes = await fetch(`https://api.zippopotam.us/us/${zip}`, { signal: AbortSignal.timeout(2000) });
+          if (geoRes.ok) {
+            const data = await geoRes.json();
+            cityName = data.places?.[0]?.["place name"] || null;
+          }
+        } catch {
+          // cityName remains null
+        }
+      }
+      const locationStr = cityName && stateName
+        ? `${cityName}, ${stateName}`
+        : stateName ?? "";
+
+      await Promise.allSettled([
+        resend.emails.send({
+          from: FROM_EMAIL,
+          to: email,
+          subject: "Your personalized EV cost & charger options are on the way",
+          html: `
+            <p>Hi ${escHtml(name)},</p>
+            <p>Thanks for checking out EV ownership costs${locationStr ? ` in <b>${escHtml(locationStr)}</b>` : ""} — we're putting together your personalized breakdown now.</p>
+            <p><b>Within the next 24 hours, you'll receive:</b></p>
+            <ul>
+              <li>⚡ Estimated <b>EV pricing</b> based on your area</li>
+              <li>🔌 <b>Level 2 home charger installation costs</b></li>
+              <li>💸 Available <b>local incentives and rebates</b></li>
+            </ul>
+            <p>We'll match you with up to <b>3 vetted local professionals</b>${locationStr ? ` in <b>${escHtml(locationStr)}</b>` : ""} so you can compare quotes — no pressure, no obligation.</p>
+            <p>— EV Charge Savings</p>
+            <p style="font-size:11px;color:#999">
+              Submitted at evchargesavings.com. We never sell your email. You may be contacted by up to 3 vetted local providers.
+            </p>
+          `,
+        }),
+        resend.emails.send({
+          from: FROM_EMAIL,
+          to: OWNER_EMAIL,
+          subject: `New lead${stateName ? ` · ${stateName}` : ""}${zip ? ` · ${zip}` : ""}`,
+          html: `
+            <b>New lead</b><br/>
+            Name: ${escHtml(name)}<br/>
+            Email: ${escHtml(email)}<br/>
+            Phone: ${formatPhone(phone)}<br/>
+            ZIP: ${escHtml(zip || "—")}<br/>
+            Location: ${escHtml(locationStr || "—")}<br/>
+            Intent: ${escHtml(intentLabel)}<br/>
+            Source: ${escHtml(sourcePage)}<br/>
+            Networks submitted: ${escHtml(networksSubmitted)}
+          `,
+        }),
+      ]).then((results) => {
+        results.forEach((r) => {
+          if (r.status === "rejected") console.error("[lead] Email error:", r.reason);
+        });
       });
-    });
+    })().catch((err) => console.error("[lead] Email block error:", err));
   } else {
     console.error("[lead] Missing RESEND_API_KEY");
   }

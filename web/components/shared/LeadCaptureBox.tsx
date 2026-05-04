@@ -99,6 +99,17 @@ export function LeadCaptureBox({ sourcePage = "/", gateId }: Props) {
           </div>
         ) : formState === "submitting" ? (
           <div className="text-sm text-ink-3">Sending your request…</div>
+        ) : formState === "error" ? (
+          <div className="space-y-3">
+            <p className="text-sm text-rust">Something went wrong — please try again.</p>
+            <button
+              type="button"
+              onClick={() => setFormState("idle")}
+              className="font-mono text-[11px] uppercase tracking-widest text-forest hover:underline"
+            >
+              ← Try again
+            </button>
+          </div>
         ) : (
           <>
             {/* Intent toggles */}
@@ -187,12 +198,6 @@ export function LeadCaptureBox({ sourcePage = "/", gateId }: Props) {
               Local providers send options within 24 hours. No spam.
             </p>
           </>
-        )}
-
-        {formState === "error" && (
-          <p className="text-xs text-rust mt-2">
-            Something went wrong — please try again.
-          </p>
         )}
 
         <p className="text-[10px] text-ink-mute font-mono mt-3">

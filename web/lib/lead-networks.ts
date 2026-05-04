@@ -2,7 +2,7 @@ export interface LeadPayload {
   name: string;
   email: string;
   phone: string;
-  zip: string;
+  zip: string | null;
   intent: string[];
   stateName?: string | null;
 }
