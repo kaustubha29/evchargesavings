@@ -3434,6 +3434,62 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "ev-insurance-by-state",
+    title: "EV insurance costs by state: where you pay the most (and least)",
+    hook: "Michigan EV owners pay more than twice what Wyoming drivers pay. Your zip code matters as much as your driving record.",
+    description: "State-level EV insurance cost data, why rates vary so much by location, and how to use your state's data when shopping for coverage.",
+    readTime: "5 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "Why your state matters as much as your driving record",
+        body: "Auto insurance is regulated state-by-state, and state law determines what insurers can and cannot use to set rates. Beyond regulation, four structural factors drive EV insurance costs at the state level: density of EV-certified repair shops (fewer shops = longer repair times = higher rental costs passed through to premiums), average cost of collision repairs in local labor markets, weather-related comprehensive claims (hail, flood, ice), and litigation rates — states with more auto injury lawsuits have systematically higher premiums across all vehicles.",
+      },
+      {
+        heading: "Most expensive states for EV insurance",
+        body: "Michigan tops every list at an average of $3,150/yr for EV owners — more than double the national EV average of $2,048. Michigan's no-fault insurance law requires unlimited lifetime medical benefits, which drives up every policy in the state regardless of vehicle type. Louisiana ($2,860/yr) and New York ($2,840/yr) follow, both driven by high litigation rates and dense urban repair markets. Florida ($2,580/yr) adds hurricane and flood exposure on top of litigation costs. Rhode Island ($2,620/yr) is the most expensive New England state, driven by high labor costs and a disproportionately large share of uninsured drivers.",
+        list: [
+          "Michigan: $3,150/yr EV avg (no-fault unlimited medical mandate)",
+          "Louisiana: $2,860/yr (highest litigation rate in the US)",
+          "New York: $2,840/yr (dense urban market, high repair labor costs)",
+          "DC: $2,690/yr (urban density, high theft rates)",
+          "Rhode Island: $2,620/yr (high uninsured driver rate)",
+          "Florida: $2,580/yr (weather exposure + litigation)",
+        ],
+      },
+      {
+        heading: "Cheapest states for EV insurance",
+        body: "Wyoming ($1,480/yr), North Dakota ($1,490/yr), and Iowa ($1,490/yr) consistently post the lowest EV insurance rates. All three share the same structural advantages: low population density means fewer accidents per mile driven, low labor costs reduce repair bills, minimal traffic litigation, and no major weather catastrophe exposure beyond hail (which is manageable with comprehensive coverage). Maine ($1,520/yr) and Idaho ($1,540/yr) follow for similar reasons. Vermont ($1,540/yr) is the cheapest New England state and one of the few cold-weather states that stays cheap — largely due to low uninsured driver rates and a strong no-fault regulatory environment.",
+        list: [
+          "Wyoming: $1,480/yr EV avg",
+          "North Dakota: $1,490/yr",
+          "Iowa: $1,490/yr",
+          "Maine: $1,520/yr",
+          "Idaho: $1,540/yr",
+          "Vermont: $1,540/yr",
+        ],
+      },
+      {
+        heading: "What drives your rate beyond the state average",
+        body: "State averages are a starting point — your actual rate is set at the ZIP code level. Urban ZIP codes within cheap states can exceed the state average by 30–50%. A driver in Des Moines, Iowa pays significantly more than a driver in rural Dubuque County, even though both are 'Iowa.' Factors that move your individual rate within a state: urban vs. rural (accident frequency, theft rates), ZIP code claims history (even if you've never filed a claim), distance to nearest EV-certified repair facility, and local medical cost index (what hospitals charge affects bodily injury payouts).",
+        list: [
+          "Urban ZIP codes typically run 20–50% above the state average",
+          "Distance to nearest EV repair shop affects rental duration assumptions",
+          "Your specific ZIP's claims history affects base rate before your driving record applies",
+        ],
+      },
+      {
+        heading: "How to use state data when shopping",
+        body: "State averages tell you whether you're being overcharged relative to your market — not whether a specific quote is competitive. If Michigan quotes are clustering around $3,200 and you get one at $2,600, that's worth investigating (it may be a thin policy). If Iowa quotes are all coming in at $1,900 when the state average is $1,490, you have room to push back or shop harder. Use the interactive insurance cost calculator at /ev-insurance to see your state's EV vs gas insurance comparison, then use that baseline when you call carriers for quotes.",
+        list: [
+          "Get 3+ quotes before deciding — EV rate variance across carriers is 20–40% in most states",
+          "Use /ev-insurance to see your state's EV vs gas insurance delta before calling carriers",
+          "If your quotes exceed the state average by more than 15%, ask each insurer what's driving the difference",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {

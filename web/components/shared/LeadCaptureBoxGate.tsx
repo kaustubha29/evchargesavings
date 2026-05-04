@@ -9,7 +9,7 @@ interface Props {
   sectionId?: string;
   sectionClassName?: string;
   contentClassName?: string;
-  defaultIntent?: ("ev" | "charger")[];
+  defaultIntent?: ("ev" | "charger" | "insurance")[];
   heading?: string;
   description?: string;
   submitLabel?: string;
