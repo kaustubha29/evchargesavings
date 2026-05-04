@@ -3388,6 +3388,52 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "ev-insurance-myths",
+    title: "5 EV insurance myths that cost drivers money",
+    hook: "Believing any of these five myths will either leave you underinsured or make you overpay for years.",
+    description: "Common misconceptions about EV insurance — and what's actually true — that cause owners to overpay or be underinsured.",
+    readTime: "4 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "Myth 1: My existing insurer covers my EV the same way",
+        body: "Reality: coverage terms for EVs vary significantly even within the same insurer's policies. A policy written for a gas car may not include charging equipment coverage, may use aftermarket battery parts, or may have electrical surge exclusions that apply to charging incidents. When you switch to an EV, call your insurer explicitly, confirm it's re-underwritten for your new vehicle, and ask for the EV-specific exclusions list. Don't assume a policy transfer is equivalent coverage.",
+        list: [
+          "Ask: does this policy cover my home EVSE charging unit?",
+          "Ask: does collision coverage use OEM or aftermarket battery components?",
+          "Ask: are there electrical surge exclusions that could affect charging damage claims?",
+        ],
+      },
+      {
+        heading: "Myth 2: EV insurance always costs more",
+        body: "Reality: on average, EVs cost 15–22% more to insure than comparable gas cars — but that average hides enormous variation. Some carriers with strong EV claims books price popular models (Model Y, Ioniq 6, Bolt) at or below gas car equivalents. Tesla Insurance, available in 12+ states, uses real-time safety scores and prices well for careful drivers. If you've only gotten one quote, you may be paying the 'uninformed driver' premium. Shopping 3+ carriers is how you find the outliers.",
+      },
+      {
+        heading: "Myth 3: Full coverage is overkill for an older EV",
+        body: "Reality: the logic that works for gas cars — drop to liability-only once the car is worth less than ~10× your annual premium — breaks for EVs. A 5-year-old EV with 60,000 miles might be valued at $18,000, but its battery pack could cost $12,000–$18,000 to replace. If you're in an at-fault collision that totals the car, liability-only leaves you paying out of pocket for a battery that costs nearly as much as the car. Run the numbers on battery replacement cost specifically, not just vehicle market value.",
+        list: [
+          "Model Y battery replacement: ~$13,000–$16,000",
+          "Chevy Bolt battery replacement: ~$16,000 (pre-2023 recall models)",
+          "Nissan Leaf battery replacement: ~$8,500–$10,000",
+          "Rule: if battery replacement cost > $8,000, keep comprehensive + collision",
+        ],
+      },
+      {
+        heading: "Myth 4: Bundling home and auto isn't worth switching insurers",
+        body: "Reality: the multi-policy discount typically runs $150–$300/yr for home + auto. If your current insurer doesn't write both, or if you've never asked about the bundle rate explicitly, you're likely leaving money on the table. The friction of switching is real — about 90 minutes of paperwork — but a $250/yr saving compounds quickly. The best time to bundle is when you're already shopping EV insurance quotes, since you're already in the process.",
+      },
+      {
+        heading: "Myth 5: EV-specific insurance products are a gimmick",
+        body: "Reality: Tesla Insurance and Rivian Insurance are real products with meaningful differences from standard auto policies. Tesla Insurance uses a real-time Safety Score based on your actual driving — hard braking, aggressive cornering, following distance — and adjusts monthly premiums accordingly. Safe Tesla drivers in available states report 20–40% lower premiums than standard carriers. Rivian Insurance (available in select states) covers the vehicle, charging equipment, and roadside EV-specific assistance in one policy. These aren't gimmicks — they're vertically integrated products optimized for owners who stay within the ecosystem.",
+        list: [
+          "Tesla Insurance: Safety Score-based pricing, adjusts monthly, available in 12+ states",
+          "Rivian Insurance: bundled EVSE coverage + roadside, select states",
+          "Both require the manufacturer's app and data sharing — privacy tradeoff to consider",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {
