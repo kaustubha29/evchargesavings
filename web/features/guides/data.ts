@@ -3763,6 +3763,341 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "best-electric-suv-2026",
+    title: "Best electric SUVs in 2026: ranked by range, value, and charging",
+    hook: "The electric SUV segment finally has real competition. Here's who wins in 2026.",
+    description: "The best electric SUVs of 2026 ranked across range, cargo space, charging speed, and total cost of ownership. Includes Hyundai Ioniq 5, Chevy Equinox EV, Tesla Model Y, Kia EV9, and Rivian R1S.",
+    readTime: "7 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "Why 2026 is the best year yet to buy an electric SUV",
+        body: "The electric SUV segment crossed a turning point in 2025: real competition arrived. Three years ago, Tesla Model Y had no serious rivals. Today the Hyundai Ioniq 5, Chevy Equinox EV, Kia EV9, and Rivian R1S each win on different dimensions. Prices have dropped, ranges have extended, and 800V fast-charging architecture — which adds ~150 miles in 15 minutes at high-power stations — is now available below $50,000. The federal purchase credit is gone but that's already reflected in manufacturer pricing adjustments.",
+      },
+      {
+        heading: "Best overall: Hyundai Ioniq 5 Long Range AWD",
+        body: "The Ioniq 5 Long Range AWD (~$52,000) remains the benchmark for electric SUVs that balance range, charging speed, interior quality, and value. 266 miles EPA range is competitive; 800V architecture means 10–80% in about 18 minutes at a 350kW station. The interior has a flat floor, sliding center console, and enough rear legroom to carry adults comfortably on road trips. Hyundai's lease programs consistently offer strong residuals. Weakness: the exterior design polarizes buyers, and the charging network relies on Electrify America rather than a proprietary network.",
+        list: [
+          "Range: 266 miles AWD / 310 miles RWD",
+          "Charging: 800V, 10–80% in 18 min at 350kW",
+          "Cargo: 27.2 cu ft behind rear seats",
+          "Starting price: ~$44,000 (SE RWD) to ~$54,000 (Limited AWD)",
+        ],
+      },
+      {
+        heading: "Best value under $40K: Chevy Equinox EV",
+        body: "The Chevrolet Equinox EV 1LT starts at $35,000 and delivers 319 miles EPA range in the LT trim — more range than any other EV at that price. It uses GM's Ultifi software platform and charges on DC fast at up to 150kW (slower than 800V competitors but fast enough for road trips). The interior is competent rather than premium. For buyers who want a practical, affordable electric SUV without the badge premium, the Equinox EV is the strongest value case in the segment.",
+        list: [
+          "Range: 319 miles (1LT), 280 miles (RS AWD)",
+          "Charging: up to 150kW DC fast",
+          "Starting price: ~$35,000",
+          "Best for: value buyers, first EV, urban commuters",
+        ],
+      },
+      {
+        heading: "Best for families: Kia EV9",
+        body: "The Kia EV9 is a three-row electric SUV — a category that barely existed two years ago. Starting at ~$55,000, it offers 280–304 miles range, seating for 6 or 7, and 800V fast charging. The second-row captain's chairs recline almost flat on longer trims. If you need three rows of actual adult seating in an EV and don't want to spend Rivian money, the EV9 is the only real option in 2026.",
+        list: [
+          "Seating: 6 or 7 passengers across three rows",
+          "Range: 280–304 miles depending on trim",
+          "Charging: 800V, similar charging curve to Ioniq 5",
+          "Starting price: ~$55,000 (Light Long Range)",
+        ],
+      },
+      {
+        heading: "Best premium: Rivian R1S and Tesla Model Y",
+        body: "The Rivian R1S (~$75,000+) is the best-built electric SUV sold today — exceptional off-road capability, 321 miles range, massive storage (front trunk + under-floor + rear), and a 70 kWh pack that can be upgraded. It's the choice for buyers who do serious off-road or towing. Tesla Model Y (~$44,000) remains the volume leader because of Supercharger network access, strong resale value, and the most mature EV software. It wins on total ownership confidence, not on any single spec.",
+      },
+    ],
+  },
+  {
+    slug: "best-electric-trucks-2026",
+    title: "Best electric trucks in 2026: F-150 Lightning, Rivian R1T, Silverado EV, and Cybertruck compared",
+    hook: "Electric trucks are real work trucks now. Here's who wins on range, payload, and towing.",
+    description: "The electric truck segment matured fast. This 2026 comparison covers the Ford F-150 Lightning, Rivian R1T, Chevy Silverado EV, Ram 1500 REV, and Tesla Cybertruck across range, payload, towing, and charging.",
+    readTime: "7 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "Electric trucks in 2026: the state of play",
+        body: "Two years ago, the F-150 Lightning was the only mass-market electric truck. In 2026, there are five serious options from five different manufacturers. The core tension in the segment: buyers who use trucks for work need real payload and towing numbers (not just EPA-estimate range at highway speed), while buyers who want a truck-shaped daily driver care more about charging infrastructure and software. These are different products despite sharing a body style.",
+      },
+      {
+        heading: "Ford F-150 Lightning: the safe choice",
+        body: "The F-150 Lightning Extended Range ($70,000–$97,000) delivers 320 miles range, 2,000 lb payload, and 10,000 lb towing. It's the most familiar truck platform — same bed, same cab, same basic layout as the gas F-150 — which matters for buyers transitioning from a fleet or long-time F-150 household. Ford's BlueOval Charge Network and access to third-party CCS chargers is functional. The Pro Power Onboard system (7.2 kW export) is the most useful job site power feature in any electric truck.",
+        list: [
+          "Range: 240 miles (standard) / 320 miles (extended range)",
+          "Payload: 2,000 lbs | Towing: up to 10,000 lbs",
+          "Pro Power Onboard: 7.2 kW — powers job site tools or home during outages",
+          "Starting price: ~$57,000 (Pro) to $97,000 (Platinum ER)",
+        ],
+      },
+      {
+        heading: "Rivian R1T: best-built, most capable off-road",
+        body: "The Rivian R1T Dual Motor Large (~$69,000) offers 410 miles range — more than any other electric truck — and exceptional off-road capability with air suspension, four independent motors in some configurations, and a thoughtful storage system (gear tunnel, front trunk, bed). Rivian operates its own Adventure Network of DC fast chargers, accessible only to Rivian owners, with reliability that rivals Tesla's Supercharger network. Build quality is the best in the electric truck segment. Downside: towing range drops dramatically — expect 150–180 miles towing at highway speed.",
+        list: [
+          "Range: 410 miles (Dual Motor Large) — best in class",
+          "Towing: 11,000 lbs | but range drops to ~150 miles towing at 65 mph",
+          "Adventure Network: proprietary DC fast chargers, high reliability",
+          "Starting price: ~$69,000",
+        ],
+      },
+      {
+        heading: "Chevy Silverado EV and Ram 1500 REV",
+        body: "The Silverado EV Work Truck starts at $40,000 (fleet-focused) with a consumer WT at ~$52,000 and RST at ~$72,000. The RST delivers 450 miles EPA range — the longest of any electric truck — and 10,500 lb towing. It charges on Ultium platform at up to 350kW. The Ram 1500 REV (available in 2025–2026) offers 350 miles range and 14,000 lb towing capacity — the highest towing spec of any electric truck. Both are newer to market than the Lightning and R1T so real-world reliability data is still accumulating.",
+        list: [
+          "Silverado EV RST: 450 miles range, 10,500 lb tow, up to 350kW charging",
+          "Ram REV: 350 miles, 14,000 lb towing (highest in segment)",
+          "Both newer to market — check owner community forums for reliability data",
+        ],
+      },
+      {
+        heading: "Tesla Cybertruck: for specific buyers only",
+        body: "The Cybertruck Foundation Series (~$80,000) delivers 340 miles range and 11,000 lb towing. Its polarizing exterior aside, the real differentiator is Supercharger network access and Tesla's software maturity. Air suspension, steer-by-wire, and 48V electrical architecture are genuinely innovative. The truck bed is short and the frunk is large — opposite of most pickup buyers' priorities. Buy a Cybertruck if you want Supercharger access in an electric truck and the look doesn't bother you. Skip it if you need a conventional bed layout or blend into a job site.",
+      },
+    ],
+  },
+  {
+    slug: "electric-car-pros-and-cons",
+    title: "Electric car pros and cons: an honest breakdown for 2026 buyers",
+    hook: "The honest list — including the cons that EV enthusiasts downplay.",
+    description: "A balanced look at the real advantages and real drawbacks of owning an electric car in 2026. Covers cost, charging, range, maintenance, and situations where EVs genuinely aren't the right choice.",
+    readTime: "6 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "The honest framing",
+        body: "Most pro-EV content is written by EV enthusiasts. Most anti-EV content is written by people who haven't owned one. This guide is written for the 80% of buyers in between: people who want a fair comparison before spending $40,000–$80,000. EVs are genuinely better than gas cars on some dimensions and genuinely worse on others. Knowing which dimension matters to your life is the decision.",
+      },
+      {
+        heading: "Real advantages of electric cars",
+        body: "Fuel cost savings are real and significant — the average EV owner saves $800–$1,500/year on fuel depending on electricity and gas rates in their state. Maintenance is cheaper because EVs have no oil changes, fewer brake jobs (regenerative braking reduces pad wear), no transmission service, and far fewer fluids. Driving feel is better: instant torque, quiet cabin, no vibration at idle. Home charging convenience is underrated — waking up to a 'full tank' every morning eliminates gas station stops entirely.",
+        list: [
+          "Fuel savings: $800–$1,500/yr average depending on state rates",
+          "Maintenance savings: ~$900/yr vs gas car per AAA data",
+          "No oil changes, fewer brake jobs, no transmission service",
+          "Home charging: full battery every morning, no gas station stops",
+          "Performance: instant torque from zero RPM — even economy EVs feel quick",
+          "Quieter ride: significantly less vibration and engine noise vs gas cars",
+        ],
+      },
+      {
+        heading: "Real disadvantages of electric cars",
+        body: "Charging away from home is slower and less convenient than gas refueling — even a 15-minute fast charge stop takes 3× longer than filling a tank. Upfront cost remains $3,000–$8,000 higher than comparable gas cars after the federal credit expired in late 2025. Range varies significantly in cold weather — expect 20–30% range reduction below freezing. Public charging reliability is inconsistent outside the Tesla Supercharger network. Long road trips require planning that gas car owners don't need to think about.",
+        list: [
+          "Charging time: 15–45 minutes for fast charge vs 5 minutes for gas",
+          "Higher upfront cost: $3,000–$8,000 more without federal credit",
+          "Cold weather range loss: 20–30% below freezing",
+          "Public charger reliability: variable; Supercharger best, others inconsistent",
+          "Road trip planning: required; gas car refueling is spontaneous",
+          "Apartment / street parking: difficult without dedicated charging access",
+        ],
+      },
+      {
+        heading: "When EVs clearly make sense",
+        body: "If you have home charging access, drive under 200 miles daily, and plan to keep the car 5+ years, an EV almost certainly saves you money over the ownership period even without the federal credit. High-mileage drivers ($15,000+/year) see payback in 3–4 years. States with cheap electricity (Washington, Oregon, Idaho, Utah) and high gas prices (California, Hawaii) accelerate the math further.",
+      },
+      {
+        heading: "When EVs genuinely aren't the right choice yet",
+        body: "If you rent without access to charging, frequently drive long rural routes with limited charging infrastructure, need a vehicle immediately (charging infrastructure in your area is sparse), or plan to sell within 2 years, an EV may not be the right financial decision right now. These aren't myths — they're real constraints. The honest answer is that EVs work exceptionally well for the majority of US drivers but aren't universally optimal yet.",
+        list: [
+          "No home charging access → depends entirely on public infrastructure",
+          "Rural routes with charging deserts → check PlugShare before deciding",
+          "Keeping car under 2 years → payback period may not close",
+          "Frequent very long road trips → adds meaningful time vs gas",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "do-evs-need-oil-changes",
+    title: "Do EVs need oil changes? EV maintenance explained",
+    hook: "No oil changes. Here's what you do need to maintain — and what you can stop budgeting for.",
+    description: "Electric vehicles don't need oil changes, but they do require maintenance. This guide covers exactly what EV maintenance looks like, what you save, and what gas-car costs disappear when you switch.",
+    readTime: "4 min read",
+    category: "Ownership",
+    sections: [
+      {
+        heading: "No, EVs don't need oil changes",
+        body: "Electric motors don't use engine oil. There is no combustion, no pistons, no crankshaft — nothing that requires lubrication via a circulating oil system. This is one of the cleanest financial wins of EV ownership: the average gas car owner spends $120–$200/year on oil changes, and many luxury and truck owners spend $300–$500. That line item disappears entirely when you switch to an EV.",
+      },
+      {
+        heading: "What you do need to maintain on an EV",
+        body: "EVs are simpler than gas cars mechanically, but not maintenance-free. Tire rotation every 5,000–7,500 miles is still required — EVs are typically heavier than gas cars and instant torque accelerates tire wear. Cabin air filter replacement (every 15,000–25,000 miles depending on make) keeps the HVAC system clean. The 12V auxiliary battery — separate from the main traction pack — typically needs replacement every 4–6 years, just like a conventional car battery. Brake fluid should be checked/replaced on schedule (typically every 2 years) even though regenerative braking significantly reduces brake pad wear.",
+        list: [
+          "Tire rotation: every 5,000–7,500 miles — same as gas cars",
+          "Cabin air filter: every 15,000–25,000 miles, ~$30–$50",
+          "12V aux battery: every 4–6 years, ~$150–$250",
+          "Brake fluid: check every 2 years, replace as needed",
+          "Wiper blades: same replacement schedule as gas cars",
+          "Thermal management coolant: every 5 years on some models (check owner's manual)",
+        ],
+      },
+      {
+        heading: "What you stop paying for entirely",
+        body: "Beyond oil changes, EVs eliminate several gas-car maintenance categories entirely. No spark plugs, no ignition system, no exhaust system, no catalytic converter, no timing belt or chain. Transmission fluid service — a $100–$250 job every 30,000–60,000 miles on gas cars — doesn't apply. Most EVs use a single-speed reduction gear requiring little or no maintenance. Brake pads last dramatically longer because regenerative braking handles 70–90% of deceleration in normal driving, reducing friction brake use proportionally.",
+        list: [
+          "Oil changes: gone",
+          "Spark plugs: gone",
+          "Exhaust / catalytic converter: gone",
+          "Timing belt/chain service: gone",
+          "Transmission fluid service: gone (most EVs)",
+          "Brake pads: last 2–3× longer due to regenerative braking",
+        ],
+      },
+      {
+        heading: "What EV maintenance actually costs per year",
+        body: "AAA data puts average annual EV maintenance at approximately $950, versus $1,850 for the average gas car — a $900/year savings. The number varies by model and mileage, but the structural advantage is real: fewer mechanical systems = fewer things to service or fail. High-mileage EV drivers save proportionally more because the per-mile savings compounds faster. A driver doing 20,000 miles/year saves roughly $1,800/year in maintenance and fuel combined vs a comparable gas vehicle in most states.",
+      },
+    ],
+  },
+  {
+    slug: "how-to-negotiate-ev-price",
+    title: "How to negotiate EV price: what works, what doesn't, and where dealers hide profit",
+    hook: "Dealers have adapted EV pricing tricks. Here's where the margin actually lives.",
+    description: "Negotiating an EV price is different from negotiating a gas car — most EV manufacturers have moved toward fixed or limited-discount pricing. This guide covers where profit still hides, what you can negotiate, and how to get a better deal.",
+    readTime: "6 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "Fixed price vs negotiable: know what you're walking into",
+        body: "Tesla and Rivian use fixed, non-negotiable pricing — the price on the website is the price. There is no back-and-forth. For these brands, negotiation doesn't apply to vehicle price; focus on financing terms, trade-in value, and add-on avoidance instead. Traditional OEM dealers (Ford, GM, Hyundai, Kia, BMW, VW) still use variable pricing where negotiation is possible and expected. Knowing which model you're buying determines which strategy applies.",
+      },
+      {
+        heading: "Where dealer profit hides on EVs",
+        body: "Even at 'market price' or 'no-ADM' dealers, profit lives in four places most buyers miss: documentation fees ($300–$800, legally capped in some states but often inflated), add-on packages installed before delivery (paint protection film, wheel locks, nitrogen, window tint — often $800–$2,500 in pure margin), extended warranties pushed hard in the finance office, and trade-in undervaluation. A dealer making $0 on vehicle price routinely makes $2,000–$4,000 on the backend. Knowing this lets you focus negotiation where margin actually lives.",
+        list: [
+          "Doc fee: $300–$800 — negotiable at many dealers, capped in some states",
+          "Pre-installed add-ons: $800–$2,500 — ask for itemized list before signing",
+          "Extended warranty: high-margin product; if you want it, shop third-party first",
+          "Trade-in: get 3 independent offers (CarMax, Carvana, KBB Instant Cash) before accepting dealer offer",
+        ],
+      },
+      {
+        heading: "What you can negotiate even at 'no-haggle' dealers",
+        body: "Even dealers who won't move on vehicle price will often negotiate documentation fees, waive pre-installed accessories you didn't ask for, match or beat competitor financing rates, and give you market rate on your trade-in if you come in with competitive offers in hand. The most effective tactic: get 3 trade-in offers from online buyers before visiting any dealer, and get pre-approved financing from your bank or credit union before going in. Walking in pre-approved and with trade-in numbers in hand shifts significant leverage to your side.",
+        list: [
+          "Get pre-approved financing before visiting — your credit union rate is your floor",
+          "Get 3 trade-in quotes (CarMax, Carvana, Vroom) — use the highest as your anchor",
+          "Ask for itemized breakdown of all fees before signing anything",
+          "Request removal of pre-installed add-ons you didn't order",
+          "Ask about any available loyalty, military, or conquest incentives from the manufacturer",
+        ],
+      },
+      {
+        heading: "Timing strategies that still work",
+        body: "End-of-month and end-of-quarter still matter for traditional dealers who have volume incentives from manufacturers. Sales staff and managers have quota pressure that creates real room to negotiate in the last 3–5 days of a month. Year-end (late December) is historically when dealers most aggressively discount slow-moving inventory — EVs with lower-than-expected demand accumulate on lots and dealers want them off. Identify which models have high days-in-inventory (CarGurus and Autotrader show this) — those dealers are motivated.",
+        list: [
+          "Last 3–5 days of the month: real quota pressure on sales staff",
+          "December: highest concentration of end-of-model-year deals",
+          "High days-in-inventory = motivated seller — filter for this on CarGurus",
+          "New model year arrival: previous year's inventory often discounted to clear",
+        ],
+      },
+      {
+        heading: "Financing: where the biggest money lives",
+        body: "On a $50,000 EV, the difference between 5.9% and 7.9% APR over 60 months is roughly $2,900 in total interest. Dealers make $500–$1,500 on every loan they place through their finance office (called 'dealer reserve'). The single best move: walk in pre-approved by your bank or credit union, and tell the finance manager you have your own financing but you'll listen to their offer. If they beat your rate, great. If not, use your own. Never reveal your target monthly payment — it shifts focus to payment instead of price.",
+      },
+    ],
+  },
+  {
+    slug: "best-ev-for-long-distance",
+    title: "Best EVs for long-distance driving in 2026: range, charging speed, and network coverage",
+    hook: "Long trips reward specific EVs — the 341-mile car with slow charging often loses to the 310-mile car with fast charging.",
+    description: "For long-distance driving, EPA range is only part of the equation. Charging speed, network coverage, and real-world highway range determine how an EV actually performs on multi-state road trips.",
+    readTime: "6 min read",
+    category: "Driving",
+    sections: [
+      {
+        heading: "Why EPA range isn't the right number for road trips",
+        body: "EPA range is tested at mixed speeds including city driving. At 75 mph highway speed, expect 20–30% less range than the EPA number. A car rated at 350 miles EPA delivers roughly 260–280 miles at 75 mph — the relevant number for road tripping. Additionally, fast-charging curves matter: some EVs charge quickly from 20–60% but slow dramatically above 60%. An EV that does 250kW peak but falls to 50kW above 70% SOC may lose to an EV that does 175kW consistently from 10–80%. Real-world road trip time is determined by miles-per-minute-of-charging, not peak speed or EPA range alone.",
+      },
+      {
+        heading: "Charging network coverage: the non-negotiable factor",
+        body: "Tesla owners have the easiest road trip experience in the US — the Supercharger network has 50,000+ stalls with consistently high reliability, pay-as-you-go billing, and automatic routing in the navigation. Non-Tesla EV owners now access Superchargers via NACS adapter, making this less of a competitive advantage than it was. Electrify America is the primary alternative — solid coverage on major interstates, but reliability historically lower than Superchargers. Plug Share's real-time reviews are the most useful tool for planning routes on any non-Tesla EV.",
+        list: [
+          "Tesla Supercharger: most reliable, best coverage, now accessible to NACS adapter EVs",
+          "Electrify America: solid interstate coverage, improving reliability",
+          "NACS adapter: now standard on most 2024+ non-Tesla EVs",
+          "PlugShare app: real-time user reviews — the most honest picture of charger reliability",
+        ],
+      },
+      {
+        heading: "Top picks for long-distance travel",
+        body: "The Mercedes EQS ($105,000) leads on pure range — 350 miles EPA, real-world highway range around 280 miles. For value, the Hyundai Ioniq 6 Long Range RWD (361 miles EPA, 800V charging, ~$42,000) is the best long-distance value: more EPA range than a Model 3, significantly faster charging at high-power stations, and lower price. The Tesla Model 3 Long Range AWD wins on Supercharger convenience — routing, billing, and reliability remain the smoothest experience even as the range gap has narrowed.",
+        list: [
+          "Best value road tripper: Hyundai Ioniq 6 LR RWD — 361mi EPA, 800V charging",
+          "Best network experience: Tesla Model 3 LR — Supercharger routing is seamless",
+          "Best long-distance luxury: Mercedes EQS — 350mi EPA, whisper quiet at speed",
+          "Best for truck road trips: Rivian R1T — 410mi EPA, Adventure Network proprietary chargers",
+        ],
+      },
+      {
+        heading: "Practical road trip strategy that works",
+        body: "Plan to charge to 80% at each stop, not 100% — charging slows significantly above 80% on most EVs, making the final 20% time-inefficient. Aim for 20–30 minute charging stops roughly every 2–2.5 hours of driving. Pre-condition the battery if your EV supports it before arriving at a fast charger — battery temperature significantly affects charging speed. Use your EV's built-in navigation when possible; it routes through chargers and pre-conditions the battery automatically on most models. Never arrive at a fast charger below 5–10% if you can help it — degraded SoC doesn't charge significantly faster.",
+        list: [
+          "Target 80% charge at each stop — above 80% is slow on most EVs",
+          "Charge every 2–2.5 hours — matches natural break rhythm",
+          "Pre-condition battery before arriving at DC fast charger",
+          "Use built-in navigation — auto routes through chargers, pre-conditions automatically",
+          "Carry NACS and CCS adapters — more flexibility = less anxiety",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "best-evs-under-50000",
+    title: "Best EVs under $50,000 in 2026: ranked by value, range, and total cost",
+    hook: "The $50K EV market is the most competitive it's ever been. Here's who wins.",
+    description: "A ranked guide to the best electric vehicles under $50,000 in 2026 — covering range, charging speed, cargo space, and total cost of ownership across the Chevy Equinox EV, Hyundai Ioniq 6, Tesla Model 3, VW ID.4, and more.",
+    readTime: "6 min read",
+    category: "Buying",
+    sections: [
+      {
+        heading: "The $50K EV market in 2026",
+        body: "Three years ago, $50,000 got you a short-range entry EV or a heavily optioned economy model. In 2026, $50,000 buys legitimately excellent electric vehicles — 260–360 miles of real-world range, fast-charging capability, and competitive software. The federal purchase credit expired in late 2025, which means these prices already reflect manufacturer adjustments. The competitive intensity in this price band is higher than any other segment of the EV market.",
+      },
+      {
+        heading: "Best under $40K: Chevy Equinox EV",
+        body: "The Equinox EV 1LT starts at $35,000 and delivers 319 miles EPA range — an unprecedented value proposition. The RS AWD (~$43,000) adds all-wheel drive and a sportier interior. GM's Ultifi software is competent and the charging capability (up to 150kW DC) handles road trips adequately. Interior materials are functional rather than premium. For buyers who want the most range-per-dollar in a practical SUV format, nothing competes with the Equinox EV below $45,000.",
+        list: [
+          "Equinox EV 1LT: $35,000, 319 miles — best value in segment",
+          "RS AWD: ~$43,000, 280 miles, better interior",
+          "DC fast charging: up to 150kW",
+          "Best for: budget-conscious buyers, first EV, daily commuters",
+        ],
+      },
+      {
+        heading: "Best under $45K: Hyundai Ioniq 6 Standard Range",
+        body: "The Ioniq 6 Standard Range RWD starts around $39,000 and delivers 240 miles EPA range. The Long Range RWD ($42,000) is the stronger purchase at 361 miles — and at that range, it competes directly with the Model 3 LR at lower cost. The 800V architecture means stops at 350kW chargers are genuinely fast (18 minutes to 80%). Hyundai's lease programs are among the best in the industry — the effective monthly cost when leased is often lower than the Model 3 despite similar or higher sticker prices.",
+        list: [
+          "Ioniq 6 LR RWD: ~$42,000, 361 miles — more range than Model 3 LR",
+          "800V charging: 18 min to 80% at 350kW station",
+          "Lease: historically strong residuals — compare lease vs purchase carefully",
+        ],
+      },
+      {
+        heading: "Best under $50K: Tesla Model 3 Rear-Wheel Drive",
+        body: "The Tesla Model 3 Standard RWD starts around $42,000 and delivers 272 miles EPA range. The Long Range AWD (~$50,000) hits the price cap exactly and delivers 341 miles. For buyers who prioritize Supercharger network access, software quality, and resale value confidence, the Model 3 at this price point is hard to beat. The 2024+ refresh improved the interior significantly — physical stalks and a rear screen for back-seat passengers were added.",
+        list: [
+          "Model 3 RWD: ~$42,000, 272 miles",
+          "Model 3 LR AWD: ~$50,000, 341 miles",
+          "Supercharger network: clearest advantage vs same-price competitors",
+          "Resale: historically strongest in segment",
+        ],
+      },
+      {
+        heading: "Honorable mentions: VW ID.4, Kia EV6",
+        body: "The VW ID.4 Pro ($45,000, 275 miles) is a comfortable family SUV that trades EV performance for a familiar, well-built interior that cross-shoppers from gas VWs find intuitive. The Kia EV6 Standard RWD (~$43,000, 310 miles) shares 800V architecture with the Ioniq 6 at a slightly lower price — sport-oriented buyers who find the Ioniq 6's exterior too subdued often prefer the EV6's more conventional styling. Both use CCS with Supercharger adapter access now standard.",
+        list: [
+          "VW ID.4 Pro: $45,000, 275 miles, familiar interior, family focus",
+          "Kia EV6 Standard RWD: ~$43,000, 310 miles, 800V charging, sportier feel",
+          "Both access Supercharger network via NACS adapter",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {
