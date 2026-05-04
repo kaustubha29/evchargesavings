@@ -89,10 +89,10 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
 
       {/* ── Vehicle selectors + location ── */}
       <div className="bg-paper border border-line rounded-3xl p-6 shadow-1">
-        <h3 className="font-serif text-xl font-medium tracking-tight mb-5">Pick your vehicles</h3>
+        <h3 className="font-serif text-xl font-medium tracking-tight mb-5">Compare EV vs your current car</h3>
         <div className="grid sm:grid-cols-2 gap-4 mb-5">
           <label className="space-y-1.5">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Your EV</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">EV you're considering</span>
             <select
               value={evSlug}
               onChange={(e) => setEvSlug(e.target.value)}

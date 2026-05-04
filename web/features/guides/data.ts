@@ -57,42 +57,44 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "ev-tax-credit-7500",
-    title: "How to claim the $7,500 EV tax credit",
-    description: "Avoid the eligibility traps and get the full $7,500 EV credit.",
-    readTime: "6 min read",
+    title: "The $7,500 EV tax credit is gone — what happened and what's left",
+    description: "The federal EV tax credit expired October 1, 2025. Here's what changed, what's still available, and how to adjust your EV buying math.",
+    hook: "Federal EV credit ended Oct 1, 2025. Here's what's still available.",
+    readTime: "5 min read",
     category: "Finance",
     sections: [
       {
-        heading: "What the credit actually is",
-        body: "The Clean Vehicle Credit (IRC §30D) is a federal income tax credit of up to $7,500 for new EVs and $4,000 for used EVs. It's a non-refundable credit — meaning it reduces your tax liability dollar-for-dollar but you can't receive more than what you owe. As of 2024, you can also transfer the credit to the dealer at point of sale, effectively making it a discount even if your tax liability is lower.",
+        heading: "The credit is gone",
+        body: "The One Big Beautiful Bill, signed in July 2025, eliminated the federal clean vehicle credit (IRC §30D) for all purchases made after September 30, 2025. Both the new EV credit (up to $7,500) and the used EV credit (up to $4,000) are gone. If you bought an EV before October 1, 2025, you can still claim the credit on your 2025 taxes.",
       },
       {
-        heading: "Income limits",
-        body: "Your modified adjusted gross income (MAGI) must be under the following limits. If you exceed these, you receive no credit — there's no phase-out.",
+        heading: "What it used to be worth",
+        body: "From 2023 through September 30, 2025, the credit was worth up to $7,500 for new EVs and $4,000 for used EVs. The $7,500 was split into two $3,750 components based on battery sourcing. Many popular EVs — Tesla Model Y, Chevy Equinox EV, Hyundai Ioniq 5 — qualified for the full amount. At point-of-sale (available since 2024), the credit appeared as an instant price reduction at the dealer.",
+      },
+      {
+        heading: "What's still available: home charger install credit",
+        body: "The Alternative Fuel Vehicle Refueling Property Credit (IRC §30C) — which covers home EV charger installation — is still alive until June 30, 2026. It covers 30% of installation costs up to $1,000. If you're installing a Level 2 charger at home, this credit is claimable on your 2026 taxes for work done before the deadline. A typical $1,500 install = $450 back.",
         list: [
-          "Single filer: $150,000",
-          "Head of household: $225,000",
-          "Married filing jointly: $300,000",
-          "Tip: use whichever year is lower — the year of purchase or the prior year",
+          "Credit: 30% of charger + installation cost, max $1,000",
+          "Deadline: property must be placed in service by June 30, 2026",
+          "Applies to: home charger hardware + licensed electrical installation",
+          "Form: IRS Form 8911",
         ],
       },
       {
-        heading: "Vehicle eligibility",
-        body: "Not every EV qualifies. Two tests must pass simultaneously.",
+        heading: "State incentives are still out there",
+        body: "Federal credits are gone but state programs remain — and some are generous. Colorado offers up to $5,000 in state EV tax credits. California's CVRP (up to $7,500 for income-qualified buyers) continues. New York, Massachusetts, and Oregon all have rebates. Check your state's energy office or use the DSIRE database (dsireusa.org) to find what's available where you live.",
         list: [
-          "MSRP cap: $55,000 for sedans/hatchbacks, $80,000 for SUVs, trucks, and vans",
-          "Assembly: final assembly must be in North America (US, Canada, Mexico)",
-          "Battery sourcing: increasing % of battery minerals and components must be sourced from North America or US allies — this is why some models only get $3,750",
-          "Check eligibility at fueleconomy.gov before you shop",
+          "Colorado: up to $5,000 state tax credit for new EVs",
+          "California CVRP: up to $7,500 for income-qualified buyers",
+          "New York: Drive Clean Rebate up to $2,000",
+          "Massachusetts: up to $3,500 for eligible buyers",
+          "Oregon: up to $7,500 for low-income buyers",
         ],
       },
       {
-        heading: "The point-of-sale option (since Jan 2024)",
-        body: "This changed everything. You can now transfer the tax credit to your dealer, who applies it as a direct price reduction at signing. You don't need to wait until tax time. The dealer files for reimbursement from the IRS. You still need to meet the income limits, and the dealer needs to register with the IRS's Energy Credits Online portal — confirm this before signing.",
-      },
-      {
-        heading: "Used EV credit",
-        body: "Qualified used EVs purchased from a dealer get a credit of 30% of the sale price, up to $4,000. Income limits are lower: $75k single, $112.5k head of household, $150k joint. The vehicle must be at least 2 years old, under $25,000, and this must be the first time it's claimed on that specific VIN.",
+        heading: "Does an EV still make financial sense?",
+        body: "Yes — the math changes, not breaks. Fuel savings of $800–$1,500/year still apply. Maintenance savings (~$900/year per AAA data) still apply. Break-even now takes 1–3 years longer without the federal credit, but long-term ownership still wins in most states. High-mileage drivers and states with cheap electricity (Washington, Oregon, Idaho) see the strongest case. Use the calculator on this page with your specific state and vehicle.",
       },
     ],
   },
@@ -3096,6 +3098,228 @@ export const GUIDES: Guide[] = [
       {
         heading: "What real owners say",
         body: "The consensus from 5+ years of EV ownership data: 90% of driving is predictable and local, starting from a full battery. Range only becomes an issue on unplanned long drives or in locations with poor charging infrastructure. For typical drivers in typical regions, this almost never happens.",
+      },
+    ],
+  },
+
+  // ── OBBB / 2025 policy guides ────────────────────────────────────────
+  {
+    slug: "ev-charger-tax-credit-2026",
+    title: "Home EV charger tax credit ends June 30, 2026 — claim it now",
+    description: "The 30% home EV charger installation tax credit (up to $1,000) expires June 30, 2026. Here's exactly how to claim it before the deadline.",
+    hook: "Charger install credit still alive — but only until June 30, 2026.",
+    readTime: "5 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "This credit is still alive — for now",
+        body: "While the new and used EV purchase credits ended October 1, 2025, the Alternative Fuel Vehicle Refueling Property Credit (IRC §30C) for home charger installation is still available. It covers 30% of the cost of installing a Level 2 EV charger at your home, up to a $1,000 credit. The deadline: the charger must be placed in service by June 30, 2026. After that, the One Big Beautiful Bill terminates this credit too.",
+      },
+      {
+        heading: "What it covers",
+        body: "The credit applies to both the hardware cost and the licensed electrical installation labor. A typical Level 2 install — charger hardware ($200–$700) plus electrician ($600–$1,200) — runs $800–$1,900 total. At 30%, that's $240–$570 back. The cap is $1,000, so if your total project costs $3,333 or more, you get the full $1,000.",
+        list: [
+          "Charger hardware: covered (Level 2 EVSE, any brand)",
+          "Electrical installation: covered (panel work, conduit, wiring)",
+          "Permits: covered",
+          "Maximum credit: $1,000 (30% of total cost)",
+          "Form: IRS Form 8911 filed with your 2026 taxes",
+        ],
+      },
+      {
+        heading: "Who qualifies",
+        body: "There are no income limits for this credit — unlike the vehicle credit, anyone can claim it regardless of income. The property must be at your primary or secondary residence in the US. The charger must be new (not a used unit). You must own, not rent, the property — renters generally cannot claim it unless they own the vehicle and the landlord grants permission to install.",
+      },
+      {
+        heading: "How to claim it",
+        body: "Keep all receipts — charger purchase receipt, electrician invoice, permit fee. File IRS Form 8911 with your 2026 federal tax return. Your tax software (TurboTax, H&R Block, FreeTaxUSA) will walk you through it — it's a straightforward form. The credit reduces your tax bill dollar-for-dollar. If your tax liability is lower than the credit, the remainder is not refundable — it does not carry forward after 2026.",
+      },
+      {
+        heading: "Don't wait — here's why",
+        body: "The June 30, 2026 deadline means work must be complete and the charger operational by that date. Scheduling an electrician in spring 2026 will get harder as the deadline approaches. If your home needs a panel upgrade first, lead times for electrical work can be 3–8 weeks. Start the process now: get 3 quotes, pull permits, install by May 2026 to be safe.",
+        list: [
+          "Best-value chargers: Grizzl-E Classic ($229), Autel MaxiCharger ($269)",
+          "Get quotes from 3 licensed electricians — prices vary 40%",
+          "Simple installs (panel nearby): done in one day",
+          "Panel upgrades: plan 4–6 weeks from quote to inspection",
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "state-ev-incentives-2026",
+    title: "Best state EV incentives in 2026 — federal credits are gone, these aren't",
+    description: "The federal EV tax credit ended in 2025. These state programs still offer thousands in rebates and credits for EV buyers.",
+    hook: "Federal credit gone. These state programs still pay you to go electric.",
+    readTime: "6 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "Federal is gone, state is not",
+        body: "The One Big Beautiful Bill ended the $7,500 federal EV credit on October 1, 2025. But state incentive programs are independent of federal law — they're funded by state budgets, utility programs, and air quality mandates. Most remain active. Some states have actually increased incentives to offset the federal loss.",
+      },
+      {
+        heading: "Top state programs in 2026",
+        body: "Incentive amounts and eligibility rules change — always verify at your state's energy office or the DSIRE database (dsireusa.org) before purchasing.",
+        list: [
+          "Colorado: up to $5,000 state tax credit for new EV under $80k MSRP",
+          "California CVRP: up to $7,500 rebate for income-qualified buyers; $2,000 base for all",
+          "New York Drive Clean Rebate: up to $2,000 at point of sale",
+          "Massachusetts MOR-EV: up to $3,500 for vehicles under $55k",
+          "Oregon: up to $2,500 rebate; up to $7,500 additional for low-income (DEQ)",
+          "Washington: sales tax exemption (saves $3,000–$8,000 depending on vehicle price)",
+          "Connecticut: up to $9,500 for income-qualified buyers",
+          "Maryland: up to $3,000 tax credit",
+          "New Jersey: sales tax exemption (saves $1,500–$4,500)",
+          "Illinois: $4,000 rebate for low-income buyers",
+        ],
+      },
+      {
+        heading: "Utility rebates — often overlooked",
+        body: "Many electric utilities offer rebates for EV purchases and home charger installation, separate from state programs. These stack with state incentives. Examples: Southern California Edison ($750 for new EV, $500 for charger), Pacific Gas & Electric ($800 EV rebate), Xcel Energy ($500 EV + $500 charger in Colorado). Check your utility's website under 'EV programs' or 'rebates'.",
+      },
+      {
+        heading: "How to stack incentives",
+        body: "State and utility incentives can be stacked. A Colorado buyer purchasing a Chevy Equinox EV could get: $5,000 Colorado tax credit + $500 Xcel rebate + $1,000 federal charger install credit = $6,500 in real savings. With no federal vehicle credit, stacking state and utility programs is now the only way to get significant upfront savings.",
+        list: [
+          "Step 1: Check DSIRE (dsireusa.org) for your state's programs",
+          "Step 2: Check your utility's EV rebate page",
+          "Step 3: Ask the dealer — some manufacturers also offer conquest/loyalty discounts",
+          "Step 4: File state forms at tax time (most are tax credits, not point-of-sale)",
+        ],
+      },
+      {
+        heading: "What to watch for in 2026",
+        body: "Some states are expanding EV programs to compensate for the federal loss. California's budget includes additional CVRP funding. Michigan introduced a new $2,000 EV credit in 2026. Policies move faster than any static list can track — bookmark dsireusa.org and set a reminder to check 30 days before you plan to purchase.",
+      },
+    ],
+  },
+
+  {
+    slug: "ev-worth-buying-2026",
+    title: "Is buying an EV still worth it in 2026 without the federal tax credit?",
+    description: "The $7,500 federal EV credit is gone. We ran the numbers — here's when an EV still makes financial sense and when it doesn't.",
+    hook: "No more $7,500 credit. Does the math still work?",
+    readTime: "6 min read",
+    category: "Finance",
+    sections: [
+      {
+        heading: "The honest answer: yes, for most buyers",
+        body: "Losing the $7,500 federal credit hurts, but it doesn't break the math. The credit was a one-time upfront benefit. Fuel savings and lower maintenance costs are annual — they compound over your ownership period. Without the credit, break-even takes 1–3 years longer. But over a 7–10 year ownership cycle, most EV buyers still come out ahead.",
+      },
+      {
+        heading: "The new break-even math",
+        body: "Take a Tesla Model Y RWD ($43,990) vs a Toyota RAV4 ($32,000). Annual fuel savings at national average rates: ~$1,100. Annual maintenance savings (no oil changes, less brake wear): ~$900. Total annual savings: ~$2,000. Price premium: $11,990. Break-even without credit: 6 years. With the old $7,500 credit it was 2.25 years. The math changed — but 6 years is still reasonable for a car you'll own 10 years.",
+      },
+      {
+        heading: "When the math is strongest",
+        body: "Some buyers see faster break-even even without the federal credit.",
+        list: [
+          "High mileage drivers (20,000+ miles/year): fuel savings double, break-even cuts in half",
+          "States with cheap electricity (WA, OR, ID): charging costs $400–$600/year vs $1,500+ for gas",
+          "States with active rebates (CO, CA, NY, MA): $2,000–$5,000 in state credits reduce the gap",
+          "Buyers replacing a truck or large SUV: gas savings vs an F-150 or Tahoe are massive ($2,000–$3,000/year)",
+          "Buyers with home solar: effective charging cost near $0",
+        ],
+      },
+      {
+        heading: "When the math is weakest",
+        body: "The credit loss hurts most in these situations.",
+        list: [
+          "Low mileage drivers (under 8,000 miles/year): fuel savings too small to recover premium",
+          "Short ownership horizon (under 5 years): not enough time to recoup upfront cost",
+          "Expensive electricity states (HI, CT, MA, RI): charging costs close the gap with gas",
+          "Buyers comparing against a used gas vehicle under $20k: hard to justify even before credit loss",
+        ],
+      },
+      {
+        heading: "The non-financial case",
+        body: "Cost isn't the only input. EVs eliminate gas station stops, have lower maintenance complexity, and driving experience is consistently rated higher (quieter, instant torque, over-the-air updates). Many EV owners say they wouldn't go back regardless of cost. If you drive an EV for a week as a loaner or rental, the practical value becomes clearer than any spreadsheet.",
+      },
+      {
+        heading: "Bottom line",
+        body: "Run your own numbers with the calculator on this page using your state's electricity rate and your actual annual mileage. The national averages obscure a lot. A high-mileage driver in Colorado with a $5,000 state credit and cheap electricity might see a 3-year break-even. A low-mileage driver in Hawaii with expensive electricity and no state credit might never break even. The math is personal — but for the median American driver, it still works.",
+      },
+    ],
+  },
+
+  {
+    slug: "one-big-beautiful-bill-ev",
+    title: "What the One Big Beautiful Bill means for EV owners and buyers",
+    description: "The 2025 reconciliation bill ended most federal EV incentives. Here's a plain-English summary of every EV-related provision and what it means for you.",
+    hook: "Every EV-related change from the 2025 One Big Beautiful Bill, explained.",
+    readTime: "5 min read",
+    category: "Policy",
+    sections: [
+      {
+        heading: "What is the One Big Beautiful Bill?",
+        body: "The One Big Beautiful Bill Act is a federal budget reconciliation bill signed into law in July 2025. It cut taxes in some areas while eliminating many clean energy and EV incentives that were created by the Inflation Reduction Act (IRA) in 2022. For EV buyers, it's the most significant federal policy change since the IRA itself.",
+      },
+      {
+        heading: "New EV purchase credit: eliminated",
+        body: "The Clean Vehicle Credit (IRC §30D) — up to $7,500 for new EVs — is gone for vehicles purchased after September 30, 2025. If you bought an EV before that date, you can still claim the credit on your 2025 return. If you had a binding written purchase agreement before the deadline, you may still qualify — consult a tax professional.",
+      },
+      {
+        heading: "Used EV credit: eliminated",
+        body: "The Previously Owned Clean Vehicles Credit (IRC §25E) — up to $4,000 for qualifying used EVs — also ended September 30, 2025. The same cutoff and the same rule: pre-deadline purchases can still be claimed.",
+      },
+      {
+        heading: "Home EV charger credit: still alive until June 30, 2026",
+        body: "The Alternative Fuel Vehicle Refueling Property Credit (IRC §30C) survived — for now. The 30% credit (up to $1,000) for home EV charger installation remains claimable for work done before June 30, 2026. After that date, it's gone. If you haven't installed a Level 2 home charger yet, this is the last window to get federal help paying for it.",
+      },
+      {
+        heading: "Home solar and energy efficiency credits: eliminated",
+        body: "The Residential Clean Energy Credit (solar panels, solar water heaters, battery storage, geothermal heat pumps) ends for property placed in service after December 31, 2025. The Energy Efficient Home Improvement Credit (insulation, windows, heat pumps, heat pump water heaters) also ends December 31, 2025. If you were planning solar or efficiency upgrades, the deadline has effectively passed.",
+      },
+      {
+        heading: "What this means for your EV decision",
+        body: "The federal financial case for EVs is weaker than it was 12 months ago — but state incentives, fuel savings, and lower maintenance costs remain. The home charger install credit running through June 2026 is the last active federal incentive for EV infrastructure. State programs (Colorado, California, New York, Massachusetts, and others) continue independently. Use the calculator on this site to model your specific state and vehicle — the numbers vary widely.",
+      },
+    ],
+  },
+
+  {
+    slug: "ev-charger-installation-cost-2026",
+    title: "Home EV charger installation cost in 2026 — what to expect",
+    description: "Real cost ranges for Level 2 EV charger installation by project complexity, plus how to use the remaining tax credit before it expires June 30, 2026.",
+    hook: "Level 2 install costs $500–$2,500 depending on your home. Here's the breakdown.",
+    readTime: "6 min read",
+    category: "Installation",
+    sections: [
+      {
+        heading: "The short answer",
+        body: "Installing a Level 2 home EV charger typically costs $500–$1,500 for a straightforward project and $1,500–$3,000+ for complex installs requiring panel upgrades or long conduit runs. The federal charger install tax credit (30%, up to $1,000) is still available for work completed before June 30, 2026 — meaning effective out-of-pocket on a typical install is $500–$1,100 after the credit.",
+      },
+      {
+        heading: "What drives the price",
+        body: "Three factors determine cost: distance from panel to charger location, whether your panel has capacity for a new 240V circuit, and local labor rates (which vary 40–60% by region).",
+        list: [
+          "Simple install — panel nearby, 50A slot available: $500–$900 total",
+          "Typical install — 20–60ft run, new circuit: $900–$1,500 total",
+          "Complex install — long run, conduit through walls/garage: $1,200–$2,000 total",
+          "Panel upgrade required (100A → 200A): add $1,500–$3,000 to any of the above",
+        ],
+      },
+      {
+        heading: "The hardware cost",
+        body: "Level 2 charger hardware ranges from $150 to $750 depending on features. You don't need a smart charger to charge your car — but scheduling features let you charge during off-peak hours (often 50–70% cheaper electricity). Recommended picks at different price points.",
+        list: [
+          "$150–$250: AIMILER, Lectron — basic portable units, no frills",
+          "$230–$280: Grizzl-E Classic — 40A, outdoor-rated, highly reliable, no app needed",
+          "$270–$350: Autel MaxiCharger — 50A, Bluetooth app, J1772 universal",
+          "$350–$400: JuiceBox 40 — Wi-Fi, TOU scheduling, utility rebate eligible",
+          "$595: Tesla Wall Connector — best for Tesla/NACS vehicles, 48A",
+          "$699: ChargePoint Home Flex — 16–50A adjustable, 70k+ public network access",
+        ],
+      },
+      {
+        heading: "Getting quotes",
+        body: "Get 3 quotes minimum — prices for identical work vary 30–50% by contractor. Ask each electrician if they've installed EV chargers before (some haven't and underbid). Confirm they will pull a permit — unpermitted electrical work can void your homeowner's insurance and cause problems at resale. Most installs take 2–4 hours once scheduled.",
+      },
+      {
+        heading: "The tax credit window is closing",
+        body: "The IRC §30C credit — 30% of total project cost, max $1,000 — applies to work completed before June 30, 2026. That means charger hardware + installation labor. On a $1,200 project, you get $360 back. On a $2,000 project, you get $600. On a $3,333+ project, you hit the $1,000 cap. File IRS Form 8911 with your 2026 taxes. Spring 2026 electrician schedules will fill up — don't wait until May.",
       },
     ],
   },

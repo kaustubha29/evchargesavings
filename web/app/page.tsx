@@ -101,11 +101,18 @@ export default function HomePage() {
         <section className="bg-paper border-b border-line py-14 md:py-20">
           <div className="section-wrap grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
             <div>
+              <a
+                href="/guides/ev-tax-credit-7500"
+                className="inline-flex items-center gap-2 bg-rust/10 text-rust border border-rust/20 font-mono text-[11px] px-3.5 py-1.5 rounded-full mb-5 hover:bg-rust/15 transition-colors"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-rust flex-shrink-0" />
+                Federal $7,500 EV credit expired Oct 1, 2025 — what's still available →
+              </a>
               <h1 className="font-serif text-5xl font-medium tracking-tight text-ink mb-4">
-                Going electric <em className="text-forest">saves you thousands.</em>
+                How much would an EV <em className="text-forest">save you?</em>
               </h1>
-              <p className="text-ink-3 text-lg">
-                Compare real EV costs using live data.
+              <p className="text-ink-3 text-lg leading-relaxed">
+                Pick any EV and your current car — we'll calculate exact fuel savings using live electricity and gas prices for your state.
               </p>
             </div>
 

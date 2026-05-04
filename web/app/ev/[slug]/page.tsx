@@ -57,7 +57,7 @@ export default async function EVDetailPage({ params }: Props) {
   });
   const exCo2 = calculateCO2(DEFAULT_MILES, rav4.mpg, exSavings.annualKwh);
   const RAV4_MSRP = 32000;
-  const breakEven = calculateBreakEven(ev.msrp, RAV4_MSRP, exSavings.annualSavings, ev.federalTaxCredit);
+  const breakEven = calculateBreakEven(ev.msrp, RAV4_MSRP, exSavings.annualSavings, 0);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -111,7 +111,7 @@ export default async function EVDetailPage({ params }: Props) {
                 { label: "Battery",         val: `${ev.battery} kWh` },
                 { label: "Connector",       val: ev.connector },
                 { label: "Starting MSRP",   val: fmt.money0(ev.msrp) },
-                { label: "Federal credit",  val: ev.federalTaxCredit > 0 ? fmt.money0(ev.federalTaxCredit) : "None" },
+                { label: "Federal credit",  val: ev.federalTaxCredit > 0 ? `Expired (was ${fmt.money0(ev.federalTaxCredit)})` : "Expired Oct 2025" },
               ].map((s) => (
                 <div key={s.label} className="bg-paper border border-line rounded-xl px-4 py-3 text-sm">
                   <div className="font-serif text-lg font-medium text-forest">{s.val}</div>

@@ -104,7 +104,7 @@ export default async function ComparePage({ params }: Props) {
   });
   const co2 = calculateCO2(DEFAULT_MILES, gas.mpg, savings.annualKwh);
   const gasMsrp = GAS_VEHICLE_MSRPS[gas.id] ?? 30000;
-  const breakEven = calculateBreakEven(ev.msrp, gasMsrp, savings.annualSavings, ev.federalTaxCredit);
+  const breakEven = calculateBreakEven(ev.msrp, gasMsrp, savings.annualSavings, 0);
 
   const { title, description } = comparePageMeta(ev.fullName, gas.name);
   const jsonLd = {
@@ -185,12 +185,10 @@ export default async function ComparePage({ params }: Props) {
                     <span className="text-ink-mute">Starting MSRP</span>
                     <b className="font-mono">{fmt.money0(ev.msrp)}</b>
                   </div>
-                  {ev.federalTaxCredit > 0 && (
-                    <div className="flex justify-between text-good-fg">
-                      <span>Federal tax credit</span>
-                      <b className="font-mono">−{fmt.money0(ev.federalTaxCredit)}</b>
-                    </div>
-                  )}
+                  <div className="flex justify-between text-ink-mute/60">
+                    <span>Federal tax credit</span>
+                    <b className="font-mono text-rust text-xs">Expired Oct 2025{ev.federalTaxCredit > 0 ? ` (was −${fmt.money0(ev.federalTaxCredit)})` : ""}</b>
+                  </div>
                 </div>
               </div>
 
