@@ -1,9 +1,11 @@
+export type IntentKind = "charger" | "ev" | "insurance";
+
 export interface LeadPayload {
   name: string;
   email: string;
   phone: string;
   zip: string | null;
-  intent: string[];
+  intent: IntentKind[];
   stateName?: string | null;
 }
 
@@ -16,7 +18,7 @@ export interface NetworkResult {
 
 interface NetworkConfig {
   id: string;
-  intent: "charger" | "ev" | "insurance";
+  intent: IntentKind;
   envKey: string;
   envEndpoint: string;
   buildBody: (lead: LeadPayload) => Record<string, unknown>;
@@ -151,7 +153,7 @@ async function postToNetwork(
 
 // Returns the network IDs that would be contacted for a given set of intents.
 // Used by route.ts to build the owner notification email before results are available.
-export function getNetworkNamesForIntent(intents: string[]): string[] {
+export function getNetworkNamesForIntent(intents: IntentKind[]): string[] {
   return NETWORK_CONFIGS
     .filter((cfg) => intents.includes(cfg.intent))
     .map((cfg) => cfg.id);

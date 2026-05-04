@@ -1,12 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { submitLeadToNetworks, getNetworkNamesForIntent } from "./lead-networks";
+import { submitLeadToNetworks, getNetworkNamesForIntent, type IntentKind } from "./lead-networks";
 
 const LEAD = {
   name: "Jane Smith",
   email: "jane@test.com",
   phone: "5551234567",
   zip: "90210",
-  intent: ["charger", "ev", "insurance"],
+  intent: ["charger", "ev", "insurance"] as IntentKind[],
   stateName: "California",
 };
 
@@ -122,6 +122,6 @@ describe("getNetworkNamesForIntent", () => {
   });
 
   it("returns empty array for unknown intent", () => {
-    expect(getNetworkNamesForIntent(["unknown"])).toEqual([]);
+    expect(getNetworkNamesForIntent(["unknown"] as unknown as IntentKind[])).toEqual([]);
   });
 });
