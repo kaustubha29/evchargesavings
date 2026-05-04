@@ -16,7 +16,7 @@ export interface NetworkResult {
 
 interface NetworkConfig {
   id: string;
-  intent: string;
+  intent: "charger" | "ev" | "insurance";
   envKey: string;
   envEndpoint: string;
   buildBody: (lead: LeadPayload) => Record<string, unknown>;
