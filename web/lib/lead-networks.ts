@@ -30,6 +30,8 @@ async function postToNetwork(
       body: JSON.stringify(body),
       signal: AbortSignal.timeout(5000),
     });
+    // Assumes HTTP 200 = accepted. Networks that return 200 with an error body
+    // will be logged as accepted — update once per-network response shapes are known.
     if (!res.ok) {
       const text = await res.text().catch(() => "");
       return { network, accepted: false, error: `HTTP ${res.status}: ${text}` };
@@ -38,7 +40,9 @@ async function postToNetwork(
     return {
       network,
       accepted: true,
-      leadId: data.lead_id ?? data.id ?? data.leadId ?? undefined,
+      ...(data.lead_id ?? data.id ?? data.leadId
+        ? { leadId: data.lead_id ?? data.id ?? data.leadId }
+        : {}),
     };
   } catch (err) {
     return { network, accepted: false, error: String(err) };
