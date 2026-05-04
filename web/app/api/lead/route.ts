@@ -12,13 +12,19 @@ function formatPhone(digits: string): string {
   return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
 }
 
+function escHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;");
+}
+
 export async function POST(req: NextRequest) {
   const supabaseUrl = process.env.SUPABASE_URL;
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const resendKey   = process.env.RESEND_API_KEY;
-
-  console.log("[lead] SUPABASE_URL prefix:", supabaseUrl?.slice(0, 35));
-  console.log("[lead] KEY prefix:", supabaseKey?.slice(0, 10));
 
   if (!supabaseUrl || !supabaseKey) {
     console.error("[lead] Missing Supabase env vars");
@@ -34,7 +40,7 @@ export async function POST(req: NextRequest) {
     sourcePage = (body.sourcePage ?? "/").trim();
     name       = (body.name       ?? "").trim();
     phone      = (body.phone      ?? "").replace(/\D/g, "");
-    intent     = Array.isArray(body.intent) ? body.intent : [];
+    intent     = Array.isArray(body.intent) ? body.intent.slice(0, 10) : [];
   } catch {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
@@ -56,7 +62,7 @@ export async function POST(req: NextRequest) {
   }
 
   const stateCode = zip ? stateFromZip(zip) : null;
-  const stateName = stateCode ? getStateData(stateCode).name : null;
+  const stateName = stateCode ? (getStateData(stateCode)?.name ?? null) : null;
 
   let cityName: string | null = null;
   if (zip) {
@@ -126,15 +132,15 @@ export async function POST(req: NextRequest) {
         to: email,
         subject: "Your personalized EV cost & charger options are on the way",
         html: `
-          <p>Hi ${name},</p>
-          <p>Thanks for checking out EV ownership costs${locationStr ? ` in <b>${locationStr}</b>` : ""} — we're putting together your personalized breakdown now.</p>
+          <p>Hi ${escHtml(name)},</p>
+          <p>Thanks for checking out EV ownership costs${locationStr ? ` in <b>${escHtml(locationStr)}</b>` : ""} — we're putting together your personalized breakdown now.</p>
           <p><b>Within the next 24 hours, you'll receive:</b></p>
           <ul>
             <li>⚡ Estimated <b>EV pricing</b> based on your area</li>
             <li>🔌 <b>Level 2 home charger installation costs</b></li>
             <li>💸 Available <b>local incentives and rebates</b></li>
           </ul>
-          <p>We'll match you with up to <b>3 vetted local professionals</b>${locationStr ? ` in <b>${locationStr}</b>` : ""} so you can compare quotes — no pressure, no obligation.</p>
+          <p>We'll match you with up to <b>3 vetted local professionals</b>${locationStr ? ` in <b>${escHtml(locationStr)}</b>` : ""} so you can compare quotes — no pressure, no obligation.</p>
           <p>— EV Charge Savings</p>
           <p style="font-size:11px;color:#999">
             Submitted at evchargesavings.com. We never sell your email. You may be contacted by up to 3 vetted local providers.
@@ -147,14 +153,14 @@ export async function POST(req: NextRequest) {
         subject: `New lead${stateName ? ` · ${stateName}` : ""}${zip ? ` · ${zip}` : ""}`,
         html: `
           <b>New lead</b><br/>
-          Name: ${name}<br/>
-          Email: ${email}<br/>
+          Name: ${escHtml(name)}<br/>
+          Email: ${escHtml(email)}<br/>
           Phone: ${formatPhone(phone)}<br/>
-          ZIP: ${zip || "—"}<br/>
-          Location: ${locationStr || "—"}<br/>
-          Intent: ${intentLabel}<br/>
-          Source: ${sourcePage}<br/>
-          Networks submitted: ${networksSubmitted}
+          ZIP: ${escHtml(zip || "—")}<br/>
+          Location: ${escHtml(locationStr || "—")}<br/>
+          Intent: ${escHtml(intentLabel)}<br/>
+          Source: ${escHtml(sourcePage)}<br/>
+          Networks submitted: ${escHtml(networksSubmitted)}
         `,
       }),
     ]).then((results) => {
