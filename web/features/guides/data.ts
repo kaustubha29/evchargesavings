@@ -3325,9 +3325,9 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "how-to-shop-ev-insurance",
-    title: "How to shop for EV insurance (and actually save money)",
-    hook: "Most EV owners overpay for insurance because they skip one step: getting a baseline quote before switching.",
-    description: "A step-by-step comparison guide covering what to tell insurers, which carriers price EVs fairly, and what coverage EV owners actually need.",
+    title: "How to compare EV insurance quotes: a step-by-step shopping checklist",
+    hook: "Get a baseline quote first, then work through this checklist — it's the only way to know if a new quote is actually better.",
+    description: "The step-by-step shopping workflow: get a baseline, know what inputs move the rate, pick the right carriers to quote, and compare offers with a side-by-side checklist.",
     readTime: "6 min read",
     category: "Ownership",
     sections: [
