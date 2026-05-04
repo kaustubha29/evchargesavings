@@ -3414,7 +3414,7 @@ export const GUIDES: Guide[] = [
         body: "Reality: the logic that works for gas cars — drop to liability-only once the car is worth less than ~10× your annual premium — breaks for EVs. A 5-year-old EV with 60,000 miles might be valued at $18,000, but its battery pack could cost $12,000–$18,000 to replace. If you're in an at-fault collision that totals the car, liability-only leaves you paying out of pocket for a battery that costs nearly as much as the car. Run the numbers on battery replacement cost specifically, not just vehicle market value.",
         list: [
           "Model Y battery replacement: ~$13,000–$16,000",
-          "Chevy Bolt battery replacement: ~$16,000 (pre-2023 recall models)",
+          "Chevy Bolt EV battery replacement: ~$16,000 (2017–2022 recall-affected models)",
           "Nissan Leaf battery replacement: ~$8,500–$10,000",
           "Rule: if battery replacement cost > $8,000, keep comprehensive + collision",
         ],
