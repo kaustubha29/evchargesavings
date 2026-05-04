@@ -8,17 +8,117 @@ export interface LeadPayload {
 }
 
 export interface NetworkResult {
-  network: "modernize" | "autoweb" | "everquote";
+  network: string;
   accepted: boolean;
   leadId?: string;
   error?: string;
 }
 
+interface NetworkConfig {
+  id: string;
+  intent: string;
+  envKey: string;
+  envEndpoint: string;
+  buildBody: (lead: LeadPayload) => Record<string, unknown>;
+}
+
+const NETWORK_CONFIGS: NetworkConfig[] = [
+  // ── charger ──────────────────────────────────────────────────────────────
+  {
+    id: "modernize",
+    intent: "charger",
+    envKey: "MODERNIZE_API_KEY",
+    envEndpoint: "MODERNIZE_ENDPOINT",
+    buildBody: (lead) => ({
+      name: lead.name, email: lead.email, phone: lead.phone, zip: lead.zip,
+      service_type: "ev_charger_installation",
+    }),
+  },
+  {
+    id: "homeadvisor",
+    intent: "charger",
+    envKey: "HOMEADVISOR_API_KEY",
+    envEndpoint: "HOMEADVISOR_ENDPOINT",
+    buildBody: (lead) => ({
+      name: lead.name, email: lead.email, phone: lead.phone, zip: lead.zip,
+      category: "ev_charger",
+    }),
+  },
+  // ── ev ───────────────────────────────────────────────────────────────────
+  {
+    id: "autoweb",
+    intent: "ev",
+    envKey: "AUTOWEB_API_KEY",
+    envEndpoint: "AUTOWEB_ENDPOINT",
+    buildBody: (lead) => ({
+      name: lead.name, email: lead.email, phone: lead.phone, zip: lead.zip,
+      vehicle_interest: "electric",
+    }),
+  },
+  {
+    id: "truecar",
+    intent: "ev",
+    envKey: "TRUECAR_API_KEY",
+    envEndpoint: "TRUECAR_ENDPOINT",
+    buildBody: (lead) => ({
+      name: lead.name, email: lead.email, phone: lead.phone, zip: lead.zip,
+      vehicle_type: "electric",
+    }),
+  },
+  {
+    id: "edmunds",
+    intent: "ev",
+    envKey: "EDMUNDS_API_KEY",
+    envEndpoint: "EDMUNDS_ENDPOINT",
+    buildBody: (lead) => ({
+      name: lead.name, email: lead.email, phone: lead.phone, zip: lead.zip,
+      fuel_type: "electric",
+    }),
+  },
+  // ── insurance ─────────────────────────────────────────────────────────────
+  {
+    id: "everquote",
+    intent: "insurance",
+    envKey: "EVERQUOTE_API_KEY",
+    envEndpoint: "EVERQUOTE_ENDPOINT",
+    buildBody: (lead) => ({
+      name: lead.name, email: lead.email, phone: lead.phone, zip: lead.zip,
+    }),
+  },
+  {
+    id: "quotewizard",
+    intent: "insurance",
+    envKey: "QUOTEWIZARD_API_KEY",
+    envEndpoint: "QUOTEWIZARD_ENDPOINT",
+    buildBody: (lead) => ({
+      name: lead.name, email: lead.email, phone: lead.phone, zip: lead.zip,
+    }),
+  },
+  {
+    id: "mediaalpha",
+    intent: "insurance",
+    envKey: "MEDIAALPHA_API_KEY",
+    envEndpoint: "MEDIAALPHA_ENDPOINT",
+    buildBody: (lead) => ({
+      name: lead.name, email: lead.email, phone: lead.phone, zip: lead.zip,
+    }),
+  },
+  {
+    id: "zebra",
+    intent: "insurance",
+    envKey: "ZEBRA_API_KEY",
+    envEndpoint: "ZEBRA_ENDPOINT",
+    buildBody: (lead) => ({
+      name: lead.name, email: lead.email, phone: lead.phone, zip: lead.zip,
+    }),
+  },
+];
+
 async function postToNetwork(
   url: string,
   apiKey: string,
   body: Record<string, unknown>,
-  network: NetworkResult["network"]
+  network: string
 ): Promise<NetworkResult> {
   try {
     const res = await fetch(url, {
@@ -49,58 +149,26 @@ async function postToNetwork(
   }
 }
 
-export async function submitToModernize(lead: LeadPayload): Promise<NetworkResult> {
-  const apiKey   = process.env.MODERNIZE_API_KEY;
-  const endpoint = process.env.MODERNIZE_ENDPOINT;
-  if (!apiKey || !endpoint) {
-    console.warn("[lead-networks] MODERNIZE_API_KEY or MODERNIZE_ENDPOINT not set — skipping");
-    return { network: "modernize", accepted: false, error: "not configured" };
-  }
-  return postToNetwork(endpoint, apiKey, {
-    name: lead.name,
-    email: lead.email,
-    phone: lead.phone,
-    zip: lead.zip,
-    service_type: "ev_charger_installation",
-  }, "modernize");
-}
-
-export async function submitToAutoWeb(lead: LeadPayload): Promise<NetworkResult> {
-  const apiKey   = process.env.AUTOWEB_API_KEY;
-  const endpoint = process.env.AUTOWEB_ENDPOINT;
-  if (!apiKey || !endpoint) {
-    console.warn("[lead-networks] AUTOWEB_API_KEY or AUTOWEB_ENDPOINT not set — skipping");
-    return { network: "autoweb", accepted: false, error: "not configured" };
-  }
-  return postToNetwork(endpoint, apiKey, {
-    name: lead.name,
-    email: lead.email,
-    phone: lead.phone,
-    zip: lead.zip,
-    vehicle_interest: "electric",
-  }, "autoweb");
-}
-
-export async function submitToEverQuote(lead: LeadPayload): Promise<NetworkResult> {
-  const apiKey   = process.env.EVERQUOTE_API_KEY;
-  const endpoint = process.env.EVERQUOTE_ENDPOINT;
-  if (!apiKey || !endpoint) {
-    console.warn("[lead-networks] EVERQUOTE_API_KEY or EVERQUOTE_ENDPOINT not set — skipping");
-    return { network: "everquote", accepted: false, error: "not configured" };
-  }
-  return postToNetwork(endpoint, apiKey, {
-    name: lead.name,
-    email: lead.email,
-    phone: lead.phone,
-    zip: lead.zip,
-  }, "everquote");
+// Returns the network IDs that would be contacted for a given set of intents.
+// Used by route.ts to build the owner notification email before results are available.
+export function getNetworkNamesForIntent(intents: string[]): string[] {
+  return NETWORK_CONFIGS
+    .filter((cfg) => intents.includes(cfg.intent))
+    .map((cfg) => cfg.id);
 }
 
 // postToNetwork never throws — safe to use Promise.all
 export async function submitLeadToNetworks(lead: LeadPayload): Promise<NetworkResult[]> {
-  const tasks: Promise<NetworkResult>[] = [];
-  if (lead.intent.includes("charger"))   tasks.push(submitToModernize(lead));
-  if (lead.intent.includes("ev"))        tasks.push(submitToAutoWeb(lead));
-  if (lead.intent.includes("insurance")) tasks.push(submitToEverQuote(lead));
+  const tasks = NETWORK_CONFIGS
+    .filter((cfg) => lead.intent.includes(cfg.intent))
+    .map((cfg) => {
+      const apiKey   = process.env[cfg.envKey];
+      const endpoint = process.env[cfg.envEndpoint];
+      if (!apiKey || !endpoint) {
+        console.warn(`[lead-networks] ${cfg.envKey} or ${cfg.envEndpoint} not set — skipping`);
+        return Promise.resolve<NetworkResult>({ network: cfg.id, accepted: false, error: "not configured" });
+      }
+      return postToNetwork(endpoint, apiKey, cfg.buildBody(lead), cfg.id);
+    });
   return Promise.all(tasks);
 }
