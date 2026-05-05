@@ -29,8 +29,9 @@ describe("getComparableGas", () => {
     expect(gas.id).toBe("toyota-rav4");
   });
 
-  it("returned vehicle exists in GAS_MODELS", () => {
+  it("honours DIRECT map over segment fallback", () => {
     const gas = getComparableGas("chevrolet-bolt-ev", "sedan");
+    expect(gas.id).toBe("honda-civic");
     expect(GAS_MODELS.some((g) => g.id === gas.id)).toBe(true);
   });
 

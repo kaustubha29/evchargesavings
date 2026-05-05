@@ -95,7 +95,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     alternates: { canonical: `/cost-to-charge/${carSlug}/${stateSlug}` },
-    openGraph: { title, description, url: `/cost-to-charge/${carSlug}/${stateSlug}` },
+    openGraph: { title, description, url: `https://www.evchargesavings.com/cost-to-charge/${carSlug}/${stateSlug}` },
   };
 }
 
@@ -127,7 +127,7 @@ export default async function CostToChargePage({ params }: Props) {
     "@type": "WebPage",
     name: `Cost to Charge ${ev.fullName} in ${state.name} (2026)`,
     description: chargePageMeta(ev, state, monthlyEV, savings.annualSavings).description,
-    url: `https://evchargesavings.com/cost-to-charge/${carSlug}/${stateSlug}`,
+    url: `https://www.evchargesavings.com/cost-to-charge/${carSlug}/${stateSlug}`,
     mainEntity: {
       "@type": "Dataset",
       name: `${ev.fullName} Charging Cost in ${state.name} 2026`,
