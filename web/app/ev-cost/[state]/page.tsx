@@ -160,7 +160,7 @@ export default async function StateCalculatorPage({ params }: Props) {
         {/* Calculator */}
         <section className="py-12">
           <div className="section-wrap">
-            <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} />
+            <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} initialHomeRateKwh={stateData.kwhCents} initialGasPriceDollar={stateData.gasDollar} />
           </div>
         </section>
 

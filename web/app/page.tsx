@@ -1,4 +1,6 @@
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
+import { enrichState } from "@/features/location/live-rates";
+import { NATIONAL_AVG } from "@/features/location/data/states";
 import { GUIDES } from "@/features/guides/data";
 import { CalculatorShell } from "@/components/features/calculator/CalculatorShell";
 import { LocationDetector } from "@/components/features/location/LocationDetector";
@@ -58,9 +60,10 @@ function LeadCaptureSection({ sourcePage, id }: { sourcePage: string; id?: strin
   );
 }
 
-export default function HomePage() {
+export default async function HomePage() {
   const evSummaries = evRepository.getSummaries();
   const gasVehicles = gasRepository.getAll();
+  const { state: national } = await enrichState(NATIONAL_AVG);
 
   const chargingCards = [
     {
@@ -137,7 +140,7 @@ export default function HomePage() {
         {/* CALCULATOR */}
         <section className="bg-cream-soft py-12">
           <div className="section-wrap">
-            <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} />
+            <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} initialHomeRateKwh={national.kwhCents} initialGasPriceDollar={national.gasDollar} />
           </div>
         </section>
 

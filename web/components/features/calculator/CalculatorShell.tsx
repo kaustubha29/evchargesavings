@@ -15,9 +15,11 @@ interface Props {
   gasVehicles: GasVehicle[];
   defaultEvSlug?: string;
   defaultGasId?: string;
+  initialHomeRateKwh?: number;
+  initialGasPriceDollar?: number;
 }
 
-export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defaultGasId }: Props) {
+export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defaultGasId, initialHomeRateKwh, initialGasPriceDollar }: Props) {
   const store = useCalculatorStore();
   const {
     evSlug, gasId, annualMiles, homePct,
@@ -78,6 +80,34 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
     if (defaultGasId) setGasId(defaultGasId);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Seed live national rates on first load (before location is detected)
+  useEffect(() => {
+    if (stateCode !== null) return;
+    if (initialHomeRateKwh !== undefined) {
+      setHomeRate(initialHomeRateKwh);
+      setPublicRate(+( initialHomeRateKwh * 2.5).toFixed(1));
+    }
+    if (initialGasPriceDollar !== undefined) setGasPrice(initialGasPriceDollar);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Fetch live EIA rates whenever the detected state changes
+  useEffect(() => {
+    if (!stateCode) return;
+    let cancelled = false;
+    fetch(`/api/rates?state=${stateCode}`)
+      .then(r => r.ok ? r.json() : null)
+      .then((data: { kwhCents: number; gasDollar: number } | null) => {
+        if (cancelled || !data) return;
+        setHomeRate(data.kwhCents);
+        setPublicRate(+(data.kwhCents * 2.5).toFixed(1));
+        setGasPrice(data.gasDollar);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stateCode]);
 
   const locationLabel = isDetecting ? "Detecting…" : (stateCode ? (city ? `${city}, ${stateData.name}` : stateData.name) : "United States");
 
