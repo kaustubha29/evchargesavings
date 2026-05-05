@@ -188,14 +188,17 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
         <div className="absolute top-0 right-0 w-56 h-56 rounded-full bg-emerald opacity-10 -translate-y-16 translate-x-16 pointer-events-none" />
         <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute flex items-center gap-2 mb-2">
           <span className="w-2 h-2 rounded-full bg-emerald animate-pulse" />
-          An EV would save you
+          Estimated annual fuel savings
         </div>
         <div className="font-serif font-medium leading-none tracking-tight text-forest"
           style={{ fontSize: "clamp(56px,10vw,108px)", background:"linear-gradient(135deg,#1a4d36,#2ecc71)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>
           {fmt.money0(savings.annualSavings)}
         </div>
-        <div className="font-serif italic text-xl text-ink-2 mt-1 mb-4">
+        <div className="font-serif italic text-xl text-ink-2 mt-1">
           per year, in <b className="not-italic text-forest">{locationLabel}</b>
+        </div>
+        <div className="font-mono text-[10px] text-ink-mute mb-4 mt-1">
+          Fuel cost only · real-world results may vary ±10%
         </div>
         <div className="flex gap-6 pt-4 border-t border-dashed border-line flex-wrap">
           {[

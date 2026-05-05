@@ -63,6 +63,26 @@ export default function HowWeCalculatePage() {
           </div>
         </section>
 
+        {/* TL;DR */}
+        <section className="bg-ink text-cream py-8 border-b border-white/10">
+          <div className="section-wrap max-w-3xl">
+            <div className="font-mono text-[11px] uppercase tracking-widest text-emerald mb-4">TL;DR</div>
+            <ul className="space-y-2 text-sm text-cream/80 font-mono">
+              {[
+                "We compare fuel cost only — EV electricity vs gas. Not insurance, maintenance, or depreciation.",
+                "Data: EPA efficiency ratings, EIA electricity rates (monthly), EIA gas prices (weekly).",
+                "Default: 15,000 miles/year · 80% home charging · 20% public (blended estimate).",
+                "Estimates may vary from real-world results by ±10% depending on driving and charging behavior.",
+              ].map((line) => (
+                <li key={line} className="flex gap-2">
+                  <span className="text-emerald flex-shrink-0">·</span>
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         {/* Data Sources */}
         <Section title="Data sources">
           <div className="space-y-0 border border-line rounded-xl divide-y divide-line overflow-hidden">
@@ -79,7 +99,7 @@ export default function HowWeCalculatePage() {
             <Source
               name="EPA Fuel Economy Guide"
               url="https://www.fueleconomy.gov/"
-              desc="Combined city/highway MPG for gas vehicles. Combined mi/kWh and battery capacity for EVs. EPA-rated figures are used for all vehicle efficiency values."
+              desc="Combined city/highway MPG for gas vehicles. Combined mi/kWh and battery capacity for EVs. EPA-rated figures are standardized lab-cycle estimates and may differ from real-world driving by ±10–30% depending on conditions, climate, and driving style."
             />
           </div>
           <p className="text-ink-mute text-xs font-mono mt-4">
@@ -95,13 +115,13 @@ export default function HowWeCalculatePage() {
           </p>
           <Formula
             label="Cost per mile (electric)"
-            formula="cost_per_mile = (electricity_rate_cents / 100) / ev_efficiency_mi_per_kwh"
-            note="Example: 16.5¢/kWh ÷ 4.0 mi/kWh = $0.041/mile"
+            formula="cost_per_mile = electricity_rate_$/kWh / ev_efficiency_mi_per_kwh"
+            note="Example: $0.165/kWh ÷ 4.0 mi/kWh = $0.041/mile. All rates are in $/kWh throughout."
           />
           <Formula
             label="Annual EV fuel cost"
-            formula={`annual_ev_cost = annual_miles × [\n  (home_pct / 100) × home_rate\n  + (1 − home_pct / 100) × public_rate\n] / ev_efficiency`}
-            note="Default: 80% home charging at state rate, 20% public at 2.5× state rate. 15,000 miles/year on state pages; 12,000 miles/year on cost-to-charge pages."
+            formula={`annual_ev_cost = annual_miles × [\n  (home_pct / 100) × home_rate_$/kWh\n  + (1 − home_pct / 100) × public_rate_$/kWh\n] / ev_efficiency_mi_per_kwh`}
+            note="Default: 80% home charging at state residential rate, 20% public at 2.5× state rate (blended estimate based on national averages — actual public rates vary by network and charger type). 15,000 miles/year on state pages; 12,000 miles/year on cost-to-charge pages."
           />
           <Formula
             label="Full charge cost"
@@ -134,9 +154,9 @@ export default function HowWeCalculatePage() {
             note="Does not account for electricity or gas price changes over time."
           />
           <Formula
-            label="Break-even (purchase price difference)"
+            label="Fuel-cost break-even (purchase price only)"
             formula={`break_even_years = (ev_msrp − gas_msrp) / annual_savings`}
-            note="Only shown when EV costs more upfront and saves on fuel. Does not include insurance, maintenance, or incentives."
+            note="Only shown when EV costs more upfront and saves on fuel. This is a fuel-cost break-even only — it does not include incentives, depreciation, financing, insurance, or maintenance differences. For a full total cost of ownership comparison, those factors must be added separately."
           />
         </Section>
 
@@ -144,6 +164,10 @@ export default function HowWeCalculatePage() {
         <Section title="Assumptions and limitations">
           <ul className="space-y-4 text-sm text-ink-2">
             {[
+              {
+                label: "Energy efficiency comparison, not drivetrain parity",
+                body: "MPG and mi/kWh are energy efficiency ratings only. This is a fuel-cost model — it does not imply equivalent performance, range behavior, or cost-of-ownership parity between gas and electric drivetrains.",
+              },
               {
                 label: "Charging efficiency loss not modeled",
                 body: "Real-world charging loses 10–15% to heat and AC/DC conversion. Our cost-per-mile figures use EPA rated efficiency, which does not include charger losses. Actual cost is slightly higher.",
@@ -157,8 +181,8 @@ export default function HowWeCalculatePage() {
                 body: "We use the state average residential rate. Time-of-use (TOU) plans can reduce home charging cost to 60–75% of the average. States with available TOU rates are noted on relevant pages.",
               },
               {
-                label: "PADD regional gas prices for 41 states",
-                body: "EIA publishes weekly state-level gas prices for 9 states (CA, CO, FL, MA, MN, NY, OH, TX, WA). All other states use their EIA PADD sub-regional price — a multi-state average. Accuracy is typically ±$0.10–0.30/gallon.",
+                label: "Regional gas prices for 41 states",
+                body: "EIA publishes weekly state-level gas prices for 9 states. For the remaining states, we use EIA regional averages — accuracy is typically ±$0.10–0.30/gallon.",
               },
               {
                 label: "Gas comparison vehicle is representative, not exact",
