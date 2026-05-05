@@ -3,6 +3,7 @@ import Script from "next/script";
 import React from "react";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -102,6 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         {children}
+        <Analytics />
       </body>
     </html>
   );
