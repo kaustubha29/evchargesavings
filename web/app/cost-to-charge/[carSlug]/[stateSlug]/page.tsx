@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { evRepository } from "@/features/ev-data/repository";
 import { getStateBySlug } from "@/features/location/queries";
 import { calculateSavings } from "@/features/calculations/savings";
-import { getComparableGas } from "@/features/ev-data/data/comparable-gas";
+import { getComparableGas, getComparableGasId } from "@/features/ev-data/data/comparable-gas";
 import { chargePageMeta } from "@/features/content/seo";
 import { enrichState } from "@/features/location/live-rates";
 import { LeadCaptureBox } from "@/components/shared/LeadCaptureBox";
@@ -320,6 +320,62 @@ export default async function CostToChargePage({ params }: Props) {
               description={`See your real cost to charge a ${ev.name} in ${state.name} based on your ZIP code.`}
               submitLabel="Get my savings estimate"
             />
+          </div>
+        </section>
+
+        {/* Internal links — other states + compare */}
+        <section className="py-10 bg-paper border-t border-line">
+          <div className="section-wrap">
+            <div className="flex flex-col sm:flex-row gap-10">
+
+              {/* Other states for this EV */}
+              <div className="flex-1">
+                <h3 className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-4">
+                  {ev.name} charging cost in other states
+                </h3>
+                <ul className="space-y-1.5 text-sm">
+                  {TOP_STATE_SLUGS.filter((s) => s !== stateSlug).slice(0, 8).map((s) => {
+                    const label = s.split("-").map((w) => w[0].toUpperCase() + w.slice(1)).join(" ");
+                    return (
+                      <li key={s}>
+                        <a href={`/cost-to-charge/${carSlug}/${s}`}
+                          className="text-forest hover:underline">
+                          {ev.name} in {label}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              {/* Compare + methodology */}
+              <div className="flex-1">
+                <h3 className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-4">
+                  Go deeper
+                </h3>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    <a href={`/compare/${carSlug}-vs-${getComparableGasId(carSlug, ev.segment)}`}
+                      className="text-forest hover:underline">
+                      {ev.name} vs {gas.name} — full comparison →
+                    </a>
+                  </li>
+                  <li>
+                    <a href={`/ev-cost/${stateSlug}`}
+                      className="text-forest hover:underline">
+                      All EVs in {state.name} →
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/how-we-calculate"
+                      className="text-ink-mute hover:text-forest hover:underline transition-colors">
+                      How we calculate these numbers →
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
           </div>
         </section>
 

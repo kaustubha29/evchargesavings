@@ -241,6 +241,44 @@ export default async function ComparePage({ params }: Props) {
           </div>
         </section>
 
+        {/* Verdict */}
+        <section className={`py-12 border-b border-line ${isEvCheaper ? "bg-good-bg/30" : "bg-paper"}`}>
+          <div className="section-wrap max-w-2xl">
+            <div className={`inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest px-3 py-1 rounded-full border mb-4 ${
+              isEvCheaper
+                ? "bg-good-bg text-good-fg border-good-fg/20"
+                : "bg-paper text-ink-mute border-line"
+            }`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${isEvCheaper ? "bg-emerald" : "bg-rust"}`} />
+              {isEvCheaper ? "EV wins on fuel" : "Gas cheaper on fuel"}
+            </div>
+            <p className="font-serif text-xl text-ink leading-snug mb-4">
+              {isEvCheaper ? (
+                <>
+                  At current national rates, the <strong>{ev.name}</strong> saves{" "}
+                  <span className="text-forest">{savings.annualSavings > 0 ? `$${Math.round(savings.annualSavings).toLocaleString()}` : "$0"}/year</span> on
+                  fuel compared to the {gas.name}.
+                  {breakEven && ev.msrp > gasMsrp && (
+                    <> The ${Math.round(ev.msrp - gasMsrp).toLocaleString()} price premium pays off in{" "}
+                    <span className="text-forest">{breakEven.years.toFixed(1)} years</span>.</>
+                  )}
+                </>
+              ) : (
+                <>
+                  At current national rates, the <strong>{gas.name}</strong> is cheaper to fuel by{" "}
+                  <span className="text-rust">${Math.round(-savings.annualSavings).toLocaleString()}/year</span>.
+                  Switch to a state with higher gas prices or lower electricity — the math often flips.
+                </>
+              )}
+            </p>
+            <p className="text-ink-3 text-sm leading-relaxed">
+              These figures use national average rates ({savings.evAnnualCost > 0 ? `${Math.round(NATIONAL_KWH_CENTS * 10) / 10}¢/kWh electricity` : ""},{" "}
+              ${NATIONAL_GAS_DOLLAR}/gal gas, 80% home charging, 15,000 miles/year).{" "}
+              <a href="/how-we-calculate" className="text-forest hover:underline">See full methodology →</a>
+            </p>
+          </div>
+        </section>
+
         <SavingsSlotBand
           eyebrow="Comparison context"
           title="One matchup is useful. The wider savings range is better."

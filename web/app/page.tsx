@@ -114,6 +114,13 @@ export default function HomePage() {
               <p className="text-ink-3 text-lg leading-relaxed">
                 Pick any EV and your current car — we'll calculate exact fuel savings using live electricity and gas prices for your state.
               </p>
+              <a
+                href="/how-we-calculate"
+                className="inline-flex items-center gap-1.5 text-ink-mute hover:text-forest text-sm font-mono mt-3 transition-colors"
+              >
+                <span className="w-1 h-1 rounded-full bg-emerald" />
+                How we calculate this →
+              </a>
             </div>
 
             <SavingsSlot />
