@@ -25,3 +25,16 @@ export function comparePageMeta(evName: string, gasName: string) {
     `See annual savings, break-even timeline, and CO₂ impact.`;
   return { title, description };
 }
+
+export function chargePageMeta(
+  ev: EVModel,
+  state: StateData,
+  monthlyCost: number,
+  annualSavings: number,
+) {
+  const title = `Cost to Charge ${ev.fullName} in ${state.name} (2026)`;
+  const description =
+    `Charging a ${ev.fullName} in ${state.name} costs ~$${Math.round(monthlyCost)}/mo. ` +
+    `See how it compares to a comparable gas car — save $${Math.round(annualSavings).toLocaleString()}/year.`;
+  return { title, description };
+}
