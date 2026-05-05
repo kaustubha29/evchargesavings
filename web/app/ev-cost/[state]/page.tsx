@@ -167,6 +167,45 @@ export default async function StateCalculatorPage({ params }: Props) {
         {/* EV Marketplace Affiliates */}
         <EVMarketplaceAffiliates />
 
+        {/* Cost-to-charge by EV */}
+        <section className="bg-cream-soft border-t border-line py-12">
+          <div className="section-wrap">
+            <div className="mb-5">
+              <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-2">
+                Charging cost by EV · {stateData.name}
+              </div>
+              <h2 className="font-serif text-2xl font-medium tracking-tight text-ink">
+                What does it cost to charge specific EVs in {stateData.name}?
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
+              {[
+                { slug: "tesla-model-y-long-range-awd",       name: "Tesla Model Y LR AWD" },
+                { slug: "tesla-model-3-rwd",                  name: "Tesla Model 3 RWD" },
+                { slug: "hyundai-ioniq-5-long-range-rwd",     name: "Hyundai Ioniq 5 LR RWD" },
+                { slug: "chevrolet-equinox-ev-lt-fwd",        name: "Chevy Equinox EV" },
+                { slug: "ford-mustang-mach-e-standard-rwd",   name: "Ford Mustang Mach-E" },
+                { slug: "kia-ev6-long-range-rwd",             name: "Kia EV6 LR RWD" },
+                { slug: "rivian-r1t-dual-motor",              name: "Rivian R1T" },
+                { slug: "volkswagen-id4-pro-rwd",             name: "VW ID.4 Pro" },
+              ].map((ev) => (
+                <a
+                  key={ev.slug}
+                  href={`/cost-to-charge/${ev.slug}/${stateData.slug}`}
+                  className="group border border-line rounded-xl bg-paper px-4 py-3 hover:border-forest/35 hover:shadow-1 transition-all"
+                >
+                  <div className="font-serif text-sm font-medium text-ink group-hover:text-forest transition-colors leading-snug">
+                    {ev.name}
+                  </div>
+                  <div className="font-mono text-[10px] text-ink-mute mt-1 group-hover:text-forest/70 transition-colors">
+                    Charging cost in {stateData.name} →
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* State comparison table */}
         <section className="bg-paper border-t border-line py-12">
           <div className="section-wrap">

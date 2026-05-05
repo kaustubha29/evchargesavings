@@ -14,7 +14,7 @@ import { EVMarketplaceAffiliates } from "@/components/shared/EVMarketplaceAffili
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "EV Charging Cost Savings Calculator — EV vs Gas Savings 2026",
+  title: "Should You Switch to an EV? Calculate Your Savings — 2026",
   description:
     "Calculate EV charging cost, EV vs gas savings, home charger costs, and local incentives using 2026 electricity and gas rates for all 50 states.",
 };
@@ -109,7 +109,7 @@ export default function HomePage() {
                 Federal $7,500 EV credit expired Oct 1, 2025 — what's still available →
               </a>
               <h1 className="font-serif text-5xl font-medium tracking-tight text-ink mb-4">
-                How much would an EV <em className="text-forest">save you?</em>
+                Should you <em className="text-forest">switch to an EV?</em>
               </h1>
               <p className="text-ink-3 text-lg leading-relaxed">
                 Pick any EV and your current car — we'll calculate exact fuel savings using live electricity and gas prices for your state.
