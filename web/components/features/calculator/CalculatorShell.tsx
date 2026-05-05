@@ -186,31 +186,42 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
       {/* Hero savings card — full width */}
       <div className="bg-paper border border-line rounded-3xl p-8 shadow-2 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-56 h-56 rounded-full bg-emerald opacity-10 -translate-y-16 translate-x-16 pointer-events-none" />
-        <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute flex items-center gap-2 mb-2">
+
+        {/* Verdict chip */}
+        {(() => {
+          const s = savings.annualSavings;
+          const [bg, fg, label] =
+            s > 800  ? ["bg-good-bg",  "text-good-fg", "Switching makes financial sense"] :
+            s >= 300 ? ["bg-okay-bg",  "text-okay-fg", "Borderline — incentives could tip it"] :
+            s > 0    ? ["bg-rust/10",  "text-rust",    "Marginal savings — check total cost"] :
+                       ["bg-rust/10",  "text-rust",    "Gas is cheaper for this driving pattern"];
+          return (
+            <div className={`inline-flex items-center gap-2 ${bg} ${fg} font-mono text-[11px] px-3 py-1.5 rounded-full mb-4`}>
+              <span className="w-1.5 h-1.5 rounded-full bg-current flex-shrink-0" />
+              {label}
+            </div>
+          );
+        })()}
+
+        {/* Monthly headline */}
+        <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute flex items-center gap-2 mb-1">
           <span className="w-2 h-2 rounded-full bg-emerald animate-pulse" />
-          Estimated annual fuel savings
+          Estimated monthly fuel savings · {locationLabel}
         </div>
         <div className="font-serif font-medium leading-none tracking-tight text-forest"
-          style={{ fontSize: "clamp(56px,10vw,108px)", background:"linear-gradient(135deg,#1a4d36,#2ecc71)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>
-          {fmt.money0(savings.annualSavings)}
+          style={{ fontSize: "clamp(52px,9vw,96px)", background:"linear-gradient(135deg,#1a4d36,#2ecc71)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>
+          {fmt.money0(savings.monthlySavings)}
         </div>
-        <div className="font-serif italic text-xl text-ink-2 mt-1">
-          per year, in <b className="not-italic text-forest">{locationLabel}</b>
-        </div>
-        <div className="font-mono text-[10px] text-ink-mute mb-4 mt-1">
-          Fuel cost only · real-world results may vary ±10%
-        </div>
-        <div className="flex gap-6 pt-4 border-t border-dashed border-line flex-wrap">
-          {[
-            { label:"Gas car / yr", val: fmt.money0(savings.gasAnnualCost) },
-            { label:"EV / yr",      val: fmt.money0(savings.evAnnualCost) },
-            { label:"Lower cost",   val: fmt.pct0(savings.savingsPct) },
-          ].map((c) => (
-            <div key={c.label} className="text-sm text-ink-mute">
-              <b className="block font-serif text-xl font-medium text-ink mb-0.5">{c.val}</b>
-              {c.label}
-            </div>
-          ))}
+        <div className="font-mono text-[11px] text-ink-mute mt-2 mb-5 flex flex-wrap items-center gap-x-3 gap-y-1">
+          <span className="text-ink font-medium">{fmt.money0(savings.annualSavings)}/yr</span>
+          <span className="text-ink-mute">·</span>
+          <span>{fmt.money0(savings.fiveYearSavings)} over 5 yrs</span>
+          <span className="text-ink-mute">·</span>
+          <span>fuel cost only, ±10%</span>
+          <span className="text-ink-mute">·</span>
+          <a href={`/compare/${evSlug}-vs-${gasId}`} className="text-forest hover:underline">
+            see break-even →
+          </a>
         </div>
 
         {/* Fuel cost bars */}
@@ -220,8 +231,8 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
             <span className="font-mono text-[11px] text-ink-mute">{fmt.cents1(stateData.kwhCents)}/kWh · {fmt.money2(stateData.gasDollar)}/gal</span>
           </div>
           {[
-            { label:"Gas car", color:"#c25234", val: savings.gasAnnualCost, id:"gas" },
-            { label:"EV",      color:"#34a960", val: savings.evAnnualCost,  id:"ev"  },
+            { label: gas.name, color:"#c25234", val: savings.gasAnnualCost, id:"gas" },
+            { label: ev.name,  color:"#34a960", val: savings.evAnnualCost,  id:"ev"  },
           ].map((row) => {
             const max = Math.max(savings.gasAnnualCost, savings.evAnnualCost, 1);
             return (
@@ -245,11 +256,10 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
       </div>
 
       {/* Stat cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-3 gap-4">
         <StatCard accent label="Annual savings" value={fmt.money0(savings.annualSavings)} sub={`${ev.name} vs ${gas.name}`} />
-        <StatCard label="Monthly savings" value={fmt.money0(savings.monthlySavings)} />
         <StatCard label="5-year savings" value={fmt.money0(savings.fiveYearSavings)} />
-        <StatCard label="CO₂ saved" value={fmt.lbs(co2.savedLbs)} sub={`${co2.savedMetricTons.toFixed(1)} metric tons / yr`} />
+        <StatCard label="CO₂ saved / yr" value={fmt.lbs(co2.savedLbs)} sub={`${co2.savedMetricTons.toFixed(1)} metric tons`} />
       </div>
 
       {/* Inputs panel */}
