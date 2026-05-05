@@ -48,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${fraunces.variable} ${geist.variable} ${geistMono.variable}`}>
       <head>
         {React.createElement("meta", { name: "impact-site-verification", content: "960c3032-0ee0-4b68-ac48-6e69b019dc4c" })}
+        <link rel="preconnect" href="https://api.zippopotam.us" />
       </head>
       <body className="pb-20">
         {/* Google Analytics GA4 */}

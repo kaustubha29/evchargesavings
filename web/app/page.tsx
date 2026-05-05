@@ -1,5 +1,4 @@
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
-import { enrichState } from "@/features/location/live-rates";
 import { NATIONAL_AVG } from "@/features/location/data/states";
 import { GUIDES } from "@/features/guides/data";
 import { CalculatorShell } from "@/components/features/calculator/CalculatorShell";
@@ -60,10 +59,10 @@ function LeadCaptureSection({ sourcePage, id }: { sourcePage: string; id?: strin
   );
 }
 
-export default async function HomePage() {
+export default function HomePage() {
   const evSummaries = evRepository.getSummaries();
   const gasVehicles = gasRepository.getAll();
-  const { state: national } = await enrichState(NATIONAL_AVG);
+  const national = NATIONAL_AVG;
 
   const chargingCards = [
     {
