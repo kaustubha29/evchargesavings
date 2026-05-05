@@ -115,5 +115,5 @@ export function getComparableGasId(evSlug: string, segment: string): string {
 
 export function getComparableGas(evSlug: string, segment: string): GasVehicle {
   const id = getComparableGasId(evSlug, segment);
-  return GAS_MODELS.find((g) => g.id === id) ?? GAS_MODELS.find((g) => g.id === "toyota-rav4")!;
+  return GAS_MODELS.find((g) => g.id === id) ?? GAS_MODELS.find((g) => g.id === "toyota-rav4") ?? GAS_MODELS[0];
 }
