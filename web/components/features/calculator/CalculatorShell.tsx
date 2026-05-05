@@ -187,38 +187,44 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
       <div className="bg-paper border border-line rounded-3xl p-8 shadow-2 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-56 h-56 rounded-full bg-emerald opacity-10 -translate-y-16 translate-x-16 pointer-events-none" />
 
-        {/* Verdict chip */}
+        {/* Verdict chip — big + animated */}
         {(() => {
           const s = savings.annualSavings;
-          const [bg, fg, label] =
-            s > 800  ? ["bg-good-bg",  "text-good-fg", "Switching makes financial sense"] :
-            s >= 300 ? ["bg-okay-bg",  "text-okay-fg", "Borderline — incentives could tip it"] :
-            s > 0    ? ["bg-rust/10",  "text-rust",    "Marginal savings — check total cost"] :
-                       ["bg-rust/10",  "text-rust",    "Gas is cheaper for this driving pattern"];
+          const isGood = s > 800;
+          const isOkay = s >= 300;
+          const isPos  = s > 0;
+          const [bg, border, fg, dot, label] =
+            isGood ? ["bg-good-bg",  "border-good-fg/30", "text-good-fg", "bg-emerald",      "Yes — switching makes financial sense"] :
+            isOkay ? ["bg-okay-bg",  "border-okay-fg/30", "text-okay-fg", "bg-[#c8902a]",    "Borderline — incentives could tip it"]  :
+            isPos  ? ["bg-rust/8",   "border-rust/25",    "text-rust",    "bg-rust",          "Marginal savings — check total cost"]   :
+                     ["bg-rust/8",   "border-rust/25",    "text-rust",    "bg-rust",          "Gas is cheaper for this driving pattern"];
           return (
-            <div className={`inline-flex items-center gap-2 ${bg} ${fg} font-mono text-[11px] px-3 py-1.5 rounded-full mb-4`}>
-              <span className="w-1.5 h-1.5 rounded-full bg-current flex-shrink-0" />
-              {label}
+            <div className={`flex items-center gap-3 ${bg} ${fg} border ${border} rounded-2xl px-4 py-3 mb-5`}>
+              <span className="relative flex-shrink-0">
+                <span className={`absolute inset-0 rounded-full ${dot} opacity-30 animate-ping`} />
+                <span className={`relative block w-3 h-3 rounded-full ${dot}`} />
+              </span>
+              <span className="font-serif text-lg font-medium leading-tight">{label}</span>
             </div>
           );
         })()}
 
-        {/* Monthly headline */}
+        {/* Annual headline */}
         <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute flex items-center gap-2 mb-1">
           <span className="w-2 h-2 rounded-full bg-emerald animate-pulse" />
-          Estimated monthly fuel savings · {locationLabel}
+          Estimated annual fuel savings · {locationLabel}
         </div>
         <div className="font-serif font-medium leading-none tracking-tight text-forest"
           style={{ fontSize: "clamp(52px,9vw,96px)", background:"linear-gradient(135deg,#1a4d36,#2ecc71)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>
-          {fmt.money0(savings.monthlySavings)}
+          {fmt.money0(savings.annualSavings)}
         </div>
         <div className="font-mono text-[11px] text-ink-mute mt-2 mb-5 flex flex-wrap items-center gap-x-3 gap-y-1">
-          <span className="text-ink font-medium">{fmt.money0(savings.annualSavings)}/yr</span>
-          <span className="text-ink-mute">·</span>
+          <span className="text-ink font-medium">{fmt.money0(savings.monthlySavings)}/mo</span>
+          <span>·</span>
           <span>{fmt.money0(savings.fiveYearSavings)} over 5 yrs</span>
-          <span className="text-ink-mute">·</span>
+          <span>·</span>
           <span>fuel cost only, ±10%</span>
-          <span className="text-ink-mute">·</span>
+          <span>·</span>
           <a href={`/compare/${evSlug}-vs-${gasId}`} className="text-forest hover:underline">
             see break-even →
           </a>
