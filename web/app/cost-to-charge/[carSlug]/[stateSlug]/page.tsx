@@ -204,7 +204,7 @@ export default async function CostToChargePage({ params }: Props) {
               Charging breakdown
             </h2>
             <p className="text-ink-3 text-sm mb-6">
-              Based on {state.name} avg {fmt.cents1(state.kwhCents)}/kWh · {ev.battery} kWh battery · {ev.efficiency} mi/kWh
+              Based on {state.name} avg {fmt.cents1(state.kwhCents)}/kWh · {ev.battery} kWh battery · {ev.efficiency} mi/kWh (EPA-rated)
               {state.hasTOU && state.touCents && (
                 <span> · TOU off-peak as low as {fmt.cents1(state.touCents)}/kWh</span>
               )}
@@ -239,7 +239,7 @@ export default async function CostToChargePage({ params }: Props) {
               vs {gas.name} on gas
             </h2>
             <p className="text-ink-3 text-sm mb-6">
-              Gas at {fmt.money2(state.gasDollar)}/gal · {gas.mpg} MPG · {MONTHLY_MILES.toLocaleString()} mi/month
+              Gas at {fmt.money2(state.gasDollar)}/gal · {gas.mpg} MPG (EPA-rated) · {MONTHLY_MILES.toLocaleString()} mi/month
               {gasPeriod && (
                 <span className="text-ink-mute"> · EIA retail avg · {gasPeriod}</span>
               )}

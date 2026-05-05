@@ -1,7 +1,7 @@
 import type { GasVehicle } from "@/features/ev-data/types";
 
 export const GAS_MODELS: GasVehicle[] = [
-  { id:"toyota-camry",          name:"Toyota Camry",           mpg:32, type:"Sedan"     },
+  { id:"toyota-camry",          name:"Toyota Camry (non-hybrid)", mpg:32, type:"Sedan"     },
   { id:"toyota-rav4",           name:"Toyota RAV4",            mpg:30, type:"SUV"       },
   { id:"honda-civic",           name:"Honda Civic",            mpg:36, type:"Sedan"     },
   { id:"honda-cr-v",            name:"Honda CR-V",             mpg:30, type:"SUV"       },

@@ -184,8 +184,8 @@ export default async function StateCalculatorPage({ params }: Props) {
                 </thead>
                 <tbody>
                   {[
-                    { label: "Electricity rate", state: fmt.cents1(stateData.kwhCents) + "/kWh", nat: "16.5¢/kWh" },
-                    { label: "Gas price",         state: fmt.money2(stateData.gasDollar) + "/gal", nat: "$3.45/gal" },
+                    { label: "Electricity rate (EIA)", state: fmt.cents1(stateData.kwhCents) + "/kWh", nat: "16.5¢/kWh" },
+                    { label: "Gas price (EIA)",        state: fmt.money2(stateData.gasDollar) + "/gal", nat: "$3.45/gal" },
                     { label: "Annual EV cost (15k mi, 80% home)", state: fmt.money0(exSavings.evAnnualCost), nat: "$900" },
                     { label: "Annual gas cost (15k mi, RAV4)",    state: fmt.money0(exSavings.gasAnnualCost), nat: "$2,588" },
                     { label: "Annual savings",    state: fmt.money0(exSavings.annualSavings), nat: "$1,688" },
