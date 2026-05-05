@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getAllStates, getStateBySlug } from "@/features/location/queries";
+import { enrichState } from "@/features/location/live-rates";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { calculateSavings } from "@/features/calculations/savings";
 import { calculateCO2 } from "@/features/calculations/co2";
@@ -51,8 +52,9 @@ const DEFAULT_HOME_PCT = 80;
 
 export default async function StateCalculatorPage({ params }: Props) {
   const { state: stateSlug } = await params;
-  const stateData = getStateBySlug(stateSlug);
-  if (!stateData) notFound();
+  const rawStateData = getStateBySlug(stateSlug);
+  if (!rawStateData) notFound();
+  const { state: stateData, gasPeriod, elecPeriod } = await enrichState(rawStateData);
 
   const evSummaries = evRepository.getSummaries();
   const gasVehicles = gasRepository.getAll();
@@ -197,6 +199,13 @@ export default async function StateCalculatorPage({ params }: Props) {
                 </tbody>
               </table>
             </div>
+            {(elecPeriod || gasPeriod) && (
+              <p className="text-ink-mute font-mono text-[10px] mt-4">
+                Source: EIA
+                {elecPeriod && <> · Electricity: residential avg · {elecPeriod}</>}
+                {gasPeriod  && <> · Gas: retail avg · {gasPeriod}</>}
+              </p>
+            )}
           </div>
         </section>
 

@@ -66,7 +66,7 @@ export function SiteFooter() {
         <div className="border-t border-white/8 pt-6 mb-4">
           <p className="text-xs text-cream/40 leading-relaxed max-w-4xl">
             <b className="text-gold/70 font-medium">Affiliate disclosure.</b>{" "}
-            This site contains affiliate links to charger manufacturers and EV marketplaces. If you click and buy, we may earn a commission at no extra cost to you. Our calculator results are never altered to favor sponsors. Rate data is sourced from the U.S. Energy Information Administration (EIA) and AAA, refreshed monthly. Calculations are estimates — your actual savings will vary.
+            This site contains affiliate links to charger manufacturers and EV marketplaces. If you click and buy, we may earn a commission at no extra cost to you. Our calculator results are never altered to favor sponsors. Rate data is sourced from the U.S. Energy Information Administration (EIA) — electricity rates refreshed monthly, gas prices refreshed weekly. Calculations are estimates — your actual savings will vary.
           </p>
         </div>
 

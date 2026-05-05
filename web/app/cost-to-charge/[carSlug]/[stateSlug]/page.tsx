@@ -5,6 +5,7 @@ import { getStateBySlug } from "@/features/location/queries";
 import { calculateSavings } from "@/features/calculations/savings";
 import { getComparableGas } from "@/features/ev-data/data/comparable-gas";
 import { chargePageMeta } from "@/features/content/seo";
+import { enrichState } from "@/features/location/live-rates";
 import { LeadCaptureBox } from "@/components/shared/LeadCaptureBox";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { fmt } from "@/lib/format";
@@ -69,9 +70,10 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { carSlug, stateSlug } = await params;
-  const ev    = evRepository.getBySlug(carSlug);
-  const state = getStateBySlug(stateSlug);
-  if (!ev || !state) return {};
+  const ev     = evRepository.getBySlug(carSlug);
+  const rawState = getStateBySlug(stateSlug);
+  if (!ev || !rawState) return {};
+  const { state } = await enrichState(rawState);
 
   const gas     = getComparableGas(carSlug, ev.segment);
   const savings = calculateSavings({
@@ -102,9 +104,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CostToChargePage({ params }: Props) {
   const { carSlug, stateSlug } = await params;
 
-  const ev    = evRepository.getBySlug(carSlug);
-  const state = getStateBySlug(stateSlug);
-  if (!ev || !state) return notFound();
+  const ev       = evRepository.getBySlug(carSlug);
+  const rawState = getStateBySlug(stateSlug);
+  if (!ev || !rawState) return notFound();
+  const { state, gasPeriod, elecPeriod } = await enrichState(rawState);
 
   const gas     = getComparableGas(carSlug, ev.segment);
   const savings = calculateSavings({
@@ -205,6 +208,9 @@ export default async function CostToChargePage({ params }: Props) {
               {state.hasTOU && state.touCents && (
                 <span> · TOU off-peak as low as {fmt.cents1(state.touCents)}/kWh</span>
               )}
+              {elecPeriod && (
+                <span className="text-ink-mute"> · EIA residential avg · {elecPeriod}</span>
+              )}
             </p>
             <div className="overflow-x-auto">
               <table className="w-full text-sm border-collapse">
@@ -234,6 +240,9 @@ export default async function CostToChargePage({ params }: Props) {
             </h2>
             <p className="text-ink-3 text-sm mb-6">
               Gas at {fmt.money2(state.gasDollar)}/gal · {gas.mpg} MPG · {MONTHLY_MILES.toLocaleString()} mi/month
+              {gasPeriod && (
+                <span className="text-ink-mute"> · EIA retail avg · {gasPeriod}</span>
+              )}
             </p>
             <div className="overflow-x-auto">
               <table className="w-full text-sm border-collapse">

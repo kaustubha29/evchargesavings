@@ -186,7 +186,7 @@ export default async function EVDetailPage({ params }: Props) {
             <div className="flex flex-wrap justify-between items-center gap-4 text-xs font-mono">
               <span>© 2026 EV Charge Savings</span>
               <span className="text-cream/25 text-center max-w-2xl">
-                Rate data from EIA Nov 2025 + AAA monthly averages. Calculations are estimates.
+                Rate data from EIA (electricity monthly, gas weekly). Calculations are estimates.
               </span>
               <span>evchargesavings.com</span>
             </div>

@@ -33,7 +33,7 @@ export default function TermsPage() {
               <h2 className="font-serif text-xl font-medium text-ink mb-3">2. Calculator estimates</h2>
               <p>
                 The savings calculations on this Site are <b className="text-ink">estimates only</b>. They are based on publicly available
-                data (US EIA electricity rates, AAA gas prices, EPA efficiency ratings) and the inputs you provide.
+                data (US EIA electricity rates, EIA retail gas prices, EPA efficiency ratings) and the inputs you provide.
                 Actual savings will vary based on your driving habits, local utility rates, charging behaviour,
                 vehicle condition, and other factors. Nothing on this Site constitutes financial, legal, or
                 purchasing advice.

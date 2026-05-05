@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald animate-pulse mr-1.5 align-middle" />
               <span className="text-honey/80">Live rates</span>
               {" · "}
-              <span className="text-cream/30">EIA + AAA data</span>
+              <span className="text-cream/30">EIA data</span>
             </span>
             <nav className="flex gap-6" aria-label="Top">
               {[
