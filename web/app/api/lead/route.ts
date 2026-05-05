@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 import { stateFromZip, getStateData } from "@/features/location/queries";
@@ -103,27 +103,26 @@ export async function POST(req: NextRequest) {
     console.error("[lead] Supabase exception:", e);
   }
 
-  // Resend emails — non-blocking (cityName lookup happens here, not in hot path)
-  if (resendKey) {
-    const resend = new Resend(resendKey);
-    (async () => {
-      let cityName: string | null = null;
-      if (zip) {
-        try {
-          const geoRes = await fetch(`https://api.zippopotam.us/us/${zip}`, { signal: AbortSignal.timeout(2000) });
-          if (geoRes.ok) {
-            const data = await geoRes.json();
-            cityName = data.places?.[0]?.["place name"] || null;
-          }
-        } catch {
-          // cityName remains null
+  // Emails + network submissions run after response is sent.
+  // after() keeps the Vercel lambda alive until both complete.
+  after(async () => {
+    // City lookup
+    let cityName: string | null = null;
+    if (zip) {
+      try {
+        const geoRes = await fetch(`https://api.zippopotam.us/us/${zip}`, { signal: AbortSignal.timeout(2000) });
+        if (geoRes.ok) {
+          const data = await geoRes.json();
+          cityName = data.places?.[0]?.["place name"] || null;
         }
-      }
-      const locationStr = cityName && stateName
-        ? `${cityName}, ${stateName}`
-        : stateName ?? "";
+      } catch { /* cityName remains null */ }
+    }
+    const locationStr = cityName && stateName ? `${cityName}, ${stateName}` : stateName ?? "";
 
-      await Promise.allSettled([
+    // Resend emails
+    if (resendKey) {
+      const resend = new Resend(resendKey);
+      const results = await Promise.allSettled([
         resend.emails.send({
           from: FROM_EMAIL,
           to: email,
@@ -160,32 +159,33 @@ export async function POST(req: NextRequest) {
             Networks submitted: ${escHtml(networksSubmitted)}
           `,
         }),
-      ]).then((results) => {
-        results.forEach((r) => {
-          if (r.status === "rejected") console.error("[lead] Email error:", r.reason);
-        });
+      ]);
+      results.forEach((r) => {
+        if (r.status === "rejected") console.error("[lead] Email error:", r.reason);
       });
-    })().catch((err) => console.error("[lead] Email block error:", err));
-  } else {
-    console.error("[lead] Missing RESEND_API_KEY");
-  }
+    } else {
+      console.error("[lead] Missing RESEND_API_KEY");
+    }
 
-  // Submit to lead networks — non-blocking, log IDs back to Supabase
-  submitLeadToNetworks({ name, email, phone, zip, intent: validIntent, stateName })
-    .then(async (networkResults: NetworkResult[]) => {
+    // Network submissions
+    try {
+      const networkResults: NetworkResult[] = await submitLeadToNetworks({ name, email, phone, zip, intent: validIntent, stateName });
       console.log("[lead] Network results:", JSON.stringify(networkResults));
-      if (!leadId) return;
-      const update: Record<string, unknown> = { network_payouts: networkResults };
-      for (const r of networkResults) {
-        if (r.accepted && r.leadId) {
-          if (r.network === "modernize") update.modernize_id = r.leadId;
-          if (r.network === "autoweb")   update.autoweb_id   = r.leadId;
-          if (r.network === "everquote") update.everquote_id = r.leadId;
+      if (leadId) {
+        const update: Record<string, unknown> = { network_payouts: networkResults };
+        for (const r of networkResults) {
+          if (r.accepted && r.leadId) {
+            if (r.network === "modernize") update.modernize_id = r.leadId;
+            if (r.network === "autoweb")   update.autoweb_id   = r.leadId;
+            if (r.network === "everquote") update.everquote_id = r.leadId;
+          }
         }
+        await supabase.from("leads").update(update).eq("id", leadId);
       }
-      await supabase.from("leads").update(update).eq("id", leadId);
-    })
-    .catch((err) => console.error("[lead] Network submission error:", err));
+    } catch (err) {
+      console.error("[lead] Network submission error:", err);
+    }
+  });
 
   return NextResponse.json({ ok: true });
 }
