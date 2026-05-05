@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/shared/SiteFooter";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "How EV Charge Savings collects and uses data.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

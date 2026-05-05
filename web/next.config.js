@@ -6,7 +6,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: "/ev-cost", destination: "/", permanent: false },
+      { source: "/ev-cost", destination: "/", permanent: true },
     ];
   },
 };

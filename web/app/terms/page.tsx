@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/shared/SiteFooter";
 export const metadata: Metadata = {
   title: "Terms of Use",
   description: "Terms governing your use of EV Charge Savings.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

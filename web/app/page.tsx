@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: "Should You Switch to an EV? Calculate Your Savings — 2026",
   description:
     "Calculate EV charging cost, EV vs gas savings, home charger costs, and local incentives using 2026 electricity and gas rates for all 50 states.",
+  alternates: { canonical: "/" },
 };
 
 function AdSlot({
