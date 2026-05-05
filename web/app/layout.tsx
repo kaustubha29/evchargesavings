@@ -1,7 +1,28 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import React from "react";
+import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+  axes: ["opsz"],
+  style: ["normal", "italic"],
+});
+
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -24,7 +45,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${fraunces.variable} ${geist.variable} ${geistMono.variable}`}>
       <head>
         {React.createElement("meta", { name: "impact-site-verification", content: "960c3032-0ee0-4b68-ac48-6e69b019dc4c" })}
       </head>

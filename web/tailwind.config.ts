@@ -31,9 +31,9 @@ const config: Config = {
         honey:   "#c8902a",
       },
       fontFamily: {
-        serif: ["Fraunces", "Georgia", "serif"],
-        sans:  ["Geist", "system-ui", "sans-serif"],
-        mono:  ["Geist Mono", "monospace"],
+        serif: ["var(--font-fraunces)", "Georgia", "serif"],
+        sans:  ["var(--font-geist)", "system-ui", "sans-serif"],
+        mono:  ["var(--font-geist-mono)", "monospace"],
       },
       borderRadius: {
         sm: "6px",
