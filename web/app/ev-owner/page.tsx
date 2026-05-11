@@ -107,10 +107,10 @@ export default function EVOwnerPage() {
           contentClassName="section-wrap max-w-2xl"
           availableIntents={["charger", "insurance"]}
           defaultIntent={["charger", "insurance"]}
-          heading="Get Level 2 installation quotes in your area"
-          description="Level 2 charging cuts overnight charge time from 20+ hours to 4–6. Get matched with up to 3 licensed electricians to compare quotes — free, no obligation."
-          submitLabel="Get installer quotes"
-          successMessage="Got it — local electricians will reach out within 24 hours with quotes."
+          heading="Get quotes for charger install or EV insurance"
+          description="Pick what you need: match with licensed electricians for a Level 2 install quote, compare EV insurance rates, or both. Free, no obligation."
+          submitLabel="Get quotes"
+          successMessage="Got it — relevant providers will reach out within 24 hours."
         />
 
         <EVInsuranceCTA />
