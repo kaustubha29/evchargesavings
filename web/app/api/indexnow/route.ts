@@ -44,8 +44,16 @@ const TOP_STATE_SLUGS = [
   "minnesota",
 ];
 
-const TOP_GUIDE_SLUGS = [
+const TOP_NEWS_SLUGS = [
   "walmart-ev-charging-network-2026",
+  "us-dc-fast-charging-72000-ports-may-2026",
+  "electricity-rates-rising-ev-charging-costs-2026",
+  "ev-tax-credit-eliminated-loan-deduction-2026",
+  "kia-ev6-2026-pricing-under-40000",
+  "tesla-roadster-2026-reveal",
+];
+
+const TOP_GUIDE_SLUGS = [
   "is-ev-right-for-you",
   "ev-tax-credit-7500",
   "home-charging-setup",
@@ -67,6 +75,9 @@ function buildDefaultUrls(): string[] {
   const urls: string[] = STATIC_PATHS.map((p) => `${BASE}${p}`);
   for (const state of TOP_STATE_SLUGS) {
     urls.push(`${BASE}/ev-cost/${state}`);
+  }
+  for (const news of TOP_NEWS_SLUGS) {
+    urls.push(`${BASE}/news/${news}`);
   }
   for (const guide of TOP_GUIDE_SLUGS) {
     urls.push(`${BASE}/guides/${guide}`);
