@@ -64,7 +64,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            <SavingsSlot />
+            <a href="#calculator" className="block cursor-pointer" aria-label="Go to calculator">
+              <SavingsSlot />
+            </a>
           </div>
         </section>
 
@@ -90,7 +92,7 @@ export default function HomePage() {
 
 
         {/* CALCULATOR */}
-        <section className="bg-cream-soft py-12">
+        <section id="calculator" className="bg-cream-soft py-12">
           <div className="section-wrap">
             <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} initialHomeRateKwh={national.kwhCents} initialGasPriceDollar={national.gasDollar} />
           </div>

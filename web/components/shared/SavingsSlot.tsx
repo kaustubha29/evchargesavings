@@ -103,7 +103,7 @@ export function SavingsSlot() {
   const { ev, location, saving } = COMBOS[idx];
 
   return (
-    <div className="bg-ink rounded-3xl overflow-hidden border border-white/10 shadow-2">
+    <div className="bg-ink rounded-3xl overflow-hidden border border-white/10 shadow-2 transition-all duration-200 hover:border-emerald/30 hover:shadow-[0_0_0_2px_rgba(46,204,113,0.12)]">
       {/* Accent line */}
       <div className="h-0.5 bg-gradient-to-r from-forest via-emerald to-forest" />
 
@@ -157,9 +157,12 @@ export function SavingsSlot() {
       {/* Footer */}
       <div className="bg-white/4 border-t border-white/8 px-6 py-3.5 flex items-center justify-between">
         <div className="font-mono text-[9px] text-cream/25">vs equivalent gas car · 13,500 mi/yr</div>
-        <div className="flex items-center gap-1.5 font-mono text-[9px] text-emerald/70">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
-          live
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-[9px] text-emerald/60 tracking-wide">Calculate yours →</span>
+          <div className="flex items-center gap-1.5 font-mono text-[9px] text-emerald/70">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
+            live
+          </div>
         </div>
       </div>
     </div>
