@@ -42,6 +42,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
   other: {
     "google-adsense-account": "ca-pub-6904215876470010",
+    "indexnow-key": "ccd656076fbc461f9a711d00e5945297",
   },
 };
 
