@@ -30,7 +30,7 @@ const SETTLE_MS    = 700;
 
 function Reel({ value, rolling, delay, accent }: { value: string; rolling: boolean; delay: number; accent?: boolean }) {
   return (
-    <div className={`flex-1 min-w-0 h-12 rounded-xl overflow-hidden flex items-center justify-center ${accent ? "bg-emerald/10 border border-emerald/30" : "bg-white/8 border border-white/12"}`}>
+    <div className={`h-12 rounded-xl overflow-hidden flex items-center justify-center ${accent ? "bg-emerald/10 border border-emerald/30" : "bg-white/8 border border-white/12"}`}>
       <div
         className={`px-2 text-center w-full truncate ${accent ? "font-serif text-xl font-semibold" : "font-mono text-xs text-cream/80"}`}
         style={{
@@ -103,7 +103,7 @@ export function SavingsSlot() {
   const { ev, location, saving } = COMBOS[idx];
 
   return (
-    <div className="bg-ink rounded-3xl overflow-hidden border border-white/10 shadow-2 transition-all duration-200 hover:border-emerald/30 hover:shadow-[0_0_0_2px_rgba(46,204,113,0.12)]">
+    <div className="bg-ink rounded-3xl overflow-hidden border border-white/10 shadow-2 transition-[border-color,box-shadow] duration-200 hover:border-emerald/30 hover:shadow-[0_0_0_2px_rgba(46,204,113,0.12)]">
       {/* Accent line */}
       <div className="h-0.5 bg-gradient-to-r from-forest via-emerald to-forest" />
 
@@ -128,16 +128,16 @@ export function SavingsSlot() {
       </div>
 
       {/* Reel labels */}
-      <div className="flex gap-2 px-6 pt-5 pb-2">
+      <div className="grid grid-cols-3 gap-2 px-6 pt-5 pb-2">
         {["EV model", "Location", "Saves / yr"].map((l) => (
-          <div key={l} className="flex-1 text-center font-mono text-[11px] uppercase tracking-wider text-cream/50">
+          <div key={l} className="text-center font-mono text-[11px] uppercase tracking-wider text-cream/50">
             {l}
           </div>
         ))}
       </div>
 
       {/* Reels */}
-      <div className="flex gap-2 px-6 pb-5">
+      <div className="grid grid-cols-3 gap-2 px-6 pb-5">
         <Reel value={ev}       rolling={rolling} delay={0}   />
         <Reel value={location} rolling={rolling} delay={60}  />
         <Reel value={saving}   rolling={rolling} delay={120} accent />
@@ -157,12 +157,9 @@ export function SavingsSlot() {
       {/* Footer */}
       <div className="bg-white/4 border-t border-white/8 px-6 py-3.5 flex items-center justify-between">
         <div className="font-mono text-[9px] text-cream/25">vs equivalent gas car · 13,500 mi/yr</div>
-        <div className="flex items-center gap-3">
-          <span className="font-mono text-[9px] text-emerald/60 tracking-wide">Calculate yours →</span>
-          <div className="flex items-center gap-1.5 font-mono text-[9px] text-emerald/70">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
-            live
-          </div>
+        <div className="flex items-center gap-1.5 font-mono text-[9px] text-emerald/70">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
+          live
         </div>
       </div>
     </div>

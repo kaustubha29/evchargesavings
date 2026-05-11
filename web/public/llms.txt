@@ -1,0 +1,36 @@
+# EV Charge Savings
+
+> Calculate how much you'll save by switching to an EV. Live EIA electricity and gas rates for all 50 US states, 130+ EV models, EPA efficiency data. Free, no account needed. Built by a Kia EV9 owner.
+
+## Core
+
+- [Calculator](https://www.evchargesavings.com/): EV vs gas fuel cost calculator — pick any EV, pick your current gas car, choose your state, get annual and lifetime savings estimates using live government data.
+- [How We Calculate](https://www.evchargesavings.com/how-we-calculate): Full methodology — EIA residential electricity rates, EIA weekly gas prices, EPA MPGe ratings, exact formulas used for every number on the site.
+- [About](https://www.evchargesavings.com/about): Built by an engineering leader in the Pacific Northwest who owns a Kia EV9 and helped four coworkers buy one. Independent, not funded by any automaker or utility.
+
+## For EV Owners
+
+- [EV Owner Guide](https://www.evchargesavings.com/ev-owner): Level 2 home charging setup, time-of-use electricity rate switching, public charging network comparison, EV insurance review. For people who already own an EV.
+- [EV Insurance](https://www.evchargesavings.com/ev-insurance): EVs cost 15–22% more to insure than comparable gas cars. Why it costs more, what affects rates, and how to reduce premiums.
+
+## Guides
+
+- [Is an EV Right For You?](https://www.evchargesavings.com/guides/is-ev-right-for-you): Decision framework — driving patterns, home charging access, total cost math.
+- [EV Tax Credit 2026](https://www.evchargesavings.com/guides/ev-tax-credit-7500): Federal $7,500 EV credit expired Oct 1, 2025. What state credits remain.
+- [Home Charging Setup](https://www.evchargesavings.com/guides/home-charging-setup): Level 1 vs Level 2 charging, electrician costs, what you actually need.
+- [Time-of-Use Electricity Rates](https://www.evchargesavings.com/guides/time-of-use-rates): How TOU plans cut overnight charging costs 30–60%.
+- [EV vs Hybrid](https://www.evchargesavings.com/guides/ev-vs-hybrid): When a hybrid makes more sense than a full EV.
+- [Best Home EV Chargers 2026](https://www.evchargesavings.com/guides/best-home-ev-chargers-2026): Top Level 2 charger picks with specs and prices.
+- [EV Charging Cost Per Mile](https://www.evchargesavings.com/guides/ev-charging-cost-per-mile): Formula and state-by-state cost breakdown.
+- [EV vs Gas True Cost](https://www.evchargesavings.com/guides/ev-vs-gas-true-cost): Full ownership cost comparison including fuel, insurance, maintenance, depreciation.
+- [EV Total Cost of Ownership](https://www.evchargesavings.com/guides/ev-total-cost-ownership): 5-year TCO analysis methodology.
+- [All Guides](https://www.evchargesavings.com/guides): Full index — buying, charging, ownership, savings, finance.
+
+## Data Pages
+
+- [EV Savings by State](https://www.evchargesavings.com/ev-cost/california): Per-state EV charging cost and annual savings pages for all 50 states (e.g. /ev-cost/california, /ev-cost/texas).
+- [Cost to Charge by Model + State](https://www.evchargesavings.com/cost-to-charge/tesla-model-y-long-range-awd/california): Per-model, per-state charging cost pages for top EVs (e.g. /cost-to-charge/tesla-model-y-long-range-awd/california).
+
+## Optional
+
+- [llms-full.txt](https://www.evchargesavings.com/llms-full.txt): Extended version with full page content for key static pages.
