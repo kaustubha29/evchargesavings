@@ -147,7 +147,7 @@ export function SavingsSlot() {
       <div className="border-t border-white/8 px-6 py-4 flex items-center gap-2.5">
         <span className="text-emerald text-sm flex-shrink-0">⚡</span>
         <p
-          className="font-mono text-[12px] text-cream/60 leading-snug transition-all duration-300 line-clamp-2 min-h-[2.2rem]"
+          className="font-mono text-[12px] text-cream/60 leading-snug transition-all duration-300 line-clamp-2"
           style={{ opacity: factFade ? 1 : 0, transform: factFade ? "translateY(0)" : "translateY(3px)" }}
         >
           {FACTS[factIdx]}
