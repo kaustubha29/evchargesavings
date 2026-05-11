@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
 
         {/* Top status bar */}
-        <div className="bg-[#0d2c1f] text-cream font-mono text-[11px] uppercase tracking-[.08em] px-6 py-2.5 flex justify-between items-center gap-4 flex-wrap">
+        <div className="bg-[#0d2c1f] text-cream font-mono text-[13px] uppercase tracking-[.08em] px-7 py-3 flex justify-between items-center gap-4 flex-wrap">
           {/* Logo / home link */}
           <a href="/" className="text-cream no-underline hover:text-honey transition-colors normal-case whitespace-nowrap font-semibold tracking-wide">
             ⚡ EV Charge Savings
@@ -83,7 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* Status + nav */}
           <div className="flex items-center gap-6 flex-wrap">
             <span className="hidden sm:inline text-cream/40 normal-case tracking-normal">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald animate-pulse mr-1.5 align-middle" />
+              <span className="inline-block w-2 h-2 rounded-full bg-emerald animate-pulse mr-2 align-middle" />
               <span className="text-honey/80">Live rates</span>
               {" · "}
               <span className="text-cream/30">EIA data</span>
