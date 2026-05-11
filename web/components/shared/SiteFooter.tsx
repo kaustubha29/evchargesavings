@@ -49,11 +49,13 @@ export function SiteFooter() {
             <ul className="space-y-2">
               {[
                 { href: "/ev-cost/california", label: "Savings by state" },
+                { href: "/ev-owner", label: "EV owner guide" },
                 { href: "/ev-insurance", label: "EV insurance costs" },
                 { href: "/guides", label: "All guides" },
+                { href: "/about", label: "About" },
+                { href: "/contact", label: "Contact" },
                 { href: "/privacy", label: "Privacy" },
                 { href: "/terms", label: "Terms" },
-                { href: "mailto:hello@evchargesavings.com", label: "Contact" },
               ].map((l) => (
                 <li key={l.label}>
                   <a href={l.href} className="text-sm text-cream/70 hover:text-gold transition-colors">{l.label}</a>

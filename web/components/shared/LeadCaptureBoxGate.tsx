@@ -10,6 +10,7 @@ interface Props {
   sectionClassName?: string;
   contentClassName?: string;
   defaultIntent?: ("ev" | "charger" | "insurance")[];
+  availableIntents?: ("ev" | "charger" | "insurance")[];
   heading?: string;
   description?: string;
   submitLabel?: string;
@@ -23,6 +24,7 @@ export function LeadCaptureBoxGate({
   sectionClassName,
   contentClassName,
   defaultIntent,
+  availableIntents,
   heading,
   description,
   submitLabel,
@@ -58,6 +60,7 @@ export function LeadCaptureBoxGate({
       sourcePage={sourcePage}
       gateId={gateId}
       defaultIntent={defaultIntent}
+      availableIntents={availableIntents}
       heading={heading}
       description={description}
       submitLabel={submitLabel}

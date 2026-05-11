@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 
@@ -14,7 +13,7 @@ export default function TermsPage() {
     <>
       <main className="bg-paper min-h-screen">
         <div className="section-wrap py-16 max-w-2xl">
-          <Link href="/" className="font-mono text-xs text-ink-mute hover:text-forest mb-8 inline-block">← evchargesavings.com</Link>
+          <a href="/" className="font-mono text-xs text-ink-mute hover:text-forest mb-8 inline-block">← evchargesavings.com</a>
 
           <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">Legal</div>
           <h1 className="font-serif text-4xl font-medium tracking-tight text-ink mb-2">Terms of Use</h1>

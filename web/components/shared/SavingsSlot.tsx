@@ -30,9 +30,9 @@ const SETTLE_MS    = 700;
 
 function Reel({ value, rolling, delay, accent }: { value: string; rolling: boolean; delay: number; accent?: boolean }) {
   return (
-    <div className={`flex-1 min-w-0 h-9 rounded-xl overflow-hidden flex items-center justify-center ${accent ? "bg-emerald/10 border border-emerald/30" : "bg-white/8 border border-white/12"}`}>
+    <div className={`flex-1 min-w-0 h-12 rounded-xl overflow-hidden flex items-center justify-center ${accent ? "bg-emerald/10 border border-emerald/30" : "bg-white/8 border border-white/12"}`}>
       <div
-        className={`px-2 text-center w-full truncate ${accent ? "font-serif text-base font-semibold" : "font-mono text-[11px] text-cream/80"}`}
+        className={`px-2 text-center w-full truncate ${accent ? "font-serif text-xl font-semibold" : "font-mono text-xs text-cream/80"}`}
         style={{
           // Use longhand-only to avoid shorthand/transitionDelay conflict warning
           transitionProperty:       rolling ? "none"     : "filter, opacity, transform",
@@ -108,7 +108,7 @@ export function SavingsSlot() {
       <div className="h-0.5 bg-gradient-to-r from-forest via-emerald to-forest" />
 
       {/* Header */}
-      <div className="px-5 py-3.5 border-b border-white/8 flex items-center justify-between">
+      <div className="px-6 py-4 border-b border-white/8 flex items-center justify-between">
         <div className="font-mono text-[10px] uppercase tracking-widest text-cream/40">
           EV savings · real examples
         </div>
@@ -128,7 +128,7 @@ export function SavingsSlot() {
       </div>
 
       {/* Reel labels */}
-      <div className="flex gap-2 px-5 pt-4 pb-2">
+      <div className="flex gap-2 px-6 pt-5 pb-2">
         {["EV model", "Location", "Saves / yr"].map((l) => (
           <div key={l} className="flex-1 text-center font-mono text-[11px] uppercase tracking-wider text-cream/50">
             {l}
@@ -137,14 +137,14 @@ export function SavingsSlot() {
       </div>
 
       {/* Reels */}
-      <div className="flex gap-2 px-5 pb-4">
+      <div className="flex gap-2 px-6 pb-5">
         <Reel value={ev}       rolling={rolling} delay={0}   />
         <Reel value={location} rolling={rolling} delay={60}  />
         <Reel value={saving}   rolling={rolling} delay={120} accent />
       </div>
 
       {/* EV fact strip */}
-      <div className="border-t border-white/8 px-5 py-3.5 flex items-center gap-2.5">
+      <div className="border-t border-white/8 px-6 py-4 flex items-center gap-2.5">
         <span className="text-emerald text-sm flex-shrink-0">⚡</span>
         <p
           className="font-mono text-[12px] text-cream/60 leading-snug transition-all duration-300 line-clamp-2"
@@ -155,7 +155,7 @@ export function SavingsSlot() {
       </div>
 
       {/* Footer */}
-      <div className="bg-white/4 border-t border-white/8 px-5 py-3 flex items-center justify-between">
+      <div className="bg-white/4 border-t border-white/8 px-6 py-3.5 flex items-center justify-between">
         <div className="font-mono text-[9px] text-cream/25">vs equivalent gas car · 13,500 mi/yr</div>
         <div className="flex items-center gap-1.5 font-mono text-[9px] text-emerald/70">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />

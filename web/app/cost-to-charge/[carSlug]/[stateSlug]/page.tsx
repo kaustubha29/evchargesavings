@@ -125,6 +125,14 @@ export default async function CostToChargePage({ params }: Props) {
   const monthlyEV      = savings.evAnnualCost / 12;
   const monthlyGas     = savings.gasAnnualCost / 12;
 
+  // Editorial context flags
+  const rateCategory = state.kwhCents < 13 ? "low" : state.kwhCents < 20 ? "moderate" : "high";
+  const gasPriceHigh = state.gasDollar >= 4.0;
+  const savingsStrong = savings.annualSavings > 1500;
+  const savingsNegative = savings.annualSavings < 0;
+  const isNACS = ev.connector === "NACS";
+  const efficiencyGrade = ev.efficiency >= 4.0 ? "excellent" : ev.efficiency >= 3.2 ? "good" : "moderate";
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -304,7 +312,99 @@ export default async function CostToChargePage({ params }: Props) {
           </div>
         </section>
 
-        {/* Section 4 — CTA */}
+        {/* Section 4 — Editorial context */}
+        <section className="py-12 border-b border-line bg-paper">
+          <div className="section-wrap max-w-3xl">
+            <h2 className="font-serif text-2xl font-medium tracking-tight mb-6">
+              Is the {ev.name} a good fit for {state.name}?
+            </h2>
+            <div className="space-y-4 text-ink-2 leading-relaxed">
+              <p>
+                {rateCategory === "low" && (
+                  <>
+                    {state.name} has one of the lower residential electricity rates in the country at{" "}
+                    {fmt.cents1(state.kwhCents)}/kWh — charging the {ev.name} here costs less than in most states.
+                    At {efficiencyGrade} efficiency ({ev.efficiency} mi/kWh EPA-rated), each dollar of electricity takes you{" "}
+                    {(ev.efficiency / (state.kwhCents / 100)).toFixed(0)} miles.
+                  </>
+                )}
+                {rateCategory === "moderate" && (
+                  <>
+                    {state.name}&apos;s electricity rate of {fmt.cents1(state.kwhCents)}/kWh sits near the national average.
+                    The {ev.name}&apos;s {efficiencyGrade} efficiency of {ev.efficiency} mi/kWh means a full {ev.battery} kWh charge
+                    costs {fmt.money2(fullChargeCost)} and gets you roughly {ev.range} miles — comparable to a tank of gas
+                    in terms of range, but at a fraction of the cost.
+                  </>
+                )}
+                {rateCategory === "high" && (
+                  <>
+                    Electricity in {state.name} runs {fmt.cents1(state.kwhCents)}/kWh — above the national average — which
+                    raises the bar for EV savings compared to lower-rate states. Even so, the {ev.name}&apos;s{" "}
+                    {efficiencyGrade} efficiency ({ev.efficiency} mi/kWh) keeps fuel costs lower than a comparable gas vehicle
+                    in most driving scenarios.
+                    {gasPriceHigh && <> {state.name}&apos;s gas prices (currently {fmt.money2(state.gasDollar)}/gal) further tip the balance in the EV&apos;s favor.</>}
+                  </>
+                )}
+              </p>
+
+              <p>
+                {savingsStrong && !savingsNegative && (
+                  <>
+                    The {fmt.money0(savings.annualSavings)}/year savings on fuel is meaningfully above average for this pairing.
+                    {gasPriceHigh
+                      ? ` High gas prices in ${state.name} are a major driver — at ${fmt.money2(state.gasDollar)}/gal, every mile in the ${gas.name} costs significantly more than in the ${ev.name}.`
+                      : ` This is driven by a combination of ${efficiencyGrade} EV efficiency and the relatively low cost of home charging at ${fmt.cents1(state.kwhCents)}/kWh.`
+                    }
+                  </>
+                )}
+                {!savingsStrong && !savingsNegative && (
+                  <>
+                    Savings of {fmt.money0(savings.annualSavings)}/year are meaningful but modest for this pairing.
+                    {rateCategory === "high"
+                      ? ` ${state.name}'s above-average electricity rates reduce the advantage versus gas. If your utility offers a time-of-use (TOU) plan, off-peak charging can significantly close the gap.`
+                      : ` Lower local gas prices reduce the spread between the ${ev.name} and the ${gas.name} on pure fuel cost.`
+                    }
+                  </>
+                )}
+                {savingsNegative && (
+                  <>
+                    This combination shows higher EV fuel costs than the comparable gas vehicle — unusual but it can happen
+                    when electricity rates are high, gas prices are low, and the gas vehicle is particularly fuel-efficient.
+                    The gap may still close when you factor in lower EV maintenance costs, which AAA estimates at roughly
+                    $900/year less than comparable gas vehicles.
+                  </>
+                )}
+              </p>
+
+              {ev.connector === "NACS" ? (
+                <p>
+                  The {ev.name} uses the NACS connector, which means access to the Tesla Supercharger network (over 17,000
+                  locations in the US) in addition to Electrify America, ChargePoint, and EVgo. For road trips in {state.name},
+                  Supercharger coverage is generally dense along major corridors, making range anxiety less of a concern for
+                  most drivers.
+                </p>
+              ) : (
+                <p>
+                  The {ev.name} uses a CCS connector, which works with Electrify America, ChargePoint, EVgo, and most
+                  third-party Level 2 networks. Public charging costs 2–4× more than home charging per kWh — plan
+                  your {state.name} road trips around home charging where possible, and use public chargers as top-ups
+                  rather than primary sources.
+                </p>
+              )}
+
+              {state.hasTOU && (
+                <p>
+                  {state.name} utilities offer time-of-use pricing — charging overnight (typically 11 PM–7 AM) can
+                  reduce your rate significantly below the {fmt.cents1(state.kwhCents)}/kWh state average shown here.
+                  Some utilities offer EV-specific rate plans that drop off-peak rates even further. Check with your
+                  local utility for the current rate schedule before assuming the default rate applies.
+                </p>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 5 — CTA */}
         <section className="py-16">
           <div className="section-wrap max-w-xl">
             <h2 className="font-serif text-2xl font-medium tracking-tight mb-2">

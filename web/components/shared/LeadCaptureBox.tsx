@@ -19,6 +19,7 @@ interface Props {
   sourcePage?: string;
   gateId?: string;
   defaultIntent?: Intent[];
+  availableIntents?: Intent[];
   heading?: string;
   description?: string;
   submitLabel?: string;
@@ -29,6 +30,7 @@ export function LeadCaptureBox({
   sourcePage = "/",
   gateId,
   defaultIntent,
+  availableIntents,
   heading = "See what it costs to own an EV in your area",
   description = "Get personalized estimates for EV pricing, Level 2 home charger installation, and available incentives in your zip code.",
   submitLabel = "Get EV cost report",
@@ -137,7 +139,7 @@ export function LeadCaptureBox({
                   { value: "ev"        as Intent, label: "Buy an EV" },
                   { value: "charger"   as Intent, label: "Install a home charger" },
                   { value: "insurance" as Intent, label: "Compare EV insurance" },
-                ] as const).map(({ value, label }) => (
+                ] as const).filter(o => !availableIntents || availableIntents.includes(o.value)).map(({ value, label }) => (
                   <button
                     key={value}
                     type="button"

@@ -4,6 +4,7 @@ import React from "react";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -90,9 +91,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <nav className="flex gap-6" aria-label="Top">
               {[
                 { href: "/#calculator", label: "Calculator" },
-                { href: "/#public-charging", label: "Networks" },
+                { href: "/ev-owner", label: "Own an EV?" },
                 { href: "/guides", label: "Guides" },
-                { href: "/how-we-calculate", label: "Methodology" },
+                { href: "/about", label: "About" },
               ].map((l) => (
                 <a key={l.href} href={l.href} className="text-cream/60 no-underline hover:text-cream transition-colors normal-case">
                   {l.label}
@@ -104,6 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {children}
         <Analytics />
+        <SpeedInsights/>
       </body>
     </html>
   );

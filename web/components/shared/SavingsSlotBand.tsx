@@ -4,6 +4,7 @@ interface Props {
   eyebrow?: string;
   title?: string;
   body?: string;
+  cta?: { label: string; href: string };
   className?: string;
 }
 
@@ -11,6 +12,7 @@ export function SavingsSlotBand({
   eyebrow = "Live examples",
   title = "Real EV savings, rolling by",
   body = "See how model, location, and local rates change the yearly savings picture.",
+  cta,
   className = "",
 }: Props) {
   return (
@@ -26,6 +28,14 @@ export function SavingsSlotBand({
           <p className="text-sm text-ink-3 leading-relaxed max-w-md">
             {body}
           </p>
+          {cta && (
+            <a
+              href={cta.href}
+              className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-xl text-sm font-semibold bg-forest text-white hover:bg-emerald transition-colors"
+            >
+              {cta.label}
+            </a>
+          )}
         </div>
         <SavingsSlot />
       </div>

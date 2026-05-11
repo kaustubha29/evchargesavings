@@ -72,7 +72,10 @@ export function StickySavingsBar() {
             <span className="text-rust/80">{fmt.money0(savings.gasAnnualCost)} gas</span>
             <span className="text-cream/20">→</span>
             <span className="text-emerald">{fmt.money0(savings.evAnnualCost)} EV</span>
-            <span className="text-cream/30 ml-1">({fmt.pct0(savings.savingsPct)} less)</span>
+            {savings.annualSavings >= 0
+              ? <span className="text-cream/30 ml-1">({fmt.pct0(savings.savingsPct)} less)</span>
+              : <span className="text-rust/70 ml-1">({fmt.pct0(-savings.savingsPct)} more)</span>
+            }
           </div>
 
           <div className="flex flex-shrink-0 items-center gap-2">
