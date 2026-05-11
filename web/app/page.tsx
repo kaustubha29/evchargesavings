@@ -5,7 +5,7 @@ import { CalculatorShell } from "@/components/features/calculator/CalculatorShel
 import { LocationDetector } from "@/components/features/location/LocationDetector";
 import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
 import { SiteFooter } from "@/components/shared/SiteFooter";
-import { SavingsSlot } from "@/components/shared/SavingsSlot";
+import { ClickableSlot } from "@/components/shared/ClickableSlot";
 import { ConditionalPostCalc } from "@/components/shared/ConditionalPostCalc";
 import type { Metadata } from "next";
 
@@ -64,9 +64,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <a href="#calculator" className="block cursor-pointer" aria-label="Go to calculator">
-              <SavingsSlot />
-            </a>
+            <ClickableSlot />
           </div>
         </section>
 
