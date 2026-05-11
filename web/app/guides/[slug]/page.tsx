@@ -98,6 +98,11 @@ export default async function GuidePage({ params }: Props) {
                 {guide.category}
               </span>
               <span className="font-mono text-[10px] text-ink-mute">{guide.readTime}</span>
+              {guide.publishedAt && (
+                <span className="font-mono text-[10px] text-ink-mute">
+                  {new Date(guide.publishedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+                </span>
+              )}
             </div>
             <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-ink mb-3" style={{ lineHeight: 1.1 }}>
               {guide.title}

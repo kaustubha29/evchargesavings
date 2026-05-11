@@ -44,6 +44,7 @@ const TOP_STATE_SLUGS = [
 ];
 
 const TOP_GUIDE_SLUGS = [
+  "walmart-ev-charging-network-2026",
   "is-ev-right-for-you",
   "ev-tax-credit-7500",
   "home-charging-setup",
