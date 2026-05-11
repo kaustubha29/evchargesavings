@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { GUIDES } from "@/features/guides/data";
 import { HomeChargingSection } from "@/components/shared/HomeChargingSection";
-import { HomeChargerProducts } from "@/components/shared/HomeChargerProducts";
+import { HomeChargerProductsPersonalized } from "@/components/shared/HomeChargerProductsPersonalized";
 import { LeadCaptureBoxGate } from "@/components/shared/LeadCaptureBoxGate";
 import { EVInsuranceCTA } from "@/components/shared/EVInsuranceCTA";
 import { ChargingNetworkReferrals } from "@/components/shared/ChargingNetworkReferrals";
@@ -96,7 +96,7 @@ export default function EVOwnerPage() {
 
         {/* HOME CHARGER PRODUCTS */}
         <div id="chargers">
-          <HomeChargerProducts />
+          <HomeChargerProductsPersonalized />
         </div>
 
         {/* INSTALLER LEAD CAPTURE */}
