@@ -1,0 +1,39 @@
+name: Daily EV News
+
+on:
+  schedule:
+    - cron: '0 12 * * *'   # noon UTC = 8am ET = 5am PT
+  workflow_dispatch:         # manual trigger from GitHub Actions tab
+
+jobs:
+  publish-news:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install script deps
+        run: npm install
+        working-directory: scripts
+
+      - name: Publish news article
+        run: node publish-news.js
+        working-directory: scripts
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Commit and push if changed
+        run: |
+          git config user.email "news-bot@evchargesavings.com"
+          git config user.name "EV News Bot"
+          git add web/features/guides/data.ts
+          git diff --cached --quiet && echo "No new article." || (
+            git commit -m "content: daily EV news $(date +%Y-%m-%d)" &&
+            git push
+          )
