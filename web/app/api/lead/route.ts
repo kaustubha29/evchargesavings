@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
 
     if (error?.code === "23505") {
       const { data: updated } = await supabase.from("leads")
-        .update({ zip: zip || null, state_code: stateCode, name, phone, intent })
+        .update({ zip: zip || null, state_code: stateCode, name, phone, intent, is_owner: isOwner })
         .eq("email", email)
         .select("id")
         .single();
