@@ -7,6 +7,7 @@ const KEY_LOC  = `${BASE}/${KEY}.txt`;
 
 const STATIC_PATHS = [
   "/",
+  "/news",
   "/about",
   "/contact",
   "/ev-owner",

@@ -6,10 +6,10 @@ const { Anthropic } = require("@anthropic-ai/sdk");
 const fs = require("fs");
 const path = require("path");
 
-const DATA_FILE = path.join(__dirname, "../web/features/guides/data.ts");
+const DATA_FILE = path.join(__dirname, "../web/features/news/data.ts");
 const BASE_URL = "https://www.evchargesavings.com";
 const INDEXNOW_KEY = "ccd656076fbc461f9a711d00e5945297";
-const MARKER = "];\n\nexport function getGuideBySlug";
+const MARKER = "];\n\nexport function getNewsBySlug";
 
 function getExistingSlugs(content) {
   return [...content.matchAll(/slug:\s*"([^"]+)"/g)].map((m) => m[1]);
@@ -32,7 +32,6 @@ function articleToTs(a) {
     `    hook: ${JSON.stringify(a.hook)},`,
     `    description: ${JSON.stringify(a.description)},`,
     `    readTime: ${JSON.stringify(a.readTime)},`,
-    `    category: "News",`,
     `    publishedAt: ${JSON.stringify(a.publishedAt)},`,
     `    sections: [`,
     sections,
@@ -130,7 +129,7 @@ Requirements:
   console.log(`  Title: ${article.title}`);
 
   // Ping IndexNow
-  const articleUrl = `${BASE_URL}/guides/${article.slug}`;
+  const articleUrl = `${BASE_URL}/news/${article.slug}`;
   try {
     const r = await fetch("https://api.indexnow.org/IndexNow", {
       method: "POST",
@@ -139,7 +138,7 @@ Requirements:
         host: "www.evchargesavings.com",
         key: INDEXNOW_KEY,
         keyLocation: `${BASE_URL}/${INDEXNOW_KEY}.txt`,
-        urlList: [articleUrl, `${BASE_URL}/guides`],
+        urlList: [articleUrl, `${BASE_URL}/news`],
       }),
     });
     console.log(`✓ IndexNow: ${r.status}`);

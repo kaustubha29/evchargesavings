@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllStates } from "@/features/location/queries";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { GUIDES } from "@/features/guides/data";
+import { NEWS } from "@/features/news/data";
 
 const BASE = "https://www.evchargesavings.com";
 const NOW = new Date().toISOString();
@@ -111,8 +112,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
+  const newsUrls = NEWS.map((a) => ({
+    url: `${BASE}/news/${a.slug}`,
+    lastModified: a.publishedAt,
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
+
   return [
     { url: BASE,                        lastModified: NOW, changeFrequency: "weekly",  priority: 1.0 },
+    { url: `${BASE}/news`,              lastModified: NOW, changeFrequency: "daily",   priority: 0.9 },
     { url: `${BASE}/about`,             lastModified: NOW, changeFrequency: "yearly",  priority: 0.6 },
     { url: `${BASE}/contact`,           lastModified: NOW, changeFrequency: "yearly",  priority: 0.5 },
     { url: `${BASE}/ev-owner`,          lastModified: NOW, changeFrequency: "monthly", priority: 0.7 },
@@ -121,6 +130,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/how-we-calculate`,  lastModified: NOW, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/privacy`,           lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
     { url: `${BASE}/terms`,             lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
+    ...newsUrls,
     ...guideUrls,
     ...stateUrls,
     ...evUrls,
