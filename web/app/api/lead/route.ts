@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Server misconfigured" }, { status: 500 });
   }
 
-  let email: string, zip: string, sourcePage: string;
+  let email: string, zip: string, sourcePage: string, isOwner: boolean;
   let name: string, phone: string, intent: string[];
   try {
     const body = await req.json();
@@ -41,6 +41,7 @@ export async function POST(req: NextRequest) {
     name       = (body.name       ?? "").trim();
     phone      = (body.phone      ?? "").replace(/\D/g, "");
     intent     = Array.isArray(body.intent) ? body.intent.slice(0, 10) : [];
+    isOwner    = body.isOwner === true;
   } catch {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
@@ -83,6 +84,7 @@ export async function POST(req: NextRequest) {
       name,
       phone,
       intent,
+      is_owner: isOwner,
     }).select("id").single();
 
     if (error?.code === "23505") {
@@ -126,8 +128,23 @@ export async function POST(req: NextRequest) {
         resend.emails.send({
           from: FROM_EMAIL,
           to: email,
-          subject: "Your personalized EV cost & charger options are on the way",
-          html: `
+          subject: isOwner
+            ? "Your charger install & insurance quotes are on the way"
+            : "Your personalized EV cost & charger options are on the way",
+          html: isOwner ? `
+            <p>Hi ${escHtml(name)},</p>
+            <p>Thanks for reaching out${locationStr ? ` from <b>${escHtml(locationStr)}</b>` : ""}.</p>
+            <p><b>Within the next 24 hours, you'll hear from:</b></p>
+            <ul>
+              ${intent.includes("charger") ? "<li>🔌 Up to <b>3 licensed electricians</b> for Level 2 home charger installation quotes</li>" : ""}
+              ${intent.includes("insurance") ? "<li>🛡️ EV insurance providers to <b>compare rates</b> for your vehicle</li>" : ""}
+            </ul>
+            <p>No pressure, no obligation — just options to compare.</p>
+            <p>— EV Charge Savings</p>
+            <p style="font-size:11px;color:#999">
+              Submitted at evchargesavings.com. We never sell your email. You may be contacted by up to 3 vetted local providers.
+            </p>
+          ` : `
             <p>Hi ${escHtml(name)},</p>
             <p>Thanks for checking out EV ownership costs${locationStr ? ` in <b>${escHtml(locationStr)}</b>` : ""} — we're putting together your personalized breakdown now.</p>
             <p><b>Within the next 24 hours, you'll receive:</b></p>
@@ -146,9 +163,9 @@ export async function POST(req: NextRequest) {
         resend.emails.send({
           from: FROM_EMAIL,
           to: OWNER_EMAIL,
-          subject: `New lead${stateName ? ` · ${stateName}` : ""}${zip ? ` · ${zip}` : ""}`,
+          subject: `${isOwner ? "EV owner lead" : "New lead"}${stateName ? ` · ${stateName}` : ""}${zip ? ` · ${zip}` : ""}`,
           html: `
-            <b>New lead</b><br/>
+            <b>${isOwner ? "🔑 EV OWNER" : "New lead"}</b><br/>
             Name: ${escHtml(name)}<br/>
             Email: ${escHtml(email)}<br/>
             Phone: ${formatPhone(phone)}<br/>

@@ -11,6 +11,7 @@ interface Props {
   contentClassName?: string;
   defaultIntent?: ("ev" | "charger" | "insurance")[];
   availableIntents?: ("ev" | "charger" | "insurance")[];
+  isOwner?: boolean;
   heading?: string;
   description?: string;
   submitLabel?: string;
@@ -25,6 +26,7 @@ export function LeadCaptureBoxGate({
   contentClassName,
   defaultIntent,
   availableIntents,
+  isOwner,
   heading,
   description,
   submitLabel,
@@ -61,6 +63,7 @@ export function LeadCaptureBoxGate({
       gateId={gateId}
       defaultIntent={defaultIntent}
       availableIntents={availableIntents}
+      isOwner={isOwner}
       heading={heading}
       description={description}
       submitLabel={submitLabel}

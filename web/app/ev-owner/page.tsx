@@ -107,6 +107,7 @@ export default function EVOwnerPage() {
           contentClassName="section-wrap max-w-2xl"
           availableIntents={["charger", "insurance"]}
           defaultIntent={["charger", "insurance"]}
+          isOwner={true}
           heading="Get quotes for charger install or EV insurance"
           description="Pick what you need: match with licensed electricians for a Level 2 install quote, compare EV insurance rates, or both. Free, no obligation."
           submitLabel="Get quotes"

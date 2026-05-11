@@ -20,6 +20,7 @@ interface Props {
   gateId?: string;
   defaultIntent?: Intent[];
   availableIntents?: Intent[];
+  isOwner?: boolean;
   heading?: string;
   description?: string;
   submitLabel?: string;
@@ -31,6 +32,7 @@ export function LeadCaptureBox({
   gateId,
   defaultIntent,
   availableIntents,
+  isOwner = false,
   heading = "See what it costs to own an EV in your area",
   description = "Get personalized estimates for EV pricing, Level 2 home charger installation, and available incentives in your zip code.",
   submitLabel = "Get EV cost report",
@@ -65,6 +67,7 @@ export function LeadCaptureBox({
           zip,
           intent,
           sourcePage,
+          isOwner,
         }),
       });
 
