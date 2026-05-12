@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { fetchStateGasPrices, fetchStateElecRates } from "@/features/location/eia";
 
-export const revalidate = 3600;
+export const revalidate = 3600; // 1h server cache
 
 export async function GET(req: NextRequest) {
   const state = req.nextUrl.searchParams.get("state") ?? "US";
@@ -22,6 +22,6 @@ export async function GET(req: NextRequest) {
 
   return NextResponse.json(
     { state, kwhCents, gasDollar, gasPeriod: gas.period, elecPeriod: elec.period },
-    { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400" } },
+    { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=7200" } },
   );
 }
