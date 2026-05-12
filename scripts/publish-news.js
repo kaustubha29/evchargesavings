@@ -62,11 +62,11 @@ async function main() {
       max_tokens: 16000,
       tools: [{ type: "web_search_20250305", name: "web_search" }],
       tool_choice: { type: "tool", name: "web_search" },
-      system: `You are a research assistant. Search for the single most newsworthy US EV story from the last 7 days. Focus on: public charging infrastructure, EV pricing, government EV policy, utility rates, major automaker announcements. Do NOT search for EVgo. Return only the raw search results — do not write anything else.`,
+      system: `You are a research assistant finding breaking news for evchargesavings.com — a US site about EV charging costs and savings. Search for a SPECIFIC EVENT or ANNOUNCEMENT published in the last 7 days. Must be one of: new charging network expansion/pricing, EV tax credit or incentive change, utility rate change affecting EV charging, new affordable EV model launch or pricing, government EV infrastructure policy. Do NOT pick evergreen analysis, opinion pieces, or "cost comparison" articles — must be a real news event with a date, company, or official announcement. Do NOT search for EVgo. Return only the raw search results.`,
       messages: [
         {
           role: "user",
-          content: `Search for top US EV news this week (${today}). Already covered topics — do not pick these: ${existingSlugs.filter((s) => /-202/.test(s)).join(", ")}`,
+          content: `Search for: EV charging news announcement OR EV incentive news OR electric vehicle policy news site:electrek.co OR site:insideevs.com OR site:greencarreports.com OR site:caranddriver.com ${today.slice(0, 7)}`,
         },
       ],
     },
@@ -86,7 +86,9 @@ async function main() {
       max_tokens: 8000,
       system: `You are an EV news journalist for evchargesavings.com — a site helping people understand EV charging costs and savings in the US. Today is ${today}.
 
-Based on the web search results provided, write an article about the single most newsworthy story for an EV owner or prospective buyer in the US.
+Based on the web search results provided, pick the single best story for evchargesavings.com readers — people who own or are buying EVs and care about charging costs, savings, and incentives.
+
+MUST be a specific recent event/announcement (new law, new pricing, new network, new model launch, policy change). Do NOT write about evergreen topics like "EVs vs gas cost comparison" or general analysis — pick something with a specific date, company, or government action in the search results.
 
 Already published slugs (do not duplicate): ${existingSlugs.filter((s) => /-202/.test(s)).join(", ")}
 
