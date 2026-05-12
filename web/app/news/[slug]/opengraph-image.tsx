@@ -61,12 +61,12 @@ export default async function Image({ params }: Props) {
           </div>
 
           {/* Title */}
-          <div style={{ fontSize: 52, fontWeight: 700, color: "#f5f0e8", lineHeight: 1.12, letterSpacing: "-0.02em", fontFamily: serif, marginBottom: 30, maxWidth: 1040 }}>
+          <div style={{ display: "flex", fontSize: 52, fontWeight: 700, color: "#f5f0e8", lineHeight: 1.12, letterSpacing: "-0.02em", fontFamily: serif, marginBottom: 30, maxWidth: 1040 }}>
             {title}
           </div>
 
           {/* Hook */}
-          <div style={{ fontSize: 22, color: "rgba(245,240,232,0.52)", lineHeight: 1.55, maxWidth: 860, marginBottom: 44 }}>
+          <div style={{ display: "flex", fontSize: 22, color: "rgba(245,240,232,0.52)", lineHeight: 1.55, maxWidth: 860, marginBottom: 44 }}>
             {hook}
           </div>
 
