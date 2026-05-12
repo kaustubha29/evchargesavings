@@ -51,8 +51,8 @@ async function main() {
   const msg = await client.messages.create(
     {
       model: "claude-opus-4-7",
-      max_tokens: 16000,
-      tools: [{ type: "web_search_20250305", name: "web_search" }],
+      max_tokens: 20000,
+      tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 2 }],
       system: `You are an EV news journalist for evchargesavings.com — a site helping people understand EV charging costs and savings in the US. Today is ${today}.
 
 Search for the single most newsworthy EV story published in the last 48 hours. Prioritise: public charging infrastructure, new EV pricing/availability, government EV policy, utility rates affecting EV owners, major automaker EV news.
