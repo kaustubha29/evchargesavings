@@ -131,6 +131,11 @@ Requirements:
   console.log(`✓ Published: /news/${article.slug}`);
   console.log(`  Title: ${article.title}`);
 
+  // Signal success to GitHub Actions git step
+  if (process.env.GITHUB_OUTPUT) {
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `published=true\nslug=${article.slug}\n`);
+  }
+
   // Ping IndexNow
   const articleUrl = `${BASE_URL}/news/${article.slug}`;
   try {

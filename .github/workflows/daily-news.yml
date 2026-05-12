@@ -23,19 +23,17 @@ jobs:
         working-directory: scripts
 
       - name: Publish news article
+        id: publish
         run: node publish-news.js
         working-directory: scripts
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
       - name: Commit and push if changed
+        if: steps.publish.outputs.published == 'true'
         run: |
           git config user.email "news-bot@evchargesavings.com"
           git config user.name "EV News Bot"
-          if git diff --quiet HEAD -- web/features/news/data.ts; then
-            echo "No new article."
-          else
-            git add web/features/news/data.ts
-            git commit -m "content: daily EV news $(date +%Y-%m-%d)"
-            git push
-          fi
+          git add web/features/news/data.ts
+          git commit -m "content: daily EV news - ${{ steps.publish.outputs.slug }}"
+          git push
