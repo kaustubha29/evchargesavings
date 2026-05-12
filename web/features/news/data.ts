@@ -263,6 +263,52 @@ export const NEWS: NewsArticle[] = [
       },
     ],
   },
+  {
+    slug: "used-ev-ownership-costs-vs-gas-2026",
+    title: "Used EV Sales Surge in 2026 as Ownership Costs Undercut Gas Cars",
+    hook: "Used EVs are now cheaper to own than comparable gas vehicles over five years, driving a sales boom.",
+    description: "Used EV sales are surging in 2026 as falling prices and lower fuel and maintenance costs make pre-owned electric vehicles cheaper to own than gas equivalents, according to recent CNBC analysis.",
+    readTime: "3 min read",
+    publishedAt: "2026-05-12",
+    sections: [
+      {
+        heading: "The Used EV Boom Is Reshaping the Market",
+        body: "While new EV sales growth has cooled in the US, the used EV segment is the standout story of 2026. A May 3 CNBC report highlighted that pre-owned electric vehicles are flying off lots as buyers chase steep depreciation discounts on three- and four-year-old models. With federal tax credits for new EVs eliminated earlier this year, the value proposition has shifted decisively toward the secondhand market, where the savings on fuel and maintenance still apply but the sticker shock is gone.",
+      },
+      {
+        heading: "How the Total Cost of Ownership Math Works Out",
+        body: "When you compare a used EV against a comparable used gas vehicle over a five-year ownership window, electrics generally come out ahead. The biggest gaps show up in two line items that hit gas owners every month:",
+        list: [
+          "Fueling: Home charging at average US residential rates remains dramatically cheaper per mile than gasoline, even with electricity prices rising in 2026.",
+          "Maintenance: No oil changes, no transmission service, no spark plugs, and far less brake wear thanks to regenerative braking.",
+          "Depreciation: Because used EVs already absorbed the steepest first-owner depreciation hit, second owners often see flatter resale curves.",
+          "Insurance and registration: These remain the categories where gas cars can still edge out EVs in some states.",
+        ],
+      },
+      {
+        heading: "Why Q1 2026 Sales Data Matters",
+        body: "InsideEVs' breakdown of US Q1 2026 EV sales showed a mixed new-vehicle picture as automakers absorb the loss of the federal $7,500 credit, but used-EV transaction volume climbed sharply. Dealers report that three-year-old Teslas, Chevy Bolts, Ford Mustang Mach-Es, and Hyundai Ioniq 5s are among the fastest-moving inventory, frequently selling under $25,000.",
+      },
+      {
+        heading: "What This Means for Prospective Buyers",
+        body: "If you've been priced out of a new EV after the tax credit went away, the used market is now the smartest entry point. A buyer picking up a 2022 or 2023 model-year EV today benefits from improved fast-charging networks, the NACS plug transition expanding access to Tesla's Supercharger network, and battery warranties that typically run eight years or 100,000 miles from the original in-service date.",
+      },
+      {
+        heading: "Watch Outs Before You Buy Used",
+        body: "The math only works if you check the right boxes before signing. Battery health is the single biggest variable in a used EV purchase, and buyers should insist on a state-of-health report rather than relying on odometer reading alone.",
+        list: [
+          "Request a battery state-of-health test (most dealers and independent shops can run one).",
+          "Confirm remaining battery warranty coverage transfers to you.",
+          "Verify the vehicle supports the charging standards you'll actually use, including NACS adapter compatibility.",
+          "Factor in home Level 2 charger installation, which typically runs $500 to $2,000 depending on your panel.",
+        ],
+      },
+      {
+        heading: "The Bottom Line for 2026",
+        body: "With used EV prices down, electricity still cheaper per mile than gasoline in most markets, and maintenance bills a fraction of what gas owners pay, the used EV is shaping up as the value play of 2026. For shoppers comparing a used EV against a used gas car in the same price band, the five-year ownership math now consistently favors going electric.",
+      },
+    ],
+  },
 ];
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {
