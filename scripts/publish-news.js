@@ -1,6 +1,5 @@
 // Daily EV news publisher — called by GitHub Actions
-// Searches for today's top EV story via Claude web search,
-// writes it as a Guide entry, appends to data.ts, pings IndexNow.
+// Two-pass: (1) forced single web search, (2) article writing with no tools.
 
 const { Anthropic } = require("@anthropic-ai/sdk");
 const fs = require("fs");
@@ -10,6 +9,11 @@ const DATA_FILE = path.join(__dirname, "../web/features/news/data.ts");
 const BASE_URL = "https://www.evchargesavings.com";
 const INDEXNOW_KEY = "ccd656076fbc461f9a711d00e5945297";
 const MARKER = "];\n\nexport function getNewsBySlug";
+
+// Slugs attempted but never committed (keep model from repeating them)
+const EXTRA_EXCLUDED_SLUGS = [
+  "evgo-q1-2026-5280-stalls-nacs-expansion",
+];
 
 function getExistingSlugs(content) {
   return [...content.matchAll(/slug:\s*"([^"]+)"/g)].map((m) => m[1]);
@@ -43,25 +47,50 @@ function articleToTs(a) {
 async function main() {
   const client = new Anthropic();
   const content = fs.readFileSync(DATA_FILE, "utf-8");
-  const existingSlugs = getExistingSlugs(content);
+  const existingSlugs = [
+    ...getExistingSlugs(content),
+    ...EXTRA_EXCLUDED_SLUGS,
+  ];
   const today = new Date().toISOString().split("T")[0];
 
-  console.log(`[${today}] Fetching EV news. ${existingSlugs.length} existing articles.`);
+  console.log(`[${today}] Fetching EV news. ${existingSlugs.length} known slugs.`);
 
-  const msg = await client.messages.create(
+  // Pass 1: force exactly one web search, collect results
+  const searchMsg = await client.messages.create(
     {
       model: "claude-opus-4-7",
-      max_tokens: 32000,
-      tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 1 }],
+      max_tokens: 16000,
+      tools: [{ type: "web_search_20250305", name: "web_search" }],
+      tool_choice: { type: "tool", name: "web_search" },
+      system: `You are a research assistant. Search for the single most newsworthy US EV story from the last 7 days. Focus on: public charging infrastructure, EV pricing, government EV policy, utility rates, major automaker announcements. Do NOT search for EVgo. Return only the raw search results — do not write anything else.`,
+      messages: [
+        {
+          role: "user",
+          content: `Search for top US EV news this week (${today}). Already covered topics — do not pick these: ${existingSlugs.filter((s) => /-202/.test(s)).join(", ")}`,
+        },
+      ],
+    },
+    { headers: { "anthropic-beta": "web-search-2025-03-05" } }
+  );
+
+  // Extract search result blocks to pass to pass 2
+  const searchBlocks = searchMsg.content.filter(
+    (b) => b.type === "web_search_tool_result" || b.type === "server_tool_use"
+  );
+  console.log(`Search complete. ${searchBlocks.filter(b => b.type === "web_search_tool_result").length} result block(s).`);
+
+  // Pass 2: write the article with no tools, using search results as context
+  const articleMsg = await client.messages.create(
+    {
+      model: "claude-opus-4-7",
+      max_tokens: 8000,
       system: `You are an EV news journalist for evchargesavings.com — a site helping people understand EV charging costs and savings in the US. Today is ${today}.
 
-Search for a newsworthy EV story published in the last 7 days. Prioritise: public charging infrastructure, new EV pricing/availability, government EV policy, utility rates affecting EV owners, major automaker EV news. Do NOT pick stories about EVgo unless they are the ONLY option.
+Based on the web search results provided, write an article about the single most newsworthy story for an EV owner or prospective buyer in the US.
 
-Already published slugs (do not pick any topic covered by these slugs): ${existingSlugs.filter((s) => /-202/.test(s)).join(", ")}
+Already published slugs (do not duplicate): ${existingSlugs.filter((s) => /-202/.test(s)).join(", ")}
 
-IMPORTANT: Do one search, pick one story, write the article. Do not search again.
-
-After searching, return ONLY a valid JSON object — no markdown fences, no commentary — matching this shape exactly:
+Return ONLY a valid JSON object — no markdown fences, no commentary — matching this shape exactly:
 {
   "slug": "descriptive-kebab-case-slug",
   "title": "Clear, specific, factual headline",
@@ -78,23 +107,22 @@ After searching, return ONLY a valid JSON object — no markdown fences, no comm
 
 Requirements:
 - 4-6 sections minimum
-- Every fact must be verified from search results
+- Every fact must come from the search results provided
 - Include specific numbers, dates, company names, dollar amounts
 - Write original sentences — never copy source text verbatim
 - Frame content for someone comparing EV vs gas or already owning an EV`,
       messages: [
         {
           role: "user",
-          content: "Search for today's top EV news and return the article as JSON.",
+          content: `Here are today's web search results:\n\n${JSON.stringify(searchBlocks, null, 2)}\n\nWrite the article JSON now.`,
         },
       ],
-    },
-    { headers: { "anthropic-beta": "web-search-2025-03-05" } }
+    }
   );
 
   // Extract JSON from final text block
   let article = null;
-  for (const block of msg.content) {
+  for (const block of articleMsg.content) {
     if (block.type !== "text") continue;
     const text = block.text.trim().replace(/^```json\s*/i, "").replace(/\s*```$/, "").trim();
     try {
@@ -113,7 +141,7 @@ Requirements:
 
   if (!article?.slug || !Array.isArray(article.sections)) {
     console.error("No valid article JSON in response:");
-    console.error(JSON.stringify(msg.content, null, 2));
+    console.error(JSON.stringify(articleMsg.content, null, 2));
     process.exit(1);
   }
 
