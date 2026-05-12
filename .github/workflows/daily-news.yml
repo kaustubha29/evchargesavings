@@ -32,8 +32,10 @@ jobs:
         run: |
           git config user.email "news-bot@evchargesavings.com"
           git config user.name "EV News Bot"
-          git add web/features/news/data.ts
-          git diff --cached --quiet && echo "No new article." || (
-            git commit -m "content: daily EV news $(date +%Y-%m-%d)" &&
+          if git diff --quiet HEAD -- web/features/news/data.ts; then
+            echo "No new article."
+          else
+            git add web/features/news/data.ts
+            git commit -m "content: daily EV news $(date +%Y-%m-%d)"
             git push
-          )
+          fi

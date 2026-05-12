@@ -128,7 +128,7 @@ Requirements:
   const ts = articleToTs(article);
   const updated = content.replace(MARKER, `${ts}\n${MARKER}`);
   fs.writeFileSync(DATA_FILE, updated, "utf-8");
-  console.log(`✓ Published: /guides/${article.slug}`);
+  console.log(`✓ Published: /news/${article.slug}`);
   console.log(`  Title: ${article.title}`);
 
   // Ping IndexNow
