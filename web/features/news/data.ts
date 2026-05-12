@@ -263,6 +263,47 @@ export const NEWS: NewsArticle[] = [
       },
     ],
   },
+  {
+    slug: "blink-emobi-plug-and-charge-56000-ports-may-2026",
+    title: "Blink Activates Plug-and-Charge Across 56,000 EV Ports Through Emobi Partnership",
+    hook: "No more app fumbling: Blink's entire US network is going tap-to-charge in 2026.",
+    description: "Blink Charging announced a partnership with Emobi to roll out plug-and-charge functionality to its 56,000 EV ports in May 2026, eliminating apps, RFID cards, and credit card swipes for drivers.",
+    readTime: "3 min read",
+    publishedAt: "2026-05-12",
+    sections: [
+      {
+        heading: "What Just Happened",
+        body: "On May 7, 2026, Blink Charging confirmed it's deploying plug-and-charge technology across its roughly 56,000 EV charging ports in partnership with Emobi. The feature lets drivers plug in their vehicle and have the charging session start, authenticate, and bill automatically — no app, no membership card, no tapping a credit card reader required. It's the same frictionless experience Tesla owners have enjoyed at Superchargers for years, now extended to one of the largest third-party charging networks in the US.",
+      },
+      {
+        heading: "Why This Matters for Your Wallet",
+        body: "Plug-and-charge isn't just a convenience upgrade — it directly affects what you pay. Drivers without the right app or membership often get hit with higher 'guest' or pay-as-you-go pricing at Blink stations. Automatic authentication tied to your vehicle means consistent member-rate pricing every time you plug in, and it removes the friction that pushes some drivers to abandon public charging for pricier alternatives.",
+      },
+      {
+        heading: "How It Compares to Gas",
+        body: "One of the longest-standing complaints about public EV charging is that paying can be harder than pumping gas. With plug-and-charge live across Blink's network, the EV refueling experience becomes faster than gas: you don't even have to take out your wallet or phone. Combined with home charging — where most EV drivers already do 80%+ of their fueling at residential electricity rates — the public charging gap with gas stations continues to narrow.",
+      },
+      {
+        heading: "The Bigger Plug-and-Charge Picture",
+        body: "Blink joins a growing list of networks adopting the ISO 15118 plug-and-charge standard. The rollout matters because the US public charging market has been fragmented for years, with each network requiring its own app or RFID card. Key benefits of standardized plug-and-charge include:",
+        list: [
+          "Automatic billing to a payment method on file — no swiping or tapping",
+          "Vehicle identity verified through the charging cable itself",
+          "Eliminates the need to download multiple charging apps",
+          "Reduces failed sessions caused by payment authorization errors",
+          "Works across networks that support the same standard",
+        ],
+      },
+      {
+        heading: "Context: A Busy Quarter for Charging",
+        body: "The Blink-Emobi rollout lands during a strong build-out period for US charging. According to InsideEVs reporting on Q1 2026 data, the US added over 3,000 new DC fast charging plugs in the first quarter alone, even as EV sales growth has slowed. Networks like EVgo have also been pushing NACS expansion. Blink activating plug-and-charge across its existing 56,000-port footprint is a software-side win that complements all the new hardware coming online.",
+      },
+      {
+        heading: "What EV Drivers Should Do",
+        body: "If you regularly use Blink stations, watch for the plug-and-charge activation prompt in your Blink account and confirm your vehicle is compatible — most 2022-and-newer EVs support the ISO 15118 standard. Once enabled, you can stop juggling apps at the kiosk. For shoppers comparing EVs to a new gas car, the trend is clear: the inconveniences that defined early public charging are being engineered out, one network at a time.",
+      },
+    ],
+  },
 ];
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {
