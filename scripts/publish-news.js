@@ -48,11 +48,12 @@ async function main() {
 
   console.log(`[${today}] Fetching EV news. ${existingSlugs.length} existing articles.`);
 
-  const msg = await client.messages.create({
-    model: "claude-opus-4-7",
-    max_tokens: 4096,
-    tools: [{ type: "web_search_20250305", name: "web_search" }],
-    system: `You are an EV news journalist for evchargesavings.com — a site helping people understand EV charging costs and savings in the US. Today is ${today}.
+  const msg = await client.messages.create(
+    {
+      model: "claude-opus-4-7",
+      max_tokens: 4096,
+      tools: [{ type: "web_search_20250305", name: "web_search" }],
+      system: `You are an EV news journalist for evchargesavings.com — a site helping people understand EV charging costs and savings in the US. Today is ${today}.
 
 Search for the single most newsworthy EV story published in the last 48 hours. Prioritise: public charging infrastructure, new EV pricing/availability, government EV policy, utility rates affecting EV owners, major automaker EV news.
 
@@ -79,13 +80,15 @@ Requirements:
 - Include specific numbers, dates, company names, dollar amounts
 - Write original sentences — never copy source text verbatim
 - Frame content for someone comparing EV vs gas or already owning an EV`,
-    messages: [
-      {
-        role: "user",
-        content: "Search for today's top EV news and return the article as JSON.",
-      },
-    ],
-  });
+      messages: [
+        {
+          role: "user",
+          content: "Search for today's top EV news and return the article as JSON.",
+        },
+      ],
+    },
+    { headers: { "anthropic-beta": "web-search-2025-03-05" } }
+  );
 
   // Extract JSON from final text block
   let article = null;
