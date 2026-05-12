@@ -36,4 +36,5 @@ jobs:
           git config user.name "EV News Bot"
           git add web/features/news/data.ts
           git commit -m "content: daily EV news - ${{ steps.publish.outputs.slug }}"
+          git pull --rebase
           git push
