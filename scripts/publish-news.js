@@ -51,13 +51,15 @@ async function main() {
   const msg = await client.messages.create(
     {
       model: "claude-opus-4-7",
-      max_tokens: 20000,
-      tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 2 }],
+      max_tokens: 32000,
+      tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 1 }],
       system: `You are an EV news journalist for evchargesavings.com — a site helping people understand EV charging costs and savings in the US. Today is ${today}.
 
-Search for the single most newsworthy EV story published in the last 48 hours. Prioritise: public charging infrastructure, new EV pricing/availability, government EV policy, utility rates affecting EV owners, major automaker EV news.
+Search for a newsworthy EV story published in the last 7 days. Prioritise: public charging infrastructure, new EV pricing/availability, government EV policy, utility rates affecting EV owners, major automaker EV news. Do NOT pick stories about EVgo unless they are the ONLY option.
 
-Already published slugs (do not duplicate): ${existingSlugs.filter((s) => /-202/.test(s)).join(", ")}
+Already published slugs (do not pick any topic covered by these slugs): ${existingSlugs.filter((s) => /-202/.test(s)).join(", ")}
+
+IMPORTANT: Do one search, pick one story, write the article. Do not search again.
 
 After searching, return ONLY a valid JSON object — no markdown fences, no commentary — matching this shape exactly:
 {
