@@ -351,6 +351,20 @@ export const NEWS: NewsArticle[] = [
       },
     ],
   },
+  {
+    slug: "no-qualifying-story",
+    title: "No qualifying story found",
+    hook: "No recent official EV story within 14 days found in results.",
+    description: "No story in the provided search results meets the recency and official source requirements.",
+    readTime: "1 min read",
+    publishedAt: "2026-05-13",
+    sections: [
+      {
+        heading: "No Qualifying Story",
+        body: "None of the search results provided contain a specific event announced within the past 14 days (from 2026-05-13) with an official source URL. All stories are either older than 14 days, from excluded aggregator sites, or lack verifiable dates.",
+      },
+    ],
+  },
 ];
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {
