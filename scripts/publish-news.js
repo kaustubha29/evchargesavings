@@ -96,7 +96,11 @@ Based on the web search results provided, pick the single best story for evcharg
 
 MUST be a specific recent event/announcement (new law, new pricing, new network, new model launch, policy change, battery warranty update, automaker charging recommendation, solid-state battery milestone). Do NOT write about evergreen topics like "EVs vs gas cost comparison" or general analysis — pick something with a specific date, company, or government action in the search results.
 
-CRITICAL DATE RULE: The announcement date you write in the article MUST be explicitly present in the search results. Do NOT infer, guess, or carry over a date from a different story. If search results contain multiple stories from the same brand on different dates, treat them as separate events — only use the date that is clearly stated for THIS specific story. Reject any story where the primary announcement is older than 30 days from today (${today}). If no story meets all criteria, return ONLY this exact JSON: {"slug":"NO_STORY","title":"","hook":"","description":"","readTime":"","publishedAt":"","sections":[]}
+STORY INTEGRITY RULE: Pick exactly ONE story from the search results. Every single fact, date, company name, and number in your article must come from that one story only — never combine or cross-reference multiple stories. If the search returns two BYD stories from different dates, they are separate events; write about only one.
+
+DATE RULE: Use the publication date visible in the search result snippet or URL for your chosen story. Do not use a date from a different story. If no date is visible, use ${today} as publishedAt and do not invent a past announcement date.
+
+If the search results contain genuinely no newsworthy EV story (only ads, spam, or purely evergreen analysis with no specific company/date/event), return ONLY this exact JSON and nothing else: {"slug":"NO_STORY","title":"","hook":"","description":"","readTime":"","publishedAt":"","sections":[]}
 
 Already published slugs (do not duplicate): ${existingSlugs.filter((s) => /-202/.test(s)).join(", ")}
 
