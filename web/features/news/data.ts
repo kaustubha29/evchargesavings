@@ -304,6 +304,47 @@ export const NEWS: NewsArticle[] = [
       },
     ],
   },
+  {
+    slug: "duracell-driivz-ev-fast-charging-network-may-2026",
+    title: "Duracell Launches Branded EV Fast-Charging Network Powered by Driivz",
+    hook: "The iconic battery brand is entering the DC fast-charging game with a new US network launch.",
+    description: "Duracell announced a partnership with Driivz on May 11, 2026 to launch its own EV fast-charging network, bringing a trusted consumer brand into a crowded charging market.",
+    readTime: "3 min read",
+    publishedAt: "2026-05-13",
+    sections: [
+      {
+        heading: "A Familiar Battery Brand Plugs Into EV Charging",
+        body: "Duracell — the household name behind billions of AA batteries — is officially entering the EV fast-charging business. On May 11, 2026, the company confirmed it has tapped charging software platform Driivz to power a new Duracell-branded DC fast-charger network across the United States. For EV drivers, it means another major option is joining a market currently dominated by Tesla, Electrify America, EVgo, and ChargePoint.",
+      },
+      {
+        heading: "Why Driivz Is the Behind-the-Scenes Pick",
+        body: "Driivz, owned by Vontier, runs the back-end software for some of the largest charging operators in the world. It handles the unglamorous but critical pieces of running a charging network, including:",
+        list: [
+          "Payment processing and driver billing",
+          "Real-time station monitoring and uptime management",
+          "Energy and load management to control electricity costs",
+          "Plug-and-charge authentication for seamless sessions",
+          "Roaming agreements with other charging networks",
+        ],
+      },
+      {
+        heading: "What It Could Mean for Charging Costs",
+        body: "More networks generally means more price competition, which is welcome news for EV owners watching public DC fast-charging rates climb. Public fast charging in the US now typically runs $0.40 to $0.60 per kWh — often two to three times what drivers pay at home. A new entrant with strong brand recognition could pressure incumbents on pricing, membership fees, and idle penalties, especially if Duracell pursues retail-partner locations the way Walmart and others have.",
+      },
+      {
+        heading: "Brand Trust Is the Real Weapon",
+        body: "One of the biggest complaints about public charging is reliability — broken screens, failed payments, and offline stalls. Duracell isn't building hardware from scratch; it's licensing its trusted name to a network run on proven Driivz software. For shoppers comparing an EV to a gas car, brand familiarity at the charger may ease range-anxiety concerns, much like seeing a recognizable gas station logo off the highway.",
+      },
+      {
+        heading: "How It Fits Into the May 2026 Charging Boom",
+        body: "Duracell's launch lands in a busy month for US charging news. Blink announced on May 7 that its 56,000 ports will gain plug-and-charge functionality through Emobi, and the broader US DC fast-charging count crossed 72,000 ports this month. Greenlane also expanded high-power charging along major freight corridors. The trend is clear: charging infrastructure is scaling fast, and competition is heating up.",
+      },
+      {
+        heading: "What EV Owners Should Watch Next",
+        body: "Duracell hasn't yet released specifics on charger locations, pricing tiers, or rollout timing. Key questions for cost-conscious drivers will be whether Duracell offers a subscription discount (similar to EVgo Rewards or Electrify America Pass+), whether it supports NACS plugs for Tesla and newer Ford, GM, and Rivian EVs, and how its per-kWh pricing compares to home charging, which still averages around $0.16 per kWh nationally.",
+      },
+    ],
+  },
 ];
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {
