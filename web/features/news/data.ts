@@ -351,6 +351,47 @@ export const NEWS: NewsArticle[] = [
       },
     ],
   },
+  {
+    slug: "byd-5-minute-flash-charging-2026",
+    title: "BYD Rolls Out 5-Minute Flash Charging and 400-Mile Range to Its Top-Selling EVs",
+    hook: "BYD's new megawatt charging tech adds hundreds of miles in the time it takes to grab a coffee.",
+    description: "Chinese automaker BYD announced May 2026 upgrades to its best-selling Han and Tang EVs, adding 1-megawatt 'flash charging' that delivers up to 5-minute fast charges and nearly 400 miles of range.",
+    readTime: "3 min read",
+    publishedAt: "2026-05-13",
+    sections: [
+      {
+        heading: "What BYD Just Announced",
+        body: "On May 11, 2026, BYD revealed major upgrades to two of its top-selling electric vehicles — the Han L sedan and Tang L SUV — equipping both with the company's new 1,000-volt 'Super e-Platform' and flash-charging technology. The refreshed models promise nearly 400 miles of driving range and the ability to add significant charge in roughly five minutes when paired with BYD's megawatt-class chargers.",
+      },
+      {
+        heading: "Why 5-Minute Charging Is a Big Deal",
+        body: "Today, even the fastest US public DC fast chargers typically deliver 150 kW to 350 kW, meaning a 10-80% charge on most EVs takes 18-30 minutes. BYD's flash-charging system pushes power delivery up to 1 megawatt (1,000 kW) — roughly three times faster than a Tesla V3 Supercharger. For drivers, that closes the gap between refueling a gas car and recharging an EV at a highway stop.",
+      },
+      {
+        heading: "Key Specs of the Upgraded Models",
+        body: "Both vehicles get notable performance and range improvements alongside the charging tech:",
+        list: [
+          "Han L sedan: up to ~437 miles (701 km) CLTC range",
+          "Tang L SUV: up to ~genuinely competitive range with three-row seating",
+          "1,000-volt architecture supporting megawatt charging",
+          "Peak charging speeds advertised at roughly 1 MW",
+          "Starting prices in China around 270,000 yuan (~$37,000 USD equivalent)",
+        ],
+      },
+      {
+        heading: "What This Means for US EV Buyers",
+        body: "BYD vehicles are not sold to US consumers, and federal tariffs effectively block imports of Chinese-made EVs. But the announcement sets a new global benchmark that will pressure Tesla, Ford, GM, Hyundai, and other automakers serving the US market. As 800V architectures from Hyundai (E-GMP), Kia, Porsche, and Lucid already enable 350 kW peak charging, the industry's next step toward sub-10-minute charging is now clearly on the roadmap.",
+      },
+      {
+        heading: "The Infrastructure Catch",
+        body: "Megawatt charging requires far more than a new car — it needs upgraded grid connections, liquid-cooled cables, and substantial site power. In the US, even the largest DC fast-charging networks like Tesla, EVgo, and Electrify America top out at 350 kW per stall today. BYD is building its own 1 MW charger network in China to support the rollout, a reminder that ultra-fast charging speeds depend on both vehicle and station capabilities matching up.",
+      },
+      {
+        heading: "Bottom Line for Current EV Owners",
+        body: "If you're driving an EV today, your charging speeds aren't changing overnight — but BYD's milestone confirms the direction the industry is moving. Battery chemistry and 800V+ architectures that support faster charging are becoming standard in newer US-market EVs, and the long-term trend points to charging stops that feel a lot more like gas station fill-ups within a few model years.",
+      },
+    ],
+  },
 ];
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {
