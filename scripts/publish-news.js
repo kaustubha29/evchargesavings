@@ -15,6 +15,7 @@ const EXTRA_EXCLUDED_SLUGS = [
   "evgo-q1-2026-5280-stalls-nacs-expansion",
   "used-ev-ownership-costs-vs-gas-2026",
   "byd-5-minute-flash-charging-2026",
+  "california-1-billion-ev-truck-rebate-2026",
 ];
 
 function getExistingSlugs(content) {

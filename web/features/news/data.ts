@@ -351,6 +351,50 @@ export const NEWS: NewsArticle[] = [
       },
     ],
   },
+  {
+    slug: "california-1-billion-ev-truck-rebate-2026",
+    title: "California Launches $1 Billion Rebate Program for Electric Commercial Trucks",
+    hook: "Rebates of $7,500–$120,000 per vehicle now open for California fleets switching to electric semis, box trucks, and delivery vans.",
+    description: "Governor Newsom announced the California Clean Fuel Reward program on May 13, 2026 — $250 million in rebates this year and $1 billion through 2030 for businesses replacing diesel commercial trucks with electric vehicles.",
+    readTime: "3 min read",
+    publishedAt: "2026-05-13",
+    sections: [
+      {
+        heading: "What California Just Announced",
+        body: "Governor Newsom announced the California Clean Fuel Reward (CCFR) program on May 13, 2026 — a rebate initiative funded through California's Low Carbon Fuel Standard (LCFS) program. It offers $250 million in rebates this year and more than $1 billion in total funding through 2030. Applications are open now at cleanfuelreward.com, with rebates available at authorized retailers starting June 26, 2026.",
+      },
+      {
+        heading: "Who Qualifies and for How Much",
+        body: "Public and private fleets across California are eligible. Rebate amounts range from $7,500 to $120,000 per vehicle depending on vehicle class. Eligible vehicles include:",
+        list: [
+          "Electric drayage trucks (port and freight corridor use)",
+          "Electric semi-trucks",
+          "Electric box trucks",
+          "Electric delivery vans",
+          "Other electric fleet commercial vehicles",
+        ],
+      },
+      {
+        heading: "How to Apply",
+        body: "Applications are open now through cleanfuelreward.com. Starting June 26, 2026, rebates will also be available directly at authorized retailers — meaning fleet operators can apply the discount at point of purchase rather than waiting for reimbursement. Southern California Edison, a program administrator, called CCFR expected to become the largest utility-administered rebate for electric trucks in the country.",
+      },
+      {
+        heading: "Why This Matters for EV Charging Infrastructure",
+        body: "Commercial trucks are among the highest-mileage vehicles on the road. Electrifying them drives significant demand for high-power charging at ports, freight hubs, and distribution centers. As fleets deploy electric semis and delivery vehicles, charging corridors along California's freight routes expand — a ripple effect that also benefits passenger EV drivers using the same highway corridors.",
+      },
+      {
+        heading: "State-Funded, Not Federally Dependent",
+        body: "California's LCFS-funded model generates revenue from carbon credits and redirects it to EV adoption — a self-sustaining mechanism that doesn't depend on federal budget cycles or congressional approval. The $1 billion CCFR commitment gives fleet operators multi-year planning certainty to invest in electric vehicles and the charging infrastructure to support them.",
+      },
+      {
+        heading: "What This Means for Consumer EV Owners",
+        body: "The CCFR rebate targets commercial fleets, not personal vehicles. But the program accelerates heavy-duty charging infrastructure along freight corridors and near ports — improving charging availability over time for all drivers in those areas. California's sustained electrification investment also keeps upward pressure on EV manufacturing volumes, which historically pushes consumer prices down.",
+      },
+    ],
+    sources: [
+      { label: "Governor Newsom — Official Announcement, California Clean Fuel Reward Program", url: "https://www.gov.ca.gov/2026/05/13/governor-newsom-announces-californias-new-1-billion-rebate-program-for-electric-trucks-as-trump-cedes-global-clean-vehicle-market-to-china/" },
+    ],
+  },
 ];
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {
