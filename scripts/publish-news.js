@@ -63,7 +63,7 @@ async function main() {
   // Pass 1: force exactly one web search, collect results
   const searchMsg = await client.messages.create(
     {
-      model: "claude-opus-4-7",
+      model: "claude-sonnet-4-6",
       max_tokens: 16000,
       tools: [{ type: "web_search_20250305", name: "web_search" }],
       tool_choice: { type: "tool", name: "web_search" },
@@ -87,7 +87,7 @@ async function main() {
   // Pass 2: write the article with no tools, using search results as context
   const articleMsg = await client.messages.create(
     {
-      model: "claude-opus-4-7",
+      model: "claude-sonnet-4-6",
       max_tokens: 8000,
       system: `You are an EV news journalist for evchargesavings.com — a site helping people understand EV charging costs and savings in the US. Today is ${today}.
 
