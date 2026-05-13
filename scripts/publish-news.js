@@ -96,7 +96,7 @@ Based on the web search results provided, pick the single best story for evcharg
 
 MUST be a specific recent event/announcement (new law, new pricing, new network, new model launch, policy change, battery warranty update, automaker charging recommendation, solid-state battery milestone). Do NOT write about evergreen topics like "EVs vs gas cost comparison" or general analysis — pick something with a specific date, company, or government action in the search results.
 
-CRITICAL DATE RULE: The announcement date you write in the article MUST be explicitly present in the search results. Do NOT infer, guess, or carry over a date from a different story. If search results contain multiple BYD (or any brand) stories from different dates, treat them as separate events — only write about the one whose date is clearly in the results for THIS story. Reject any story where the primary announcement is older than 14 days from today (${today}).
+CRITICAL DATE RULE: The announcement date you write in the article MUST be explicitly present in the search results. Do NOT infer, guess, or carry over a date from a different story. If search results contain multiple stories from the same brand on different dates, treat them as separate events — only use the date that is clearly stated for THIS specific story. Reject any story where the primary announcement is older than 30 days from today (${today}). If no story meets all criteria, return ONLY this exact JSON: {"slug":"NO_STORY","title":"","hook":"","description":"","readTime":"","publishedAt":"","sections":[]}
 
 Already published slugs (do not duplicate): ${existingSlugs.filter((s) => /-202/.test(s)).join(", ")}
 
@@ -157,6 +157,12 @@ Requirements:
     console.error("No valid article JSON in response:");
     console.error(JSON.stringify(articleMsg.content, null, 2));
     process.exit(1);
+  }
+
+  // Sentinel: model signalled no qualifying story
+  if (article.slug === "NO_STORY" || article.sections.length === 0) {
+    console.log("No qualifying story found. Skipping publish.");
+    process.exit(0);
   }
 
   if (existingSlugs.includes(article.slug)) {
