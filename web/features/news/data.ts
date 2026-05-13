@@ -391,6 +391,9 @@ export const NEWS: NewsArticle[] = [
         body: "If you're driving an EV today, your charging speeds aren't changing overnight — but BYD's milestone confirms the direction the industry is moving. Battery chemistry and 800V+ architectures that support faster charging are becoming standard in newer US-market EVs, and the long-term trend points to charging stops that feel a lot more like gas station fill-ups within a few model years.",
       },
     ],
+    sources: [
+      { label: "BYD Official — Super e-Platform & Megawatt Flash Charging Announcement", url: "https://www.byd.com/mea/news-list/byd-unveils-super-e-platform-with-megawatt-flash-charging" },
+    ],
   },
 ];
 

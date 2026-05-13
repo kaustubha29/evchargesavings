@@ -121,7 +121,7 @@ Requirements:
 - Include specific numbers, dates, company names, dollar amounts
 - Write original sentences — never copy source text verbatim
 - Frame content for someone comparing EV vs gas or already owning an EV
-- sources: include 1-3 OFFICIAL sources only — press releases (prnewswire.com, businesswire.com), government pages (.gov), or company official newsrooms. Do NOT include EV news sites (electrek.co, insideevs.com, etc). Only use URLs that literally appear in the search results — do not construct or guess URLs. Omit sources array entirely if no official URLs are present in results.`,
+- sources: include 1-3 OFFICIAL sources only — press releases (prnewswire.com, businesswire.com, globenewswire.com), government pages (.gov, .gov.uk), or automaker/company official sites (byd.com, tesla.com, ford.com, gm.com, rivian.com, lucidmotors.com, hyundai.com, kia.com, energy.gov, etc). Do NOT include EV news aggregators (electrek.co, insideevs.com, greencarreports.com, caranddriver.com). Only use URLs that literally appear in the search results — never construct or guess URLs. If no official URL appeared, output an empty sources array [].`,
       messages: [
         {
           role: "user",
