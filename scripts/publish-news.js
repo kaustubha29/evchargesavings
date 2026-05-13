@@ -30,6 +30,10 @@ function articleToTs(a) {
     })
     .join("\n");
 
+  const sourcesPart = Array.isArray(a.sources) && a.sources.length > 0
+    ? `\n    sources: [\n${a.sources.map((s) => `      { label: ${JSON.stringify(s.label)}, url: ${JSON.stringify(s.url)} },`).join("\n")}\n    ],`
+    : "";
+
   return [
     `  {`,
     `    slug: ${JSON.stringify(a.slug)},`,
@@ -40,7 +44,7 @@ function articleToTs(a) {
     `    publishedAt: ${JSON.stringify(a.publishedAt)},`,
     `    sections: [`,
     sections,
-    `    ],`,
+    `    ],${sourcesPart}`,
     `  },`,
   ].join("\n");
 }
@@ -67,7 +71,7 @@ async function main() {
       messages: [
         {
           role: "user",
-          content: `Search for: EV charging news announcement OR EV incentive news OR electric vehicle policy news site:electrek.co OR site:insideevs.com OR site:greencarreports.com OR site:caranddriver.com ${today.slice(0, 7)}`,
+          content: `Search for: EV charging news announcement OR EV incentive news OR electric vehicle policy news site:electrek.co OR site:insideevs.com OR site:greencarreports.com OR site:caranddriver.com OR site:prnewswire.com OR site:businesswire.com OR site:energy.gov ${today.slice(0, 7)}`,
         },
       ],
     },
@@ -105,6 +109,9 @@ Return ONLY a valid JSON object — no markdown fences, no commentary — matchi
   "sections": [
     { "heading": "...", "body": "..." },
     { "heading": "...", "body": "...", "list": ["item 1", "item 2"] }
+  ],
+  "sources": [
+    { "label": "Company Press Release — Duracell Power Network", "url": "https://www.prnewswire.com/..." }
   ]
 }
 
@@ -113,7 +120,8 @@ Requirements:
 - Every fact must come from the search results provided
 - Include specific numbers, dates, company names, dollar amounts
 - Write original sentences — never copy source text verbatim
-- Frame content for someone comparing EV vs gas or already owning an EV`,
+- Frame content for someone comparing EV vs gas or already owning an EV
+- sources: include 1-3 OFFICIAL sources only — press releases (prnewswire.com, businesswire.com), government pages (.gov), or company official newsrooms. Do NOT include EV news sites (electrek.co, insideevs.com, etc). Only use URLs that literally appear in the search results — do not construct or guess URLs. Omit sources array entirely if no official URLs are present in results.`,
       messages: [
         {
           role: "user",

@@ -4,6 +4,11 @@ export interface NewsSection {
   list?: string[];
 }
 
+export interface NewsSource {
+  label: string;
+  url: string;
+}
+
 export interface NewsArticle {
   slug: string;
   title: string;
@@ -12,6 +17,7 @@ export interface NewsArticle {
   readTime: string;
   publishedAt: string;
   sections: NewsSection[];
+  sources?: NewsSource[];
 }
 
 export const NEWS: NewsArticle[] = [

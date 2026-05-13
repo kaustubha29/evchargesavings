@@ -117,6 +117,27 @@ export default async function NewsArticlePage({ params }: Props) {
             ))}
           </div>
 
+          {/* Sources */}
+          {article.sources && article.sources.length > 0 && (
+            <div className="border-t border-line pt-6 mb-10">
+              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-3">Sources</div>
+              <ul className="space-y-1.5">
+                {article.sources.map((s) => (
+                  <li key={s.url} className="text-sm">
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-forest hover:underline"
+                    >
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {/* Calculator CTA */}
           <div className="bg-ink text-cream rounded-3xl p-8 mb-10">
             <div className="font-mono text-[10px] uppercase tracking-widest text-emerald mb-3">Free calculator</div>
