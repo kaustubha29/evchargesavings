@@ -216,6 +216,16 @@ export default function HowWeCalculatePage() {
           </div>
         </section>
 
+        <section className="py-14 bg-forest/5 border-t border-line">
+          <div className="section-wrap max-w-xl text-center">
+            <div className="font-mono text-[11px] uppercase tracking-widest text-forest mb-3">Free calculator</div>
+            <h2 className="font-serif text-2xl font-medium tracking-tight text-ink mb-3">Try the calculator yourself</h2>
+            <p className="text-ink-3 text-sm mb-6">Pick your EV, your current gas car, and your ZIP — live EIA rates, instant result.</p>
+            <a href="/#calculator" className="inline-flex items-center gap-2 bg-forest text-cream font-mono text-sm px-6 py-3 rounded-full hover:bg-forest/90 transition-colors">
+              Open the calculator →
+            </a>
+          </div>
+        </section>
         <SiteFooter />
       </main>
     </>
