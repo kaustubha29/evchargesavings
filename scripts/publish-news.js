@@ -14,6 +14,7 @@ const MARKER = "];\n\nexport function getNewsBySlug";
 const EXTRA_EXCLUDED_SLUGS = [
   "evgo-q1-2026-5280-stalls-nacs-expansion",
   "used-ev-ownership-costs-vs-gas-2026",
+  "byd-5-minute-flash-charging-2026",
 ];
 
 function getExistingSlugs(content) {
@@ -94,6 +95,8 @@ async function main() {
 Based on the web search results provided, pick the single best story for evchargesavings.com readers — people who own or are buying EVs and care about charging costs, savings, incentives, and battery health.
 
 MUST be a specific recent event/announcement (new law, new pricing, new network, new model launch, policy change, battery warranty update, automaker charging recommendation, solid-state battery milestone). Do NOT write about evergreen topics like "EVs vs gas cost comparison" or general analysis — pick something with a specific date, company, or government action in the search results.
+
+CRITICAL DATE RULE: The announcement date you write in the article MUST be explicitly present in the search results. Do NOT infer, guess, or carry over a date from a different story. If search results contain multiple BYD (or any brand) stories from different dates, treat them as separate events — only write about the one whose date is clearly in the results for THIS story. Reject any story where the primary announcement is older than 14 days from today (${today}).
 
 Already published slugs (do not duplicate): ${existingSlugs.filter((s) => /-202/.test(s)).join(", ")}
 
