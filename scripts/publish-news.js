@@ -46,7 +46,7 @@ function articleToTs(a) {
 }
 
 async function main() {
-  const client = new Anthropic();
+  const client = new Anthropic({ maxRetries: 5 });
   const content = fs.readFileSync(DATA_FILE, "utf-8");
   const existingSlugs = [
     ...getExistingSlugs(content),
