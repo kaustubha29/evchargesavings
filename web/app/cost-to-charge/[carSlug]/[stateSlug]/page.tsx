@@ -405,21 +405,38 @@ export default async function CostToChargePage({ params }: Props) {
         </section>
 
         {/* Section 5 — CTA */}
-        <section className="py-16">
-          <div className="section-wrap max-w-xl">
+        <section className="py-16 border-b border-line">
+          <div className="section-wrap max-w-2xl">
             <h2 className="font-serif text-2xl font-medium tracking-tight mb-2">
-              Get exact savings for your ZIP
+              Adjust for your driving pattern
             </h2>
-            <p className="text-ink-3 text-sm mb-6">
-              Find out what home charging actually costs at your address and get charger setup recommendations.
+            <p className="text-ink-3 text-sm mb-8">
+              These numbers assume 12,000 mi/yr and 80% home charging. Change the miles, home split, or ZIP in the full calculator.
             </p>
-            <LeadCaptureBox
-              sourcePage={`/cost-to-charge/${carSlug}/${stateSlug}`}
-              defaultIntent={["charger"]}
-              heading="Get exact savings + charger setup for your home"
-              description={`See your real cost to charge a ${ev.name} in ${state.name} based on your ZIP code.`}
-              submitLabel="Get my savings estimate"
-            />
+            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <a
+                href={`/#calculator`}
+                className="flex-1 flex items-center justify-center gap-2 bg-forest text-cream font-mono text-sm px-6 py-4 rounded-2xl hover:bg-forest/90 transition-colors text-center"
+              >
+                Open full calculator →
+              </a>
+              <a
+                href={`/compare/${carSlug}-vs-${getComparableGasId(carSlug, ev.segment)}`}
+                className="flex-1 flex items-center justify-center gap-2 bg-paper border border-line text-forest font-mono text-sm px-6 py-4 rounded-2xl hover:border-forest transition-colors text-center"
+              >
+                {ev.name} vs {gas.name} full comparison →
+              </a>
+            </div>
+            <div className="border-t border-line pt-8">
+              <p className="text-ink-mute text-xs font-mono uppercase tracking-widest mb-4">Also want charger setup guidance?</p>
+              <LeadCaptureBox
+                sourcePage={`/cost-to-charge/${carSlug}/${stateSlug}`}
+                defaultIntent={["charger"]}
+                heading="Get charger setup recommendations for your home"
+                description={`See what Level 2 charger fits a ${ev.name} and get installer quotes in ${state.name}.`}
+                submitLabel="Get recommendations"
+              />
+            </div>
           </div>
         </section>
 
