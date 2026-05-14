@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { useCalculatorStore, computeSavings } from "@/store/calculator";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { LEAD_FORM_SUBMITTED_KEY } from "@/components/shared/LeadCaptureBox";
@@ -8,6 +8,7 @@ import { fmt } from "@/lib/format";
 export function StickySavingsBar() {
   const [visible, setVisible] = useState(false);
   const [leadSubmitted, setLeadSubmitted] = useState(false);
+  const barShownRef = useRef(false);
   const store = useCalculatorStore();
 
   const ev  = useMemo(() => evRepository.getBySlug(store.evSlug) ?? evRepository.getAll()[0], [store.evSlug]);
@@ -21,7 +22,16 @@ export function StickySavingsBar() {
   const locationLabel = store.stateCode ? (store.city ? `${store.city}, ${store.stateData.name}` : store.stateData.name) : "the US";
 
   useEffect(() => {
-    const handler = () => setVisible(window.scrollY > 480);
+    const handler = () => {
+      const isVisible = window.scrollY > 480;
+      setVisible(isVisible);
+      if (isVisible && !barShownRef.current) {
+        barShownRef.current = true;
+        if (typeof (window as any).gtag === "function") {
+          (window as any).gtag("event", "sticky_bar_shown", {});
+        }
+      }
+    };
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
@@ -82,6 +92,7 @@ export function StickySavingsBar() {
             {!leadSubmitted && (
               <a
                 href="/#installer-quotes"
+                onClick={() => { if (typeof (window as any).gtag === "function") (window as any).gtag("event", "sticky_bar_cta_clicked", {}); }}
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-honey text-ink border border-honey/70 hover:bg-gold hover:border-gold transition-all"
               >
                 Get quotes

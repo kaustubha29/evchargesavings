@@ -11,14 +11,13 @@ const NETWORKS = [
     accent: true,
   },
   {
-    name: "JuiceBox by Enel X",
-    label: "Enel X Way",
-    tag: "Partner program",
-    desc: "Smart home charger with built-in energy monitoring, TOU scheduling, and utility rebate eligibility in most states.",
-    perks: ["Up to 48 A / 11.5 kW", "TOU auto-scheduling", "Utility rebates"],
+    name: "Blink HQ 200",
+    label: "Blink Charging",
+    tag: "Public network",
+    desc: "Home charger backed by one of the largest public networks in the US — manage home and public charging in a single app.",
+    perks: ["Up to 50 A / 12 kW", "Blink public network access", "Indoor/outdoor rated"],
     cta: "View chargers",
-    // Replace with your Enel X / JuiceBox affiliate link
-    url: "https://www.enelxway.com/us/en/residential/ev-chargers/juicebox/",
+    url: "https://blinkcharging.com/products/residential-products",
   },
 ];
 

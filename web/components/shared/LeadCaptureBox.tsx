@@ -1,7 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useCalculatorStore } from "@/store/calculator";
+
+function gtag(name: string, params: Record<string, string>) {
+  if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+    (window as any).gtag("event", name, params);
+  }
+}
 
 export const LEAD_FORM_SUBMITTED_KEY = "ecs-lead-submitted";
 
@@ -44,8 +50,18 @@ export function LeadCaptureBox({
   const [phone, setPhone]         = useState("");
   const [intent, setIntent]       = useState<Intent[]>(defaultIntent ?? ["ev", "charger", "insurance"]);
   const [formState, setFormState] = useState<State>("idle");
+  const formStartedRef            = useRef(false);
+
+  function onFirstInteraction() {
+    if (!formStartedRef.current) {
+      formStartedRef.current = true;
+      gtag("lead_form_started", { source_page: sourcePage });
+    }
+  }
 
   function toggleIntent(value: Intent) {
+    onFirstInteraction();
+    gtag("lead_intent_selected", { intent: value, source_page: sourcePage });
     setIntent((prev) =>
       prev.includes(value) ? prev.filter((i) => i !== value) : [...prev, value]
     );
@@ -73,6 +89,8 @@ export function LeadCaptureBox({
 
       if (!res.ok) throw new Error("Failed");
 
+      gtag("lead_submitted", { intent: intent.join(","), source_page: sourcePage });
+
       if (typeof window !== "undefined") {
         try {
           localStorage.setItem(LEAD_FORM_SUBMITTED_KEY, "true");
@@ -86,6 +104,7 @@ export function LeadCaptureBox({
 
       setFormState("success");
     } catch {
+      gtag("lead_form_error", { source_page: sourcePage });
       setFormState("error");
     }
   }
@@ -167,6 +186,7 @@ export function LeadCaptureBox({
                   required
                   placeholder="First name"
                   value={name}
+                  onFocus={onFirstInteraction}
                   onChange={(e) => setName(e.target.value)}
                   className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
                 />
@@ -175,6 +195,7 @@ export function LeadCaptureBox({
                   required
                   placeholder="you@email.com"
                   value={email}
+                  onFocus={onFirstInteraction}
                   onChange={(e) => setEmail(e.target.value)}
                   className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
                 />
@@ -183,6 +204,7 @@ export function LeadCaptureBox({
                   required
                   placeholder="(555) 123-4567"
                   value={phone}
+                  onFocus={onFirstInteraction}
                   onChange={(e) => setPhone(formatPhoneDisplay(e.target.value))}
                   className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
                 />
@@ -194,6 +216,7 @@ export function LeadCaptureBox({
                   required
                   placeholder="ZIP"
                   value={zip || ""}
+                  onFocus={onFirstInteraction}
                   onChange={(e) => setZip(e.target.value)}
                   className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
                 />

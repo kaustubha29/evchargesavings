@@ -4,7 +4,7 @@ const PROVIDERS = [
     tag: "Most quotes",
     desc: "Compares 100+ carriers instantly. No spam calls — see real rates in 2 min.",
     // Replace with your affiliate link from The Zebra's program (via Impact or CJ)
-    url: "https://www.thezebra.com/auto-insurance/electric-vehicles/",
+    url: "https://www.thezebra.com/auto-insurance/vehicles/insurance-rates-hybrid-electric-cars/",
     accent: true,
   },
   {
@@ -12,7 +12,7 @@ const PROVIDERS = [
     tag: "AI-powered",
     desc: "Side-by-side quotes from top carriers, with EV-specific discounts surfaced automatically.",
     // Replace with your affiliate link from Insurify's program
-    url: "https://insurify.com/car-insurance/electric-vehicle/",
+    url: "https://insurify.com/car-insurance/vehicle/vehicle-type/electric-vehicles/",
   },
   {
     name: "Jerry",

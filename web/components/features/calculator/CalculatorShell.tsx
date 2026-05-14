@@ -40,7 +40,9 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
   const pathname = usePathname();
 
   const [zipError, setZipError] = useState(false);
-  const resultDebounce = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const resultDebounce  = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const calcRef         = useRef<HTMLDivElement>(null);
+  const calcViewedRef   = useRef(false);
 
   async function applyZip(zipValue: string) {
     const code = stateFromZip(zipValue.trim());
@@ -99,6 +101,24 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Fire calculator_viewed once when calculator scrolls into view
+  useEffect(() => {
+    const el = calcRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !calcViewedRef.current) {
+          calcViewedRef.current = true;
+          gtagEvent("calculator_viewed", { state: stateCode ?? "unknown" });
+        }
+      },
+      { threshold: 0.5 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Track calculation result 1s after user stops interacting
   useEffect(() => {
     if (resultDebounce.current) clearTimeout(resultDebounce.current);
@@ -136,7 +156,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
   const brands = useMemo(() => [...new Set(evSummaries.map((e) => e.brand))], [evSummaries]);
 
   return (
-    <div id="calculator" className="space-y-3">
+    <div id="calculator" ref={calcRef} className="space-y-3">
 
       {/* ── Vehicle selectors + location ── */}
       <div className="bg-paper border border-line rounded-3xl p-6 shadow-1">

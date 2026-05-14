@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { NEWS, getNewsBySlug } from "@/features/news/data";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
+import { ArticleScrollTracker } from "@/components/shared/ArticleScrollTracker";
 
 const BASE = "https://www.evchargesavings.com";
 
@@ -69,6 +70,7 @@ export default async function NewsArticlePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <ArticleScrollTracker slug={slug} />
       <StickySavingsBar />
       <main className="bg-paper min-h-screen">
         <div className="section-wrap py-12 max-w-3xl">
