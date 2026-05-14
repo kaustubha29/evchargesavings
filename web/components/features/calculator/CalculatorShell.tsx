@@ -13,6 +13,8 @@ import { stateFromZip, getStateData } from "@/features/location/queries";
 import { fmt } from "@/lib/format";
 import { FeelGoodFact } from "@/components/shared/FeelGoodFact";
 import { StatCard } from "@/components/shared/StatCard";
+import { VehicleCombobox } from "@/components/shared/VehicleCombobox";
+import type { ComboOption } from "@/components/shared/VehicleCombobox";
 import type { EVModelSummary } from "@/features/ev-data/types";
 import type { GasVehicle } from "@/features/ev-data/types";
 
@@ -152,8 +154,15 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
 
   const locationLabel = isDetecting ? "Detecting…" : (stateCode ? (city ? `${city}, ${stateData.name}` : stateData.name) : "United States");
 
-  // Group EVs by brand for <optgroup>
-  const brands = useMemo(() => [...new Set(evSummaries.map((e) => e.brand))], [evSummaries]);
+  // Build combobox options
+  const evOptions = useMemo<ComboOption[]>(
+    () => evSummaries.map((e) => ({ value: e.slug, label: e.fullName, group: e.brand })),
+    [evSummaries]
+  );
+  const gasOptions = useMemo<ComboOption[]>(
+    () => gasVehicles.map((g) => ({ value: g.id, label: g.name, group: g.type })),
+    [gasVehicles]
+  );
 
   return (
     <div id="calculator" ref={calcRef} className="space-y-3">
@@ -162,34 +171,24 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
       <div className="bg-paper border border-line rounded-3xl p-6 shadow-1">
         <h3 className="font-serif text-xl font-medium tracking-tight mb-5">Compare EV vs your current car</h3>
         <div className="grid sm:grid-cols-2 gap-4 mb-5">
-          <label className="space-y-1.5">
+          <div className="space-y-1.5">
             <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">EV you're considering</span>
-            <select
+            <VehicleCombobox
+              options={evOptions}
               value={evSlug}
-              onChange={(e) => { setEvSlug(e.target.value); gtagEvent("calculator_ev_selected", { ev: e.target.value }); }}
-              className="w-full border border-line rounded-xl px-4 py-3 text-sm bg-paper font-sans appearance-none focus:outline-none focus:ring-2 focus:ring-emerald"
-            >
-              {brands.map((brand) => (
-                <optgroup key={brand} label={brand}>
-                  {evSummaries.filter((e) => e.brand === brand).map((e) => (
-                    <option key={e.slug} value={e.slug}>{e.name}</option>
-                  ))}
-                </optgroup>
-              ))}
-            </select>
-          </label>
-          <label className="space-y-1.5">
+              onChange={(v) => { setEvSlug(v); gtagEvent("calculator_ev_selected", { ev: v }); }}
+              placeholder="Search EVs…"
+            />
+          </div>
+          <div className="space-y-1.5">
             <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Your gas car</span>
-            <select
+            <VehicleCombobox
+              options={gasOptions}
               value={gasId}
-              onChange={(e) => { setGasId(e.target.value); gtagEvent("calculator_gas_selected", { gas: e.target.value }); }}
-              className="w-full border border-line rounded-xl px-4 py-3 text-sm bg-paper font-sans appearance-none focus:outline-none focus:ring-2 focus:ring-emerald"
-            >
-              {gasVehicles.map((g) => (
-                <option key={g.id} value={g.id}>{g.name}</option>
-              ))}
-            </select>
-          </label>
+              onChange={(v) => { setGasId(v); gtagEvent("calculator_gas_selected", { gas: v }); }}
+              placeholder="Search gas cars…"
+            />
+          </div>
         </div>
 
         {/* Location row */}
