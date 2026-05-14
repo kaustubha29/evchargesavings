@@ -66,6 +66,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           gtag('config', 'G-Y4V4NBZ0YY');
         `}</Script>
 
+        {/* Outbound link tracking */}
+        <Script id="outbound-tracking" strategy="afterInteractive">{`
+          document.addEventListener('click', function(e) {
+            var a = e.target.closest('a[target="_blank"]');
+            if (!a || !a.href) return;
+            try {
+              var domain = new URL(a.href).hostname.replace(/^www\\./, '');
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', 'outbound_click', {
+                  link_url: a.href,
+                  link_domain: domain,
+                  link_text: (a.innerText || '').trim().slice(0, 80),
+                });
+              }
+            } catch(err) {}
+          });
+        `}</Script>
+
         {/* Google AdSense */}
         <Script
           async

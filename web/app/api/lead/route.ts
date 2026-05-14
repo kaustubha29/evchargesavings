@@ -128,32 +128,17 @@ export async function POST(req: NextRequest) {
         resend.emails.send({
           from: FROM_EMAIL,
           to: email,
-          subject: isOwner
-            ? "Your charger install & insurance quotes are on the way"
-            : "Your personalized EV cost & charger options are on the way",
-          html: isOwner ? `
+          subject: "Your EV quotes are on the way",
+          html: `
             <p>Hi ${escHtml(name)},</p>
             <p>Thanks for reaching out${locationStr ? ` from <b>${escHtml(locationStr)}</b>` : ""}.</p>
             <p><b>Within the next 24 hours, you'll hear from:</b></p>
             <ul>
+              ${intent.includes("ev") ? "<li>🚗 Up to <b>3 vetted EV dealers</b> near you with pricing and availability</li>" : ""}
               ${intent.includes("charger") ? "<li>🔌 Up to <b>3 licensed electricians</b> for Level 2 home charger installation quotes</li>" : ""}
               ${intent.includes("insurance") ? "<li>🛡️ EV insurance providers to <b>compare rates</b> for your vehicle</li>" : ""}
             </ul>
-            <p>No pressure, no obligation — just options to compare.</p>
-            <p>— EV Charge Savings</p>
-            <p style="font-size:11px;color:#999">
-              Submitted at evchargesavings.com. We never sell your email. You may be contacted by up to 3 vetted local providers.
-            </p>
-          ` : `
-            <p>Hi ${escHtml(name)},</p>
-            <p>Thanks for checking out EV ownership costs${locationStr ? ` in <b>${escHtml(locationStr)}</b>` : ""} — we're putting together your personalized breakdown now.</p>
-            <p><b>Within the next 24 hours, you'll receive:</b></p>
-            <ul>
-              <li>⚡ Estimated <b>EV pricing</b> based on your area</li>
-              <li>🔌 <b>Level 2 home charger installation costs</b></li>
-              <li>💸 Available <b>local incentives and rebates</b></li>
-            </ul>
-            <p>We'll match you with up to <b>3 vetted local professionals</b>${locationStr ? ` in <b>${escHtml(locationStr)}</b>` : ""} so you can compare quotes — no pressure, no obligation.</p>
+            <p>No pressure, no obligation — just quotes to compare.</p>
             <p>— EV Charge Savings</p>
             <p style="font-size:11px;color:#999">
               Submitted at evchargesavings.com. We never sell your email. You may be contacted by up to 3 vetted local providers.
