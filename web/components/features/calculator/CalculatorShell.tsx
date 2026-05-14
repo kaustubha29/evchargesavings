@@ -1,5 +1,11 @@
 "use client";
-import { useMemo, useEffect, useState } from "react";
+import { useMemo, useEffect, useRef, useState } from "react";
+
+function gtagEvent(name: string, params: Record<string, string | number>) {
+  if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+    (window as any).gtag("event", name, params);
+  }
+}
 import { useRouter, usePathname } from "next/navigation";
 import { useCalculatorStore, computeSavings, computeCO2 } from "@/store/calculator";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
@@ -34,6 +40,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
   const pathname = usePathname();
 
   const [zipError, setZipError] = useState(false);
+  const resultDebounce = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   async function applyZip(zipValue: string) {
     const code = stateFromZip(zipValue.trim());
@@ -92,6 +99,20 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Track calculation result 1s after user stops interacting
+  useEffect(() => {
+    if (resultDebounce.current) clearTimeout(resultDebounce.current);
+    resultDebounce.current = setTimeout(() => {
+      gtagEvent("calculator_result", {
+        ev: evSlug,
+        gas: gasId,
+        state: stateCode ?? "unknown",
+        annual_savings: Math.round(savings.annualSavings),
+      });
+    }, 1000);
+    return () => { if (resultDebounce.current) clearTimeout(resultDebounce.current); };
+  }, [evSlug, gasId, stateCode, savings.annualSavings]);
+
   // Fetch live EIA rates whenever the detected state changes
   useEffect(() => {
     if (!stateCode) return;
@@ -125,7 +146,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
             <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">EV you're considering</span>
             <select
               value={evSlug}
-              onChange={(e) => setEvSlug(e.target.value)}
+              onChange={(e) => { setEvSlug(e.target.value); gtagEvent("calculator_ev_selected", { ev: e.target.value }); }}
               className="w-full border border-line rounded-xl px-4 py-3 text-sm bg-paper font-sans appearance-none focus:outline-none focus:ring-2 focus:ring-emerald"
             >
               {brands.map((brand) => (
@@ -141,7 +162,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
             <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Your gas car</span>
             <select
               value={gasId}
-              onChange={(e) => setGasId(e.target.value)}
+              onChange={(e) => { setGasId(e.target.value); gtagEvent("calculator_gas_selected", { gas: e.target.value }); }}
               className="w-full border border-line rounded-xl px-4 py-3 text-sm bg-paper font-sans appearance-none focus:outline-none focus:ring-2 focus:ring-emerald"
             >
               {gasVehicles.map((g) => (
@@ -291,27 +312,25 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
         ))}
 
         {/* Rate inputs */}
-        {!stateCode && (
-          <div className="grid sm:grid-cols-3 gap-4 pt-2 border-t border-line-soft">
-            {[
-              { label:"Electricity (home)", val:homeRateKwh, suffix:"¢/kWh", set:setHomeRate },
-              { label:"Electricity (public)", val:publicRateKwh, suffix:"¢/kWh", set:setPublicRate },
-              { label:"Gas price", val:gasPriceDollar, suffix:"$/gal", set:setGasPrice },
-            ].map((f) => (
-              <label key={f.label} className="space-y-1.5">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">{f.label}</span>
-                <div className="flex items-center border border-line rounded-xl overflow-hidden">
-                  <input
-                    type="number" step="0.1" value={f.val}
-                    onChange={(e) => f.set(Number(e.target.value))}
-                    className="flex-1 px-3 py-2.5 text-sm bg-paper focus:outline-none"
-                  />
-                  <span className="px-3 text-ink-mute text-xs font-mono border-l border-line bg-cream-soft py-2.5">{f.suffix}</span>
-                </div>
-              </label>
-            ))}
-          </div>
-        )}
+        <div className="grid sm:grid-cols-3 gap-4 pt-2 border-t border-line-soft">
+          {[
+            { label:"Electricity (home)", val:homeRateKwh, suffix:"¢/kWh", set:setHomeRate },
+            { label:"Electricity (public)", val:publicRateKwh, suffix:"¢/kWh", set:setPublicRate },
+            { label:"Gas price", val:gasPriceDollar, suffix:"$/gal", set:setGasPrice },
+          ].map((f) => (
+            <label key={f.label} className="space-y-1.5">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">{f.label}</span>
+              <div className="flex items-center border border-line rounded-xl overflow-hidden">
+                <input
+                  type="number" step="0.1" value={f.val}
+                  onChange={(e) => f.set(Number(e.target.value))}
+                  className="flex-1 px-3 py-2.5 text-sm bg-paper focus:outline-none"
+                />
+                <span className="px-3 text-ink-mute text-xs font-mono border-l border-line bg-cream-soft py-2.5">{f.suffix}</span>
+              </div>
+            </label>
+          ))}
+        </div>
       </div>
 
     </div>
