@@ -61,28 +61,6 @@ const NETWORK_CONFIGS: NetworkConfig[] = [
       vehicle_interest: "electric",
     }),
   },
-  {
-    id: "truecar",
-    displayName: "TrueCar",
-    intent: "ev",
-    envKey: "TRUECAR_API_KEY",
-    envEndpoint: "TRUECAR_ENDPOINT",
-    buildBody: (lead) => ({
-      name: lead.name, email: lead.email, phone: lead.phone, zip: lead.zip,
-      vehicle_type: "electric",
-    }),
-  },
-  {
-    id: "edmunds",
-    displayName: "Edmunds",
-    intent: "ev",
-    envKey: "EDMUNDS_API_KEY",
-    envEndpoint: "EDMUNDS_ENDPOINT",
-    buildBody: (lead) => ({
-      name: lead.name, email: lead.email, phone: lead.phone, zip: lead.zip,
-      fuel_type: "electric",
-    }),
-  },
   // ── insurance ─────────────────────────────────────────────────────────────
   {
     id: "everquote",
