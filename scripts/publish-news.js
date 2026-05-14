@@ -16,6 +16,7 @@ const EXTRA_EXCLUDED_SLUGS = [
   "used-ev-ownership-costs-vs-gas-2026",
   "byd-5-minute-flash-charging-2026",
   "california-1-billion-ev-truck-rebate-2026",
+  "hyundai-ioniq9-2026-lease-incentives",
 ];
 
 function getExistingSlugs(content) {
@@ -99,7 +100,9 @@ MUST be a specific recent event/announcement (new law, new pricing, new network,
 
 STORY INTEGRITY RULE: Pick exactly ONE story from the search results. Every single fact, date, company name, and number in your article must come from that one story only — never combine or cross-reference multiple stories. If the search returns two BYD stories from different dates, they are separate events; write about only one.
 
-DATE RULE: Use the publication date visible in the search result snippet or URL for your chosen story. Do not use a date from a different story. If no date is visible, use ${today} as publishedAt and do not invent a past announcement date.
+DATE RULE: Always set publishedAt to "${today}" — this is the date we are publishing to our site. Reference the original event date naturally inside the article text (e.g. "On May 9, Hyundai announced…") but publishedAt must always be ${today}.
+
+SPECIFICITY RULE: The article must contain real numbers — specific dollar amounts, port counts, mileage figures, percentage changes, or named locations. If the search results only contain vague claims with no concrete data, return NO_STORY. Do not write filler like "here's what to look for" or "contact your dealer" — every section must state actual facts.
 
 If the search results contain genuinely no newsworthy EV story (only ads, spam, or purely evergreen analysis with no specific company/date/event), return ONLY this exact JSON and nothing else: {"slug":"NO_STORY","title":"","hook":"","description":"","readTime":"","publishedAt":"","sections":[]}
 
@@ -167,6 +170,14 @@ Requirements:
   // Sentinel: model signalled no qualifying story
   if (article.slug === "NO_STORY" || article.sections.length === 0) {
     console.log("No qualifying story found. Skipping publish.");
+    process.exit(0);
+  }
+
+  // Reject vague articles with no concrete numbers or dollar amounts
+  const allText = article.sections.map((s) => s.body + (s.list || []).join(" ")).join(" ");
+  const hasNumbers = /\$[\d,]+|[\d,]+\s*(kW|mph|miles|km|ports?|stalls?|%|cents?|million|billion)/i.test(allText);
+  if (!hasNumbers) {
+    console.log("Article rejected: no specific numbers or dollar amounts. Skipping publish.");
     process.exit(0);
   }
 

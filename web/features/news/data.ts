@@ -395,40 +395,6 @@ export const NEWS: NewsArticle[] = [
       { label: "Governor Newsom — Official Announcement, California Clean Fuel Reward Program", url: "https://www.gov.ca.gov/2026/05/13/governor-newsom-announces-californias-new-1-billion-rebate-program-for-electric-trucks-as-trump-cedes-global-clean-vehicle-market-to-china/" },
     ],
   },
-  {
-    slug: "hyundai-ioniq9-2026-lease-incentives",
-    title: "Hyundai IONIQ 9 2026: Lease Pricing and Incentives Now Available",
-    hook: "The IONIQ 9's official lease rates and incentives just dropped — here's what EV shoppers need to know.",
-    description: "Hyundai has released lease pricing and incentive details for the 2026 IONIQ 9 electric SUV, giving buyers a clearer picture of what it will cost to get into one of the most anticipated three-row EVs of the year.",
-    readTime: "3 min read",
-    publishedAt: "2025-05-09",
-    sections: [
-      {
-        heading: "IONIQ 9 Lease and Incentives Are Live",
-        body: "Hyundai has officially released lease pricing and incentive information for the 2026 IONIQ 9, the brand's new three-row all-electric SUV. The announcement gives prospective buyers their first concrete look at monthly payment expectations and available financial deals, making it easier to compare total cost of ownership against both gas-powered alternatives and other electric SUVs in the segment.",
-      },
-      {
-        heading: "Why This Matters for EV Shoppers",
-        body: "For drivers weighing an EV purchase or lease, knowing the upfront incentive structure is critical to calculating real-world savings. Lease deals in particular can dramatically reduce the effective monthly cost of driving electric, especially when automaker incentives are layered on top. The IONIQ 9's pricing details arriving now give shoppers the figures they need to run those numbers before visiting a dealership.",
-      },
-      {
-        heading: "The IONIQ 9 at a Glance",
-        body: "The 2026 IONIQ 9 is Hyundai's flagship three-row electric SUV, positioned to compete directly with large family vehicles in both the EV and traditional segments. For families currently spending hundreds of dollars a month on gasoline, moving into a leased IONIQ 9 with available incentives could represent a meaningful shift in monthly transportation costs — with the added benefit of home charging convenience.",
-      },
-      {
-        heading: "Incentives and Lease: What to Look For",
-        body: "When evaluating the IONIQ 9 lease offer, shoppers should pay close attention to the capitalized cost reduction (any upfront incentive applied), the residual value used to calculate monthly payments, and the money factor (which functions like an interest rate on a lease). Hyundai has a history of offering competitive lease support through Hyundai Motor Finance, and the availability of lease incentives on the IONIQ 9 follows that pattern for the 2026 model year.",
-      },
-      {
-        heading: "Charging Cost Savings Potential",
-        body: "One of the strongest arguments for leasing an IONIQ 9 over buying a comparable gas SUV is the ongoing fuel savings. EV drivers who charge primarily at home typically pay a fraction of what gasoline costs per mile. With the lease structure now confirmed, buyers can model their expected annual charging costs against their current gas spend to determine true monthly savings over the lease term.",
-      },
-      {
-        heading: "How to Act on This News",
-        body: "Interested buyers should contact a Hyundai dealer to confirm local availability of the 2026 IONIQ 9 and verify which specific trim levels qualify for the advertised lease and incentive offers. Lease deals are often region-specific and inventory-dependent, so acting promptly once details are confirmed at the dealer level is advisable. Comparing the IONIQ 9 lease against any remaining federal or state EV incentives applicable in your area will also help sharpen the final cost comparison.",
-      },
-    ],
-  },
 ];
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {
