@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useEffect } from "react";
+import { useMemo } from "react";
 import { useCalculatorStore } from "@/store/calculator";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { getStateData } from "@/features/location/queries";
@@ -66,7 +66,7 @@ export function EVMarketplaceAffiliates() {
       perks: ["Real pricing", "Certified options", "Owner reviews"],
       cta: "Find used",
       url: buildAffiliateUrl(
-        "https://www.cargurus.com/Cars/inventorylisting/used-electric/",
+        "https://www.cargurus.com/shop/electric-cars",
         "cargurus_ev",
         ev.brand,
         stateTag
