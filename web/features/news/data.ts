@@ -395,6 +395,43 @@ export const NEWS: NewsArticle[] = [
       { label: "Governor Newsom — Official Announcement, California Clean Fuel Reward Program", url: "https://www.gov.ca.gov/2026/05/13/governor-newsom-announces-californias-new-1-billion-rebate-program-for-electric-trucks-as-trump-cedes-global-clean-vehicle-market-to-china/" },
     ],
   },
+  {
+    slug: "california-200m-ev-rebate-first-time-buyers-2026",
+    title: "California's $200M EV Rebate Is Point-of-Sale and First-Time Buyers Only",
+    hook: "California's new ZEV rebate arrives at the dealership, not on your tax return — but only if you've never owned an EV.",
+    description: "California is proposing a $200 million light-duty ZEV incentive program with a dollar-for-dollar automaker match, available at the point of sale exclusively for first-time EV buyers on new and used vehicles.",
+    readTime: "3 min read",
+    publishedAt: "2026-05-14",
+    sections: [
+      {
+        heading: "California's $200M EV Rebate: The Basics",
+        body: "California Governor Gavin Newsom has proposed a $200 million fund for a new light-duty zero-emission vehicle incentive program in the 2026-2027 state budget. Unlike the federal EV tax credit — which was claimed at tax time — California's new rebate would apply directly at the point of sale, reducing what you pay upfront at the dealership.",
+      },
+      {
+        heading: "First-Time ZEV Buyers Only",
+        body: "The program has one major restriction: it's exclusively for first-time ZEV buyers. If you already own or have previously owned an electric or plug-in hybrid vehicle, you're not eligible. The state's rationale is that limiting eligibility to newcomers maximizes the fund's reach, pulling in consumers who haven't yet made the switch to electric.",
+      },
+      {
+        heading: "Automaker Dollar-for-Dollar Match",
+        body: "Participating automakers will match the state's contribution dollar-for-dollar, potentially doubling the total incentive pool to $400 million or more. The per-vehicle rebate amounts and which manufacturers will participate are still being finalized as part of the 2026-2027 budget process.",
+      },
+      {
+        heading: "New and Used Vehicles Both Qualify",
+        body: "The program covers both the sale or lease of new light-duty passenger ZEVs and the purchase of used ZEVs. For budget-conscious shoppers, this is significant: a first-time EV buyer in the used market could receive the same point-of-sale discount as someone buying new — unlike past California programs that primarily favored new-vehicle purchases.",
+      },
+      {
+        heading: "Context: Filling the Federal Gap",
+        body: "The proposal comes after the federal EV tax credit was eliminated earlier this year. Newsom had initially pledged to backfill federal incentives with state funds, then walked that back citing budget constraints. The $200 million item in the 2026-2027 budget signals California is now finding room to partially restore support — specifically targeting buyers who have never gone electric.",
+      },
+      {
+        heading: "What This Means If You're Considering an EV",
+        body: "If you live in California and have never owned an EV or plug-in hybrid, this program — if the budget passes — could put significant money back in your pocket at signing, not months later at tax time. Monitor the California budget finalization in the coming months for the confirmed per-vehicle amount and participating automaker list.",
+      },
+    ],
+    sources: [
+      { label: "Governor Newsom's $200M ZEV Program — Governor of California", url: "https://www.gov.ca.gov/2026/02/09/what-theyre-saying-strong-support-for-governor-newsoms-200m-zev-program/" },
+    ],
+  },
 ];
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {

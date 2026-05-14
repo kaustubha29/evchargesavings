@@ -17,6 +17,7 @@ const EXTRA_EXCLUDED_SLUGS = [
   "byd-5-minute-flash-charging-2026",
   "california-1-billion-ev-truck-rebate-2026",
   "hyundai-ioniq9-2026-lease-incentives",
+  "california-200m-ev-rebate-first-time-buyers-2026",
 ];
 
 function getExistingSlugs(content) {
