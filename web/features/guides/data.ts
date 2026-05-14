@@ -4099,6 +4099,60 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "best-selling-evs-2025-2026",
+    title: "Best-Selling EVs in the US: 2025 Full Year + 2026 So Far",
+    hook: "Tesla Model Y sold 1 in 4 EVs in 2025. Here's the full ranking — and what each one actually costs to charge.",
+    description: "The top-selling electric vehicles in the US for 2025 and Q1 2026, with real sales numbers, what changed, and annual charging cost estimates for each model.",
+    readTime: "4 min read",
+    category: "Buying",
+    publishedAt: "2026-05-14",
+    sections: [
+      {
+        heading: "Why sales rankings matter when buying an EV",
+        body: "The best-selling EVs aren't necessarily the best EVs — but sales volume tells you which models have the largest charging networks, the most resale data, the biggest owner communities, and the most competitive pricing as manufacturers fight for share. These are the cars Americans are actually choosing.",
+      },
+      {
+        heading: "2025 full year: top 10 best-selling EVs in the US",
+        body: "The US EV market sold approximately 1.27 million battery-electric vehicles in 2025 — 7.8% of all new car sales. The rankings were dominated by Tesla but showed real gains from GM, Hyundai, and Honda.",
+        list: [
+          "1. Tesla Model Y — ~300,000 units. Outsold the #2 model by over 150,000 units. America's best-selling vehicle overall, not just best-selling EV.",
+          "2. Tesla Model 3 — Strong second. Refreshed interior and rear-wheel-drive base trim under $40,000 kept demand steady.",
+          "3. Chevrolet Equinox EV — 57,945 units (+101% YoY). The biggest story of 2025: sub-$35,000 starting price drove a doubling of sales.",
+          "4. Ford Mustang Mach-E — 51,620 units. Held steady despite increased competition from GM.",
+          "5. Hyundai IONIQ 5 — 47,039 units (+6% YoY). NACS port addition and strong AWD performance kept it competitive.",
+          "6. Honda Prologue — 39,194 units (+19% YoY). GM-built platform under a Honda badge. Lease pricing was the main draw.",
+          "7. Ford F-150 Lightning — 27,307 units. Still the only mass-market electric full-size pickup.",
+          "8. Rivian R1S — 24,852 units. Premium SUV segment, strong owner loyalty.",
+          "9. Chevrolet Blazer EV — 22,637 units. Recovered from a rocky 2024 software launch.",
+          "10. Volkswagen ID.4 — 22,373 units. Consistent seller with strong lease deals.",
+        ],
+      },
+      {
+        heading: "Q1 2026: what the early data shows",
+        body: "The first quarter of 2026 saw 216,000 new EVs sold in the US — down 27% year-over-year, largely driven by the expiration of the federal $7,500 EV tax credit in late 2025. Despite the overall drop, several non-Tesla models gained ground.",
+        list: [
+          "1. Tesla Model Y — 78,591 units. One in every three EVs sold in Q1 was a Model Y.",
+          "2. Tesla Model 3 — 21,672 units.",
+          "3. Toyota bZ — 10,000+ units. Sales nearly doubled year-over-year. Now the #1 non-Tesla EV in the US.",
+          "4. Hyundai IONIQ 5 — 9,790 units (+14% YoY). Gaining share as Tesla's dominance softens slightly.",
+          "5. Chevrolet Equinox EV — 9,589 units. Maintained strong volume despite losing the tax credit.",
+        ],
+      },
+      {
+        heading: "The tax credit effect",
+        body: "The federal $7,500 EV tax credit expired in September 2025 after the Inflation Reduction Act provisions were removed. The Q1 2026 27% sales drop is largely attributed to this — buyers rushed to purchase in mid-2025, pulling demand forward. California's proposed $200M first-time buyer rebate program could partially offset this for California residents if passed in the 2026-2027 budget.",
+      },
+      {
+        heading: "What these models cost to charge annually",
+        body: "Sales rankings tell you what people are buying. Our calculator tells you what you'll actually spend on fuel. The Tesla Model Y Long Range costs roughly $600–$900/year to charge at home depending on your state's electricity rate — compared to $2,200–$3,000/year in gas for a comparable SUV. The Chevrolet Equinox EV and Hyundai IONIQ 5 run similar numbers. Use the calculator below with your specific state to get a precise figure.",
+      },
+      {
+        heading: "Used market: surging in 2026",
+        body: "While new EV sales dipped in Q1 2026, used EV sales rose 12% to near-record levels. The 2022–2024 Model Y, IONIQ 5, Mach-E, and Equinox EV are all appearing in significant volume at $25,000–$38,000 — often with significant range and minimal degradation. Used EVs under $25,000 qualify for a separate $4,000 federal used EV tax credit (income limits apply), which is still active.",
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {
