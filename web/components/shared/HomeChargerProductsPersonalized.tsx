@@ -3,6 +3,23 @@ import { useState } from "react";
 
 type ConnectorType = "nacs" | "j1772" | null;
 
+const ADAPTERS = [
+  {
+    name: "NACS → CCS Adapter",
+    tag: "Non-Tesla EVs",
+    desc: "Use any Tesla Supercharger with your non-Tesla EV. 500A / 1000V, Vortex Plus with interlock.",
+    price: null,
+    url: "https://www.awin1.com/cread.php?awinmid=91891&awinaffid=2896627&ued=https%3A%2F%2Fev-lectron.com%2Fproducts%2Flectron-nacs-to-ccs-adapter-with-interlock-vortex-plus-500a-1-000v-compatible-with-tesla-superchargers",
+  },
+  {
+    name: "Tesla → J1772 Adapter",
+    tag: "Tesla owners",
+    desc: "Plug your Tesla into any J1772 public or home charger. 250V / 80A.",
+    price: null,
+    url: "https://www.awin1.com/cread.php?awinmid=91891&awinaffid=2896627&ued=https%3A%2F%2Fev-lectron.com%2Fproducts%2Flectron-tesla-to-j1772-ev-adapter-250v-80-amp",
+  },
+];
+
 const BASE_CHARGERS = [
   {
     id: "chargepoint",
@@ -41,12 +58,12 @@ const BASE_CHARGERS = [
     connectors: ["j1772", "nacs"],
   },
   {
-    id: "eviqo",
-    name: "EVIQO Level 2",
+    id: "lectron",
+    name: "Lectron Level 2",
     tag: "Budget pick",
-    price: "$199",
-    desc: "32 A, NEMA 14-50 plug, gets most EVs to full overnight.",
-    url: "https://amzn.to/4trN8DL",
+    price: "$229",
+    desc: "40 A, NEMA 14-50 plug, UL certified — solid no-frills charger at a fair price.",
+    url: "https://www.awin1.com/cread.php?awinmid=91891&awinaffid=2896627&ued=https%3A%2F%2Fev-lectron.com%2Fproducts%2Flectron-nema-14-50-level-2-ev-charger-240v-40-amp-j1772-charger-for-j1772-evs",
     connectors: ["j1772", "nacs"],
   },
   {
@@ -81,10 +98,10 @@ function accentId(connector: ConnectorType) {
 }
 
 function ProductCard({
-  name, tag, price, desc, url, accent, dimmed,
+  name, tag, price, desc, url, accent, dimmed, btnLabel,
 }: {
-  name: string; tag: string; price: string; desc: string;
-  url: string; accent?: boolean; dimmed?: boolean;
+  name: string; tag: string; price: string | null; desc: string;
+  url: string; accent?: boolean; dimmed?: boolean; btnLabel?: string;
 }) {
   return (
     <div className={`relative rounded-2xl border p-5 flex flex-col gap-3 transition-all ${
@@ -103,14 +120,14 @@ function ProductCard({
       </div>
       <p className="text-xs text-ink-mute leading-relaxed flex-1">{desc}</p>
       <div className="flex items-center justify-between mt-auto pt-3 border-t border-line">
-        <span className="font-serif font-medium text-forest text-lg">{price}</span>
+        {price && <span className="font-serif font-medium text-forest text-lg">{price}</span>}
         <a
           href={url}
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="font-mono text-[10px] uppercase tracking-widest bg-ink text-cream px-3 py-1.5 rounded-lg hover:bg-forest transition-colors"
+          className="font-mono text-[10px] uppercase tracking-widest bg-ink text-cream px-3 py-1.5 rounded-lg hover:bg-forest transition-colors ml-auto"
         >
-          Amazon →
+          {btnLabel ?? "Amazon →"}
         </a>
       </div>
     </div>
@@ -183,8 +200,19 @@ export function HomeChargerProductsPersonalized() {
               {...c}
               accent={c.id === topId}
               dimmed={connector === "j1772" && c.id === "tesla-wc"}
+              btnLabel={c.id === "lectron" ? "Shop →" : "Amazon →"}
             />
           ))}
+        </div>
+
+        {/* Adapters */}
+        <div className="mb-10">
+          <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">Adapters</div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {ADAPTERS.map((a) => (
+              <ProductCard key={a.name} {...a} btnLabel="Shop →" />
+            ))}
+          </div>
         </div>
 
         <div className="border-t border-line pt-6 grid md:grid-cols-2 gap-6">
