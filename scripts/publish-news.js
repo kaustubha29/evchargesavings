@@ -18,6 +18,7 @@ const EXTRA_EXCLUDED_SLUGS = [
   "california-1-billion-ev-truck-rebate-2026",
   "hyundai-ioniq9-2026-lease-incentives",
   "california-200m-ev-rebate-first-time-buyers-2026",
+  "tesla-supercharger-virtual-queue-pilot-2026",
 ];
 
 function getExistingSlugs(content) {
@@ -71,7 +72,7 @@ async function main() {
       max_tokens: 16000,
       tools: [{ type: "web_search_20250305", name: "web_search" }],
       tool_choice: { type: "tool", name: "web_search" },
-      system: `You are a research assistant finding breaking news for evchargesavings.com — a US site about EV charging costs and savings. Search for a SPECIFIC EVENT or ANNOUNCEMENT published in the last 7 days. Must be one of: new charging network expansion/pricing, EV tax credit or incentive change, utility rate change affecting EV charging, new affordable EV model launch or pricing, government EV infrastructure policy, EV battery technology news (solid-state updates, battery warranty changes, charging limit recommendations from automakers). Do NOT pick evergreen analysis, opinion pieces, or "cost comparison" articles — must be a real news event with a date, company, or official announcement. Do NOT search for EVgo. Return only the raw search results.`,
+      system: `You are a research assistant finding breaking news for evchargesavings.com — a US-only site about EV charging costs and savings. Search for a SPECIFIC EVENT or ANNOUNCEMENT published in the last 7 days. Must be one of: new US charging network expansion/pricing, EV tax credit or incentive change (US federal or state), utility rate change affecting EV charging in the US, new affordable EV model launch or pricing (US market), US government EV infrastructure policy, EV battery technology news (solid-state updates, battery warranty changes, charging limit recommendations from automakers). STRICT US-ONLY RULE: Ignore any story about Canadian, European, or other non-US companies, networks, or policy — even if the company also operates in the US. Do NOT pick evergreen analysis, opinion pieces, or "cost comparison" articles — must be a real news event with a date, company, or official announcement. Do NOT search for EVgo. Return only the raw search results.`,
       messages: [
         {
           role: "user",
@@ -95,7 +96,7 @@ async function main() {
       max_tokens: 8000,
       system: `You are an EV news journalist for evchargesavings.com — a site helping people understand EV charging costs and savings in the US. Today is ${today}.
 
-Based on the web search results provided, pick the single best story for evchargesavings.com readers — people who own or are buying EVs and care about charging costs, savings, incentives, and battery health.
+Based on the web search results provided, pick the single best story for evchargesavings.com readers — people who own or are buying EVs in the US and care about charging costs, savings, incentives, and battery health. US MARKET ONLY: if the only available stories are about Canadian, European, or other non-US companies or policy with no direct US impact, return NO_STORY.
 
 MUST be a specific recent event/announcement (new law, new pricing, new network, new model launch, policy change, battery warranty update, automaker charging recommendation, solid-state battery milestone). Do NOT write about evergreen topics like "EVs vs gas cost comparison" or general analysis — pick something with a specific date, company, or government action in the search results.
 

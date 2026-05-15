@@ -432,6 +432,46 @@ export const NEWS: NewsArticle[] = [
       { label: "Governor Newsom's $200M ZEV Program — Governor of California", url: "https://www.gov.ca.gov/2026/02/09/what-theyre-saying-strong-support-for-governor-newsoms-200m-zev-program/" },
     ],
   },
+  {
+    slug: "tesla-supercharger-virtual-queue-pilot-2026",
+    title: "Tesla Launches Supercharger Virtual Queue at 5 Congested US Stations",
+    hook: "No more circling the lot — Tesla's app now holds your place in line at busy Superchargers.",
+    description: "Tesla launched a virtual waitlist pilot at five high-traffic US Supercharger stations on May 11, 2026, letting drivers queue via the app instead of waiting physically. The move comes after opening 70% of its 80,000+ US stalls to non-Tesla vehicles drove 53 million sessions in Q1 2026.",
+    readTime: "4 min read",
+    publishedAt: "2026-05-15",
+    sections: [
+      {
+        heading: "What Tesla launched",
+        body: "On May 11, 2026, Tesla's charging team announced a virtual waitlist pilot at five of its most congested US Supercharger stations. Drivers who arrive at a full station can join the queue through the Tesla app. The app shows their position in line via a Live Activity notification — no physical waiting required. The pilot had been promised for Q2 2025 but launched a full year late.",
+        list: [
+          "Los Gatos, CA — Los Gatos Boulevard",
+          "Mountain View, CA — El Monte Avenue",
+          "San Francisco, CA — Lombard Street",
+          "San Jose, CA — Saratoga Avenue",
+          "Bronx, NY — East Gun Hill Road",
+        ],
+      },
+      {
+        heading: "Why congestion got this bad",
+        body: "Tesla opened roughly 70% of its 80,000+ US Supercharging stalls to non-Tesla vehicles over the past two years. The result: 53 million charging sessions in Q1 2026 alone — a volume the physical infrastructure wasn't designed for at peak times. High-traffic urban stations in the Bay Area and New York have been the worst affected, with drivers occasionally blocking stalls or jumping queues.",
+      },
+      {
+        heading: "Existing congestion fees still apply",
+        body: "The virtual queue sits on top of pricing measures Tesla already has in place. A $1-per-minute congestion fee applies to drivers who charge past 90% state of charge at busy stations — the first 5 minutes are waived. Dynamic pricing has been expanded to 550 Supercharger stations across California, New Jersey, New York, Florida, and Illinois. The virtual queue doesn't change these fees; it just organizes who gets a stall next.",
+      },
+      {
+        heading: "One catch: compliance is voluntary",
+        body: "Tesla cannot technically enforce queue order — the system relies on drivers honoring their position. If someone ignores the queue and plugs in out of turn, the app has no mechanism to prevent it. Tesla has not said whether enforcement features are planned for the full rollout.",
+      },
+      {
+        heading: "What this means for EV owners",
+        body: "For non-Tesla EV owners who now have Supercharger access via NACS or an adapter, the virtual queue applies equally — you don't need to own a Tesla to use it. For any EV driver planning a route through one of these five pilot stations, the practical upshot is: check the app before you arrive, join the queue remotely if it's full, and don't drive to 90%+ if you're at a congested station and want to avoid the per-minute fee.",
+      },
+    ],
+    sources: [
+      { label: "Tesla Supercharger Virtual Queue Pilot — Electrek", url: "https://electrek.co/2026/05/12/tesla-supercharger-virtual-queue-pilot-5-locations/" },
+    ],
+  },
 ];
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {
