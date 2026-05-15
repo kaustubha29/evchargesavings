@@ -37,7 +37,7 @@ _Last updated: 2026-05-15_
 | **Root Insurance** | Insurance | $15/lead | Awin/ShareASale | Usage-based = perfect EV fit. Apply via Awin. |
 | **ATG Epower** | Charger + solar | 8% | Awin #107407 | ❌ Merchant not found — bad data, skip |
 | **LightStream** | Auto loans | $60/funded loan | Impact | EV financing angle. Apply direct. |
-| **Edmunds** | Auto leads | $5–8/lead | CJ Affiliate | Need CJ account first. |
+| **Edmunds** | Auto leads | $10/new+used lead, $3.50/trade-in | CJ #1429390 | 📧 Pending application on CJ |
 | **OhmConnect** | Demand response | $20–40/signup | FlexOffers | Pitch drafted. CA/TX/NY only. Send it. |
 | **Emporia** | Charger hardware | Commission | Direct | Apply direct at emporiaenergy.com/partners |
 | **Grizzl-E** | Charger hardware | ~5–8% | ShareASale | Verify rate in ShareASale merchant directory. |
@@ -51,8 +51,8 @@ _Last updated: 2026-05-15_
 
 | Partner | Category | Payout | Network | Notes |
 |---|---|---|---|---|
-| **Insurify** | Insurance | $3–8/lead | FlexOffers | Apply once FlexOffers approved. |
-| **CarGurus** | Auto leads | $3–4/lead | FlexOffers | Low CPL but easy conversion. |
+| **Insurify** | Insurance | $15/lead | CJ #5380944 | 📧 Pending application on CJ |
+| **CarGurus** | Auto leads | $3–4/lead | FlexOffers | Apply once FlexOffers approved. |
 | **Lemonade (Awin)** | Insurance | $15–25/lead | Awin | Already applied direct — also apply via Awin. |
 | **The Zebra (Awin)** | Insurance | ~$2–3 CPL | Awin #21804 | Low CPL. Skip until traffic scales. |
 
