@@ -61,7 +61,7 @@ export default async function Image() {
           </div>
 
           <div style={{ display: "flex", gap: 16 }}>
-            {["📡 Live EIA rates", "🚗 130+ EVs", "📊 EPA data"].map((t) => (
+            {["📡 Live EIA rates", "🚗 140+ EVs", "📊 EPA data"].map((t) => (
               <span key={t} style={{ fontFamily: "monospace", fontSize: 10, color: "rgba(245,240,232,0.25)", letterSpacing: "0.04em" }}>{t}</span>
             ))}
           </div>

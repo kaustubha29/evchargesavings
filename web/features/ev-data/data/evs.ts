@@ -166,6 +166,24 @@ const RAW: RawEV[] = [
   { id:"do-charg-sp",  brand:"Dodge",    name:"Charger Daytona Scat Pack",     fullName:"Dodge Charger Daytona Scat Pack",     modelYear:2026, battery:100, efficiency:2.8, range:310, msrp:73995,  connector:"NACS", segment:"sedan",    federalTaxCredit:0    },
   // Buick (1)
   { id:"bu-electra",   brand:"Buick",    name:"Electra E4 AWD",                fullName:"Buick Electra E4 AWD",                modelYear:2026, battery:85,  efficiency:2.9, range:303, msrp:54900,  connector:"NACS", segment:"suv",      federalTaxCredit:7500 },
+  // GMC (3)
+  { id:"gmc-hev-pk",   brand:"GMC",      name:"Hummer EV Pickup Edition 1",    fullName:"GMC Hummer EV Pickup Edition 1",      modelYear:2026, battery:212, efficiency:1.7, range:381, msrp:110295, connector:"NACS", segment:"truck",    federalTaxCredit:0    },
+  { id:"gmc-hev-su",   brand:"GMC",      name:"Hummer EV SUV Edition 1",       fullName:"GMC Hummer EV SUV Edition 1",         modelYear:2026, battery:212, efficiency:1.7, range:314, msrp:112595, connector:"NACS", segment:"suv",      federalTaxCredit:0    },
+  { id:"gmc-siev",     brand:"GMC",      name:"Sierra EV Denali",              fullName:"GMC Sierra EV Denali",                modelYear:2026, battery:200, efficiency:2.0, range:440, msrp:96495,  connector:"NACS", segment:"truck",    federalTaxCredit:0    },
+  // Acura (2)
+  { id:"ac-zdx-rwd",   brand:"Acura",    name:"ZDX RWD",                       fullName:"Acura ZDX RWD",                       modelYear:2026, battery:102, efficiency:2.9, range:325, msrp:63900,  connector:"NACS", segment:"suv",      federalTaxCredit:7500 },
+  { id:"ac-zdx-ts",    brand:"Acura",    name:"ZDX Type S AWD",                fullName:"Acura ZDX Type S AWD",                modelYear:2026, battery:102, efficiency:2.7, range:288, msrp:73900,  connector:"NACS", segment:"suv",      federalTaxCredit:0    },
+  // Rolls-Royce (1)
+  { id:"rr-specter",   brand:"Rolls-Royce", name:"Spectre",                    fullName:"Rolls-Royce Spectre",                 modelYear:2026, battery:102, efficiency:2.3, range:260, msrp:420000, connector:"CCS",  segment:"sedan",    federalTaxCredit:0    },
+  // Lotus (1)
+  { id:"lo-eletre",    brand:"Lotus",    name:"Eletre R",                      fullName:"Lotus Eletre R",                      modelYear:2026, battery:112, efficiency:2.5, range:285, msrp:189900, connector:"CCS",  segment:"suv",      federalTaxCredit:0    },
+  // BYD (1 — US market)
+  { id:"by-seal",      brand:"BYD",      name:"Seal AWD",                      fullName:"BYD Seal AWD",                        modelYear:2026, battery:82,  efficiency:3.2, range:270, msrp:39995,  connector:"CCS",  segment:"sedan",    federalTaxCredit:0    },
+  // Alfa Romeo (1)
+  { id:"ar-junior",    brand:"Alfa Romeo", name:"Junior Veloce AWD",           fullName:"Alfa Romeo Junior Veloce AWD",        modelYear:2026, battery:54,  efficiency:3.5, range:193, msrp:47995,  connector:"CCS",  segment:"crossover",federalTaxCredit:0    },
+  // Scout Motors (1)
+  { id:"sc-terra",     brand:"Scout",    name:"Terra Truck",                   fullName:"Scout Terra Truck",                   modelYear:2027, battery:150, efficiency:2.0, range:350, msrp:57995,  connector:"NACS", segment:"truck",    federalTaxCredit:7500 },
+  { id:"sc-trvlr",     brand:"Scout",    name:"Traveler SUV",                  fullName:"Scout Traveler SUV",                  modelYear:2027, battery:150, efficiency:2.1, range:350, msrp:57995,  connector:"NACS", segment:"suv",      federalTaxCredit:7500 },
 ];
 
 export const EV_MODELS: EVModel[] = RAW.map((e) => ({ ...e, slug: slugify(e.fullName) }));

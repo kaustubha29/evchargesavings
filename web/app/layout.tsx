@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | EV Charge Savings",
   },
   description:
-    "See exactly how much an EV would save you in your zip code. Real 2026 electricity and gas rates for all 50 US states, 130+ EV models, free forever.",
+    "See exactly how much an EV would save you in your zip code. Real 2026 electricity and gas rates for all 50 US states, 140+ EV models, free forever.",
   metadataBase: new URL("https://www.evchargesavings.com"),
   openGraph: {
     type: "website",

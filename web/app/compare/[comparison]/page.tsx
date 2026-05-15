@@ -16,11 +16,26 @@ interface Props {
 
 // Top EV IDs × top gas IDs to pre-build
 const TOP_EV_SLUGS = [
+  // 2024 holdovers — still top sellers
   "t-my-lr-awd", "t-my-rwd", "t-m3-rwd", "t-m3-lr-awd",
   "h-i5-lr-rwd", "h-i6-lr-rwd", "k-ev6-lr-rwd", "k-ev9-wind",
   "f-mache-sr", "f-lt-sr", "r-r1t-dual", "r-r1s-dual",
   "c-bolt", "c-bl-lt", "vw-id4-pro", "ni-ariya-fwd",
   "bmw-ix-50", "ps-p2-lr1", "lu-air-pure", "mb-eqs-450",
+  // 2025 breakouts
+  "c-eq-lt",      // Chevy Equinox EV — #3 bestseller 2025
+  "ho-pro-fwd",   // Honda Prologue — strong 2025 sales
+  "t-ct-awd",     // Tesla Cybertruck — high search volume
+  "cd-lyriq-rwd", // Cadillac Lyriq — leading luxury EV
+  "bmw-i4-40",    // BMW i4 eDrive40 — BMW's top EV
+  "do-charg-rt",  // Dodge Charger Daytona — muscle EV buzz
+  "ge-gv60-sr",   // Genesis GV60 — growing brand
+  "c-sv-rst",     // Chevy Silverado EV RST — truck segment
+  // 2026 new / upcoming high-buzz
+  "h-ioniq9",     // Hyundai IONIQ 9 — new 2026 flagship
+  "r-r2",         // Rivian R2 — massive waitlist
+  "sc-terra",     // Scout Terra Truck — 2027, huge truck buzz
+  "sc-trvlr",     // Scout Traveler SUV — 2027, huge SUV buzz
 ];
 const TOP_GAS_IDS = [
   "toyota-rav4", "honda-cr-v", "toyota-camry", "ford-f150",
