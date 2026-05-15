@@ -313,22 +313,34 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
         <h3 className="font-serif text-xl font-medium tracking-tight">Fine-tune your estimate</h3>
 
         {/* Sliders */}
-        {[
-          { label:"Annual miles", value:annualMiles, min:1000, max:50000, step:500, fmt:(v:number)=>v.toLocaleString()+" mi", onChange:setMiles },
-          { label:"Charged at home", value:homePct, min:0, max:100, step:5, fmt:(v:number)=>v+"%", onChange:setHomePct },
-        ].map((s) => (
-          <div key={s.label}>
-            <div className="flex justify-between items-baseline mb-2">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">{s.label}</span>
-              <span className="font-serif text-xl font-medium text-forest">{s.fmt(s.value)}</span>
+        {/* Daily miles */}
+        <div>
+          <div className="flex justify-between items-baseline mb-2">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Daily miles</span>
+            <div className="text-right">
+              <span className="font-serif text-xl font-medium text-forest">{Math.round(annualMiles / 365)} mi/day</span>
+              <span className="font-mono text-[10px] text-ink-mute ml-2">{annualMiles.toLocaleString()}/yr</span>
             </div>
-            <input
-              type="range" min={s.min} max={s.max} step={s.step} value={s.value}
-              onChange={(e) => s.onChange(Number(e.target.value))}
-              className="w-full accent-forest"
-            />
           </div>
-        ))}
+          <input
+            type="range" min={3} max={140} step={1} value={Math.round(annualMiles / 365)}
+            onChange={(e) => setMiles(Number(e.target.value) * 365)}
+            className="w-full accent-forest"
+          />
+        </div>
+
+        {/* Charged at home */}
+        <div>
+          <div className="flex justify-between items-baseline mb-2">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Charged at home</span>
+            <span className="font-serif text-xl font-medium text-forest">{homePct}%</span>
+          </div>
+          <input
+            type="range" min={0} max={100} step={5} value={homePct}
+            onChange={(e) => setHomePct(Number(e.target.value))}
+            className="w-full accent-forest"
+          />
+        </div>
 
         {/* Rate inputs */}
         <div className="grid sm:grid-cols-3 gap-4 pt-2 border-t border-line-soft">
