@@ -32,10 +32,10 @@ _Last updated: 2026-05-15_
 | Partner | Category | Payout | Network | Notes |
 |---|---|---|---|---|
 | **EnergySage** | Solar leads | $25–100/lead | FlexOffers/Awin | Apply once FlexOffers approved. Best CPL on site. |
-| **Octopus Energy** | Utility / EV rates | $50/customer | Awin #67000 | Texas-only. Apply via Awin now — already approved on platform. |
+| **Octopus Energy** | Utility / EV rates | $50/customer | Awin #67000 | 📧 Applied via Awin — awaiting approval |
+| **Lenz Charging** | Charger hardware | 7% | Awin #108258 | 📧 Applied via Awin — awaiting approval |
 | **Root Insurance** | Insurance | $15/lead | Awin/ShareASale | Usage-based = perfect EV fit. Apply via Awin. |
-| **Lenz Charging** | Charger hardware | 7% | Awin #108258 | On Awin, easy approval. ~$21–42/sale. |
-| **ATG Epower** | Charger + solar | 8% | Awin #107407 | On Awin, easy approval. ~$20/sale. |
+| **ATG Epower** | Charger + solar | 8% | Awin #107407 | ❌ Merchant not found — bad data, skip |
 | **LightStream** | Auto loans | $60/funded loan | Impact | EV financing angle. Apply direct. |
 | **Edmunds** | Auto leads | $5–8/lead | CJ Affiliate | Need CJ account first. |
 | **OhmConnect** | Demand response | $20–40/signup | FlexOffers | Pitch drafted. CA/TX/NY only. Send it. |
