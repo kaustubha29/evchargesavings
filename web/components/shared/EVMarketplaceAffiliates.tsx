@@ -49,21 +49,11 @@ export function EVMarketplaceAffiliates() {
 
   const marketplaces = [
     {
-      name: `${ev.brand} Dealers`,
-      label: "Buy New",
-      tag: "Official dealership",
-      desc: `Find authorized ${ev.brand} dealers${stateData ? ` in ${stateData.name}` : ""} to explore the ${ev.name}.`,
-      perks: ["Browse lineup", "Test drives", "Federal incentives"],
-      cta: "Find dealers",
-      url: dealerUrl,
-      accent: true,
-    },
-    {
       name: "CarGurus",
       label: "Used EV",
-      tag: "Marketplace",
-      desc: `Browse used ${ev.brand} models with price comparison tools.`,
-      perks: ["Real pricing", "Certified options", "Owner reviews"],
+      tag: "Best price transparency",
+      desc: `Pick this if you want to know whether you're overpaying. CarGurus shows how long a car's been listed, price drops, and deal ratings — used EVs under $25k may also qualify for the federal used EV credit (up to $4,000).`,
+      perks: ["Price drop history", "Deal rating per listing", "Used EV credit eligible"],
       cta: "Find used",
       url: buildAffiliateUrl(
         "https://www.cargurus.com/shop/electric-cars",
@@ -74,11 +64,11 @@ export function EVMarketplaceAffiliates() {
     },
     {
       name: "Cars.com",
-      label: "Trade-in",
-      tag: "Classifieds",
-      desc: `Get a trade-in estimate for your current vehicle.`,
-      perks: ["Instant quote", "Market value", "Fast approval"],
-      cta: "Get quote",
+      label: "Trade-in + shop",
+      tag: "Best if you're trading",
+      desc: `Pick this if you're selling your current car. Get a cash offer on your trade-in and browse new and used inventory side by side — the offer is real, not an estimate.`,
+      perks: ["Cash offer on trade-in", "New + used inventory", "No obligation to buy"],
+      cta: "Get trade-in quote",
       url: buildAffiliateUrl(
         "https://www.cars.com/shopping/electric-vehicles/",
         "carsdotcom_ev",
@@ -89,9 +79,9 @@ export function EVMarketplaceAffiliates() {
     {
       name: "Carvana",
       label: "Used online",
-      tag: "Nationwide",
-      desc: `Shop EVs online with delivery and return options.`,
-      perks: ["7-day returns", "Home delivery", "Warranty"],
+      tag: "Best for no-haggle",
+      desc: `Pick this if you hate dealerships. One fixed price, no negotiation, home delivery to most states, and a 7-day return window if it's not right. Financing is built in.`,
+      perks: ["Fixed price, no negotiation", "7-day return window", "Home delivery + built-in financing"],
       cta: "Shop Carvana",
       url: buildAffiliateUrl(
         "https://www.carvana.com/cars/type/electric",
@@ -99,6 +89,16 @@ export function EVMarketplaceAffiliates() {
         ev.brand,
         stateTag
       ),
+    },
+    {
+      name: `${ev.brand} Dealers`,
+      label: "Buy New",
+      tag: "Official dealership",
+      desc: `Pick this if you want brand-new with a full warranty. Any available federal EV incentives on new vehicles can only be claimed through an authorized dealer — check IRS.gov for current eligibility before buying.`,
+      perks: ["Check IRS.gov for current incentives", "Full manufacturer warranty", "Order or pick from inventory"],
+      cta: "Find dealers",
+      url: dealerUrl,
+      accent: true,
     },
   ];
 
@@ -117,7 +117,7 @@ export function EVMarketplaceAffiliates() {
           </h2>
 
           <p className="text-ink-3 max-w-xl leading-relaxed">
-            Compare new and used options{stateData ? ` in ${stateData.name}` : ""} and estimate trade-in value.
+            New, used, or trade-in — pick the path that fits your situation.
           </p>
         </div>
 

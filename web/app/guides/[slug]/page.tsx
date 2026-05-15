@@ -41,7 +41,7 @@ function AffiliateSection({ category }: { category: string }) {
   if (category === "Buying" || category === "Finance" || category === "Education") {
     return <EVMarketplaceAffiliates />;
   }
-  if (category === "Ownership") {
+  if (category === "Ownership" || category === "Insurance") {
     return <EVInsuranceCTA />;
   }
   if (category === "Driving") {

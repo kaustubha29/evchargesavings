@@ -60,7 +60,7 @@ export default function EVOwnerPage() {
               <a href="#level2" className="px-4 py-2 rounded-xl text-sm font-semibold bg-forest text-white hover:bg-emerald transition-colors">
                 Level 2 setup →
               </a>
-              <a href="/ev-insurance" className="px-4 py-2 rounded-xl text-sm font-semibold border border-line text-ink-2 hover:border-forest/40 hover:text-forest transition-colors">
+              <a href="#ev-insurance" className="px-4 py-2 rounded-xl text-sm font-semibold border border-line text-ink-2 hover:border-forest/40 hover:text-forest transition-colors">
                 Compare insurance →
               </a>
               <a href="/" className="px-4 py-2 rounded-xl text-sm font-semibold border border-line text-ink-2 hover:border-forest/40 hover:text-forest transition-colors">

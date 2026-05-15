@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { InsuranceCostWidget } from "@/components/features/insurance/InsuranceCostWidget";
 import { LeadCaptureBoxGate } from "@/components/shared/LeadCaptureBoxGate";
+import { EVInsuranceCTA } from "@/components/shared/EVInsuranceCTA";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { LocationDetector } from "@/components/features/location/LocationDetector";
 
@@ -111,6 +112,9 @@ export default function EVInsurancePage() {
             </ul>
           </div>
         </section>
+
+        {/* PROVIDER COMPARISON */}
+        <EVInsuranceCTA />
 
         {/* CTA — lead form with insurance intent pre-selected */}
         <LeadCaptureBoxGate

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState, useMemo, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { useCalculatorStore, computeSavings } from "@/store/calculator";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { LEAD_FORM_SUBMITTED_KEY } from "@/components/shared/LeadCaptureBox";
@@ -18,6 +19,9 @@ export function StickySavingsBar() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [ev.efficiency, gas.mpg, store.annualMiles, store.homePct, store.homeRateKwh, store.publicRateKwh, store.gasPriceDollar],
   );
+
+  const pathname = usePathname();
+  const calcHref = pathname === "/" ? "#calculator" : "/#calculator";
 
   const locationLabel = store.stateCode ? (store.city ? `${store.city}, ${store.stateData.name}` : store.stateData.name) : "the US";
 
@@ -57,7 +61,8 @@ export function StickySavingsBar() {
       role="region"
       aria-label="Savings summary"
     >
-      <div className="bg-ink/95 backdrop-blur-md border-t border-white/10 shadow-3 px-4 py-3 md:py-2.5">
+      <div className="bg-ink/95 backdrop-blur-md border-t border-white/10 shadow-3 py-3 md:py-2.5">
+        <div className="section-wrap">
         {/* Mobile-only second row */}
         <div className="md:hidden flex items-center justify-between mb-2 pb-2 border-b border-white/10">
           <span className="font-mono text-[10px] text-cream/40 uppercase tracking-widest whitespace-nowrap">Already have an EV?</span>
@@ -106,12 +111,13 @@ export function StickySavingsBar() {
               </a>
             )}
             <a
-              href="#calculator"
+              href={calcHref}
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-forest text-white border border-forest/50 hover:bg-emerald hover:border-emerald transition-all"
             >
               Adjust calculator ↑
             </a>
           </div>
+        </div>
         </div>
       </div>
     </div>
