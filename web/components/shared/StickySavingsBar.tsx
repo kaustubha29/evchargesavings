@@ -58,6 +58,13 @@ export function StickySavingsBar() {
       aria-label="Savings summary"
     >
       <div className="bg-ink/95 backdrop-blur-md border-t border-white/10 shadow-3 px-4 py-3 md:py-2.5">
+        {/* Mobile-only second row */}
+        <div className="md:hidden flex items-center justify-between mb-2 pb-2 border-b border-white/10">
+          <span className="font-mono text-[10px] text-cream/40 uppercase tracking-widest whitespace-nowrap">Already have an EV?</span>
+          <a href="/ev-owner" className="font-mono text-[10px] uppercase tracking-widest text-emerald hover:text-forest transition-colors whitespace-nowrap">
+            Maximize savings →
+          </a>
+        </div>
         <div className="section-wrap flex items-center gap-4 flex-wrap">
           {/* Bolt icon */}
           <div className="hidden sm:flex w-8 h-8 rounded-full bg-emerald/20 items-center justify-center flex-shrink-0">
