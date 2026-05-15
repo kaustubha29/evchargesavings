@@ -9,7 +9,7 @@ _Last updated: 2026-05-15_
 | **Jerry** | Insurance | — | 📧 Applied via jerry.ai/affiliate form |
 | **FlexOffers** | Network | Varies | ✅ Registered — under review (5 business days) |
 | **PartnerStack** | Network (B2B SaaS) | Varies | ✅ Applied — low priority, wrong vertical |
-| **Amazon Associates** | Accessories | 1–5% | ⏳ Apply now — fastest to revenue |
+| **Amazon Associates** | Accessories | 1–5% | ✅ Live — links placed |
 | **Autel EV Charger** | Charger hardware | 10% | ⏳ Apply direct at autelenergy.com |
 | **Lectron EV** | Charger/adapters | 5–10% | ⏳ Apply direct |
 | **Emporia** | Charger hardware | Commission | ⏳ Apply direct |
