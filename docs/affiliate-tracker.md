@@ -41,7 +41,7 @@ _Last updated: 2026-05-15_
 | **OhmConnect** | Demand response | $20–40/signup | FlexOffers | Pitch drafted. CA/TX/NY only. Send it. |
 | **Emporia** | Charger hardware | Commission | Direct | Apply direct at emporiaenergy.com/partners |
 | **Grizzl-E** | Charger hardware | — | — | ❌ No affiliate program exists |
-| **Qmerit** | Charger install | $50–300/lead est. | Direct | No public program — needs custom pitch. |
+| **Qmerit** | Charger install | $50–300/lead est. | Direct | 📧 Emailed info@qmerit.com — 2026-05-15 |
 | **Sunrun** | Solar install | $50–150/lead est. | Direct | affiliates.ai.sunrun.com — direct pitch needed. |
 | **EVANNEX** | Tesla accessories | ~5–10% | Rakuten | ⏳ Skip for now |
 
