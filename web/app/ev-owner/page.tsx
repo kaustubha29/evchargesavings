@@ -89,6 +89,29 @@ export default function EVOwnerPage() {
           </div>
         </section>
 
+        {/* OhmConnect CTA — CA/TX/NY only */}
+        <section className="border-b border-line py-10 bg-paper">
+          <div className="section-wrap max-w-3xl">
+            <div className="bg-ink text-cream rounded-2xl p-6 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+              <div className="flex-1">
+                <div className="font-mono text-[10px] uppercase tracking-widest text-emerald mb-2">For California, Texas &amp; New York EV owners</div>
+                <h3 className="font-serif text-xl font-medium mb-1">Get paid to charge at the right time</h3>
+                <p className="text-cream/60 text-sm leading-relaxed">
+                  OhmConnect pays you real cash to shift charging to off-peak hours — when the grid is cleaner and electricity is cheapest. EV owners earn the most because charging is their biggest energy load. Free to join.
+                </p>
+              </div>
+              <a
+                href="https://sovrn.co/s0ela1k"
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-forest text-white border border-forest hover:bg-emerald hover:border-emerald transition-all whitespace-nowrap"
+              >
+                Join OhmConnect →
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* HOME CHARGING GUIDE */}
         <div id="level2">
           <HomeChargingSection />
