@@ -65,7 +65,7 @@ export function StickySavingsBar() {
             Maximize savings →
           </a>
         </div>
-        <div className="section-wrap flex items-center gap-4 flex-wrap">
+        <div className="flex items-center gap-4 flex-wrap">
           {/* Bolt icon */}
           <div className="hidden sm:flex w-8 h-8 rounded-full bg-emerald/20 items-center justify-center flex-shrink-0">
             <svg className="w-4 h-4 text-emerald" viewBox="0 0 24 24" fill="currentColor">
