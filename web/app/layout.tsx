@@ -43,6 +43,7 @@ export const metadata: Metadata = {
   other: {
     "google-adsense-account": "ca-pub-6904215876470010",
     "indexnow-key": "ccd656076fbc461f9a711d00e5945297",
+    "fo-verify": "8aa31f7b-2e1f-4ace-87c1-61a478a080ec",
   },
 };
 
