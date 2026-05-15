@@ -40,10 +40,10 @@ _Last updated: 2026-05-15_
 | **Edmunds** | Auto leads | $10/new+used lead, $3.50/trade-in | CJ #1429390 | 📧 Pending on CJ — applied 2026-05-14 |
 | **OhmConnect** | Demand response | $20–40/signup | FlexOffers | Pitch drafted. CA/TX/NY only. Send it. |
 | **Emporia** | Charger hardware | Commission | Direct | Apply direct at emporiaenergy.com/partners |
-| **Grizzl-E** | Charger hardware | ~5–8% | ShareASale | Verify rate in ShareASale merchant directory. |
+| **Grizzl-E** | Charger hardware | — | — | ❌ No affiliate program exists |
 | **Qmerit** | Charger install | $50–300/lead est. | Direct | No public program — needs custom pitch. |
 | **Sunrun** | Solar install | $50–150/lead est. | Direct | affiliates.ai.sunrun.com — direct pitch needed. |
-| **EVANNEX** | Tesla accessories | ~5–10% | Rakuten | Tesla owner accessories. Apply via Rakuten. |
+| **EVANNEX** | Tesla accessories | ~5–10% | Rakuten | ⏳ Skip for now |
 
 ---
 
