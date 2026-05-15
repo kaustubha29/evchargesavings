@@ -20,8 +20,8 @@ _Last updated: 2026-05-15_
 | **Edmunds** | Auto leads | $5–8/lead | ⏳ Apply via CJ Affiliate |
 | **LightStream** | Auto loans | $60/funded loan | ⏳ Apply via Impact |
 | **Insurify** | Insurance | $3–8/lead | ⏳ Apply via FlexOffers (once approved) |
-| **Carvana** | Used EVs | $2/action | ⏳ Apply via Impact |
-| **Lemonade Auto** | Insurance | $15–25/lead | ⏳ Apply via Impact |
+| **Carvana** | Used EVs | $2/action | 📧 Applied via partner form |
+| **Lemonade Auto** | Insurance | $15–25/lead | 📧 Applied via partner form |
 | **Qmerit** | Charger install | $50–300/lead est. | ⏳ Direct pitch needed |
 | **Sunrun** | Solar install | $50–150/lead est. | ⏳ Direct pitch needed |
 | **Modernize** | Charger install | — | 📧 Emailed — awaiting response |
