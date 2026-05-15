@@ -175,7 +175,6 @@ const RAW: RawEV[] = [
   { id:"ac-zdx-ts",    brand:"Acura",    name:"ZDX Type S AWD",                fullName:"Acura ZDX Type S AWD",                modelYear:2026, battery:102, efficiency:2.7, range:288, msrp:73900,  connector:"NACS", segment:"suv",      federalTaxCredit:0    },
   // Rolls-Royce (1)
   { id:"rr-specter",   brand:"Rolls-Royce", name:"Spectre",                    fullName:"Rolls-Royce Spectre",                 modelYear:2026, battery:102, efficiency:2.3, range:260, msrp:420000, connector:"CCS",  segment:"sedan",    federalTaxCredit:0    },
-  // BMW (add MINI variant)
   // Lotus (1)
   { id:"lo-eletre",    brand:"Lotus",    name:"Eletre R",                      fullName:"Lotus Eletre R",                      modelYear:2026, battery:112, efficiency:2.5, range:285, msrp:189900, connector:"CCS",  segment:"suv",      federalTaxCredit:0    },
   // BYD (1 — US market)

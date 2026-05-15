@@ -20,6 +20,7 @@ type DisplayItem =
   | { type: "option"; option: ComboOption; optionIndex: number };
 
 export function VehicleCombobox({ options, value, onChange, placeholder, id }: Props) {
+  const listboxId = id ? `${id}-listbox` : "vehicle-listbox";
   const selectedLabel = options.find((o) => o.value === value)?.label ?? "";
   const [inputValue, setInputValue] = useState(selectedLabel);
   const [open, setOpen] = useState(false);
@@ -110,6 +111,7 @@ export function VehicleCombobox({ options, value, onChange, placeholder, id }: P
     }
     if (e.key === "ArrowDown") {
       e.preventDefault();
+      if (selectableCount === 0) return;
       setActiveIndex((i) => Math.min(i + 1, selectableCount - 1));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
@@ -144,6 +146,7 @@ export function VehicleCombobox({ options, value, onChange, placeholder, id }: P
           aria-expanded={open}
           aria-haspopup="listbox"
           aria-autocomplete="list"
+          aria-controls={listboxId}
           autoComplete="off"
           value={inputValue}
           placeholder={open ? "Type to search…" : (placeholder ?? "")}
@@ -166,6 +169,7 @@ export function VehicleCombobox({ options, value, onChange, placeholder, id }: P
       {open && (
         <ul
           ref={listRef}
+          id={listboxId}
           role="listbox"
           className="absolute z-50 mt-1 w-full bg-paper border border-line rounded-xl shadow-lg max-h-72 overflow-y-auto py-1 text-sm"
         >

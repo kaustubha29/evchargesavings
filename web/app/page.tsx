@@ -74,7 +74,7 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
               {[
                 { icon: "📡", text: "Live EIA electricity + gas rates" },
-                { icon: "🚗", text: "130+ EV models" },
+                { icon: "🚗", text: "140+ EV models" },
                 { icon: "📊", text: "EPA efficiency data" },
                 { icon: "🔄", text: "Updated monthly" },
                 { icon: "🔓", text: "Free, no account" },
