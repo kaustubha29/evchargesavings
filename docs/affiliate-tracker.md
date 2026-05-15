@@ -38,7 +38,7 @@ _Last updated: 2026-05-15_
 | **ATG Epower** | Charger + solar | 8% | Awin #107407 | ❌ Merchant not found — bad data, skip |
 | **LightStream** | Auto loans | $60/funded loan | Impact | EV financing angle. Apply direct. |
 | **Edmunds** | Auto leads | $10/new+used lead, $3.50/trade-in | CJ #1429390 | 📧 Pending on CJ — applied 2026-05-14 |
-| **OhmConnect** | Demand response | $20–40/signup | FlexOffers | Pitch drafted. CA/TX/NY only. Send it. |
+| **OhmConnect** | Demand response | $20–40/signup | FlexOffers | ❌ Sovrn denied. Revisit via FlexOffers once approved. |
 | **Emporia** | Charger hardware | Commission | Direct | 📧 Emailed via partner form — 2026-05-15 |
 | **Grizzl-E** | Charger hardware | — | — | ❌ No affiliate program exists |
 | **Qmerit** | Charger install | $50–300/lead est. | Direct | 📧 Emailed info@qmerit.com — 2026-05-15 |
