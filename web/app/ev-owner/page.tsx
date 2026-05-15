@@ -4,7 +4,6 @@ import { HomeChargingSection } from "@/components/shared/HomeChargingSection";
 import { HomeChargerProductsPersonalized } from "@/components/shared/HomeChargerProductsPersonalized";
 import { LeadCaptureBoxGate } from "@/components/shared/LeadCaptureBoxGate";
 import { EVInsuranceCTA } from "@/components/shared/EVInsuranceCTA";
-import { ChargingNetworkReferrals } from "@/components/shared/ChargingNetworkReferrals";
 import { PublicChargingSection } from "@/components/features/networks/PublicChargingSection";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 
@@ -115,7 +114,6 @@ export default function EVOwnerPage() {
         />
 
         <EVInsuranceCTA />
-        <ChargingNetworkReferrals />
         <PublicChargingSection />
 
         {/* OWNER GUIDES */}

@@ -7,7 +7,6 @@ import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
 import { HomeChargerProducts } from "@/components/shared/HomeChargerProducts";
 import { EVMarketplaceAffiliates } from "@/components/shared/EVMarketplaceAffiliates";
 import { EVInsuranceCTA } from "@/components/shared/EVInsuranceCTA";
-import { ChargingNetworkReferrals } from "@/components/shared/ChargingNetworkReferrals";
 
 const BASE = "https://evchargesavings.com";
 
@@ -45,7 +44,7 @@ function AffiliateSection({ category }: { category: string }) {
     return <EVInsuranceCTA />;
   }
   if (category === "Driving") {
-    return <ChargingNetworkReferrals />;
+    return null;
   }
   return null;
 }

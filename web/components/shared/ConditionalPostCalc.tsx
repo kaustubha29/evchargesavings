@@ -7,7 +7,6 @@ import { EVInsuranceCTA } from "./EVInsuranceCTA";
 import { LeadCaptureBoxGate } from "./LeadCaptureBoxGate";
 import { HomeChargerProducts } from "./HomeChargerProducts";
 import { HomeChargingSection } from "./HomeChargingSection";
-import { ChargingNetworkReferrals } from "./ChargingNetworkReferrals";
 import { PublicChargingSection } from "@/components/features/networks/PublicChargingSection";
 import { fmt } from "@/lib/format";
 
@@ -132,7 +131,6 @@ export function ConditionalPostCalc() {
           sectionClassName="bg-cream-soft border-b border-line py-8"
           contentClassName="section-wrap"
         />
-        <ChargingNetworkReferrals />
         <PublicChargingSection />
       </>
     );
@@ -197,7 +195,6 @@ export function ConditionalPostCalc() {
 
         <HomeChargingSection />
         <HomeChargerProducts />
-        <ChargingNetworkReferrals />
         <PublicChargingSection />
       </>
     );
