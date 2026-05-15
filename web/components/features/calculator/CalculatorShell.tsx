@@ -319,7 +319,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
             <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Daily miles</span>
             <div className="text-right">
               <span className="font-serif text-xl font-medium text-forest">{Math.round(annualMiles / 365)} mi/day</span>
-              <span className="font-mono text-[10px] text-ink-mute ml-2">{annualMiles.toLocaleString()}/yr</span>
+              <span className="font-mono text-xs text-ink-mute ml-2">{annualMiles.toLocaleString()}/yr</span>
             </div>
           </div>
           <input
