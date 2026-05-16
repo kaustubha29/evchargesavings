@@ -22,6 +22,80 @@ export interface NewsArticle {
 
 export const NEWS: NewsArticle[] = [
   {
+    slug: "rivian-r2-configurator-live-2026",
+    title: "Rivian R2 Configurator Is Live — Starting at $45,000",
+    hook: "Performance trim hits $57,990, 330-mile range, 0-60 in 3.6 seconds. Configuration opened May 15.",
+    description: "Rivian opened the R2 configurator on May 15, 2026, with four trims spanning $45,000–$57,990. The mid-size SUV began rolling off the Normal, Illinois line in April. Here's everything you need to know — including what it costs to charge.",
+    readTime: "4 min read",
+    publishedAt: "2026-05-16",
+    sections: [
+      {
+        heading: "Four trims, one platform",
+        body: "The R2 launches with four configurations. Performance ($57,990) delivers 656 hp, AWD, 330-mile EPA range, and 0-60 in 3.6 seconds — a figure that undercuts most gas SUVs in the same price range. Premium ($53,990) targets late-2026 delivery. Standard ($48,490) slots in for 2027, and a Standard smaller-battery variant comes in around $45,000 in late 2027.",
+        list: [
+          "Performance: $57,990 — AWD, 330 mi, 656 hp, 0-60 3.6s, 87.4 kWh",
+          "Premium: $53,990 — late 2026 delivery",
+          "Standard: $48,490 — 2027 delivery",
+          "Standard (smaller battery): ~$45,000 — late 2027",
+        ],
+      },
+      {
+        heading: "Production already started",
+        body: "Rivian began R2 production on April 22 at its Normal, Illinois factory — days after a tornado touched down near the facility. The company expects 20,000–25,000 deliveries in 2026, ramping from a slow start as the new platform stabilizes. The Normal plant has built every Rivian vehicle to date and now runs both R1 and R2 lines simultaneously.",
+      },
+      {
+        heading: "What it costs to charge",
+        body: "The Performance trim's 87.4 kWh battery and 330-mile range works out to roughly 3.8 miles per kWh — more efficient than the larger R1S (2.9 mi/kWh) and in line with the Model Y Long Range (3.9 mi/kWh). At the US average of 16.5¢/kWh, a full charge from empty costs about $14.40 — or roughly $0.043 per mile. At a DC fast charger (typically $0.40–$0.50/kWh), expect $35–$44 for a full charge. The R2 supports up to 150 kW DC fast charging, hitting 10-80% in about 29 minutes.",
+      },
+      {
+        heading: "How it stacks up on fuel cost",
+        body: "Compared to a 28 MPG gas SUV at $3.20/gal, the R2 Performance saves roughly $950–$1,100 per year in fuel at 13,500 miles annually (home charging). That gap widens in high-electricity-cost states like California (23¢/kWh) where the math still favors EV, and narrows in states with cheap gas. Use the state-by-state calculator at EVChargeSavings.com to see your exact numbers.",
+      },
+      {
+        heading: "Rivian's broader 2026 lineup",
+        body: "The R2 sits below the R1S and R1T in Rivian's lineup and targets mainstream buyers priced out of the $70,000+ R1 family. Rivian is also developing the R3 hatchback and R3X performance variant, though no production dates have been confirmed. The R2 configurator launched with delivery estimates that vary by trim — Performance reservations are binding $100 deposits convertible to orders.",
+      },
+    ],
+    sources: [
+      { label: "Rivian R2 configurator (rivian.com)", url: "https://rivian.com/r2" },
+      { label: "Rivian April 2026 production announcement", url: "https://rivian.com/newsroom" },
+    ],
+  },
+  {
+    slug: "tesla-model-s-x-end-of-production-2026",
+    title: "Tesla Ends Production of Model S and Model X After 14 Years",
+    hook: "The last units rolled off the Fremont line on May 9. Fremont now pivots to Optimus robot production.",
+    description: "Tesla built its last Model S on May 9, 2026, closing a 14-year run for the sedan that launched the modern EV era. The Model X follows after an 11-year production run. Fremont's freed capacity goes to Optimus humanoid robots.",
+    readTime: "4 min read",
+    publishedAt: "2026-05-16",
+    sections: [
+      {
+        heading: "End of an era",
+        body: "Tesla's Model S defined the premium EV segment when it launched in 2012. The Model X followed in 2015 with its signature falcon-wing doors. Together they gave Tesla a foothold in the $80,000+ luxury market and proved that EV range anxiety could be solved with a big enough battery. Combined production over both models exceeded 610,000 vehicles — a small number by industry standards, but culturally outsized.",
+      },
+      {
+        heading: "Why now",
+        body: "Sales had been shrinking for years. By 2025, combined S and X deliveries had dropped to roughly 30,000 units annually — a rounding error against Model Y volumes. The aging platforms, with interiors overhauled in 2021 and little changed since, struggled to justify the factory floor space as demand shifted toward Model 3 and Model Y. The decision reflects Tesla's strategic pivot: manufacturing space is now more valuable for Optimus than for vehicles few people are buying.",
+      },
+      {
+        heading: "The 350 Signature Edition send-off",
+        body: "Tesla marked the end with a Signature Edition run of 350 vehicles: 250 Model S Plaid and 100 Model X Plaid, priced at $159,420. The cars shipped in April and May 2026 and are already trading at premiums among collectors. Production allocation was first-come, first-served for existing reservation holders.",
+      },
+      {
+        heading: "Fremont pivots to Optimus",
+        body: "Tesla plans to begin Optimus humanoid robot production at Fremont in July or August 2026, targeting 5,000 units this year and scaling aggressively from there. Elon Musk has set a long-term price target of $20,000–$30,000 per robot, with public sales beginning as early as late 2027. The Fremont factory previously produced up to 600,000 vehicles per year across all models — the Model S/X lines likely freed 50,000–80,000 annual units of capacity.",
+      },
+      {
+        heading: "What Tesla still makes",
+        body: "Tesla's active production lineup is now Model 3, Model Y, Cybertruck, and Cybercab. The Cybercab (formerly Robotaxi) is a two-seat autonomous vehicle expected to enter limited public service in 2026. Tesla has not announced any replacements for the Model S or X segments.",
+      },
+    ],
+    sources: [
+      { label: "Tesla Q1 2026 production and delivery report", url: "https://ir.tesla.com" },
+      { label: "Tesla Signature Edition announcement", url: "https://www.tesla.com" },
+    ],
+  },
+  {
     slug: "walmart-ev-charging-network-2026",
     title: "Walmart Is Building One of America's Biggest EV Charging Networks",
     hook: "36 stations live, 312 stalls, 400 kW chargers — and 200+ permits in the pipeline.",
