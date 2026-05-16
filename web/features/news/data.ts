@@ -22,6 +22,44 @@ export interface NewsArticle {
 
 export const NEWS: NewsArticle[] = [
   {
+    slug: "q1-2026-ev-sales-after-tax-credit-ended",
+    title: "Q1 2026 EV Sales: What the Numbers Mean After the Tax Credit Ended",
+    hook: "Sales fell 7.8% vs Q4 2025 — a sharp improvement over Q4's 46% crash. The post-incentive correction may be stabilizing.",
+    description: "Q1 2026 US EV sales dropped 7.8% quarter-over-quarter, according to Cox Automotive analysts. That's bad news framed as good news: it's a significant improvement over the 46% collapse in Q4 2025 that followed the elimination of federal EV tax credits in October.",
+    readTime: "4 min read",
+    publishedAt: "2026-05-16",
+    sections: [
+      {
+        heading: "The numbers",
+        body: "US EV sales fell 7.8% in Q1 2026 compared to Q4 2025, per Cox Automotive analysis citing InsideEVs data. In isolation that sounds like continued decline. In context, it's a significant deceleration from the 46% crash that hit Q4 2025 — suggesting the market is finding a new floor after the incentive shock.",
+      },
+      {
+        heading: "Why Q4 2025 was so bad",
+        body: "The federal §30D EV tax credit — worth up to $7,500 for new vehicles — was eliminated on October 1, 2025. Buyers who knew the deadline was coming front-loaded purchases into Q3 2025, pulling forward months of demand. When October hit, the well was dry and sticker prices felt suddenly higher. Q4 deliveries cratered. The 46% drop was partly a statistical hangover from an artificially inflated Q3, not purely a demand collapse.",
+      },
+      {
+        heading: "What Q1 stabilization means",
+        body: "A 7.8% sequential decline after a 46% crash suggests two things: the pull-forward effect has largely unwound, and a baseline of buyers who would purchase EVs regardless of federal incentives is reasserting itself. These are the buyers for whom fuel savings, home charging convenience, and running cost math — not the tax credit — drive the decision. That cohort appears larger than the post-October sales cliff implied.",
+      },
+      {
+        heading: "The running cost math didn't change",
+        body: "The elimination of federal credits raised the upfront cost of buying an EV. It didn't change the cost of driving one. A 28 MPG gas car at $3.20/gal costs roughly 11¢/mile in fuel. The average EV at 16.5¢/kWh electricity costs 3–5¢/mile depending on efficiency. That gap — $800–$1,400/year at 13,500 miles — remains intact. For buyers who keep vehicles 5+ years, the math still pencils out even without the credit.",
+      },
+      {
+        heading: "State incentives are picking up some slack",
+        body: "Several states maintain their own EV purchase incentives independent of the federal program. California, Colorado, New York, and others offer credits and rebates that partially offset the federal gap. Availability, amounts, and income caps vary — check your state's DMV or energy office for current programs. The patchwork nature of state incentives means the EV affordability picture varies significantly by geography.",
+      },
+      {
+        heading: "What Q2 will tell us",
+        body: "Q1 data covers January through March — months that historically see lower auto sales than spring. Q2 2026 will be the more telling quarter: spring buying season, no year-ago incentive distortion, and the first clean read on steady-state demand in a post-federal-credit market. If the Q1 stabilization holds or improves, the market has genuinely adjusted. If Q2 slides further, the underlying demand problem is larger than the incentive math suggests.",
+      },
+    ],
+    sources: [
+      { label: "InsideEVs — Q1 2026 US EV Sales", url: "https://insideevs.com/news/792992/q1-electric-car-sales-2026/" },
+      { label: "Cox Automotive analyst commentary", url: "https://insideevs.com/news/792992/q1-electric-car-sales-2026/" },
+    ],
+  },
+  {
     slug: "rivian-r2-configurator-live-2026",
     title: "Rivian R2 Configurator Is Live — Starting at $45,000",
     hook: "Performance trim hits $57,990, 330-mile range, 0-60 in 3.6 seconds. Configuration opened May 15.",
