@@ -6,6 +6,7 @@ import { calculateSavings } from "@/features/calculations/savings";
 import { getComparableGas, getComparableGasId } from "@/features/ev-data/data/comparable-gas";
 import { chargePageMeta } from "@/features/content/seo";
 import { enrichState } from "@/features/location/live-rates";
+import { STATE_DATA, NATIONAL_AVG } from "@/features/location/data/states";
 import { LeadCaptureBox } from "@/components/shared/LeadCaptureBox";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { fmt } from "@/lib/format";
@@ -132,6 +133,18 @@ export default async function CostToChargePage({ params }: Props) {
   const savingsNegative = savings.annualSavings < 0;
   const isNACS = ev.connector === "NACS";
   const efficiencyGrade = ev.efficiency >= 4.0 ? "excellent" : ev.efficiency >= 3.2 ? "good" : "moderate";
+
+  // National rate comparison (unique per state)
+  const nationalAvgKwh = NATIONAL_AVG.kwhCents;
+  const rateVsNationalPct = Math.abs(((state.kwhCents - nationalAvgKwh) / nationalAvgKwh) * 100).toFixed(0);
+  const isAboveNational = state.kwhCents > nationalAvgKwh;
+  // Miles per $1 of electricity vs gas (unique per state+EV combination)
+  const milesPerDollarEV = (ev.efficiency / (state.kwhCents / 100)).toFixed(1);
+  const milesPerDollarGas = (gas.mpg / state.gasDollar).toFixed(1);
+  // Rate rank among states (1 = cheapest)
+  const sortedRates = Object.values(STATE_DATA).map(s => s.kwhCents).sort((a, b) => a - b);
+  const rateRank = sortedRates.findIndex(r => r >= state.kwhCents) + 1;
+  const totalStates = sortedRates.length;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -383,6 +396,15 @@ export default async function CostToChargePage({ params }: Props) {
                     $900/year less than comparable gas vehicles.
                   </>
                 )}
+              </p>
+
+              <p>
+                {state.name}&apos;s {fmt.cents1(state.kwhCents)}/kWh electricity rate sits{" "}
+                {isAboveNational ? `${rateVsNationalPct}% above` : `${rateVsNationalPct}% below`} the US residential
+                average of {fmt.cents1(nationalAvgKwh)}/kWh, ranking {rateRank === 1 ? "1st cheapest" : rateRank <= 5 ? `${rateRank}nd–${rateRank}th cheapest` : rateRank >= totalStates - 4 ? `among the most expensive` : `${rateRank}th out of ${totalStates}`} among states.
+                At that rate, the {ev.name}&apos;s {ev.efficiency} mi/kWh efficiency delivers{" "}
+                <strong>{milesPerDollarEV} miles per $1</strong> of electricity —
+                compared to {milesPerDollarGas} miles per $1 of gas for the {gas.name} at current {state.name} prices.
               </p>
 
               {ev.connector === "NACS" ? (
