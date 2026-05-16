@@ -54,6 +54,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {React.createElement("meta", { name: "impact-site-verification", content: "960c3032-0ee0-4b68-ac48-6e69b019dc4c" })}
         <link rel="preconnect" href="https://api.zippopotam.us" />
+        {/* Microsoft Clarity — in <head> so verifier finds it in static HTML */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wrvthpzoke");` }} />
       </head>
       <body className="pb-20">
         {/* Google Analytics GA4 */}
@@ -84,15 +86,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               }
             } catch(err) {}
           });
-        `}</Script>
-
-        {/* Microsoft Clarity */}
-        <Script id="clarity" strategy="afterInteractive">{`
-          (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window,document,"clarity","script","wrvthpzoke");
         `}</Script>
 
         {/* Google AdSense */}
