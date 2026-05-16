@@ -41,6 +41,7 @@
 
 ## Data Pages
 
+- [EV Charging Cost Research — 2026 Data](https://www.evchargesavings.com/research): Residential electricity rates for all 50 US states from EIA May 2026 actuals. Annual EV charging cost (Tesla Model Y LR AWD, 13,500 mi/yr), cost-per-mile, and gas price by state. Dataset licensed CC BY 4.0 — free to cite with attribution. Media: media@evchargesavings.com.
 - [EV Savings by State](https://www.evchargesavings.com/ev-cost/california): Per-state EV charging cost and annual savings pages for all 50 states (e.g. /ev-cost/california, /ev-cost/texas).
 - [Cost to Charge by Model + State](https://www.evchargesavings.com/cost-to-charge/tesla-model-y-long-range-awd/california): Per-model, per-state charging cost pages for top EVs (e.g. /cost-to-charge/tesla-model-y-long-range-awd/california).
 
