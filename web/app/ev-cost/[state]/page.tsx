@@ -114,11 +114,20 @@ export default async function StateCalculatorPage({ params }: Props) {
             <h1 className="font-serif text-4xl md:text-6xl font-medium tracking-tight text-ink mb-4 max-w-2xl leading-[1.05]">
               EV savings in <em className="italic text-forest">{stateData.name}</em>
             </h1>
-            <p className="text-ink-3 text-lg max-w-xl leading-relaxed mb-6">
+            <p className="text-ink-3 text-lg max-w-xl leading-relaxed mb-4">
               Electricity costs <b className="text-ink">{fmt.cents1(stateData.kwhCents)}/kWh</b> and
               gas runs <b className="text-ink">{fmt.money2(stateData.gasDollar)}/gal</b> in {stateData.name}.
               A Model Y vs RAV4 saves roughly{" "}
               <b className="text-forest">{fmt.money0(exSavings.annualSavings)}/yr</b> at 15,000 miles.
+            </p>
+
+            {/* Extractable answer block for AI citation */}
+            <p className="text-sm text-ink-2 bg-cream-soft border border-line rounded-xl px-4 py-3 mb-6 max-w-xl leading-relaxed">
+              <strong>Cost to charge at home in {stateData.name}:</strong>{" "}
+              {((stateData.kwhCents / 100) / modelY.efficiency * 100).toFixed(1)}¢ per mile ·{" "}
+              {fmt.money2((stateData.kwhCents / 100) * modelY.battery)} for a full {modelY.battery} kWh charge (Model Y) ·{" "}
+              {fmt.money0(exSavings.evAnnualCost)}/year at 15,000 miles.
+              Source: EIA {elecPeriod ?? "May 2026"}.
             </p>
 
             {/* Quick-stat row */}

@@ -45,6 +45,26 @@
 - [EV Savings by State](https://www.evchargesavings.com/ev-cost/california): Per-state EV charging cost and annual savings pages for all 50 states (e.g. /ev-cost/california, /ev-cost/texas).
 - [Cost to Charge by Model + State](https://www.evchargesavings.com/cost-to-charge/tesla-model-y-long-range-awd/california): Per-model, per-state charging cost pages for top EVs (e.g. /cost-to-charge/tesla-model-y-long-range-awd/california).
 
+## Utility-Specific EV Charging Guides
+
+Per-utility EV charging cost pages using EIA residential rates and utility TOU plan details. Format: /utility/[utility-slug].
+
+- [PG&E EV Charging Cost](https://www.evchargesavings.com/utility/pge-california): Pacific Gas & Electric — Northern/Central California. Includes E-ELEC TOU rate info. California residential rate, cost per mile, full charge cost.
+- [Southern California Edison EV Charging](https://www.evchargesavings.com/utility/sce-california): SCE — Los Angeles, Orange County, Inland Empire. TOU-EV-1 plan details.
+- [SDG&E EV Charging Cost](https://www.evchargesavings.com/utility/sdge-california): San Diego Gas & Electric — San Diego County. EV-TOU2 plan. SDG&E rates among highest in nation.
+- [ComEd EV Charging Cost](https://www.evchargesavings.com/utility/comed-illinois): Commonwealth Edison — Chicago metro. Hourly Pricing Program for real-time wholesale rates.
+- [Con Edison EV Charging](https://www.evchargesavings.com/utility/coned-new-york): Consolidated Edison — New York City and Westchester. EV SmartCharge program.
+- [Dominion Energy EV Charging](https://www.evchargesavings.com/utility/dominion-virginia): Dominion Energy Virginia — most of Virginia. EV-specific TOU rate.
+- [Duke Energy EV Charging](https://www.evchargesavings.com/utility/duke-energy-north-carolina): Duke Energy Carolinas/Progress — most of North Carolina. EV Advantage rate.
+- [FPL EV Charging Cost](https://www.evchargesavings.com/utility/fpl-florida): Florida Power & Light — most of Florida. EV-TOU rate for overnight charging.
+- [Georgia Power EV Charging](https://www.evchargesavings.com/utility/georgia-power): Georgia Power — most of Georgia. TOU-EV-A rate. Low baseline rates.
+- [Portland General Electric EV Charging](https://www.evchargesavings.com/utility/portland-general-electric-oregon): PGE — Portland metro and Willamette Valley. Hydropower-heavy grid.
+- [Puget Sound Energy EV Charging](https://www.evchargesavings.com/utility/puget-sound-energy-washington): PSE — Western Washington. Among cheapest electricity in US.
+- [Xcel Energy Colorado EV Charging](https://www.evchargesavings.com/utility/xcel-energy-colorado): Xcel Energy — Front Range Colorado. EV Accelerate at Home program.
+- [Eversource EV Charging](https://www.evchargesavings.com/utility/eversource-massachusetts): Eversource — most of Massachusetts. High baseline rates make TOU enrollment especially valuable.
+- [National Grid New York EV Charging](https://www.evchargesavings.com/utility/national-grid-new-york): National Grid — Upstate New York. Generally lower rates than NYC.
+- [Rocky Mountain Power EV Charging](https://www.evchargesavings.com/utility/rocky-mountain-power-utah): Rocky Mountain Power (PacifiCorp) — most of Utah. Low rates, EV TOU program.
+
 ## Optional
 
 - [llms-full.txt](https://www.evchargesavings.com/llms-full.txt): Extended version with full page content for key static pages.

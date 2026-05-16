@@ -171,6 +171,15 @@ export default async function CostToChargePage({ params }: Props) {
               <em className="italic text-forest">{ev.fullName}</em>{" "}
               in {state.name}
             </h1>
+            {/* Extractable answer block for AI citation */}
+            <p className="text-sm text-ink-2 bg-cream-soft border border-line rounded-xl px-4 py-3 mb-5 max-w-xl leading-relaxed">
+              <strong>Charging a {ev.name} in {state.name}:</strong>{" "}
+              {(costPerMile * 100).toFixed(1)}¢ per mile ·{" "}
+              {fmt.money2(fullChargeCost)} for a full {ev.battery} kWh charge ·{" "}
+              {fmt.money0(savings.evAnnualCost)}/year at {ANNUAL_MILES.toLocaleString()} miles.
+              Source: EIA {elecPeriod ?? "May 2026"}.
+            </p>
+
             <p className="text-ink-3 text-lg max-w-xl leading-relaxed mb-8">
               <b className="text-forest">{fmt.money0(monthlyEV)}/month</b> to charge at home —{" "}
               vs <b className="text-ink">{fmt.money0(monthlyGas)}/month</b> for a {gas.name} on gas.{" "}
