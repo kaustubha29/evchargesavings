@@ -132,6 +132,22 @@ export default function EVInsurancePage() {
           </div>
         </LeadCaptureBoxGate>
 
+        {/* Link back to EV owner hub */}
+        <section className="bg-paper border-t border-line py-10">
+          <div className="section-wrap max-w-4xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">Already own an EV?</div>
+              <p className="text-sm text-ink-3">Home charging setup, TOU rates, public networks — everything after the purchase.</p>
+            </div>
+            <a
+              href="/ev-owner"
+              className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-paper border border-line text-forest hover:border-forest transition-all"
+            >
+              EV owner guide →
+            </a>
+          </div>
+        </section>
+
         <SiteFooter />
       </main>
     </>
