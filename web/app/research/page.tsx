@@ -253,6 +253,43 @@ export default function ResearchPage() {
             </p>
           </section>
 
+          {/* Embed widget */}
+          <section id="embed" className="mb-12">
+            <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-5">Embed the calculator</div>
+            <p className="text-sm text-ink-3 leading-relaxed mb-6 max-w-2xl">
+              Free to embed on any site — blog posts, utility EV resources pages, dealership websites. Add a state param to pre-select your readers&rsquo; location. No API key, no account.
+            </p>
+            <div className="space-y-4">
+              {[
+                {
+                  label: "Default (national avg rates)",
+                  code: `<iframe src="https://www.evchargesavings.com/embed" width="100%" height="480" frameborder="0" style="border-radius:12px;border:1px solid #e5e5e5"></iframe>`,
+                },
+                {
+                  label: "Pre-selected state (e.g. California)",
+                  code: `<iframe src="https://www.evchargesavings.com/embed?state=california" width="100%" height="480" frameborder="0" style="border-radius:12px;border:1px solid #e5e5e5"></iframe>`,
+                },
+                {
+                  label: "Pre-selected EV + state",
+                  code: `<iframe src="https://www.evchargesavings.com/embed?state=texas&ev=tesla-model-y-long-range-awd" width="100%" height="480" frameborder="0" style="border-radius:12px;border:1px solid #e5e5e5"></iframe>`,
+                },
+              ].map((ex) => (
+                <div key={ex.label} className="border border-line rounded-2xl overflow-hidden">
+                  <div className="bg-cream-soft px-4 py-2 border-b border-line font-mono text-[10px] uppercase tracking-widest text-ink-mute">
+                    {ex.label}
+                  </div>
+                  <pre className="bg-ink text-emerald text-xs px-5 py-4 overflow-x-auto leading-relaxed whitespace-pre-wrap break-all">
+                    {ex.code}
+                  </pre>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-ink-mute mt-4">
+              Attribution link included automatically. For custom integrations or white-label options, email{" "}
+              <a href="mailto:media@evchargesavings.com" className="text-forest hover:underline">media@evchargesavings.com</a>.
+            </p>
+          </section>
+
           {/* Calculator CTA */}
           <div className="bg-ink text-cream rounded-3xl p-8">
             <div className="font-mono text-[10px] uppercase tracking-widest text-emerald mb-3">Free calculator</div>

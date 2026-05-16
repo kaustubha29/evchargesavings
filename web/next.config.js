@@ -1,6 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typedRoutes: true,
+  async headers() {
+    return [
+      {
+        source: "/embed",
+        headers: [
+          { key: "Content-Security-Policy", value: "frame-ancestors *" },
+          { key: "X-Frame-Options", value: "ALLOWALL" },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       { source: "/ev-cost", destination: "/", permanent: true },
