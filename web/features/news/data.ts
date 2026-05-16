@@ -22,6 +22,47 @@ export interface NewsArticle {
 
 export const NEWS: NewsArticle[] = [
   {
+    slug: "tesla-model-y-price-increase-may-2026",
+    title: "Tesla Raises Model Y Prices for the First Time in Two Years",
+    hook: "Premium and Performance trims up $500–$1,000. Base models unchanged. Ends two years of aggressive price cuts.",
+    description: "Tesla raised Model Y prices on three trims on May 16, 2026 — the first increase since 2024. The moves are modest (under 2.5%) but signal a deliberate shift away from the margin-crushing discount strategy of the past two years.",
+    readTime: "3 min read",
+    publishedAt: "2026-05-16",
+    sections: [
+      {
+        heading: "What changed",
+        body: "Three Model Y trims went up in price effective May 16, 2026. The base RWD ($39,990) and base AWD ($41,990) were left untouched — Tesla deliberately protected the entry-level price points while raising margins on higher-trim configurations.",
+        list: [
+          "Model Y Premium RWD: $45,990 (+$1,000)",
+          "Model Y Premium AWD: $49,990 (+$1,000)",
+          "Model Y Performance AWD: $57,990 (+$500)",
+          "Model Y RWD base: $39,990 (unchanged)",
+          "Model Y AWD base: $41,990 (unchanged)",
+        ],
+      },
+      {
+        heading: "Why now",
+        body: "Tesla's aggressive discounting from 2024–2025 drove automotive gross margins from above 25% in early 2023 to below 18% by mid-2025. The price cuts moved volume but at significant cost to profitability. These increases — modest at 0.9% to 2.2% — represent a directional shift: Tesla is prioritizing margin recovery over unit growth on its best-selling vehicle.",
+      },
+      {
+        heading: "What it means for the break-even math",
+        body: "The charging cost math doesn't change — electricity rates, efficiency, and fuel savings are identical before and after this announcement. A Model Y Premium AWD still costs roughly $14 to charge from empty at the US average electricity rate, and still saves $1,000–$1,400/year in fuel vs a comparable gas SUV depending on your state. What changes is the upfront premium. At $1,000 more, a buyer saving $1,200/year on fuel adds roughly one month to the break-even timeline — a minor adjustment, not a deal-breaker.",
+      },
+      {
+        heading: "The bigger picture",
+        body: "This is the first price increase on the Model Y since Tesla launched its aggressive cut strategy in January 2024. At that time, Tesla slashed prices by up to $13,000 to stimulate demand in a softening EV market. The reversal signals confidence that demand has stabilized enough at current price levels to begin recovering margin. It also sets a floor: buyers who were waiting for further cuts may find this is the new baseline.",
+      },
+      {
+        heading: "Should you buy now?",
+        body: "If you were already planning to buy a Model Y Premium or Performance trim, there's no advantage in waiting — prices moved up today and the direction has reversed. The base Model Y RWD at $39,990 remains the most accessible entry point and was not affected. Fuel savings calculations by state haven't changed: the running cost advantage of the Model Y over a comparable gas SUV is the same today as it was yesterday.",
+      },
+    ],
+    sources: [
+      { label: "Electrek — Tesla raises Model Y prices for first time in two years", url: "https://electrek.co/2026/05/16/tesla-tsla-raises-model-y-prices-first-time-two-years/" },
+      { label: "Tesla Model Y configurator (tesla.com)", url: "https://www.tesla.com/modely" },
+    ],
+  },
+  {
     slug: "q1-2026-ev-sales-after-tax-credit-ended",
     title: "Q1 2026 EV Sales: What the Numbers Mean After the Tax Credit Ended",
     hook: "Sales fell 7.8% vs Q4 2025 — a sharp improvement over Q4's 46% crash. The post-incentive correction may be stabilizing.",
