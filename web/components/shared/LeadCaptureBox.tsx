@@ -199,15 +199,18 @@ export function LeadCaptureBox({
                   onChange={(e) => setEmail(e.target.value)}
                   className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
                 />
-                <input
-                  type="tel"
-                  required
-                  placeholder="(555) 123-4567"
-                  value={phone}
-                  onFocus={onFirstInteraction}
-                  onChange={(e) => setPhone(formatPhoneDisplay(e.target.value))}
-                  className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
-                />
+                <div className="flex flex-col gap-0.5">
+                  <input
+                    type="tel"
+                    required
+                    placeholder="(555) 123-4567"
+                    value={phone}
+                    onFocus={onFirstInteraction}
+                    onChange={(e) => setPhone(formatPhoneDisplay(e.target.value))}
+                    className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
+                  />
+                  <span className="font-mono text-[10px] text-ink-mute px-1">So providers can reach you</span>
+                </div>
                 <input
                   type="text"
                   inputMode="numeric"
