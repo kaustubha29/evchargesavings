@@ -8,9 +8,27 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Kaustubha",
+  url: "https://www.evchargesavings.com/about",
+  jobTitle: "Engineering Leader",
+  description: "Kia EV9 owner and engineering leader in the Pacific Northwest who built EV Charge Savings after two years navigating EV charging costs and real-world ownership.",
+  worksFor: {
+    "@type": "Organization",
+    name: "EV Charge Savings",
+    url: "https://www.evchargesavings.com",
+  },
+};
+
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <main className="bg-paper min-h-screen">
         <div className="section-wrap py-16 max-w-2xl">
           <a href="/" className="font-mono text-xs text-ink-mute hover:text-forest mb-8 inline-block">← evchargesavings.com</a>
@@ -30,7 +48,7 @@ export default function AboutPage() {
               <span className="text-forest font-serif text-xl font-medium">⚡</span>
             </div>
             <div>
-              <div className="font-serif text-base font-medium text-ink mb-0.5">Engineering leader · Pacific Northwest</div>
+              <div className="font-serif text-base font-medium text-ink mb-0.5">Kaustubha — Engineering leader · Pacific Northwest</div>
               <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">Kia EV9 owner · influenced 4 others to buy one</div>
               <p className="text-sm text-ink-3 leading-relaxed">
                 After I got my EV9, four friends and coworkers bought one too — partly based on my experience.

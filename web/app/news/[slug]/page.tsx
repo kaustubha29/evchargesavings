@@ -58,9 +58,9 @@ export default async function NewsArticlePage({ params }: Props) {
       url: BASE,
     },
     author: {
-      "@type": "Organization",
-      name: "EV Charge Savings",
-      url: BASE,
+      "@type": "Person",
+      name: "Kaustubha",
+      url: `${BASE}/about`,
     },
   };
 
@@ -96,7 +96,16 @@ export default async function NewsArticlePage({ params }: Props) {
             <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-ink mb-3" style={{ lineHeight: 1.1 }}>
               {article.title}
             </h1>
-            <p className="text-ink-2 text-base leading-relaxed max-w-2xl">{article.hook}</p>
+            <p className="text-ink-2 text-base leading-relaxed max-w-2xl mb-5">{article.hook}</p>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-forest/15 border border-forest/25 flex items-center justify-center flex-shrink-0">
+                <span className="text-forest font-serif text-sm font-medium">K</span>
+              </div>
+              <div>
+                <a href="/about" className="font-semibold text-sm text-ink hover:text-forest transition-colors">Kaustubha</a>
+                <span className="font-mono text-[10px] text-ink-mute ml-2 uppercase tracking-widest">Kia EV9 owner · EV Charge Savings</span>
+              </div>
+            </div>
           </div>
 
           {/* Article body */}
