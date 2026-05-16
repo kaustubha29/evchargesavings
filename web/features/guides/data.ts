@@ -4,6 +4,11 @@ export interface GuideSection {
   list?: string[];
 }
 
+export interface GuideFaq {
+  question: string;
+  answer: string;
+}
+
 export interface Guide {
   slug: string;
   title: string;
@@ -13,6 +18,7 @@ export interface Guide {
   category: string;
   publishedAt?: string;
   sections: GuideSection[];
+  faqs?: GuideFaq[];
 }
 
 export const GUIDES: Guide[] = [
@@ -3629,6 +3635,24 @@ export const GUIDES: Guide[] = [
         ],
       },
     ],
+    faqs: [
+      {
+        question: "Which car insurance company is best for electric vehicles in 2026?",
+        answer: "Progressive and USAA rank highest for EV owner satisfaction in J.D. Power surveys. Tesla Insurance is competitive for Tesla vehicles in the ~12 states it operates, using Safety Score to reward safe drivers with rates 20–30% below traditional carriers. For non-Tesla EVs, get at least 4 quotes — EV carrier variance runs 25–40%, much wider than for gas cars.",
+      },
+      {
+        question: "Why does EV insurance cost more than gas car insurance?",
+        answer: "EVs cost 15–22% more to insure on average because battery replacement is expensive (a battery pack can cost $10,000–$20,000+), EV-specific parts are less available at standard body shops, and fewer repair facilities are certified for high-voltage work. The right carrier who specializes in EVs can significantly narrow this gap.",
+      },
+      {
+        question: "Does car insurance cover EV battery damage?",
+        answer: "Standard comprehensive coverage covers sudden battery damage from accidents, fire, flooding, or theft. It does not cover gradual battery degradation (capacity loss over time). The manufacturer battery warranty — typically 8 years / 100,000 miles — covers capacity loss below threshold (usually 70% of original). These two protections are separate and complement each other.",
+      },
+      {
+        question: "Do I need gap insurance for an electric vehicle?",
+        answer: "Gap insurance is more important for financed EVs than for gas cars because EVs depreciate faster in years 1–3. Gap covers the difference between your car's actual cash value and your loan payoff if the vehicle is totaled. Buy it from your insurer for $200–$500/year rather than from the dealer finance office at $800–$1,200 one-time.",
+      },
+    ],
   },
   {
     slug: "first-time-ev-buyer-guide",
@@ -3844,6 +3868,24 @@ export const GUIDES: Guide[] = [
         body: "The Rivian R1S (~$75,000+) is the best-built electric SUV sold today — exceptional off-road capability, 321 miles range, massive storage (front trunk + under-floor + rear), and a 70 kWh pack that can be upgraded. It's the choice for buyers who do serious off-road or towing. Tesla Model Y (~$44,000) remains the volume leader because of Supercharger network access, strong resale value, and the most mature EV software. It wins on total ownership confidence, not on any single spec.",
       },
     ],
+    faqs: [
+      {
+        question: "Which electric SUV has the best range in 2026?",
+        answer: "The Chevy Equinox EV 1LT delivers 319 miles EPA range at $35,000 — the longest range for under $40K. Among premium SUVs, the Rivian R1S offers 321 miles and the Chevy Silverado EV RST offers 450 miles on its top trim.",
+      },
+      {
+        question: "Which electric SUV charges the fastest in 2026?",
+        answer: "The Hyundai Ioniq 5 and Kia EV9 both use 800V architecture with up to 239–240kW peak DC fast charging, adding roughly 170 miles in 15 minutes at a 350kW station. The Tesla Model Y charges at up to 250kW via Supercharger and adds around 130 miles in 15 minutes.",
+      },
+      {
+        question: "What is the best electric SUV under $40,000 in 2026?",
+        answer: "The Chevy Equinox EV 1LT at $35,000 with 319 miles of EPA range is the strongest value. For a slightly higher budget, the Hyundai Kona Electric at ~$34,000 offers 261 miles of range with noticeably better build quality than the Bolt.",
+      },
+      {
+        question: "Is the Hyundai Ioniq 5 better than the Tesla Model Y?",
+        answer: "The Ioniq 5 wins on 800V charging speed (adds 170 miles in 15 min vs 130 miles for Model Y), interior space (flat floor, sliding console), and lease economics. The Model Y wins on charging network reliability (Supercharger uptime beats Electrify America) and software maturity. For road trips, Model Y is more reliable; for high-power station charging, Ioniq 5 is faster.",
+      },
+    ],
   },
   {
     slug: "best-electric-trucks-2026",
@@ -3889,6 +3931,24 @@ export const GUIDES: Guide[] = [
       {
         heading: "Tesla Cybertruck: for specific buyers only",
         body: "The Cybertruck Foundation Series (~$80,000) delivers 340 miles range and 11,000 lb towing. Its polarizing exterior aside, the real differentiator is Supercharger network access and Tesla's software maturity. Air suspension, steer-by-wire, and 48V electrical architecture are genuinely innovative. The truck bed is short and the frunk is large — opposite of most pickup buyers' priorities. Buy a Cybertruck if you want Supercharger access in an electric truck and the look doesn't bother you. Skip it if you need a conventional bed layout or blend into a job site.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Which electric truck has the longest range in 2026?",
+        answer: "The Chevy Silverado EV RST offers 450 miles of EPA range — the longest of any electric truck. The Rivian R1T Dual Motor Large follows at 410 miles. The F-150 Lightning Extended Range delivers 320 miles.",
+      },
+      {
+        question: "Which electric truck can tow the most?",
+        answer: "The Ram 1500 REV leads at 14,000 lbs towing capacity — highest in the electric truck segment. The Chevy Silverado EV follows at 10,500 lbs, then the F-150 Lightning Extended Range at 10,000 lbs, and the Rivian R1T at 11,000 lbs.",
+      },
+      {
+        question: "Is the Ford F-150 Lightning good for work use?",
+        answer: "Yes — the F-150 Lightning Pro is the most widely deployed commercial electric truck in the US. The Pro Power Onboard system exports 7.2kW for job site tools from the truck bed, payload is 2,000 lbs, and towing reaches 10,000 lbs on the Extended Range. Ford's established dealer network makes commercial service more accessible than newer entrants.",
+      },
+      {
+        question: "How far can an electric truck tow on one charge?",
+        answer: "Towing significantly reduces EV range — expect 40–55% reduction at highway speed. The Rivian R1T rated at 410 miles drops to roughly 150–180 miles when towing 8,000 lbs at 65 mph. The F-150 Lightning Extended Range (320 miles) drops to around 100–130 miles towing. Plan charging stops every 100 miles when towing rather than every 200+ miles unloaded.",
       },
     ],
   },
@@ -4416,6 +4476,234 @@ export const GUIDES: Guide[] = [
       {
         heading: "Will prices drop further in 2026?",
         body: "EV prices are likely to remain flat or decline slightly through 2026. The expiration of the federal EV credit shifted competition to sticker price rather than after-sale incentives. Chevy's Equinox EV at $35,000 reflects this — launched knowing it had to stand on its own without a tax credit backstop. For buyers considering waiting, there is no strong signal of a major price drop in the next 6–12 months. The current affordable EV lineup is the strongest it has been, and manufacturer margins in this segment are already thin.",
+      },
+    ],
+  },
+  {
+    slug: "best-ev-for-road-trips-2026",
+    title: "Best EVs for road trips in 2026: range, charging networks, and real-world reliability",
+    hook: "Road trips in an EV are different, not worse — if you pick the right car and network.",
+    description: "The best electric vehicles for road trips in 2026, ranked by charging network coverage, DC fast speed, range reliability, and real-world experience. Includes Tesla, Ioniq 5, Rivian, and Equinox EV.",
+    readTime: "7 min read",
+    category: "Buying",
+    publishedAt: "2026-05-15",
+    sections: [
+      {
+        heading: "What makes an EV good for road trips",
+        body: "Range is the obvious factor but not the decisive one. A 400-mile EV that charges at 75kW on an unreliable network will lose road trips to a 280-mile EV on a fast, dense charging network. The three factors that determine road-trip experience: DC fast charge speed (how many miles you add per minute), network uptime (how often the charger works when you arrive), and network density (how many stations are on your route). In 2026, these factors vary dramatically between vehicles and their associated networks.",
+      },
+      {
+        heading: "Best overall road trip EV: Tesla Model Y",
+        body: "The Tesla Model Y wins road trips not on any single spec but on total system reliability. The Supercharger network's 50,000+ stalls have the best uptime of any charging infrastructure in North America — consistently above 99% per independent monitoring. V3 Superchargers deliver 250kW peak, adding 130+ miles in 15 minutes. Tesla's route planning is built into the navigation natively — it accounts for weather, speed, elevation, and battery state to calculate exactly which Supercharger stalls to use and for how long. You rarely have to think about charging; the car handles it.",
+        list: [
+          "Supercharger network: 50,000+ stalls, >99% uptime — best reliability of any network",
+          "V3 peak: 250kW — adds 130+ miles in 15 min",
+          "Built-in route planning: native, accurate, adjusts in real time",
+          "Model Y LR AWD: ~$46K, 330+ miles EPA",
+        ],
+      },
+      {
+        heading: "Best fast-charging road trip EV: Hyundai Ioniq 5 or 6",
+        body: "If you have access to Electrify America's 350kW stations along your route, the Ioniq 5 and Ioniq 6 add more miles per minute than any other mainstream EV — roughly 170 miles in 15 minutes at peak. The 800V architecture means charging slows less as the battery fills compared to 400V vehicles. The trade-off: Electrify America's uptime is lower than Tesla's Supercharger network, and not every corridor has 350kW stations. Check EA's network coverage before committing to an 800V vehicle for your specific routes.",
+        list: [
+          "800V, 239kW peak — adds ~170 miles in 15 min at 350kW station",
+          "Ioniq 5 LR: ~$44K, 266–310 miles EPA | Ioniq 6 LR RWD: ~$42K, 361 miles EPA",
+          "Charging network: Electrify America (350kW) — lower uptime than Supercharger",
+          "Check EA station coverage for your specific routes at plugshare.com before buying",
+        ],
+      },
+      {
+        heading: "Best premium road trip SUV: Rivian R1S",
+        body: "The Rivian R1S (~$75,000+) offers 321 miles range and access to Rivian's proprietary Adventure Network — a series of high-power (up to 300kW) DC fast chargers placed specifically on road-trip corridors and near outdoor destinations. Rivian owners report Adventure Network reliability on par with Tesla Superchargers. The R1S also accepts Electrify America and any CCS charger. The downside: 321 miles range on a large SUV towing a trailer drops to 150–180 miles, and camping/outdoor trips with trailer towing require very careful planning.",
+        list: [
+          "Adventure Network: proprietary high-speed chargers, Tesla-comparable uptime",
+          "R1S: ~$75K, 321 miles EPA, air suspension, exceptional off-road",
+          "Accepts: Rivian Adventure Network + Electrify America + any CCS charger",
+          "Towing caveat: range drops 40–50% when towing at highway speed",
+        ],
+      },
+      {
+        heading: "Budget road trip option: Chevy Equinox EV",
+        body: "The Equinox EV 1LT at $35,000 with 319 miles EPA range is a functional road trip vehicle. Its 150kW DC fast charging adds roughly 70 miles in 10 minutes — slower than 800V competition but manageable for occasional trips. It uses GM's growing DC fast network plus Electrify America. For buyers who primarily road trip a few times a year and want to save $10,000+ over the Ioniq 5, the Equinox EV delivers the range without the premium price.",
+      },
+      {
+        heading: "Road trip planning essentials regardless of vehicle",
+        body: "The 20–80 rule: on road trips, charge to 80% and move — charging slows significantly above 80% regardless of vehicle. Use ABRP (A Better Route Planner) to pre-plan charging stops, accounting for weather, speed, and elevation. Check PlugShare for recent check-ins at planned charging stations before you depart. If a station has no check-in in the last 48 hours, find a backup. Download your car's companion app and enable pre-conditioning — warming or cooling the battery while still plugged in preserves range for the drive.",
+        list: [
+          "Charge to 80% on road trips — the last 20% takes as long as the first 80%",
+          "ABRP (abetterrouteplanner.com): best route planning tool, free for basic use",
+          "PlugShare: check station check-ins within 48 hours before departing",
+          "Pre-condition battery while plugged in before highway driving",
+          "Cold weather: plan charging stops 15–20% earlier than summer — expect 20–30% range reduction",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Which EV is best for long road trips in 2026?",
+        answer: "The Tesla Model Y is the most reliable choice due to the Supercharger network's superior uptime and density. The Hyundai Ioniq 5 and 6 add more miles per minute at 350kW stations (800V, ~170 miles in 15 min) but depend on Electrify America, which has lower uptime than Supercharger. For premium buyers, the Rivian R1S pairs strong range with a proprietary Adventure Network of comparable reliability.",
+      },
+      {
+        question: "How long does it take to charge an EV on a road trip?",
+        answer: "At a modern DC fast charger, most EVs add 150–200 miles in 20–30 minutes charging from 10% to 80%. At 800V stations (350kW), vehicles like the Ioniq 5 reach 10–80% in about 18 minutes. Tesla Superchargers (V3, 250kW) deliver 10–80% in about 25 minutes for the Model Y. The key is stopping at 80% and moving — charging slows significantly above that threshold.",
+      },
+      {
+        question: "Can you road trip in an EV with no planning?",
+        answer: "Tesla owners can do this most comfortably due to built-in Supercharger routing in the navigation system. Non-Tesla owners benefit from planning with ABRP (A Better Route Planner) and checking PlugShare for charger uptime on their route. As charging networks expand, spontaneous road trips become easier, but checking coverage before a long trip is still good practice in 2026.",
+      },
+    ],
+  },
+  {
+    slug: "best-ev-for-families-2026",
+    title: "Best electric cars for families in 2026: 3-row options, cargo, and safety",
+    hook: "Family EVs exist now — including 3-row options under $60K. Here's who wins.",
+    description: "The best electric vehicles for families in 2026, including 3-row options. Covers Kia EV9, Rivian R1S, Tesla Model Y, Hyundai Ioniq 5, and VW ID.4 on seating, cargo, safety ratings, and road-trip charging.",
+    readTime: "6 min read",
+    category: "Buying",
+    publishedAt: "2026-05-15",
+    sections: [
+      {
+        heading: "Family EV options in 2026: better than ever",
+        body: "Three years ago, a family needing a 3-row electric SUV had essentially no options. In 2026, the Kia EV9 offers genuine 3-row seating under $60,000, and the Rivian R1S provides premium 3-row capability at $75,000+. For families who can fit in two rows, the Hyundai Ioniq 5, Tesla Model Y, and VW ID.4 all offer spacious rear seats, strong safety ratings, and cargo space that works for family use. The category has matured significantly.",
+      },
+      {
+        heading: "Best 3-row option: Kia EV9",
+        body: "The Kia EV9 is the only mainstream 3-row electric SUV under $60,000 in 2026. Starting at ~$55,000, it seats 6 (captain's chairs) or 7 (bench), delivers 280–304 miles range, and uses 800V fast charging (10–80% in about 24 minutes at a 350kW station). The second-row seats recline almost flat on higher trims — useful for long family road trips. Third row is genuine adult seating, not cramped jump seats. If your family needs three rows and you're not spending Rivian money, the EV9 is the only real option.",
+        list: [
+          "EV9 Light Long Range: ~$55K, 304 miles EPA, seating for 6 or 7",
+          "800V charging: 10–80% in ~24 min at 350kW station",
+          "Third row: genuine adult seating — not just for small children",
+          "Second row reclines: nearly flat on GT-Line and EX trims",
+        ],
+      },
+      {
+        heading: "Best premium 3-row: Rivian R1S",
+        body: "The Rivian R1S (~$75,000+) is the most capable family electric SUV available. 321 miles range, 7-passenger seating, air suspension for off-road, and access to Rivian's Adventure Network charging infrastructure. The front trunk adds 11.1 cu ft of lockable storage beyond the normal cargo area. For families who camp, tow, or need genuine off-road capability alongside daily use, the R1S is the clear choice. It is expensive, and the third row is best for smaller passengers on longer trips.",
+        list: [
+          "R1S Dual Max: ~$75K, 321 miles EPA, 7-passenger seating",
+          "Adventure Network: proprietary high-speed charging, Tesla-comparable reliability",
+          "Front trunk: 11.1 cu ft of additional lockable storage",
+          "Off-road: air suspension, four independent motors, meaningful trail capability",
+        ],
+      },
+      {
+        heading: "Best 2-row family SUV: Tesla Model Y",
+        body: "For families who fit in 5 seats, the Tesla Model Y is the most practical family EV. The rear seat is wide enough for three child seats across. Cargo space is 76.2 cu ft total with seats folded — larger than many 3-row crossovers. The optional 7-seat third row is small and best for children under 10. Supercharger network access makes family road trips the most reliable of any EV. Model Y has earned top IIHS safety ratings and 5-star NHTSA across its lineup.",
+        list: [
+          "Model Y: 5 or 7 seats, 76.2 cu ft cargo (seats folded), 330+ miles EPA",
+          "Rear seat: wide enough for 3 child seats across",
+          "Safety: IIHS Top Safety Pick+, 5-star NHTSA",
+          "Supercharger: most reliable road trip network — critical for family travel",
+        ],
+      },
+      {
+        heading: "Hyundai Ioniq 5 and VW ID.4: strong family options",
+        body: "The Hyundai Ioniq 5 offers a flat floor and sliding center console that creates genuinely flexible second-row space — unique in the segment and useful for families with car seats. The VW ID.4 has one of the most spacious rear seats in its class and a large cargo area (30.3 cu ft behind rear seats). Both are 5-seat vehicles. The ID.4 is the better choice for families who prioritize rear passenger comfort; the Ioniq 5 for families who want 800V fast charging capability for road trips.",
+        list: [
+          "Ioniq 5: flat floor, sliding console, 800V fast charging — best for road trips",
+          "VW ID.4: most spacious rear seat and cargo in the affordable SUV segment",
+          "Both: strong safety ratings, good reliability records for 2022+ model years",
+        ],
+      },
+      {
+        heading: "Family charging logistics",
+        body: "Family EVs are most practical when you have Level 2 home charging — waking up to a full battery every day eliminates the logistics of public charging for daily use. For road trips, plan charging stops around meal breaks: a 20–30 minute charge at a DC fast station aligns naturally with a lunch stop. Pack a CCS-to-NACS adapter if you own a non-Tesla — it expands your charging options significantly. With children, the forced stopping time at chargers can actually work in your favor: kids need breaks too.",
+        list: [
+          "Home Level 2 charging: strongly recommended for family EVs — eliminates daily logistics",
+          "Road trip charging: plan stops around meal breaks (20–30 min aligns with restaurant wait)",
+          "CCS-to-NACS adapter: ~$200–$400, opens Supercharger access for non-Tesla EVs",
+          "Range for family trips: account for added weight (passengers + cargo) — plan stops slightly earlier",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the best 3-row electric SUV in 2026?",
+        answer: "The Kia EV9 (from ~$55,000) is the best 3-row electric SUV for most families — genuine adult 3rd-row seating, 800V fast charging, and 280–304 miles range. The Rivian R1S (~$75,000+) is the premium option with better off-road capability, more cargo storage, and access to Rivian's own Adventure Network chargers.",
+      },
+      {
+        question: "Is a Tesla Model Y good for families?",
+        answer: "Yes — the Model Y is the most popular family EV in the US for good reason. The rear seat fits three child seats across, cargo space is 76.2 cu ft with seats folded, and the Supercharger network makes family road trips the most reliable of any EV. The optional 7-seat configuration adds a small third row best suited for children under 10.",
+      },
+      {
+        question: "Which EV has the most cargo space for families?",
+        answer: "The Rivian R1S leads with 110+ cu ft of total storage including the front trunk, under-floor storage, and cargo area. Among mainstream family SUVs, the Tesla Model Y has 76.2 cu ft with seats folded and the VW ID.4 has 64.2 cu ft behind the rear seats — both among the roomiest in their price range.",
+      },
+    ],
+  },
+  {
+    slug: "best-ev-lease-deals-2026",
+    title: "Best EV lease deals in 2026: how to lease an EV after the federal credit expired",
+    hook: "Leasing an EV still makes financial sense in 2026 — but the math has changed since the credit expired.",
+    description: "How EV leasing works in 2026 after the federal EV tax credit expired in late 2025. Covers money factor, residual value, how manufacturers are subsidizing leases, and which EVs have the best lease deals right now.",
+    readTime: "6 min read",
+    category: "Finance",
+    publishedAt: "2026-05-15",
+    sections: [
+      {
+        heading: "Why leasing still makes sense for EVs in 2026",
+        body: "The federal EV purchase credit (§30D) ended September 30, 2025 — but leasing remains financially attractive for a different reason. When you lease an EV, the vehicle is technically purchased by the leasing company (typically the manufacturer's finance arm), not by you. Until the credit was eliminated, lessors could claim the commercial clean vehicle credit on the vehicle, pass those savings to you as a lower monthly payment, and never ask you to qualify. Now that the individual credit is gone, manufacturers are instead competing on residual values and money factors to keep leases competitive. Some brands are aggressively subsidizing leases to maintain sales volume.",
+      },
+      {
+        heading: "How EV leases work: the key numbers",
+        body: "Three numbers determine your monthly lease payment: the capitalized cost (negotiated vehicle price), the residual value (what the car is worth at lease end, set by the manufacturer), and the money factor (the interest rate, expressed as a decimal — multiply by 2,400 to convert to APR). A high residual reduces your payment because you're only financing the depreciation. A low money factor reduces your payment like a low interest rate. Manufacturers use both levers to make leases attractive without lowering the MSRP.",
+        list: [
+          "Capitalized cost: negotiate this like a purchase price — every $1,000 off saves ~$28/month on a 36-month lease",
+          "Residual value: set by the manufacturer, not negotiable — high residual = lower payment",
+          "Money factor: manufacturer-set, check against market rate at edmunds.com/car-leasing/",
+          "Mileage limit: standard 10,000–12,000 mi/year — each extra 1,000 miles adds $10–$20/month",
+        ],
+      },
+      {
+        heading: "Best EV lease deals in mid-2026",
+        body: "Lease competitiveness changes monthly as manufacturers adjust residuals and money factors. These vehicles have had consistently strong lease programs through early-to-mid 2026. Always verify current terms at Edmunds or the manufacturer's website — these figures shift.",
+        list: [
+          "Hyundai Ioniq 5: consistently strong residuals (~58–62%), competitive money factors — frequently under $400/month",
+          "Chevy Equinox EV: low MSRP ($35K) + GM subsidized leases = one of the lowest monthly payments in the segment",
+          "Kia EV6: similar to Ioniq 5 (shared platform), strong lease programs from Kia Finance",
+          "Tesla Model Y: less manufacturer lease subsidy than Korean brands — lease is usually less competitive than buying for Tesla",
+          "VW ID.4: VW Credit frequently offers promotional APR and subsidized residuals — worth checking quarterly",
+        ],
+      },
+      {
+        heading: "Lease vs buy: which makes more sense in 2026",
+        body: "Leasing makes more sense if: you want a new EV every 3 years as technology improves rapidly, you're in a state where EV technology is advancing faster than depreciation curves (battery tech changes quickly), or you want lower monthly payments without a large down payment. Buying makes more sense if: you plan to keep the vehicle 7+ years (operating savings compound), you drive high annual mileage (lease overage charges add up quickly at 15¢–25¢/mile), or you want to build equity in the vehicle. For most people who upgrade cars every 4–5 years, buying vs leasing is close — run both scenarios with actual numbers from the dealer.",
+        list: [
+          "Lease: lower monthly payment, no commitment to battery technology that will advance",
+          "Lease: maintenance (first 3 years) often covered or minimal",
+          "Buy: better for high-mileage drivers — no overage fees at 12,000+ miles/year",
+          "Buy: no disposition fee at lease end ($300–$400 to return the car)",
+          "Buy: equity builds — trade-in or resale value is yours",
+        ],
+      },
+      {
+        heading: "What to watch out for in EV leases",
+        body: "Acquisition fees ($895–$1,295) and disposition fees ($300–$400 at return) are not negotiable at most manufacturers but vary between brands — factor these into your total cost comparison. Gap insurance is usually included in manufacturer leases — confirm in your agreement before purchasing separately. Charging equipment is your responsibility: a Level 2 charger installation ($800–$1,500) is yours even if you return the car. Check if the lease is transferable — some manufacturers allow it via a third-party platform (SwapALease, LeaseTrader), which gives you an exit if your situation changes before the term ends.",
+        list: [
+          "Acquisition fee: $895–$1,295 at lease signing, non-negotiable — varies by brand",
+          "Disposition fee: $300–$400 to return the car — waived if you lease again from same brand",
+          "Gap coverage: usually included in manufacturer leases — verify before buying separately",
+          "Home charger: your investment, not covered by the lease",
+          "Transfer: check lease transferability — useful exit if you need out early",
+        ],
+      },
+      {
+        heading: "How to find the best EV lease deal",
+        body: "Check Edmunds.com's model pages for the current money factor and residual value before visiting a dealer — this prevents the finance office from marking up the money factor (they pocket the difference like an interest rate markup). Use Leasehackr's calculator to verify the monthly payment matches the terms offered. Get quotes from multiple dealers on the same trim — acquisition fee aside, dealers can adjust the capitalized cost (selling price) and any dealer-installed add-ons. Decline all dealer add-ons (paint protection, wheel protection, key fob insurance) — these inflate the cap cost without adding value.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Is it better to lease or buy an electric car in 2026?",
+        answer: "Leasing makes more sense if you swap cars every 3 years and want lower monthly payments without a large down payment. Buying makes more sense if you keep cars 7+ years (fuel and maintenance savings compound) or drive more than 12,000 miles/year. Since the federal EV purchase credit expired in late 2025, leasing no longer has a unique tax-credit advantage — both now compete purely on numbers.",
+      },
+      {
+        question: "Which EV has the best lease deal in 2026?",
+        answer: "The Hyundai Ioniq 5 and Kia EV6 consistently offer the strongest lease programs through mid-2026, with residuals around 58–62% and competitive money factors frequently producing payments under $400/month. The Chevy Equinox EV's low MSRP ($35,000) makes its GM-subsidized lease one of the lowest absolute monthly payments in the segment.",
+      },
+      {
+        question: "Can I still get a tax credit if I lease an EV?",
+        answer: "The federal §30D EV purchase credit was eliminated for vehicles acquired after September 30, 2025. For leases, the credit had previously been available to the leasing company (not the individual lessee), allowing manufacturers to pass savings forward in lease pricing. That commercial credit structure is also eliminated under the One Big Beautiful Bill. Some state-level incentives may still apply — check dsireusa.org for your state.",
       },
     ],
   },
