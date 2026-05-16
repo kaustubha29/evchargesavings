@@ -4707,6 +4707,234 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "ev-test-drive-checklist",
+    title: "EV test drive checklist: 15 things to check before you buy",
+    hook: "EVs fail differently than gas cars. Here's what to test that dealers won't volunteer.",
+    description: "A practical EV test drive checklist covering battery, charging, software, regen braking, and delivery inspection. Includes questions to ask the dealer and red flags to watch for.",
+    readTime: "6 min read",
+    category: "Buying",
+    publishedAt: "2026-05-15",
+    sections: [
+      {
+        heading: "Why the EV test drive is different",
+        body: "A gas car test drive focuses on engine noise, transmission smoothness, and steering feel. On an EV, those don't apply. Instead, you're evaluating regenerative braking calibration, one-pedal driving behavior, software responsiveness, charging port function, and 12V battery condition. None of these appear on a standard dealer checklist, and dealers rarely walk you through them. This checklist covers what you actually need to verify before signing.",
+      },
+      {
+        heading: "Before you drive: check the battery and software",
+        body: "Before getting in the car, ask the dealer for the current battery state of charge — it should be 70–90% for a meaningful test drive. Below 40%, you can't properly evaluate range behavior or charging. Ask when the vehicle last received a software update and verify the version is current. On a demo or loaner vehicle, ask for the battery health report if available. Check that all features are unlocked — some EVs arrive with features 'gated' pending a software activation the dealer may not have completed.",
+        list: [
+          "Battery SoC: ask for 70–90% — below 40% limits the test drive meaningfully",
+          "Software version: ask when last updated, verify it matches current release notes online",
+          "Feature activation: confirm heated seats, driver assist, scheduled charging are all active",
+          "12V battery: ask if it's been recently serviced — dead 12V bricks are common on lot-sitters",
+        ],
+      },
+      {
+        heading: "During the drive: what to test in the first 5 minutes",
+        body: "Regenerative braking is the first thing new EV buyers notice. It should feel smooth and progressive — not abrupt or jerky when you release the accelerator. Test one-pedal driving on a straight road: in maximum regen mode, releasing the throttle should slow the car smoothly to a near-stop without using the brake pedal. Check that the brake pedal itself feels natural — some EVs blend regen and friction braking in a way that feels spongy. Acceleration from a standstill should be instant with no hesitation.",
+        list: [
+          "Regen braking: smooth deceleration when releasing throttle — no abruptness",
+          "One-pedal driving: car should nearly stop without touching brake pedal in max regen",
+          "Brake pedal feel: should feel firm and natural, not spongy or disconnected",
+          "Acceleration: instant torque response with no delay from standstill",
+          "Steering: no vibration, consistent weight at highway and city speeds",
+        ],
+      },
+      {
+        heading: "Highway: range, efficiency, and ADAS",
+        body: "At highway speed, check that the range estimate is declining at a reasonable rate relative to miles driven. If the car shows 250 miles of range and drops 40 miles after 30 minutes of highway driving, that's normal (highway efficiency is lower than EPA estimates). Test the adaptive cruise control and lane keeping if equipped — these are standard on most new EVs. Verify that the navigation system can route to a charging station and that the charge station information includes pricing and availability.",
+        list: [
+          "Range estimate: should drop roughly 1.1–1.3 miles per mile driven at highway speed",
+          "Climate system: run AC or heat — check that range estimate adjusts correctly",
+          "Adaptive cruise: test at highway speed, verify following distance and speed adjustment",
+          "Charging navigation: route to a nearby charger and confirm it shows real-time availability",
+        ],
+      },
+      {
+        heading: "Test the charging port",
+        body: "If the dealership has a charger on site — and most do — plug in before leaving. Verify the port opens and latches cleanly, that the car begins charging within 30 seconds, and that the charging rate shows correctly on both the screen and the charger. On NACS vehicles, the port should click securely. On CCS vehicles, the latch should engage with a click. A port that's stiff, misaligned, or doesn't show charge initiation is a red flag. Ask the dealer to demonstrate fast charging if a DC fast charger is available.",
+        list: [
+          "Port opens smoothly: should open with button press or app — no manual forcing",
+          "Charging initiates: car should show 'charging' on screen within 30 seconds of plug-in",
+          "Charge rate shows: verify kW rate appears correctly on screen and charger display",
+          "NACS/CCS latch: should click firmly and release cleanly — no stiffness or wobble",
+        ],
+      },
+      {
+        heading: "Cargo, interior, and build quality",
+        body: "EVs often have packaging advantages (no transmission tunnel, flat floor, front trunk) but also quirks worth checking. Open and close every door, including the frunk and tailgate if applicable. Check panel gaps — run your finger along door edges; they should be consistent at under 5mm. Look at window seals for gaps or debris. Check that the back seat has adequate headroom and legroom for your use case. Evaluate the cargo area with rear seats up and folded.",
+        list: [
+          "Panel gaps: run finger along all door edges — inconsistency flags assembly quality",
+          "Frunk/tailgate: test operation, check drainage and weatherstripping",
+          "Rear seat: sit in it if you'll carry passengers — check headroom, legroom, USB ports",
+          "Window seals: check all four for gaps, trapped debris, or misalignment",
+          "Infotainment: test Apple CarPlay/Android Auto connection with your own phone",
+        ],
+      },
+      {
+        heading: "Questions to ask the dealer before you leave",
+        body: "Four questions most buyers don't ask but should. First: what is included in the manufacturer battery warranty — specifically at what capacity percentage does coverage kick in, and does it transfer to a second owner? Second: what over-the-air updates have been released in the last 6 months, and does this vehicle have all of them? Third: does the dealer have a certified EV technician on staff, or does EV service get sent elsewhere? Fourth: is there a complimentary home charging consultation or installation credit with purchase?",
+        list: [
+          "'At what battery capacity does your warranty cover replacement?' (should be 70% or below)",
+          "'Does the battery warranty transfer to a second owner?' (matters for resale)",
+          "'Do you have a certified EV technician in-house?' (affects service wait times)",
+          "'Is there a charging incentive or rebate included with purchase?' (many dealers have these)",
+          "'When was this specific vehicle last driven?' (lot-sitters develop 12V battery issues)",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What should I look for on an EV test drive?",
+        answer: "Test regenerative braking (should feel smooth, not jerky), one-pedal driving, charging port function (plug in at the dealer if possible), software responsiveness, and build quality (panel gaps, door seals). Ask for battery state of charge above 70% before the drive and verify all software features are active. These checks differ from a gas car test drive where engine and transmission feel dominate.",
+      },
+      {
+        question: "What questions should I ask when test driving an electric car?",
+        answer: "Ask: at what battery capacity does the warranty cover replacement (typically 70%), does the warranty transfer to a second owner, when was the last software update, do you have an EV-certified technician on staff, and can I plug in to test the charging port. Also ask when the specific vehicle was last driven — lot-sitters develop 12V battery issues.",
+      },
+      {
+        question: "How long should an EV test drive be?",
+        answer: "At minimum 30 minutes: 10 minutes of city driving (test regen and one-pedal), 10 minutes of highway (test range decline rate and ADAS), and 10 minutes for a static inspection and charging port test. If you're seriously considering buying, request a 60-minute test drive — dealers typically allow this for serious buyers.",
+      },
+    ],
+  },
+  {
+    slug: "chevy-blazer-ev-vs-equinox-ev-2026",
+    title: "Chevy Blazer EV vs Equinox EV (2026): which Chevy should you buy?",
+    hook: "Same brand, $8,000 apart. The differences matter more than the price gap.",
+    description: "Chevy Blazer EV vs Equinox EV compared on price, range, charging, cargo, and who each is actually built for. Includes specs and a clear recommendation for each buyer type.",
+    readTime: "5 min read",
+    category: "Buying",
+    publishedAt: "2026-05-15",
+    sections: [
+      {
+        heading: "Two Chevy EVs, very different buyers",
+        body: "The Equinox EV starts at $35,000; the Blazer EV starts at $42,995. They share GM's Ultium platform but target different buyers. The Equinox EV is GM's volume play — maximum range at minimum price, built for buyers who want practicality without premium. The Blazer EV is positioned above it with sportier styling, a more premium interior, and AWD configurations. If you're choosing between them, the decision usually comes down to budget and whether the Blazer's styling and AWD justify an $8,000 premium.",
+      },
+      {
+        heading: "Range and charging: Equinox EV wins here",
+        body: "The Equinox EV 1LT FWD delivers 319 miles EPA range — more than the Blazer EV LT FWD's 293 miles despite costing $8,000 less. Both charge at up to 150kW DC fast (adds ~70 miles per 10 minutes). On range alone, the Equinox EV is the better choice. The Blazer EV RS AWD offers 279 miles and adds performance, but sacrifices range further. Neither uses 800V architecture — they're both 400V platforms.",
+        list: [
+          "Equinox EV 1LT FWD: 319 miles EPA, $35,000",
+          "Blazer EV LT FWD: 293 miles EPA, $42,995",
+          "Blazer EV RS AWD: 279 miles EPA, $47,995",
+          "Both: 150kW DC fast charging — same rate, same network access",
+        ],
+      },
+      {
+        heading: "Interior and cargo: Blazer EV has the edge",
+        body: "The Blazer EV has a more premium interior than the Equinox EV — better materials, a more distinctive dashboard design, and a dual-screen setup (11.3-inch driver display + 17.7-inch infotainment) on the RS and above. The Equinox EV's 11-inch touchscreen is functional but less visually striking. Cargo space is similar: Equinox EV at 57.3 cu ft (seats folded) vs Blazer EV at 64.4 cu ft — the Blazer is slightly larger overall. Both have standard wireless CarPlay and Android Auto.",
+        list: [
+          "Blazer EV: dual-screen setup (RS), more premium materials, sportier interior design",
+          "Equinox EV: single 11-inch screen, functional interior, no premium pretension",
+          "Cargo (seats folded): Blazer EV 64.4 cu ft vs Equinox EV 57.3 cu ft",
+          "Both: wireless CarPlay and Android Auto standard",
+        ],
+      },
+      {
+        heading: "Who should buy the Equinox EV",
+        body: "Buy the Equinox EV if range and value are your priorities. At $35,000 with 319 miles, it's the strongest dollar-per-mile range value in the sub-$40K EV segment. It's also better positioned as a first EV for a household that wants to try electric without a premium commitment. The Equinox EV's lower price also means smaller monthly payments and less depreciation exposure.",
+        list: [
+          "Buy Equinox EV if: budget is firm under $40K",
+          "Buy Equinox EV if: you want maximum range for the money",
+          "Buy Equinox EV if: first EV, or household second vehicle",
+          "Buy Equinox EV if: you don't care about interior styling",
+        ],
+      },
+      {
+        heading: "Who should buy the Blazer EV",
+        body: "Buy the Blazer EV if you want AWD, a sportier interior, or the SS version's 557-hp performance package. The Blazer EV RS AWD ($47,995) is the only way to get AWD in this pairing — the Equinox EV does not currently offer AWD. The Blazer EV SS ($56,000) with 557 hp and 0–60 in 4 seconds is a different vehicle entirely — not a direct Equinox comparison. If AWD traction matters to you (mountain driving, snowy winters), the Blazer EV is your choice between the two.",
+        list: [
+          "Buy Blazer EV if: you need AWD — Equinox EV doesn't offer it",
+          "Buy Blazer EV if: interior quality and styling matter to you",
+          "Buy Blazer EV if: you want the SS performance version",
+          "Buy Blazer EV if: budget extends to $43K+ comfortably",
+        ],
+      },
+      {
+        heading: "The honest verdict",
+        body: "For most buyers, the Equinox EV wins on value. More range, $8,000 less, same charging speed, same platform reliability. The Blazer EV makes sense specifically for buyers who want AWD or who find the Blazer's interior and styling worth the premium. If you're choosing between the two and AWD isn't a requirement, buy the Equinox EV and put the $8,000 toward home charging installation and operating costs.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the difference between the Chevy Blazer EV and Equinox EV?",
+        answer: "The Equinox EV starts at $35,000 with 319 miles EPA range; the Blazer EV starts at $42,995 with 293 miles EPA range. The Blazer EV has a more premium interior, a dual-screen dash on higher trims, and available AWD. The Equinox EV offers more range for less money. Both charge at 150kW DC fast and use GM's Ultium platform.",
+      },
+      {
+        question: "Is the Chevy Equinox EV better than the Blazer EV?",
+        answer: "The Equinox EV is the better value: 319 miles of range at $35,000 beats the Blazer EV's 293 miles at $42,995. The Blazer EV is better if you want AWD (Equinox EV doesn't offer it), prefer a sportier interior, or want the high-performance SS variant. For most buyers prioritizing range and value, the Equinox EV wins.",
+      },
+      {
+        question: "Does the Chevy Equinox EV come in AWD?",
+        answer: "No — as of 2026, the Chevrolet Equinox EV is available in FWD only. If you need AWD, the Chevy Blazer EV RS AWD ($47,995) is the closest Chevrolet alternative, though it offers 279 miles of EPA range compared to the Equinox EV's 319 miles.",
+      },
+    ],
+  },
+  {
+    slug: "honda-prologue-vs-equinox-ev-2026",
+    title: "Honda Prologue vs Chevy Equinox EV (2026): which $35–47K EV wins?",
+    hook: "Both run GM's Ultium platform. Here's what's actually different.",
+    description: "Honda Prologue vs Chevy Equinox EV compared on range, interior, charging, and real cost. Both use GM's Ultium platform but target different buyers. Includes clear recommendation.",
+    readTime: "5 min read",
+    category: "Buying",
+    publishedAt: "2026-05-15",
+    sections: [
+      {
+        heading: "Same platform, different brands",
+        body: "The Honda Prologue and Chevy Equinox EV share GM's Ultium battery platform and electric drivetrain — they're both products of GM's deal to supply Honda with EV technology. The hardware foundation is nearly identical. The differences are in body design, interior quality, brand experience, and price. Knowing this matters: if one has a reliability issue with the Ultium platform, both could be affected. It also means the core driving experience and charging capability are nearly identical.",
+      },
+      {
+        heading: "Range and charging: Equinox EV leads",
+        body: "The Equinox EV 1LT FWD delivers 319 miles EPA range at $35,000. The Honda Prologue FWD delivers 296 miles at $47,400 starting price. Both charge at up to 150kW DC fast. On range per dollar, the Equinox EV wins decisively — you get 23 more miles for $12,400 less. The Prologue's advantage is not in powertrain specs but in Honda brand appeal, interior quality, and the Honda/Acura dealer service network.",
+        list: [
+          "Equinox EV 1LT FWD: 319 miles EPA, $35,000 — best range-per-dollar in segment",
+          "Prologue FWD: 296 miles EPA, $47,400 — 23 fewer miles, $12,400 more",
+          "Prologue AWD: 273 miles EPA, $51,400",
+          "Both: 150kW DC fast charging — identical charging speed and network access",
+        ],
+      },
+      {
+        heading: "Interior and ownership experience: Prologue has the edge",
+        body: "The Prologue's interior uses Honda-grade materials and assembly quality — noticeably more premium than the base Equinox EV's interior. The Prologue also uses Google-built infotainment (same system as Polestar and Volvo) with native Google Maps and Google Assistant, which many find more natural than GM's Ultifi system. Honda's dealer network has a stronger reputation for service consistency than Chevrolet's in many markets. If you're a Honda loyalty buyer, the Prologue preserves that service relationship.",
+        list: [
+          "Prologue interior: Honda-grade materials, more premium feel than base Equinox EV",
+          "Prologue infotainment: Google Android Automotive OS — native Google Maps and Assistant",
+          "Equinox EV infotainment: GM Ultifi system with wireless CarPlay/Android Auto",
+          "Honda service: stronger dealer reputation for service in many US markets",
+        ],
+      },
+      {
+        heading: "Who should buy the Equinox EV",
+        body: "Buy the Equinox EV if range, value, and price are the primary criteria. $35,000 for 319 miles is the best value proposition in the affordable EV segment in 2026. If you're a first-time EV buyer, the Equinox EV's lower price means lower stakes while you learn EV ownership. The $12,400 you save over the Prologue is enough to cover home charging installation and several years of electricity costs.",
+      },
+      {
+        heading: "Who should buy the Honda Prologue",
+        body: "Buy the Prologue if you're a Honda loyalty buyer who wants EV technology within the Honda ecosystem, if you prefer the Google Android Automotive infotainment, or if interior quality is worth the premium to you. The Prologue is the better choice if you specifically value the Honda service relationship — especially if your local Honda dealer has a strong service reputation relative to your local Chevrolet dealer. Just know you're paying $12,400 more for the badge and interior, not the powertrain.",
+        list: [
+          "Buy Prologue if: Honda loyalty matters — same brand service relationship",
+          "Buy Prologue if: you prefer Google Android Automotive over GM's system",
+          "Buy Prologue if: interior quality is worth $12K to you",
+          "Buy Equinox EV if: range and value are the priority — it wins on both",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the difference between the Honda Prologue and Chevy Equinox EV?",
+        answer: "Both share GM's Ultium battery platform but differ in brand, interior, and price. The Equinox EV starts at $35,000 with 319 miles EPA range. The Prologue starts at $47,400 with 296 miles EPA range. The Prologue has a more premium interior and Google Android Automotive infotainment; the Equinox EV offers better range for significantly less money.",
+      },
+      {
+        question: "Is the Honda Prologue worth the extra cost over the Equinox EV?",
+        answer: "For most buyers, no — you get 23 fewer miles of range for $12,400 more. The Prologue is worth it if you strongly prefer Honda's service network, want Google Android Automotive infotainment natively, or value the interior quality upgrade. For buyers prioritizing range and value, the Equinox EV is the clearer choice.",
+      },
+      {
+        question: "Do the Honda Prologue and Chevy Equinox EV share the same platform?",
+        answer: "Yes — both use GM's Ultium battery platform and electric drivetrain as part of a GM–Honda supply agreement. This means identical charging capability (150kW DC fast), the same basic driving character, and shared platform reliability. The differences are in body design, interior materials, infotainment software, and brand identity.",
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {
