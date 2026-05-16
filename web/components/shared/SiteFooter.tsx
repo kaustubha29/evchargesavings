@@ -4,7 +4,7 @@ export function SiteFooter() {
   return (
     <footer className="bg-ink text-cream pt-14 pb-8">
       <div className="section-wrap">
-        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-10 mb-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="font-serif text-3xl font-medium mb-3">
@@ -43,9 +43,9 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Site */}
+          {/* Explore */}
           <div>
-            <div className="font-mono text-[11px] uppercase tracking-widest text-gold mb-4">Site</div>
+            <div className="font-mono text-[11px] uppercase tracking-widest text-gold mb-4">Explore</div>
             <ul className="space-y-2">
               {[
                 { href: "/ev-cost/california", label: "Savings by state" },
@@ -53,6 +53,19 @@ export function SiteFooter() {
                 { href: "/ev-insurance", label: "EV insurance costs" },
                 { href: "/guides", label: "All guides" },
                 { href: "/research", label: "Research & data" },
+              ].map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} className="text-sm text-cream/70 hover:text-gold transition-colors">{l.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Site */}
+          <div>
+            <div className="font-mono text-[11px] uppercase tracking-widest text-gold mb-4">Site</div>
+            <ul className="space-y-2">
+              {[
                 { href: "/about", label: "About" },
                 { href: "/contact", label: "Contact" },
                 { href: "/privacy", label: "Privacy" },
