@@ -62,6 +62,8 @@ export default async function GuidePage({ params }: Props) {
     headline: guide.title,
     description: guide.description,
     url: `${BASE}/guides/${slug}`,
+    ...(guide.publishedAt ? { datePublished: guide.publishedAt, dateModified: guide.publishedAt } : {}),
+    author: { "@type": "Organization", name: "EV Charge Savings", url: BASE },
     publisher: {
       "@type": "Organization",
       name: "EV Charge Savings",
@@ -108,6 +110,35 @@ export default async function GuidePage({ params }: Props) {
             </h1>
             <p className="text-ink-2 text-base leading-relaxed max-w-3xl">{guide.description}</p>
           </div>
+
+          {(guide.category === "Buying" || guide.category === "Finance") && (
+            <div className="rounded-2xl border border-line bg-cream-soft p-5 mb-10">
+              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-3">Compare EV listings</div>
+              <div className="flex flex-wrap gap-2.5">
+                <a
+                  href="https://www.cargurus.com/shop/electric-cars?utm_source=evchargesavings&utm_medium=affiliate&utm_campaign=guide_inline"
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-3.5 py-2 rounded-xl text-sm font-medium bg-paper border border-line hover:border-forest/40 transition-all text-ink"
+                >
+                  CarGurus — used EVs →
+                </a>
+                <a
+                  href="https://www.cars.com/shopping/electric-vehicles/?utm_source=evchargesavings&utm_medium=affiliate&utm_campaign=guide_inline"
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-3.5 py-2 rounded-xl text-sm font-medium bg-paper border border-line hover:border-forest/40 transition-all text-ink"
+                >
+                  Cars.com — new + used →
+                </a>
+                <a
+                  href="https://www.carvana.com/cars/type/electric?utm_source=evchargesavings&utm_medium=affiliate&utm_campaign=guide_inline"
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-3.5 py-2 rounded-xl text-sm font-medium bg-forest text-white border border-forest hover:bg-emerald transition-all"
+                >
+                  Carvana — no haggle →
+                </a>
+              </div>
+            </div>
+          )}
 
           <div className="-mx-0 mb-12">
             <SavingsSlotBand

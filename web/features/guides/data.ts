@@ -3595,6 +3595,39 @@ export const GUIDES: Guide[] = [
           "Ask: do you have EV-certified repair shops in my ZIP code?",
         ],
       },
+      {
+        heading: "Battery coverage: what your policy likely doesn't include",
+        body: "Standard auto insurance covers sudden, accidental battery damage — collision, fire, flooding. It does not cover battery degradation (gradual capacity loss over time). No mainstream auto policy does. The manufacturer battery warranty (typically 8 years / 100,000 miles) covers degradation if capacity falls below a threshold (usually 70% of original). These are parallel systems: warranty for wear, insurance for accidents. Where the gap is: total loss valuation. If your $60,000 EV is totaled 3 years in with 35% depreciation, your insurer pays ~$39,000 ACV. If your loan balance is $44,000, you owe $5,000 out of pocket without gap coverage. On a high-value EV, that gap is real money.",
+        list: [
+          "Comprehensive covers: collision damage, fire, theft, flooding, hail",
+          "NOT covered: battery capacity loss, software-related range reduction",
+          "Battery warranty (manufacturer): covers degradation below 70% capacity threshold",
+          "Total loss: insurer pays ACV, not replacement cost — often lower than payoff balance",
+          "Ask carriers: do you offer a battery replacement cost rider? A few niche carriers do.",
+        ],
+      },
+      {
+        heading: "Gap insurance: essential for financed EVs",
+        body: "Gap insurance covers the difference between your vehicle's actual cash value (ACV) and your loan or lease payoff if the car is totaled or stolen. EVs depreciate faster than average in years 1–3, making gap coverage more important than on a typical gas car. If you're leasing, gap is usually built in — check your lease agreement. If you're financing, gap is not standard and must be purchased separately. Buy it from your insurer ($200–$500 added to your policy), not from the dealer at signing ($800–$1,200 markup).",
+        list: [
+          "Lease: gap usually included — confirm in your lease agreement before declining",
+          "Loan: gap not standard — buy from your insurer, not the dealership finance office",
+          "Cost: $200–$500/year from insurer vs $800–$1,200 one-time from dealer",
+          "Most needed: low down payment, long loan term (72–84 months), first 36 months of ownership",
+          "Cancel gap coverage once your loan balance drops below the vehicle's ACV",
+        ],
+      },
+      {
+        heading: "OBD-II telematics programs: savings vs. what you share",
+        body: "Usage-based insurance (UBI) programs track your driving behavior — speed, braking, time of day — and reward safe, low-mileage drivers with 10–30% lower premiums. For EV owners, there are two versions: aftermarket OBD-II dongles (Progressive Snapshot, Allstate Drivewise) and native API access (Tesla Insurance uses Tesla's Safety Score directly from the car). The trade-off: OBD-II dongles have full read access to your vehicle's diagnostic data, which includes more than just driving behavior. If privacy is a concern, prefer carriers that use your car's native telematics API rather than a third-party dongle. Low-mileage EV commuters typically benefit the most from these programs.",
+        list: [
+          "Progressive Snapshot: OBD-II dongle, 10–30% savings for safe drivers",
+          "Tesla Insurance: uses Safety Score from Tesla's own telematics — no third-party dongle needed",
+          "Nationwide SmartRide: OBD-II, strong discounts for low-mileage EVs",
+          "Privacy note: OBD-II dongles access broader vehicle diagnostic data than speed/braking only",
+          "Best candidates: low-mileage commuters, smooth city driving, daytime driving patterns",
+        ],
+      },
     ],
   },
   {
@@ -4149,7 +4182,240 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Used market: surging in 2026",
-        body: "While new EV sales dipped in Q1 2026, used EV sales rose 12% to near-record levels. The 2022–2024 Model Y, IONIQ 5, Mach-E, and Equinox EV are all appearing in significant volume at $25,000–$38,000 — often with significant range and minimal degradation. Used EVs under $25,000 qualify for a separate $4,000 federal used EV tax credit (income limits apply), which is still active.",
+        body: "While new EV sales dipped in Q1 2026, used EV sales rose 12% to near-record levels. The 2022–2024 Model Y, IONIQ 5, Mach-E, and Equinox EV are all appearing in significant volume at $25,000–$38,000 — often with significant range and minimal degradation. Note: the federal used EV credit (§25E) was eliminated along with the new EV credit by the One Big Beautiful Bill (signed July 4, 2025). Check dsireusa.org for any remaining state-level used EV incentives in your state.",
+      },
+    ],
+  },
+  {
+    slug: "fastest-charging-electric-suvs-2026",
+    title: "Fastest charging electric SUVs in 2026: 800V vs 400V compared",
+    hook: "800V architecture adds 150 miles in 15 minutes. Here's which SUVs have it.",
+    description: "The fastest-charging electric SUVs of 2026 ranked by peak DC charge rate, miles added per 15 minutes, and real-world network access. Covers Ioniq 5, EV6, EV9, Model Y, Equinox EV, and more.",
+    readTime: "6 min read",
+    category: "Buying",
+    publishedAt: "2026-05-15",
+    sections: [
+      {
+        heading: "Why charging speed matters as much as range",
+        body: "Range tells you how far you can go. Charging speed tells you how quickly you can keep going. On a road trip, a 300-mile SUV that charges at 75kW takes twice as long to refuel as a 270-mile SUV that charges at 240kW. The practical road-trip experience is often better in the faster-charging vehicle even with fewer EPA-rated miles. Since 2023, 800V architecture — which allows peak charging rates above 200kW at high-power stations — has become the clearest performance dividing line in the electric SUV market.",
+      },
+      {
+        heading: "800V vs 400V: what the voltage difference actually means",
+        body: "Traditional EV batteries operate at 400V. 800V architecture doubles the voltage, which means the same current can deliver twice the power without generating excess heat. At a 350kW DC fast charger, an 800V vehicle absorbs 200–240kW. A 400V vehicle at the same charger is typically capped at 100–150kW. The practical result: 800V SUVs add 150–180 miles in 15 minutes at high-power stations. 400V SUVs add 70–100 miles in the same window.",
+        list: [
+          "800V vehicles: Ioniq 5, EV6, EV9, Porsche Macan EV, Audi Q8 e-tron",
+          "400V vehicles: Tesla Model Y (250kW via Supercharger), Chevy Equinox EV (150kW), VW ID.4 (135kW)",
+          "The Supercharger exception: Tesla 400V cars charge faster than most 400V rivals because Superchargers deliver consistent peak power at high uptime",
+        ],
+      },
+      {
+        heading: "Fastest charging electric SUVs in 2026: ranked",
+        body: "Rankings based on peak DC fast charging rate and manufacturer-published 10–80% charge time, validated by third-party testing. Real-world speeds depend on charger output — you need a 350kW station to see 800V performance.",
+        list: [
+          "1. Hyundai Ioniq 5 Long Range: 800V, 239kW peak — 10–80% in 18 min, adds ~170 miles in 15 min",
+          "2. Kia EV6 GT: 800V, 240kW peak — 10–80% in 18 min, identical 800V architecture to Ioniq 5",
+          "3. Kia EV9: 800V, 240kW peak — 10–80% in 24 min (larger 99.8kWh pack), adds ~140 miles in 15 min",
+          "4. Tesla Model Y Long Range: 400V, 250kW via V3 Supercharger — 10–80% in 25 min, adds ~130 miles in 15 min",
+          "5. Chevy Equinox EV: 400V, 150kW — 10–80% in 33 min, adds ~75 miles in 15 min",
+          "6. VW ID.4 Pro: 400V, 135kW — 10–80% in 38 min, adds ~65 miles in 15 min",
+        ],
+      },
+      {
+        heading: "Network reliability matters more than peak speed",
+        body: "A 240kW peak charge rate is useless if the station is down. Hyundai and Kia 800V vehicles charge on Electrify America's 350kW network, which is expanding but reports higher downtime than Tesla's Supercharger network. The Model Y tops out at 250kW but Supercharger uptime is significantly better than any third-party network. Real-world outcome: many Tesla owners complete road trips faster than Ioniq 5 owners despite a lower peak charge rate, because fewer failed charging attempts and shorter waits.",
+      },
+      {
+        heading: "Ioniq 5 vs EV6: same speed, different shape",
+        body: "The Ioniq 5 and EV6 share an identical 800V drivetrain — same 240kW peak, same 18-minute 10–80% time, same Electrify America network access. Ioniq 5 is a box-shaped crossover with a flat floor, sliding center console, and more cargo space (27 cu ft behind rear seats). EV6 is a sportback sedan profile with lower aerodynamic drag, slightly better highway range, and a sportier character. Both are the fastest-charging SUV options under $55,000 in 2026.",
+        list: [
+          "Ioniq 5: more cargo, flat floor, roomier interior — better family hauler",
+          "EV6: lower drag coefficient, slightly better highway range, sportier dynamics",
+          "Both: 800V, 239–240kW peak, 18 min 10–80%, Electrify America 350kW network",
+          "Price: Ioniq 5 from ~$44K (SE), EV6 from ~$43K (Standard)",
+        ],
+      },
+      {
+        heading: "Home charging: not a differentiator between models",
+        body: "Fast charging specs matter on road trips. For the 95% of charging done overnight at home, all major EVs charge at essentially the same rate on a 48A Level 2 circuit (11–11.5kW). The Ioniq 5, EV9, Model Y, and Equinox EV all accept Level 2 at 11–11.5kW, adding 40–60 miles per hour. Choose your SUV on other factors — home charging speed is equal across the segment.",
+      },
+    ],
+  },
+  {
+    slug: "best-electric-fleet-trucks-2026",
+    title: "Best electric fleet trucks in 2026: TCO guide for commercial buyers",
+    hook: "Electric fleet trucks save $6,000–$8,000 per truck per year. Here's who wins on TCO.",
+    description: "A commercial buyer's guide to electric trucks in 2026. Compares F-150 Lightning Pro, Silverado EV Work Truck, Ram 1500 REV, and Rivian on payload, towing, depot charging, and 5-year total cost of ownership.",
+    readTime: "7 min read",
+    category: "Buying",
+    publishedAt: "2026-05-15",
+    sections: [
+      {
+        heading: "Why fleet operators adopt electric trucks faster than consumers",
+        body: "Fleet managers run the numbers precisely. An F-150 Lightning Pro driven 25,000 miles/year saves roughly $6,000–$8,000 annually in fuel and maintenance versus a gas F-150 — a predictable figure that justifies the higher upfront cost within 3–4 years at fleet pricing. Fleet operators also have depot charging infrastructure — controlled, overnight charging at a home base — which eliminates the public charger reliability concern that slows consumer adoption. For fleets with predictable routes and nightly depot return, electric trucks now win on TCO in most operating scenarios.",
+      },
+      {
+        heading: "Ford F-150 Lightning Pro: the fleet default",
+        body: "The F-150 Lightning Pro starts at $57,000 and is the most deployed electric work truck in US commercial fleets. Ford's commercial team offers fleet pricing below MSRP, software fleet management via Ford Pro eSolutions, and Pro Power Onboard (7.2kW export) — which powers job site tools from the bed without a separate generator. Same 2,000 lb payload and up to 10,000 lb towing as the consumer Lightning. Ford's established dealer service network and longer fleet track record (Lightning launched 2022) make it the lowest-risk commercial choice today.",
+        list: [
+          "Starting price: $57,000 Pro (fleet pricing available below MSRP)",
+          "Payload: 2,000 lbs | Towing: 7,700 lbs (SR) / 10,000 lbs (ER)",
+          "Pro Power Onboard: 7.2kW — runs power tools and job site equipment from the bed",
+          "Ford Pro eSolutions: fleet telematics, charging management, route optimization",
+          "Maintenance savings: estimated 40% lower than gas F-150 (no oil changes, fewer brake jobs)",
+        ],
+      },
+      {
+        heading: "Chevy Silverado EV Work Truck: longest range, fastest charging",
+        body: "The Silverado EV Work Truck starts around $52,000 and offers more range than the Lightning Pro on higher trims — up to 450 miles on RST — and charges at up to 350kW, the highest DC fast rate of any electric truck. The 10,500 lb towing rating exceeds the Lightning's standard configuration. Weakness: newer to the fleet market, with less mature fleet tooling and fewer dealer technicians trained on the Ultium platform.",
+        list: [
+          "Work Truck: ~$52,000 (fleet pricing available)",
+          "Range: up to 450 miles (RST) / 250 miles (Work Truck base)",
+          "Towing: 10,500 lbs | Payload: 1,300 lbs (Work Truck)",
+          "Charging: up to 350kW DC fast — fastest charge rate in the electric truck segment",
+          "GM Fleet: fleet ordering and telematics through gmfleet.com",
+        ],
+      },
+      {
+        heading: "Ram 1500 REV: highest towing capacity in the segment",
+        body: "The Ram 1500 REV delivers 14,000 lb towing capacity — higher than any other electric truck — and 350 miles range. For fleets that regularly tow trailers or heavy equipment, the REV replaces applications that previously required a heavier diesel truck. Available in 2025–2026 model years, fleet reliability data is still accumulating compared to the Lightning's 4-year commercial track record.",
+        list: [
+          "Towing: 14,000 lbs — highest towing spec in the electric truck segment",
+          "Range: 350 miles (standard) with extended range option",
+          "Best for: fleets requiring heavy towing that currently use diesel",
+          "Status: newer market entrant — less fleet track record than Lightning",
+        ],
+      },
+      {
+        heading: "5-year TCO comparison: electric vs gas fleet truck",
+        body: "For a fleet truck driven 25,000 miles/year, the 5-year math strongly favors electric at current fuel prices. These are conservative estimates — fleets with higher mileage or cheaper electricity see faster payback.",
+        list: [
+          "Gas F-150 at 15 MPG, $3.50/gallon: ~$5,833/year in fuel",
+          "Lightning Pro at 3.5 mi/kWh, 16¢/kWh: ~$1,143/year in electricity",
+          "Fuel savings: ~$4,700/truck/year",
+          "Maintenance savings: ~$1,500–$2,000/truck/year (oil, brake service, fewer repairs)",
+          "Annual savings: $6,200–$6,700/truck | 5-truck fleet, 5 years: $155,000–$167,500",
+          "Depot charging setup: $3,000–$8,000 per Level 2 stall, typically ROI under 2 years",
+        ],
+      },
+      {
+        heading: "Setting up depot charging for a commercial fleet",
+        body: "Depot charging — overnight at your facility — is the right model for most fleets with predictable routes. A 40A Level 2 charger adds 25–35 miles per hour, enough to fully replenish any electric truck overnight if it returns with over 20% battery. Fleets with tighter schedules may need 48A Level 2 or DC fast on-site. Fleet charging management software (Ford Pro eSolutions, ChargePoint Fleet, Electrify Commercial) staggers charging to avoid demand spikes — critical at scale, because simultaneous starts from 10 trucks can add hundreds per month in demand charges at $15–$30/kW/month.",
+        list: [
+          "Level 2 40A (9.6kW): adds 25–35 mi/hr — sufficient for overnight full recharge",
+          "Level 2 48A (11.5kW): adds 30–40 mi/hr — for tighter scheduling windows",
+          "Demand charge management: stagger charging starts — unmanaged spikes are costly",
+          "Utility incentives: many commercial utilities offer EV rate discounts — ask your account rep",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "best-electric-sedans-2026",
+    title: "Best electric sedans in 2026: Model 3, Ioniq 6, BMW i4, and Polestar 2 compared",
+    hook: "The EV sedan segment has real competition for the first time. Here's the honest ranking.",
+    description: "The best electric sedans of 2026 ranked by range, charging speed, interior quality, and real cost of ownership. Covers Tesla Model 3, Hyundai Ioniq 6, BMW i4, Polestar 2, and VW ID.7.",
+    readTime: "7 min read",
+    category: "Buying",
+    publishedAt: "2026-05-15",
+    sections: [
+      {
+        heading: "Why the EV sedan segment finally has real competition",
+        body: "For most of 2020–2023, buying an electric sedan effectively meant buying a Tesla Model 3. The Ioniq 6, BMW i4, and Polestar 2 have genuinely closed the gap. In 2026, the Model 3 still leads on charging network and software maturity. The Ioniq 6 beats it on range and charging speed at high-power stations. The i4 beats it on interior build quality. The Polestar 2 beats it on software openness. There is no single correct answer — the right sedan depends on which dimension matters most to you.",
+      },
+      {
+        heading: "Tesla Model 3: still the benchmark on network and software",
+        body: "Tesla Model 3 Long Range AWD starts at ~$46,000 and delivers 341 miles EPA range with access to 50,000+ Supercharger stalls — the most reliable fast charging network in North America. Over-the-air updates, the most mature EV software on the market, and strong resale value make the Model 3 the default for buyers who want to buy once and not think about charging logistics on road trips. Weakness: the interior has no physical volume knob or column stalks (contentious among new buyers), and the 250kW V3 peak charge rate is slower than 800V competitors at 350kW stations.",
+        list: [
+          "Model 3 LR AWD: ~$46K, 341 miles EPA range",
+          "Charging: 250kW peak via V3 Supercharger, 10–80% in ~25 min",
+          "Supercharger network: 50,000+ stalls, best uptime of any charging network",
+          "Software: most mature OTA cadence, most refined in-car UI in the segment",
+        ],
+      },
+      {
+        heading: "Hyundai Ioniq 6: best range and fastest charging",
+        body: "The Ioniq 6 Long Range RWD starts at ~$42,000 and delivers 361 miles EPA — more than the Model 3 LR at $4,000 less. Its 800V architecture charges at 240kW peak (10–80% in ~18 minutes at a 350kW station), meaningfully faster than the Model 3 at high-power chargers. The teardrop body produces a 0.21 Cd drag coefficient, the lowest of any production sedan in 2026. Weakness: relies on Electrify America rather than a proprietary network, so road-trip reliability is more variable than the Supercharger experience.",
+        list: [
+          "Ioniq 6 LR RWD: ~$42K, 361 miles EPA — longest range in the sedan segment",
+          "Charging: 800V, 240kW peak, 10–80% in 18 min — faster than Model 3 at 350kW stations",
+          "Drag: 0.21 Cd — most aerodynamic production sedan available",
+          "Lease: Hyundai has consistently offered strong residuals and competitive money factors",
+        ],
+      },
+      {
+        heading: "BMW i4: best interior quality in the segment",
+        body: "The BMW i4 eDrive40 starts at ~$57,000 and delivers 301 miles EPA range — less than the Model 3 and Ioniq 6, but with BMW-grade interior materials, iDrive 9 infotainment with physical controls retained, and driving dynamics tuned by the same team that built the 3 Series. If you're transitioning from a BMW gas car and want the EV equivalent of that experience, the i4 is the natural path. It charges at up to 195kW via CCS with NACS adapter access to Superchargers.",
+        list: [
+          "i4 eDrive40: ~$57K, 301 miles EPA — lower range, higher materials quality",
+          "Interior: genuine leather, physical controls, iDrive 9 — noticeably above Tesla",
+          "Charging: up to 195kW CCS + NACS adapter for Supercharger access",
+          "Best for: BMW loyalists, buyers prioritizing build quality and driving feel over range spec",
+        ],
+      },
+      {
+        heading: "Polestar 2 and VW ID.7: the rest of the field",
+        body: "The Polestar 2 Long Range Single Motor (~$48,000, 270 miles EPA) runs Google's Android Automotive OS natively — the best third-party infotainment of any EV, with real Google Maps, Google Assistant, and third-party app support built in. The VW ID.7 Pro (~$55,000, 299 miles EPA) offers a spacious rear seat, refined highway ride, and VW's traditional build solidity. Neither challenges the Model 3 or Ioniq 6 on range or charging speed but both offer different packaging priorities.",
+        list: [
+          "Polestar 2: Google Android Automotive OS, 270 miles EPA, strong build quality",
+          "VW ID.7: spacious rear seat, 299 miles EPA, refined highway comfort",
+          "Both: CCS with NACS adapter available for Supercharger access",
+        ],
+      },
+      {
+        heading: "Which sedan wins for your situation",
+        body: "Model 3: best for frequent road trips — most reliable charging network. Ioniq 6: best value per mile of range, fastest charging at high-power stations, strongest for commuters who charge mostly at home. i4: best for buyers transitioning from a BMW who want the same interior quality standard. Polestar 2: best for buyers who dislike walled-garden software and want Google's ecosystem natively. For most buyers choosing between the Model 3 and Ioniq 6, the Ioniq 6 wins on value and charge speed; the Model 3 wins on road-trip confidence.",
+      },
+    ],
+  },
+  {
+    slug: "best-ev-under-40k-2026",
+    title: "Best electric cars under $40,000 in 2026: affordable EVs that don't compromise",
+    hook: "The Equinox EV proves $35K buys 319 miles of range. Here's the full affordable EV ranking.",
+    description: "The best electric vehicles under $40,000 in 2026 ranked by range, charging speed, and real-world value. Covers Chevy Bolt EUV, Equinox EV, Hyundai Kona Electric, Nissan Ariya, and what to avoid.",
+    readTime: "6 min read",
+    category: "Buying",
+    publishedAt: "2026-05-15",
+    sections: [
+      {
+        heading: "The affordable EV market has genuinely improved",
+        body: "Two years ago, 'affordable EV' meant limited range, slow charging, or a compromised interior. In 2026, the Chevy Equinox EV delivers 319 miles at $35,000 — more range than EVs costing $55,000 in 2022. The federal EV credit expired in late 2025, but manufacturers have adjusted pricing downward across the segment. The under-$40K category is now the strongest it has ever been, and the gap between affordable and premium EVs has narrowed significantly.",
+      },
+      {
+        heading: "Best overall: Chevy Equinox EV 1LT ($35,000)",
+        body: "The Chevrolet Equinox EV 1LT is the strongest value in the affordable EV segment in 2026. At $35,000, it delivers 319 miles EPA range — more than almost any EV at any price three years ago. The interior is practical rather than premium: good materials, 11-inch touchscreen, wireless Apple CarPlay and Android Auto. DC fast charging at 150kW adds about 70 miles in 10 minutes — not 800V fast, but functional for road trips. For first-time EV buyers who want reliability, range, and value without a luxury premium, the Equinox EV is the default recommendation.",
+        list: [
+          "Equinox EV 1LT: $35,000, 319 miles EPA range",
+          "Charging: 150kW DC fast — adds ~70 miles per 10 min",
+          "Interior: 11-inch touchscreen, wireless CarPlay/Android Auto standard",
+          "Best for: first-time EV buyers, commuters, value-first shoppers",
+        ],
+      },
+      {
+        heading: "Best budget: Chevy Bolt EUV ($28,000–$32,000)",
+        body: "The Chevrolet Bolt EUV is the most affordable EV with real-world daily usability. At $28,000 base, it delivers 247 miles EPA range and genuine five-adult seating. The 2023+ Bolt received new battery chemistry with significantly improved long-term degradation resistance — the earlier Bolt's battery issues are resolved. DC fast charging is limited to 55kW (adds about 100 miles per 30 minutes), which is slower than competitors but functional for occasional long trips. If the budget is firm at $30,000 or below, the Bolt EUV has no meaningful competition.",
+        list: [
+          "Bolt EUV: from $28,000, 247 miles EPA",
+          "DC fast: 55kW — adds ~100 miles per 30 min, slower than competition",
+          "2023+ battery: improved chemistry, better long-term degradation resistance",
+          "Best for: budget-first buyers, urban commuters, second household vehicle",
+        ],
+      },
+      {
+        heading: "Hyundai Kona Electric and Nissan Ariya: strong mid-range options",
+        body: "The Hyundai Kona Electric (~$34,000, 261 miles EPA) is a refined subcompact crossover with build quality that feels closer to a $45,000 car. Its 100kW DC fast charging adds about 55 miles per 10 minutes — slower than the Equinox EV but faster than the Bolt. The Nissan Ariya S (~$40,000, 216 miles standard / 304 miles long-range AWD) offers a premium interior — heated seats, ambient lighting, quilted upholstery — at a near-$40K price. The Ariya charges at 130kW DC fast.",
+        list: [
+          "Kona Electric: ~$34K, 261 miles EPA, 100kW DC fast — best build quality near $35K",
+          "Ariya S: ~$40K, 216 miles (305 miles LR AWD), 130kW DC fast, premium interior feel",
+          "Both: CCS connector, NACS adapter available for Supercharger access",
+        ],
+      },
+      {
+        heading: "What to avoid: the Nissan Leaf in 2026",
+        body: "The Nissan Leaf was the EV that started mass-market adoption. In 2026, it is no longer a competitive choice. The Leaf Plus offers 149–212 miles EPA range and uses the CHAdeMO DC fast charging standard — a connector disappearing from public networks. Less than 5% of US public chargers support CHAdeMO in 2026, making road trips increasingly difficult. At ~$29,000, you pay similar money for significantly less capable hardware than the Bolt EUV or Kona Electric. Unless buying used at a steep discount, skip the Leaf.",
+      },
+      {
+        heading: "Will prices drop further in 2026?",
+        body: "EV prices are likely to remain flat or decline slightly through 2026. The expiration of the federal EV credit shifted competition to sticker price rather than after-sale incentives. Chevy's Equinox EV at $35,000 reflects this — launched knowing it had to stand on its own without a tax credit backstop. For buyers considering waiting, there is no strong signal of a major price drop in the next 6–12 months. The current affordable EV lineup is the strongest it has been, and manufacturer margins in this segment are already thin.",
       },
     ],
   },

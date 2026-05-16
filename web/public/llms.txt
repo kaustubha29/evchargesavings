@@ -24,6 +24,13 @@
 - [EV Charging Cost Per Mile](https://www.evchargesavings.com/guides/ev-charging-cost-per-mile): Formula and state-by-state cost breakdown.
 - [EV vs Gas True Cost](https://www.evchargesavings.com/guides/ev-vs-gas-true-cost): Full ownership cost comparison including fuel, insurance, maintenance, depreciation.
 - [EV Total Cost of Ownership](https://www.evchargesavings.com/guides/ev-total-cost-ownership): 5-year TCO analysis methodology.
+- [Best Electric SUVs 2026](https://www.evchargesavings.com/guides/best-electric-suv-2026): Ioniq 5, Equinox EV, EV9, Rivian R1S, Model Y — ranked by range, value, and charging.
+- [Fastest Charging Electric SUVs 2026](https://www.evchargesavings.com/guides/fastest-charging-electric-suvs-2026): 800V vs 400V architecture compared — which SUVs add the most miles in 15 minutes.
+- [Best Electric Trucks 2026](https://www.evchargesavings.com/guides/best-electric-trucks-2026): F-150 Lightning, Rivian R1T, Silverado EV, Ram REV, Cybertruck compared on payload and towing.
+- [Best Electric Fleet Trucks 2026](https://www.evchargesavings.com/guides/best-electric-fleet-trucks-2026): TCO guide for commercial buyers — fuel savings, depot charging, payload specs.
+- [Best Electric Sedans 2026](https://www.evchargesavings.com/guides/best-electric-sedans-2026): Tesla Model 3, Ioniq 6, BMW i4, Polestar 2 compared on range, charging, and interior.
+- [Best EVs Under $40K 2026](https://www.evchargesavings.com/guides/best-ev-under-40k-2026): Equinox EV, Bolt EUV, Kona Electric, Ariya — affordable EVs that don't compromise on range.
+- [Best EV Insurance Companies 2026](https://www.evchargesavings.com/guides/best-ev-insurance-companies-2026): Which carriers price EVs fairly, EV-specific discounts, gap insurance, and telematics programs.
 - [All Guides](https://www.evchargesavings.com/guides): Full index — buying, charging, ownership, savings, finance.
 
 ## Data Pages

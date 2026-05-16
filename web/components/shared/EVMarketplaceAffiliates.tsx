@@ -52,7 +52,7 @@ export function EVMarketplaceAffiliates() {
       name: "CarGurus",
       label: "Used EV",
       tag: "Best price transparency",
-      desc: `Pick this if you want to know whether you're overpaying. CarGurus shows how long a car's been listed, price drops, and deal ratings — used EVs under $25k may also qualify for the federal used EV credit (up to $4,000).`,
+      desc: `Pick this if you want to know whether you're overpaying. CarGurus shows how long a car's been listed, price drops, and deal ratings across thousands of used EV listings.`,
       perks: ["Price drop history", "Deal rating per listing", "Used EV credit eligible"],
       cta: "Find used",
       url: buildAffiliateUrl(
