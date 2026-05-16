@@ -52,6 +52,7 @@ export function SiteFooter() {
                 { href: "/ev-owner", label: "EV owner guide" },
                 { href: "/ev-insurance", label: "EV insurance costs" },
                 { href: "/guides", label: "All guides" },
+                { href: "/research", label: "Research & data" },
                 { href: "/about", label: "About" },
                 { href: "/contact", label: "Contact" },
                 { href: "/privacy", label: "Privacy" },
