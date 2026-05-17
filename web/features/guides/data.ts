@@ -103,6 +103,17 @@ export const GUIDES: Guide[] = [
         heading: "Does an EV still make financial sense?",
         body: "Yes — the math changes, not breaks. Fuel savings of $800–$1,500/year still apply. Maintenance savings (no oil changes, fewer brake jobs) still apply. Break-even now takes longer without the federal credit, but long-term ownership still wins in most states. High-mileage drivers and states with cheap electricity (Washington, Oregon, Idaho) see the strongest case. Use the calculator with your specific state and vehicle to see your numbers.",
       },
+      {
+        heading: "What to do now — a practical checklist",
+        body: "The credit is gone but there are still ways to reduce your upfront cost and improve the math:",
+        list: [
+          "Check state incentives first — Colorado, New York, Massachusetts, and Oregon all have active programs. Search dsireusa.org with your ZIP code for every program you qualify for.",
+          "Consider used EVs — prices have dropped 20–30% since the federal credit ended. Many 2022–2024 models with under 30,000 miles are priced under $30,000 with no credit needed.",
+          "Ask about manufacturer incentives — automakers have been filling part of the gap with financing deals and loyalty discounts, especially on slower-selling models.",
+          "Time your purchase for end of quarter — dealers negotiate more in March, June, September, and December when pushing to hit sales targets.",
+          "Run your specific break-even — use the calculator with your actual state electricity rate. The credit absence hurts more in high-electricity states (California, Connecticut, Hawaii) than low-cost ones (Nebraska, Missouri, Idaho).",
+        ],
+      },
     ],
   },
   {

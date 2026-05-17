@@ -128,6 +128,19 @@ export default async function GuidePage({ params }: Props) {
           </div>
 
           {(guide.category === "Buying" || guide.category === "Finance") && (
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 mb-6 flex gap-3 items-start">
+              <span className="text-amber-500 text-lg flex-shrink-0 mt-0.5">⚠</span>
+              <div>
+                <div className="font-semibold text-sm text-ink mb-1">The $7,500 federal EV tax credit ended October 1, 2025</div>
+                <p className="text-xs text-ink-3 leading-relaxed">
+                  The One Big Beautiful Bill eliminated the §30D credit. Several state programs are still active.{" "}
+                  <a href="/guides/ev-tax-credit-7500" className="text-forest underline font-medium">See what's left →</a>
+                </p>
+              </div>
+            </div>
+          )}
+
+          {(guide.category === "Buying" || guide.category === "Finance") && (
             <div className="rounded-2xl border border-line bg-cream-soft p-5 mb-10">
               <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-3">Compare EV listings</div>
               <div className="flex flex-wrap gap-2.5">
