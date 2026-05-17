@@ -12,7 +12,7 @@ export function SavingsSlotBand({
   eyebrow = "Live examples",
   title = "Real EV savings, rolling by",
   body = "See how model, location, and local rates change the yearly savings picture.",
-  cta,
+  cta = { label: "Try the calculator →", href: "/#calculator" },
   className = "",
 }: Props) {
   return (
