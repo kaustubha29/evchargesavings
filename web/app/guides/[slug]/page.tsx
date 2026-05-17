@@ -127,7 +127,7 @@ export default async function GuidePage({ params }: Props) {
             <p className="text-ink-2 text-base leading-relaxed max-w-3xl">{guide.description}</p>
           </div>
 
-          {(guide.category === "Buying" || guide.category === "Finance") && (
+          {(guide.category === "Buying" || guide.category === "Finance") && slug !== "ev-tax-credit-7500" && (
             <div className="rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 mb-6 flex gap-3 items-start">
               <span className="text-amber-500 text-lg flex-shrink-0 mt-0.5">⚠</span>
               <div>

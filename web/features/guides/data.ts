@@ -80,23 +80,23 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "One federal credit remains — with a catch",
-        body: "The Alternative Fuel Vehicle Refueling Property Credit (IRC §30C) covers home EV charger installation and is still available for property placed in service by June 30, 2026. It's 30% of installation costs, max $1,000. The catch: as of 2025, it only applies in low-income community census tracts or non-urban census tracts. If you live in a standard suburban or urban area, you likely don't qualify. Check census.gov or ask your electrician before counting on it.",
+        body: "The Alternative Fuel Vehicle Refueling Property Credit (IRC §30C) covers home EV charger installation and is still available for property placed in service by June 30, 2026. It's 30% of installation costs, max $1,000 per port. The catch: it only applies in low-income community census tracts or non-urban census tracts. Many suburban addresses qualify as non-urban — check your specific address at the DOE eligibility tool before assuming you don't qualify.",
         list: [
-          "Credit: 30% of charger + installation cost, max $1,000",
+          "Credit: 30% of charger + installation cost, max $1,000 per port",
           "Deadline: placed in service by June 30, 2026",
-          "Geographic restriction: low-income community OR non-urban census tract only",
+          "Geographic restriction: low-income community OR non-urban census tract — check your address",
           "Claim on: IRS Form 8911 with your 2026 tax return",
         ],
       },
       {
-        heading: "State incentives that are actually active (May 2026)",
-        body: "Federal credits are gone but several state programs remain. Amounts and eligibility rules vary widely — verify with your state energy office or dsireusa.org before buying.",
+        heading: "State incentives that are actually active (verified May 2026)",
+        body: "Federal credits are gone but several state programs remain. State incentive amounts and availability change frequently — verify with your state energy office or dsireusa.org before buying. Information below verified May 2026.",
         list: [
-          "Colorado: $750 base credit + up to $2,500 adder for vehicles under $35,000 MSRP (total max $3,250)",
+          "Colorado IMVC: $750 base credit + $2,500 adder for EVs under $35,000 MSRP. Separately, the Vehicle Exchange Colorado (VXC) program offers $9,000 new / $6,000 used for income-qualified buyers who trade in an older gas vehicle",
           "California CVRP: CLOSED as of November 2023 — no longer accepting applications. Check CC4A or DCAP programs for income-qualified buyers",
-          "New York Drive Clean Rebate: $500–$2,000 depending on vehicle (active, $30M refunded April 2026)",
-          "Massachusetts MOR-EV: Active rebate program — check mor-ev.org for current amounts",
-          "Oregon Charge Ahead Rebate: $7,500 new / $5,000 used for income <400% federal poverty guideline",
+          "New York Drive Clean Rebate: $500–$2,000 at point of sale depending on vehicle range and MSRP (active — $30M refunded April 2026)",
+          "Massachusetts MOR-EV: $3,500 for new EVs under $55,000 MSRP. Income-qualified buyers can stack adders up to $8,700 total. Check mor-ev.org for eligibility",
+          "Oregon Charge Ahead Rebate: SUSPENDED as of December 5, 2025 due to funding. Was $7,500 new / $5,000 used — check evrebate.oregon.gov for reinstatement updates",
         ],
       },
       {
@@ -107,7 +107,7 @@ export const GUIDES: Guide[] = [
         heading: "What to do now — a practical checklist",
         body: "The credit is gone but there are still ways to reduce your upfront cost and improve the math:",
         list: [
-          "Check state incentives first — Colorado, New York, Massachusetts, and Oregon all have active programs. Search dsireusa.org with your ZIP code for every program you qualify for.",
+          "Check state incentives first — Colorado, New York, and Massachusetts all have active programs. Oregon's Charge Ahead Rebate is suspended as of Dec 2025. Search dsireusa.org with your ZIP code for every program you qualify for.",
           "Consider used EVs — prices have dropped 20–30% since the federal credit ended. Many 2022–2024 models with under 30,000 miles are priced under $30,000 with no credit needed.",
           "Ask about manufacturer incentives — automakers have been filling part of the gap with financing deals and loyalty discounts, especially on slower-selling models.",
           "Time your purchase for end of quarter — dealers negotiate more in March, June, September, and December when pushing to hit sales targets.",
