@@ -22,6 +22,46 @@ export interface NewsArticle {
 
 export const NEWS: NewsArticle[] = [
   {
+    slug: "ionna-bmw-mini-charging-discount-2026",
+    title: "BMW and Mini EV Owners Get 20% Off IONNA Fast Charging Through September",
+    hook: "No subscription required. Just Plug & Charge or the My BMW app — $0.27–$0.32/kWh through September 30.",
+    description: "IONNA is offering BMW and Mini EV drivers a 20% discount on all DC fast charging through September 30, 2026. Here's what that means per charge for the iX, i4, i5, and Mini Countryman E — and whether IONNA has coverage where you need it.",
+    readTime: "3 min read",
+    publishedAt: "2026-05-17",
+    sections: [
+      {
+        heading: "The deal",
+        body: "BMW of North America has partnered with IONNA — the charging network backed by BMW, GM, Honda, Hyundai-Kia, Mercedes-Benz, Stellantis, and Toyota — to offer BMW and Mini EV owners 20% off all charging through September 30, 2026. No subscription required. Initiate a session with Plug & Charge (automatic, no app needed) or the My BMW app and the discount applies to your final bill. IONNA's standard rates run $0.33–$0.39/kWh, so the discount puts BMW and Mini drivers at $0.27–$0.32/kWh.",
+      },
+      {
+        heading: "Cost per charge by model",
+        body: "Here's what a full charge costs at IONNA with the discount applied, using midpoint discounted rate of $0.29/kWh:",
+        list: [
+          "Mini Countryman E (65.2 kWh): ~$18.90 full charge (vs ~$23.60 at standard rate)",
+          "BMW i4 (81 kWh): ~$23.50 full charge (vs ~$29.20 at standard rate)",
+          "BMW i5 (84.3 kWh): ~$24.45 full charge (vs ~$30.35 at standard rate)",
+          "BMW iX xDrive60 (113.4 kWh): ~$32.90 full charge (vs ~$40.90 at standard rate)",
+        ],
+      },
+      {
+        heading: "How IONNA compares to home charging",
+        body: "Even with the 20% discount, IONNA rates are roughly 1.8–2x the US average home electricity rate of 16.5¢/kWh. A BMW i4 charged at home costs about $13.40 for a full charge — vs $23.50 at IONNA discounted. That's not a knock on the deal: public fast charging always costs more than home charging. The value is for road trips and situations where home charging isn't available, not as a replacement for your Level 2 setup.",
+      },
+      {
+        heading: "IONNA's network footprint",
+        body: "IONNA recently crossed 1,000 charging stalls across more than 100 stations in the US. The network is growing but remains far smaller than Electrify America (~900 stations) or the Tesla Supercharger network (17,000+ locations). Coverage is strongest in the Southeast, Midwest, and Mid-Atlantic — check the IONNA app before planning a road trip to confirm station availability along your route.",
+      },
+      {
+        heading: "Who benefits most",
+        body: "The discount is most valuable if you regularly road trip in a BMW or Mini EV and rely on public fast charging. At 4 full charges per month on an i4, the 20% discount saves roughly $23/month — or about $115 over the five-month window. iX owners with the larger 113.4 kWh battery save more per session: roughly $8 per full charge, adding up to $160+ over the summer if you're charging on the road regularly.",
+      },
+    ],
+    sources: [
+      { label: "InsideEVs — BMW and Mini EV Drivers Get A Sweet Discount At IONNA", url: "https://insideevs.com/news/795941/bmw-mini-ev-charging-discount-ionna/" },
+      { label: "Cars.com — BMW, Mini EV Owners Now Get 20% Off Charging at IONNA", url: "https://www.cars.com/articles/bmw-mini-ev-owners-now-get-20-off-charging-at-growing-charging-network-524869/" },
+    ],
+  },
+  {
     slug: "tesla-model-y-price-increase-may-2026",
     title: "Tesla Raises Model Y Prices for the First Time in Two Years",
     hook: "Premium and Performance trims up $500–$1,000. Base models unchanged. Ends two years of aggressive price cuts.",
