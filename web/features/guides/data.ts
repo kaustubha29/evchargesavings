@@ -70,7 +70,6 @@ export const GUIDES: Guide[] = [
           "Best for: Hyundai/Kia 800V owners on road trips",
           "Pricing: ~$0.48/kWh ad hoc, ~$0.36/kWh with membership",
         ],
-        callout: "Most Electrify America stations are at Walmarts and shopping centers — which means you get preferred parking right next to the entrance while you charge. On a recent stop I paid ~$6 for a 3-hour charge and walked out with a top-up and a great parking spot. Parking alone at that location was $5.50. You're essentially paying a dollar more to also charge your car.",
       },
       {
         heading: "EVgo: best for city charging",
@@ -92,6 +91,7 @@ export const GUIDES: Guide[] = [
           "Best for: overnight or workplace top-up, not road trip fast charging",
           "Pricing: varies by location owner — some free, some $0.30–$0.50/kWh",
         ],
+        callout: "ChargePoint L2 chargers show up in surprising places — museums, attractions, shopping centers — and often come with a free or very cheap parking spot included. On a recent museum visit I plugged into a ChargePoint L2, paid ~$6 for 3 hours, got a top-up, and used a preferred parking spot right at the entrance. Parking alone at that location was $5.50. Effectively paid a dollar more to also charge the car.",
       },
       {
         heading: "IONNA: the new challenger",
