@@ -22,6 +22,86 @@ export interface NewsArticle {
 
 export const NEWS: NewsArticle[] = [
   {
+    slug: "ev-utility-rate-programs-slash-charging-cost-2026",
+    title: "The Utility Rate Plans That Make Home EV Charging Almost Free — And Most Owners Don't Know They Exist",
+    hook: "Georgia Power: 6.6¢/kWh overnight. Duke Energy Florida: 3.5¢/kWh. SDG&E: 12¢/kWh. Your utility likely has a hidden EV rate — here's how to find it.",
+    description: "Most EV owners pay their utility's standard residential rate. A viral Reddit post showed what's possible when you don't: an SDG&E customer charging a Kia EV9 at 13¢/kWh while neighbors pay 50¢+. These utility EV programs exist across the country — and most owners never enroll.",
+    readTime: "5 min read",
+    publishedAt: "2026-05-17",
+    sections: [
+      {
+        heading: "The number that went viral",
+        body: "A Reddit post this week stopped a lot of EV owners mid-scroll. An Audi Q6 e-tron driver in San Diego reported charging at 13¢/kWh through SDG&E's Power Your Drive program — while SDG&E's standard peak rate runs $0.50–$0.80/kWh. Their cost per mile: 4.3¢. Their Toyota 4Runner: 34¢. That 8x gap isn't typical, but the underlying mechanism — a utility EV rate plan that most customers never enroll in — exists at dozens of utilities across the country.",
+      },
+      {
+        heading: "Georgia Power: the cheapest overnight EV charging in the US",
+        body: "Georgia Power's Overnight Advantage plan offers a super off-peak energy rate of ~2.2¢/kWh between 11pm and 7am. With fuel cost adders, the all-in rate runs approximately 6.6¢/kWh — making it the most affordable overnight EV charging of any major utility in the country. On-peak rates (7am–11pm) run ~29.8¢/kWh, so the plan requires actually charging overnight. On a Kia EV9 (99.8 kWh battery), a full charge overnight costs about $6.60 — vs $29.80 at peak rates on the same utility.",
+        list: [
+          "Rate: ~6.6¢/kWh overnight (11pm–7am)",
+          "On-peak: ~29.8¢/kWh — schedule charging carefully",
+          "Coverage: most of Georgia — Atlanta, Savannah, Augusta, Macon",
+          "How to enroll: georgiapower.com → rate plans → Overnight Advantage",
+        ],
+      },
+      {
+        heading: "Duke Energy: 3.5¢/kWh in Florida",
+        body: "Duke Energy's EV Overnight Advantage program runs across five states (FL, NC, SC, OH, IN) with rates that vary by jurisdiction. Florida customers get the best deal: approximately 3.5–3.9¢/kWh during off-peak hours (midnight–6am most of the year). North Carolina customers pay around 5¢/kWh during discount hours. Duke also offers a $500 rebate for Level 2 charger installation plus a $13.87/month bill credit for customers who charge off-peak — effectively subsidizing your home charger to change when you plug in.",
+        list: [
+          "Florida off-peak: ~3.5–3.9¢/kWh (midnight–6am)",
+          "North Carolina discount: ~5¢/kWh",
+          "South Carolina discount: ~4¢/kWh",
+          "$500 Level 2 charger rebate + $13.87/mo credit for off-peak charging",
+          "Coverage: FL, NC, SC, OH, IN, KY",
+        ],
+      },
+      {
+        heading: "SDG&E: Power Your Drive and EV-TOU-5",
+        body: "San Diego Gas & Electric offers two EV-specific options. Power Your Drive uses dynamic hourly pricing tied to grid conditions — rates as low as 13¢/kWh on mild nights, but can spike above 50¢/kWh during heat events. It works well for owners who can charge flexibly (or use smart charger scheduling). The EV-TOU-5 plan is simpler: a fixed super off-peak rate of ~12.4¢/kWh from midnight to 6am. Either plan is dramatically better than SDG&E's standard residential rates, which routinely exceed $0.50/kWh during afternoon and evening hours.",
+        list: [
+          "Power Your Drive: ~13¢/kWh on mild nights (dynamic — can spike)",
+          "EV-TOU-5 fixed super off-peak: ~12.4¢/kWh (midnight–6am)",
+          "Standard SDG&E peak: $0.50–$0.80/kWh",
+          "Best for: owners with smart charger scheduling or flexible overnight routine",
+        ],
+      },
+      {
+        heading: "Austin Energy and other municipals",
+        body: "Austin Energy — the city-owned utility serving Austin, TX — charges approximately 9¢/kWh during off-peak hours vs 14¢/kWh standard. Municipal utilities (city-owned) often have better EV rate structures than investor-owned utilities because they're not profit-driven. If you're served by a municipal or co-op utility, call and ask directly about EV rates — they frequently exist but aren't well publicized. Los Angeles DWP, Salt River Project (AZ), and CPS Energy (San Antonio) all have TOU plans that benefit overnight EV charging.",
+        list: [
+          "Austin Energy off-peak: ~9¢/kWh",
+          "LA DWP, SRP (AZ), CPS Energy (SA): all have favorable TOU options",
+          "Municipals and co-ops: often better rates than investor-owned utilities — call and ask",
+        ],
+      },
+      {
+        heading: "PG&E: better than peak, still expensive",
+        body: "PG&E's EV2-A plan offers off-peak rates from midnight to 3pm — but at approximately 34¢/kWh, even the off-peak rate is high by national standards. Northern California electricity is expensive across the board. The math still works (34¢ off-peak vs $0.60+ on-peak), and overnight charging on EV2-A remains significantly cheaper than standard residential — but don't expect Georgia Power numbers in the Bay Area.",
+        list: [
+          "PG&E EV2-A off-peak (midnight–3pm): ~34¢/kWh",
+          "Still much better than PG&E on-peak rates",
+          "Bottom line: worthwhile to switch, but California rates remain structurally high",
+        ],
+      },
+      {
+        heading: "How to find your utility's EV rate",
+        body: "Most utilities don't proactively notify customers about EV rates when they purchase an EV. The standard move: call your utility's residential line and say 'I have an electric vehicle — do you have an EV-specific time-of-use rate plan?' Almost every major utility has one. You can also check the DOE's Alternative Fuels Data Center (afdc.energy.gov) or your state PUC's website. The enrollment process is usually a 5-minute online form or phone call — and the savings start on your next billing cycle.",
+        list: [
+          "Call your utility: ask specifically about 'EV time-of-use rate plan'",
+          "afdc.energy.gov: utility program database by state",
+          "Most plans require a smart meter (AMI) — utilities can install one free if you don't have one",
+          "Pair with smart charger scheduling (Tesla app, ChargePoint, JuiceBox) to automate off-peak timing",
+        ],
+      },
+    ],
+    sources: [
+      { label: "SDG&E Power Your Drive", url: "https://www.sdge.com/residential/electric-vehicles/power-your-drive/power-your-drive-ev-drivers" },
+      { label: "Georgia Power Overnight Advantage", url: "https://www.georgiapower.com/residential/billing-and-rate-plans/pricing-and-rate-plans/plug-in-ev.html" },
+      { label: "Duke Energy EV Overnight Advantage", url: "https://www.duke-energy.com/home/billing/ev-overnight-advantage" },
+      { label: "PG&E EV Rate Plans", url: "https://www.pge.com/en/account/rate-plans/electric-vehicles.html" },
+      { label: "DOE Alternative Fuels Data Center — Utility Programs", url: "https://afdc.energy.gov/laws/utilities" },
+    ],
+  },
+  {
     slug: "ionna-bmw-mini-charging-discount-2026",
     title: "BMW and Mini EV Owners Get 20% Off IONNA Fast Charging Through September",
     hook: "No subscription required. Just Plug & Charge or the My BMW app — $0.27–$0.32/kWh through September 30.",
