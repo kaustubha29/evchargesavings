@@ -1,7 +1,13 @@
+export interface GuideSectionLink {
+  label: string;
+  href: string;
+}
+
 export interface GuideSection {
   heading: string;
   body: string;
   list?: string[];
+  links?: GuideSectionLink[];
 }
 
 export interface GuideFaq {
@@ -3853,6 +3859,10 @@ export const GUIDES: Guide[] = [
           "Cargo: 27.2 cu ft behind rear seats",
           "Starting price: ~$44,000 (SE RWD) to ~$54,000 (Limited AWD)",
         ],
+        links: [
+          { label: "Ioniq 5 charging cost by state", href: "/cost-to-charge/hyundai-ioniq-5-long-range-rwd/california" },
+          { label: "Ioniq 5 vs gas car savings", href: "/compare/hyundai-ioniq-5-long-range-rwd-vs-toyota-rav4-xle" },
+        ],
       },
       {
         heading: "Best value under $40K: Chevy Equinox EV",
@@ -3862,6 +3872,10 @@ export const GUIDES: Guide[] = [
           "Charging: up to 150kW DC fast",
           "Starting price: ~$35,000",
           "Best for: value buyers, first EV, urban commuters",
+        ],
+        links: [
+          { label: "Equinox EV charging cost by state", href: "/cost-to-charge/chevrolet-equinox-ev-lt-fwd/california" },
+          { label: "Equinox EV vs Equinox gas savings", href: "/compare/chevrolet-equinox-ev-lt-fwd-vs-chevy-equinox" },
         ],
       },
       {
@@ -3873,10 +3887,18 @@ export const GUIDES: Guide[] = [
           "Charging: 800V, similar charging curve to Ioniq 5",
           "Starting price: ~$55,000 (Light Long Range)",
         ],
+        links: [
+          { label: "Kia EV9 charging cost by state", href: "/cost-to-charge/kia-ev9-gt-line-awd/california" },
+        ],
       },
       {
         heading: "Best premium: Rivian R1S and Tesla Model Y",
         body: "The Rivian R1S (~$75,000+) is the best-built electric SUV sold today — exceptional off-road capability, 321 miles range, massive storage (front trunk + under-floor + rear), and a 70 kWh pack that can be upgraded. It's the choice for buyers who do serious off-road or towing. Tesla Model Y (~$44,000) remains the volume leader because of Supercharger network access, strong resale value, and the most mature EV software. It wins on total ownership confidence, not on any single spec.",
+        links: [
+          { label: "Model Y charging cost by state", href: "/cost-to-charge/tesla-model-y-long-range-awd/california" },
+          { label: "Rivian R1S charging cost by state", href: "/cost-to-charge/rivian-r1s-dual-motor/california" },
+          { label: "Calculate your EV savings", href: "/#calculator" },
+        ],
       },
     ],
     faqs: [

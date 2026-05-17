@@ -185,7 +185,7 @@ export default async function GuidePage({ params }: Props) {
                 <h2 className="font-serif text-2xl font-medium tracking-tight text-ink mb-3">{section.heading}</h2>
                 <p className="text-ink-2 leading-relaxed mb-4">{section.body}</p>
                 {section.list && (
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 mb-4">
                     {section.list.map((item) => (
                       <li key={item} className="flex gap-3 text-sm text-ink-3 leading-relaxed">
                         <span className="text-forest font-bold flex-shrink-0 mt-0.5">·</span>
@@ -193,6 +193,19 @@ export default async function GuidePage({ params }: Props) {
                       </li>
                     ))}
                   </ul>
+                )}
+                {section.links && section.links.length > 0 && (
+                  <div className="flex flex-wrap gap-3 mt-3 pt-3 border-t border-line">
+                    {section.links.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        className="inline-flex items-center gap-1 text-sm font-medium text-forest bg-forest/5 border border-forest/20 px-3 py-1.5 rounded-lg hover:bg-forest/10 hover:border-forest/40 transition-all"
+                      >
+                        {link.label} →
+                      </a>
+                    ))}
+                  </div>
                 )}
               </section>
             ))}
