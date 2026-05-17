@@ -61,63 +61,73 @@ export function StickySavingsBar() {
       role="region"
       aria-label="Savings summary"
     >
-      <div className="bg-ink/95 backdrop-blur-md border-t border-white/10 shadow-3 py-3 md:py-2.5">
+      {/* Mobile pill */}
+      <div className="flex sm:hidden justify-center pb-4 px-4">
+        <a
+          href={calcHref}
+          className="inline-flex items-center gap-2.5 bg-ink/95 backdrop-blur-md border border-white/15 rounded-full px-5 py-2.5 shadow-lg"
+        >
+          <svg className="w-3.5 h-3.5 text-emerald flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13 2L4 14h7l-2 8 9-12h-7l2-8z" />
+          </svg>
+          <span className="font-serif text-lg font-medium text-honey leading-none">{fmt.money0(savings.annualSavings)}</span>
+          <span className="font-mono text-[10px] text-cream/40">/yr saved</span>
+          <span className="w-px h-3.5 bg-white/15 mx-0.5" />
+          <span className="font-mono text-[10px] text-cream/50">adjust ↑</span>
+        </a>
+      </div>
+
+      {/* Desktop bar */}
+      <div className="hidden sm:block bg-ink/95 backdrop-blur-md border-t border-white/10 shadow-3 py-2.5">
         <div className="section-wrap">
-        {/* EV owner row — all screen sizes */}
-        <div className="flex items-center justify-between mb-2 pb-2 border-b border-white/10">
-          <span className="font-mono text-[10px] text-cream/40 uppercase tracking-widest whitespace-nowrap">Already have an EV?</span>
-          <a href="/ev-owner" className="font-mono text-[10px] uppercase tracking-widest text-emerald hover:text-forest transition-colors whitespace-nowrap">
-            Maximize savings →
-          </a>
-        </div>
-        <div className="flex items-center gap-4 flex-wrap">
-          {/* Bolt icon */}
-          <div className="hidden sm:flex w-8 h-8 rounded-full bg-emerald/20 items-center justify-center flex-shrink-0">
-            <svg className="w-4 h-4 text-emerald" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M13 2L4 14h7l-2 8 9-12h-7l2-8z" />
-            </svg>
-          </div>
-
-          {/* Savings amount */}
-          <div className="flex-1 min-w-0">
-            <div className="font-mono text-[10px] uppercase tracking-widest text-cream/40 leading-none mb-0.5">
-              Annual savings in {locationLabel}
-            </div>
-            <div className="flex items-baseline gap-2">
-              <span className="font-serif text-xl font-medium text-honey leading-none">{fmt.money0(savings.annualSavings)}</span>
-              <span className="font-mono text-xs text-cream/40">/yr</span>
-            </div>
-          </div>
-
-          {/* Gas vs EV comparison */}
-          <div className="hidden md:flex items-center gap-3 font-mono text-xs">
-            <span className="text-rust/80">{fmt.money0(savings.gasAnnualCost)} gas</span>
-            <span className="text-cream/20">→</span>
-            <span className="text-emerald">{fmt.money0(savings.evAnnualCost)} EV</span>
-            {savings.annualSavings >= 0
-              ? <span className="text-cream/30 ml-1">({fmt.pct0(savings.savingsPct)} less)</span>
-              : <span className="text-rust/70 ml-1">({fmt.pct0(-savings.savingsPct)} more)</span>
-            }
-          </div>
-
-          <div className="flex flex-shrink-0 items-center gap-2">
-            {!leadSubmitted && (
-              <a
-                href="/#installer-quotes"
-                onClick={() => { if (typeof (window as any).gtag === "function") (window as any).gtag("event", "sticky_bar_cta_clicked", {}); }}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-honey text-ink border border-honey/70 hover:bg-gold hover:border-gold transition-all"
-              >
-                Get quotes
-              </a>
-            )}
-            <a
-              href={calcHref}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-forest text-white border border-forest/50 hover:bg-emerald hover:border-emerald transition-all"
-            >
-              Adjust calculator ↑
+          <div className="flex items-center justify-between mb-2 pb-2 border-b border-white/10">
+            <span className="font-mono text-[10px] text-cream/40 uppercase tracking-widest whitespace-nowrap">Already have an EV?</span>
+            <a href="/ev-owner" className="font-mono text-[10px] uppercase tracking-widest text-emerald hover:text-forest transition-colors whitespace-nowrap">
+              Maximize savings →
             </a>
           </div>
-        </div>
+          <div className="flex items-center gap-4">
+            <div className="hidden sm:flex w-8 h-8 rounded-full bg-emerald/20 items-center justify-center flex-shrink-0">
+              <svg className="w-4 h-4 text-emerald" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13 2L4 14h7l-2 8 9-12h-7l2-8z" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="font-mono text-[10px] uppercase tracking-widest text-cream/40 leading-none mb-0.5">
+                Annual savings in {locationLabel}
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="font-serif text-xl font-medium text-honey leading-none">{fmt.money0(savings.annualSavings)}</span>
+                <span className="font-mono text-xs text-cream/40">/yr</span>
+              </div>
+            </div>
+            <div className="hidden md:flex items-center gap-3 font-mono text-xs">
+              <span className="text-rust/80">{fmt.money0(savings.gasAnnualCost)} gas</span>
+              <span className="text-cream/20">→</span>
+              <span className="text-emerald">{fmt.money0(savings.evAnnualCost)} EV</span>
+              {savings.annualSavings >= 0
+                ? <span className="text-cream/30 ml-1">({fmt.pct0(savings.savingsPct)} less)</span>
+                : <span className="text-rust/70 ml-1">({fmt.pct0(-savings.savingsPct)} more)</span>
+              }
+            </div>
+            <div className="flex flex-shrink-0 items-center gap-2">
+              {!leadSubmitted && (
+                <a
+                  href="/#installer-quotes"
+                  onClick={() => { if (typeof (window as any).gtag === "function") (window as any).gtag("event", "sticky_bar_cta_clicked", {}); }}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-honey text-ink border border-honey/70 hover:bg-gold hover:border-gold transition-all"
+                >
+                  Get quotes
+                </a>
+              )}
+              <a
+                href={calcHref}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-forest text-white border border-forest/50 hover:bg-emerald hover:border-emerald transition-all"
+              >
+                Adjust calculator ↑
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
