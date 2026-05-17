@@ -30,6 +30,114 @@ export interface Guide {
 
 export const GUIDES: Guide[] = [
   {
+    slug: "ev-charging-for-apartment-renters-2026",
+    title: "EV Charging for Apartment Renters in 2026: Your Real Options",
+    hook: "No garage, no driveway, no home charger — yet. Here's what apartment renters can actually do to charge cheaper, and what the Right to Charge law really means for you.",
+    description: "Apartment renters pay 2–3x more to charge than homeowners. This guide covers Right to Charge laws by state, DCFC cost-cutting strategies, workplace charging, destination charging tricks, and what to actually ask your landlord.",
+    readTime: "7 min read",
+    category: "Charging",
+    publishedAt: "2026-05-17",
+    sections: [
+      {
+        heading: "The honest cost gap renters face",
+        body: "Homeowners with a Level 2 charger and a good utility rate plan pay $0.06–$0.15/kWh to charge overnight. Apartment renters relying entirely on public DC fast charging typically pay $0.35–$0.50/kWh — three to four times more. On a mid-size EV driven 12,000 miles/year, that gap is $600–$900/year extra out of pocket just because of where you park. EVs still beat gas at public DCFC rates in most states, but the savings are significantly compressed. The strategies below close that gap without requiring a parking spot upgrade.",
+        callout: "A San Diego renter on full DCFC reported 36¢/kWh and 8¢/mile. A homeowner on SDG&E's Power Your Drive program in the same city pays 13¢/kWh and ~3.7¢/mile. Same car, same city — 2x cost difference entirely from charging access.",
+      },
+      {
+        heading: "Right to Charge laws: what they actually give you",
+        body: "More than a dozen states have Right to Charge laws — but they're widely misunderstood. These laws generally require landlords to allow tenants to install EV charging equipment at an assigned parking space, upon written request. They do NOT require landlords to pay for it, provide a parking space, or make the installation easy. In California — the model law most others copied — the tenant pays 100% of equipment, installation, and electrical work. The tenant is also responsible for removing it and restoring the space to original condition on move-out, unless the landlord agrees to keep it.",
+        list: [
+          "States with Right to Charge laws (as of 2026): CA, CO, CT, FL, IL, NY, OR, DC + several others",
+          "What it gives you: landlord cannot flatly refuse a written request",
+          "What it doesn't give you: a parking space, any cost assistance, easy permitting",
+          "The catch: install + removal costs mean few renters actually exercise the right",
+          "Check current state list: afdc.energy.gov → laws → rental property charging",
+        ],
+        callout: "Even in California, landlords can impose reasonable conditions — including requiring you to carry liability insurance, use a licensed electrician, and submit plans in advance. The law is leverage for the conversation, not a guarantee.",
+      },
+      {
+        heading: "California 2026 update: new buildings must have L2-ready outlets",
+        body: "Starting January 1, 2026, California's updated CALGreen building code requires every assigned parking space at new multifamily residential construction to include a low-power Level 2 EV charging receptacle. This doesn't retrofit existing buildings — but if you're apartment hunting in California, asking 'is this building 2026 CALGreen compliant?' is now a meaningful filter. New construction in CA built this year will have EVSE-ready outlets by code. Other states are watching California's model; similar mandates are expected to follow.",
+      },
+      {
+        heading: "Strategy 1: Get a public L2 membership and find slow chargers near you",
+        body: "Most renters default to DC fast charging out of convenience. The smarter move: find public Level 2 chargers near where you regularly park or spend time, and use those instead. ChargePoint, EVgo, and Blink all have L2 chargers at malls, parking garages, gyms, museums, and office parks. Rates run $0.10–$0.25/kWh — 30–60% cheaper than DCFC. The ChargePoint app and PlugShare both filter by charger type and show real-time availability. A 4-hour gym visit or grocery run at a Level 2 adds 20–40 miles for $1–$4. Build this into your routine and DCFC becomes a road trip tool only.",
+        list: [
+          "ChargePoint: largest Level 2 network, app shows pricing before you arrive",
+          "PlugShare: shows community-added chargers including free L2 at businesses",
+          "Blink: Level 2 heavy network, monthly membership cuts per-kWh cost",
+          "Target: 4–6 hours at L2 per week replaces most DCFC dependence",
+        ],
+        callout: "At a recent museum visit, a ChargePoint L2 charger in the preferred parking area cost ~$6 for 3 hours — and included what would have been a $5.50 parking fee. Net charging cost: about $0.50 above parking. This is the destination charging arbitrage most renters don't realize exists.",
+      },
+      {
+        heading: "Strategy 2: Workplace charging",
+        body: "Workplace Level 2 charging is the closest thing to home charging for renters — 8 hours plugged in during the workday is equivalent to a full overnight home charge for most EVs. Many employers offer it free or at cost. If your workplace doesn't have EV chargers yet, ask HR or facilities management — companies increasingly install chargers as a low-cost employee benefit, and the business gets a federal 30C tax credit for up to 30% of installation costs (check current status at irs.gov). Even two or three charging days per week at work dramatically reduces your DCFC dependence.",
+        list: [
+          "Ask HR or facilities: frame it as an employee benefit request, not a personal ask",
+          "Federal 30C credit: employers can claim up to 30% of charger install cost (verify current status)",
+          "PlugShare's workplace filter: shows who already has chargers near your office",
+          "ChargePoint for Business: landlords and employers can offer ChargePoint-networked chargers",
+        ],
+      },
+      {
+        heading: "Strategy 3: DCFC memberships to cut per-kWh cost",
+        body: "If DCFC is unavoidable, memberships reduce cost 15–25%. Electrify America Pass+ ($4/month) drops per-kWh rates from ~$0.48 to ~$0.36/kWh — saves ~$1.20 per 10 kWh session, pays for itself in about 4 fast charges. EVgo's ReVolt plan ($7.99/month) offers similar savings. Tesla's Supercharger pricing has no membership tier, but non-Tesla EVs with NACS can use Superchargers and benefit from off-peak pricing in some states. If you fast charge twice a week, a membership saves $40–$80/year easily.",
+        list: [
+          "Electrify America Pass+: $4/mo → ~$0.36/kWh vs $0.48 standard",
+          "EVgo ReVolt: $7.99/mo → lower per-kWh rates + session fee waivers",
+          "Blink Plus: monthly membership, reduced L2 + DCFC rates",
+          "Don't subscribe to all three — pick the one with most coverage near you",
+        ],
+      },
+      {
+        heading: "Strategy 4: The landlord conversation",
+        body: "Even without Right to Charge law leverage, it's worth asking your landlord — framed correctly. Many landlords haven't been asked yet and are open to it if the cost and liability are clear. A good opening: 'I'd like to install a Level 2 EV charger at my parking space at my own expense. I'll use a licensed electrician, carry liability insurance, and remove it when I leave. Would you be open to discussing this?' The Right to Charge law (in applicable states) means they cannot refuse a reasonable request. Even in states without the law, a well-framed ask succeeds more often than not — especially in buildings where the landlord wants to improve the property.",
+        list: [
+          "Put it in writing: a written request creates a paper trail and signals seriousness",
+          "Offer to share the install: propose landlord keeps the outlet as a building amenity on move-out",
+          "Right to Charge states: cite the law by name if they push back",
+          "Cost: typical L2 install runs $800–$2,000 including panel work — evaluate vs your annual DCFC overpay",
+        ],
+        links: [
+          { label: "Level 2 charger installation cost guide", href: "/guides/level-2-charger-cost-breakdown" },
+        ],
+      },
+      {
+        heading: "What to look for when apartment hunting",
+        body: "If you're moving, EV charging access is now a real filter. Questions to ask before signing: Does the building have EV charging? Is it free or metered? Are there enough spots (buildings often have 2–4 chargers for 100 units — constant competition)? Is the building 2026 CALGreen compliant (CA only, new construction)? Is there an outdoor outlet near my assigned space I could use with a portable Level 1 EVSE? Level 1 (standard 120V outlet) adds only 4–5 miles/hour but costs your apartment's electricity rate — which is dramatically cheaper than DCFC if you park 10+ hours.",
+        list: [
+          "Ask: 'Is there an outlet near my parking space?' — Level 1 is slow but cheap",
+          "Level 1 cost: ~$0.12–$0.18/kWh (your apartment rate) — much better than $0.40 DCFC",
+          "New CA construction (2026+): must have L2-ready outlets by code",
+          "Check: charger-to-unit ratio — 2 chargers for 100 units means constant waitlists",
+        ],
+        callout: "A standard outdoor 120V outlet adds about 40–50 miles overnight on Level 1. For a commuter driving 30 miles/day, that's enough — and it costs $1–2 per night at residential rates vs $5–8 at DCFC.",
+        links: [
+          { label: "Calculate your home charging cost by state", href: "/#calculator" },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can my landlord refuse to let me install an EV charger?",
+        answer: "In states with Right to Charge laws (CA, CO, CT, FL, IL, NY, OR, DC and others), landlords cannot flatly refuse a reasonable written request. They can impose conditions — licensed electrician, liability insurance, restoration on move-out. In states without the law, they can refuse. Check afdc.energy.gov for your state's current policy.",
+      },
+      {
+        question: "Is it worth owning an EV if I live in an apartment?",
+        answer: "Yes for most people — even at DCFC rates, EVs are cheaper to fuel than gas cars in most states. The savings are smaller than for homeowners: expect to save $400–$900/year on fuel instead of $1,200–$1,800. The gap closes further if you access workplace charging or use public Level 2 regularly. EV maintenance savings (no oil changes, fewer brake jobs) apply equally regardless of where you charge.",
+      },
+      {
+        question: "What is the cheapest way to charge an EV without home charging?",
+        answer: "Public Level 2 chargers at shopping centers, gyms, and workplaces run $0.10–$0.25/kWh — significantly cheaper than DCFC ($0.35–$0.50/kWh). Building this into regular routines (charge while grocery shopping, at the gym, at work) reduces DCFC dependence. Workplace charging, if available, is the closest equivalent to home charging.",
+      },
+      {
+        question: "What states have Right to Charge laws for renters?",
+        answer: "As of 2026: California, Colorado, Connecticut, Florida, Illinois, New York, Oregon, and Washington DC have Right to Charge laws that apply to renters. The laws vary in strength — California's is the most detailed. Check afdc.energy.gov for the current full list and specific requirements in your state.",
+      },
+    ],
+  },
+  {
     slug: "ev-utility-rate-plans-guide",
     title: "EV Utility Rate Plans: How to Cut Your Home Charging Cost in Half",
     hook: "Most EV owners pay full residential rates. A separate enrollment — usually a 5-minute phone call — can cut your overnight charging cost by 50–80%. Here's every major program.",
