@@ -194,6 +194,12 @@ export default async function GuidePage({ params }: Props) {
                     ))}
                   </ul>
                 )}
+                {section.callout && (
+                  <div className="flex gap-3 bg-forest/5 border border-forest/20 rounded-xl px-4 py-3 mb-4">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-forest font-bold flex-shrink-0 mt-0.5">Tip</span>
+                    <p className="text-sm text-ink-2 leading-relaxed">{section.callout}</p>
+                  </div>
+                )}
                 {section.links && section.links.length > 0 && (
                   <div className="flex flex-wrap gap-3 mt-3 pt-3 border-t border-line">
                     {section.links.map((link) => (

@@ -7,6 +7,7 @@ export interface GuideSection {
   heading: string;
   body: string;
   list?: string[];
+  callout?: string;
   links?: GuideSectionLink[];
 }
 
@@ -68,8 +69,8 @@ export const GUIDES: Guide[] = [
           "Reliability: improving but still below Supercharger standard",
           "Best for: Hyundai/Kia 800V owners on road trips",
           "Pricing: ~$0.48/kWh ad hoc, ~$0.36/kWh with membership",
-          "Tip: Walmart locations mean you can grab snacks and use restrooms while charging — built-in break",
         ],
+        callout: "Most Electrify America stations are at Walmarts and shopping centers — which means you get preferred parking right next to the entrance while you charge. On a recent stop I paid ~$6 for a 3-hour charge and walked out with a top-up and a great parking spot. Parking alone at that location was $5.50. You're essentially paying a dollar more to also charge your car.",
       },
       {
         heading: "EVgo: best for city charging",
@@ -110,10 +111,11 @@ export const GUIDES: Guide[] = [
         heading: "Which network should you rely on?",
         body: "For road trips: Supercharger if your EV is compatible — nothing else comes close for reliability. If not, plan around Electrify America for highway coverage and check PlugShare before you leave to verify working stalls. For daily/urban charging: EVgo or ChargePoint depending on what's closest to where you park. For 800V EV owners (Ioniq 5, EV6, EV9): Electrify America's 350kW chargers fully exploit your car's charging speed — the speed difference vs a 150kW charger is real (10 min vs 25 min for the same charge).\n\nOne underrated move on multi-day road trips: if your hotel or destination has a Level 2 charger, plug in overnight instead of fast charging on the highway. Level 2 runs $0.10–$0.20/kWh at many hotels vs $0.40–$0.48/kWh at Electrify America. On a 100kWh battery that's $20–$30 saved per overnight stop. We've done this a few times on longer trips and it's excellent — wake up to a full battery, paid half the cost.",
         list: [
-          "Pro tip: check hotel charging before booking — a free or cheap Level 2 overnight beats a $40 fast charge stop",
           "PlugShare app: shows Level 2 and DCFC availability with real-time user check-ins",
           "Overnight Level 2 rate: typically $0.10–$0.20/kWh vs $0.40–$0.48/kWh DCFC",
+          "Filter hotels by EV charging on booking sites — it's a standard amenity filter now",
         ],
+        callout: "If your hotel has a Level 2 charger, use it overnight instead of stopping to fast charge. We've done this on several long trips — wake up to a full battery, paid $8–$12 instead of $30–$40 at Electrify America. On a 100kWh pack like the EV9 that's a real saving per hotel night.",
         links: [
           { label: "Calculate home charging cost by state", href: "/#calculator" },
           { label: "Home charger installation guide", href: "/guides/level-2-charger-cost-breakdown" },
