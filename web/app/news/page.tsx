@@ -18,12 +18,9 @@ function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 }
 
-function isRecent(iso: string) {
-  return Date.now() - new Date(iso).getTime() < 1000 * 60 * 60 * 48;
-}
-
 export default function NewsIndexPage() {
   const sorted = [...NEWS].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+  const newSlugs = new Set(sorted.slice(0, 2).map((a) => a.slug));
 
   return (
     <>
@@ -51,7 +48,7 @@ export default function NewsIndexPage() {
                 className="group block bg-paper border border-line rounded-2xl p-6 hover:border-forest/40 hover:shadow-1 transition-all"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  {isRecent(article.publishedAt) && (
+                  {newSlugs.has(article.slug) && (
                     <span className="font-mono text-[9px] uppercase tracking-widest text-white bg-forest px-2 py-0.5 rounded-full">
                       New
                     </span>
