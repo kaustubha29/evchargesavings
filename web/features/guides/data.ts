@@ -29,6 +29,305 @@ export interface Guide {
 
 export const GUIDES: Guide[] = [
   {
+    slug: "ev-charging-network-comparison-2026",
+    title: "EV Charging Networks Compared 2026: Supercharger, Electrify America, EVgo, ChargePoint, and IONNA",
+    hook: "Which public charging network is actually reliable in 2026 — and which to avoid when you're 20 miles from empty.",
+    description: "A no-spin comparison of the five major US EV charging networks in 2026: speed, reliability, pricing, and which EVs can use each network.",
+    readTime: "6 min read",
+    category: "Charging",
+    publishedAt: "2026-05-17",
+    sections: [
+      {
+        heading: "The five networks that matter in 2026",
+        body: "Public charging in the US runs through five meaningful networks: Tesla Supercharger, Electrify America, EVgo, ChargePoint, and the newer IONNA (BMW/Mercedes/Honda/Stellantis joint venture). Every other network is either regional or secondary. Your charging experience — especially on road trips — comes down almost entirely to which of these has coverage and working hardware where you're driving.",
+        list: [
+          "Tesla Supercharger: ~20,000+ US chargers, best reliability, now open to NACS-equipped EVs",
+          "Electrify America: ~1,000+ stations, 150–350kW, improving reliability, Shell-owned",
+          "EVgo: ~1,000+ stations, urban-focused, 100–350kW",
+          "ChargePoint: largest footprint by count, mostly Level 2, slower speeds",
+          "IONNA: new joint venture, 100kW–400kW target speeds, growing fast in 2025–2026",
+        ],
+      },
+      {
+        heading: "Tesla Supercharger: still the gold standard",
+        body: "Tesla's Supercharger network remains the most reliable public charging infrastructure in the US. V3 chargers deliver up to 250kW; the newer V4 chargers go to 500kW. Uptime consistently exceeds 99% — significantly better than competing networks. Since opening to non-Tesla EVs via NACS adapter or native NACS port, all major automakers have adopted the NACS connector standard. Chevy, Ford, Honda, Rivian, and others now ship with NACS natively or offer adapters. Pricing runs roughly $0.25–$0.50/kWh depending on time of day and state — competitive with other fast chargers.",
+        list: [
+          "Speed: up to 250kW (V3) / 500kW (V4)",
+          "Coverage: strongest in urban areas, major highways, and Tesla-dense routes",
+          "Reliability: best in class — minimal out-of-service stalls",
+          "Open to: all EVs with NACS port or CCS-to-NACS adapter",
+          "Pricing: ~$0.25–$0.50/kWh, billed per kWh in most states",
+        ],
+      },
+      {
+        heading: "Electrify America: most important non-Tesla network",
+        body: "Electrify America operates the largest DC fast-charging network outside Tesla, with 350kW chargers capable of fully utilizing 800V EVs like the Hyundai Ioniq 5 and Kia EV6. Coverage spans highways coast to coast. Reliability has been the network's weakness — historically one-quarter to one-third of chargers show outage or error at any given visit. Ownership by Shell and investment from Volkswagen Group has improved uptime in 2025–2026, but it's still materially worse than Supercharger. Pricing: ~$0.28–$0.48/kWh; monthly membership ($4/mo) reduces per-kWh rates.",
+        list: [
+          "Speed: up to 350kW — fully uses 800V platforms",
+          "Coverage: highway-focused, good coast-to-coast routes",
+          "Reliability: improving but still below Supercharger standard",
+          "Best for: Hyundai/Kia 800V owners on road trips",
+          "Pricing: ~$0.48/kWh ad hoc, ~$0.36/kWh with membership",
+        ],
+      },
+      {
+        heading: "EVgo: best for city charging",
+        body: "EVgo focuses on urban and suburban locations — parking garages, grocery stores, shopping centers. With ~1,000+ stations and up to 350kW speeds, it's a solid option for apartment dwellers or anyone relying on public charging as their primary source. The ReVolt subscription ($7.99/mo) cuts per-kWh cost meaningfully. EVgo acquired Livingston, an EV service operator, in 2024 and accelerated its rollout under General Motors' fast-charging partnership. Less useful for highway road trips where coverage thins out.",
+        list: [
+          "Speed: 50–350kW",
+          "Coverage: urban/suburban — strong in major metros",
+          "Best for: primary public charging, apartment dwellers",
+          "GM-partnered: some GM vehicles include free EVgo charging credits",
+          "Pricing: ~$0.40–$0.55/kWh, lower with ReVolt membership",
+        ],
+      },
+      {
+        heading: "ChargePoint: most chargers, mostly slower",
+        body: "ChargePoint operates the largest number of charging connectors in the US — over 70,000 — but the majority are Level 2 (6–19kW), not DC fast chargers. It's the dominant network in offices, hotels, and multi-unit dwellings. For destination charging (parked 4–8 hours), ChargePoint is excellent. For road trip fast charging, it's not the right tool. DC fast chargers on ChargePoint max at 62kW for most units, though newer Express Plus hardware goes to 400kW. App and RFID card payment both work reliably.",
+        list: [
+          "Speed: 6–19kW (Level 2 majority), up to 400kW (Express Plus, rare)",
+          "Coverage: best for workplace, hotel, and residential charging",
+          "Best for: overnight or workplace top-up, not road trip fast charging",
+          "Pricing: varies by location owner — some free, some $0.30–$0.50/kWh",
+        ],
+      },
+      {
+        heading: "IONNA: the new challenger",
+        body: "IONNA is a joint venture backed by BMW, General Motors, Honda, Hyundai, Kia, Mercedes-Benz, and Stellantis — launched in 2024 to build a highway fast-charging network to rival Supercharger. Targets 100kW minimum, 400kW capable hardware, with a focus on reliability and amenities (covered canopies, lighting, restrooms nearby). As of mid-2026, IONNA is operational at select highway corridors and growing. BMW and Mini EV owners get discounted rates. Watch this network — the backing gives it resources that Electrify America never had at launch.",
+        list: [
+          "Speed: 100kW–400kW",
+          "Coverage: highway-focused, US East Coast + growing westward",
+          "Backed by: BMW, GM, Honda, Hyundai, Kia, Mercedes, Stellantis",
+          "BMW/Mini owners: discounted rates through mid-2027",
+          "Status: early-stage but well-funded, reliability data still accumulating",
+        ],
+        links: [
+          { label: "IONNA BMW/Mini discount news", href: "/news/ionna-bmw-mini-charging-discount-2026" },
+        ],
+      },
+      {
+        heading: "Which network should you rely on?",
+        body: "For road trips: Supercharger if your EV is compatible — nothing else comes close for reliability. If not, plan around Electrify America for highway coverage and check PlugShare before you leave to verify working stalls. For daily/urban charging: EVgo or ChargePoint depending on what's closest to where you park. For 800V EV owners (Ioniq 5, EV6, EV9, Kia EV9): Electrify America's 350kW chargers fully exploit your car's charging speed — the speed difference vs a 150kW charger is real (10 min vs 25 min for the same charge).",
+        links: [
+          { label: "Calculate home charging cost by state", href: "/#calculator" },
+          { label: "Home charger installation guide", href: "/guides/level-2-charger-cost-breakdown" },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Which EV charging network is the most reliable in 2026?",
+        answer: "Tesla Supercharger has the highest uptime of any public charging network in the US — consistently above 99%. Electrify America has improved significantly but still lags. EVgo and ChargePoint reliability varies by location.",
+      },
+      {
+        question: "Can non-Tesla EVs use Tesla Superchargers?",
+        answer: "Yes. All major automakers have adopted the NACS connector standard. Ford, GM, Rivian, Honda, Nissan, and others now ship NACS-native or offer NACS adapters. If your EV has a CCS port, a CCS-to-NACS adapter (available from Tesla) enables Supercharger access.",
+      },
+      {
+        question: "How much does Electrify America charge per kWh?",
+        answer: "Electrify America charges approximately $0.48/kWh without a membership plan, and ~$0.36/kWh with the $4/month Electrify America Pass+ plan. Prices vary slightly by state.",
+      },
+      {
+        question: "What is IONNA charging?",
+        answer: "IONNA is a new DC fast-charging network launched in 2024 by a joint venture of seven automakers: BMW, GM, Honda, Hyundai, Kia, Mercedes-Benz, and Stellantis. It targets highway corridors with 100kW–400kW chargers and a reliability-first design. BMW and Mini EV owners get discounted rates through mid-2027.",
+      },
+    ],
+  },
+  {
+    slug: "best-used-evs-to-buy-2026",
+    title: "Best Used EVs to Buy in 2026: Which Electric Cars Are Worth the Money",
+    hook: "Used EV prices dropped 25–35% from their 2022 peak. Here's what's actually worth buying — and what to check before you hand over money.",
+    description: "Used EV prices have fallen sharply. This guide covers the best used electric cars in 2026 by budget, what to inspect before buying, and which models hold up long-term.",
+    readTime: "7 min read",
+    category: "Buying",
+    publishedAt: "2026-05-17",
+    sections: [
+      {
+        heading: "Why 2026 is a good time to buy used EV",
+        body: "Used EV prices peaked in 2022–2023 during the chip shortage, when a used Model 3 sold for more than a new one. Since then, prices have corrected 25–35% across most models. Combined with the elimination of the $7,500 federal new-EV tax credit in October 2025 (which made new EVs more expensive in comparison), the used EV value proposition is the strongest it's been. The main risk: battery health. A used EV with 20% degradation is a materially different purchase than a new one — and most listings don't disclose this upfront.",
+      },
+      {
+        heading: "What to check before buying any used EV",
+        body: "Battery state of health (SoH) is the single most important number. Some manufacturers expose this in the car's settings menu; others require a third-party OBD adapter and app (Leaf Spy for Nissan Leaf, ScanMyTesla for Tesla, CarScanner for most others). A healthy battery at 50,000 miles should retain 90%+ capacity. Below 80% is a red flag. Also check: remaining factory warranty (most OEMs offer 8-year/100,000-mile battery warranty — confirm how much is left), any open recalls (nhtsa.gov by VIN), and charging history (frequent DC fast charging accelerates degradation on older battery chemistries).",
+        list: [
+          "Run VIN through nhtsa.gov — check for open recalls",
+          "Get battery state of health reading — aim for 90%+ at under 60K miles",
+          "Confirm remaining factory battery warranty (most are 8yr/100K miles)",
+          "Check charging history if disclosed — frequent DCFC on older models degrades faster",
+          "Test all charging ports (CCS, NACS, or CHAdeMO) before purchase",
+        ],
+      },
+      {
+        heading: "Best used EV under $25,000: Chevy Bolt EV",
+        body: "The Chevy Bolt EV (2020–2023) is the most practical used EV under $25,000. With 247–259 miles EPA range, a simple one-pedal driving system, and GM's battery recall having been resolved (all affected vehicles received new packs under warranty), the Bolt is now a low-risk buy. Look for 2022+ models with the updated battery chemistry. Prices run $18,000–$24,000 for clean examples with under 50,000 miles. The 7.2kW onboard charger is slower than competitors — plan for Level 2 home charging.",
+        list: [
+          "Range: 247–259 miles (2022–2023 models)",
+          "Typical used price: $18,000–$24,000 under 50K miles",
+          "Battery recall: resolved — check that your VIN received the replacement pack",
+          "Weakness: 7.2kW AC charging only (no DC fast charge above 55kW)",
+        ],
+      },
+      {
+        heading: "Best used EV $25,000–$35,000: Tesla Model 3 Standard Range",
+        body: "A 2021–2022 Tesla Model 3 Standard Range (now called RWD) with under 60,000 miles runs $25,000–$33,000 and delivers 272 miles EPA range plus Supercharger access — the most important advantage in the used EV market. Tesla's OTA software updates mean a 2021 Model 3 has meaningfully better software than it shipped with. Check battery SoH; at 60K miles it should be 92–95%. Avoid 2019 models with the older battery chemistry unless the price reflects the degradation.",
+        list: [
+          "Range: 272 miles (2021–2022 RWD)",
+          "Typical used price: $25,000–$33,000",
+          "Key advantage: Supercharger network access — best public charging reliability",
+          "Check: SoH at 60K miles should be 92–95%; avoid pre-2020 if possible",
+        ],
+      },
+      {
+        heading: "Best used EV $35,000–$45,000: Hyundai Ioniq 5 or Kia EV6",
+        body: "A 2022–2023 Hyundai Ioniq 5 Long Range or Kia EV6 Long Range in the $35,000–$43,000 range is arguably the best-value used EV at any price point. Both use 800V architecture — 18 minutes from 10–80% at a 350kW charger. EPA range hits 266–310 miles depending on trim and drivetrain. Hyundai's 10-year/100,000-mile powertrain warranty transfers to subsequent owners if purchased from a dealer (confirm this). Battery degradation on these platforms has been minimal in early data — owners report 95–98% SoH at 50,000 miles.",
+        list: [
+          "Range: 266–310 miles (Long Range trims)",
+          "Typical used price: $35,000–$43,000 for 2022–2023 models",
+          "800V charging: 18 min 10–80% at 350kW — best class charging speed",
+          "Warranty: 10yr/100K powertrain transfers to subsequent owners via dealers",
+        ],
+        links: [
+          { label: "Ioniq 5 charging cost by state", href: "/cost-to-charge/hyundai-ioniq-5-long-range-rwd/california" },
+        ],
+      },
+      {
+        heading: "The used EV tax credit question",
+        body: "The §25E used clean vehicle credit — which offered up to $4,000 on qualifying used EVs — was eliminated alongside the new-vehicle §30D credit on October 1, 2025 under the One Big Beautiful Bill. There is no federal used EV tax credit as of mid-2026. Some states have their own used EV incentives; check dsireusa.org for your state. California's Clean Vehicle Rebate Project ended in 2023. Colorado and New York have active programs — check current program status directly as funding depletes.",
+        links: [
+          { label: "What EV incentives still exist in 2026", href: "/guides/ev-tax-credit-7500" },
+        ],
+      },
+      {
+        heading: "Where to shop for used EVs",
+        body: "Certified Pre-Owned programs from dealers offer the best protection — remaining factory warranty, multi-point inspection, and often roadside assistance. Tesla's CPO program is the strongest: all vehicles are inspected, receive a warranty extension, and are listed with battery SoH. Carvana and CarMax both carry significant used EV inventory with no-haggle pricing and return windows (7 days for Carvana, 30 days for CarMax). Private party on Autotrader or Facebook Marketplace gets the lowest price but zero protection — always get a pre-purchase inspection from an EV-qualified technician.",
+        list: [
+          "Tesla CPO: best transparency, battery SoH disclosed, warranty included",
+          "Carvana: large EV inventory, 7-day return window, home delivery",
+          "CarMax: 30-day return, nationwide inventory, financing on-site",
+          "Private party: lowest price, highest risk — get independent inspection",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Is it safe to buy a used EV in 2026?",
+        answer: "Yes, with due diligence. Check battery state of health (aim for 90%+ at under 60K miles), verify remaining factory warranty via VIN, and run an NHTSA recall check. CPO programs from Tesla, Hyundai, and GM dealers offer the strongest protection.",
+      },
+      {
+        question: "What is the best used EV under $20,000?",
+        answer: "A 2019–2021 Chevy Bolt EV or Nissan Leaf Plus (226 miles) can be found under $20,000 with under 60K miles. The Bolt is the stronger buy — better range, resolved battery recall, and simpler one-pedal driving. Avoid early 2018 Leafs, which had aggressive thermal degradation.",
+      },
+      {
+        question: "Do used EVs still have a tax credit in 2026?",
+        answer: "No. The §25E used clean vehicle credit was eliminated October 1, 2025. There is no federal used EV tax credit as of mid-2026. Check dsireusa.org for state-level programs — Colorado and New York have active incentives.",
+      },
+      {
+        question: "How do I check battery health on a used EV?",
+        answer: "Method depends on brand. Tesla: Settings → Software → Battery shows estimated range vs new. Hyundai/Kia: OBD-II adapter + Torque Pro or BatteryBro app. Chevy Bolt: Service menu shows battery capacity in kWh. Nissan Leaf: Leaf Spy app via OBD-II adapter shows SoH and SOC. A dealer inspection should include this — ask explicitly.",
+      },
+    ],
+  },
+  {
+    slug: "most-reliable-evs-2026",
+    title: "Most Reliable EVs in 2026: Which Electric Cars Have the Fewest Problems",
+    hook: "EV reliability varies more than most buyers expect. Korean brands are leading. Ford and some GM products still have software issues. Here's the data.",
+    description: "EV reliability rankings for 2026 based on owner surveys, Consumer Reports data, and warranty claim patterns. Covers Tesla, Hyundai, Kia, Chevy, Ford, Rivian, and more.",
+    readTime: "6 min read",
+    category: "Buying",
+    publishedAt: "2026-05-17",
+    sections: [
+      {
+        heading: "How EV reliability is measured — and why it's different from gas cars",
+        body: "Traditional reliability metrics (J.D. Power, Consumer Reports) track owner-reported problems per 100 vehicles in the first 90 days and over time. EVs eliminate most mechanical failure points (no timing belt, no transmission, no oil system) but introduce new categories: software/infotainment bugs, charging port failures, battery management system errors, and OTA update problems. The most common EV complaints are software-related, not mechanical. A car that requires two software-related service visits in year one is less reliable than one that requires none — even if both cars drive fine.",
+      },
+      {
+        heading: "Most reliable: Hyundai Ioniq 5 and Kia EV6",
+        body: "The Hyundai Ioniq 5 and Kia EV6 consistently rank among the most reliable EVs in Consumer Reports and J.D. Power data. Both earned above-average reliability scores in 2024–2025 surveys with low rates of electrical, charging, and software complaints. The E-GMP platform (shared by both) has proven robust across two model years. Hyundai's 10-year/100,000-mile powertrain warranty (5yr/60K for non-original owners) and readily available dealer service network reduce ownership risk. The Kia EV9 three-row SUV also scored well in its first survey year.",
+        list: [
+          "Ioniq 5: above-average Consumer Reports reliability, E-GMP platform proven",
+          "EV6: similar scores, same platform — both benefit from OTA update cadence",
+          "EV9: strong first-year data for three-row segment",
+          "Warranty: 10yr/100K powertrain (original owner), 5yr/60K (subsequent)",
+        ],
+        links: [
+          { label: "Ioniq 5 total cost calculator", href: "/#calculator" },
+        ],
+      },
+      {
+        heading: "Reliable and proven: Tesla Model 3 and Model Y",
+        body: "Tesla's reliability picture is mixed but trending better. Earlier Model 3 and Y variants (2018–2020) had significant build quality and panel gap issues. 2021–2024 Model 3 and Y are materially better built, and Consumer Reports moved both back to recommended status. The main ongoing concern is service — Tesla's mobile service network handles many issues remotely, but body work and complex repairs can mean multi-week waits at service centers. Over-the-air software updates address bugs faster than any competitor. Battery and drivetrain reliability is strong — powertrain warranty claims are low.",
+        list: [
+          "Model 3 (2021+): Consumer Reports recommended, improved build quality",
+          "Model Y (2022+): above-average reliability, strong long-term battery data",
+          "Weakness: service center capacity — long waits for body work",
+          "Strength: OTA updates resolve software issues without service visit",
+        ],
+      },
+      {
+        heading: "Improved but watch closely: Chevy Bolt and Equinox EV",
+        body: "The Chevy Bolt EV had a rocky 2020–2022 with a major battery recall (LG Chem cells with fire risk). GM replaced all affected battery packs under warranty — a costly fix that resolved the safety issue. 2022+ Bolt EVs are clean, and reliability data since the recall has been positive. The newer Equinox EV (2024+) launched with some software issues (infotainment freezing, charging interruptions) that GM addressed via OTA updates through 2025. By 2026, Equinox EV reliability data is trending toward average for the segment.",
+        list: [
+          "Bolt EV (2022+): post-recall clean — battery replacement resolved the issue",
+          "Equinox EV: software issues at launch, largely resolved in 2025 OTA updates",
+          "Silverado EV: newer model, reliability data still accumulating",
+        ],
+      },
+      {
+        heading: "Below average: Ford Mustang Mach-E and F-150 Lightning",
+        body: "Ford's EVs have struggled with reliability in Consumer Reports surveys. The Mustang Mach-E has had repeated issues with charging system failures, battery contactors, and software bugs that required dealer visits. Ford issued multiple technical service bulletins and at least two recall campaigns on the Mach-E through 2024. The F-150 Lightning had high-voltage battery pack failures on early units and a stop-sale in early 2023. Both products are improved, but below-average reliability scores in 2024–2025 surveys mean buyers should factor in a higher service probability. Ford's service network is wide but EV technician availability varies by region.",
+        list: [
+          "Mach-E: below-average Consumer Reports reliability, charging system issues",
+          "F-150 Lightning: battery recall on early units, improved on 2023+ models",
+          "Ford advantage: largest dealer network in the US for service access",
+          "Recommendation: buy 2024+ models with updated hardware; avoid 2021–2022 Mach-E",
+        ],
+      },
+      {
+        heading: "Premium and newer: Rivian, Lucid, and others",
+        body: "Rivian R1T and R1S have improved significantly from their 2022 launch quality to 2024–2025 production. Early vehicles had fit-and-finish issues and some drivetrain problems; recent models show better assembly. Rivian's Adventure Network has excellent charger reliability. Lucid Air has very low reported issue rates but a tiny service network (fewer than 30 service centers nationally) — if something goes wrong, getting it fixed may require a multi-week wait or shipping the car. Luxury EVs from BMW (iX, i4) and Mercedes (EQS, EQB) carry better dealer service networks but have had infotainment system complaints.",
+        list: [
+          "Rivian R1T/R1S: much improved since launch, proprietary charger network reliable",
+          "Lucid Air: low failure rate, but service network too thin for most buyers",
+          "BMW iX/i4: good powertrain reliability, some iDrive/infotainment complaints",
+          "Mercedes EQS: range inflation concerns, dealer service network adequate",
+        ],
+      },
+      {
+        heading: "EV warranty comparison 2026",
+        body: "Warranty coverage is your reliability backstop. Most EVs include an 8-year/100,000-mile battery warranty — federal minimum for any EV receiving EPA certification. Hyundai and Kia go further with 10-year/100,000-mile powertrain coverage for original owners. Tesla covers battery and drive unit for 8 years with mileage limits that vary by trim (100K–150K miles). Rivian offers 5-year/60K-mile vehicle warranty and 8-year/175K-mile battery warranty. Always confirm what transfers to subsequent owners before buying used.",
+        list: [
+          "Hyundai/Kia: 10yr/100K powertrain (original owner) — best in class",
+          "Tesla: 8yr battery/drive unit, 100K–150K miles depending on trim",
+          "Rivian: 8yr/175K battery — longest mileage limit",
+          "Ford/GM: 8yr/100K battery — federal minimum",
+          "Lucid: 8yr/unlimited miles battery warranty — strong coverage, weak service",
+        ],
+        links: [
+          { label: "Compare EV total ownership costs", href: "/#calculator" },
+          { label: "Best used EVs to buy in 2026", href: "/guides/best-used-evs-to-buy-2026" },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Which EV brand is the most reliable in 2026?",
+        answer: "Hyundai and Kia consistently rank highest for EV reliability in Consumer Reports and J.D. Power surveys. The Ioniq 5 and EV6 both score above average with low rates of electrical and software complaints. Tesla Model 3 and Y are reliable long-term but have service access issues in some regions.",
+      },
+      {
+        question: "Are EVs more or less reliable than gas cars?",
+        answer: "Newer EVs are generally as reliable as comparable gas cars for powertrain issues — they eliminate oil changes, transmission failures, and exhaust system repairs. The main EV-specific reliability risk is software and electronics: infotainment freezing, charging system errors, and OTA update problems that require dealer visits. Korean and Tesla platforms have minimized this better than US brands.",
+      },
+      {
+        question: "Is the Ford Mustang Mach-E reliable?",
+        answer: "The Mach-E has had below-average reliability scores in Consumer Reports surveys through 2024, with recurring charging system and software issues. The 2024+ models are improved. If buying used, avoid 2021–2022 models and look for vehicles that received all technical service bulletins.",
+      },
+      {
+        question: "How long do EV batteries last?",
+        answer: "Most EV batteries retain 80%+ capacity for 8–10 years or 100,000–150,000 miles under normal use. Battery warranty coverage is federally mandated at 8 years/100,000 miles minimum. Tesla, Rivian, and Hyundai/Kia have real-world data showing most batteries exceed this threshold.",
+      },
+    ],
+  },
+  {
     slug: "is-ev-right-for-you",
     title: "Is an EV right for you?",
     description: "5 questions to see whether an EV fits your commute, parking, and lifestyle.",
