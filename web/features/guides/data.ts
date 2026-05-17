@@ -61,13 +61,14 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Electrify America: most important non-Tesla network",
-        body: "Electrify America operates the largest DC fast-charging network outside Tesla, with 350kW chargers capable of fully utilizing 800V EVs like the Hyundai Ioniq 5 and Kia EV6. Coverage spans highways coast to coast. Reliability has been the network's weakness — historically one-quarter to one-third of chargers show outage or error at any given visit. Ownership by Shell and investment from Volkswagen Group has improved uptime in 2025–2026, but it's still materially worse than Supercharger. Pricing: ~$0.28–$0.48/kWh; monthly membership ($4/mo) reduces per-kWh rates.",
+        body: "Electrify America operates the largest DC fast-charging network outside Tesla, with 350kW chargers capable of fully utilizing 800V EVs like the Hyundai Ioniq 5 and Kia EV6. Coverage spans highways coast to coast. Reliability has been the network's weakness — historically one-quarter to one-third of chargers show outage or error at any given visit. Ownership by Shell and investment from Volkswagen Group has improved uptime in 2025–2026, but it's still materially worse than Supercharger. Pricing: ~$0.28–$0.48/kWh; monthly membership ($4/mo) reduces per-kWh rates.\n\nOwner note: I drive a Kia EV9 and have done multiple 8+ hour road trips with a kid and a dog — Electrify America has been our primary network and it's surprised us 90% of the time in a good way. Most stops are at Walmarts or shopping areas: by the time the family walks in, uses the restroom, and grabs a snack, we're already at 80% and ready to go. The locations are actually ideal — there's always something nearby. The 10% bad experiences have been a single dead stall forcing us to a nearby station, never a situation where we were stranded.",
         list: [
           "Speed: up to 350kW — fully uses 800V platforms",
           "Coverage: highway-focused, good coast-to-coast routes",
           "Reliability: improving but still below Supercharger standard",
           "Best for: Hyundai/Kia 800V owners on road trips",
           "Pricing: ~$0.48/kWh ad hoc, ~$0.36/kWh with membership",
+          "Tip: Walmart locations mean you can grab snacks and use restrooms while charging — built-in break",
         ],
       },
       {
@@ -107,7 +108,12 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Which network should you rely on?",
-        body: "For road trips: Supercharger if your EV is compatible — nothing else comes close for reliability. If not, plan around Electrify America for highway coverage and check PlugShare before you leave to verify working stalls. For daily/urban charging: EVgo or ChargePoint depending on what's closest to where you park. For 800V EV owners (Ioniq 5, EV6, EV9, Kia EV9): Electrify America's 350kW chargers fully exploit your car's charging speed — the speed difference vs a 150kW charger is real (10 min vs 25 min for the same charge).",
+        body: "For road trips: Supercharger if your EV is compatible — nothing else comes close for reliability. If not, plan around Electrify America for highway coverage and check PlugShare before you leave to verify working stalls. For daily/urban charging: EVgo or ChargePoint depending on what's closest to where you park. For 800V EV owners (Ioniq 5, EV6, EV9): Electrify America's 350kW chargers fully exploit your car's charging speed — the speed difference vs a 150kW charger is real (10 min vs 25 min for the same charge).\n\nOne underrated move on multi-day road trips: if your hotel or destination has a Level 2 charger, plug in overnight instead of fast charging on the highway. Level 2 runs $0.10–$0.20/kWh at many hotels vs $0.40–$0.48/kWh at Electrify America. On a 100kWh battery that's $20–$30 saved per overnight stop. We've done this a few times on longer trips and it's excellent — wake up to a full battery, paid half the cost.",
+        list: [
+          "Pro tip: check hotel charging before booking — a free or cheap Level 2 overnight beats a $40 fast charge stop",
+          "PlugShare app: shows Level 2 and DCFC availability with real-time user check-ins",
+          "Overnight Level 2 rate: typically $0.10–$0.20/kWh vs $0.40–$0.48/kWh DCFC",
+        ],
         links: [
           { label: "Calculate home charging cost by state", href: "/#calculator" },
           { label: "Home charger installation guide", href: "/guides/level-2-charger-cost-breakdown" },
