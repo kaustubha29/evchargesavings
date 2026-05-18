@@ -140,7 +140,7 @@ export default async function GuidePage({ params }: Props) {
             </div>
           )}
 
-          {(guide.category === "Installation" || guide.category === "Charging") && (
+          {(guide.category === "Installation" || guide.category === "Charging" || slug === "ev-tax-credit-7500") && (
             <div className="rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 mb-6 flex gap-3 items-start">
               <span className="text-amber-500 text-lg flex-shrink-0 mt-0.5">⚠</span>
               <div>
