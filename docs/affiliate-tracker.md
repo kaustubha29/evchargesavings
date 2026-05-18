@@ -1,6 +1,6 @@
 # EVChargeSavings — Affiliate & Partner Tracker
 
-_Last updated: 2026-05-15_
+_Last updated: 2026-05-18_
 
 ## Status Key
 ✅ Live | 📧 Applied/Emailed | ⏳ To do | ❌ Rejected/Dead
@@ -35,7 +35,7 @@ _Last updated: 2026-05-15_
 | **Lenz Charging** | Charger hardware | 7% | Awin #108258 | 📧 Applied via Awin — awaiting approval |
 | **Root Insurance** | Insurance | $15/lead | Awin/ShareASale | Usage-based = perfect EV fit. Apply via Awin. |
 | **ATG Epower** | Charger + solar | 8% | Awin #107407 | ❌ Merchant not found — bad data, skip |
-| **LightStream** | Auto loans | $60/funded loan | Impact | EV financing angle. Apply direct. |
+| **LightStream** | Auto loans | $60/funded loan | Impact | ❌ EVs excluded — only classics/specialty/older models. Dead end. |
 | **Edmunds** | Auto leads | $10/new+used lead, $3.50/trade-in | CJ #1429390 | 📧 Pending on CJ — applied 2026-05-14 |
 | **OhmConnect** | Demand response | $20–40/signup | FlexOffers | ❌ Sovrn denied. Revisit via FlexOffers once approved. |
 | **Emporia** | Charger hardware | Commission | Direct | ✅ Cade Brodbeck (VP BizDev) replied — call requested, calendar link sent |
