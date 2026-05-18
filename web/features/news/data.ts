@@ -31,7 +31,7 @@ export const NEWS: NewsArticle[] = [
     sections: [
       {
         heading: "The number that went viral",
-        body: "A Reddit post this week stopped a lot of EV owners mid-scroll. u/ada586 — a 2025 Audi Q4 55 e-tron driver in San Diego — posted that they charge at 13¢/kWh through SDG&E's Power Your Drive program, while SDG&E's standard peak rate runs $0.50–$0.80/kWh. Their cost per mile: 4.3¢. Their Toyota 4Runner: 34¢/mile. The post hit 547 upvotes in 24 hours. That 8x gap isn't typical, but the underlying mechanism — a utility EV rate plan that most customers never enroll in — exists at dozens of utilities across the country.",
+        body: "A Reddit post this week stopped a lot of EV owners mid-scroll. u/ada586 — a 2025 Audi Q4 55 e-tron driver in San Diego — posted that they charge at 13¢/kWh through SDG&E's Power Your Drive program, while SDG&E's standard peak rate runs $0.50–$0.80/kWh. Their cost per mile: 4.3¢. Their Toyota 4Runner: 34¢/mile. That 7.9x gap isn't typical everywhere, but the underlying mechanism — a utility EV rate plan that most customers never enroll in — exists at dozens of utilities across the country.",
       },
       {
         heading: "Georgia Power: the cheapest overnight EV charging in the US",
@@ -45,7 +45,7 @@ export const NEWS: NewsArticle[] = [
       },
       {
         heading: "Duke Energy: 3.5¢/kWh in Florida",
-        body: "Duke Energy's EV Overnight Advantage program runs across five states (FL, NC, SC, OH, IN) with rates that vary by jurisdiction. Florida customers get the best deal: approximately 3.5–3.9¢/kWh during off-peak hours (midnight–6am most of the year). North Carolina customers pay around 5¢/kWh during discount hours. Duke also offers a $500 rebate for Level 2 charger installation plus a $13.87/month bill credit for customers who charge off-peak — effectively subsidizing your home charger to change when you plug in.",
+        body: "Duke Energy's EV Overnight Advantage program runs across six states (FL, NC, SC, OH, IN, KY) with rates that vary by jurisdiction. Florida customers get the best deal: approximately 3.5–3.9¢/kWh during off-peak hours (midnight–6am most of the year). North Carolina customers pay around 5¢/kWh during discount hours. Duke also offers a $500 rebate for Level 2 charger installation plus a $13.87/month bill credit for customers who charge off-peak — effectively subsidizing your home charger to change when you plug in.",
         list: [
           "Florida off-peak: ~3.5–3.9¢/kWh (midnight–6am)",
           "North Carolina discount: ~5¢/kWh",
