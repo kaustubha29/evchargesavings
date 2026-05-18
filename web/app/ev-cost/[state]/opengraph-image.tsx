@@ -18,20 +18,21 @@ export default async function Image({ params }: Props) {
   if (!stateData) notFound();
 
   // Pre-compute example: Model Y LR vs Toyota RAV4
-  const modelY = evRepository.getBySlug("t-my-lr-awd") ?? evRepository.getAll()[0];
+  const modelY = evRepository.getBySlug("tesla-model-y-long-range-awd") ?? evRepository.getAll()[0];
   const rav4 = gasRepository.getById("toyota-rav4") ?? gasRepository.getAll()[0];
 
   const exSavings = calculateSavings({
     evEfficiency: modelY.efficiency,
     gasMpg: rav4.mpg,
-    annualMiles: 15000,
+    annualMiles: 13500,
     homePct: 80,
     homeRateKwh: stateData.kwhCents,
     publicRateKwh: stateData.kwhCents * 2.5,
     gasPriceDollar: stateData.gasDollar,
+    stateEvFee: stateData.evFee,
   });
 
-  const annualSavingsRounded = Math.round(exSavings.annualSavings);
+  const annualSavingsRounded = Math.round(exSavings.netAnnualSavings);
 
   return new ImageResponse(
     (

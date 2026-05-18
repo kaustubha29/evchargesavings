@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { GUIDES, getGuideBySlug } from "@/features/guides/data";
-import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
 import { HomeChargerProducts } from "@/components/shared/HomeChargerProducts";
@@ -181,15 +180,6 @@ export default async function GuidePage({ params }: Props) {
               </div>
             </div>
           )}
-
-          <div className="-mx-0 mb-12">
-            <SavingsSlotBand
-              eyebrow={`${guide.category} guide`}
-              title="Put the advice next to real savings examples"
-              body="The guide gives you the decision framework. The rolling examples show how much the numbers can move once model and location enter the picture."
-              className="rounded-3xl overflow-hidden border"
-            />
-          </div>
 
           {/* Article body */}
           <div className="space-y-10 mb-14">

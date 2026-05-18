@@ -5,6 +5,7 @@ export interface StateData {
   kwhCents: number;
   gasDollar: number;
   hasTOU: boolean;
+  evFee: number;
   touCents?: number;
   incentiveNote?: string;
 }

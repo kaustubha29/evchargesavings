@@ -1,7 +1,7 @@
 import type { SavingsInputs, SavingsResult } from "./types";
 
 export function calculateSavings(inputs: SavingsInputs): SavingsResult {
-  const { evEfficiency, gasMpg, annualMiles, homePct, homeRateKwh, publicRateKwh, gasPriceDollar } = inputs;
+  const { evEfficiency, gasMpg, annualMiles, homePct, homeRateKwh, publicRateKwh, gasPriceDollar, stateEvFee = 0 } = inputs;
 
   const homeKwh   = (annualMiles / evEfficiency) * (homePct / 100);
   const publicKwh = (annualMiles / evEfficiency) * (1 - homePct / 100);
@@ -10,6 +10,7 @@ export function calculateSavings(inputs: SavingsInputs): SavingsResult {
   const evAnnualCost  = (homeKwh * homeRateKwh / 100) + (publicKwh * publicRateKwh / 100);
   const gasAnnualCost = (annualMiles / gasMpg) * gasPriceDollar;
   const annualSavings = gasAnnualCost - evAnnualCost;
+  const netAnnualSavings = annualSavings - stateEvFee;
 
   return {
     evAnnualCost,
@@ -23,5 +24,9 @@ export function calculateSavings(inputs: SavingsInputs): SavingsResult {
     homeKwh,
     publicKwh,
     annualKwh,
+    stateEvFee,
+    netAnnualSavings,
+    netMonthlySavings:  netAnnualSavings / 12,
+    netFiveYearSavings: netAnnualSavings * 5,
   };
 }

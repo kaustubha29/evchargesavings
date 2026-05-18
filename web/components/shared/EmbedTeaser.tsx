@@ -79,7 +79,7 @@ export function EmbedTeaser({ states, evs, defaultStateSlug, defaultEvSlug }: Pr
             <span className="text-base font-sans font-normal text-ink-mute">/yr</span>
           </div>
           <p className="text-xs text-ink-mute leading-relaxed mb-5">
-            Based on {state.kwhCents.toFixed(1)}¢/kWh electricity · ${state.gasDollar.toFixed(2)}/gal gas · {ANNUAL_MILES.toLocaleString()} miles/yr.
+            Based on {state.kwhCents.toFixed(1)}¢/kWh electricity · ${state.gasDollar.toFixed(2)}/gal gas · {ANNUAL_MILES.toLocaleString()} miles/yr. Fuel only — before any state EV registration fee.
           </p>
           <a
             href={ctaUrl}

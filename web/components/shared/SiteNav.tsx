@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 
 export function SiteNav() {
   const pathname = usePathname();
-  if (pathname.startsWith("/embed")) return null;
+  if (pathname === "/embed") return null;
 
   return (
     <div className="bg-[#0d2c1f] text-cream font-mono text-[13px] uppercase tracking-[.08em] px-7 py-2.5 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1.5 sm:gap-4">

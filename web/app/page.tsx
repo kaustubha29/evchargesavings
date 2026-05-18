@@ -119,11 +119,11 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 md:gap-3">
-              {GUIDES.slice(0, 25).map((g) => (
+              {GUIDES.slice(0, 25).map((g, i) => (
                 <a
                   key={g.slug}
                   href={`/guides/${g.slug}`}
-                  className="group relative overflow-hidden border border-line rounded-lg bg-paper p-3 min-h-28 md:min-h-32 flex flex-col hover:-translate-y-0.5 hover:border-forest/35 hover:shadow-1 transition-all"
+                  className={`group relative overflow-hidden border border-line rounded-lg bg-paper p-3 min-h-28 md:min-h-32 flex-col hover:-translate-y-0.5 hover:border-forest/35 hover:shadow-1 transition-all ${i >= 10 ? "hidden sm:flex" : "flex"}`}
                 >
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <span className="font-mono text-[9px] uppercase tracking-wide text-forest bg-forest/8 px-2 py-0.5 rounded-full truncate">

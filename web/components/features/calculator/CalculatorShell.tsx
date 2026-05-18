@@ -33,9 +33,10 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
     evSlug, gasId, annualMiles, homePct,
     homeRateKwh, publicRateKwh, gasPriceDollar,
     stateCode, stateData, city, zip,
-    isDetecting,
+    isDetecting, includeStateEvFee,
     setEvSlug, setGasId, setMiles, setHomePct,
     setHomeRate, setPublicRate, setGasPrice, setLocation, setZip,
+    setIncludeStateEvFee,
   } = store;
 
   const router   = useRouter();
@@ -78,7 +79,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
 
   const savings = useMemo(
     () => computeSavings(ev.efficiency, gas.mpg, store),
-    [ev.efficiency, gas.mpg, annualMiles, homePct, homeRateKwh, publicRateKwh, gasPriceDollar]
+    [ev.efficiency, gas.mpg, annualMiles, homePct, homeRateKwh, publicRateKwh, gasPriceDollar, stateData, includeStateEvFee]
   );
 
   const co2 = useMemo(
@@ -229,7 +230,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
 
         {/* Verdict chip — big + animated */}
         {(() => {
-          const s = savings.annualSavings;
+          const s = includeStateEvFee ? savings.netAnnualSavings : savings.annualSavings;
           const isGood = s > 800;
           const isOkay = s >= 300;
           const isPos  = s > 0;
@@ -250,25 +251,84 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
         })()}
 
         {/* Annual headline */}
-        <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute flex items-center gap-2 mb-1">
-          <span className="w-2 h-2 rounded-full bg-emerald animate-pulse" />
-          Estimated annual fuel savings · {locationLabel}
-        </div>
-        <div className="font-serif font-medium leading-none tracking-tight text-forest"
-          style={{ fontSize: "clamp(52px,9vw,96px)", background:"linear-gradient(135deg,#1a4d36,#2ecc71)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>
-          {fmt.money0(savings.annualSavings)}
-        </div>
-        <div className="font-mono text-[11px] text-ink-mute mt-2 mb-5 flex flex-wrap items-center gap-x-3 gap-y-1">
-          <span className="text-ink font-medium">{fmt.money0(savings.monthlySavings)}/mo</span>
-          <span>·</span>
-          <span>{fmt.money0(savings.fiveYearSavings)} over 5 yrs</span>
-          <span>·</span>
-          <span>fuel cost only, ±10%</span>
-          <span>·</span>
-          <a href={`/compare/${evSlug}-vs-${gasId}`} className="text-forest hover:underline">
-            see break-even →
-          </a>
-        </div>
+        {(() => {
+          const feeOn = includeStateEvFee && stateData.evFee > 0;
+          const headlineAnnual  = feeOn ? savings.netAnnualSavings  : savings.annualSavings;
+          const headlineMonthly = feeOn ? savings.netMonthlySavings : savings.monthlySavings;
+          const headline5yr     = feeOn ? savings.netFiveYearSavings : savings.fiveYearSavings;
+          return (
+            <>
+              <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-emerald animate-pulse" />
+                Estimated annual savings · {locationLabel}
+              </div>
+              <div className="font-serif font-medium leading-none tracking-tight text-forest"
+                style={{ fontSize: "clamp(52px,9vw,96px)", background:"linear-gradient(135deg,#1a4d36,#2ecc71)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>
+                {fmt.money0(headlineAnnual)}
+              </div>
+              <div className="font-mono text-[11px] text-ink-mute mt-2 mb-5 flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span className="text-ink font-medium">{fmt.money0(headlineMonthly)}/mo</span>
+                <span>·</span>
+                <span>{fmt.money0(headline5yr)} over 5 yrs</span>
+                <span>·</span>
+                <span>{feeOn ? "after state EV fee" : "fuel cost only"}, ±10%</span>
+                <span>·</span>
+                <a href={`/compare/${evSlug}-vs-${gasId}`} className="text-forest hover:underline">
+                  see break-even →
+                </a>
+              </div>
+            </>
+          );
+        })()}
+
+        {/* Savings breakdown — state EV fee is the delta gas cars don't pay */}
+        {stateData.evFee > 0 && (
+          <div className="pt-4 border-t border-line">
+            <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">Savings breakdown</div>
+            <div className="space-y-1.5 text-xs">
+              <div className="flex justify-between">
+                <span className="text-ink-mute">Annual fuel savings</span>
+                <span className="font-mono font-medium text-ink">{fmt.money0(savings.annualSavings)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className={includeStateEvFee ? "text-ink-mute" : "text-ink-mute line-through"}>
+                  {stateData.name} EV registration fee
+                </span>
+                <span className={`font-mono font-medium ${includeStateEvFee ? "text-rust" : "text-ink-mute line-through"}`}>
+                  −{fmt.money0(stateData.evFee)}
+                </span>
+              </div>
+              <div className="flex justify-between pt-1.5 border-t border-line">
+                <span className="text-ink font-medium">Net annual savings</span>
+                <span className="font-mono font-medium text-forest">
+                  {fmt.money0(includeStateEvFee ? savings.netAnnualSavings : savings.annualSavings)}
+                </span>
+              </div>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={includeStateEvFee}
+              onClick={() => setIncludeStateEvFee(!includeStateEvFee)}
+              className="flex items-center gap-2.5 mt-3 cursor-pointer select-none text-left group"
+            >
+              <span
+                className={`relative inline-flex flex-shrink-0 h-4 w-7 items-center rounded-full transition-colors duration-200 ${
+                  includeStateEvFee ? "bg-forest" : "bg-black/15"
+                }`}
+              >
+                <span
+                  className={`inline-block h-3 w-3 transform rounded-full bg-paper shadow-sm transition-transform duration-200 ${
+                    includeStateEvFee ? "translate-x-3.5" : "translate-x-0.5"
+                  }`}
+                />
+              </span>
+              <span className="text-xs text-ink-mute group-hover:text-ink-2 transition-colors">
+                Include {stateData.name}&apos;s {fmt.money0(stateData.evFee)} annual EV fee — most owners pay this on top of registration
+              </span>
+            </button>
+          </div>
+        )}
 
         {/* Fuel cost bars */}
         <div className="pt-4 border-t border-line">
@@ -303,8 +363,8 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
 
       {/* Stat cards */}
       <div className="grid grid-cols-3 gap-4">
-        <StatCard accent label="Annual savings" value={fmt.money0(savings.annualSavings)} sub={`${ev.name} vs ${gas.name}`} />
-        <StatCard label="5-year savings" value={fmt.money0(savings.fiveYearSavings)} />
+        <StatCard accent label="Annual savings" value={fmt.money0(includeStateEvFee && stateData.evFee > 0 ? savings.netAnnualSavings : savings.annualSavings)} sub={includeStateEvFee && stateData.evFee > 0 ? `after ${stateData.name} EV fee` : `${ev.name} vs ${gas.name}`} />
+        <StatCard label="5-year savings" value={fmt.money0(includeStateEvFee && stateData.evFee > 0 ? savings.netFiveYearSavings : savings.fiveYearSavings)} />
         <StatCard label="CO₂ saved / yr" value={fmt.lbs(co2.savedLbs)} sub={`${co2.savedMetricTons.toFixed(1)} metric tons`} />
       </div>
 

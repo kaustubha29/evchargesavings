@@ -6,20 +6,25 @@ export interface SavingsInputs {
   homeRateKwh: number;    // ¢/kWh
   publicRateKwh: number;  // ¢/kWh
   gasPriceDollar: number;
+  stateEvFee?: number;    // annual EV-specific registration surcharge, $ (0 if excluded)
 }
 
 export interface SavingsResult {
   evAnnualCost: number;
   gasAnnualCost: number;
-  annualSavings: number;
-  monthlySavings: number;
-  fiveYearSavings: number;
+  annualSavings: number;        // fuel-only (gas fuel cost − EV charging cost)
+  monthlySavings: number;       // fuel-only / 12
+  fiveYearSavings: number;      // fuel-only × 5
   savingsPct: number;
   evCostPerMile: number;
   gasCostPerMile: number;
   homeKwh: number;
   publicKwh: number;
   annualKwh: number;
+  stateEvFee: number;           // annual EV registration surcharge applied
+  netAnnualSavings: number;     // annualSavings − stateEvFee
+  netMonthlySavings: number;    // netAnnualSavings / 12
+  netFiveYearSavings: number;   // netAnnualSavings × 5
 }
 
 export interface BreakEvenResult {

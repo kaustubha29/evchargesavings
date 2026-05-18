@@ -19,6 +19,7 @@ interface CalculatorStore {
   gasPriceDollar: number;
   stateCode:      string | null;
   stateData:      StateData;
+  includeStateEvFee: boolean;
   city:           string | null;
   zip:            string | null;
   isDetecting:    boolean;
@@ -34,6 +35,7 @@ interface CalculatorStore {
   setLocation:     (code: string, data: StateData, zip?: string | null, city?: string | null) => void;
   setZip:          (zip: string | null) => void;
   setDetecting:    (v: boolean) => void;
+  setIncludeStateEvFee: (v: boolean) => void;
 }
 
 export const useCalculatorStore = create<CalculatorStore>()(
@@ -48,6 +50,7 @@ export const useCalculatorStore = create<CalculatorStore>()(
       gasPriceDollar: NATIONAL_AVG.gasDollar,
       stateCode:      null,
       stateData:      NATIONAL_AVG,
+      includeStateEvFee: true,
       city:           null,
       zip:            null,
       isDetecting:    false,
@@ -63,6 +66,7 @@ export const useCalculatorStore = create<CalculatorStore>()(
         set({ stateCode, stateData, zip, city, homeRateKwh: stateData.kwhCents, gasPriceDollar: stateData.gasDollar }),
       setZip: (zip) => set({ zip }),
       setDetecting: (isDetecting) => set({ isDetecting }),
+      setIncludeStateEvFee: (includeStateEvFee) => set({ includeStateEvFee }),
     }),
     {
       name: "ecs-calc-v2",
@@ -70,6 +74,7 @@ export const useCalculatorStore = create<CalculatorStore>()(
         evSlug: s.evSlug, gasId: s.gasId,
         annualMiles: s.annualMiles, homePct: s.homePct,
         stateCode: s.stateCode, city: s.city, zip: s.zip,
+        includeStateEvFee: s.includeStateEvFee,
       }),
     }
   )
@@ -79,7 +84,7 @@ export const useCalculatorStore = create<CalculatorStore>()(
 export function computeSavings(
   evEfficiency: number,
   gasMpg: number,
-  store: Pick<CalculatorStore, "annualMiles"|"homePct"|"homeRateKwh"|"publicRateKwh"|"gasPriceDollar">
+  store: Pick<CalculatorStore, "annualMiles"|"homePct"|"homeRateKwh"|"publicRateKwh"|"gasPriceDollar"|"stateData"|"includeStateEvFee">
 ): SavingsResult {
   return calculateSavings({
     evEfficiency,
@@ -89,6 +94,7 @@ export function computeSavings(
     homeRateKwh:    store.homeRateKwh,
     publicRateKwh:  store.publicRateKwh,
     gasPriceDollar: store.gasPriceDollar,
+    stateEvFee:     store.includeStateEvFee ? (store.stateData?.evFee ?? 0) : 0,
   });
 }
 

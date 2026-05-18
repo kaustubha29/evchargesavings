@@ -224,6 +224,14 @@ export default async function CostToChargePage({ params }: Props) {
                 </div>
               ))}
             </div>
+
+            {state.evFee > 0 && (
+              <p className="text-ink-mute text-xs mt-4 max-w-xl leading-relaxed">
+                Note: {state.name} charges EVs a <b className="text-ink">{fmt.money0(state.evFee)}/year</b> registration surcharge that gas cars don&apos;t pay.
+                Factoring it in, real net savings here are about <b className="text-forest">{fmt.money0(savings.annualSavings - state.evFee)}/year</b>.
+                {" "}<a href="/how-we-calculate" className="text-forest hover:underline">How we calculate →</a>
+              </p>
+            )}
           </div>
         </section>
 

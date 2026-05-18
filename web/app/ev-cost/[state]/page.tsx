@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const DEFAULT_MILES = 15000;
+const DEFAULT_MILES = 13500;
 const DEFAULT_HOME_PCT = 80;
 
 export default async function StateCalculatorPage({ params }: Props) {
@@ -60,7 +60,7 @@ export default async function StateCalculatorPage({ params }: Props) {
   const gasVehicles = gasRepository.getAll();
 
   // Pre-compute example: Model Y LR vs Toyota RAV4 for structured data / hero text
-  const modelY = evRepository.getBySlug("t-my-lr-awd") ?? evRepository.getAll()[0];
+  const modelY = evRepository.getBySlug("tesla-model-y-long-range-awd") ?? evRepository.getAll()[0];
   const rav4   = gasRepository.getById("toyota-rav4") ?? gasVehicles[0];
 
   const exSavings = calculateSavings({
@@ -71,6 +71,7 @@ export default async function StateCalculatorPage({ params }: Props) {
     homeRateKwh:    stateData.kwhCents,
     publicRateKwh:  stateData.kwhCents * 2.5,
     gasPriceDollar: stateData.gasDollar,
+    stateEvFee:     stateData.evFee,
   });
   const exCo2 = calculateCO2(DEFAULT_MILES, rav4.mpg, exSavings.annualKwh);
 
@@ -87,7 +88,7 @@ export default async function StateCalculatorPage({ params }: Props) {
       variableMeasured: [
         { "@type": "PropertyValue", name: "Electricity rate", value: `${stateData.kwhCents}¢/kWh` },
         { "@type": "PropertyValue", name: "Gas price",        value: `$${stateData.gasDollar}/gal` },
-        { "@type": "PropertyValue", name: "Example annual EV savings (Model Y vs RAV4)", value: fmt.money0(exSavings.annualSavings) },
+        { "@type": "PropertyValue", name: "Example net annual EV savings (Model Y vs RAV4, after state EV fee)", value: fmt.money0(exSavings.netAnnualSavings) },
       ],
     },
   };
@@ -118,16 +119,17 @@ export default async function StateCalculatorPage({ params }: Props) {
               Electricity costs <b className="text-ink">{fmt.cents1(stateData.kwhCents)}/kWh</b> and
               gas runs <b className="text-ink">{fmt.money2(stateData.gasDollar)}/gal</b> in {stateData.name}.
               A Model Y vs RAV4 saves roughly{" "}
-              <b className="text-forest">{fmt.money0(exSavings.annualSavings)}/yr</b> at 15,000 miles.
+              <b className="text-forest">{fmt.money0(exSavings.netAnnualSavings)}/yr</b> at 13,500 miles
+              {stateData.evFee > 0 && <> (after {stateData.name}&apos;s {fmt.money0(stateData.evFee)} EV registration fee)</>}.
             </p>
 
             {/* Extractable answer block for AI citation */}
             <p className="text-sm text-ink-2 bg-cream-soft border border-line rounded-xl px-4 py-3 mb-6 max-w-xl leading-relaxed">
-              <strong>Cost to charge at home in {stateData.name}:</strong>{" "}
-              {((stateData.kwhCents / 100) / modelY.efficiency * 100).toFixed(1)}¢ per mile ·{" "}
-              {fmt.money2((stateData.kwhCents / 100) * modelY.battery)} for a full {modelY.battery} kWh charge (Model Y) ·{" "}
-              {fmt.money0(exSavings.evAnnualCost)}/year at 15,000 miles.
-              Source: EIA {elecPeriod ?? "May 2026"}.
+              <strong>Cost to charge the Model Y in {stateData.name}:</strong>{" "}
+              {((stateData.kwhCents / 100) / modelY.efficiency * 100).toFixed(1)}¢ per mile at the home rate ·{" "}
+              {fmt.money2((stateData.kwhCents / 100) * modelY.battery)} for a full {modelY.battery} kWh charge ·{" "}
+              {fmt.money0(exSavings.evAnnualCost)}/year at 13,500 miles.
+              The annual figure assumes 80% home charging and 20% public fast-charging (priced at 2.5× the home rate). Source: EIA {elecPeriod ?? "May 2026"} (latest published — EIA releases residential rates ~3 months in arrears).
             </p>
 
             {/* Quick-stat row */}
@@ -234,9 +236,11 @@ export default async function StateCalculatorPage({ params }: Props) {
                   {[
                     { label: "Electricity rate (EIA)", state: fmt.cents1(stateData.kwhCents) + "/kWh", nat: "16.5¢/kWh" },
                     { label: "Gas price (EIA)",        state: fmt.money2(stateData.gasDollar) + "/gal", nat: "$3.45/gal" },
-                    { label: "Annual EV cost (15k mi, 80% home)", state: fmt.money0(exSavings.evAnnualCost), nat: "$900" },
-                    { label: "Annual gas cost (15k mi, RAV4)",    state: fmt.money0(exSavings.gasAnnualCost), nat: "$2,588" },
-                    { label: "Annual savings",    state: fmt.money0(exSavings.annualSavings), nat: "$1,688" },
+                    { label: "Annual EV cost (13.5k mi, 80% home)", state: fmt.money0(exSavings.evAnnualCost), nat: "$810" },
+                    { label: "Annual gas cost (13.5k mi, RAV4)",    state: fmt.money0(exSavings.gasAnnualCost), nat: "$2,329" },
+                    { label: "Annual fuel savings",    state: fmt.money0(exSavings.annualSavings), nat: "$1,519" },
+                    { label: "State EV registration fee", state: stateData.evFee > 0 ? `−${fmt.money0(stateData.evFee)}` : "None", nat: "−$138" },
+                    { label: "Net annual savings", state: fmt.money0(exSavings.netAnnualSavings), nat: "$1,381" },
                   ].map((row) => (
                     <tr key={row.label} className="border-b border-line-soft">
                       <td className="py-3 pr-6 text-ink-2">{row.label}</td>
@@ -250,7 +254,7 @@ export default async function StateCalculatorPage({ params }: Props) {
             {(elecPeriod || gasPeriod) && (
               <p className="text-ink-mute font-mono text-[10px] mt-4">
                 Source: EIA
-                {elecPeriod && <> · Electricity: residential avg · {elecPeriod}</>}
+                {elecPeriod && <> · Electricity: residential avg · {elecPeriod} (latest published; EIA releases residential rates ~3 months in arrears)</>}
                 {gasPeriod  && <> · Gas: retail avg · {gasPeriod}</>}
               </p>
             )}

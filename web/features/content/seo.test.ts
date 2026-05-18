@@ -26,6 +26,7 @@ const mockState: StateData = {
   kwhCents: 13.2,
   gasDollar: 3.95,
   hasTOU: true,
+  evFee: 115,
 };
 
 describe("chargePageMeta", () => {

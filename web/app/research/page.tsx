@@ -148,7 +148,7 @@ export default function ResearchPage() {
               Real-world cost varies by driving pattern, home vs public charging mix, and time-of-use rate enrollment.
             </p>
             <p className="text-sm text-ink-3 leading-relaxed">
-              Formula: <span className="font-mono text-xs bg-ink text-emerald px-2 py-0.5 rounded">
+              Formula: <span className="font-mono text-xs bg-cream-soft border border-line text-forest px-2 py-0.5 rounded">
                 (13,500 ÷ 3.6) × (rate ÷ 100)
               </span>
             </p>
@@ -157,7 +157,7 @@ export default function ResearchPage() {
           {/* Full data table */}
           <section id="data-table" className="mb-12">
             <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-5">
-              All 50 states — {UPDATED} EIA residential rates
+              All 50 states + DC — {UPDATED} EIA rates + NCSL EV registration fees
             </div>
             <div className="overflow-x-auto rounded-2xl border border-line">
               <table className="w-full text-sm">
@@ -168,6 +168,7 @@ export default function ResearchPage() {
                     <th className="text-right px-4 py-3 font-mono text-[10px] uppercase tracking-widest text-ink-mute">¢/mile</th>
                     <th className="text-right px-4 py-3 font-mono text-[10px] uppercase tracking-widest text-ink-mute">Annual cost*</th>
                     <th className="text-right px-4 py-3 font-mono text-[10px] uppercase tracking-widest text-ink-mute">Gas price</th>
+                    <th className="text-right px-4 py-3 font-mono text-[10px] uppercase tracking-widest text-ink-mute">EV reg. fee/yr†</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -182,13 +183,15 @@ export default function ResearchPage() {
                       <td className="px-4 py-2.5 text-right font-mono text-sm text-ink-2">{costPerMile(s.kwhCents)}¢</td>
                       <td className="px-4 py-2.5 text-right font-mono text-sm font-medium text-forest">${annualCost(s.kwhCents).toLocaleString()}</td>
                       <td className="px-4 py-2.5 text-right font-mono text-sm text-ink-3">${s.gasDollar.toFixed(2)}/gal</td>
+                      <td className="px-4 py-2.5 text-right font-mono text-sm text-ink-2">{s.evFee > 0 ? `$${s.evFee}` : "—"}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
             <p className="text-xs text-ink-mute mt-3">
-              * Annual cost based on Tesla Model Y LR AWD, 13,500 mi/yr, 100% home charging.
+              * Annual cost based on Tesla Model Y LR AWD, 13,500 mi/yr, 100% home charging.{" "}
+              † Annual EV-specific registration surcharge (the fee EVs pay on top of base registration that all vehicles pay). Source: NCSL, verified May 2026 — several states index to inflation, confirm with your DMV.
             </p>
           </section>
 
@@ -212,6 +215,11 @@ export default function ResearchPage() {
                   url: "https://www.fueleconomy.gov/feg/download.shtml",
                   note: "EPA-tested MPGe and kWh/100mi efficiency ratings for 130+ EV models.",
                 },
+                {
+                  name: "NCSL — Special Registration Fees for Electric & Hybrid Vehicles",
+                  url: "https://www.ncsl.org/transportation/special-registration-fees-for-electric-and-hybrid-vehicles",
+                  note: "Annual state EV registration surcharge for all 50 states + DC. Verified May 2026. 41 states + DC charge a fee, ranging $50–$290 (median ~$138); several index to inflation.",
+                },
               ].map((s) => (
                 <div key={s.url} className="flex gap-4 py-3 border-b border-line-soft last:border-0">
                   <div>
@@ -232,8 +240,27 @@ export default function ResearchPage() {
               Free to use with attribution. Suggested citation:
             </p>
             <div className="bg-ink text-cream rounded-xl px-5 py-4 font-mono text-xs leading-relaxed">
-              EVChargeSavings. &ldquo;EV Charging Cost by State — 2026.&rdquo; {UPDATED}. evchargesavings.com/research. Source data: U.S. Energy Information Administration.
+              EVChargeSavings. &ldquo;EV Charging Cost &amp; Registration Fees by State — 2026.&rdquo; {UPDATED}. evchargesavings.com/research. Source data: U.S. Energy Information Administration; National Conference of State Legislatures.
             </div>
+          </section>
+
+          {/* Embed widget */}
+          <section id="embed" className="bg-cream-soft border border-line rounded-2xl p-6 mb-12">
+            <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">Embed the calculator</div>
+            <p className="text-sm text-ink-3 leading-relaxed mb-4 max-w-2xl">
+              Free to embed on any site — blog posts, utility EV resources pages, dealership websites. Add a state param to pre-select your readers&rsquo; location. No API key, no account.
+            </p>
+            <a
+              href="/embed-demo"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-forest text-white border border-forest hover:bg-emerald hover:border-emerald transition-all"
+            >
+              Get the embed code →
+            </a>
+            <p className="text-xs text-ink-mute mt-3">
+              Live preview, state/EV pre-load options, and copy-paste snippets are on the{" "}
+              <a href="/embed-demo" className="text-forest hover:underline">embed page</a>. Attribution link included automatically. For custom integrations or white-label options, email{" "}
+              <a href="mailto:media@evchargesavings.com" className="text-forest hover:underline">media@evchargesavings.com</a>.
+            </p>
           </section>
 
           {/* Media contact */}
@@ -250,43 +277,6 @@ export default function ResearchPage() {
             </a>
             <p className="text-xs text-ink-mute mt-3">
               Data is updated quarterly. Sign up below to receive the next update.
-            </p>
-          </section>
-
-          {/* Embed widget */}
-          <section id="embed" className="mb-12">
-            <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-5">Embed the calculator</div>
-            <p className="text-sm text-ink-3 leading-relaxed mb-6 max-w-2xl">
-              Free to embed on any site — blog posts, utility EV resources pages, dealership websites. Add a state param to pre-select your readers&rsquo; location. No API key, no account.
-            </p>
-            <div className="space-y-4">
-              {[
-                {
-                  label: "Teaser widget — drives traffic (default)",
-                  code: `<iframe src="https://www.evchargesavings.com/embed?state=california" width="100%" height="420" frameborder="0" style="border-radius:12px;border:1px solid #e5e5e5"></iframe>`,
-                },
-                {
-                  label: "Full calculator — self-contained tool",
-                  code: `<iframe src="https://www.evchargesavings.com/embed?state=california&mode=full" width="100%" height="700" frameborder="0" style="border-radius:12px;border:1px solid #e5e5e5"></iframe>`,
-                },
-                {
-                  label: "Teaser — pre-selected EV + state",
-                  code: `<iframe src="https://www.evchargesavings.com/embed?state=texas&ev=tesla-model-y-long-range-awd" width="100%" height="420" frameborder="0" style="border-radius:12px;border:1px solid #e5e5e5"></iframe>`,
-                },
-              ].map((ex) => (
-                <div key={ex.label} className="border border-line rounded-2xl overflow-hidden">
-                  <div className="bg-cream-soft px-4 py-2 border-b border-line font-mono text-[10px] uppercase tracking-widest text-ink-mute">
-                    {ex.label}
-                  </div>
-                  <pre className="bg-ink text-emerald text-xs px-5 py-4 overflow-x-auto leading-relaxed whitespace-pre-wrap break-all">
-                    {ex.code}
-                  </pre>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-ink-mute mt-4">
-              Attribution link included automatically. For custom integrations or white-label options, email{" "}
-              <a href="mailto:media@evchargesavings.com" className="text-forest hover:underline">media@evchargesavings.com</a>.
             </p>
           </section>
 

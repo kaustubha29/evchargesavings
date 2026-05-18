@@ -80,8 +80,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const NATIONAL_KWH_CENTS = 16.5;
 const NATIONAL_GAS_DOLLAR = 3.45;
-const DEFAULT_MILES = 15000;
+const DEFAULT_MILES = 13500;
 const DEFAULT_HOME_PCT = 80;
+const NATIONAL_EV_FEE = 138; // national median state EV registration surcharge (NCSL, 2026)
 const GAS_VEHICLE_MSRPS: Record<string, number> = {
   "toyota-rav4": 32000, "toyota-camry": 27000,
   "honda-cr-v": 31000, "honda-civic": 24000, "honda-accord": 28000,
@@ -116,6 +117,7 @@ export default async function ComparePage({ params }: Props) {
     homeRateKwh:    NATIONAL_KWH_CENTS,
     publicRateKwh:  NATIONAL_KWH_CENTS * 2.5,
     gasPriceDollar: NATIONAL_GAS_DOLLAR,
+    stateEvFee:     NATIONAL_EV_FEE,
   });
   const co2 = calculateCO2(DEFAULT_MILES, gas.mpg, savings.annualKwh);
   const gasMsrp = GAS_VEHICLE_MSRPS[gas.id] ?? 30000;
@@ -164,10 +166,17 @@ export default async function ComparePage({ params }: Props) {
             </h1>
             <p className="text-ink-3 text-lg max-w-xl leading-relaxed mb-8">
               {isEvCheaper
-                ? <>The {ev.name} saves <b className="text-forest">{fmt.money0(savings.annualSavings)}/yr</b> in fuel compared to the {gas.name} at 15,000 miles nationally.</>
+                ? <>The {ev.name} saves <b className="text-forest">{fmt.money0(savings.annualSavings)}/yr</b> in fuel compared to the {gas.name} at 13,500 miles nationally.</>
                 : <>At current rates, the {gas.name} costs less to fuel than the {ev.name} by {fmt.money0(-savings.annualSavings)}/yr.</>
               }
             </p>
+            {isEvCheaper && (
+              <p className="text-ink-mute text-sm max-w-xl leading-relaxed -mt-5 mb-8">
+                Most states also charge EVs an annual registration fee ($50–$290, ~$138 median). Factoring the national median, net savings are about{" "}
+                <b className="text-forest">{fmt.money0(savings.netAnnualSavings)}/yr</b>.{" "}
+                <a href="/#calculator" className="text-forest hover:underline">Check your state →</a>
+              </p>
+            )}
 
             {/* Side-by-side cards */}
             <div className="grid sm:grid-cols-2 gap-6 mb-8">
@@ -239,8 +248,9 @@ export default async function ComparePage({ params }: Props) {
             {/* Summary stats */}
             <div className="flex flex-wrap gap-6">
               {[
-                { label: "Annual savings",  val: fmt.money0(savings.annualSavings),    accent: isEvCheaper },
-                { label: "5-year savings",  val: fmt.money0(savings.fiveYearSavings),  accent: false },
+                { label: "Annual fuel savings",  val: fmt.money0(savings.annualSavings),    accent: isEvCheaper },
+                { label: "Net (after ~$138 EV fee)", val: fmt.money0(savings.netAnnualSavings), accent: false },
+                { label: "5-year net savings",  val: fmt.money0(savings.netFiveYearSavings),  accent: false },
                 { label: "CO₂ saved / yr",  val: fmt.lbs(co2.savedLbs),               accent: false },
                 ...(breakEven ? [{ label: "Break-even point", val: `${breakEven.years.toFixed(1)} yrs`, accent: false }] : []),
               ].map((s) => (
@@ -288,7 +298,7 @@ export default async function ComparePage({ params }: Props) {
             </p>
             <p className="text-ink-3 text-sm leading-relaxed">
               These figures use national average rates ({savings.evAnnualCost > 0 ? `${Math.round(NATIONAL_KWH_CENTS * 10) / 10}¢/kWh electricity` : ""},{" "}
-              ${NATIONAL_GAS_DOLLAR}/gal gas, 80% home charging, 15,000 miles/year).{" "}
+              ${NATIONAL_GAS_DOLLAR}/gal gas, 80% home charging, 13,500 miles/year).{" "}
               <a href="/how-we-calculate" className="text-forest hover:underline">See full methodology →</a>
             </p>
           </div>
@@ -303,7 +313,7 @@ export default async function ComparePage({ params }: Props) {
         {/* Bar chart comparison */}
         <section className="py-12 bg-ink text-cream">
           <div className="section-wrap">
-            <div className="font-mono text-xs uppercase tracking-widest text-cream/50 mb-6">Annual fuel cost at 15,000 miles</div>
+            <div className="font-mono text-xs uppercase tracking-widest text-cream/50 mb-6">Annual fuel cost at 13,500 miles</div>
             {[
               { label: gas.name,  val: savings.gasAnnualCost, color: "#c25234" },
               { label: ev.name,   val: savings.evAnnualCost,  color: "#34a960" },

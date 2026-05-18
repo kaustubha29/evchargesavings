@@ -20,8 +20,8 @@ type Mode = "teaser" | "full";
 const MODE_INFO = {
   teaser: {
     label: "Teaser widget",
-    tag: "Drives traffic to your site",
-    desc: "Shows a savings estimate with a 'See full breakdown' CTA. Best for blogs and news sites — readers click through to evchargesavings.com for the full tool.",
+    tag: "Lightweight — links out to the full tool",
+    desc: "Shows a savings estimate with a 'See full breakdown' CTA. Best for blogs and news sites — readers click through to evchargesavings.com for the full calculator.",
     height: 420,
   },
   full: {
@@ -184,11 +184,8 @@ export function EmbedDemoClient({ states }: { states: State[] }) {
             Copy the code above or email us for custom integrations or co-branded versions.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href="/research#embed" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-forest text-white border border-forest hover:bg-emerald transition-all">
-              See all embed options →
-            </a>
-            <a href="mailto:media@evchargesavings.com" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-transparent text-ink border border-line hover:border-forest/40 transition-all">
-              Contact us
+            <a href="mailto:media@evchargesavings.com" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-forest text-white border border-forest hover:bg-emerald transition-all">
+              Contact us for custom integrations →
             </a>
           </div>
         </div>
