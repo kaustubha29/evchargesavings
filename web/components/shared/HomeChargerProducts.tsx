@@ -19,7 +19,7 @@ const CHARGERS = [
     tag: "Smart pick",
     price: "$269",
     desc: "Up to 50 A, Bluetooth app, works with all J1772 EVs.",
-    url: "https://amzn.to/428gHih",
+    url: "https://www.amazon.com/dp/B0GS1J1LGJ?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2UEXKMIV15FPW&linkCode=tr1&tag=evchargesavin-20&linkId=amzn1.campaign.2UEXKMIV15FPW_1779095345424",
   },
   {
     name: "Tesla Wall Connector",
