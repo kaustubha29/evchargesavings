@@ -36,7 +36,7 @@ _Last updated: 2026-05-18_
 | **Root Insurance** | Insurance | $15/lead | Awin/ShareASale | Usage-based = perfect EV fit. Apply via Awin. |
 | **ATG Epower** | Charger + solar | 8% | Awin #107407 | ❌ Merchant not found — bad data, skip |
 | **LightStream** | Auto loans | $60/funded loan | Impact | ❌ EVs excluded — only classics/specialty/older models. Dead end. |
-| **Edmunds** | Auto leads | $10/new+used lead, $3.50/trade-in | CJ #1429390 | 📧 Pending on CJ — applied 2026-05-14 |
+| **Edmunds** | Auto leads | $10/new+used lead, $3.50/trade-in | CJ #1429390 | 📧 Followed up 2026-05-18 — pburrows@edmunds.com + edmunds@partnercentric.com |
 | **OhmConnect** | Demand response | $20–40/signup | FlexOffers | ❌ Sovrn denied. Revisit via FlexOffers once approved. |
 | **Emporia** | Charger hardware | Commission | Direct | ✅ Cade Brodbeck (VP BizDev) replied — call requested, calendar link sent |
 | **Grizzl-E** | Charger hardware | — | — | ❌ No affiliate program exists |
@@ -50,7 +50,7 @@ _Last updated: 2026-05-18_
 
 | Partner | Category | Payout | Network | Notes |
 |---|---|---|---|---|
-| **Insurify** | Insurance | $15/lead | CJ #5380944 | 📧 Pending on CJ — applied 2026-04-30 |
+| **Insurify** | Insurance | $15/lead | CJ #5380944 | 📧 Followed up 2026-05-18 — strategicpartnerships@insurify.com |
 | **CarGurus** | Auto leads | $3–4/lead | CJ | FlexOffers dead — apply via CJ (same account as Edmunds pending) |
 | **The Zebra (Awin)** | Insurance | ~$2–3 CPL | Awin #21804 | Low CPL. Skip until traffic scales. |
 

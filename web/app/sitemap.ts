@@ -21,6 +21,15 @@ const REAL_GAS_IDS = [
   "ram-1500",
 ];
 
+const PRICE_BANDS = [30000, 35000, 40000, 45000, 50000, 60000];
+
+const COMPARE_EV_IDS = [
+  "t-my-lr-awd", "t-my-rwd", "t-m3-rwd", "t-m3-lr-awd",
+  "h-i5-lr-rwd", "h-i6-lr-rwd", "k-ev6-lr-rwd", "k-ev9-wind",
+  "f-mache-sr", "f-lt-sr", "c-bolt", "c-eq-lt",
+  "vw-id4-pro", "bmw-i4-40", "cd-lyriq-rwd",
+];
+
 const TOP_CHARGE_EV_SLUGS = [
   "tesla-model-y-long-range-awd",
   "tesla-model-3-long-range-rwd",
@@ -119,6 +128,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
+  const bestEvsUnderUrls = PRICE_BANDS.map((p) => ({
+    url: `${BASE}/best-evs-under/${p}`,
+    lastModified: NOW,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  const topEvs = COMPARE_EV_IDS.map((id) => allEvs.find((e) => e.id === id)).filter(Boolean);
+  const compareEvsUrls: MetadataRoute.Sitemap = [];
+  for (let i = 0; i < topEvs.length; i++) {
+    for (let j = 0; j < topEvs.length; j++) {
+      if (i === j) continue;
+      compareEvsUrls.push({
+        url: `${BASE}/compare-evs/${topEvs[i]!.slug}-vs-${topEvs[j]!.slug}`,
+        lastModified: NOW,
+        changeFrequency: "monthly" as const,
+        priority: 0.65,
+      });
+    }
+  }
+
   return [
     { url: BASE,                        lastModified: NOW, changeFrequency: "weekly",  priority: 1.0 },
     { url: `${BASE}/news`,              lastModified: NOW, changeFrequency: "daily",   priority: 0.9 },
@@ -135,6 +165,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...stateUrls,
     ...evUrls,
     ...compareUrls,
+    ...compareEvsUrls,
+    ...bestEvsUnderUrls,
     ...chargeUrls,
   ];
 }

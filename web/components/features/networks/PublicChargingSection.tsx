@@ -35,6 +35,12 @@ const ADAPTERS = [
     desc: "Non-Tesla CCS cars at Tesla Superchargers. 500A / 1,000V with safety interlock.",
     url: "https://www.amazon.com/dp/B0FFSKH7BM?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2G7AKU1BZT76L&linkCode=tr1&tag=evchargesavin-20&linkId=amzn1.campaign.2G7AKU1BZT76L_1779094933045",
   },
+  {
+    name: "CCS → NACS (Lectron)",
+    price: "~$100",
+    desc: "Tesla and NACS EVs at CCS DC fast chargers (Electrify America, EVgo). DC fast only.",
+    url: "https://www.amazon.com/dp/B0DHK9YM3V?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1CARYGCBINSHG&linkCode=tr1&tag=evchargesavin-20&linkId=amzn1.campaign.1CARYGCBINSHG_1779094927452",
+  },
 ];
 
 function AdapterCard({ name, price, desc, url }: {
