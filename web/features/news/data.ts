@@ -22,6 +22,70 @@ export interface NewsArticle {
 
 export const NEWS: NewsArticle[] = [
   {
+    slug: "house-130-federal-ev-fee-proposal-2026",
+    title: "The House Wants EV Owners to Pay a $130 Federal Fee — Here's What It Would Actually Cost You",
+    hook: "Proposed, not law. $130/year for EVs, $35 for plug-in hybrids, rising over time. It dents the savings math but doesn't erase it — and many EV owners already pay a state version.",
+    description: "A House proposal in the new $580B surface transportation bill would add a $130 annual federal fee on EVs to backfill the Highway Trust Fund. Here's the real impact on EV-vs-gas savings — and the state-fee stacking question most coverage skips.",
+    readTime: "5 min read",
+    publishedAt: "2026-05-18",
+    sections: [
+      {
+        heading: "What was actually proposed",
+        body: "On May 18, 2026, the House Transportation and Infrastructure Committee released a roughly $580 billion, five-year surface transportation reauthorization bill. Tucked inside: a new federal annual fee on electric and plug-in hybrid vehicles. The headline number is $130 per year for a fully electric vehicle. Plug-in hybrids would pay $35. Conventional (non-plug-in) hybrids are exempt. The EV fee is structured to rise $5 every two years starting in 2029, capped at $150; the plug-in hybrid fee caps at $50. Critically: this is a proposal, not law. The bill is in committee negotiation. It exists because the current surface transportation authorization expires September 30, 2026, and lawmakers need a replacement — the EV fee is one financing piece inside a much larger bill that still has to pass both chambers.",
+        list: [
+          "EV: $130/year, +$5 every two years from 2029, max $150",
+          "Plug-in hybrid: $35/year, max $50",
+          "Conventional hybrid: exempt",
+          "Part of a ~$580B 5-year surface transportation reauthorization bill",
+          "Status: PROPOSED — not passed, not law. Current authorization expires Sept 30, 2026",
+        ],
+      },
+      {
+        heading: "Why they're proposing it",
+        body: "The Highway Trust Fund — which pays for road and bridge maintenance — is primarily funded by the federal gas tax of 18.4 cents per gallon. That tax hasn't increased since 1993 and isn't indexed to inflation, so its real value has eroded for three decades. EV drivers use the same roads but buy no gasoline, so they contribute nothing to the fund through fuel taxes. The proposal's framing is a 'user-pays' fairness argument: everyone who uses federal roads should help maintain them. Whether $130 is the right number is the political fight — for an average driver, the federal gas tax on a comparable gas car comes to roughly $90–$120 per year, so $130 is in the same ballpark but on the higher end of parity.",
+      },
+      {
+        heading: "What $130 a year actually does to the savings math",
+        body: "This is the number that matters for anyone weighing an EV. A typical EV saves roughly $800–$1,500 per year in fuel costs versus a comparable gas car, depending on your state's electricity rate and how many miles you drive. A $130 annual fee reduces that — it does not erase it. In a cheap-electricity state like Washington or a high-mileage household, the fee is a rounding error against $1,200+ in annual fuel savings. In an expensive-electricity state with low annual mileage, where savings might only be $600–$800, a $130 fee is a more meaningful 15–20% haircut on the benefit. The honest takeaway: for most drivers the EV cost case survives this fee comfortably; for marginal cases in high-rate states it tightens the break-even. Run your specific numbers rather than trusting a national average — the answer genuinely depends on your state and mileage.",
+        list: [
+          "Typical EV fuel savings: ~$800–$1,500/yr vs comparable gas car",
+          "$130 fee = small dent for high-mileage or cheap-electricity drivers",
+          "$130 fee = ~15–20% of the benefit for low-mileage drivers in expensive states",
+          "Break-even year moves later by a fraction, not years",
+        ],
+      },
+      {
+        heading: "The part most coverage skips: you may already pay a state version",
+        body: "National coverage is treating this as a brand-new cost on EV owners. For many, it isn't entirely new — it's potentially a second layer. A large majority of US states already charge their own annual EV registration surcharge, and several are higher than the proposed federal figure. These state fees typically run from around $50 to well over $200 per year depending on the state. The unanswered question in the proposal is stacking: does a $130 federal fee sit on top of existing state EV fees, or would states adjust theirs down, or would the federal mechanism partially replace state collection? The bill text released so far does not cleanly resolve this. If you already pay a triple-digit state EV fee at registration, the marginal impact of a federal $130 could be the full $130 on top — or less, depending on how this is reconciled. That reconciliation is one of the bigger open items, and it's worth watching as the bill moves.",
+        list: [
+          "Most states already levy an annual EV registration fee (~$50 to $200+)",
+          "Open question: federal fee stacks on state fees, or offsets them?",
+          "Bill text so far does not resolve stacking — watch this as it moves",
+          "Check your state's current EV registration surcharge to know your real baseline",
+        ],
+      },
+      {
+        heading: "What happens next",
+        body: "This is early. The bill has to clear committee, pass the House, get reconciled with whatever the Senate produces, and be signed — all before or around the September 30, 2026 authorization deadline, which itself can be extended by short-term patches. There is already opposition: Senate Democrats including Ron Wyden and Sheldon Whitehouse, along with environmental and EV-advocacy groups, argue a flat federal fee risks slowing EV adoption and is poorly calibrated against what gas drivers actually pay. Supporters counter that road funding is collapsing and EVs have had a free ride on maintenance costs. The number, the start date, the inflation escalator, and the state-stacking question are all still negotiable. Nothing about this changes the cost of owning an EV today — but if you're modeling a 5-year ownership cost, pencil in a plausible $100–$150/year federal fee as a scenario, not a certainty.",
+        list: [
+          "Must pass House, reconcile with Senate, be signed — none of that has happened",
+          "Opposition from Senate Democrats and EV-advocacy groups already public",
+          "Fee amount, start date, escalator, and state stacking all still negotiable",
+          "For 5-year cost modeling: treat ~$100–$150/yr as a scenario, not a fact",
+        ],
+      },
+    ],
+    sources: [
+      { label: "Bloomberg — US House Unveiled Plan to Charge $130 Fee for Electric Vehicles", url: "https://www.bloomberg.com/news/articles/2026-05-18/us-house-unveiled-plan-to-charge-130-fee-for-electric-vehicles" },
+      { label: "CNBC — House lawmakers propose $130 annual EV fee to pay for road repairs", url: "https://www.cnbc.com/2026/05/18/house-lawmakers-propose-130-annual-ev-fee-to-pay-for-road-repairs.html" },
+      { label: "US News — US House Lawmakers Propose $130 Annual EV Fee", url: "https://www.usnews.com/news/top-news/articles/2026-05-18/us-house-lawmakers-propose-130-annual-ev-fee-to-pay-for-road-repairs" },
+      { label: "The Detroit News — U.S. House proposes nationwide fee for EV drivers", url: "https://www.detroitnews.com/story/business/autos/2026/05/18/u-s-house-proposes-nationwide-fee-for-ev-drivers/90141291007/" },
+      { label: "E&E News — Democrats on collision course over EV fees in highway bill", url: "https://www.eenews.net/articles/democrats-on-collision-course-over-ev-fees-in-highway-bill/" },
+      { label: "EV Charge Savings: EV vs Gas Savings by State", url: "https://evchargesavings.com/guides/ev-vs-gas-savings-usa" },
+      { label: "EV Charge Savings: Calculate your real savings", url: "https://evchargesavings.com/#calculator" },
+    ],
+  },
+  {
     slug: "home-ev-charger-tax-credit-ends-june-2026",
     title: "The Home EV Charger Tax Credit Ends June 30, 2026 — and Most People Won't Qualify",
     hook: "30% back, up to $1,000, on a home charger install. But there's a census-tract catch that disqualifies most suburban and urban homeowners — and the window closes June 30.",
