@@ -231,12 +231,6 @@ export const GUIDES: Guide[] = [
         answer: "Waymo's vehicles (Jaguar I-PACE, Zeekr RT) are the only true autonomous option — but you're a passenger, not an owner. Among purchasable EVs, GM Super Cruise (Cadillac, GMC, Chevy) and Hyundai/Kia HDA2 (EV9, Ioniq 6, EV6) are widely regarded as more reliable than Tesla FSD for highway assist. Tesla FSD handles more scenarios but has higher intervention rates on city streets.",
       },
     ],
-    sources: [
-      { label: "SAE International — Levels of Driving Automation", url: "https://www.sae.org/standards/content/j3016_202104/" },
-      { label: "Waymo — Service Area", url: "https://waymo.com/waymoone/" },
-      { label: "Tesla FSD Pricing", url: "https://www.tesla.com/support/full-self-driving-subscriptions" },
-      { label: "NHTSA — Automated Vehicles", url: "https://www.nhtsa.gov/technology-innovation/automated-vehicles-safety" },
-    ],
   },
   {
     slug: "ev-utility-rate-plans-guide",
