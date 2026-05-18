@@ -25,13 +25,13 @@ export const NEWS: NewsArticle[] = [
     slug: "ev-utility-rate-programs-slash-charging-cost-2026",
     title: "The Utility Rate Plans That Make Home EV Charging Almost Free — And Most Owners Don't Know They Exist",
     hook: "Georgia Power: 6.6¢/kWh overnight. Duke Energy Florida: 3.5¢/kWh. SDG&E: 12¢/kWh. Your utility likely has a hidden EV rate — here's how to find it.",
-    description: "Most EV owners pay their utility's standard residential rate. A viral Reddit post showed what's possible when you don't: an SDG&E customer charging a Kia EV9 at 13¢/kWh while neighbors pay 50¢+. These utility EV programs exist across the country — and most owners never enroll.",
+    description: "Most EV owners pay their utility's standard residential rate. A viral Reddit post showed what's possible when you don't: an SDG&E customer charging an Audi Q4 55 e-tron at 13¢/kWh — 4.3¢/mile vs 34¢/mile for their gas car. These utility EV programs exist across the country — and most owners never enroll.",
     readTime: "5 min read",
     publishedAt: "2026-05-17",
     sections: [
       {
         heading: "The number that went viral",
-        body: "A Reddit post this week stopped a lot of EV owners mid-scroll. An Audi Q6 e-tron driver in San Diego reported charging at 13¢/kWh through SDG&E's Power Your Drive program — while SDG&E's standard peak rate runs $0.50–$0.80/kWh. Their cost per mile: 4.3¢. Their Toyota 4Runner: 34¢. That 8x gap isn't typical, but the underlying mechanism — a utility EV rate plan that most customers never enroll in — exists at dozens of utilities across the country.",
+        body: "A Reddit post this week stopped a lot of EV owners mid-scroll. u/ada586 — a 2025 Audi Q4 55 e-tron driver in San Diego — posted that they charge at 13¢/kWh through SDG&E's Power Your Drive program, while SDG&E's standard peak rate runs $0.50–$0.80/kWh. Their cost per mile: 4.3¢. Their Toyota 4Runner: 34¢/mile. The post hit 547 upvotes in 24 hours. That 8x gap isn't typical, but the underlying mechanism — a utility EV rate plan that most customers never enroll in — exists at dozens of utilities across the country.",
       },
       {
         heading: "Georgia Power: the cheapest overnight EV charging in the US",
@@ -94,6 +94,7 @@ export const NEWS: NewsArticle[] = [
       },
     ],
     sources: [
+      { label: "Reddit: u/ada586 — \"EV costs 7.9x less than my ICE in California\" (r/electricvehicles)", url: "https://www.reddit.com/r/electricvehicles/comments/1tfc41t/broken_record_ev_costs_79_times_less_than_my_ice/" },
       { label: "SDG&E Power Your Drive", url: "https://www.sdge.com/residential/electric-vehicles/power-your-drive/power-your-drive-ev-drivers" },
       { label: "Georgia Power Overnight Advantage", url: "https://www.georgiapower.com/residential/billing-and-rate-plans/pricing-and-rate-plans/plug-in-ev.html" },
       { label: "Duke Energy EV Overnight Advantage", url: "https://www.duke-energy.com/home/billing/ev-overnight-advantage" },
