@@ -13,13 +13,13 @@ const ADAPTERS = [
   },
   {
     name: "J1772 → NACS (Lectron 80A)",
-    price: "$40",
+    price: "$37",
     desc: "Non-Tesla NACS EV at any J1772 Level 2 station. UL 2252 certified.",
     url: "https://www.amazon.com/dp/B0G529N8NN?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2CU7ECP5BTIGI&linkCode=tr1&tag=evchargesavin-20&linkId=amzn1.campaign.2CU7ECP5BTIGI_1779094929359",
   },
   {
     name: "NACS → J1772 (Lectron 48A)",
-    price: "$55",
+    price: "$113",
     desc: "Tesla at public J1772 / Level 2 stations. Full 48 A rated.",
     url: "https://www.amazon.com/dp/B09DCTJCTV?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.25WUOKWFSEJE1&linkCode=tr1&tag=evchargesavin-20&linkId=amzn1.campaign.25WUOKWFSEJE1_1779094925512",
   },
@@ -31,8 +31,8 @@ const ADAPTERS = [
   },
   {
     name: "NACS → CCS1 (Lectron)",
-    price: "$79",
-    desc: "Ford, Rivian, GM, Polestar at CCS1 DC fast chargers. Safety interlock.",
+    price: "$180",
+    desc: "Non-Tesla CCS cars at Tesla Superchargers. 500A / 1,000V with safety interlock.",
     url: "https://www.amazon.com/dp/B0FFSKH7BM?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2G7AKU1BZT76L&linkCode=tr1&tag=evchargesavin-20&linkId=amzn1.campaign.2G7AKU1BZT76L_1779094933045",
   },
 ];
