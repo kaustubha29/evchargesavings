@@ -37,7 +37,7 @@ const ADAPTERS = [
   },
   {
     name: "CCS → NACS (Lectron)",
-    price: "~$100",
+    price: "$189",
     desc: "Tesla and NACS EVs at CCS DC fast chargers (Electrify America, EVgo). DC fast only.",
     url: "https://www.amazon.com/dp/B0DHK9YM3V?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1CARYGCBINSHG&linkCode=tr1&tag=evchargesavin-20&linkId=amzn1.campaign.1CARYGCBINSHG_1779094927452",
   },
