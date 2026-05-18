@@ -735,7 +735,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "State incentives that are actually active (verified May 2026)",
-        body: "Federal credits are gone but several state programs remain. State incentive amounts and availability change frequently — verify with your state energy office or dsireusa.org before buying. Information below verified May 2026.",
+        body: "Federal credits are gone but several state programs remain. State incentive amounts and availability change frequently — verify with your state energy office or dsireusa.org before buying. For a comprehensive incentive lookup by ZIP code, Plug In America's PlugStar tool (plugstar.com/incentives) is the most up-to-date free resource. Information below verified May 2026.",
         list: [
           "Colorado IMVC: $750 base credit + $2,500 adder for EVs under $35,000 MSRP. Separately, the Vehicle Exchange Colorado (VXC) program offers $9,000 new / $6,000 used for income-qualified buyers who trade in an older gas vehicle",
           "California CVRP: CLOSED as of November 2023 — no longer accepting applications. Check CC4A or DCAP programs for income-qualified buyers",
@@ -752,7 +752,7 @@ export const GUIDES: Guide[] = [
         heading: "What to do now — a practical checklist",
         body: "The credit is gone but there are still ways to reduce your upfront cost and improve the math:",
         list: [
-          "Check state incentives first — Colorado, New York, and Massachusetts all have active programs. Oregon's Charge Ahead Rebate is suspended as of Dec 2025. Search dsireusa.org with your ZIP code for every program you qualify for.",
+          "Check state incentives first — Colorado, New York, and Massachusetts all have active programs. Oregon's Charge Ahead Rebate is suspended as of Dec 2025. Search plugstar.com/incentives or dsireusa.org with your ZIP code for every program you qualify for.",
           "Consider used EVs — prices have dropped 20–30% since the federal credit ended. Many 2022–2024 models with under 30,000 miles are priced under $30,000 with no credit needed.",
           "Ask about manufacturer incentives — automakers have been filling part of the gap with financing deals and loyalty discounts, especially on slower-selling models.",
           "Time your purchase for end of quarter — dealers negotiate more in March, June, September, and December when pushing to hit sales targets.",
