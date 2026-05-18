@@ -12,16 +12,16 @@ const ADAPTERS = [
     url: "https://amzn.to/4w4xctg",
   },
   {
-    name: "J1772 → NACS (Lectron)",
-    price: "$30",
-    desc: "Plug any J1772 EV into a Tesla NACS port.",
-    url: "https://amzn.to/4udBOeU",
+    name: "J1772 → NACS (Lectron 80A)",
+    price: "$40",
+    desc: "Non-Tesla NACS EV at any J1772 Level 2 station. UL 2252 certified.",
+    url: "https://www.amazon.com/dp/B0G529N8NN?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2CU7ECP5BTIGI&linkCode=tr1&tag=evchargesavin-20&linkId=amzn1.campaign.2CU7ECP5BTIGI_1779094929359",
   },
   {
-    name: "NACS → J1772 (Lectron 48 A)",
+    name: "NACS → J1772 (Lectron 48A)",
     price: "$55",
     desc: "Tesla at public J1772 / Level 2 stations. Full 48 A rated.",
-    url: "https://amzn.to/4cSGTUt",
+    url: "https://www.amazon.com/dp/B09DCTJCTV?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.25WUOKWFSEJE1&linkCode=tr1&tag=evchargesavin-20&linkId=amzn1.campaign.25WUOKWFSEJE1_1779094925512",
   },
   {
     name: "NACS → J1772 (Lectron)",
@@ -30,10 +30,10 @@ const ADAPTERS = [
     url: "https://amzn.to/3OPhxxt",
   },
   {
-    name: "NACS → CCS1 (HUACAITU)",
+    name: "NACS → CCS1 (Lectron)",
     price: "$79",
-    desc: "Ford, Rivian, GM, Polestar users at CCS1 DC fast chargers.",
-    url: "https://amzn.to/3QYFVxb",
+    desc: "Ford, Rivian, GM, Polestar at CCS1 DC fast chargers. Safety interlock.",
+    url: "https://www.amazon.com/dp/B0FFSKH7BM?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2G7AKU1BZT76L&linkCode=tr1&tag=evchargesavin-20&linkId=amzn1.campaign.2G7AKU1BZT76L_1779094933045",
   },
 ];
 

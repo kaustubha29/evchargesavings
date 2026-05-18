@@ -32,15 +32,15 @@ const CHARGERS = [
     name: "EVIQO Level 2",
     tag: "Budget pick",
     price: "$199",
-    desc: "32 A, NEMA 14-50 plug, gets most EVs to full overnight.",
-    url: "https://amzn.to/4trN8DL",
+    desc: "40 A, NEMA 14-50, 25 ft cable, NACS + J1772. Gets any EV to full overnight.",
+    url: "https://www.amazon.com/dp/B0F48X956K?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.34059MM4NMY6Q&linkCode=tr1&tag=evchargesavin-20&linkId=amzn1.campaign.34059MM4NMY6Q_1779095040824",
   },
   {
-    name: "AIMILER Portable L2",
+    name: "Lectron Portable L2",
     tag: "Portable",
     price: "~$150",
-    desc: "Plugs into 240 V dryer outlet — no install needed, take it anywhere.",
-    url: "https://amzn.to/42FXQLH",
+    desc: "8–40 A dual-level, plugs into dryer outlet or standard 120 V — no install needed.",
+    url: "https://www.amazon.com/dp/B0FVD5RGTF?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.128LVNK1YIBTX&linkCode=tr1&tag=evchargesavin-20&linkId=amzn1.campaign.128LVNK1YIBTX_1779095024452",
   },
 ];
 
