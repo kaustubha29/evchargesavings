@@ -56,12 +56,13 @@ export const NEWS: NewsArticle[] = [
       },
       {
         heading: "The part most coverage skips: you may already pay a state version",
-        body: "National coverage is treating this as a brand-new cost on EV owners. For many, it isn't entirely new — it's potentially a second layer. A large majority of US states already charge their own annual EV registration surcharge, and several are higher than the proposed federal figure. These state fees typically run from around $50 to well over $200 per year depending on the state. The unanswered question in the proposal is stacking: does a $130 federal fee sit on top of existing state EV fees, or would states adjust theirs down, or would the federal mechanism partially replace state collection? The bill text released so far does not cleanly resolve this. If you already pay a triple-digit state EV fee at registration, the marginal impact of a federal $130 could be the full $130 on top — or less, depending on how this is reconciled. That reconciliation is one of the bigger open items, and it's worth watching as the bill moves.",
+        body: "National coverage is treating this as a brand-new cost on EV owners. For many, it isn't entirely new — it's potentially a second layer. According to the National Conference of State Legislatures, 41 states plus DC already charge their own annual EV registration fee, and several are well above the proposed federal figure. The range runs from about $50 (Hawaii, South Dakota) to $290 in New Jersey — which is scheduled to rise to $310 in 2027 and $340 in 2028. Other high states: Michigan $267, Pennsylvania $250, Washington $225, Indiana $221, North Carolina $214.50, Georgia $211, Texas $200 (plus a $400 first-time fee). The median is roughly $138 per year. The unanswered question in the proposal is stacking: does a $130 federal fee sit on top of these existing state fees, or would states adjust theirs down, or would the federal mechanism partially replace state collection? The bill text released so far does not cleanly resolve this. If you already pay a $290 New Jersey fee, a federal $130 on top is a combined $420/year unless reconciled — that scenario, not the $130 headline, is the real story. It's one of the biggest open items and worth watching as the bill moves.",
         list: [
-          "Most states already levy an annual EV registration fee (~$50 to $200+)",
-          "Open question: federal fee stacks on state fees, or offsets them?",
-          "Bill text so far does not resolve stacking — watch this as it moves",
-          "Check your state's current EV registration surcharge to know your real baseline",
+          "41 states + DC already levy an annual EV fee — range $50 to $290, median ~$138/yr (NCSL, 2026)",
+          "Highest: NJ $290 (→$340 by 2028), MI $267, PA $250, WA $225, IN $221, NC $214.50, GA $211, TX $200 (+$400 first-time)",
+          "Open question: federal $130 stacks on state fees, offsets them, or replaces collection — bill text doesn't resolve it",
+          "Worst case named in the bill so far: NJ $290 + federal $130 = $420/yr combined",
+          "Check your state's current EV surcharge to know your real baseline",
         ],
       },
       {
@@ -81,6 +82,7 @@ export const NEWS: NewsArticle[] = [
       { label: "US News — US House Lawmakers Propose $130 Annual EV Fee", url: "https://www.usnews.com/news/top-news/articles/2026-05-18/us-house-lawmakers-propose-130-annual-ev-fee-to-pay-for-road-repairs" },
       { label: "The Detroit News — U.S. House proposes nationwide fee for EV drivers", url: "https://www.detroitnews.com/story/business/autos/2026/05/18/u-s-house-proposes-nationwide-fee-for-ev-drivers/90141291007/" },
       { label: "E&E News — Democrats on collision course over EV fees in highway bill", url: "https://www.eenews.net/articles/democrats-on-collision-course-over-ev-fees-in-highway-bill/" },
+      { label: "NCSL — Special Registration Fees for Electric and Hybrid Vehicles", url: "https://www.ncsl.org/transportation/special-registration-fees-for-electric-and-hybrid-vehicles" },
       { label: "EV Charge Savings: EV vs Gas Savings by State", url: "https://evchargesavings.com/guides/ev-vs-gas-savings-usa" },
       { label: "EV Charge Savings: Calculate your real savings", url: "https://evchargesavings.com/#calculator" },
     ],
