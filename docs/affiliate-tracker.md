@@ -51,7 +51,7 @@ _Last updated: 2026-05-18_
 | Partner | Category | Payout | Network | Notes |
 |---|---|---|---|---|
 | **Insurify** | Insurance | $15/lead | CJ #5380944 | 📧 Pending on CJ — applied 2026-04-30 |
-| **CarGurus** | Auto leads | $3–4/lead | CJ or direct | FlexOffers dead — check CJ or apply direct at dealers.cargurus.com |
+| **CarGurus** | Auto leads | $3–4/lead | CJ | FlexOffers dead — apply via CJ (same account as Edmunds pending) |
 | **The Zebra (Awin)** | Insurance | ~$2–3 CPL | Awin #21804 | Low CPL. Skip until traffic scales. |
 
 ---

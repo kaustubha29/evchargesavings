@@ -165,7 +165,7 @@ export const NEWS: NewsArticle[] = [
           "Call your utility: ask specifically about 'EV time-of-use rate plan'",
           "afdc.energy.gov: utility program database by state",
           "Most plans require a smart meter (AMI) — utilities can install one free if you don't have one",
-          "Pair with smart charger scheduling (Tesla app, ChargePoint, JuiceBox) to automate off-peak timing",
+          "Pair with smart charger scheduling (Tesla app, ChargePoint, Emporia) to automate off-peak timing",
         ],
       },
     ],

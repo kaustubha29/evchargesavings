@@ -328,7 +328,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "How to enroll — and what you need",
-        body: "The process is simpler than most people expect. You need: (1) a smart meter (AMI) at your home — most utilities have already installed these; if not, they'll do it free, (2) a Level 2 charger or the ability to schedule your existing EVSE. Most smart chargers (Tesla Wall Connector, ChargePoint Home Flex, JuiceBox, Emporia) have built-in scheduling — set it to start at 11pm or midnight and forget it. Enrollment is usually a 5-minute online form or phone call. Savings typically start on the next billing cycle.",
+        body: "The process is simpler than most people expect. You need: (1) a smart meter (AMI) at your home — most utilities have already installed these; if not, they'll do it free, (2) a Level 2 charger or the ability to schedule your existing EVSE. Most smart chargers (Tesla Wall Connector, ChargePoint Home Flex, Emporia, Wallbox) have built-in scheduling — set it to start at 11pm or midnight and forget it. Enrollment is usually a 5-minute online form or phone call. Savings typically start on the next billing cycle.",
         list: [
           "Check: do you have a smart meter? (Look for digital display cycling through readings — or call your utility)",
           "Enroll: utility website → residential rate plans → EV or time-of-use section",
@@ -774,10 +774,10 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Step 2: Choose your EVSE",
-        body: "For most homeowners, a 40A or 48A Level 2 charger is the sweet spot — that's 9–11 kW, enough to fully charge almost any EV overnight. Smart chargers (JuiceBox 40, Emporia, Wallbox) let you schedule charging during off-peak hours from an app. Basic chargers (Grizzl-E Classic) cost less and never need a firmware update.",
+        body: "For most homeowners, a 40A or 48A Level 2 charger is the sweet spot — that's 9–11 kW, enough to fully charge almost any EV overnight. Smart chargers (ChargePoint Home Flex, Emporia, Wallbox) let you schedule charging during off-peak hours from an app. Basic chargers (Grizzl-E Classic) cost less and never need a firmware update.",
         list: [
           "Grizzl-E Classic 40A — $279, no-frills, outdoor-rated, Canadian made",
-          "JuiceBox 40 — $399, Wi-Fi, TOU scheduling, utility rebate eligible",
+          "ChargePoint Home Flex 48A — $549, Wi-Fi, TOU scheduling, utility rebate eligible",
           "Emporia Level 2 48A — $349, built-in energy monitoring",
           "Tesla Wall Connector Gen 3 — $449, best for Tesla/NACS vehicles",
         ],
@@ -909,7 +909,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Setting up scheduled charging",
-        body: "Once enrolled, tell your car or charger to only charge during off-peak hours. Every major EV has this built in — look for 'Scheduled Charging' or 'Departure Time' in your car's app or settings. Smart chargers like JuiceBox, Emporia, and Wallbox also have built-in scheduling. Set the window to start charging at 9pm (or whenever your off-peak begins) and finish by 6am.",
+        body: "Once enrolled, tell your car or charger to only charge during off-peak hours. Every major EV has this built in — look for 'Scheduled Charging' or 'Departure Time' in your car's app or settings. Smart chargers like ChargePoint, Emporia, and Wallbox also have built-in scheduling. Set the window to start charging at 9pm (or whenever your off-peak begins) and finish by 6am.",
         list: [
           "Tesla: Charging Settings → Schedule → set off-peak start/end",
           "Hyundai/Kia: MyHyundai or Kia Connect app → Charging → Schedule",
@@ -1137,7 +1137,7 @@ export const GUIDES: Guide[] = [
         heading: "Top charger choices",
         body: "For most homeowners, a 40A Wi-Fi charger is the sweet spot. If you want the best long-term value, choose a brand with strong firmware support and good customer service. Cheap chargers can work, but they often lack reliable scheduling and weatherproofing.",
         list: [
-          "JuiceBox 40 — best smart charger for utility-rate savings",
+          "ChargePoint Home Flex — best smart charger for utility-rate savings",
           "Emporia 48A — best monitoring and reliability",
           "Grizzl-E Classic — best budget charger with rugged build",
           "Tesla Wall Connector Gen 3 — best choice for NACS-equipped homes",
@@ -2143,7 +2143,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Connecting to Wi-Fi and the app",
-        body: "After installation, download the manufacturer's app (JuiceBox, Emporia, Wallbox, or ChargePoint Home). Follow the in-app setup to connect the charger to your 2.4 GHz Wi-Fi network. Most chargers use 2.4 GHz only — not 5 GHz. If your router combines both bands under one SSID, you may need to split them in router settings.",
+        body: "After installation, download the manufacturer's app (ChargePoint, Emporia, Wallbox). Follow the in-app setup to connect the charger to your 2.4 GHz Wi-Fi network. Most chargers use 2.4 GHz only — not 5 GHz. If your router combines both bands under one SSID, you may need to split them in router settings.",
         list: [
           "Use 2.4 GHz band — check router settings if connection fails",
           "Place router closer or use a Wi-Fi extender if garage signal is weak",
@@ -2157,7 +2157,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Utility integrations",
-        body: "Some smart chargers integrate directly with utilities for demand-response programs — the utility can delay your charging start by 15–30 minutes during grid stress events in exchange for bill credits ($50–$150/yr). JuiceBox works with many US utilities; Emporia has the broadest demand-response integrations.",
+        body: "Some smart chargers integrate directly with utilities for demand-response programs — the utility can delay your charging start by 15–30 minutes during grid stress events in exchange for bill credits ($50–$150/yr). ChargePoint Home Flex and Emporia have the broadest demand-response integrations in the US.",
       },
     ],
   },
@@ -2247,7 +2247,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Choosing an outdoor-rated charger",
-        body: "Look for a NEMA 4X or NEMA 3R-rated enclosure on the charger body. NEMA 4X is the highest weatherproofing (rain, hose-down, corrosion resistant). The Grizzl-E Classic and Siemens US2 are popular for outdoor installs. The JuiceBox 40 and Wallbox Pulsar Plus are also outdoor-rated.",
+        body: "Look for a NEMA 4X or NEMA 3R-rated enclosure on the charger body. NEMA 4X is the highest weatherproofing (rain, hose-down, corrosion resistant). The Grizzl-E Classic and Siemens US2 are popular for outdoor installs. The Emporia EV Charger and Wallbox Pulsar Plus are also outdoor-rated.",
         list: [
           "NEMA 4X: best for all climates, coastal areas",
           "NEMA 3R: suitable for most residential outdoor environments",
@@ -2333,7 +2333,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Compatible hardware",
-        body: "Managed charging requires a smart charger that supports your utility's protocol (OpenADR or the utility's proprietary API). JuiceBox and Emporia have the broadest utility integrations in the US. ChargePoint Home Flex also supports many programs. Confirm your charger model is compatible before enrolling.",
+        body: "Managed charging requires a smart charger that supports your utility's protocol (OpenADR or the utility's proprietary API). ChargePoint Home Flex and Emporia have the broadest utility integrations in the US. Confirm your charger model is compatible before enrolling.",
       },
       {
         heading: "Should you enroll?",
@@ -3971,9 +3971,9 @@ export const GUIDES: Guide[] = [
           "$150–$250: AIMILER, Lectron — basic portable units, no frills",
           "$230–$280: Grizzl-E Classic — 40A, outdoor-rated, highly reliable, no app needed",
           "$270–$350: Autel MaxiCharger — 50A, Bluetooth app, J1772 universal",
-          "$350–$400: JuiceBox 40 — Wi-Fi, TOU scheduling, utility rebate eligible",
+          "$399–$499: Emporia EV Charger 48A — Wi-Fi, TOU scheduling, energy monitoring, utility rebate eligible",
           "$595: Tesla Wall Connector — best for Tesla/NACS vehicles, 48A",
-          "$699: ChargePoint Home Flex — 16–50A adjustable, 70k+ public network access",
+          "$549–$699: ChargePoint Home Flex — 16–50A adjustable, 70k+ public network access",
         ],
       },
       {
