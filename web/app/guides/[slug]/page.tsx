@@ -140,6 +140,19 @@ export default async function GuidePage({ params }: Props) {
             </div>
           )}
 
+          {(guide.category === "Installation" || guide.category === "Charging") && (
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 mb-6 flex gap-3 items-start">
+              <span className="text-amber-500 text-lg flex-shrink-0 mt-0.5">⚠</span>
+              <div>
+                <div className="font-semibold text-sm text-ink mb-1">The home EV charger tax credit ends June 30, 2026</div>
+                <p className="text-xs text-ink-3 leading-relaxed">
+                  The federal §30C credit (30%, up to $1,000) terminates June 30. A census-tract requirement means many homeowners don&apos;t qualify — check before you spend.{" "}
+                  <a href="/news/home-ev-charger-tax-credit-ends-june-2026" className="text-forest underline font-medium">Read the deadline breakdown →</a>
+                </p>
+              </div>
+            </div>
+          )}
+
           {(guide.category === "Buying" || guide.category === "Finance") && (
             <div className="rounded-2xl border border-line bg-cream-soft p-5 mb-10">
               <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-3">Compare EV listings</div>

@@ -22,6 +22,76 @@ export interface NewsArticle {
 
 export const NEWS: NewsArticle[] = [
   {
+    slug: "home-ev-charger-tax-credit-ends-june-2026",
+    title: "The Home EV Charger Tax Credit Ends June 30, 2026 — and Most People Won't Qualify",
+    hook: "30% back, up to $1,000, on a home charger install. But there's a census-tract catch that disqualifies most suburban and urban homeowners — and the window closes June 30.",
+    description: "The federal home EV charging equipment credit (Section 30C) terminates June 30, 2026 under the One Big Beautiful Bill. It's still claimable now — but a location requirement most coverage ignores means a large share of homeowners aren't eligible. Here's how to check before you spend.",
+    readTime: "5 min read",
+    publishedAt: "2026-05-18",
+    sections: [
+      {
+        heading: "The deadline that's actually close",
+        body: "The federal tax credit for home EV charging equipment — Section 30C, claimed on IRS Form 8911 — terminates for property placed in service after June 30, 2026. That is roughly six weeks away. The One Big Beautiful Bill (signed July 4, 2025) pulled the original 2032 sunset all the way forward to mid-2026. The credit itself is unchanged while it lasts: 30% of the cost of qualified charging equipment and installation, capped at $1,000 for property installed at an individual's primary residence. 'Placed in service' means the charger is installed and operational — not ordered, not paid for. If it isn't working by June 30, it doesn't count.",
+        list: [
+          "Credit: 30% of equipment + installation cost, max $1,000 for a home install",
+          "Hard deadline: charger placed in service (installed and operational) by June 30, 2026",
+          "Claimed on IRS Form 8911 with your return for the year it's placed in service",
+          "Sunset moved from Dec 31, 2032 to June 30, 2026 by the OBBB (July 4, 2025)",
+        ],
+      },
+      {
+        heading: "The catch most coverage skips: the census tract",
+        body: "Here is the part that gets left out of nearly every 'act now' article: since 2023, the home charger credit only applies if the charger is installed in an eligible census tract. Specifically, the location must be in either a low-income community census tract (as defined under the New Markets Tax Credit, IRC Section 45D) or a non-urban census tract. If your home address falls outside both categories — which is the case for a large share of suburban and urban homeowners — you do not qualify, regardless of the deadline. This requirement is real, it is on IRS.gov, and it is the single biggest reason people who file Form 8911 get denied. Check your address against the IRS eligible-census-tract guidance before you spend a dollar expecting the credit.",
+        list: [
+          "Eligible = low-income community tract (NMTC §45D) OR non-urban tract",
+          "Outside both = not eligible, even though the credit technically still exists",
+          "Verify your specific address via the IRS Section 30C census-tract FAQ and mapping references",
+          "This is per-location, not per-person — a friend two ZIP codes over may qualify when you don't",
+        ],
+      },
+      {
+        heading: "What it's actually worth if you do qualify",
+        body: "For homeowners in an eligible tract, the math is straightforward and meaningful. A typical Level 2 home charger runs $230–$700 for the unit, and a standard install (dedicated 240V circuit, short conduit run) is commonly $800–$1,500. On a combined $1,500–$2,200 project, the 30% credit hits the $1,000 cap quickly — so eligible buyers effectively get the maximum. That turns a $1,800 install into roughly an $800 net cost. It is a nonrefundable credit, meaning it reduces your tax liability but won't generate a refund beyond what you owe. If you've been putting off a home charger and you're in an eligible tract, the June 30 deadline genuinely changes the timing decision.",
+        list: [
+          "Hardware: ~$230–$700 (Grizzl-E, Autel, EVIQO, ChargePoint tier)",
+          "Install: ~$800–$1,500 typical; more for panel upgrades or long runs",
+          "30% credit caps at $1,000 — most full installs hit the cap",
+          "Nonrefundable: offsets tax owed, doesn't pay out beyond liability",
+        ],
+      },
+      {
+        heading: "The bigger picture: what's left after the $7,500 died",
+        body: "This deadline lands in a post-credit landscape. The federal new-EV credit (Section 30D, up to $7,500) and used-EV credit (Section 25E, up to $4,000) ended for vehicles acquired after September 30, 2025 — both eliminated by the same OBBB. The one notable replacement is the new car loan interest deduction: up to $10,000 per year of interest on a qualifying auto loan, deductible whether or not you itemize. It applies to new vehicles with final assembly in the United States, loans originated after December 31, 2024, for tax years 2025 through 2028, with a modified-AGI phase-out starting at $100,000 (single) / $200,000 (joint). Leases don't qualify; it must be a secured loan on the vehicle. It is not an EV-specific incentive — any qualifying US-assembled vehicle counts — but for EV buyers financing a US-built model, it's now the largest federal lever available.",
+        list: [
+          "§30D ($7,500 new) and §25E ($4,000 used) ended for vehicles acquired after Sept 30, 2025",
+          "Car loan interest deduction: up to $10,000/yr, US-assembled new vehicles, loans after Dec 31, 2024",
+          "Active tax years 2025–2028; MAGI phase-out $100K single / $200K joint",
+          "Available even if you take the standard deduction; leases excluded",
+        ],
+      },
+      {
+        heading: "What to do in the next six weeks",
+        body: "If a home charger is on your list, the sequence matters. First, confirm eligibility — there is no point rushing an install for a credit your address can't claim. If you are eligible, the installation lead time is the constraint: electricians book out, permits take time, and the charger must be operational by June 30, not merely purchased. Get quotes now if you intend to claim it. If you are not in an eligible tract, the deadline is irrelevant to you — buy the charger when it makes sense, not on a false clock. Either way, verify every figure here against IRS.gov before filing; credit terms have changed twice in under a year and your tax situation is specific to you.",
+        list: [
+          "1. Check your address against IRS Section 30C eligible-census-tract guidance",
+          "2. If eligible: get electrician quotes now — operational-by-June-30 is the real constraint",
+          "3. Keep all equipment and installation receipts for Form 8911",
+          "4. If not eligible: ignore the deadline, buy on your own timeline",
+          "5. Confirm current rules at IRS.gov — this is not tax advice",
+        ],
+      },
+    ],
+    sources: [
+      { label: "IRS — Alternative Fuel Vehicle Refueling Property Credit for Individuals (§30C)", url: "https://www.irs.gov/credits-deductions/alternative-fuel-vehicle-refueling-property-credit-for-individuals" },
+      { label: "IRS — Eligible Census Tracts FAQ for Section 30C", url: "https://www.irs.gov/credits-deductions/frequently-asked-questions-regarding-eligible-census-tracts-for-purposes-of-the-alternative-fuel-vehicle-refueling-property-credit-under-section-30c" },
+      { label: "IRS — Instructions for Form 8911", url: "https://www.irs.gov/pub/irs-pdf/i8911.pdf" },
+      { label: "IRS — OBBB FAQs (§25C, 25D, 25E, 30C, 30D, 45L, 45W, 179D)", url: "https://www.irs.gov/newsroom/faqs-for-modification-of-sections-25c-25d-25e-30c-30d-45l-45w-and-179d-under-public-law-119-21-139-stat-72-july-4-2025-commonly-known-as-the-one-big-beautiful-bill-obbb" },
+      { label: "IRS — Guidance on the New Deduction for Car Loan Interest", url: "https://www.irs.gov/newsroom/treasury-irs-provide-guidance-on-the-new-deduction-for-car-loan-interest-under-the-one-big-beautiful-bill" },
+      { label: "EV Charge Savings: The $7,500 EV Tax Credit Is Gone — What's Left", url: "https://evchargesavings.com/guides/ev-tax-credit-7500" },
+      { label: "EV Charge Savings: Best Home EV Chargers 2026", url: "https://evchargesavings.com/guides/best-home-ev-chargers-2026" },
+    ],
+  },
+  {
     slug: "self-driving-ev-2026-what-it-actually-means-for-owners",
     title: "Self-Driving in 2026: Where It Actually Stands — and What It Means If You Own an EV",
     hook: "Waymo is real. Tesla FSD is supervised, not autonomous. Most states still put liability on you. Here's what autonomy actually means for EV ownership cost, insurance, and the decision to buy at all.",
