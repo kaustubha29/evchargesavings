@@ -22,6 +22,71 @@ export interface NewsArticle {
 
 export const NEWS: NewsArticle[] = [
   {
+    slug: "self-driving-ev-2026-what-it-actually-means-for-owners",
+    title: "Self-Driving in 2026: Where It Actually Stands — and What It Means If You Own an EV",
+    hook: "Waymo is real. Tesla FSD is supervised, not autonomous. Most states still put liability on you. Here's what autonomy actually means for EV ownership cost, insurance, and the decision to buy at all.",
+    description: "Self-driving coverage focuses on demos and milestones. Almost none of it covers what autonomy means for the person who owns or is considering buying an EV — insurance liability, FSD resale value, subscription math, and when robotaxis make personal ownership financially questionable.",
+    readTime: "6 min read",
+    publishedAt: "2026-05-18",
+    sections: [
+      {
+        heading: "What's actually working right now",
+        body: "Two self-driving technologies are operational at meaningful scale in 2026. Waymo's fully driverless robotaxi service runs in San Francisco, Los Angeles, Phoenix, and Austin — no safety driver, available to the public via app. It is Level 4 autonomy in geofenced areas and it works. Tesla's Full Self-Driving (Supervised) is available on all new Teslas and roughly 600,000 active vehicles — it handles highway and city driving but requires a licensed driver with hands on wheel and attention on road at all times. It is Level 2, not autonomous. The gap between those two products is significant and mostly absent from mainstream coverage.",
+        list: [
+          "Waymo: true driverless, Level 4, geofenced cities — SF, LA, Phoenix, Austin",
+          "Tesla FSD Supervised: Level 2 — driver must be alert and ready to take over",
+          "GM Cruise: suspended operations after 2023 incident, limited return in 2025",
+          "Aurora: Level 4 commercial trucking autonomy on select Texas/Pennsylvania routes",
+          "No consumer vehicle has achieved Level 3+ approval for public road use in the US",
+        ],
+      },
+      {
+        heading: "The insurance question nobody answers clearly",
+        body: "When a Tesla on FSD hits another car, who pays? Right now: you do. Every US state still treats the human behind the wheel as the responsible party for Level 2 systems. Your insurance covers it, your rates go up, your record reflects it. Tesla's insurance product (available in some states) prices risk based on your actual FSD usage data — but even Tesla's own insurance doesn't shift liability off the driver for supervised autonomy. Level 3 (where the car is legally responsible under certain conditions) has been approved in Germany and Japan. In the US, Mercedes received limited Level 3 approval in Nevada and California in 2023, but only at speeds under 40 mph on mapped highways. The liability shift most people expect from self-driving hasn't happened yet.",
+        list: [
+          "Level 2 (Tesla FSD, GM Super Cruise): you are legally liable for any accident",
+          "Level 3: car takes responsibility in defined conditions — not yet broadly available in US",
+          "Level 4 (Waymo): manufacturer liability — but you're a passenger, not an owner",
+          "Tesla insurance uses your FSD engagement data to price risk — check your state's availability",
+          "Most standard auto policies cover Level 2 incidents — but expect underwriters to tighten this as technology advances",
+        ],
+      },
+      {
+        heading: "The FSD purchase vs subscription math",
+        body: "Tesla offers FSD two ways: $8,000 outright purchase, or $99/month subscription. The subscription cancels anytime. The purchased version transfers with the car — sort of. FSD transfers to new owners on the same account, but Tesla has historically limited transferability and changed terms. If you're buying a used Tesla banking on retained FSD value, verify transfer eligibility before purchase. At $99/month, breakeven vs the $8,000 purchase is 81 months — nearly 7 years. For most drivers who aren't power users, the subscription wins unless you're confident you'll own the same car for 7+ years and FSD retains value through that period.",
+        list: [
+          "FSD purchase: $8,000 — transfers to new owner (verify current transfer terms before buying used)",
+          "FSD subscription: $99/month — cancel anytime, doesn't affect resale",
+          "Breakeven: ~81 months at $99/mo vs $8,000 purchase",
+          "FSD capability does add resale value — roughly $2,000–$4,000 premium on used Teslas with FSD",
+          "Non-Tesla ADAS (GM Super Cruise, Ford BlueCruise) is typically included in trim pricing, not a separate add-on",
+        ],
+      },
+      {
+        heading: "When robotaxis make personal EV ownership questionable",
+        body: "Waymo's pricing runs $5–$15 per trip in its current markets — competitive with Uber for short trips, more expensive for commutes. For urban residents who drive under 8,000 miles/year and pay for parking, the math on Waymo vs ownership is genuinely close. A $45,000 EV financed at 7% for 5 years costs roughly $890/month before insurance, registration, and parking. At $12/trip average, that's 74 Waymo trips per month — about 2.5 per day — before ownership becomes cheaper. That tipping point doesn't apply to suburban or rural drivers, which is most of the country. But for a San Francisco or Phoenix resident who can already use Waymo daily, the case for EV ownership is weaker than it was three years ago.",
+      },
+      {
+        heading: "What this means if you're deciding whether to buy an EV now",
+        body: "For the vast majority of US drivers — anyone outside Waymo's service footprint, anyone who drives more than 10,000 miles per year, anyone in a suburban or rural area — none of this changes the buy decision. The EV ownership math on fuel savings is unaffected by autonomy. FSD or not, a Model Y still costs 4–8¢/mile to charge vs 20–35¢/mile for a comparable gas car. The self-driving feature is a comfort and convenience layer, not a cost variable for most owners. Where it becomes relevant: if you're choosing between Tesla and a comparable non-Tesla EV and weighing FSD, the subscription path ($99/mo) is lower-risk than banking the $8,000 purchase into a resale assumption.",
+        list: [
+          "Autonomy doesn't change fuel cost math — that's still EIA rates vs gas prices",
+          "FSD as a subscription ($99/mo) is lower-risk than purchase if resale timeline is uncertain",
+          "Waymo availability matters only if you're in SF, LA, Phoenix, or Austin and drive infrequently",
+          "Insurance: no change for Level 2 owners — you're still liable",
+          "Level 3 autonomy with real liability shift is likely 2–4 years away for US consumer vehicles",
+        ],
+      },
+    ],
+    sources: [
+      { label: "Waymo — Service Areas", url: "https://waymo.com/waymoone/" },
+      { label: "Tesla FSD — Pricing and Availability", url: "https://www.tesla.com/support/full-self-driving-subscriptions" },
+      { label: "NHTSA — Automated Vehicles", url: "https://www.nhtsa.gov/technology-innovation/automated-vehicles-safety" },
+      { label: "Mercedes Level 3 Approval (Nevada/California)", url: "https://www.nhtsa.gov/technology-innovation/automated-vehicles-safety" },
+      { label: "EV Charge Savings: Calculate your EV fuel cost savings", url: "https://evchargesavings.com" },
+    ],
+  },
+  {
     slug: "ev-utility-rate-programs-slash-charging-cost-2026",
     title: "The Utility Rate Plans That Make Home EV Charging Almost Free — And Most Owners Don't Know They Exist",
     hook: "Georgia Power: 6.6¢/kWh overnight. Duke Energy Florida: 3.5¢/kWh. SDG&E: 12¢/kWh. Your utility likely has a hidden EV rate — here's how to find it.",

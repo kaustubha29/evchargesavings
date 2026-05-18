@@ -138,6 +138,107 @@ export const GUIDES: Guide[] = [
     ],
   },
   {
+    slug: "self-driving-ev-guide-2026",
+    title: "Self-Driving and Your EV: The Complete Owner's Guide for 2026",
+    hook: "Not a tech explainer. A practical guide to what autonomy actually costs, who's liable when the car drives itself, and whether FSD is worth paying for.",
+    description: "Insurance liability, FSD purchase vs subscription math, which EVs have meaningful autonomy, and when Waymo makes personal EV ownership financially questionable. Everything self-driving coverage skips.",
+    readTime: "9 min read",
+    category: "Ownership",
+    publishedAt: "2026-05-18",
+    sections: [
+      {
+        heading: "The 5 levels — what they mean for liability, not just capability",
+        body: "SAE levels are widely quoted and almost never explained in terms that matter to an owner. The capability story (Level 2 = hands on wheel, Level 4 = no driver needed) is covered everywhere. The liability story is not. Level 2 means you are legally responsible for every action the car takes — always. Level 3 is the first level where the car assumes responsibility in defined conditions, meaning your insurer's exposure changes. Level 4 means the manufacturer carries liability within the operational design domain. No US consumer vehicle has achieved Level 3 or above outside narrow test approvals.",
+        list: [
+          "Level 1–2: driver always liable — ADAS assists but you own every outcome",
+          "Level 3: car responsible in defined conditions (limited US approval — Mercedes Drive Pilot in NV/CA at under 40 mph on mapped roads)",
+          "Level 4: manufacturer liable within geofenced zone — Waymo operates here",
+          "Level 5: full autonomy anywhere — does not exist commercially",
+          "Most coverage skips Level 3 entirely — it's the most consequential gap for insurance",
+        ],
+        callout: "Tesla FSD is Level 2. 'Supervised' is in the name for a reason. If the car hits something while FSD is engaged, your insurance pays and your record reflects it.",
+      },
+      {
+        heading: "Which EVs have meaningful autonomy in 2026",
+        body: "Three systems are worth knowing. Tesla FSD (Supervised): available on all new Teslas, handles highway and city driving end-to-end but requires full driver attention — it will disengage if it detects you're not watching. GM Super Cruise: available on Cadillac, Chevy, and GMC EVs and some ICE models — hands-free on mapped highways only, eye-tracking required, generally considered more reliable than FSD for highway cruising. Ford BlueCruise: similar to Super Cruise, mapped-highway hands-free. Hyundai/Kia Highway Driving Assist 2 (HDA2): available on Ioniq 6, EV6, EV9 — lane centering and adaptive cruise, Level 2, strong reliability reviews. None of these are autonomous. All require driver readiness.",
+        list: [
+          "Tesla FSD Supervised: highway + city, end-to-end, $8K or $99/mo — Level 2",
+          "GM Super Cruise: hands-free on 400K+ miles of mapped highway — included in top trims",
+          "Ford BlueCruise: similar to Super Cruise, expanding mapped coverage — included in select trims",
+          "Hyundai/Kia HDA2: excellent highway assist, available on EV9/Ioniq 6/EV6 — included in trim",
+          "Mercedes Drive Pilot: Level 3, very limited (under 40 mph, mapped NV/CA highways only)",
+        ],
+      },
+      {
+        heading: "FSD: buy or subscribe?",
+        body: "Tesla charges $8,000 to purchase FSD or $99/month to subscribe. The subscription cancels anytime and doesn't affect resale. The purchase transfers with the car — but Tesla controls transfer eligibility and has changed terms before. The breakeven is 81 months (~6.75 years). If you sell before then, you may recover some of the $8,000 in resale — FSD-equipped used Teslas carry a $2,000–$4,000 premium in typical markets. The purchase makes sense if: you're confident you'll own the car for 5+ years, you use FSD heavily, and you believe FSD will reach a capability level that materially increases resale value during that period. Otherwise, subscribe. The subscription is also the safer choice while Tesla's liability terms and transfer policies remain in flux.",
+        list: [
+          "Purchase ($8,000): breakeven vs subscription at ~81 months, adds ~$2–4K to resale",
+          "Subscription ($99/mo): cancel anytime, zero resale impact, lower commitment",
+          "Transfer: FSD does transfer to new owner but verify current policy before buying used",
+          "FSD usage data is shared with Tesla — relevant if you use Tesla Insurance",
+          "Non-Tesla systems (Super Cruise, BlueCruise, HDA2) come bundled in trims — no subscription",
+        ],
+        callout: "Buying a used Tesla with FSD? Confirm transfer eligibility before purchase — Tesla has restricted transfers in the past.",
+      },
+      {
+        heading: "Insurance: what changes, what doesn't",
+        body: "Standard auto insurance covers Level 2 incidents the same as any other accident — you're at fault if you were supposed to be supervising. Insurers are beginning to differentiate: Tesla's own insurance (available in ~12 states) uses your Safety Score and FSD engagement data to price premiums. State Farm, Progressive, and Allstate have begun asking about ADAS features on applications but haven't broadly changed pricing structures. The meaningful insurance shift happens at Level 3, where product liability law applies and manufacturer exposure increases. Until Level 3 is commercially available in the US, your insurance experience as an EV owner with ADAS is essentially unchanged from any other driver.",
+        list: [
+          "Level 2: standard auto liability — no change from non-ADAS vehicles",
+          "Tesla Insurance: usage-based, considers Safety Score + FSD data — available in ~12 states",
+          "Level 3+: product liability shifts toward manufacturer — not yet relevant for US consumer vehicles",
+          "What to tell your insurer: disclose ADAS features; some carriers apply small discounts for advanced safety systems",
+          "AV-specific insurance products exist but are aimed at fleet operators, not individuals",
+        ],
+      },
+      {
+        heading: "Waymo and the personal ownership question",
+        body: "Waymo operates fully driverless robotaxi service in San Francisco, Los Angeles, Phoenix, and Austin. Typical fares run $5–$15 per trip. For residents in those cities who drive under 8,000 miles per year and pay for parking, the total cost of ownership comparison gets uncomfortable. A $45,000 EV at 7% for 5 years runs ~$890/month in financing alone, before insurance ($150–$200/mo), registration, maintenance, and parking ($150–$400/mo in urban areas). That's $1,200–$1,500/month fully loaded. At $12/average Waymo trip, that's 100–125 trips per month before ownership is cheaper. For someone doing 3–4 trips per day, ownership probably still wins. For someone doing 1–2, the gap is closing.",
+        list: [
+          "Waymo current cities: San Francisco, Los Angeles, Phoenix, Austin",
+          "Typical fare: $5–$15/trip — competitive with Uber for short trips",
+          "Ownership threshold: ~100+ monthly trips before ownership is cheaper (urban, high parking cost)",
+          "Suburban/rural drivers: Waymo irrelevant — no service outside major metros",
+          "Waymo expansion: Atlanta, Miami, Nashville announced — watch your city's timeline",
+        ],
+        callout: "If you're in a Waymo city and drive under 30 miles/day, run your personal break-even before buying. The math is closer than it was two years ago.",
+      },
+      {
+        heading: "What none of this changes about buying an EV",
+        body: "For the 90%+ of US drivers outside Waymo's service area or driving more than 10,000 miles per year, self-driving technology has no effect on the fundamental EV ownership calculation. Fuel savings are driven by electricity rates vs gas prices, not by ADAS capability. A Hyundai Ioniq 6 without any advanced driving features saves the same $1,200–$1,800/year on fuel as one with HDA2. The autonomy stack is a comfort and safety feature, not a cost variable. Where it enters the buy decision: choosing between an EV with a strong ADAS package vs one without, at similar price points. There, the included systems (Super Cruise on GMC, HDA2 on EV9) represent real value that subscription-priced FSD doesn't automatically beat.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Is Tesla FSD actually self-driving?",
+        answer: "No. Tesla FSD (Supervised) is Level 2 — it assists with driving but requires a licensed driver with attention on the road at all times. The driver is legally responsible for every action the car takes. It's a powerful driver-assist system, not autonomous.",
+      },
+      {
+        question: "Who is liable when a car on autopilot or FSD causes an accident?",
+        answer: "In the US, for Level 2 systems (Tesla FSD, GM Super Cruise, Ford BlueCruise), the human driver is legally liable. Your auto insurance covers it. Level 3 autonomy shifts responsibility to the manufacturer in defined conditions, but no Level 3 system is broadly available to US consumers yet.",
+      },
+      {
+        question: "Is it worth buying Tesla FSD?",
+        answer: "The subscription ($99/month) is lower risk than the purchase ($8,000) for most owners. Breakeven is ~81 months. The purchase makes sense if you'll own the same Tesla for 6+ years and FSD reaches a capability level that holds resale value. Otherwise subscribe — you can cancel anytime.",
+      },
+      {
+        question: "Does Waymo affect whether I should buy an EV?",
+        answer: "Only if you're in San Francisco, Los Angeles, Phoenix, or Austin and drive infrequently (under ~30 miles/day). For everyone else — suburban, rural, or outside Waymo's cities — robotaxi service doesn't change the EV ownership math. Fuel savings are the same regardless.",
+      },
+      {
+        question: "Which EV has the best self-driving in 2026?",
+        answer: "Waymo's vehicles (Jaguar I-PACE, Zeekr RT) are the only true autonomous option — but you're a passenger, not an owner. Among purchasable EVs, GM Super Cruise (Cadillac, GMC, Chevy) and Hyundai/Kia HDA2 (EV9, Ioniq 6, EV6) are widely regarded as more reliable than Tesla FSD for highway assist. Tesla FSD handles more scenarios but has higher intervention rates on city streets.",
+      },
+    ],
+    sources: [
+      { label: "SAE International — Levels of Driving Automation", url: "https://www.sae.org/standards/content/j3016_202104/" },
+      { label: "Waymo — Service Area", url: "https://waymo.com/waymoone/" },
+      { label: "Tesla FSD Pricing", url: "https://www.tesla.com/support/full-self-driving-subscriptions" },
+      { label: "NHTSA — Automated Vehicles", url: "https://www.nhtsa.gov/technology-innovation/automated-vehicles-safety" },
+    ],
+  },
+  {
     slug: "ev-utility-rate-plans-guide",
     title: "EV Utility Rate Plans: How to Cut Your Home Charging Cost in Half",
     hook: "Most EV owners pay full residential rates. A separate enrollment — usually a 5-minute phone call — can cut your overnight charging cost by 50–80%. Here's every major program.",
