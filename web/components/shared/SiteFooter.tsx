@@ -36,10 +36,13 @@ export function SiteFooter() {
             <div className="font-mono text-[11px] uppercase tracking-widest text-gold mb-4">Guides</div>
             <ul className="space-y-2">
               {GUIDES.slice(0, 4).map((g) => (
-                <li key={g.slug}>
+                <li key={g.slug} className="hidden sm:block">
                   <a href={`/guides/${g.slug}`} className="text-sm text-cream/70 hover:text-gold transition-colors">{g.title}</a>
                 </li>
               ))}
+              <li className="sm:hidden">
+                <a href="/guides" className="text-sm text-cream/70 hover:text-gold transition-colors">Browse all guides →</a>
+              </li>
             </ul>
           </div>
 
