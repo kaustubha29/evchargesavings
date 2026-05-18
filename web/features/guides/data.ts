@@ -149,7 +149,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "Why your utility bill matters more than the EV you buy",
         body: "The electricity rate you pay at home is the single biggest variable in EV ownership cost — and most EV owners never optimize it. Two people driving the same car in the same city can pay 3x different per-mile costs based solely on which rate plan they're on. The default residential rate your utility puts you on is rarely the best option for an EV household. Most utilities have EV-specific time-of-use plans that dramatically reduce overnight rates. Most customers are never told these exist.",
-        callout: "A San Diego Audi Q6 e-tron owner reported 13¢/kWh on SDG&E's Power Your Drive program — while their neighbor on standard SDG&E rates pays $0.50–$0.80/kWh during the same hours. Same grid, same city, 4x difference.",
+        callout: "A San Diego Audi Q4 55 e-tron owner reported 13¢/kWh on SDG&E's Power Your Drive program — while their neighbor on standard SDG&E rates pays $0.50–$0.80/kWh during the same hours. Same grid, same city, 4x difference.",
       },
       {
         heading: "Georgia Power Overnight Advantage: ~6.6¢/kWh",
@@ -167,12 +167,12 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Duke Energy EV Overnight Advantage: 3.5–5¢/kWh",
-        body: "Duke Energy serves millions of customers across Florida, North Carolina, South Carolina, Ohio, Indiana, and Kentucky — and offers an EV Overnight Advantage plan in each state. Florida gets the best rates: approximately 3.5–3.9¢/kWh during overnight off-peak hours (midnight–6am, March–November; midnight–3am, December–February). North Carolina runs ~5¢/kWh discount rate; South Carolina ~4¢/kWh. Duke also offers a $500 rebate for a Level 2 charger installation plus a $13.87/month bill credit for enrolling in off-peak charging — effectively subsidizing your home setup.",
+        body: "Duke Energy serves millions of customers across Florida, North Carolina, South Carolina, Ohio, Indiana, and Kentucky — and offers an EV Overnight Advantage plan in each state. Florida gets the best rates: approximately 3.5–3.9¢/kWh during overnight off-peak hours (midnight–6am, March–November; midnight–3am, December–February). North Carolina runs ~5¢/kWh discount rate; South Carolina ~4¢/kWh. Duke also offers a ~$10/month bill credit for customers who enroll in off-peak charging (capped at $200/year). Indiana customers get a $50 quarterly credit instead ($400 total over two years).",
         list: [
           "Florida: ~3.5–3.9¢/kWh overnight — among cheapest in the country",
           "North Carolina: ~5¢/kWh discount hours",
           "South Carolina: ~4¢/kWh discount hours",
-          "$500 charger rebate + $13.87/mo credit for off-peak enrollment",
+          "~$10/mo bill credit for off-peak enrollment (most states); $50/quarter in Indiana",
           "Coverage: FL, NC, SC, OH, IN, KY",
         ],
         callout: "Duke Energy Florida at 3.5¢/kWh overnight is effectively the cheapest home EV charging available at a major US utility. A Chevy Bolt EV (65 kWh) full charge: $2.28.",
@@ -201,6 +201,20 @@ export const GUIDES: Guide[] = [
           "PG&E on-peak: $0.60+/kWh (4–9pm) — avoid charging in this window",
           "SCE PRIME: better rates for EV + solar/battery/heat pump households",
           "Bottom line: worth switching even at California's high baseline rates",
+        ],
+      },
+      {
+        heading: "Pacific Power (Oregon): ~2¢/kWh in winter",
+        body: "Pacific Power's Schedule 29 TOU plan is one of the least-publicized EV rate deals in the country. Oregon customers who take a Pacific Power EV charger rebate are automatically enrolled. The off-peak credit of 1.125¢/kWh applies on top of base rates — bringing winter off-peak to approximately 2.19¢/kWh and summer off-peak to approximately 5¢/kWh. Portland General Electric (PGE, serving Portland metro) closed its residential TOU enrollment December 31, 2024, but still offers a Smart Charging program: PGE can briefly pause your charger during peak grid events (a few hours/weekday) in exchange for a $25 bill credit per season ($50/year). You keep override ability via the app.",
+        list: [
+          "Pacific Power winter off-peak: ~2.19¢/kWh (rivals Duke Energy Florida)",
+          "Pacific Power summer off-peak: ~5¢/kWh — auto-enrolled with charger rebate",
+          "PGE (Portland metro): Smart Charging program — $25/season ($50/yr) demand-response credit",
+          "PGE residential TOU rate plan: closed to new enrollment Dec 31, 2024",
+          "Pacific Power coverage: most of Oregon, parts of WA, ID, WY, CA, UT",
+        ],
+        links: [
+          { label: "Calculate Oregon EV savings", href: "/cost-to-charge/kia-ev9-gt-line-awd/oregon" },
         ],
       },
       {

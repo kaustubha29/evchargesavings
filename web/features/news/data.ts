@@ -83,6 +83,17 @@ export const NEWS: NewsArticle[] = [
         ],
       },
       {
+        heading: "Pacific Power (Oregon): 2¢/kWh in winter",
+        body: "Pacific Power's Schedule 29 TOU plan is one of the least-publicized EV rate deals in the country. Oregon customers who take a Pacific Power charger rebate are automatically enrolled — winter off-peak runs approximately 2.19¢/kWh, summer off-peak ~5¢/kWh. Portland General Electric (Portland metro) closed its residential TOU plan December 31, 2024, but still runs a Smart Charging program: allow PGE to briefly pause your charger during peak grid hours (overridable via app), earn $25/season ($50/year).",
+        list: [
+          "Pacific Power winter off-peak: ~2.19¢/kWh — rivals Duke Energy Florida",
+          "Pacific Power summer off-peak: ~5¢/kWh",
+          "Auto-enrolled when you take a Pacific Power EV charger rebate",
+          "PGE (Portland metro) Smart Charging: $25/season ($50/yr) demand-response credit",
+          "PGE residential TOU rate: no longer available (closed Dec 31, 2024)",
+        ],
+      },
+      {
         heading: "How to find your utility's EV rate",
         body: "Most utilities don't proactively notify customers about EV rates when they purchase an EV. The standard move: call your utility's residential line and say 'I have an electric vehicle — do you have an EV-specific time-of-use rate plan?' Almost every major utility has one. You can also check the DOE's Alternative Fuels Data Center (afdc.energy.gov) or your state PUC's website. The enrollment process is usually a 5-minute online form or phone call — and the savings start on your next billing cycle.",
         list: [
@@ -100,6 +111,8 @@ export const NEWS: NewsArticle[] = [
       { label: "Duke Energy EV Overnight Advantage", url: "https://www.duke-energy.com/home/billing/ev-overnight-advantage" },
       { label: "PG&E EV Rate Plans", url: "https://www.pge.com/en/account/rate-plans/electric-vehicles.html" },
       { label: "DOE Alternative Fuels Data Center — Utility Programs", url: "https://afdc.energy.gov/laws/utilities" },
+      { label: "EV Charge Savings: Complete Utility EV Rate Plans Guide", url: "https://evchargesavings.com/guides/ev-utility-rate-plans-guide" },
+      { label: "EV Charge Savings: Understanding Time-of-Use Rates", url: "https://evchargesavings.com/guides/time-of-use-rates" },
     ],
   },
   {
