@@ -61,8 +61,8 @@ export function StickySavingsBar() {
       role="region"
       aria-label="Savings summary"
     >
-      {/* Mobile pill */}
-      <div className="flex sm:hidden justify-center pb-4 px-4">
+      {/* Mobile pills */}
+      <div className="flex sm:hidden justify-center items-center gap-2 pb-4 px-4">
         <a
           href={calcHref}
           className="inline-flex items-center gap-2.5 bg-ink/95 backdrop-blur-md border border-white/15 rounded-full px-5 py-2.5 shadow-lg"
@@ -74,6 +74,13 @@ export function StickySavingsBar() {
           <span className="font-mono text-[10px] text-cream/40">/yr saved</span>
           <span className="w-px h-3.5 bg-white/15 mx-0.5" />
           <span className="font-mono text-[10px] text-cream/50">adjust ↑</span>
+        </a>
+        <a
+          href="/ev-owner"
+          className="inline-flex items-center gap-1.5 bg-ink/95 backdrop-blur-md border border-white/15 rounded-full px-4 py-2.5 shadow-lg"
+        >
+          <span className="font-mono text-[10px] text-emerald">Own an EV?</span>
+          <span className="font-mono text-[10px] text-cream/40">→</span>
         </a>
       </div>
 
