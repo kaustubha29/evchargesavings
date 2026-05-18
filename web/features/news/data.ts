@@ -110,6 +110,8 @@ export const NEWS: NewsArticle[] = [
       { label: "Georgia Power Overnight Advantage", url: "https://www.georgiapower.com/residential/billing-and-rate-plans/pricing-and-rate-plans/plug-in-ev.html" },
       { label: "Duke Energy EV Overnight Advantage", url: "https://www.duke-energy.com/home/billing/ev-overnight-advantage" },
       { label: "PG&E EV Rate Plans", url: "https://www.pge.com/en/account/rate-plans/electric-vehicles.html" },
+      { label: "Pacific Power Schedule 29 TOU (Oregon)", url: "https://www.pacificpower.net/savings-energy-choices/time-of-use/or-schedule29-pricing.html" },
+      { label: "Portland General Electric Smart Charging", url: "https://portlandgeneral.com/energy-choices/electric-vehicles-charging/charging-your-ev/charging-your-ev-at-home" },
       { label: "DOE Alternative Fuels Data Center — Utility Programs", url: "https://afdc.energy.gov/laws/utilities" },
       { label: "EV Charge Savings: Complete Utility EV Rate Plans Guide", url: "https://evchargesavings.com/guides/ev-utility-rate-plans-guide" },
       { label: "EV Charge Savings: Understanding Time-of-Use Rates", url: "https://evchargesavings.com/guides/time-of-use-rates" },
