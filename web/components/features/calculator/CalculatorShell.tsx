@@ -395,7 +395,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaul
         {/* Fuel cost bars */}
         <div className="pt-4 border-t border-line">
           <div className="flex justify-between items-baseline mb-4 flex-wrap gap-1">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Cost of fuel · {annualMiles.toLocaleString()} mi/yr</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">{comparisonType === "phev" ? "Fuel & electricity cost" : "Cost of fuel"} · {annualMiles.toLocaleString()} mi/yr</span>
             <span className="font-mono text-[11px] text-ink-mute">{fmt.cents1(stateData.kwhCents)}/kWh · {fmt.money2(stateData.gasDollar)}/gal</span>
           </div>
           {[

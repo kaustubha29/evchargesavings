@@ -1,7 +1,7 @@
 "use client";
 import { useMemo } from "react";
-import { useCalculatorStore, computeSavings } from "@/store/calculator";
-import { evRepository, gasRepository } from "@/features/ev-data/repository";
+import { useCalculatorStore, computeSavings, computePHEVCost } from "@/store/calculator";
+import { evRepository, gasRepository, phevRepository } from "@/features/ev-data/repository";
 import { EVMarketplaceAffiliates } from "./EVMarketplaceAffiliates";
 import { EVInsuranceCTA } from "./EVInsuranceCTA";
 import { LeadCaptureBoxGate } from "./LeadCaptureBoxGate";
@@ -94,8 +94,9 @@ function buildSuggestions(p: {
 
 export function ConditionalPostCalc() {
   const store = useCalculatorStore();
-  const ev  = useMemo(() => evRepository.getBySlug(store.evSlug) ?? evRepository.getAll()[0], [store.evSlug]);
-  const gas = useMemo(() => gasRepository.getById(store.gasId)  ?? gasRepository.getAll()[0], [store.gasId]);
+  const ev   = useMemo(() => evRepository.getBySlug(store.evSlug) ?? evRepository.getAll()[0], [store.evSlug]);
+  const gas  = useMemo(() => gasRepository.getById(store.gasId)   ?? gasRepository.getAll()[0], [store.gasId]);
+  const phev = useMemo(() => phevRepository.getById(store.phevId) ?? phevRepository.getAll()[0], [store.phevId]);
 
   const savings = useMemo(
     () => computeSavings(ev.efficiency, gas.mpg, store),
@@ -103,7 +104,23 @@ export function ConditionalPostCalc() {
     [ev.efficiency, gas.mpg, store.annualMiles, store.homePct, store.homeRateKwh, store.publicRateKwh, store.gasPriceDollar],
   );
 
-  const { annualSavings, evAnnualCost, gasAnnualCost, evCostPerMile, gasCostPerMile } = savings;
+  const phevCost = useMemo(
+    () => store.comparisonType === "phev" ? computePHEVCost(phev.evRange, phev.mpge, phev.mpgGas, store) : null,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [store.comparisonType, phev.evRange, phev.mpge, phev.mpgGas, store.annualMiles, store.homePct, store.homeRateKwh, store.publicRateKwh, store.gasPriceDollar],
+  );
+
+  const isPhev           = store.comparisonType === "phev";
+  const comparisonCost   = isPhev && phevCost ? phevCost.totalCost : savings.gasAnnualCost;
+  const comparisonName   = isPhev ? phev.name : gas.name;
+  const rawSavings       = comparisonCost - savings.evAnnualCost;
+  const statePHEVFee     = isPhev ? (store.stateData?.phevFee ?? 0) : 0;
+  const netFeeCost       = (store.stateData?.evFee ?? 0) - statePHEVFee;
+  const annualSavings    = rawSavings - (store.includeStateEvFee ? netFeeCost : 0);
+
+  const { evAnnualCost, evCostPerMile } = savings;
+  const comparisonCPM    = comparisonCost / Math.max(store.annualMiles, 1);
+
   const { homeRateKwh, gasPriceDollar, annualMiles, homePct, stateData } = store;
   const hasTOU    = stateData.hasTOU;
   const touCents  = stateData.touCents;
@@ -138,7 +155,7 @@ export function ConditionalPostCalc() {
 
   // ── MARGINAL ($0–$800/yr) ─────────────────────────────────────────────────
   if (annualSavings >= 0) {
-    const factors     = topFactors({ homeRateKwh, gasPriceDollar, annualMiles, homePct, gasMpg: gas.mpg });
+    const factors     = topFactors({ homeRateKwh, gasPriceDollar, annualMiles, homePct, gasMpg: isPhev ? 999 : gas.mpg });
     const suggestions = buildSuggestions({ homeRateKwh, annualMiles, homePct, hasTOU, touCents, stateName });
 
     return (
@@ -147,10 +164,10 @@ export function ConditionalPostCalc() {
           <div className="section-wrap max-w-3xl">
             <div className="font-mono text-[11px] uppercase tracking-widest text-okay-fg mb-3">Modest savings</div>
             <h2 className="font-serif text-3xl font-medium tracking-tight text-ink mb-3">
-              {fmt.money0(annualSavings)}/yr in fuel savings — here&apos;s what could tip it further
+              {fmt.money0(annualSavings)}/yr in {isPhev ? "driving cost savings" : "fuel savings"} — here&apos;s what could tip it further
             </h2>
             <p className="text-ink-3 leading-relaxed mb-8 max-w-xl">
-              Switching to the {ev.name} saves on fuel, but not by a wide margin with these inputs. A few factors are keeping savings low.
+              Switching to the {ev.name} saves on {isPhev ? "driving costs" : "fuel"}, but not by a wide margin with these inputs. A few factors are keeping savings low.
             </p>
 
             {factors.length > 0 && (
@@ -201,20 +218,20 @@ export function ConditionalPostCalc() {
   }
 
   // ── NEGATIVE (<$0/yr) ─────────────────────────────────────────────────────
-  const factors     = topFactors({ homeRateKwh, gasPriceDollar, annualMiles, homePct, gasMpg: gas.mpg });
+  const factors     = topFactors({ homeRateKwh, gasPriceDollar, annualMiles, homePct, gasMpg: isPhev ? 999 : gas.mpg });
   const suggestions = buildSuggestions({ homeRateKwh, annualMiles, homePct, hasTOU, touCents, stateName });
-  const extraCost   = evAnnualCost - gasAnnualCost;
+  const extraCost   = evAnnualCost - comparisonCost;
 
   return (
     <section className="py-14 border-b border-line bg-rust/5">
       <div className="section-wrap max-w-3xl">
         <div className="font-mono text-[11px] uppercase tracking-widest text-rust mb-3">Honest assessment</div>
         <h2 className="font-serif text-3xl font-medium tracking-tight text-ink mb-3">
-          Gas is cheaper for this combination
+          {isPhev ? "PHEV is cheaper for this combination" : "Gas is cheaper for this combination"}
         </h2>
         <p className="text-ink-3 leading-relaxed mb-8 max-w-xl">
-          With these inputs, the {ev.name} costs <b className="text-rust">{fmt.money0(extraCost)} more</b> per year
-          to fuel than the {gas.name}. Here&apos;s what&apos;s driving that, and what would flip it.
+          With these inputs, the {ev.name} costs <b className="text-rust">{fmt.money0(Math.abs(extraCost))} more</b> per year
+          to {isPhev ? "run" : "fuel"} than the {comparisonName}. Here&apos;s what&apos;s driving that, and what would flip it.
         </p>
 
         {/* Cost per mile table */}
@@ -224,7 +241,7 @@ export function ConditionalPostCalc() {
               <tr className="border-b border-line">
                 <th className="text-left font-mono text-[10px] uppercase tracking-widest text-ink-mute py-3 px-5">Vehicle</th>
                 <th className="text-right font-mono text-[10px] uppercase tracking-widest text-ink-mute py-3 px-5">¢/mile</th>
-                <th className="text-right font-mono text-[10px] uppercase tracking-widest text-ink-mute py-3 px-5">Annual fuel</th>
+                <th className="text-right font-mono text-[10px] uppercase tracking-widest text-ink-mute py-3 px-5">{isPhev ? "Annual cost" : "Annual fuel"}</th>
               </tr>
             </thead>
             <tbody>
@@ -234,9 +251,9 @@ export function ConditionalPostCalc() {
                 <td className="py-3 px-5 text-right font-mono font-semibold text-rust">{fmt.money0(evAnnualCost)}</td>
               </tr>
               <tr>
-                <td className="py-3 px-5 text-ink-2">{gas.name} (gas)</td>
-                <td className="py-3 px-5 text-right font-mono font-semibold text-forest">{(gasCostPerMile * 100).toFixed(1)}¢</td>
-                <td className="py-3 px-5 text-right font-mono font-semibold text-forest">{fmt.money0(gasAnnualCost)}</td>
+                <td className="py-3 px-5 text-ink-2">{comparisonName} {isPhev ? "(blended)" : "(gas)"}</td>
+                <td className="py-3 px-5 text-right font-mono font-semibold text-forest">{(comparisonCPM * 100).toFixed(1)}¢</td>
+                <td className="py-3 px-5 text-right font-mono font-semibold text-forest">{fmt.money0(comparisonCost)}</td>
               </tr>
             </tbody>
           </table>
