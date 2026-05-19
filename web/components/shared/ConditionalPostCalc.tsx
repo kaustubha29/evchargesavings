@@ -122,9 +122,7 @@ export function ConditionalPostCalc() {
   const comparisonCPM    = comparisonCost / Math.max(store.annualMiles, 1);
 
   const { homeRateKwh, gasPriceDollar, annualMiles, homePct, stateData } = store;
-  const hasTOU    = stateData.hasTOU;
-  const touCents  = stateData.touCents;
-  const stateName = stateData.name;
+  const { hasTOU, touCents, name: stateName } = stateData;
 
   // ── STRONG (>$800/yr) ─────────────────────────────────────────────────────
   if (annualSavings > 800) {
@@ -155,7 +153,7 @@ export function ConditionalPostCalc() {
 
   // ── MARGINAL ($0–$800/yr) ─────────────────────────────────────────────────
   if (annualSavings >= 0) {
-    const factors     = topFactors({ homeRateKwh, gasPriceDollar, annualMiles, homePct, gasMpg: isPhev ? 999 : gas.mpg });
+    const factors     = topFactors({ homeRateKwh, gasPriceDollar, annualMiles, homePct, gasMpg: isPhev ? 0 : gas.mpg });
     const suggestions = buildSuggestions({ homeRateKwh, annualMiles, homePct, hasTOU, touCents, stateName });
 
     return (
@@ -218,7 +216,7 @@ export function ConditionalPostCalc() {
   }
 
   // ── NEGATIVE (<$0/yr) ─────────────────────────────────────────────────────
-  const factors     = topFactors({ homeRateKwh, gasPriceDollar, annualMiles, homePct, gasMpg: isPhev ? 999 : gas.mpg });
+  const factors     = topFactors({ homeRateKwh, gasPriceDollar, annualMiles, homePct, gasMpg: isPhev ? 0 : gas.mpg });
   const suggestions = buildSuggestions({ homeRateKwh, annualMiles, homePct, hasTOU, touCents, stateName });
   const extraCost   = evAnnualCost - comparisonCost;
 
