@@ -45,6 +45,8 @@ const TOP_STATE_SLUGS = [
 ];
 
 const TOP_NEWS_SLUGS = [
+  "oregon-ev-rebates-shrinking-2026",
+  "house-130-federal-ev-fee-proposal-2026",
   "walmart-ev-charging-network-2026",
   "us-dc-fast-charging-72000-ports-may-2026",
   "electricity-rates-rising-ev-charging-costs-2026",
