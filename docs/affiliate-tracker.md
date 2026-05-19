@@ -11,9 +11,9 @@ _Last updated: 2026-05-18_
 
 | Partner | Category | Payout | Network | Status |
 |---|---|---|---|---|
-| **Amazon Associates** | Accessories | 1–5% | Direct | ✅ Live — links placed |
+| **Amazon Associates** | Accessories | 1–5% | Direct | ✅ Live + Creator Connections campaigns activated 2026-05-18 (content URLs submitted; EVIQO 10% CPA) |
 | **Lectron EV** | Charger + adapters | 5–10% | Awin | ✅ Live — Level 2 + 2 adapters on ev-owner page |
-| **The Zebra** | Insurance | $20/applicant | Direct (Fritz) | ✅ Deal confirmed — awaiting custom UTM link |
+| **The Zebra** | Insurance | $20/applicant | Direct (Fritz) | ✅ Deal confirmed — UTM link nudge to Fritz scheduled 2026-05-19 |
 | **FlexOffers** | Network | Varies | Direct | ❌ Rejected — "does not meet current needs" |
 | **Awin** | Network | Varies | Direct | ✅ Approved — Lectron live |
 | **PartnerStack** | Network (B2B SaaS) | Varies | Direct | ✅ Applied — low priority, wrong vertical |
@@ -76,9 +76,10 @@ _Last updated: 2026-05-18_
 
 | Task | What | Where | Notes |
 |---|---|---|---|
-| **Microsoft Clarity** | Session recordings + AI referrer filter | clarity.microsoft.com | Create project → get 8-char ID → paste here so Claude can add script to layout.tsx |
-| **GA4 AI referrer exploration** | Track chatgpt/perplexity/gemini referrals | analytics.google.com | Explore → Blank → Rows: session source/medium, filter: source contains chatgpt OR perplexity OR claude OR gemini. Save as "AI Traffic" |
-| **Embeddable calculator widget** | Backlink acquisition | Code change needed | Let bloggers embed savings widget → "Powered by EVChargeSavings" backlink. Tell Claude to build this when ready. |
+| **Microsoft Clarity** | Session recordings | clarity.microsoft.com | ✅ Live — project `wrvthpzoke` in layout.tsx |
+| **Embeddable calculator widget** | Backlink acquisition | — | ✅ Live — /embed + /embed-demo (teaser + full modes, "Powered by" backlink) |
+| **GA4 outbound_click custom dims** | See which affiliate links get clicked | analytics.google.com | ✅ Registered 2026-05-18 (link_domain / link_url / link_text, event-scoped). NOT retroactive — revisit ~2026-05-25 with a week of data: Explore → dim link_domain, metric Event count, filter event_name=outbound_click. Read affiliate CTR by domain (amzn vs awin vs cargurus). |
+| **GA4 AI referrer exploration** | Track chatgpt/perplexity/gemini referrals | analytics.google.com | ⏳ Explore → Blank → Rows: session source/medium, filter: source contains chatgpt OR perplexity OR claude OR gemini. Save as "AI Traffic" |
 
 ---
 
