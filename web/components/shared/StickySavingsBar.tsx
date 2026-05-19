@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState, useMemo, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { useCalculatorStore, computeSavings } from "@/store/calculator";
-import { evRepository, gasRepository } from "@/features/ev-data/repository";
+import { useCalculatorStore, computeSavings, computePHEVCost } from "@/store/calculator";
+import { evRepository, gasRepository, phevRepository } from "@/features/ev-data/repository";
 import { LEAD_FORM_SUBMITTED_KEY } from "@/components/shared/LeadCaptureBox";
 import { fmt } from "@/lib/format";
 
@@ -12,13 +12,27 @@ export function StickySavingsBar() {
   const barShownRef = useRef(false);
   const store = useCalculatorStore();
 
-  const ev  = useMemo(() => evRepository.getBySlug(store.evSlug) ?? evRepository.getAll()[0], [store.evSlug]);
-  const gas = useMemo(() => gasRepository.getById(store.gasId) ?? gasRepository.getAll()[0], [store.gasId]);
+  const ev   = useMemo(() => evRepository.getBySlug(store.evSlug) ?? evRepository.getAll()[0], [store.evSlug]);
+  const gas  = useMemo(() => gasRepository.getById(store.gasId)   ?? gasRepository.getAll()[0], [store.gasId]);
+  const phev = useMemo(() => phevRepository.getById(store.phevId) ?? phevRepository.getAll()[0], [store.phevId]);
+
   const savings = useMemo(
     () => computeSavings(ev.efficiency, gas.mpg, store),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [ev.efficiency, gas.mpg, store.annualMiles, store.homePct, store.homeRateKwh, store.publicRateKwh, store.gasPriceDollar],
   );
+
+  const phevCost = useMemo(
+    () => store.comparisonType === "phev" ? computePHEVCost(phev.evRange, phev.mpge, phev.mpgGas, store) : null,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [store.comparisonType, phev.evRange, phev.mpge, phev.mpgGas, store.annualMiles, store.homePct, store.homeRateKwh, store.publicRateKwh, store.gasPriceDollar],
+  );
+
+  const comparisonCost = store.comparisonType === "phev" && phevCost ? phevCost.totalCost : savings.gasAnnualCost;
+  const rawSavings     = comparisonCost - savings.evAnnualCost;
+  const statePHEVFee   = store.comparisonType === "phev" ? (store.stateData?.phevFee ?? 0) : 0;
+  const netFeeCost     = (store.stateData?.evFee ?? 0) - statePHEVFee;
+  const displaySavings = rawSavings - (store.includeStateEvFee ? netFeeCost : 0);
 
   const pathname = usePathname();
   const calcHref = pathname === "/" ? "#calculator" : "/#calculator";
@@ -70,7 +84,7 @@ export function StickySavingsBar() {
           <svg className="w-3.5 h-3.5 text-emerald flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
             <path d="M13 2L4 14h7l-2 8 9-12h-7l2-8z" />
           </svg>
-          <span className="font-serif text-lg font-medium text-honey leading-none">{fmt.money0(savings.annualSavings)}</span>
+          <span className="font-serif text-lg font-medium text-honey leading-none">{fmt.money0(displaySavings)}</span>
           <span className="font-mono text-[10px] text-cream/40">/yr saved</span>
           <span className="w-px h-3.5 bg-white/15 mx-0.5" />
           <span className="font-mono text-[10px] text-cream/50">adjust ↑</span>
@@ -104,17 +118,17 @@ export function StickySavingsBar() {
                 Annual savings in {locationLabel}
               </div>
               <div className="flex items-baseline gap-2">
-                <span className="font-serif text-xl font-medium text-honey leading-none">{fmt.money0(savings.annualSavings)}</span>
+                <span className="font-serif text-xl font-medium text-honey leading-none">{fmt.money0(displaySavings)}</span>
                 <span className="font-mono text-xs text-cream/40">/yr</span>
               </div>
             </div>
             <div className="hidden md:flex items-center gap-3 font-mono text-xs">
-              <span className="text-rust/80">{fmt.money0(savings.gasAnnualCost)} gas</span>
+              <span className="text-rust/80">{fmt.money0(comparisonCost)} {store.comparisonType === "phev" ? "PHEV" : "gas"}</span>
               <span className="text-cream/20">→</span>
               <span className="text-emerald">{fmt.money0(savings.evAnnualCost)} EV</span>
-              {savings.annualSavings >= 0
-                ? <span className="text-cream/30 ml-1">({fmt.pct0(savings.savingsPct)} less)</span>
-                : <span className="text-rust/70 ml-1">({fmt.pct0(-savings.savingsPct)} more)</span>
+              {displaySavings >= 0
+                ? <span className="text-cream/30 ml-1">({fmt.pct0(comparisonCost > 0 ? Math.abs(rawSavings / comparisonCost) * 100 : 0)} less)</span>
+                : <span className="text-rust/70 ml-1">({fmt.pct0(comparisonCost > 0 ? Math.abs(rawSavings / comparisonCost) * 100 : 0)} more)</span>
               }
             </div>
             <div className="flex flex-shrink-0 items-center gap-2">

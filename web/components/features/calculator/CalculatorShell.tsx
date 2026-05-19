@@ -432,11 +432,18 @@ export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaul
             <div className="text-[10px] text-ink-mute/70 pt-1">
               At {Math.round(annualMiles / 365)} mi/day · {phev.evRange} mi EV range · {phev.mpgGas} MPG on gas
             </div>
-            {phevCost.electricPct >= 100 && (
-              <div className="text-[10px] text-ink-mute/70 pt-1 leading-relaxed">
-                Even at 100% battery, dedicated EVs cost less — PHEVs carry a gas engine + tank that cuts electric efficiency ({phev.mpge} MPGe vs ~{Math.round(ev.efficiency * 33.7)} MPGe for the {ev.name}).
-              </div>
-            )}
+            {phevCost.electricPct >= 100 && (() => {
+              const evMpge = Math.round(ev.efficiency * 33.7);
+              const evMoreEfficient = evMpge > phev.mpge;
+              return (
+                <div className="text-[10px] text-ink-mute/70 pt-1 leading-relaxed">
+                  {evMoreEfficient
+                    ? `The ${ev.name} (~${evMpge} MPGe) is more efficient than the ${phev.name} (${phev.mpge} MPGe) on electricity — PHEVs carry a gas engine and battery that adds weight and cuts range-per-kWh.`
+                    : `The ${phev.name} (${phev.mpge} MPGe) is slightly more efficient electrically than the ${ev.name} (~${evMpge} MPGe). The cost difference here is driven by your rate and mileage.`
+                  }
+                </div>
+              );
+            })()}
           </div>
         )}
 
