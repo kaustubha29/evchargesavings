@@ -218,7 +218,7 @@ export function ConditionalPostCalc() {
   // ── NEGATIVE (<$0/yr) ─────────────────────────────────────────────────────
   const factors     = topFactors({ homeRateKwh, gasPriceDollar, annualMiles, homePct, gasMpg: isPhev ? 0 : gas.mpg });
   const suggestions = buildSuggestions({ homeRateKwh, annualMiles, homePct, hasTOU, touCents, stateName });
-  const extraCost   = evAnnualCost - comparisonCost;
+  const extraCost   = -annualSavings; // negative annualSavings = EV costs more; matches calculator headline
 
   return (
     <section className="py-14 border-b border-line bg-rust/5">
