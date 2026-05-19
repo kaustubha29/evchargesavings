@@ -1,6 +1,6 @@
 export interface FeelGoodFact {
   icon: string;
-  render: (savings: number, co2Lbs: number, gasAnnual: number, evAnnual: number) => string;
+  render: (savings: number, co2Lbs: number, gasAnnual: number, evAnnual: number, gasPriceDollar: number, gasCostForGallons: number, comparisonLabel: string) => string;
 }
 
 export const FACTS: FeelGoodFact[] = [
@@ -21,8 +21,8 @@ export const FACTS: FeelGoodFact[] = [
   },
   {
     icon: "⛽",
-    render: (_s, _c, gasAnnual) =>
-      `You're replacing <b>${Math.round(gasAnnual / 3.4).toLocaleString()} gallons</b> of gas per year with electrons from your wall.`,
+    render: (_s, _c, _ga, _ea, gasPriceDollar, gasCostForGallons) =>
+      `You're replacing <b>${Math.round(gasCostForGallons / Math.max(gasPriceDollar, 0.01)).toLocaleString()} gallons</b> of gas per year with electrons from your wall.`,
   },
   {
     icon: "🏠",
@@ -31,8 +31,8 @@ export const FACTS: FeelGoodFact[] = [
   },
   {
     icon: "🔋",
-    render: (save, _c, gasAnnual, evAnnual) =>
-      `Your EV fuel bill of <b>$${Math.round(evAnnual).toLocaleString()}/yr</b> is ${Math.round((1 - evAnnual / gasAnnual) * 100)}% lower than the gas equivalent.`,
+    render: (save, _c, gasAnnual, evAnnual, _gp, _gc, comparisonLabel) =>
+      `Your EV fuel bill of <b>$${Math.round(evAnnual).toLocaleString()}/yr</b> is ${Math.round((1 - evAnnual / gasAnnual) * 100)}% lower than the ${comparisonLabel} equivalent.`,
   },
   {
     icon: "🌍",

@@ -7,9 +7,12 @@ interface Props {
   co2Lbs: number;
   gasAnnual: number;
   evAnnual: number;
+  gasPriceDollar: number;
+  gasCostForGallons: number;
+  comparisonLabel: string;
 }
 
-export function FeelGoodFact({ savings, co2Lbs, gasAnnual, evAnnual }: Props) {
+export function FeelGoodFact({ savings, co2Lbs, gasAnnual, evAnnual, gasPriceDollar, gasCostForGallons, comparisonLabel }: Props) {
   const [idx, setIdx] = useState(0);
 
   // Rotate fact on every meaningful change to savings
@@ -21,7 +24,7 @@ export function FeelGoodFact({ savings, co2Lbs, gasAnnual, evAnnual }: Props) {
   if (savings <= 0) return null;
 
   const fact = FACTS[idx];
-  const html = fact.render(savings, co2Lbs, gasAnnual, evAnnual);
+  const html = fact.render(savings, co2Lbs, gasAnnual, evAnnual, gasPriceDollar, gasCostForGallons, comparisonLabel);
 
   return (
     <div className="feel-good-bar flex items-start gap-2">

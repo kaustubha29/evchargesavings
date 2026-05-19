@@ -448,7 +448,15 @@ export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaul
           </div>
         )}
 
-        <FeelGoodFact savings={displayAnnualSavings} co2Lbs={co2.savedLbs} gasAnnual={comparisonAnnualCost} evAnnual={savings.evAnnualCost} />
+        <FeelGoodFact
+          savings={displayAnnualSavings}
+          co2Lbs={co2.savedLbs}
+          gasAnnual={comparisonAnnualCost}
+          evAnnual={savings.evAnnualCost}
+          gasPriceDollar={gasPriceDollar}
+          gasCostForGallons={comparisonType === "phev" && phevCost ? phevCost.gasCost : savings.gasAnnualCost}
+          comparisonLabel={comparisonType === "phev" ? "PHEV" : "gas"}
+        />
       </div>
 
       {/* Stat cards */}
