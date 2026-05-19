@@ -157,7 +157,7 @@ export default function ResearchPage() {
           {/* Full data table */}
           <section id="data-table" className="mb-12">
             <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-5">
-              All 50 states + DC — {UPDATED} EIA rates + NCSL/InsideEVs EV &amp; PHEV registration fees
+              All 50 states + DC — {UPDATED} EIA rates + NCSL/DOE AFDC EV &amp; PHEV registration fees
             </div>
             <div className="overflow-x-auto rounded-2xl border border-line">
               <table className="w-full text-sm">

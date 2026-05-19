@@ -195,7 +195,7 @@ export default function HowWeCalculatePage() {
           <Formula
             label="Net annual savings (with registration fees)"
             formula={`net_fee_cost = state_ev_fee − state_phev_fee   (or just state_ev_fee when comparing vs gas)\nnet_annual_savings = annual_savings − net_fee_cost`}
-            note="When switching from a PHEV you escape the PHEV surcharge and gain the EV surcharge. The net impact is evFee − phevFee. Both fees are sourced from NCSL and InsideEVs, verified May 2026 for all 50 states."
+            note="When switching from a PHEV you escape the PHEV surcharge and gain the EV surcharge. The net impact is evFee − phevFee. Both fees are sourced from NCSL and the DOE Alternative Fuels Data Center (AFDC), verified May 2026 for all 50 states."
           />
           <Formula
             label="5-year savings"
@@ -212,7 +212,7 @@ export default function HowWeCalculatePage() {
         {/* State EV fees */}
         <Section title="State EV and PHEV registration fees">
           <p className="text-ink-2 text-sm leading-relaxed mb-4">
-            41 states plus DC charge electric vehicles an annual registration surcharge — a fee gas cars don&apos;t pay, meant to recover the gas tax EV drivers never contribute. It ranges from $50 (Hawaii, South Dakota) to about $270 in New Jersey, with a national average around $138/year. We subtract this from fuel savings by default; the calculator lets you toggle it off to see fuel-only savings.
+            40 states charge electric vehicles an annual registration surcharge — a fee gas cars don&apos;t pay, meant to recover the gas tax EV drivers never contribute. (DC and 10 states charge none.) It ranges from $50 (Hawaii, South Dakota, Colorado) to about $270 in New Jersey, with a national average around $138/year. We subtract this from fuel savings by default; the calculator lets you toggle it off to see fuel-only savings.
           </p>
           <p className="text-ink-2 text-sm leading-relaxed mb-4">
             35 states also charge PHEVs a separate surcharge — usually lower than the BEV fee since PHEVs still pay some gas tax at the pump. When you compare a BEV against your current PHEV, we compute the <em>net</em> registration impact: you gain the BEV surcharge but escape the PHEV surcharge you were already paying. Washington and Wyoming charge PHEVs the same rate as BEVs ($225 and $200); Kansas and Kentucky now match or exceed their BEV fee too. Georgia&apos;s PHEV fee is opt-in only so it has no mandatory PHEV surcharge. Colorado is the lowest at $11/yr; Oregon PHEVs pay $35/yr vs $115 for BEVs. Fee data sourced from NCSL and the DOE Alternative Fuels Data Center (AFDC), verified May 2026 for all 50 states.

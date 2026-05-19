@@ -12,8 +12,8 @@ export const NATIONAL_AVG: StateData = {
 //
 // phevFee = PHEV-specific annual surcharge (extra PHEVs pay; usually 0–75% of
 //           evFee since PHEVs still pay gas tax). $0 where state charges no
-//           PHEV surcharge. Sources: NCSL table + InsideEVs state fee survey
-//           (2026) + state statutes where noted. Updated May 2026.
+//           PHEV surcharge. Sources: NCSL table + DOE Alternative Fuels Data
+//           Center (AFDC) + state statutes where noted. Updated May 2026.
 //           Used to compute net registration fee impact when user switches
 //           from PHEV → BEV: netFeeCost = evFee − phevFee.
 const RAW: Record<string, { name: string; kwh: number; gas: number; tou: boolean; ev: number; phev: number }> = {
