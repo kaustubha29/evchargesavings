@@ -241,6 +241,22 @@ export default async function GuidePage({ params }: Props) {
             ))}
           </div>
 
+          {guide.faqs && guide.faqs.length > 0 && (
+            <div className="mt-14 pt-10 border-t border-line">
+              <h2 className="font-serif text-2xl font-medium tracking-tight text-ink mb-6">
+                Frequently asked questions
+              </h2>
+              <div className="space-y-6">
+                {guide.faqs.map((f) => (
+                  <div key={f.question}>
+                    <h3 className="font-serif text-lg font-medium text-ink mb-2">{f.question}</h3>
+                    <p className="text-ink-2 leading-relaxed text-sm">{f.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
         </div>
 
         {/* Full-width affiliate section */}
