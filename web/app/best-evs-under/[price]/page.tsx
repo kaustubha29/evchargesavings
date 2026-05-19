@@ -222,6 +222,61 @@ export default async function BestEvsUnderPage({ params }: Props) {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section className="py-12 border-t border-line">
+          <div className="section-wrap max-w-3xl">
+            <h2 className="font-serif text-2xl font-medium tracking-tight text-ink mb-6">
+              Frequently asked questions
+            </h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-serif text-lg font-medium text-ink mb-2">
+                  What is the best EV under {formattedShort} in 2026?
+                </h3>
+                <p className="text-ink-2 leading-relaxed text-sm">
+                  {evs.length} electric vehicles have an MSRP under {formatted}. For maximum range, the{" "}
+                  <strong>{longestRangeEV.name}</strong> leads at {longestRangeEV.range} miles EPA. The lowest
+                  sticker price is the <strong>{cheapestEV.name}</strong> at {fmt.money0(cheapestEV.msrp)}, and the
+                  most efficient (lowest charging cost per mile) is the <strong>{mostEfficientEV.name}</strong> at{" "}
+                  {mostEfficientEV.efficiency} mi/kWh.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-serif text-lg font-medium text-ink mb-2">
+                  What is the cheapest electric car under {formattedShort}?
+                </h3>
+                <p className="text-ink-2 leading-relaxed text-sm">
+                  The lowest-MSRP EV in this bracket is the <strong>{cheapestEV.name}</strong> starting at{" "}
+                  {fmt.money0(cheapestEV.msrp)}. Note MSRP is the base price before destination, options, or any
+                  state incentives — and the federal $7,500 credit ended September 30, 2025, so it no longer
+                  offsets the price. See <a href="/guides/ev-tax-credit-7500" className="text-forest hover:underline">what tax credits still exist →</a>
+                </p>
+              </div>
+              <div>
+                <h3 className="font-serif text-lg font-medium text-ink mb-2">
+                  How many EVs are available under {formatted} in 2026?
+                </h3>
+                <p className="text-ink-2 leading-relaxed text-sm">
+                  {evs.length} models currently have a base MSRP at or under {formatted}, spanning sedans, SUVs,
+                  and trucks. The list above is ranked by EPA range; switch budgets using the bands above to see
+                  more or fewer options.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-serif text-lg font-medium text-ink mb-2">
+                  Which EV under {formattedShort} is cheapest to actually run?
+                </h3>
+                <p className="text-ink-2 leading-relaxed text-sm">
+                  Sticker price isn&apos;t running cost. The <strong>{mostEfficientEV.name}</strong> at{" "}
+                  {mostEfficientEV.efficiency} mi/kWh has the lowest charging cost per mile in this list — but
+                  your actual annual cost depends on your state&apos;s electricity rate. Run any model through
+                  the <a href="/#calculator" className="text-forest hover:underline">savings calculator →</a> for your state.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-14 bg-ink text-cream">
           <div className="section-wrap max-w-2xl text-center">
