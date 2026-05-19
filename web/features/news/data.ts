@@ -31,13 +31,14 @@ export const NEWS: NewsArticle[] = [
     sections: [
       {
         heading: "What was actually proposed",
-        body: "On May 18, 2026, the House Transportation and Infrastructure Committee released a roughly $580 billion, five-year surface transportation reauthorization bill. Tucked inside: a new federal annual fee on electric and plug-in hybrid vehicles. The headline number is $130 per year for a fully electric vehicle. Plug-in hybrids would pay $35. Conventional (non-plug-in) hybrids are exempt. The EV fee is structured to rise $5 every two years starting in 2029, capped at $150; the plug-in hybrid fee caps at $50. Critically: this is a proposal, not law. The bill is in committee negotiation. It exists because the current surface transportation authorization expires September 30, 2026, and lawmakers need a replacement — the EV fee is one financing piece inside a much larger bill that still has to pass both chambers.",
+        body: "On May 18, 2026, the House Transportation and Infrastructure Committee released the BUILD America 250 Act — a roughly $580 billion, five-year surface transportation reauthorization bill. Tucked inside: a new federal annual fee on electric and plug-in hybrid vehicles. The headline number is $130 per year for a fully electric vehicle. Plug-in hybrids would pay $35. Conventional (non-plug-in) hybrids are exempt. The EV fee is structured to rise $5 every two years starting in 2029, capped at $150; the plug-in hybrid fee caps at $50. Critically: this is a proposal, not law. The bill is in committee negotiation. It exists because the current surface transportation authorization expires September 30, 2026, and lawmakers need a replacement — the EV fee is one financing piece inside a much larger bill that still has to pass both chambers.",
         list: [
           "EV: $130/year, +$5 every two years from 2029, max $150",
           "Plug-in hybrid: $35/year, max $50",
           "Conventional hybrid: exempt",
+          "Bill name: BUILD America 250 Act (BA250)",
           "Part of a ~$580B 5-year surface transportation reauthorization bill",
-          "Status: PROPOSED — not passed, not law. Current authorization expires Sept 30, 2026",
+          "Committee markup scheduled May 21, 2026 — status: PROPOSED, not law. Current authorization expires Sept 30, 2026",
         ],
       },
       {
@@ -67,9 +68,9 @@ export const NEWS: NewsArticle[] = [
       },
       {
         heading: "What happens next",
-        body: "This is early. The bill has to clear committee, pass the House, get reconciled with whatever the Senate produces, and be signed — all before or around the September 30, 2026 authorization deadline, which itself can be extended by short-term patches. There is already opposition: Senate Democrats including Ron Wyden and Sheldon Whitehouse, along with environmental and EV-advocacy groups, argue a flat federal fee risks slowing EV adoption and is poorly calibrated against what gas drivers actually pay. Supporters counter that road funding is collapsing and EVs have had a free ride on maintenance costs. The number, the start date, the inflation escalator, and the state-stacking question are all still negotiable. Nothing about this changes the cost of owning an EV today — but if you're modeling a 5-year ownership cost, pencil in a plausible $100–$150/year federal fee as a scenario, not a certainty.",
+        body: "The House T&I Committee is scheduled to mark up the BUILD America 250 Act on May 21, 2026 — the next concrete step. After that, the bill has to pass the full House, get reconciled with whatever the Senate produces, and be signed — all before or around the September 30, 2026 authorization deadline, which itself can be extended by short-term patches. There is already opposition: Senate Democrats including Ron Wyden and Sheldon Whitehouse, along with environmental and EV-advocacy groups, argue a flat federal fee risks slowing EV adoption and is poorly calibrated against what gas drivers actually pay. Supporters counter that road funding is collapsing and EVs have had a free ride on maintenance costs. The number, the start date, the inflation escalator, and the state-stacking question are all still negotiable. Nothing about this changes the cost of owning an EV today — but if you're modeling a 5-year ownership cost, pencil in a plausible $100–$150/year federal fee as a scenario, not a certainty.",
         list: [
-          "Must pass House, reconcile with Senate, be signed — none of that has happened",
+          "Committee markup: May 21, 2026 — must then pass full House, reconcile with Senate, be signed",
           "Opposition from Senate Democrats and EV-advocacy groups already public",
           "Fee amount, start date, escalator, and state stacking all still negotiable",
           "For 5-year cost modeling: treat ~$100–$150/yr as a scenario, not a fact",
