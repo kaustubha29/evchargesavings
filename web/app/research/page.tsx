@@ -214,9 +214,9 @@ export default function ResearchPage() {
                   note: "State-level regular unleaded gasoline prices. Updated weekly.",
                 },
                 {
-                  name: "EPA Fuel Economy Data",
+                  name: "EPA Fuel Economy Guide — fueleconomy.gov",
                   url: "https://www.fueleconomy.gov/feg/download.shtml",
-                  note: "EPA-tested MPGe and kWh/100mi efficiency ratings for 130+ EV models.",
+                  note: "EPA-tested efficiency ratings for 130+ BEV models (MPGe, kWh/100mi, range) and 36 PHEV models (electric range, MPGe in electric mode, MPG in gas mode). Used for all vehicle efficiency calculations.",
                 },
                 {
                   name: "NCSL — Special Registration Fees for Electric & Hybrid Vehicles",
@@ -248,7 +248,7 @@ export default function ResearchPage() {
               Free to use with attribution. Suggested citation:
             </p>
             <div className="bg-ink text-cream rounded-xl px-5 py-4 font-mono text-xs leading-relaxed">
-              EVChargeSavings. &ldquo;EV Charging Cost &amp; Registration Fees by State — 2026.&rdquo; {UPDATED}. evchargesavings.com/research. Source data: U.S. Energy Information Administration; National Conference of State Legislatures.
+              EVChargeSavings. &ldquo;EV Charging Cost &amp; Registration Fees by State — 2026.&rdquo; {UPDATED}. evchargesavings.com/research. Source data: U.S. Energy Information Administration (EIA); EPA Fuel Economy Guide; DOE Alternative Fuels Data Center (AFDC); National Conference of State Legislatures (NCSL).
             </div>
           </section>
 
