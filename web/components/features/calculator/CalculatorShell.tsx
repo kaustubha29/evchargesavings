@@ -7,34 +7,37 @@ function gtagEvent(name: string, params: Record<string, string | number>) {
   }
 }
 import { useRouter, usePathname } from "next/navigation";
-import { useCalculatorStore, computeSavings, computeCO2 } from "@/store/calculator";
-import { evRepository, gasRepository } from "@/features/ev-data/repository";
+import { useCalculatorStore, computeSavings, computeCO2, computePHEVCost } from "@/store/calculator";
+import { evRepository, gasRepository, phevRepository } from "@/features/ev-data/repository";
 import { stateFromZip, getStateData } from "@/features/location/queries";
 import { fmt } from "@/lib/format";
 import { FeelGoodFact } from "@/components/shared/FeelGoodFact";
 import { StatCard } from "@/components/shared/StatCard";
 import { VehicleCombobox } from "@/components/shared/VehicleCombobox";
 import type { ComboOption } from "@/components/shared/VehicleCombobox";
-import type { EVModelSummary } from "@/features/ev-data/types";
+import type { EVModelSummary, PHEVVehicle } from "@/features/ev-data/types";
 import type { GasVehicle } from "@/features/ev-data/types";
 
 interface Props {
   evSummaries: EVModelSummary[];
   gasVehicles: GasVehicle[];
+  phevVehicles: PHEVVehicle[];
   defaultEvSlug?: string;
   defaultGasId?: string;
   initialHomeRateKwh?: number;
   initialGasPriceDollar?: number;
 }
 
-export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defaultGasId, initialHomeRateKwh, initialGasPriceDollar }: Props) {
+export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaultEvSlug, defaultGasId, initialHomeRateKwh, initialGasPriceDollar }: Props) {
   const store = useCalculatorStore();
   const {
-    evSlug, gasId, annualMiles, homePct,
+    evSlug, gasId, comparisonType, phevId,
+    annualMiles, homePct,
     homeRateKwh, publicRateKwh, gasPriceDollar,
     stateCode, stateData, city, zip,
     isDetecting, includeStateEvFee,
-    setEvSlug, setGasId, setMiles, setHomePct,
+    setEvSlug, setGasId, setComparisonType, setPHEVId,
+    setMiles, setHomePct,
     setHomeRate, setPublicRate, setGasPrice, setLocation, setZip,
     setIncludeStateEvFee,
   } = store;
@@ -74,13 +77,26 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
     }
   }
 
-  const ev  = useMemo(() => evRepository.getBySlug(evSlug) ?? evRepository.getAll()[0], [evSlug]);
-  const gas = useMemo(() => gasRepository.getById(gasId) ?? gasRepository.getAll()[0], [gasId]);
+  const ev   = useMemo(() => evRepository.getBySlug(evSlug) ?? evRepository.getAll()[0], [evSlug]);
+  const gas  = useMemo(() => gasRepository.getById(gasId)  ?? gasRepository.getAll()[0], [gasId]);
+  const phev = useMemo(() => phevRepository.getById(phevId) ?? phevRepository.getAll()[0], [phevId]);
 
   const savings = useMemo(
     () => computeSavings(ev.efficiency, gas.mpg, store),
     [ev.efficiency, gas.mpg, annualMiles, homePct, homeRateKwh, publicRateKwh, gasPriceDollar, stateData, includeStateEvFee]
   );
+
+  const phevCost = useMemo(
+    () => comparisonType === "phev" ? computePHEVCost(phev.evRange, phev.mpge, phev.mpgGas, store) : null,
+    [comparisonType, phev, annualMiles, homePct, homeRateKwh, publicRateKwh, gasPriceDollar]
+  );
+
+  const comparisonAnnualCost = comparisonType === "phev" && phevCost ? phevCost.totalCost : savings.gasAnnualCost;
+  const displayAnnualSavings = comparisonAnnualCost - savings.evAnnualCost;
+  const statePHEVFee         = comparisonType === "phev" ? (stateData?.phevFee ?? 0) : 0;
+  const netFeeCost           = (stateData?.evFee ?? 0) - statePHEVFee; // extra cost after switching (evFee - phevFee you escape)
+  const displayNetSavings    = displayAnnualSavings - (includeStateEvFee ? netFeeCost : 0);
+  const comparisonName       = comparisonType === "phev" ? phev.name : gas.name;
 
   const co2 = useMemo(
     () => computeCO2(annualMiles, gas.mpg, savings.annualKwh),
@@ -164,6 +180,10 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
     () => gasVehicles.map((g) => ({ value: g.id, label: g.name, group: g.type })),
     [gasVehicles]
   );
+  const phevOptions = useMemo<ComboOption[]>(
+    () => phevVehicles.map((p) => ({ value: p.id, label: p.name, group: p.type })),
+    [phevVehicles]
+  );
 
   return (
     <div id="calculator" ref={calcRef} className="space-y-3">
@@ -182,13 +202,36 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
             />
           </div>
           <div className="space-y-1.5">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Your gas car</span>
-            <VehicleCombobox
-              options={gasOptions}
-              value={gasId}
-              onChange={(v) => { setGasId(v); gtagEvent("calculator_gas_selected", { gas: v }); }}
-              placeholder="Search gas cars…"
-            />
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-ink-mute">Your current car</span>
+              <div className="flex rounded-lg overflow-hidden border border-line text-[10px] font-mono">
+                <button
+                  type="button"
+                  onClick={() => setComparisonType("gas")}
+                  className={`px-2.5 py-1 transition-colors ${comparisonType === "gas" ? "bg-ink text-cream" : "bg-paper text-ink-mute hover:text-ink"}`}
+                >Gas</button>
+                <button
+                  type="button"
+                  onClick={() => setComparisonType("phev")}
+                  className={`px-2.5 py-1 transition-colors border-l border-line ${comparisonType === "phev" ? "bg-ink text-cream" : "bg-paper text-ink-mute hover:text-ink"}`}
+                >PHEV</button>
+              </div>
+            </div>
+            {comparisonType === "gas" ? (
+              <VehicleCombobox
+                options={gasOptions}
+                value={gasId}
+                onChange={(v) => { setGasId(v); gtagEvent("calculator_gas_selected", { gas: v }); }}
+                placeholder="Search cars…"
+              />
+            ) : (
+              <VehicleCombobox
+                options={phevOptions}
+                value={phevId}
+                onChange={(v) => { setPHEVId(v); gtagEvent("calculator_phev_selected", { phev: v }); }}
+                placeholder="Search PHEVs…"
+              />
+            )}
           </div>
         </div>
 
@@ -233,7 +276,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
 
         {/* Verdict chip — big + animated */}
         {(() => {
-          const s = includeStateEvFee ? savings.netAnnualSavings : savings.annualSavings;
+          const s = includeStateEvFee ? displayNetSavings : displayAnnualSavings;
           const isGood = s > 800;
           const isOkay = s >= 300;
           const isPos  = s > 0;
@@ -256,9 +299,9 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
         {/* Annual headline */}
         {(() => {
           const feeOn = includeStateEvFee && stateData.evFee > 0;
-          const headlineAnnual  = feeOn ? savings.netAnnualSavings  : savings.annualSavings;
-          const headlineMonthly = feeOn ? savings.netMonthlySavings : savings.monthlySavings;
-          const headline5yr     = feeOn ? savings.netFiveYearSavings : savings.fiveYearSavings;
+          const headlineAnnual  = feeOn ? displayNetSavings         : displayAnnualSavings;
+          const headlineMonthly = headlineAnnual / 12;
+          const headline5yr     = headlineAnnual * 5;
           return (
             <>
               <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute flex items-center gap-2 mb-1">
@@ -284,27 +327,39 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
           );
         })()}
 
-        {/* Savings breakdown — state EV fee is the delta gas cars don't pay */}
-        {stateData.evFee > 0 && (
+        {/* Savings breakdown — registration fee delta */}
+        {(stateData.evFee > 0 || statePHEVFee > 0) && (
           <div className="pt-4 border-t border-line">
             <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">Savings breakdown</div>
             <div className="space-y-1.5 text-xs">
               <div className="flex justify-between">
-                <span className="text-ink-mute">Annual fuel savings</span>
-                <span className="font-mono font-medium text-ink">{fmt.money0(savings.annualSavings)}</span>
+                <span className="text-ink-mute">{comparisonType === "phev" ? "Annual energy savings" : "Annual fuel savings"}</span>
+                <span className="font-mono font-medium text-ink">{fmt.money0(displayAnnualSavings)}</span>
               </div>
-              <div className="flex justify-between">
-                <span className={includeStateEvFee ? "text-ink-mute" : "text-ink-mute line-through"}>
-                  {stateData.name} EV registration fee
-                </span>
-                <span className={`font-mono font-medium ${includeStateEvFee ? "text-rust" : "text-ink-mute line-through"}`}>
-                  −{fmt.money0(stateData.evFee)}
-                </span>
-              </div>
+              {stateData.evFee > 0 && (
+                <div className="flex justify-between">
+                  <span className={includeStateEvFee ? "text-ink-mute" : "text-ink-mute line-through"}>
+                    {stateData.name} EV registration fee
+                  </span>
+                  <span className={`font-mono font-medium ${includeStateEvFee ? "text-rust" : "text-ink-mute line-through"}`}>
+                    −{fmt.money0(stateData.evFee)}
+                  </span>
+                </div>
+              )}
+              {comparisonType === "phev" && statePHEVFee > 0 && (
+                <div className="flex justify-between">
+                  <span className={includeStateEvFee ? "text-ink-mute" : "text-ink-mute line-through"}>
+                    {stateData.name} PHEV fee you no longer pay
+                  </span>
+                  <span className={`font-mono font-medium ${includeStateEvFee ? "text-good-fg" : "text-ink-mute line-through"}`}>
+                    +{fmt.money0(statePHEVFee)}
+                  </span>
+                </div>
+              )}
               <div className="flex justify-between pt-1.5 border-t border-line">
                 <span className="text-ink font-medium">Net annual savings</span>
                 <span className="font-mono font-medium text-forest">
-                  {fmt.money0(includeStateEvFee ? savings.netAnnualSavings : savings.annualSavings)}
+                  {fmt.money0(includeStateEvFee ? displayNetSavings : displayAnnualSavings)}
                 </span>
               </div>
             </div>
@@ -327,7 +382,10 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
                 />
               </span>
               <span className="text-xs text-ink-mute group-hover:text-ink-2 transition-colors">
-                Include {stateData.name}&apos;s {fmt.money0(stateData.evFee)} annual EV fee — most owners pay this on top of registration
+                Include {stateData.name}&apos;s registration fees
+                {comparisonType === "phev" && statePHEVFee > 0
+                  ? ` — ${fmt.money0(stateData.evFee)} EV fee minus ${fmt.money0(statePHEVFee)} PHEV fee you currently pay`
+                  : ` — ${fmt.money0(stateData.evFee)} annual EV fee most owners pay on top of registration`}
               </span>
             </button>
           </div>
@@ -340,10 +398,10 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
             <span className="font-mono text-[11px] text-ink-mute">{fmt.cents1(stateData.kwhCents)}/kWh · {fmt.money2(stateData.gasDollar)}/gal</span>
           </div>
           {[
-            { label: gas.name, color:"#c25234", val: savings.gasAnnualCost, id:"gas" },
-            { label: ev.name,  color:"#34a960", val: savings.evAnnualCost,  id:"ev"  },
+            { label: comparisonName, color:"#c25234", val: comparisonAnnualCost, id:"comparison" },
+            { label: ev.name,        color:"#34a960", val: savings.evAnnualCost, id:"ev"         },
           ].map((row) => {
-            const max = Math.max(savings.gasAnnualCost, savings.evAnnualCost, 1);
+            const max = Math.max(comparisonAnnualCost, savings.evAnnualCost, 1);
             return (
               <div key={row.id} className="mb-3 last:mb-0">
                 <div className="flex justify-between text-xs mb-1.5">
@@ -361,13 +419,34 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
           })}
         </div>
 
-        <FeelGoodFact savings={savings.annualSavings} co2Lbs={co2.savedLbs} gasAnnual={savings.gasAnnualCost} evAnnual={savings.evAnnualCost} />
+        {comparisonType === "phev" && phevCost && (
+          <div className="pt-3 border-t border-line text-xs text-ink-mute space-y-1 font-mono">
+            <div className="flex justify-between">
+              <span>{phev.name} — electric portion ({Math.round(phevCost.electricPct)}% of miles)</span>
+              <span className="text-ink">{fmt.money0(phevCost.electricCost)}/yr</span>
+            </div>
+            <div className="flex justify-between">
+              <span>{phev.name} — gas portion ({Math.round(100 - phevCost.electricPct)}% of miles)</span>
+              <span className="text-ink">{fmt.money0(phevCost.gasCost)}/yr</span>
+            </div>
+            <div className="text-[10px] text-ink-mute/70 pt-1">
+              At {Math.round(annualMiles / 365)} mi/day · {phev.evRange} mi EV range · {phev.mpgGas} MPG on gas
+            </div>
+            {phevCost.electricPct >= 100 && (
+              <div className="text-[10px] text-ink-mute/70 pt-1 leading-relaxed">
+                Even at 100% battery, dedicated EVs cost less — PHEVs carry a gas engine + tank that cuts electric efficiency ({phev.mpge} MPGe vs ~{Math.round(ev.efficiency * 33.7)} MPGe for the {ev.name}).
+              </div>
+            )}
+          </div>
+        )}
+
+        <FeelGoodFact savings={displayAnnualSavings} co2Lbs={co2.savedLbs} gasAnnual={comparisonAnnualCost} evAnnual={savings.evAnnualCost} />
       </div>
 
       {/* Stat cards */}
       <div className="grid grid-cols-3 gap-4">
-        <StatCard accent label="Annual savings" value={fmt.money0(includeStateEvFee && stateData.evFee > 0 ? savings.netAnnualSavings : savings.annualSavings)} sub={includeStateEvFee && stateData.evFee > 0 ? `after ${stateData.name} EV fee` : `${ev.name} vs ${gas.name}`} />
-        <StatCard label="5-year savings" value={fmt.money0(includeStateEvFee && stateData.evFee > 0 ? savings.netFiveYearSavings : savings.fiveYearSavings)} />
+        <StatCard accent label="Annual savings" value={fmt.money0(includeStateEvFee && stateData.evFee > 0 ? displayNetSavings : displayAnnualSavings)} sub={includeStateEvFee && stateData.evFee > 0 ? `after ${stateData.name} EV fee` : `${ev.name} vs ${comparisonName}`} />
+        <StatCard label="5-year savings" value={fmt.money0((includeStateEvFee && stateData.evFee > 0 ? displayNetSavings : displayAnnualSavings) * 5)} />
         <StatCard label="CO₂ saved / yr" value={fmt.lbs(co2.savedLbs)} sub={`${co2.savedMetricTons.toFixed(1)} metric tons`} />
       </div>
 
@@ -385,11 +464,30 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
               <span className="font-mono text-xs text-ink-mute ml-2">{annualMiles.toLocaleString()}/yr</span>
             </div>
           </div>
-          <input
-            type="range" min={3} max={140} step={1} value={Math.round(annualMiles / 365)}
-            onChange={(e) => setMiles(Number(e.target.value) * 365)}
-            className="w-full accent-forest"
-          />
+          <div className="relative">
+            <input
+              type="range" min={3} max={140} step={1} value={Math.round(annualMiles / 365)}
+              onChange={(e) => setMiles(Number(e.target.value) * 365)}
+              className="w-full accent-forest"
+            />
+            {comparisonType === "phev" && phev && phev.evRange >= 3 && phev.evRange <= 140 && (
+              <div
+                className="absolute top-0 bottom-0 flex flex-col items-center pointer-events-none"
+                style={{ left: `${((phev.evRange - 3) / (140 - 3)) * 100}%` }}
+              >
+                <div className="w-0.5 h-4 bg-amber-500 opacity-80 mt-0.5 rounded-full" />
+              </div>
+            )}
+          </div>
+          {comparisonType === "phev" && phevCost && (
+            <div className="flex items-center gap-1.5 mt-1.5 font-mono text-[10px]">
+              <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${phevCost.electricPct >= 100 ? "bg-emerald" : "bg-amber-500"}`} />
+              {phevCost.electricPct >= 100
+                ? <span className="text-ink-mute">100% electric now · gas kicks in above <span className="text-ink">{phev.evRange} mi/day</span></span>
+                : <span className="text-ink-mute"><span className="text-ink">{Math.round(phevCost.electricPct)}% electric</span> · gas kicks in at <span className="text-ink">{phev.evRange} mi/day</span></span>
+              }
+            </div>
+          )}
         </div>
 
         {/* Charged at home */}

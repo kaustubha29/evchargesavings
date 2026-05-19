@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { evRepository, gasRepository } from "@/features/ev-data/repository";
+import { evRepository, gasRepository, phevRepository } from "@/features/ev-data/repository";
 import { calculateSavings } from "@/features/calculations/savings";
 import { calculateCO2 } from "@/features/calculations/co2";
 import { calculateBreakEven } from "@/features/calculations/break-even";
@@ -42,7 +42,8 @@ export default async function EVDetailPage({ params }: Props) {
   if (!ev) notFound();
 
   const evSummaries = evRepository.getSummaries();
-  const gasVehicles = gasRepository.getAll();
+  const gasVehicles  = gasRepository.getAll();
+  const phevVehicles = phevRepository.getAll();
 
   // Example: compare vs Toyota RAV4 nationally
   const rav4 = gasRepository.getById("toyota-rav4") ?? gasVehicles[0];
@@ -149,7 +150,7 @@ export default async function EVDetailPage({ params }: Props) {
         {/* Calculator with this EV pre-selected */}
         <section className="py-12">
           <div className="section-wrap">
-            <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} defaultEvSlug={ev.slug} />
+            <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} phevVehicles={phevVehicles} defaultEvSlug={ev.slug} />
           </div>
         </section>
 
@@ -186,7 +187,7 @@ export default async function EVDetailPage({ params }: Props) {
             <div className="flex flex-wrap justify-between items-center gap-4 text-xs font-mono">
               <span>© 2026 EV Charge Savings</span>
               <span className="text-cream/25 text-center max-w-2xl">
-                Rate data from EIA (electricity monthly, gas weekly). Calculations are estimates.
+                Rate data: EIA (electricity monthly, gas weekly) · EPA Fuel Economy Guide · DOE AFDC (state fees). Calculations are estimates.
               </span>
               <span>evchargesavings.com</span>
             </div>

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { evRepository, gasRepository } from "@/features/ev-data/repository";
+import { evRepository, gasRepository, phevRepository } from "@/features/ev-data/repository";
 import { CalculatorShell } from "@/components/features/calculator/CalculatorShell";
 import { LocationDetector } from "@/components/features/location/LocationDetector";
 import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
@@ -92,7 +92,8 @@ export default async function CompareEvsPage({ params }: Props) {
   const breakEvenYears = chargingSavingsForPricierEv > 50 ? msrpDiff / chargingSavingsForPricierEv : null;
 
   const evSummaries = evRepository.getSummaries();
-  const gasVehicles = gasRepository.getAll();
+  const gasVehicles  = gasRepository.getAll();
+  const phevVehicles = phevRepository.getAll();
 
   const title = `${ev1.fullName} vs ${ev2.fullName}`;
 
@@ -264,6 +265,7 @@ export default async function CompareEvsPage({ params }: Props) {
             <CalculatorShell
               evSummaries={evSummaries}
               gasVehicles={gasVehicles}
+              phevVehicles={phevVehicles}
               defaultEvSlug={ev1.slug}
             />
           </div>
@@ -274,7 +276,7 @@ export default async function CompareEvsPage({ params }: Props) {
             <div className="flex flex-wrap justify-between items-center gap-4 text-xs font-mono">
               <span>© 2026 EV Charge Savings</span>
               <span className="text-cream/25 text-center max-w-2xl">
-                Rate data from EIA. Calculations are estimates — actual costs vary by state, charging behavior, and utility rate plan.
+                Rate data: EIA · EPA Fuel Economy Guide · DOE AFDC (state fees). Calculations are estimates — actual costs vary by state, charging behavior, and utility rate plan.
               </span>
               <span>evchargesavings.com</span>
             </div>

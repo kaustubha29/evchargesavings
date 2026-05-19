@@ -190,7 +190,7 @@ export default async function CostToChargePage({ params }: Props) {
               {(costPerMile * 100).toFixed(1)}¢ per mile ·{" "}
               {fmt.money2(fullChargeCost)} for a full {ev.battery} kWh charge ·{" "}
               {fmt.money0(savings.evAnnualCost)}/year at {ANNUAL_MILES.toLocaleString()} miles.
-              Source: EIA {elecPeriod ?? "May 2026"}.
+              Source: EIA {elecPeriod ?? "May 2026"} · EPA Fuel Economy Guide · DOE AFDC (state fees).
             </p>
 
             <p className="text-ink-3 text-lg max-w-xl leading-relaxed mb-8">

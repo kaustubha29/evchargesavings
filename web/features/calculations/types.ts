@@ -32,6 +32,26 @@ export interface BreakEvenResult {
   months: number;
 }
 
+export interface PHEVCostInputs {
+  evRange: number;
+  mpge: number;
+  mpgGas: number;
+  annualMiles: number;
+  homePct: number;
+  homeRateKwh: number;
+  publicRateKwh: number;
+  gasPriceDollar: number;
+}
+
+export interface PHEVCostResult {
+  electricCost: number;
+  gasCost: number;
+  totalCost: number;
+  electricMiles: number;
+  gasMiles: number;
+  electricPct: number;
+}
+
 export interface CO2Result {
   savedLbs: number;
   savedMetricTons: number;

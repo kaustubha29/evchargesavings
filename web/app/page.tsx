@@ -1,4 +1,4 @@
-import { evRepository, gasRepository } from "@/features/ev-data/repository";
+import { evRepository, gasRepository, phevRepository } from "@/features/ev-data/repository";
 import { NATIONAL_AVG } from "@/features/location/data/states";
 import { GUIDES } from "@/features/guides/data";
 import { CalculatorShell } from "@/components/features/calculator/CalculatorShell";
@@ -19,7 +19,8 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const evSummaries = evRepository.getSummaries();
-  const gasVehicles = gasRepository.getAll();
+  const gasVehicles  = gasRepository.getAll();
+  const phevVehicles = phevRepository.getAll();
   const national = NATIONAL_AVG;
 
   return (
@@ -92,7 +93,7 @@ export default function HomePage() {
         {/* CALCULATOR */}
         <section id="calculator" className="bg-cream-soft py-12">
           <div className="section-wrap">
-            <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} initialHomeRateKwh={national.kwhCents} initialGasPriceDollar={national.gasDollar} />
+            <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} phevVehicles={phevVehicles} initialHomeRateKwh={national.kwhCents} initialGasPriceDollar={national.gasDollar} />
           </div>
         </section>
 

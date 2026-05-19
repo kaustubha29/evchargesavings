@@ -157,7 +157,7 @@ export default function ResearchPage() {
           {/* Full data table */}
           <section id="data-table" className="mb-12">
             <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-5">
-              All 50 states + DC — {UPDATED} EIA rates + NCSL EV registration fees
+              All 50 states + DC — {UPDATED} EIA rates + NCSL/InsideEVs EV &amp; PHEV registration fees
             </div>
             <div className="overflow-x-auto rounded-2xl border border-line">
               <table className="w-full text-sm">
@@ -168,7 +168,8 @@ export default function ResearchPage() {
                     <th className="text-right px-4 py-3 font-mono text-[10px] uppercase tracking-widest text-ink-mute">¢/mile</th>
                     <th className="text-right px-4 py-3 font-mono text-[10px] uppercase tracking-widest text-ink-mute">Annual cost*</th>
                     <th className="text-right px-4 py-3 font-mono text-[10px] uppercase tracking-widest text-ink-mute">Gas price</th>
-                    <th className="text-right px-4 py-3 font-mono text-[10px] uppercase tracking-widest text-ink-mute">EV reg. fee/yr†</th>
+                    <th className="text-right px-4 py-3 font-mono text-[10px] uppercase tracking-widest text-ink-mute">EV fee/yr†</th>
+                    <th className="text-right px-4 py-3 font-mono text-[10px] uppercase tracking-widest text-ink-mute">PHEV fee/yr‡</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -184,6 +185,7 @@ export default function ResearchPage() {
                       <td className="px-4 py-2.5 text-right font-mono text-sm font-medium text-forest">${annualCost(s.kwhCents).toLocaleString()}</td>
                       <td className="px-4 py-2.5 text-right font-mono text-sm text-ink-3">${s.gasDollar.toFixed(2)}/gal</td>
                       <td className="px-4 py-2.5 text-right font-mono text-sm text-ink-2">{s.evFee > 0 ? `$${s.evFee}` : "—"}</td>
+                      <td className="px-4 py-2.5 text-right font-mono text-sm text-ink-2">{s.phevFee > 0 ? `$${s.phevFee}` : "—"}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -191,7 +193,8 @@ export default function ResearchPage() {
             </div>
             <p className="text-xs text-ink-mute mt-3">
               * Annual cost based on Tesla Model Y LR AWD, 13,500 mi/yr, 100% home charging.{" "}
-              † Annual EV-specific registration surcharge (the fee EVs pay on top of base registration that all vehicles pay). Source: NCSL, verified May 2026 — several states index to inflation, confirm with your DMV.
+              † Annual BEV-specific registration surcharge. Source: NCSL, verified May 2026 — several states index to inflation, confirm with your DMV.{" "}
+              ‡ Annual PHEV-specific surcharge ($0 = no mandatory surcharge). Source: DOE AFDC + NCSL, verified May 2026 — WA/WY match BEV fee; GA opt-in only. When switching PHEV → BEV, net fee impact = EV fee − PHEV fee.
             </p>
           </section>
 
@@ -218,7 +221,12 @@ export default function ResearchPage() {
                 {
                   name: "NCSL — Special Registration Fees for Electric & Hybrid Vehicles",
                   url: "https://www.ncsl.org/transportation/special-registration-fees-for-electric-and-hybrid-vehicles",
-                  note: "Annual state EV registration surcharge for all 50 states + DC. Verified May 2026. 41 states + DC charge a fee, ranging $50–$290 (median ~$138); several index to inflation.",
+                  note: "Annual state BEV registration surcharge for all 50 states + DC. Verified May 2026. 41 states + DC charge a fee, ranging $50–$290 (median ~$138); several index to inflation.",
+                },
+                {
+                  name: "DOE Alternative Fuels Data Center — State Laws & Incentives",
+                  url: "https://afdc.energy.gov/laws/state",
+                  note: "Official DOE database of state EV and PHEV registration surcharges for all 50 states + DC. Used to verify PHEV-specific fee amounts; cross-referenced with NCSL. 35 states charge a PHEV surcharge. WA/WY match BEV fee; GA mandatory fee is $0 (opt-in only); CO lowest at $11.",
                 },
               ].map((s) => (
                 <div key={s.url} className="flex gap-4 py-3 border-b border-line-soft last:border-0">

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getAllStates, getStateBySlug } from "@/features/location/queries";
 import { enrichState } from "@/features/location/live-rates";
-import { evRepository, gasRepository } from "@/features/ev-data/repository";
+import { evRepository, gasRepository, phevRepository } from "@/features/ev-data/repository";
 import { calculateSavings } from "@/features/calculations/savings";
 import { calculateCO2 } from "@/features/calculations/co2";
 import { statePageMeta } from "@/features/content/seo";
@@ -57,7 +57,8 @@ export default async function StateCalculatorPage({ params }: Props) {
   const { state: stateData, gasPeriod, elecPeriod } = await enrichState(rawStateData);
 
   const evSummaries = evRepository.getSummaries();
-  const gasVehicles = gasRepository.getAll();
+  const gasVehicles  = gasRepository.getAll();
+  const phevVehicles = phevRepository.getAll();
 
   // Pre-compute example: Model Y LR vs Toyota RAV4 for structured data / hero text
   const modelY = evRepository.getBySlug("tesla-model-y-long-range-awd") ?? evRepository.getAll()[0];
@@ -143,7 +144,7 @@ export default async function StateCalculatorPage({ params }: Props) {
               {((stateData.kwhCents / 100) / modelY.efficiency * 100).toFixed(1)}¢ per mile at the home rate ·{" "}
               {fmt.money2((stateData.kwhCents / 100) * modelY.battery)} for a full {modelY.battery} kWh charge ·{" "}
               {fmt.money0(exSavings.evAnnualCost)}/year at 13,500 miles.
-              The annual figure assumes 80% home charging and 20% public fast-charging (priced at 2.5× the home rate). Source: EIA {elecPeriod ?? "May 2026"} (latest published — EIA releases residential rates ~3 months in arrears).
+              The annual figure assumes 80% home charging and 20% public fast-charging (priced at 2.5× the home rate). Source: EIA {elecPeriod ?? "May 2026"} (latest published — EIA releases residential rates ~3 months in arrears) · EPA Fuel Economy Guide · DOE AFDC (state fees).
             </p>
 
             {/* Quick-stat row */}
@@ -189,7 +190,7 @@ export default async function StateCalculatorPage({ params }: Props) {
         {/* Calculator */}
         <section className="py-12">
           <div className="section-wrap">
-            <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} initialHomeRateKwh={stateData.kwhCents} initialGasPriceDollar={stateData.gasDollar} />
+            <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} phevVehicles={phevVehicles} initialHomeRateKwh={stateData.kwhCents} initialGasPriceDollar={stateData.gasDollar} />
           </div>
         </section>
 
@@ -273,6 +274,7 @@ export default async function StateCalculatorPage({ params }: Props) {
               <p className="text-ink-mute font-mono text-[10px] mt-4">
                 Source: EIA
                 {elecPeriod && <> · Electricity: residential avg · {elecPeriod} (latest published; EIA releases residential rates ~3 months in arrears)</>}
+                {" · EPA Fuel Economy Guide · DOE AFDC (state fees)"}
                 {gasPeriod  && <> · Gas: retail avg · {gasPeriod}</>}
               </p>
             )}

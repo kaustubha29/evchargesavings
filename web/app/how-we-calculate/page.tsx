@@ -69,10 +69,11 @@ export default function HowWeCalculatePage() {
             <div className="font-mono text-[11px] uppercase tracking-widest text-emerald mb-4">TL;DR</div>
             <ul className="space-y-2 text-sm text-cream/80 font-mono">
               {[
-                "Core comparison is fuel cost: EV electricity vs gas. We then subtract your state's annual EV registration fee to show net savings.",
-                "Net savings = gas fuel cost − EV charging cost − state EV registration fee. Toggle the fee off in the calculator for fuel-only.",
-                "Still excluded: insurance, maintenance, depreciation, and the proposed (not law) federal $130 EV fee.",
-                "Data: EPA efficiency ratings, EIA electricity rates (monthly), EIA gas prices (weekly), NCSL state EV fees (verified May 2026).",
+                "Core comparison is fuel cost: EV electricity vs gas (or PHEV blended). We then net out registration fees to show true savings.",
+                "Net savings = comparison fuel cost − EV charging cost − (state EV fee − PHEV fee you escape). Toggle fees off for fuel-only.",
+                "PHEV mode: cost is split by daily miles vs EV range. Miles below the range run on electric, miles above run on gas.",
+                "Still excluded: insurance, maintenance, depreciation, and the proposed (not law) federal $130/$35 EV/PHEV fee.",
+                "Data: EPA efficiency ratings, EIA electricity rates (monthly), EIA gas prices (weekly), NCSL/DOE AFDC state fees (verified May 2026).",
                 "Default: 13,500 miles/year (US average) · 80% home charging · 20% public (blended estimate).",
                 "Estimates may vary from real-world results by ±10% depending on driving and charging behavior.",
               ].map((line) => (
@@ -106,7 +107,12 @@ export default function HowWeCalculatePage() {
             <Source
               name="NCSL — Special Registration Fees for Electric & Hybrid Vehicles"
               url="https://www.ncsl.org/transportation/special-registration-fees-for-electric-and-hybrid-vehicles"
-              desc="Annual state EV registration surcharge for all 50 states + DC. Verified May 2026, cross-checked against state DMV/DOT and the DOE Alternative Fuels Data Center. Several states index the fee to inflation."
+              desc="Annual state BEV registration surcharge for all 50 states + DC. Verified May 2026, cross-checked against state DMV/DOT and the DOE Alternative Fuels Data Center. Several states index the fee to inflation."
+            />
+            <Source
+              name="DOE Alternative Fuels Data Center — State Laws &amp; Incentives"
+              url="https://afdc.energy.gov/laws/state"
+              desc="Official DOE database of state-level EV and PHEV registration surcharges, incentives, and regulations for all 50 states + DC. Cross-referenced with NCSL to verify PHEV-specific fee amounts used when computing the net registration fee change for PHEV → BEV comparisons."
             />
           </div>
           <p className="text-ink-mute text-xs font-mono mt-4">
@@ -153,16 +159,43 @@ export default function HowWeCalculatePage() {
           />
         </Section>
 
+        {/* PHEV cost */}
+        <Section title="PHEV (plug-in hybrid) cost">
+          <p className="text-ink-3 text-sm mb-6 leading-relaxed">
+            When comparing against a PHEV, we split annual miles into electric and gas portions based on the PHEV&apos;s EPA electric range and your daily driving distance. Miles within range cost electricity; miles beyond cost gas.
+          </p>
+          <Formula
+            label="Daily electric vs gas split"
+            formula={`electric_miles_per_day = min(daily_miles, phev_ev_range)\ngas_miles_per_day = max(0, daily_miles − phev_ev_range)`}
+            note="daily_miles = annual_miles / 365. If you drive less than the EV range every day, 100% of your miles are electric — you never use gas."
+          />
+          <Formula
+            label="PHEV electricity consumption"
+            formula={`kwh_per_mile = 33.7 / phev_mpge\nelectric_cost = electric_miles × kwh_per_mile × blended_rate_$/kwh`}
+            note="33.7 kWh is the EPA energy equivalent of one gallon of gasoline. blended_rate uses the same 80/20 home/public split as the BEV calculation. EPA MPGe is the official electric-mode efficiency rating."
+          />
+          <Formula
+            label="PHEV gas cost"
+            formula="gas_cost = (gas_miles / phev_mpg_gas) × gas_price_per_gallon"
+            note="phev_mpg_gas is the EPA rated fuel economy in hybrid (charge-depleted) mode — the efficiency when the battery is empty and the engine drives the car."
+          />
+          <Formula
+            label="Total PHEV annual fuel cost"
+            formula="phev_annual_cost = electric_cost + gas_cost"
+          />
+        </Section>
+
         {/* Savings */}
         <Section title="Savings calculation">
           <Formula
-            label="Annual fuel savings"
-            formula="annual_fuel_savings = annual_gas_cost − annual_ev_cost"
+            label="Annual energy savings (vs gas or PHEV)"
+            formula="annual_savings = comparison_annual_cost − annual_ev_cost"
+            note="comparison_annual_cost is either the gas vehicle's annual fuel cost or the PHEV's blended electric + gas cost, depending on which mode you select."
           />
           <Formula
-            label="Net annual savings"
-            formula="net_annual_savings = annual_fuel_savings − state_ev_registration_fee"
-            note="Most states charge EVs an annual registration surcharge that gas cars don't pay. We subtract it by default; you can toggle it off in the calculator."
+            label="Net annual savings (with registration fees)"
+            formula={`net_fee_cost = state_ev_fee − state_phev_fee   (or just state_ev_fee when comparing vs gas)\nnet_annual_savings = annual_savings − net_fee_cost`}
+            note="When switching from a PHEV you escape the PHEV surcharge and gain the EV surcharge. The net impact is evFee − phevFee. Both fees are sourced from NCSL and InsideEVs, verified May 2026 for all 50 states."
           />
           <Formula
             label="5-year savings"
@@ -171,21 +204,24 @@ export default function HowWeCalculatePage() {
           />
           <Formula
             label="Fuel-cost break-even (purchase price only)"
-            formula={`break_even_years = (ev_msrp − gas_msrp) / annual_fuel_savings`}
-            note="Only shown when the EV costs more upfront and saves on fuel. This is a fuel-cost break-even — it uses fuel savings before the state EV fee, and does not include incentives, depreciation, financing, insurance, or maintenance. For a full total cost of ownership comparison, those factors must be added separately."
+            formula="break_even_years = (ev_msrp − gas_msrp) / annual_fuel_savings"
+            note="Only shown when the EV costs more upfront and saves on fuel. Fuel-cost break-even only — does not include incentives, depreciation, financing, insurance, or maintenance."
           />
         </Section>
 
         {/* State EV fees */}
-        <Section title="State EV registration fees">
+        <Section title="State EV and PHEV registration fees">
           <p className="text-ink-2 text-sm leading-relaxed mb-4">
-            41 states plus DC charge electric vehicles an annual registration surcharge — a fee gas cars don&apos;t pay, meant to recover the gas tax EV drivers never contribute. It ranges from $50 (Hawaii, South Dakota) to about $270 in New Jersey (which rises on a fixed schedule toward $290 by 2028), with a median around $138/year. We subtract this from fuel savings by default because it&apos;s a real recurring cost most EV owners pay; the calculator lets you toggle it off to see fuel-only savings.
+            41 states plus DC charge electric vehicles an annual registration surcharge — a fee gas cars don&apos;t pay, meant to recover the gas tax EV drivers never contribute. It ranges from $50 (Hawaii, South Dakota) to about $270 in New Jersey, with a national average around $138/year. We subtract this from fuel savings by default; the calculator lets you toggle it off to see fuel-only savings.
           </p>
           <p className="text-ink-2 text-sm leading-relaxed mb-4">
-            This is the EV-specific surcharge only — not base registration, which every vehicle pays regardless of fuel type and therefore cancels out in an EV-vs-gas comparison. Figures are sourced from the National Conference of State Legislatures and verified May 2026. Several states index the fee to inflation or have scheduled increases, so confirm your state&apos;s current amount with your DMV before relying on it.
+            35 states also charge PHEVs a separate surcharge — usually lower than the BEV fee since PHEVs still pay some gas tax at the pump. When you compare a BEV against your current PHEV, we compute the <em>net</em> registration impact: you gain the BEV surcharge but escape the PHEV surcharge you were already paying. Washington and Wyoming charge PHEVs the same rate as BEVs ($225 and $200); Kansas and Kentucky now match or exceed their BEV fee too. Georgia&apos;s PHEV fee is opt-in only so it has no mandatory PHEV surcharge. Colorado is the lowest at $11/yr; Oregon PHEVs pay $35/yr vs $115 for BEVs. Fee data sourced from NCSL and the DOE Alternative Fuels Data Center (AFDC), verified May 2026 for all 50 states.
+          </p>
+          <p className="text-ink-2 text-sm leading-relaxed mb-4">
+            These are the EV/PHEV-specific surcharges only — not base registration, which every vehicle pays regardless of fuel type and cancels out in any comparison. Several states index the fee to inflation or have scheduled increases — confirm your state&apos;s current amount with your DMV before relying on it.
           </p>
           <p className="text-ink-2 text-sm leading-relaxed">
-            A proposed federal $130 annual EV fee (House surface transportation bill, May 2026) is <b className="text-ink">not</b> included in any calculation — it is a proposal, not law, and including it would make our numbers inaccurate. We cover it separately in our news section.
+            A proposed federal $130 annual EV fee and $35 PHEV fee (BUILD America 250 Act, House markup May 2026) are <b className="text-ink">not</b> included in any calculation — they are proposals, not law. We cover them separately in our news section.
           </p>
         </Section>
 

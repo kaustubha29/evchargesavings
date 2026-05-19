@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { evRepository, gasRepository } from "@/features/ev-data/repository";
+import { evRepository, gasRepository, phevRepository } from "@/features/ev-data/repository";
 import { getAllStates, getStateBySlug } from "@/features/location/queries";
 import { enrichState } from "@/features/location/live-rates";
 import { CalculatorShell } from "@/components/features/calculator/CalculatorShell";
@@ -40,7 +40,8 @@ export default async function EmbedPage({ searchParams }: Props) {
 
   if (isFull) {
     const evSummaries = evRepository.getSummaries();
-    const gasVehicles = gasRepository.getAll();
+    const gasVehicles  = gasRepository.getAll();
+    const phevVehicles = phevRepository.getAll();
     return (
       <div className="bg-paper min-h-screen flex flex-col">
         <div className="flex-1 py-6 px-4">
@@ -48,6 +49,7 @@ export default async function EmbedPage({ searchParams }: Props) {
           <CalculatorShell
             evSummaries={evSummaries}
             gasVehicles={gasVehicles}
+            phevVehicles={phevVehicles}
             defaultEvSlug={evSlug}
             initialHomeRateKwh={state.kwhCents}
             initialGasPriceDollar={state.gasDollar}

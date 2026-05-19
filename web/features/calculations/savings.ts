@@ -1,4 +1,4 @@
-import type { SavingsInputs, SavingsResult } from "./types";
+import type { SavingsInputs, SavingsResult, PHEVCostInputs, PHEVCostResult } from "./types";
 
 export function calculateSavings(inputs: SavingsInputs): SavingsResult {
   const { evEfficiency, gasMpg, annualMiles, homePct, homeRateKwh, publicRateKwh, gasPriceDollar, stateEvFee = 0 } = inputs;
@@ -29,4 +29,19 @@ export function calculateSavings(inputs: SavingsInputs): SavingsResult {
     netMonthlySavings:  netAnnualSavings / 12,
     netFiveYearSavings: netAnnualSavings * 5,
   };
+}
+
+export function calculatePHEVCost(inputs: PHEVCostInputs): PHEVCostResult {
+  const { evRange, mpge, mpgGas, annualMiles, homePct, homeRateKwh, publicRateKwh, gasPriceDollar } = inputs;
+
+  const dailyMiles        = annualMiles / 365;
+  const electricMiles     = Math.min(dailyMiles, evRange) * 365;
+  const gasMiles          = Math.max(0, dailyMiles - evRange) * 365;
+  const kwhPerMile        = 33.7 / mpge;
+  const blendedRateKwh    = (homePct / 100) * homeRateKwh + (1 - homePct / 100) * publicRateKwh;
+  const electricCost      = electricMiles * kwhPerMile * blendedRateKwh / 100;
+  const gasCost           = gasMiles > 0 ? (gasMiles / mpgGas) * gasPriceDollar : 0;
+  const electricPct       = annualMiles > 0 ? (electricMiles / annualMiles) * 100 : 100;
+
+  return { electricCost, gasCost, totalCost: electricCost + gasCost, electricMiles, gasMiles, electricPct };
 }

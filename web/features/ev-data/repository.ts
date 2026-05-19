@@ -1,6 +1,7 @@
-import type { EVModel, EVModelSummary, GasVehicle } from "./types";
+import type { EVModel, EVModelSummary, GasVehicle, PHEVVehicle } from "./types";
 import { EV_MODELS } from "./data/evs";
 import { GAS_MODELS } from "./data/gas-vehicles";
+import { PHEV_MODELS } from "./data/phev-vehicles";
 
 export const evRepository = {
   getAll(): EVModel[] { return EV_MODELS; },
@@ -48,5 +49,12 @@ export const gasRepository = {
   getAll(): GasVehicle[] { return GAS_MODELS; },
   getById(id: string): GasVehicle | undefined {
     return GAS_MODELS.find((m) => m.id === id);
+  },
+};
+
+export const phevRepository = {
+  getAll(): PHEVVehicle[] { return PHEV_MODELS; },
+  getById(id: string): PHEVVehicle | undefined {
+    return PHEV_MODELS.find((m) => m.id === id);
   },
 };
