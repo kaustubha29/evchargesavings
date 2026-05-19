@@ -98,9 +98,9 @@ function accentId(connector: ConnectorType) {
 }
 
 function ProductCard({
-  name, tag, price, desc, url, accent, dimmed, btnLabel,
+  name, tag, desc, url, accent, dimmed, btnLabel,
 }: {
-  name: string; tag: string; price: string | null; desc: string;
+  name: string; tag: string; price?: string | null; desc: string;
   url: string; accent?: boolean; dimmed?: boolean; btnLabel?: string;
 }) {
   return (
@@ -120,14 +120,14 @@ function ProductCard({
       </div>
       <p className="text-xs text-ink-mute leading-relaxed flex-1">{desc}</p>
       <div className="flex items-center justify-between mt-auto pt-3 border-t border-line">
-        {price && <span className="font-serif font-medium text-forest text-lg">{price}</span>}
+        <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">Live price</span>
         <a
           href={url}
           target="_blank"
           rel="noopener noreferrer sponsored"
           className="font-mono text-[10px] uppercase tracking-widest bg-ink text-cream px-3 py-1.5 rounded-lg hover:bg-forest transition-colors ml-auto"
         >
-          {btnLabel ?? "Amazon →"}
+          {btnLabel ?? "Check on Amazon →"}
         </a>
       </div>
     </div>

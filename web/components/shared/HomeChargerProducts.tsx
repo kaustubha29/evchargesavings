@@ -47,14 +47,13 @@ const CHARGERS = [
 function ProductCard({
   name,
   tag,
-  price,
   desc,
   url,
   accent,
 }: {
   name: string;
   tag: string;
-  price: string;
+  price?: string;
   desc: string;
   url: string;
   accent?: boolean;
@@ -86,8 +85,8 @@ function ProductCard({
       </p>
 
       <div className="flex items-center justify-between mt-auto pt-3 border-t border-line">
-        <span className="font-serif font-medium text-forest text-lg">
-          {price}
+        <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">
+          Live price
         </span>
 
         <a
@@ -96,7 +95,7 @@ function ProductCard({
           rel="noopener noreferrer sponsored"
           className="font-mono text-[10px] uppercase tracking-widest bg-ink text-cream px-3 py-1.5 rounded-lg hover:bg-forest transition-colors"
         >
-          Amazon →
+          Check on Amazon →
         </a>
       </div>
     </div>

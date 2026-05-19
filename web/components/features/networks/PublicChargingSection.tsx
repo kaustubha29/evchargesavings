@@ -43,8 +43,8 @@ const ADAPTERS = [
   },
 ];
 
-function AdapterCard({ name, price, desc, url }: {
-  name: string; price: string; desc: string; url: string;
+function AdapterCard({ name, desc, url }: {
+  name: string; price?: string; desc: string; url: string;
 }) {
   return (
     <div className="border border-line rounded-xl p-4 bg-paper flex items-center gap-4">
@@ -53,14 +53,13 @@ function AdapterCard({ name, price, desc, url }: {
         <p className="text-xs text-ink-mute leading-snug">{desc}</p>
       </div>
       <div className="flex flex-col items-end gap-1.5 shrink-0">
-        <span className="font-mono text-sm font-medium text-forest">{price}</span>
         <a
           href={url}
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="font-mono text-[9px] uppercase tracking-widest text-ink-mute hover:text-forest transition-colors whitespace-nowrap"
+          className="font-mono text-[9px] uppercase tracking-widest bg-ink text-cream px-2.5 py-1.5 rounded-lg hover:bg-forest transition-colors whitespace-nowrap"
         >
-          Buy →
+          Check price →
         </a>
       </div>
     </div>
