@@ -22,6 +22,78 @@ export interface NewsArticle {
 
 export const NEWS: NewsArticle[] = [
   {
+    slug: "oregon-ev-rebates-shrinking-2026",
+    title: "Oregon's EV Rebates Just Got Smaller — Here's What You'll Actually Get Now",
+    hook: "Standard rebate for plug-in hybrids dropped 40%. Program ran out of money three years straight. Late summer reopening expected. Oregon's cheap electricity still makes EVs a strong bet — but the upfront picture changed.",
+    description: "Oregon DEQ cut its Clean Vehicle Rebate amounts in May 2026 to stretch limited funds — the third year in a row the program exhausted its budget before the year ended. Here's the exact new amounts, who gets hit hardest, and what the real EV ownership math looks like in Oregon right now.",
+    readTime: "5 min read",
+    publishedAt: "2026-05-19",
+    sections: [
+      {
+        heading: "What changed",
+        body: "On May 18, 2026, Oregon DEQ's new rebate rules (Administrative Order DEQ-3-2026) took effect, cutting the Standard Rebate amounts for the first time since the program launched. The Standard Rebate — available to anyone buying or leasing a new qualified vehicle under $50,000, with no income limit — dropped from $2,500 to $2,000 for battery-electric vehicles (down 20%) and from $2,500 to $1,500 for plug-in hybrids (down 40%). The income-qualified Charge Ahead Rebate held steady for new BEVs at $7,500, added a new $5,000 option for new PHEVs that didn't previously exist, and cut the used-BEV rebate from $5,000 to $4,000 (or 30% of the vehicle price, whichever is less). These new rates go into effect when the program reopens — expected late summer 2026.",
+        list: [
+          "Standard BEV (new, under $50K, no income limit): $2,500 → $2,000",
+          "Standard PHEV (new, under $50K, no income limit): $2,500 → $1,500",
+          "Charge Ahead BEV (new, income $51K–$251K): $7,500 — unchanged",
+          "Charge Ahead PHEV (new): $5,000 — NEW, previously unavailable",
+          "Charge Ahead BEV (used): $5,000 → $4,000 (or 30% of price)",
+          "Charge Ahead PHEV (used): $2,500 — NEW",
+          "Program currently suspended — reopens late summer 2026",
+        ],
+      },
+      {
+        heading: "Why DEQ cut the amounts",
+        body: "The Oregon Clean Vehicle Rebate Program is funded primarily by Oregon's Vehicle Privilege Tax — a tax on new vehicle sales — which has generated roughly $15 million per year for the program. Demand has outpaced that budget every year. The Standard Rebate ran out of funds on September 9, 2025 — about three and a half months into the fiscal year. The Charge Ahead Rebate was suspended December 5, 2025. This was the third consecutive year both programs exhausted funds before the year ended, each time faster than the year before. DEQ's options were: request more funding (a legislative process that takes time), shrink rebate amounts to serve more people per dollar, or let the program close early again. They chose to shrink amounts. 'Adjusting rebate amounts is the primary tool we have available to extend program availability,' said Erica Timm, the program's coordinator. Since 2018, Oregon has issued more than 42,000 rebates totaling over $138 million in savings — the demand is real, the budget is the binding constraint.",
+        list: [
+          "Vehicle Privilege Tax: ~$15M/year for the program",
+          "2025: Standard ran out Sept 9, Charge Ahead ran out Dec 5 — 3rd straight year",
+          "Goal of cuts: stretch same dollars across more applicants",
+          "Reopening timeline: late summer 2026, exact date TBD",
+        ],
+      },
+      {
+        heading: "The part most coverage misses: Oregon's electricity is cheap",
+        body: "The rebate cut is real — but it's the upfront picture, not the ongoing one. Oregon has some of the cheapest electricity in the country, thanks to the Columbia River hydropower system. Oregon residential electricity rates average around 10–11 cents per kWh, versus a national average closer to 16–17 cents. For an EV driver covering 13,500 miles per year, that difference in electricity cost alone is worth several hundred dollars annually compared to the average US driver. The rebate drops by $500 (BEV) or $1,000 (PHEV) — but over a 5-year ownership period, Oregon's below-average charging costs recover that gap multiple times over. The ongoing savings from cheap electricity are structural; the rebate cut is a one-time upfront reduction. If you're weighing an EV purchase in Oregon, the break-even math is still among the best in the country.",
+        list: [
+          "Oregon avg electricity: ~10–11 cents/kWh (national avg ~16–17 cents)",
+          "Cheap hydro power = lower per-mile charging cost than most states",
+          "Rebate cut = one-time upfront reduction, not an ongoing cost change",
+          "5-year fuel savings in Oregon typically outpace the rebate reduction by a wide margin",
+        ],
+      },
+      {
+        heading: "Who this hits hardest",
+        body: "The biggest dollar cut hits plug-in hybrid buyers using the Standard Rebate — $1,000 less per vehicle. PHEV buyers tend to be more price-sensitive and often use the state rebate as the deciding factor between a hybrid and a full BEV. For lower-income buyers who qualify for Charge Ahead, the impact is mixed: new BEV buyers are unchanged, new PHEV buyers actually gained a $5,000 option that didn't exist before, and used-BEV buyers lost $1,000. Middle-income buyers who earn too much for Charge Ahead but are buying on a budget are the group most squeezed — they face a smaller Standard Rebate with no income-based alternative. The program's waiting list (applications placed in queue when funding runs out) carries over to the reopening, meaning some buyers who applied during the suspension period will be paid at the old, higher rates — check the DEQ portal to confirm your rate if you're already in the queue.",
+        list: [
+          "Hardest hit: Standard PHEV buyers — $1,000 cut",
+          "Mixed: Charge Ahead — new PHEV option added, used BEV trimmed",
+          "Already in queue: your rate depends on when you applied — verify at evrebate.oregon.gov",
+          "No income limit for Standard: the cut applies to all buyers in that tier",
+        ],
+      },
+      {
+        heading: "What to do now",
+        body: "If you're considering a new EV purchase in Oregon, the practical guidance is: don't delay a purchase purely to wait for the program to reopen, unless your purchase is already otherwise timed for late summer. When the program does reopen, apply the same day — the funds go fast. Charge Ahead applicants in the $51,000–$251,000 income range should note the new PHEV option if a plug-in hybrid is on your list. For used-BEV buyers, $4,000 is still meaningful even if $5,000 was better. And regardless of the rebate amount: Oregon's electricity rate makes the ongoing cost of EV ownership genuinely favorable compared to most of the country — factor that into your break-even math, not just the sticker price.",
+        list: [
+          "Program closed now — reopens late summer 2026",
+          "Apply immediately when it reopens — funds exhaust fast",
+          "Check application status / rate lock: evrebate.oregon.gov",
+          "Income $51K–$251K: Charge Ahead now covers PHEVs for the first time",
+          "Run your Oregon-specific numbers at the calculator — hydro rates change the math",
+        ],
+      },
+    ],
+    sources: [
+      { label: "OPB — Oregon's popular EV rebates are shrinking (May 14, 2026)", url: "https://www.opb.org/article/2026/05/14/oregon-ev-rebates-electric-vehicle-shrinking/" },
+      { label: "Oregon DEQ — EV Rebates 2026 Adopted Rules (DEQ-3-2026)", url: "https://www.oregon.gov/deq/rulemaking/pages/evrebates2026.aspx" },
+      { label: "Oregon Clean Vehicle Rebate Program portal", url: "https://evrebate.oregon.gov/" },
+      { label: "KOIN — Oregon EV rebates: DEQ to suspend Charge Ahead program", url: "https://www.koin.com/news/oregon/electric-vehicle-rebates-for-low-to-moderate-income-oregonians-will-be-suspended/" },
+      { label: "Go Electric Oregon — Incentives & Rebates", url: "https://goelectric.oregon.gov/incentives-rebates" },
+      { label: "EV Charge Savings: Calculate your Oregon EV savings", url: "https://evchargesavings.com/#calculator" },
+    ],
+  },
+  {
     slug: "house-130-federal-ev-fee-proposal-2026",
     title: "The House Wants EV Owners to Pay a $130 Federal Fee — Here's What It Would Actually Cost You",
     hook: "Proposed, not law. $130/year for EVs, $35 for plug-in hybrids, rising over time. It dents the savings math but doesn't erase it — and many EV owners already pay a state version.",
