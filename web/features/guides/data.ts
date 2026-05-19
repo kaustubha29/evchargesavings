@@ -709,9 +709,9 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "ev-tax-credit-7500",
-    title: "The $7,500 EV tax credit is gone — what happened and what's left",
-    description: "The One Big Beautiful Bill (signed July 4, 2025) ended both federal EV credits as of October 1, 2025. Here's what's still available at the state level.",
-    hook: "Federal EV credit ended Oct 1, 2025. State programs still exist.",
+    title: "Can You Still Claim the $7,500 EV Tax Credit in 2026? (It Ended Sept 30, 2025)",
+    description: "The federal $7,500 EV tax credit (§30D) ended September 30, 2025. Here's whether you can still claim it, what the income limits and qualifying rules were, how it worked, and which state incentives replace it in 2026.",
+    hook: "Federal $7,500 EV credit ended Sept 30, 2025. Here's what it was, who qualified, and what's left.",
     readTime: "5 min read",
     category: "Finance",
     sections: [
@@ -758,6 +758,32 @@ export const GUIDES: Guide[] = [
           "Time your purchase for end of quarter — dealers negotiate more in March, June, September, and December when pushing to hit sales targets.",
           "Run your specific break-even — use the calculator with your actual state electricity rate. The credit absence hurts more in high-electricity states (California, Connecticut, Hawaii) than low-cost ones (Nebraska, Missouri, Idaho).",
         ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Is the $7,500 EV tax credit gone?",
+        answer: "Yes. The federal clean vehicle credit (IRC §30D, up to $7,500 new) and the used EV credit (§25E, up to $4,000) ended for vehicles acquired after September 30, 2025, under the One Big Beautiful Bill. There is no federal $7,500 EV purchase credit in 2026.",
+      },
+      {
+        question: "Can I still claim the $7,500 EV tax credit?",
+        answer: "Only if you acquired the vehicle on or before September 30, 2025 — you can still claim it on your 2025 tax return (Form 8936). For any EV acquired October 1, 2025 or later, the credit is no longer available. Verify current rules at IRS.gov before filing.",
+      },
+      {
+        question: "How did the $7,500 EV tax credit work when it existed?",
+        answer: "From 2023 to September 30, 2025, §30D was worth up to $7,500 on a qualifying new EV — split into two $3,750 halves based on battery critical-mineral sourcing and North American final assembly (not every model earned both halves). From 2024 buyers could take it as an instant point-of-sale discount at the dealer instead of waiting for tax filing.",
+      },
+      {
+        question: "What was the income limit for the $7,500 EV tax credit?",
+        answer: "When the credit existed, the new-EV (§30D) modified AGI caps were $300,000 (married filing jointly), $225,000 (head of household), and $150,000 (single). The used-EV (§25E) caps were $150,000 / $112,500 / $75,000. These no longer apply — the credit ended September 30, 2025.",
+      },
+      {
+        question: "Who qualified for the $7,500 EV tax credit?",
+        answer: "Buyers under the income caps, purchasing a new EV under the MSRP cap ($80,000 for SUVs/trucks/vans, $55,000 for other cars) with final assembly in North America and qualifying battery sourcing. Eligibility ended for all buyers for vehicles acquired after September 30, 2025.",
+      },
+      {
+        question: "Is there still any federal EV-related tax credit in 2026?",
+        answer: "The only remaining one is the home EV charger credit (§30C): 30% of installation cost, max $1,000, for chargers placed in service by June 30, 2026 — but only in eligible low-income or non-urban census tracts. There is also a new car-loan interest deduction (up to $10,000/yr) for US-assembled vehicles. Confirm both at IRS.gov.",
       },
     ],
   },
