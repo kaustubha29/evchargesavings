@@ -149,10 +149,14 @@ export default async function StateCalculatorPage({ params }: Props) {
             </div>
 
             {stateData.hasTOU && (
-              <div className="mt-4 inline-flex items-center gap-2 bg-okay-bg text-okay-fg text-xs font-mono px-3 py-1.5 rounded-full">
+              <a
+                href="/guides/ev-utility-rate-plans-guide"
+                className="mt-4 inline-flex items-center gap-2 bg-okay-bg text-okay-fg text-xs font-mono px-3 py-1.5 rounded-full hover:bg-okay-fg hover:text-okay-bg transition-colors"
+              >
                 ⚡ Time-of-use rates available in {stateData.name}
                 {stateData.touCents && ` — off-peak as low as ${fmt.cents1(stateData.touCents)}/kWh`}
-              </div>
+                {" →"}
+              </a>
             )}
             {stateData.incentiveNote && (
               <p className="mt-3 text-sm text-ink-3">
