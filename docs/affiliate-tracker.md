@@ -83,6 +83,12 @@ _Last updated: 2026-05-18_
 
 ---
 
+## Live product pricing (roadmap)
+Hardcoded prices removed 2026-05-18 — were stale (EVIQO $199 vs real $419) and violated Amazon Associates Operating Agreement (displayed prices must come from PA-API, refreshed ≤24h). Cards now say "Check price on Amazon →". To restore live prices:
+- **Amazon PA-API 5.0** — the real fix. Gated: need 3 qualifying sales within 180 days of Associate approval (had 1 as of 2026-05-16). Revisit after more sales. Then server-fetch + ISR cache ≤24h. Data files still hold the old `price` strings for an easy swap.
+- **Awin product feed** — free for approved merchants (Lectron). Can drive live Lectron charger/adapter prices NOW without the Amazon sales gate. Lower priority but available.
+- **Keepa API** — paid, no sales gate; only if live Amazon prices wanted before PA-API eligibility.
+
 ## Next Actions (in order)
 1. Apply Octopus Energy via Awin (already on platform, $50/customer, 2 min)
 2. Apply Lenz Charging via Awin (#108258, 7%, charger hardware)
