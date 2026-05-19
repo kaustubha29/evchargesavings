@@ -280,11 +280,12 @@ export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaul
           const isGood = s > 800;
           const isOkay = s >= 300;
           const isPos  = s > 0;
+          const negLabel = comparisonType === "phev" ? "PHEV is cheaper for this driving pattern" : "Gas is cheaper for this driving pattern";
           const [bg, border, fg, dot, label] =
             isGood ? ["bg-good-bg",  "border-good-fg/30", "text-good-fg", "bg-emerald",      "Yes — switching makes financial sense"] :
             isOkay ? ["bg-okay-bg",  "border-okay-fg/30", "text-okay-fg", "bg-[#c8902a]",    "Borderline — incentives could tip it"]  :
             isPos  ? ["bg-rust/8",   "border-rust/25",    "text-rust",    "bg-rust",          "Marginal savings — check total cost"]   :
-                     ["bg-rust/8",   "border-rust/25",    "text-rust",    "bg-rust",          "Gas is cheaper for this driving pattern"];
+                     ["bg-rust/8",   "border-rust/25",    "text-rust",    "bg-rust",          negLabel];
           return (
             <div className={`flex items-center gap-3 ${bg} ${fg} border ${border} rounded-2xl px-4 py-3 mb-5`}>
               <span className="relative flex-shrink-0">
