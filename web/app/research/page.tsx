@@ -45,7 +45,7 @@ export default function ResearchPage() {
     description: "Residential electricity rates, annual home EV charging costs, and state EV registration fees for all 50 US states + DC, updated May 2026. Based on EIA Form EIA-861 residential rate data and NCSL state EV fee data.",
     url: `${BASE}/research`,
     creator: { "@type": "Organization", name: "EV Charge Savings", url: BASE },
-    dateModified: "2026-05-18",
+    dateModified: "2026-05-18T08:00:00Z",
     temporalCoverage: "2026",
     spatialCoverage: "United States",
     license: "https://creativecommons.org/licenses/by/4.0/",

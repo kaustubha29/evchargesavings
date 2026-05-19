@@ -109,8 +109,9 @@ export default async function UtilityPage({ params }: Props) {
     headline: `${utility.shortName} EV Charging Cost — ${utility.stateName}`,
     description: `Home EV charging cost for ${utility.name} customers using ${utility.stateName} EIA residential rates.`,
     url: `${BASE}/utility/${slug}`,
-    datePublished: "2026-05-01",
-    dateModified: "2026-05-18",
+    image: [`${BASE}/opengraph-image`],
+    datePublished: "2026-05-01T08:00:00Z",
+    dateModified: "2026-05-18T08:00:00Z",
     author: { "@type": "Person", name: "Kaustubha", url: `${BASE}/about` },
     publisher: { "@type": "Organization", name: "EV Charge Savings", url: BASE },
   };

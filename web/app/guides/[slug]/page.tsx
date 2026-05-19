@@ -63,8 +63,9 @@ export default async function GuidePage({ params }: Props) {
     headline: guide.title,
     description: guide.description,
     url: `${BASE}/guides/${slug}`,
-    datePublished: guide.publishedAt ?? SITE_CONTENT_UPDATED,
-    dateModified: SITE_CONTENT_UPDATED,
+    image: [`${BASE}/guides/${slug}/opengraph-image`],
+    datePublished: `${guide.publishedAt ?? SITE_CONTENT_UPDATED}T08:00:00Z`,
+    dateModified: `${SITE_CONTENT_UPDATED}T08:00:00Z`,
     author: AUTHOR,
     publisher: {
       "@type": "Organization",

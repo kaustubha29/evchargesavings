@@ -49,8 +49,9 @@ export default async function NewsArticlePage({ params }: Props) {
     "@type": "NewsArticle",
     headline: article.title,
     description: article.description,
-    datePublished: article.publishedAt,
-    dateModified: article.publishedAt,
+    image: [`${BASE}/news/${slug}/opengraph-image`],
+    datePublished: `${article.publishedAt}T08:00:00Z`,
+    dateModified: `${article.publishedAt}T08:00:00Z`,
     url: `${BASE}/news/${slug}`,
     publisher: {
       "@type": "Organization",
