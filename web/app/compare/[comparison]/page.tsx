@@ -143,11 +143,25 @@ export default async function ComparePage({ params }: Props) {
 
   const isEvCheaper = savings.annualSavings > 0;
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://evchargesavings.com" },
+      { "@type": "ListItem", position: 2, name: "EV vs Gas", item: "https://evchargesavings.com/guides" },
+      { "@type": "ListItem", position: 3, name: `${ev.fullName} vs ${gas.name}`, item: `https://evchargesavings.com/compare/${comparison}` },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <LocationDetector />
 

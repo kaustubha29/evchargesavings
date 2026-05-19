@@ -8,6 +8,8 @@ import { EVMarketplaceAffiliates } from "@/components/shared/EVMarketplaceAffili
 import { EVInsuranceCTA } from "@/components/shared/EVInsuranceCTA";
 
 const BASE = "https://evchargesavings.com";
+const SITE_CONTENT_UPDATED = "2026-05-18"; // bump when the guide corpus is materially refreshed
+const AUTHOR = { "@type": "Person", name: "Kaustubha", url: `${BASE}/about` };
 
 interface Props { params: Promise<{ slug: string }> }
 
@@ -61,13 +63,24 @@ export default async function GuidePage({ params }: Props) {
     headline: guide.title,
     description: guide.description,
     url: `${BASE}/guides/${slug}`,
-    ...(guide.publishedAt ? { datePublished: guide.publishedAt, dateModified: guide.publishedAt } : {}),
-    author: { "@type": "Organization", name: "EV Charge Savings", url: BASE },
+    datePublished: guide.publishedAt ?? SITE_CONTENT_UPDATED,
+    dateModified: SITE_CONTENT_UPDATED,
+    author: AUTHOR,
     publisher: {
       "@type": "Organization",
       name: "EV Charge Savings",
       url: BASE,
     },
+  };
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Guides", item: `${BASE}/guides` },
+      { "@type": "ListItem", position: 3, name: guide.title, item: `${BASE}/guides/${slug}` },
+    ],
   };
 
   const faqLd = guide.faqs && guide.faqs.length > 0 ? {
@@ -85,6 +98,10 @@ export default async function GuidePage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       {faqLd && (
         <script
@@ -119,6 +136,9 @@ export default async function GuidePage({ params }: Props) {
                   {new Date(guide.publishedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
                 </span>
               )}
+              <span className="font-mono text-[10px] text-ink-mute">
+                By <a href="/about" className="text-forest hover:underline">Kaustubha</a>, EV9 owner
+              </span>
             </div>
             <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-ink mb-3" style={{ lineHeight: 1.1 }}>
               {guide.title}

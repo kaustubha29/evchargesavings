@@ -113,9 +113,20 @@ export default async function CompareEvsPage({ params }: Props) {
     },
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://evchargesavings.com" },
+      { "@type": "ListItem", position: 2, name: "Compare EVs", item: "https://evchargesavings.com/guides" },
+      { "@type": "ListItem", position: 3, name: title, item: `https://evchargesavings.com/compare-evs/${comparison}` },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <LocationDetector />
 
       <main>

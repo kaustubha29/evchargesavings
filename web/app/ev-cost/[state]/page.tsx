@@ -93,11 +93,25 @@ export default async function StateCalculatorPage({ params }: Props) {
     },
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://evchargesavings.com" },
+      { "@type": "ListItem", position: 2, name: "EV Cost by State", item: "https://evchargesavings.com/research" },
+      { "@type": "ListItem", position: 3, name: stateData.name, item: `https://evchargesavings.com/ev-cost/${stateData.slug}` },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <LocationDetector forceState={stateData.code} />
 

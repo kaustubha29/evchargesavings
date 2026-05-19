@@ -109,13 +109,26 @@ export default async function UtilityPage({ params }: Props) {
     headline: `${utility.shortName} EV Charging Cost — ${utility.stateName}`,
     description: `Home EV charging cost for ${utility.name} customers using ${utility.stateName} EIA residential rates.`,
     url: `${BASE}/utility/${slug}`,
-    dateModified: "2026-05-01",
-    author: { "@type": "Organization", name: "EV Charge Savings", url: BASE },
+    datePublished: "2026-05-01",
+    dateModified: "2026-05-18",
+    author: { "@type": "Person", name: "Kaustubha", url: `${BASE}/about` },
+    publisher: { "@type": "Organization", name: "EV Charge Savings", url: BASE },
+  };
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "EV Owner", item: `${BASE}/ev-owner` },
+      { "@type": "ListItem", position: 3, name: `${utility.shortName} — ${utility.stateName}`, item: `${BASE}/utility/${slug}` },
+    ],
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <StickySavingsBar />
       <main className="bg-paper min-h-screen">

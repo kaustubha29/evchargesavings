@@ -77,9 +77,20 @@ export default async function BestEvsUnderPage({ params }: Props) {
     })),
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://evchargesavings.com" },
+      { "@type": "ListItem", position: 2, name: "Best EVs", item: "https://evchargesavings.com/guides" },
+      { "@type": "ListItem", position: 3, name: `Best EVs Under ${formattedShort}`, item: `https://evchargesavings.com/best-evs-under/${price}` },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <main>
         {/* Hero */}
