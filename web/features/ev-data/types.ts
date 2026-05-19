@@ -28,3 +28,12 @@ export interface GasVehicle {
   mpg: number;
   type: string;
 }
+
+export interface PHEVVehicle {
+  id: string;
+  name: string;
+  type: string;
+  evRange: number;   // EPA all-electric range (miles)
+  mpge: number;      // EPA MPGe on electricity (combined)
+  mpgGas: number;    // EPA MPG on gas only (combined)
+}
