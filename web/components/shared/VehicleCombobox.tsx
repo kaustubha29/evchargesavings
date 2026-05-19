@@ -90,6 +90,13 @@ export function VehicleCombobox({ options, value, onChange, placeholder, id }: P
     setActiveIndex(-1);
   }
 
+  function handleClick() {
+    if (open) return;
+    setInputValue("");
+    setOpen(true);
+    setActiveIndex(-1);
+  }
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setInputValue(e.target.value);
     setOpen(true);
@@ -152,6 +159,7 @@ export function VehicleCombobox({ options, value, onChange, placeholder, id }: P
           placeholder={open ? "Type to search…" : (placeholder ?? "")}
           onChange={handleChange}
           onFocus={handleFocus}
+          onClick={handleClick}
           onBlur={handleBlur}
           onKeyDown={handleKeyDown}
           className="w-full border border-line rounded-xl px-4 py-3 pr-9 text-sm bg-paper font-sans focus:outline-none focus:ring-2 focus:ring-emerald"
