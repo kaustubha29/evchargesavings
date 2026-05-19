@@ -5,7 +5,7 @@ import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
 
 export const metadata: Metadata = {
   title: "EV Guides — Smarter EV Decisions",
-  description: "Practical guides on buying, charging, financing, and owning an electric vehicle. Real numbers, no jargon.",
+  description: "Practical EV guides covering home charging setup, time-of-use rates, federal tax credits, road trips, and comparing EVs vs gas cars. Real numbers, no jargon.",
   alternates: { canonical: "/guides" },
   openGraph: {
     title: "EV Guides — Smarter EV Decisions",

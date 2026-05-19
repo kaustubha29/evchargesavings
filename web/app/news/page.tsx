@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/news" },
   openGraph: {
     title: "EV News — Latest Electric Vehicle & Charging News",
-    description: "Breaking EV news on charging infrastructure, new models, pricing, and policy.",
+    description: "Breaking EV news on charging infrastructure, new models, pricing, and policy. Updated daily with the latest from the electric vehicle industry.",
     url: "/news",
   },
 };

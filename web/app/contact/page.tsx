@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/shared/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Reach EV Charge Savings with questions, corrections, or data issues.",
+  description: "Contact EV Charge Savings — send questions about the EV cost calculator, report a data error, pitch a story, or ask about embedding the calculator on your site.",
   alternates: { canonical: "/contact" },
 };
 

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/research" },
   openGraph: {
     title: "EV Charging Cost by State — 2026 Data",
-    description: "50-state residential electricity rates and annual EV charging costs. Source: EIA May 2026 actuals.",
+    description: "50-state EV charging cost data: residential electricity rates, annual charging costs, gas prices, and EV/PHEV registration fees. Source: EIA, EPA, DOE AFDC — May 2026.",
     url: "/research",
     type: "website",
   },

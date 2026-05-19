@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/shared/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
-  description: "Terms governing your use of EV Charge Savings.",
+  description: "Terms of use for EV Charge Savings — rules covering calculator use, data accuracy, affiliate disclosures, and limitations of liability. EV savings estimates are for informational purposes only.",
   alternates: { canonical: "/terms" },
 };
 
