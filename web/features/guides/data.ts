@@ -829,11 +829,22 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "road-trip-ev",
-    title: "Road trip planning with an EV",
-    description: "Plan charging stops, manage range, and road trip confidently in an EV.",
+    title: "EV Road Trip & Route Planner: How to Plan Charging Stops (2026)",
+    description: "How to plan an EV road trip and route: the best free EV route planners (ABRP, PlugShare, Google Maps, in-car), how to plan charging stops, manage range in cold weather, and road trip confidently in an electric car.",
     readTime: "8 min read",
     category: "Driving",
     sections: [
+      {
+        heading: "Best EV route-planning tools (free + paid)",
+        body: "There's no single 'EV trip planner' button — most EV owners combine a route planner with a charger-vetting app. The reliable stack: A Better Route Planner (ABRP) to build the route and charging stops, PlugShare to vet each stop before you arrive, and your car's built-in navigation as the live fallback. Google Maps now supports EV-aware routing on many Android Auto / built-in-Google cars (adds charging stops automatically based on your model). Tesla's in-car trip planner is the best integrated experience for Teslas. Pick one router + one vetting app and you're covered.",
+        list: [
+          "ABRP (abetterrouteplanner.com) — the gold-standard route planner; free for basic, ~$3/mo for live car data. Accounts for elevation, weather, speed, real efficiency",
+          "PlugShare — community check-ins to vet whether a charger actually works before you commit to it",
+          "Google Maps EV routing — auto-adds charging stops on supported cars; good zero-setup option",
+          "Tesla in-car planner — best for Teslas; routes Supercharger-to-Supercharger automatically",
+          "Chargeway / network apps (EA, ChargePoint, EVgo) — backup for live stall availability",
+        ],
+      },
       {
         heading: "It's different, not worse",
         body: "Road tripping in an EV means planning 20-minute charging stops instead of 5-minute gas stops. In exchange, you often stop at better places (Buc-ee's, Whole Foods, nice rest stops) and your car arrives pre-planned. Most EV owners report road trip anxiety disappears after their first successful trip.",
@@ -865,6 +876,28 @@ export const GUIDES: Guide[] = [
       {
         heading: "Cold weather and real-world range",
         body: "Cold weather reduces EV range 20–40%. Preconditioning your battery while still plugged in (most cars do this automatically if you set a departure time) recovers most of that loss. In winter, plan charging stops 15–20% earlier than you would in summer. Highway speeds (75–80 mph) also reduce range 20–25% vs EPA ratings — factor both in.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the best EV route planner?",
+        answer: "A Better Route Planner (ABRP) is the most capable — it accounts for your specific car, elevation, weather, speed, and real-world efficiency, and it's free for basic use. Pair it with PlugShare to confirm each charger works before you arrive. For Teslas, the built-in trip planner is the best integrated option; on supported cars, Google Maps now adds EV charging stops automatically.",
+      },
+      {
+        question: "How do I plan an EV road trip?",
+        answer: "Enter your route in ABRP (or your car's planner), set start charge ~80–90% and arrival minimum 10–15%, enable weather adjustment, and let it place charging stops. Charge to ~80% per stop (DC charging slows sharply above that), vet each stop on PlugShare for recent successful check-ins, and prefer stations with 6+ stalls so a broken one doesn't strand you.",
+      },
+      {
+        question: "Is there a free electric car route planner?",
+        answer: "Yes. ABRP's basic route planner is free (paid tier only adds live car-data integration). Google Maps EV routing is free on supported cars. PlugShare is free. Most owners never need to pay — the free stack covers route + charging-stop planning fully.",
+      },
+      {
+        question: "Can Google Maps plan an EV charging route?",
+        answer: "On many 2023+ vehicles with Google built-in or Android Auto, yes — Google Maps adds charging stops automatically based on your EV model and current charge. Coverage varies by car; ABRP is more configurable and works on any device, so use it when you want control over stop placement.",
+      },
+      {
+        question: "How many charging stops will an EV road trip need?",
+        answer: "Roughly one 15–25 minute DC fast-charge stop every 150–220 miles of highway driving, depending on the car's range and the weather. Plan stops at 80% charge, not 100% — charging past 80% is slow and rarely worth the time on a road trip. Cold weather and 75+ mph speeds mean stopping 15–25% sooner than EPA range suggests.",
       },
     ],
   },
