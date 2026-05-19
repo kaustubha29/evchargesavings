@@ -199,9 +199,12 @@ export function CalculatorShell({ evSummaries, gasVehicles, defaultEvSlug, defau
             {locationLabel} · {fmt.cents1(stateData.kwhCents)}/kWh · {fmt.money2(stateData.gasDollar)}/gal
           </span>
           {stateData.hasTOU && (
-            <span className="bg-okay-bg text-okay-fg font-mono text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wide">
-              TOU rates available
-            </span>
+            <a
+              href="/guides/ev-utility-rate-plans-guide"
+              className="bg-okay-bg text-okay-fg font-mono text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wide hover:bg-okay-fg hover:text-okay-bg transition-colors"
+            >
+              TOU rates available →
+            </a>
           )}
           <form
             onSubmit={(e) => { e.preventDefault(); applyZip(zip || ""); }}
