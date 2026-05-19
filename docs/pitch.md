@@ -12,7 +12,7 @@ Use the version that fits the context. All facts verified as of May 2026.
 
 ## Short — Reddit comment, social, DM
 
-> [evchargesavings.com](https://evchargesavings.com) — pick your EV, pick the gas car (or PHEV) you're replacing, pick your state. Live EIA electricity and gas prices per state, and it nets out the state EV registration fee most calculators skip. Shows annual savings, break-even year, CO2 saved, home vs public charging split. ~141 EVs, ~111 gas cars, 36 PHEVs, 50 states + DC. Free, no sign-up.
+> [evchargesavings.com](https://evchargesavings.com) — pick your EV, pick the gas car (or PHEV) you're replacing, pick your state. Live EIA electricity and gas prices per state, and it nets out the state EV registration fee most calculators skip. Shows annual savings, break-even year, CO2 saved, home vs public charging split. ~141 EVs, 190+ gas cars, 38 PHEVs, 50 states + DC. Free, no sign-up.
 
 ---
 
@@ -27,7 +27,7 @@ What makes it different:
 - **State-level EIA data** — 50-state electricity + gas prices, updated from EIA actuals
 - **Home vs public charging split** — adjust what % you charge at home
 - **Break-even year, annual savings, CO2 saved** — all on one screen
-- **~141 EV models, ~111 gas cars, 36 PHEVs**, ZIP code detection
+- **~141 EV models, 190+ gas cars, 38 PHEVs**, ZIP code detection
 - Full methodology at [evchargesavings.com/how-we-calculate](https://evchargesavings.com/how-we-calculate)
 
 Beyond the calculator: 118 guides across buying, charging, finance, and ownership — including EV charging network comparison, apartment renter charging strategies, and utility rate plans that cut charging cost to 3–13¢/kWh. Updated news section covering policy, pricing, and infrastructure. Full state-by-state dataset published at [/research](https://evchargesavings.com/research).
@@ -40,7 +40,7 @@ Free. No sign-up. No ads obscuring results.
 
 **EV Charge Savings** is a free EV total cost calculator and content hub built by a Kia EV9 owner in the Pacific Northwest.
 
-**The calculator** lets users select a specific EV model (~141 options) against the specific gas car they're replacing (~111 options) — or against a plug-in hybrid (36 PHEVs) — enter their state, and get: annual fuel savings, break-even year, CO2 avoided, and a full home vs public charging cost breakdown. It pulls state-level EIA electricity rates and gas prices — not national averages — so the result is meaningfully different for someone in California (~$0.33/kWh) vs Louisiana (~$0.13/kWh).
+**The calculator** lets users select a specific EV model (~141 options) against the specific gas car they're replacing (190+ options) — or against a plug-in hybrid (38 PHEVs) — enter their state, and get: annual fuel savings, break-even year, CO2 avoided, and a full home vs public charging cost breakdown. It pulls state-level EIA electricity rates and gas prices — not national averages — so the result is meaningfully different for someone in California (~$0.33/kWh) vs Louisiana (~$0.13/kWh).
 
 **Two things competitors don't do:**
 1. **State EV registration fee netted out.** 40 states charge EVs an annual surcharge gas cars don't pay (up to ~$270 in New Jersey, ~$138 national average). The calculator subtracts it by default — sourced from NCSL + DOE Alternative Fuels Data Center, all 50 states + DC, with a toggle for fuel-only.
@@ -75,8 +75,8 @@ Free. No sign-up. No paywall.
 | Fact | Detail |
 |---|---|
 | EV models | ~141 |
-| Gas cars | ~111 |
-| PHEVs | 36 |
+| Gas cars | 190+ |
+| PHEVs | 38 |
 | Guides | 118 across 9 categories |
 | News articles | ~20 |
 | States covered | 50 + DC |

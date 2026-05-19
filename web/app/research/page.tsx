@@ -28,7 +28,7 @@ function annualCost(kwhCents: number) {
 }
 
 function costPerMile(kwhCents: number) {
-  return ((kwhCents / 100) / 3.6).toFixed(3);
+  return (kwhCents / 3.6).toFixed(2);
 }
 
 export default function ResearchPage() {
@@ -36,7 +36,7 @@ export default function ResearchPage() {
 
   const cheapest = [...states].sort((a, b) => a.kwhCents - b.kwhCents).slice(0, 5);
   const mostExpensive = [...states].sort((a, b) => b.kwhCents - a.kwhCents).slice(0, 5);
-  const nationalAvgKwh = Math.round(states.reduce((s, st) => s + st.kwhCents, 0) / states.length) / 100;
+  const nationalAvgKwh = Math.round((states.reduce((s, st) => s + st.kwhCents, 0) / states.length) * 100) / 100;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -45,7 +45,7 @@ export default function ResearchPage() {
     description: "Residential electricity rates, annual home EV charging costs, and state EV registration fees for all 50 US states + DC, updated May 2026. Based on EIA Form EIA-861 residential rate data and NCSL state EV fee data.",
     url: `${BASE}/research`,
     creator: { "@type": "Organization", name: "EV Charge Savings", url: BASE },
-    dateModified: "2026-05-18T08:00:00Z",
+    dateModified: "2026-05-19T08:00:00Z",
     temporalCoverage: "2026",
     spatialCoverage: "United States",
     license: "https://creativecommons.org/licenses/by/4.0/",
@@ -103,12 +103,12 @@ export default function ResearchPage() {
               </div>
               <div className="bg-cream-soft border border-line rounded-2xl p-5">
                 <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">Cheapest state</div>
-                <div className="font-serif text-3xl font-medium text-forest">{(cheapest[0].kwhCents / 100).toFixed(2)}¢</div>
+                <div className="font-serif text-3xl font-medium text-forest">{cheapest[0].kwhCents.toFixed(2)}¢</div>
                 <div className="text-xs text-ink-3 mt-1">{cheapest[0].name} per kWh</div>
               </div>
               <div className="bg-cream-soft border border-line rounded-2xl p-5">
                 <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">Most expensive</div>
-                <div className="font-serif text-3xl font-medium text-rust">{(mostExpensive[0].kwhCents / 100).toFixed(2)}¢</div>
+                <div className="font-serif text-3xl font-medium text-rust">{mostExpensive[0].kwhCents.toFixed(2)}¢</div>
                 <div className="text-xs text-ink-3 mt-1">{mostExpensive[0].name} per kWh</div>
               </div>
             </div>
@@ -120,7 +120,7 @@ export default function ResearchPage() {
                   {cheapest.map((s, i) => (
                     <div key={s.code} className="flex items-center justify-between py-2 border-b border-line-soft">
                       <span className="text-sm text-ink">{i + 1}. {s.name}</span>
-                      <span className="font-mono text-sm text-forest font-medium">{(s.kwhCents / 100).toFixed(2)}¢/kWh</span>
+                      <span className="font-mono text-sm text-forest font-medium">{s.kwhCents.toFixed(2)}¢/kWh</span>
                     </div>
                   ))}
                 </div>
@@ -131,7 +131,7 @@ export default function ResearchPage() {
                   {mostExpensive.map((s, i) => (
                     <div key={s.code} className="flex items-center justify-between py-2 border-b border-line-soft">
                       <span className="text-sm text-ink">{i + 1}. {s.name}</span>
-                      <span className="font-mono text-sm text-rust font-medium">{(s.kwhCents / 100).toFixed(2)}¢/kWh</span>
+                      <span className="font-mono text-sm text-rust font-medium">{s.kwhCents.toFixed(2)}¢/kWh</span>
                     </div>
                   ))}
                 </div>
@@ -180,7 +180,7 @@ export default function ResearchPage() {
                           {s.name}
                         </a>
                       </td>
-                      <td className="px-4 py-2.5 text-right font-mono text-sm text-ink-2">{(s.kwhCents / 100).toFixed(2)}¢</td>
+                      <td className="px-4 py-2.5 text-right font-mono text-sm text-ink-2">{s.kwhCents.toFixed(2)}¢</td>
                       <td className="px-4 py-2.5 text-right font-mono text-sm text-ink-2">{costPerMile(s.kwhCents)}¢</td>
                       <td className="px-4 py-2.5 text-right font-mono text-sm font-medium text-forest">${annualCost(s.kwhCents).toLocaleString()}</td>
                       <td className="px-4 py-2.5 text-right font-mono text-sm text-ink-3">${s.gasDollar.toFixed(2)}/gal</td>
@@ -216,12 +216,12 @@ export default function ResearchPage() {
                 {
                   name: "EPA Fuel Economy Guide — fueleconomy.gov",
                   url: "https://www.fueleconomy.gov/feg/download.shtml",
-                  note: "EPA-tested efficiency ratings for 130+ BEV models (MPGe, kWh/100mi, range) and 36 PHEV models (electric range, MPGe in electric mode, MPG in gas mode). Used for all vehicle efficiency calculations.",
+                  note: "EPA-tested efficiency ratings for 140+ BEV models (MPGe, kWh/100mi, range) and 38 PHEV models (electric range, MPGe in electric mode, MPG in gas mode). Used for all vehicle efficiency calculations.",
                 },
                 {
                   name: "NCSL — Special Registration Fees for Electric & Hybrid Vehicles",
                   url: "https://www.ncsl.org/transportation/special-registration-fees-for-electric-and-hybrid-vehicles",
-                  note: "Annual state BEV registration surcharge for all 50 states + DC. Verified May 2026. 41 states + DC charge a fee, ranging $50–$290 (median ~$138); several index to inflation.",
+                  note: "Annual state BEV registration surcharge for all 50 states + DC. Verified May 2026. 40 states charge a fee (DC and 10 states charge none), ranging $50–$270 (national average ~$138); several index to inflation.",
                 },
                 {
                   name: "DOE Alternative Fuels Data Center — State Laws & Incentives",
