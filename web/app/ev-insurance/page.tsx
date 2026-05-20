@@ -120,7 +120,7 @@ export default function EVInsurancePage() {
         <LeadCaptureBoxGate
           sourcePage="/ev-insurance"
           sectionClassName="bg-cream-soft border-b border-line py-12"
-          contentClassName="section-wrap max-w-xl"
+          contentClassName="section-wrap"
           defaultIntent={["insurance"]}
           heading="Compare EV vs gas insurance quotes in your area"
           description="Find out if shopping around can offset the higher EV insurance cost. Free quotes — local providers respond within 24 hours."

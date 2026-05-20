@@ -1,8 +1,16 @@
 "use client";
 import { useMemo } from "react";
 import { useCalculatorStore, computeSavings } from "@/store/calculator";
+import { useOwnerStore, deriveConnector } from "@/store/owner";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { NetworkGrid } from "./NetworkGrid";
+
+// adapter indices relevant per connector (0-based, see ADAPTERS array)
+const ADAPTER_IDX: Record<string, number[]> = {
+  tesla: [2, 3, 5],   // NACS→J1772 (48A), NACS→J1772 (compact), CCS→NACS
+  nacs:  [1, 5],      // J1772→NACS (Lectron), CCS→NACS
+  j1772: [0, 4],      // J1772→NACS (LENZ), NACS→CCS1
+};
 
 const ADAPTERS = [
   {
@@ -69,6 +77,11 @@ function AdapterCard({ name, desc, url }: {
 export function PublicChargingSection() {
   const store = useCalculatorStore();
   const { evSlug } = store;
+  const { brand, year, model } = useOwnerStore();
+  const ownerConnector = brand && year ? deriveConnector(brand, year) : null;
+  const visibleAdapters = ownerConnector
+    ? (ADAPTER_IDX[ownerConnector] ?? []).map((i) => ADAPTERS[i])
+    : ADAPTERS;
 
   const ev = useMemo(
     () => evRepository.getBySlug(evSlug) ?? evRepository.getAll()[0],
@@ -197,10 +210,16 @@ export function PublicChargingSection() {
         <div className="mt-10">
           <div className="flex items-baseline gap-3 mb-4">
             <h3 className="font-serif text-xl font-medium tracking-tight">Charging adapters</h3>
-            <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">NACS · J1772 · CCS1</span>
+            {ownerConnector && brand ? (
+              <span className="font-mono text-[10px] uppercase tracking-widest text-forest">
+                for your {year} {brand}{model ? ` ${model}` : ""}
+              </span>
+            ) : (
+              <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">NACS · J1772 · CCS1</span>
+            )}
           </div>
           <div className="grid sm:grid-cols-2 gap-3">
-            {ADAPTERS.map((a) => (
+            {visibleAdapters.map((a) => (
               <AdapterCard key={a.url} {...a} />
             ))}
           </div>

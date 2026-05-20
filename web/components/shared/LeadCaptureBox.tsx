@@ -179,7 +179,7 @@ export function LeadCaptureBox({
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-2">
-              {/* 2-col grid: Name | Email, Phone | ZIP */}
+              {/* Row 1: Name | Email */}
               <div className="grid grid-cols-2 gap-2">
                 <input
                   type="text"
@@ -199,6 +199,9 @@ export function LeadCaptureBox({
                   onChange={(e) => setEmail(e.target.value)}
                   className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
                 />
+              </div>
+              {/* Row 2: Phone | ZIP (50/50) */}
+              <div className="grid grid-cols-2 gap-2 items-start">
                 <div className="flex flex-col gap-0.5">
                   <input
                     type="tel"
@@ -207,7 +210,7 @@ export function LeadCaptureBox({
                     value={phone}
                     onFocus={onFirstInteraction}
                     onChange={(e) => setPhone(formatPhoneDisplay(e.target.value))}
-                    className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
+                    className="w-full border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
                   />
                   <span className="font-mono text-[10px] text-ink-mute px-1">So providers can reach you</span>
                 </div>
@@ -221,7 +224,7 @@ export function LeadCaptureBox({
                   value={zip || ""}
                   onFocus={onFirstInteraction}
                   onChange={(e) => setZip(e.target.value)}
-                  className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest"
+                  className="border border-line rounded-xl px-3.5 py-2.5 text-sm bg-paper focus:outline-none focus:ring-2 focus:ring-forest text-center"
                 />
               </div>
 

@@ -5,7 +5,7 @@ import { evRepository, gasRepository, phevRepository } from "@/features/ev-data/
 import { EVMarketplaceAffiliates } from "./EVMarketplaceAffiliates";
 import { EVInsuranceCTA } from "./EVInsuranceCTA";
 import { LeadCaptureBoxGate } from "./LeadCaptureBoxGate";
-import { HomeChargerProducts } from "./HomeChargerProducts";
+import { HomeChargerProductsPersonalized } from "./HomeChargerProductsPersonalized";
 import { HomeChargingSection } from "./HomeChargingSection";
 import { PublicChargingSection } from "@/components/features/networks/PublicChargingSection";
 import { fmt } from "@/lib/format";
@@ -140,7 +140,7 @@ export function ConditionalPostCalc() {
           submitLabel="Get installer quotes"
         />
         <HomeChargingSection />
-        <HomeChargerProducts />
+        <HomeChargerProductsPersonalized />
         <LeadCaptureBoxGate
           sourcePage="/"
           sectionClassName="bg-cream-soft border-b border-line py-8"
@@ -209,7 +209,7 @@ export function ConditionalPostCalc() {
         </section>
 
         <HomeChargingSection />
-        <HomeChargerProducts />
+        <HomeChargerProductsPersonalized />
         <PublicChargingSection />
       </>
     );

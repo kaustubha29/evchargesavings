@@ -1,9 +1,11 @@
 "use client";
 import { useState, useMemo } from "react";
+import { useOwnerStore } from "@/store/owner";
+import { evRepository } from "@/features/ev-data/repository";
 
+const DEFAULT_MI_PER_KWH = 3.5;
 const L1_MPH = 4.5;
 const L2_MPH = 25;
-const MI_PER_KWH = 3.5;
 const L1_OVERNIGHT_MI = L1_MPH * 8;
 const PUBLIC_SESSION_MI = 80;
 const PUBLIC_SESSION_COST = 15;
@@ -12,27 +14,29 @@ const TAX_CREDIT_RATE = 0.30;
 const TAX_CREDIT_CAP = 1000;
 const SEC_30C_EXPIRES = "June 30, 2026";
 
+function lookupEfficiency(brand: string, year: number): number {
+  const models = evRepository.getByBrand(brand);
+  if (!models.length) return DEFAULT_MI_PER_KWH;
+  const sameYear = models.filter((m) => m.modelYear === year);
+  if (sameYear.length) {
+    return sameYear.reduce((s, m) => s + m.efficiency, 0) / sameYear.length;
+  }
+  const earlier = models
+    .filter((m) => m.modelYear <= year)
+    .sort((a, b) => b.modelYear - a.modelYear);
+  if (earlier.length) return earlier[0].efficiency;
+  return models.reduce((s, m) => s + m.efficiency, 0) / models.length;
+}
+
 function deriveHardwareCost(totalCost: number) {
-  // ~55% of install budget is typically hardware, capped at $700
   return Math.min(Math.round(totalCost * 0.55), 700);
 }
 
 function Slider({
-  label,
-  value,
-  min,
-  max,
-  step,
-  format,
-  onChange,
+  label, value, min, max, step, format, onChange,
 }: {
-  label: string;
-  value: number;
-  min: number;
-  max: number;
-  step: number;
-  format: (v: number) => string;
-  onChange: (v: number) => void;
+  label: string; value: number; min: number; max: number;
+  step: number; format: (v: number) => string; onChange: (v: number) => void;
 }) {
   return (
     <div>
@@ -41,11 +45,7 @@ function Slider({
         <span className="font-mono text-base font-semibold text-ink">{format(value)}</span>
       </div>
       <input
-        type="range"
-        min={min}
-        max={max}
-        step={step}
-        value={value}
+        type="range" min={min} max={max} step={step} value={value}
         onChange={(e) => onChange(Number(e.target.value))}
         className="w-full"
       />
@@ -57,19 +57,11 @@ function Slider({
   );
 }
 
-function Stat({
-  label,
-  value,
-  sub,
-  accent,
-}: {
-  label: string;
-  value: string;
-  sub?: string;
-  accent?: boolean;
+function Stat({ label, value, sub, accent }: {
+  label: string; value: string; sub?: string; accent?: boolean;
 }) {
   return (
-    <div className={`rounded-2xl border px-5 py-4 ${accent ? "border-forest/30 bg-forest/5" : "border-line bg-paper"}`}>
+    <div className={`rounded-xl border px-4 py-3 ${accent ? "border-forest/30 bg-forest/5" : "border-line bg-paper"}`}>
       <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">{label}</div>
       <div className={`font-serif text-xl font-medium leading-snug ${accent ? "text-forest" : "text-ink"}`}>{value}</div>
       {sub && <div className="font-mono text-[10px] text-ink-mute mt-0.5 leading-snug">{sub}</div>}
@@ -78,104 +70,100 @@ function Stat({
 }
 
 export function HomeChargerROI() {
+  const { brand, year, model, slug } = useOwnerStore();
   const [milesPerDay, setMilesPerDay] = useState(40);
   const [totalCost, setTotalCost] = useState(900);
 
+  const miPerKwh = useMemo(() => {
+    if (slug) {
+      const ev = evRepository.getBySlug(slug);
+      if (ev) return ev.efficiency;
+    }
+    if (brand && year) return lookupEfficiency(brand, year);
+    return DEFAULT_MI_PER_KWH;
+  }, [brand, year, slug]);
+
   const r = useMemo(() => {
     const hardwareCost = deriveHardwareCost(totalCost);
-
     const l1HrsNeeded = milesPerDay / L1_MPH;
     const l2HrsNeeded = milesPerDay / L2_MPH;
     const hrsSavedPerNight = Math.max(0, l1HrsNeeded - l2HrsNeeded);
-
     const dailyDeficit = Math.max(0, milesPerDay - L1_OVERNIGHT_MI);
     const sessionsPerMonth = dailyDeficit > 0 ? (dailyDeficit * 30) / PUBLIC_SESSION_MI : 0;
     const publicSavingsPerMonth = sessionsPerMonth * PUBLIC_SESSION_COST;
-
-    const monthlyKwh = (milesPerDay * 30) / MI_PER_KWH;
+    const monthlyKwh = (milesPerDay * 30) / miPerKwh;
     const touSavings = monthlyKwh * TOU_DELTA_PER_KWH;
-
     const monthlySavings = publicSavingsPerMonth + touSavings;
     const taxCredit = Math.min(hardwareCost * TAX_CREDIT_RATE, TAX_CREDIT_CAP);
     const netCost = Math.max(0, totalCost - taxCredit);
     const breakEvenMonths = monthlySavings > 1 ? Math.round(netCost / monthlySavings) : null;
-
     return {
-      hrsSavedPerNight,
-      sessionsPerMonth,
-      publicSavingsPerMonth,
-      touSavings,
-      monthlySavings,
-      taxCredit,
-      netCost,
-      breakEvenMonths,
-      monthlyKwh,
-      hardwareCost,
+      hrsSavedPerNight, sessionsPerMonth, publicSavingsPerMonth,
+      touSavings, monthlySavings, taxCredit, netCost, breakEvenMonths,
+      monthlyKwh, hardwareCost,
     };
-  }, [milesPerDay, totalCost]);
+  }, [milesPerDay, totalCost, miPerKwh]);
+
+  const efficiencyLabel = brand
+    ? `${miPerKwh.toFixed(1)} mi/kWh — ${year ? `${year} ` : ""}${brand}${model ? ` ${model}` : ""}`
+    : `${DEFAULT_MI_PER_KWH} mi/kWh — national avg`;
 
   return (
-    <section className="bg-cream-soft border-b border-line py-14" id="charger-roi">
+    <section className="bg-cream-soft border-b border-line py-10" id="charger-roi">
       <div className="section-wrap">
-        <div className="md:grid md:grid-cols-[1fr_1fr] md:gap-12 md:items-start">
+        <div className="md:grid md:grid-cols-[1fr_1fr] md:gap-10 md:items-start">
 
           {/* LEFT — inputs */}
           <div>
-            <div className="font-mono text-[11px] uppercase tracking-widest text-forest mb-3">
+            <div className="font-mono text-[11px] uppercase tracking-widest text-forest mb-2">
               Level 2 ROI calculator
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight text-ink mb-3">
+            <h2 className="font-serif text-2xl md:text-3xl font-medium tracking-tight text-ink mb-4">
               When does a home charger pay off?
             </h2>
-            <p className="text-sm text-ink-3 leading-relaxed mb-6">
-              Level 1 (standard outlet) adds ~4.5 miles per hour. Above ~36 mi/day it forces public charging trips.
-              Dial in your numbers to see the break-even.
-            </p>
 
-            {/* §30C urgency */}
-            <div className="rounded-2xl border border-okay-fg/20 bg-okay-bg px-5 py-4 mb-6">
-              <div className="font-mono text-[11px] uppercase tracking-widest text-okay-fg mb-1">
-                Federal §30C credit — expires {SEC_30C_EXPIRES}
-              </div>
+            {/* §30C — compact inline notice */}
+            <div className="rounded-xl border border-okay-fg/20 bg-okay-bg px-4 py-2.5 mb-4 flex items-start gap-2">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-okay-fg shrink-0 mt-0.5">§30C</span>
               <p className="text-xs text-ink-2 leading-relaxed">
-                30% of charger hardware cost (up to $1,000). Estimated at ~$
-                {Math.round(r.taxCredit)} for your current inputs — already factored into break-even below.
+                30% credit (up to $1,000) — <strong>census-tract restriction applies</strong>, many suburban homeowners don&apos;t qualify.
+                ~${Math.round(r.taxCredit)} estimated · expires {SEC_30C_EXPIRES}
               </p>
             </div>
 
+            {/* Efficiency badge */}
+            <div className="rounded-xl border border-line bg-paper px-3 py-2 mb-4 flex items-center gap-2">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute shrink-0">Efficiency</span>
+              <span className="font-mono text-xs text-ink font-semibold truncate">{efficiencyLabel}</span>
+              {!brand && (
+                <a href="#owner-car-picker" className="ml-auto font-mono text-[10px] text-forest hover:underline uppercase tracking-widest shrink-0">
+                  Set car ↑
+                </a>
+              )}
+            </div>
+
             {/* Sliders */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <Slider
-                label="Daily miles driven"
-                value={milesPerDay}
-                min={10}
-                max={120}
-                step={5}
+                label={`Daily miles · ${(milesPerDay * 365).toLocaleString()} mi/yr`}
+                value={milesPerDay} min={10} max={120} step={5}
                 format={(v) => `${v} mi / day`}
                 onChange={setMilesPerDay}
               />
               <Slider
                 label="Total investment (charger + install)"
-                value={totalCost}
-                min={300}
-                max={2000}
-                step={100}
+                value={totalCost} min={300} max={2000} step={100}
                 format={(v) => `$${v.toLocaleString()}`}
                 onChange={setTotalCost}
               />
-              <p className="font-mono text-[10px] text-ink-mute/70">
-                §30C credit estimated on hardware portion (~$
-                {r.hardwareCost} of $
-                {totalCost.toLocaleString()} total).
-                Confirm with a tax professional.
+              <p className="font-mono text-[10px] text-ink-mute/60">
+                §30C on hardware (~${r.hardwareCost} of ${totalCost.toLocaleString()}). Verify eligibility with a tax pro.
               </p>
             </div>
           </div>
 
           {/* RIGHT — results */}
-          <div className="mt-10 md:mt-0 space-y-3">
-
-            {/* Stat grid */}
+          <div className="mt-6 md:mt-0 space-y-2.5">
             <div className="grid grid-cols-2 gap-3">
               <Stat
                 label="Time saved / night"
@@ -202,7 +190,6 @@ export function HomeChargerROI() {
               />
             </div>
 
-            {/* Break-even callout */}
             <div className={`rounded-2xl border p-5 ${
               r.breakEvenMonths && r.breakEvenMonths <= 48
                 ? "border-forest/30 bg-forest/5"
@@ -210,14 +197,15 @@ export function HomeChargerROI() {
             }`}>
               <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1.5">Break-even after §30C credit</div>
               {r.breakEvenMonths ? (
-                <>
-                  <div className="font-serif text-4xl font-medium text-forest leading-none mb-2">
+                <div className="flex items-center gap-4 mb-2">
+                  <div className="font-serif text-4xl font-medium text-forest leading-none shrink-0">
                     {r.breakEvenMonths} <span className="text-2xl text-ink-mute font-normal">months</span>
                   </div>
-                  <div className="font-mono text-[10px] text-ink-mute">
-                    Net cost ${Math.round(r.netCost).toLocaleString()} · Monthly savings ${Math.round(r.monthlySavings)}
+                  <div className="font-mono text-[10px] text-ink-mute leading-relaxed border-l border-line pl-4">
+                    <div>Net cost ${Math.round(r.netCost).toLocaleString()}</div>
+                    <div>Monthly savings ${Math.round(r.monthlySavings)}</div>
                   </div>
-                </>
+                </div>
               ) : (
                 <p className="text-sm text-ink-mute">
                   Increase daily miles or reduce installation cost to see break-even.
@@ -230,14 +218,13 @@ export function HomeChargerROI() {
                 Shop Level 2 chargers →
               </a>
             </div>
-
+            <p className="font-mono text-[10px] text-ink-mute/40 leading-relaxed">
+              Estimates use {brand && model ? `${year} ${brand} ${model} data` : "national averages"} ({miPerKwh.toFixed(1)} mi/kWh),
+              $0.07/kWh TOU gap, $15/public session avg. §30C eligibility subject to IRS census-tract rules.
+            </p>
           </div>
         </div>
 
-        <p className="mt-8 font-mono text-[10px] text-ink-mute/50">
-          Estimates use national averages (3.5 mi/kWh, $0.07/kWh TOU gap, $15/public session avg).
-          §30C eligibility subject to IRS rules.
-        </p>
       </div>
     </section>
   );

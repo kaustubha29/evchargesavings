@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { GUIDES } from "@/features/guides/data";
+import { EVOwnerHero } from "@/components/shared/EVOwnerHero";
+import { StickyOwnerBar } from "@/components/shared/StickyOwnerBar";
+import { QuickWinsLabel } from "@/components/shared/QuickWinsLabel";
 import { HomeChargingSection } from "@/components/shared/HomeChargingSection";
-import { HomeChargerProductsPersonalized } from "@/components/shared/HomeChargerProductsPersonalized";
+import { EVOwnerChargerBundle } from "@/components/shared/EVOwnerChargerBundle";
 import { HomeChargerROI } from "@/components/shared/HomeChargerROI";
 import { LeadCaptureBoxGate } from "@/components/shared/LeadCaptureBoxGate";
 import { EVInsuranceCTA } from "@/components/shared/EVInsuranceCTA";
@@ -21,19 +24,19 @@ const QUICK_WINS = [
   {
     num: "01",
     title: "Upgrade to Level 2",
-    body: "Level 1 (standard outlet) adds 4–5 miles per hour — fine for low mileage, painful for anything else. A Level 2 install runs $500–$1,500 total and fully charges most EVs overnight. One-time cost, permanent fix.",
+    body: "Level 1 adds 4–5 miles per hour — fine for low mileage, painful for anything else. A Level 2 install runs $500–$1,500 and fully charges most EVs overnight. One-time cost, permanent fix.",
     cta: { label: "Calculate your break-even →", href: "#charger-roi" },
   },
   {
     num: "02",
-    title: "Switch to a TOU electricity rate",
-    body: "Most utilities offer time-of-use plans with overnight rates 30–60% below standard. Set your car to charge after 9 PM and your effective per-mile cost drops significantly — often the single biggest lever after the initial purchase.",
+    title: "Switch to a TOU rate",
+    body: "Most utilities offer time-of-use plans with overnight rates 30–60% below standard. Set your car to charge after 9 PM and your effective per-mile cost drops — often the single biggest lever after your Level 2 install.",
     cta: { label: "How TOU rates work →", href: "/guides/time-of-use-rates" },
   },
   {
     num: "03",
     title: "Review your EV insurance",
-    body: "EV insurance costs vary dramatically by insurer — some penalize for high replacement part costs, others actively offer EV discounts. Most owners who shop after year one find meaningful savings. It takes 10 minutes.",
+    body: "EV insurance costs vary dramatically by insurer — some penalize for high parts costs, others offer EV-specific discounts. Most owners who shop after year one find real savings. It takes 10 minutes.",
     cta: { label: "Compare EV insurance →", href: "/ev-insurance" },
   },
 ];
@@ -43,37 +46,16 @@ export default function EVOwnerPage() {
 
   return (
     <>
+      <StickyOwnerBar />
       <main className="bg-paper min-h-screen">
 
-        {/* HERO */}
-        <section className="bg-paper border-b border-line py-14 md:py-20">
-          <div className="section-wrap max-w-3xl">
-            <div className="font-mono text-[11px] uppercase tracking-widest text-forest mb-3">For EV owners</div>
-            <h1 className="font-serif text-5xl font-medium tracking-tight text-ink mb-4">
-              You already made the switch.<br />
-              <em className="text-forest">Now make the most of it.</em>
-            </h1>
-            <p className="text-ink-3 text-lg leading-relaxed max-w-xl">
-              Home charging levels, time-of-use electricity rates, the public charging landscape, and EV-specific insurance — here&apos;s what most owners figure out the hard way.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#level2" className="px-4 py-2 rounded-xl text-sm font-semibold bg-forest text-white hover:bg-emerald transition-colors">
-                Level 2 setup →
-              </a>
-              <a href="#ev-insurance" className="px-4 py-2 rounded-xl text-sm font-semibold border border-line text-ink-2 hover:border-forest/40 hover:text-forest transition-colors">
-                Compare insurance →
-              </a>
-              <a href="/" className="px-4 py-2 rounded-xl text-sm font-semibold border border-line text-ink-2 hover:border-forest/40 hover:text-forest transition-colors">
-                Still deciding? Try the calculator →
-              </a>
-            </div>
-          </div>
-        </section>
+        {/* HERO — with integrated car picker */}
+        <EVOwnerHero />
 
         {/* QUICK WINS */}
         <section className="border-b border-line py-12 bg-cream-soft">
           <div className="section-wrap">
-            <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-8 text-center">3 things that move the needle most</div>
+            <QuickWinsLabel />
             <div className="grid md:grid-cols-3 gap-6">
               {QUICK_WINS.map((w) => (
                 <div key={w.num} className="bg-paper border border-line rounded-2xl p-6">
@@ -97,22 +79,20 @@ export default function EVOwnerPage() {
         {/* HOME CHARGER ROI */}
         <HomeChargerROI />
 
-        {/* HOME CHARGER PRODUCTS */}
-        <div id="chargers">
-          <HomeChargerProductsPersonalized />
-        </div>
+        {/* HOME CHARGER PRODUCTS — connector driven by owner store */}
+        <EVOwnerChargerBundle />
 
         {/* INSTALLER LEAD CAPTURE */}
         <LeadCaptureBoxGate
           sourcePage="/ev-owner"
           sectionId="installer-quotes"
           sectionClassName="bg-cream-soft border-b border-line py-10"
-          contentClassName="section-wrap max-w-2xl"
+          contentClassName="section-wrap"
           availableIntents={["charger", "insurance"]}
           defaultIntent={["charger", "insurance"]}
           isOwner={true}
-          heading="Get quotes for charger install or EV insurance"
-          description="Pick what you need: match with licensed electricians for a Level 2 install quote, compare EV insurance rates, or both. Free, no obligation."
+          heading="Get matched with local installers and insurance"
+          description="Licensed electricians for Level 2 install quotes, EV insurance comparisons, or both. Free, no obligation — providers reach out within 24 hours."
           submitLabel="Get quotes"
           successMessage="Got it — relevant providers will reach out within 24 hours."
         />
