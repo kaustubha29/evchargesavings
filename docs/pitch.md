@@ -30,6 +30,8 @@ What makes it different:
 - **~141 EV models, 190+ gas cars, 38 PHEVs**, ZIP code detection
 - Full methodology at [evchargesavings.com/how-we-calculate](https://evchargesavings.com/how-we-calculate)
 
+**Head-to-head compare pages** — 320 pre-built EV-vs-gas comparison pages (32 EVs × 10 gas models) with FAQPage rich-result schema, a personalized hero that hydrates from calculator state when you arrive from the homepage, and a full in-page calculator pre-loaded with the right vehicles. Example: [/compare/tesla-model-3-rwd-vs-toyota-camry](https://evchargesavings.com/compare/tesla-model-3-rwd-vs-toyota-camry).
+
 Beyond the calculator: 118 guides across buying, charging, finance, and ownership — including EV charging network comparison, apartment renter charging strategies, and utility rate plans that cut charging cost to 3–13¢/kWh. Updated news section covering policy, pricing, and infrastructure. Full state-by-state dataset published at [/research](https://evchargesavings.com/research).
 
 Free. No sign-up. No ads obscuring results.
@@ -55,7 +57,7 @@ Free. No sign-up. No ads obscuring results.
 - Most reliable EVs 2026 — brand reliability rankings, warranty comparison
 - Best used EVs to buy 2026 — picks by budget, CPO guide, post-credit market
 
-**Programmatic depth:** 700+ static pages — cost-to-charge by EV × state, EV-vs-EV comparisons, EV-vs-gas break-even pages, best-EVs-under-$X bands, per-state cost pages, per-utility rate pages.
+**Programmatic depth:** 700+ static pages — cost-to-charge by EV × state, EV-vs-EV comparisons, 320 EV-vs-gas head-to-head pages (with FAQPage schema + personalized hero), best-EVs-under-$X bands, per-state cost pages, per-utility rate pages.
 
 **Transparency:** Full methodology published at [evchargesavings.com/how-we-calculate](https://evchargesavings.com/how-we-calculate); full state dataset at [/research](https://evchargesavings.com/research). Author is a named EV owner with first-hand road trip content — including 8hr+ family trips in the Kia EV9 using Electrify America.
 
