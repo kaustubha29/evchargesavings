@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GUIDES } from "@/features/guides/data";
 import { HomeChargingSection } from "@/components/shared/HomeChargingSection";
 import { HomeChargerProductsPersonalized } from "@/components/shared/HomeChargerProductsPersonalized";
+import { HomeChargerROI } from "@/components/shared/HomeChargerROI";
 import { LeadCaptureBoxGate } from "@/components/shared/LeadCaptureBoxGate";
 import { EVInsuranceCTA } from "@/components/shared/EVInsuranceCTA";
 import { PublicChargingSection } from "@/components/features/networks/PublicChargingSection";
@@ -21,7 +22,7 @@ const QUICK_WINS = [
     num: "01",
     title: "Upgrade to Level 2",
     body: "Level 1 (standard outlet) adds 4–5 miles per hour — fine for low mileage, painful for anything else. A Level 2 install runs $500–$1,500 total and fully charges most EVs overnight. One-time cost, permanent fix.",
-    cta: { label: "See Level 2 charger options →", href: "#chargers" },
+    cta: { label: "Calculate your break-even →", href: "#charger-roi" },
   },
   {
     num: "02",
@@ -92,6 +93,9 @@ export default function EVOwnerPage() {
         <div id="level2">
           <HomeChargingSection />
         </div>
+
+        {/* HOME CHARGER ROI */}
+        <HomeChargerROI />
 
         {/* HOME CHARGER PRODUCTS */}
         <div id="chargers">
