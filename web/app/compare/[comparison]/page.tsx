@@ -32,6 +32,15 @@ const TOP_GAS_IDS = [
   "honda-civic", "chevy-silverado", "ford-explorer",
   "hyundai-tucson", "jeep-grand-cherokee", "bmw-x5",
 ];
+const TOP_PHEV_IDS = [
+  "toyota-rav4-prime", "lexus-nx-450h-plus", "kia-sportage-phev",
+  "hyundai-tucson-phev", "kia-sorento-phev", "jeep-grand-cherokee-4xe",
+];
+// Top EVs to pair against PHEVs (segment-relevant subset)
+const TOP_EV_VS_PHEV_SLUGS = [
+  "t-my-lr-awd", "t-my-rwd", "t-m3-rwd", "t-m3-lr-awd",
+  "h-i5-lr-rwd", "h-i6-lr-rwd", "k-ev6-lr-rwd", "k-ev9-wind",
+];
 
 function parseComparison(slug: string): { evSlug: string; compId: string } | null {
   const sepIdx = slug.lastIndexOf("-vs-");
@@ -42,6 +51,8 @@ function parseComparison(slug: string): { evSlug: string; compId: string } | nul
 export function generateStaticParams() {
   const allEvs = evRepository.getAll();
   const params: { comparison: string }[] = [];
+
+  // EV vs gas
   for (const evId of TOP_EV_SLUGS) {
     const ev = allEvs.find((e) => e.id === evId);
     if (!ev) continue;
@@ -49,6 +60,16 @@ export function generateStaticParams() {
       params.push({ comparison: `${ev.slug}-vs-${gasId}` });
     }
   }
+
+  // EV vs PHEV
+  for (const evId of TOP_EV_VS_PHEV_SLUGS) {
+    const ev = allEvs.find((e) => e.id === evId);
+    if (!ev) continue;
+    for (const phevId of TOP_PHEV_IDS) {
+      params.push({ comparison: `${ev.slug}-vs-${phevId}` });
+    }
+  }
+
   return params;
 }
 
