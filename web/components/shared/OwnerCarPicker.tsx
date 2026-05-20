@@ -40,6 +40,7 @@ export function OwnerCarPicker() {
     setOwnerCar(opt.brand, opt.year, opt.model, opt.slug);
     setQuery(opt.label);
     setOpen(false);
+    inputRef.current?.blur();
   };
 
   const clear = () => {
@@ -68,9 +69,13 @@ export function OwnerCarPicker() {
 
           <div className="relative flex-1 max-w-sm">
             {brand ? (
-              <div className="flex items-center w-full border border-forest/40 rounded-xl px-4 py-2.5 text-sm bg-paper">
-                <span className="flex-1 text-ink font-medium truncate">{query}</span>
-                <button onClick={clear} aria-label="Clear" className="ml-2 text-ink-mute hover:text-rust text-xs shrink-0">✕</button>
+              <div className="inline-flex items-center gap-2 bg-forest/10 border border-forest/30 rounded-full pl-4 pr-2 py-2 text-sm max-w-full">
+                <span className="text-ink font-medium truncate">{query}</span>
+                <button
+                  onClick={clear}
+                  aria-label="Clear"
+                  className="shrink-0 flex items-center justify-center w-5 h-5 rounded-full bg-forest/15 hover:bg-rust/20 text-ink-mute hover:text-rust transition-colors text-[10px] leading-none"
+                >✕</button>
               </div>
             ) : (
               <>
