@@ -56,7 +56,7 @@ export async function fetchStateGasPrices(): Promise<EIAResult> {
       `&sort[0][column]=period` +
       `&sort[0][direction]=desc` +
       `&length=500`;
-    const res = await fetch(url, { next: { revalidate: 86400 } });
+    const res = await fetch(url, { next: { revalidate: 604800 } });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const json = await res.json();
 
@@ -105,7 +105,7 @@ export async function fetchStateElecRates(): Promise<EIAResult> {
       `&sort[0][column]=period` +
       `&sort[0][direction]=desc` +
       `&length=200`;
-    const res = await fetch(url, { next: { revalidate: 86400 } });
+    const res = await fetch(url, { next: { revalidate: 604800 } });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const json = await res.json();
 

@@ -12,6 +12,8 @@ import { LocationDetector } from "@/components/features/location/LocationDetecto
 import { fmt } from "@/lib/format";
 import { NATIONAL_AVG } from "@/features/location/data/states";
 
+export const revalidate = false;
+
 interface Props {
   params: Promise<{ comparison: string }>;
 }

@@ -11,7 +11,7 @@ import { LeadCaptureBox } from "@/components/shared/LeadCaptureBox";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { fmt } from "@/lib/format";
 
-export const revalidate = 86400;
+export const revalidate = 604800;
 export const dynamicParams = true;
 
 const TOP_EV_SLUGS = [
