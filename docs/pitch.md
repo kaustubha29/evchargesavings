@@ -36,6 +36,8 @@ What makes it different:
 
 **Home Charger ROI calculator** — on the EV owner resource page: input daily miles and installation budget, get break-even in months after the §30C federal tax credit (30% of hardware, up to $1,000 — expires June 30, 2026). Includes public-session-avoided calculation and TOU rate savings.
 
+**EV owner personalization** — `/ev-owner` has a car picker (type model → dropdown → select) that locks the entire page to the user's specific EV: charger picks, adapter recommendations, and ROI calculator all update. Selection persists in `localStorage` across sessions. Locked state shows a solid-green pill with the car name — can't be accidentally edited. Page has its own OG image ("You own an EV. Make it cheaper.") showing Level 2 payback, TOU rate reduction, and insurance savings.
+
 Beyond the calculator: 118 guides across buying, charging, finance, and ownership — including EV charging network comparison, apartment renter charging strategies, and utility rate plans that cut charging cost to 3–13¢/kWh. **News updated daily** — policy, pricing, and infrastructure. Full state-by-state dataset published at [/research](https://evchargesavings.com/research).
 
 Free. No sign-up. No ads obscuring results.
@@ -61,7 +63,7 @@ Free. No sign-up. No ads obscuring results.
 - Most reliable EVs 2026 — brand reliability rankings, warranty comparison
 - Best used EVs to buy 2026 — picks by budget, CPO guide, post-credit market
 
-**State EV incentives:** 13 states with live purchase programs displayed on state cost pages — verified DOE AFDC data, stacked on fuel savings. Calculator shows inline banner when user's state has programs, linking to `#incentives` anchor.
+**State EV incentives:** 13 states with live purchase programs displayed on state cost pages — verified DOE AFDC data, stacked on fuel savings. Calculator shows inline banner when user's state has programs, linking to `#incentives` anchor. Note: Oregon Standard Rebate suspended Sept 9, 2025; Charge Ahead Rebate suspended Dec 5, 2025 — both on waitlist for spring 2026 reopening. Site reflects current suspension status.
 
 **Home Charger ROI:** Interactive break-even calculator on the EV owner resource page. Inputs: daily miles, charger hardware cost, total install budget. Outputs: time saved per charge, public sessions avoided per month, TOU savings, §30C credit (30% up to $1,000, expires June 30 2026), and break-even months. Converts directly to Level 2 charger product affiliate section.
 
@@ -141,7 +143,7 @@ Curious if the numbers line up with what you're actually seeing — evchargesavi
 | Net-of-fee savings | 40 states charge BEV surcharge (NJ ~$270, ~$138 avg); 35 charge PHEV surcharge — netted out by default |
 | Fee data source | NCSL + DOE AFDC, verified May 2026 |
 | Federal credit status | §30D + §25E eliminated Oct 1, 2025; §30C home charger credit (30% / $1K cap) expires June 30, 2026 |
-| State incentives | 13 states with live programs — CO $750, MA $3,500, NY $2,000, IL $2,000, OR $2,500, NJ $1,500+, WA $9K income-only, VT $2,500, TX $2,500, CT $1,000, ME $5,000, MD $3,000, RI $1,500 |
+| State incentives | 13 states — CO $750, MA $3,500, NY $2,000, IL $2,000, OR $2,500 (suspended — waitlist spring 2026), NJ $1,500+, WA $9K income-only, VT $2,500, TX $2,500, CT $1,000, ME $5,000, MD $3,000, RI $1,500 |
 | Example rate spread | CA ~$0.33/kWh vs LA ~$0.13/kWh (state-level EIA) |
 | Cheapest overnight rate | Duke Energy FL ~3.5¢/kWh |
 | California SDG&E off-peak | ~12–13¢/kWh (Power Your Drive) |

@@ -10,7 +10,7 @@ Pick your EV and current gas car, enter your ZIP, and see exactly how much you'd
 
 | Layer | Choice |
 |---|---|
-| Framework | Next.js 14 (App Router, TypeScript) |
+| Framework | Next.js 16 (App Router, TypeScript, Turbopack) |
 | Styling | Tailwind CSS v4 with custom design tokens |
 | State | Zustand (`useCalculatorStore`) |
 | Database | Supabase (lead capture) |
@@ -47,11 +47,15 @@ web/
 │       ├── SavingsSlot.tsx           # Animated slot machine (hero right column)
 │       ├── SavingsSlotBand.tsx       # Full-width slot band used across pages
 │       ├── HomeChargerProducts.tsx   # Level 2 charger + adapter affiliate grid
+│       ├── HomeChargerProductsPersonalized.tsx  # Adapter picks filtered by connector type
+│       ├── HomeChargerROI.tsx        # §30C break-even calculator (daily miles + install cost)
 │       ├── EVInsuranceCTA.tsx        # Insurance comparison affiliate section
 │       ├── EVMarketplaceAffiliates.tsx  # Marketplace affiliate cards
 │       ├── ChargingNetworkReferrals.tsx # ChargePoint + JuiceBox referral cards
 │       ├── LeadCaptureBoxGate.tsx    # Email + ZIP form → installer quote flow
 │       ├── StickySavingsBar.tsx      # Bottom sticky "get quotes" bar
+│       ├── EVOwnerHero.tsx           # /ev-owner hero with embedded car picker (locked pill after selection)
+│       ├── StickyOwnerBar.tsx        # Sticky top bar showing selected car + connector
 │       ├── SiteFooter.tsx            # Site footer with guide links
 │       └── StatCard.tsx
 ├── features/
@@ -62,7 +66,8 @@ web/
 │   ├── content/                # SEO metadata generators
 │   └── location/               # ZIP → state map, state electricity/gas rates
 ├── store/
-│   └── calculator.ts           # Zustand store, computeSavings, computeCO2
+│   ├── calculator.ts           # Zustand store, computeSavings, computeCO2
+│   └── owner.ts                # Zustand owner store — brand/year/model/slug, persisted as ecs-owner-v1
 └── lib/
     └── format.ts               # fmt.money0, fmt.cents1, fmt.pct0, fmt.lbs
 ```
@@ -90,10 +95,11 @@ All guides are static data in `web/features/guides/data.ts` — each with `slug`
 
 | Data | Source | Update frequency |
 |---|---|---|
-| State electricity rates | US EIA Form 826 | Annually (or when EIA publishes) |
-| State gas prices | AAA monthly averages | Monthly |
+| State electricity rates | US EIA API v2 (residential retail) | Weekly revalidation (ISR) |
+| State gas prices | US EIA API v2 (PADD regions + state) | Weekly revalidation (ISR) |
 | EV efficiency specs | EPA fueleconomy.gov | When new models added |
 | ZIP → state mapping | USPS / public dataset (~950 entries) | Static |
+| State EV incentives | DOE AFDC + official program sites | Verified May 2026; Oregon suspended Sept–Dec 2025 |
 
 ---
 
@@ -148,11 +154,19 @@ Set in Vercel → Project → Settings → Environment Variables.
 - [ ] Connect installer leads to a real platform (Thumbtack API, Angi, or direct broker)
 
 ### Nice to have
-- [ ] More EV models (currently 130+; add new 2026 releases)
-- [ ] Monthly rate update process (EIA + AAA data)
-- [ ] OG images for state pages and guide pages (dynamic `opengraph-image.tsx`)
+- [ ] More EV models (currently 141; add new 2026 releases)
+- [ ] Monthly rate update process (EIA data — API key required)
+- [ ] OG images for more page types (compare, ev-cost/state already have them)
 - [ ] A/B test hero headline variants
 - [ ] Used EV marketplace affiliates (CarGurus, Cars.com, Carvana)
+
+### Completed May 2026
+- [x] EV owner page (`/ev-owner`) — car picker with locked pill, personalized charger picks, adapter recommendations, ROI calculator
+- [x] Owner-specific OG image — "You own an EV. Make it cheaper."
+- [x] Car picker: locked green pill after selection, arrow key nav, max 2 results/brand in dropdown, hydration fix for persisted selection
+- [x] State EV incentives — all 13 program URLs verified and fixed; Oregon suspension notice added
+- [x] ISR optimization — compare pages static (`revalidate=false`), EIA fetches weekly (604800s)
+- [x] Home Charger ROI calculator with §30C credit
 
 ---
 
