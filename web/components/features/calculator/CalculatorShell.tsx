@@ -17,6 +17,7 @@ import { VehicleCombobox } from "@/components/shared/VehicleCombobox";
 import type { ComboOption } from "@/components/shared/VehicleCombobox";
 import type { EVModelSummary, PHEVVehicle } from "@/features/ev-data/types";
 import type { GasVehicle } from "@/features/ev-data/types";
+import { useShareableUrl, buildShareUrl } from "@/hooks/useShareableUrl";
 
 interface Props {
   evSummaries: EVModelSummary[];
@@ -24,11 +25,13 @@ interface Props {
   phevVehicles: PHEVVehicle[];
   defaultEvSlug?: string;
   defaultGasId?: string;
+  defaultPhevId?: string;
+  defaultComparisonType?: "gas" | "phev";
   initialHomeRateKwh?: number;
   initialGasPriceDollar?: number;
 }
 
-export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaultEvSlug, defaultGasId, initialHomeRateKwh, initialGasPriceDollar }: Props) {
+export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaultEvSlug, defaultGasId, defaultPhevId, defaultComparisonType, initialHomeRateKwh, initialGasPriceDollar }: Props) {
   const store = useCalculatorStore();
   const {
     evSlug, gasId, comparisonType, phevId,
@@ -45,10 +48,49 @@ export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaul
   const router   = useRouter();
   const pathname = usePathname();
 
+  const { ratesFromUrlRef } = useShareableUrl();
   const [zipError, setZipError] = useState(false);
+  const [copied, setCopied] = useState(false);
   const resultDebounce  = useRef<ReturnType<typeof setTimeout> | null>(null);
   const calcRef         = useRef<HTMLDivElement>(null);
+  const resultsCardRef  = useRef<HTMLDivElement>(null);
   const calcViewedRef   = useRef(false);
+
+  async function handleShare() {
+    const url   = buildShareUrl(store);
+    const title = `EV savings: ${fmt.money0(displayNetSavings)}/yr`;
+
+    // Capture screenshot of results card
+    let imageFile: File | null = null;
+    if (resultsCardRef.current) {
+      try {
+        const { toPng } = await import("html-to-image");
+        const dataUrl = await toPng(resultsCardRef.current, { cacheBust: true, pixelRatio: 2 });
+        const blob = await (await fetch(dataUrl)).blob();
+        imageFile = new File([blob], "ev-savings.png", { type: "image/png" });
+      } catch { /* silent — capture failed */ }
+    }
+
+    // Mobile: native share sheet with URL + image
+    if (imageFile && navigator.canShare?.({ files: [imageFile] })) {
+      try { await navigator.share({ title, url, files: [imageFile] }); return; }
+      catch { /* user cancelled */ }
+    }
+
+    // Desktop / fallback: copy URL first (while gesture is still active), then trigger download
+    try { await navigator.clipboard.writeText(url); } catch { /* silent */ }
+    if (imageFile) {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(imageFile);
+      a.download = "ev-savings.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(a.href);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 3000);
+  }
 
   async function applyZip(zipValue: string) {
     const code = stateFromZip(zipValue.trim());
@@ -105,13 +147,16 @@ export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaul
 
   useEffect(() => {
     if (defaultEvSlug) setEvSlug(defaultEvSlug);
+    if (defaultComparisonType) setComparisonType(defaultComparisonType);
     if (defaultGasId) setGasId(defaultGasId);
+    if (defaultPhevId) setPHEVId(defaultPhevId);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Seed live national rates on first load (before location is detected)
   useEffect(() => {
     if (stateCode !== null) return;
+    if (ratesFromUrlRef.current) return; // shared link — URL hydration already set rates
     if (initialHomeRateKwh !== undefined) {
       setHomeRate(initialHomeRateKwh);
       setPublicRate(+( initialHomeRateKwh * 2.5).toFixed(1));
@@ -155,6 +200,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaul
   // Fetch live EIA rates whenever the detected state changes
   useEffect(() => {
     if (!stateCode) return;
+    if (ratesFromUrlRef.current) return; // shared link — keep exact rates from URL
     let cancelled = false;
     fetch(`/api/rates?state=${stateCode}`)
       .then(r => r.ok ? r.json() : null)
@@ -170,6 +216,25 @@ export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaul
   }, [stateCode]);
 
   const locationLabel = isDetecting ? "Detecting…" : (stateCode ? (city ? `${city}, ${stateData.name}` : stateData.name) : "United States");
+
+  const compareHref = useMemo(() => {
+    const base = `/compare/${evSlug}-vs-${comparisonType === "phev" ? phevId : gasId}`;
+    const p = new URLSearchParams();
+    if (stateCode) p.set("state", stateCode);
+    p.set("kwh", homeRateKwh.toFixed(2));
+    p.set("pub", publicRateKwh.toFixed(1));
+    p.set("gal", gasPriceDollar.toFixed(3));
+    p.set("mi", String(annualMiles));
+    p.set("home", String(homePct));
+    p.set("fee", includeStateEvFee ? "1" : "0");
+    if (comparisonType === "phev") {
+      p.set("type", "phev");
+      p.set("phev", phevId);
+    } else {
+      p.set("gas", gasId);
+    }
+    return `${base}?${p.toString()}`;
+  }, [evSlug, gasId, phevId, comparisonType, stateCode, homeRateKwh, publicRateKwh, gasPriceDollar, annualMiles, homePct, includeStateEvFee]);
 
   // Build combobox options
   const evOptions = useMemo<ComboOption[]>(
@@ -271,7 +336,7 @@ export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaul
       </div>
 
       {/* Hero savings card — full width */}
-      <div className="bg-paper border border-line rounded-3xl p-8 shadow-2 relative overflow-hidden">
+      <div ref={resultsCardRef} className="bg-paper border border-line rounded-3xl p-8 shadow-2 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-56 h-56 rounded-full bg-emerald opacity-10 -translate-y-16 translate-x-16 pointer-events-none" />
 
         {/* Verdict chip — big + animated */}
@@ -320,9 +385,15 @@ export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaul
                 <span>·</span>
                 <span>{feeOn ? "after state EV fee" : "fuel cost only"}, ±10%</span>
                 <span>·</span>
-                <a href={`/compare/${evSlug}-vs-${gasId}`} className="text-forest hover:underline">
-                  see break-even →
+                <a
+                  href={compareHref}
+                  className="inline-flex items-center font-mono text-[11px] bg-forest/10 text-forest px-2.5 py-0.5 rounded-full hover:bg-forest hover:text-cream transition-colors"
+                >
+                  full comparison →
                 </a>
+                <button type="button" onClick={handleShare} className="inline-flex items-center font-mono text-[11px] bg-emerald/15 text-forest px-2.5 py-0.5 rounded-full hover:bg-forest hover:text-cream transition-colors">
+                  {copied ? "saved!" : "share →"}
+                </button>
               </div>
             </>
           );

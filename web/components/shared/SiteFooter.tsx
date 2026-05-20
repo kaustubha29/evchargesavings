@@ -1,10 +1,8 @@
-import { GUIDES } from "@/features/guides/data";
-
 export function SiteFooter() {
   return (
     <footer className="bg-ink text-cream pt-14 pb-8">
       <div className="section-wrap">
-        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-10 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr_1fr_1fr] gap-10 mb-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="font-serif text-3xl font-medium mb-3">
@@ -20,9 +18,11 @@ export function SiteFooter() {
             <div className="font-mono text-[11px] uppercase tracking-widest text-gold mb-4">Calculator</div>
             <ul className="space-y-2">
               {[
-                { href: "/#calculator", label: "Compare vehicles" },
-                { href: "/#calculator", label: "Driving habits" },
-                { href: "/#public-charging", label: "Charging networks" },
+                { href: "/#calculator",                    label: "Compare vehicles" },
+                { href: "/#public-charging",               label: "Charging networks" },
+                { href: "/#charger-gear",                  label: "Level 2 chargers" },
+                { href: "/ev-insurance",                   label: "EV insurance" },
+                { href: "/guides/home-charging-setup",     label: "Home charging guide" },
               ].map((l) => (
                 <li key={l.label}>
                   <a href={l.href} className="text-sm text-cream/70 hover:text-gold transition-colors">{l.label}</a>
@@ -35,14 +35,17 @@ export function SiteFooter() {
           <div>
             <div className="font-mono text-[11px] uppercase tracking-widest text-gold mb-4">Guides</div>
             <ul className="space-y-2">
-              {GUIDES.slice(0, 4).map((g) => (
-                <li key={g.slug} className="hidden sm:block">
-                  <a href={`/guides/${g.slug}`} className="text-sm text-cream/70 hover:text-gold transition-colors">{g.title}</a>
+              {[
+                { href: "/guides/ev-charging-for-apartment-renters-2026", label: "Apartment charging" },
+                { href: "/guides/ev-utility-rate-plans-guide",            label: "Utility rate plans" },
+                { href: "/guides/best-used-evs-to-buy-2026",              label: "Best used EVs" },
+                { href: "/guides/is-ev-right-for-you",                    label: "Is EV right for you?" },
+                { href: "/guides",                                         label: "All guides →" },
+              ].map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} className="text-sm text-cream/70 hover:text-gold transition-colors">{l.label}</a>
                 </li>
               ))}
-              <li className="sm:hidden">
-                <a href="/guides" className="text-sm text-cream/70 hover:text-gold transition-colors">Browse all guides →</a>
-              </li>
             </ul>
           </div>
 
@@ -56,6 +59,24 @@ export function SiteFooter() {
                 { href: "/ev-insurance", label: "EV insurance costs" },
                 { href: "/guides", label: "All guides" },
                 { href: "/research", label: "Research & data" },
+              ].map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} className="text-sm text-cream/70 hover:text-gold transition-colors">{l.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Head-to-head */}
+          <div>
+            <div className="font-mono text-[11px] uppercase tracking-widest text-gold mb-4">Head-to-head</div>
+            <ul className="space-y-2">
+              {[
+                { href: "/compare/tesla-model-y-long-range-awd-vs-toyota-rav4",      label: "Model Y vs RAV4" },
+                { href: "/compare/tesla-model-3-rwd-vs-toyota-camry",              label: "Model 3 vs Camry" },
+                { href: "/compare/tesla-model-3-rwd-vs-honda-civic",               label: "Model 3 vs Civic" },
+                { href: "/compare/hyundai-ioniq-6-long-range-rwd-vs-toyota-camry", label: "Ioniq 6 vs Camry" },
+                { href: "/compare/hyundai-ioniq-5-long-range-rwd-vs-honda-cr-v",   label: "Ioniq 5 vs CR-V" },
               ].map((l) => (
                 <li key={l.label}>
                   <a href={l.href} className="text-sm text-cream/70 hover:text-gold transition-colors">{l.label}</a>

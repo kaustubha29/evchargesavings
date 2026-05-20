@@ -30,6 +30,9 @@ export function LocationDetector({ forceState }: Props) {
   }
 
   useEffect(() => {
+    // Shared link — URL hydration (useShareableUrl) handles location; skip detection
+    if (new URLSearchParams(window.location.search).has("state")) return;
+
     if (forceState) {
       const data = getStateData(forceState);
       setLocation(forceState, data, null, null);

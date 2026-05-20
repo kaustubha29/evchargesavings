@@ -12,6 +12,7 @@ import { StateSelector } from "@/components/features/location/StateSelector";
 import { EVMarketplaceAffiliates } from "@/components/shared/EVMarketplaceAffiliates";
 import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
 import { SiteFooter } from "@/components/shared/SiteFooter";
+import { NATIONAL_AVG } from "@/features/location/data/states";
 import { fmt } from "@/lib/format";
 
 interface Props {
@@ -73,6 +74,16 @@ export default async function StateCalculatorPage({ params }: Props) {
     publicRateKwh:  stateData.kwhCents * 2.5,
     gasPriceDollar: stateData.gasDollar,
     stateEvFee:     stateData.evFee,
+  });
+  const natSavings = calculateSavings({
+    evEfficiency:   modelY.efficiency,
+    gasMpg:         rav4.mpg,
+    annualMiles:    DEFAULT_MILES,
+    homePct:        DEFAULT_HOME_PCT,
+    homeRateKwh:    NATIONAL_AVG.kwhCents,
+    publicRateKwh:  NATIONAL_AVG.kwhCents * 2.5,
+    gasPriceDollar: NATIONAL_AVG.gasDollar,
+    stateEvFee:     NATIONAL_AVG.evFee,
   });
   const exCo2 = calculateCO2(DEFAULT_MILES, rav4.mpg, exSavings.annualKwh);
 
@@ -185,6 +196,7 @@ export default async function StateCalculatorPage({ params }: Props) {
           eyebrow={`${stateData.name} context`}
           title="See how local rates move the savings number"
           body={`${stateData.name}'s electricity and gas prices are only part of the story. Vehicle efficiency, home charging, and mileage can swing the yearly total fast.`}
+          cta={{ label: "Personalize your estimate →", href: "#calculator" }}
         />
 
         {/* Calculator */}
@@ -253,13 +265,13 @@ export default async function StateCalculatorPage({ params }: Props) {
                 </thead>
                 <tbody>
                   {[
-                    { label: "Electricity rate (EIA)", state: fmt.cents1(stateData.kwhCents) + "/kWh", nat: "16.5¢/kWh" },
-                    { label: "Gas price (EIA)",        state: fmt.money2(stateData.gasDollar) + "/gal", nat: "$3.45/gal" },
-                    { label: "Annual EV cost (13.5k mi, 80% home)", state: fmt.money0(exSavings.evAnnualCost), nat: "$810" },
-                    { label: "Annual gas cost (13.5k mi, RAV4)",    state: fmt.money0(exSavings.gasAnnualCost), nat: "$2,329" },
-                    { label: "Annual fuel savings",    state: fmt.money0(exSavings.annualSavings), nat: "$1,519" },
-                    { label: "State EV registration fee", state: stateData.evFee > 0 ? `−${fmt.money0(stateData.evFee)}` : "None", nat: "−$138" },
-                    { label: "Net annual savings", state: fmt.money0(exSavings.netAnnualSavings), nat: "$1,381" },
+                    { label: "Electricity rate (EIA)", state: fmt.cents1(stateData.kwhCents) + "/kWh", nat: fmt.cents1(NATIONAL_AVG.kwhCents) + "/kWh" },
+                    { label: "Gas price (EIA)",        state: fmt.money2(stateData.gasDollar) + "/gal", nat: fmt.money2(NATIONAL_AVG.gasDollar) + "/gal" },
+                    { label: "Annual EV cost (13.5k mi, 80% home)", state: fmt.money0(exSavings.evAnnualCost), nat: fmt.money0(natSavings.evAnnualCost) },
+                    { label: "Annual gas cost (13.5k mi, RAV4)",    state: fmt.money0(exSavings.gasAnnualCost), nat: fmt.money0(natSavings.gasAnnualCost) },
+                    { label: "Annual fuel savings",    state: fmt.money0(exSavings.annualSavings), nat: fmt.money0(natSavings.annualSavings) },
+                    { label: "State EV registration fee", state: stateData.evFee > 0 ? `−${fmt.money0(stateData.evFee)}` : "None", nat: `−${fmt.money0(NATIONAL_AVG.evFee)}` },
+                    { label: "Net annual savings", state: fmt.money0(exSavings.netAnnualSavings), nat: fmt.money0(natSavings.netAnnualSavings) },
                   ].map((row) => (
                     <tr key={row.label} className="border-b border-line-soft">
                       <td className="py-3 pr-6 text-ink-2">{row.label}</td>
