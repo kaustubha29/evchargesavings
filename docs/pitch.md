@@ -32,6 +32,10 @@ What makes it different:
 
 **Head-to-head compare pages** — 320 EV-vs-gas + 64 EV-vs-PHEV pre-built pages with FAQPage rich-result schema, a personalized hero that hydrates from calculator state when you arrive from the homepage, and a full in-page calculator pre-loaded with the right vehicles. Example: [/compare/tesla-model-3-rwd-vs-toyota-camry](https://evchargesavings.com/compare/tesla-model-3-rwd-vs-toyota-camry).
 
+**State EV purchase incentives** — 13 states with live programs ($750–$9,000) displayed inline on state cost pages and linked from the calculator banner when a user enters a qualifying state. Stacks on top of fuel savings shown in the calculator.
+
+**Home Charger ROI calculator** — on the EV owner resource page: input daily miles and installation budget, get break-even in months after the §30C federal tax credit (30% of hardware, up to $1,000 — expires June 30, 2026). Includes public-session-avoided calculation and TOU rate savings.
+
 Beyond the calculator: 118 guides across buying, charging, finance, and ownership — including EV charging network comparison, apartment renter charging strategies, and utility rate plans that cut charging cost to 3–13¢/kWh. **News updated daily** — policy, pricing, and infrastructure. Full state-by-state dataset published at [/research](https://evchargesavings.com/research).
 
 Free. No sign-up. No ads obscuring results.
@@ -57,11 +61,63 @@ Free. No sign-up. No ads obscuring results.
 - Most reliable EVs 2026 — brand reliability rankings, warranty comparison
 - Best used EVs to buy 2026 — picks by budget, CPO guide, post-credit market
 
+**State EV incentives:** 13 states with live purchase programs displayed on state cost pages — verified DOE AFDC data, stacked on fuel savings. Calculator shows inline banner when user's state has programs, linking to `#incentives` anchor.
+
+**Home Charger ROI:** Interactive break-even calculator on the EV owner resource page. Inputs: daily miles, charger hardware cost, total install budget. Outputs: time saved per charge, public sessions avoided per month, TOU savings, §30C credit (30% up to $1,000, expires June 30 2026), and break-even months. Converts directly to Level 2 charger product affiliate section.
+
 **Programmatic depth:** 750+ static pages — cost-to-charge by EV × state, EV-vs-EV comparisons, 320 EV-vs-gas + 64 EV-vs-PHEV head-to-head pages (FAQPage schema, personalized hero hydrates from calculator URL params), best-EVs-under-$X bands, per-state cost pages, per-utility rate pages.
 
 **Transparency:** Full methodology published at [evchargesavings.com/how-we-calculate](https://evchargesavings.com/how-we-calculate); full state dataset at [/research](https://evchargesavings.com/research). Author is a named EV owner with first-hand road trip content — including 8hr+ family trips in the Kia EV9 using Electrify America.
 
 Free. No sign-up. No paywall.
+
+---
+
+## Reddit outreach
+
+### Rules
+- Lead with the problem, not the site
+- End with a discussion prompt — creates conversation, not traffic farming
+- Never post the same copy across multiple subs same day
+- Engage in the sub for a few days before posting if account is new
+
+### Best title
+> "Most EV savings calculators ignore your state's EV registration fee. Built one that doesn't."
+
+Alternatives:
+- "I got tired of EV calculators using national average electricity rates, so I built one that uses your state's actual prices"
+- "Free tool: compare your exact EV vs gas car using your state electricity rates + EV registration fees"
+
+### Post body
+Most EV calculators I tried used national average electricity rates and a generic gas car comparison. Numbers felt disconnected from what I'd actually pay in [your state].
+
+Built this as a Kia EV9 owner for my own use — figured others here might find it useful.
+
+What's different:
+
+- State-level EIA electricity + gas prices, not national averages
+- Compare your exact EV vs the exact gas car or PHEV you'd actually buy instead
+- 40 states charge annual EV registration surcharges — it nets that out by default (most calculators skip it entirely)
+- PHEV mode splits miles into electric/gas based on the PHEV's range vs your daily driving
+
+Free, no login, no ads blocking results.
+
+Curious if the numbers line up with what you're actually seeing — evchargesavings.com
+
+### Mod-ask message (strict subs — send before posting)
+> "Built a free EV cost calculator that uses state-level electricity rates and nets out EV registration fees. Happy to disclose I built it — would this be welcome as a community resource?"
+
+**Brand/model-specific subs** — swap in the relevant detail instead of expanding:
+> "Built a free EV cost calculator with a dedicated [Model Y / Ioniq 6 / etc.] vs gas comparison page using your state's actual rates + registration fees. Happy to disclose I built it — would this be welcome here?"
+
+### Target subs (in priority order)
+1. r/electricvehicles — largest, general EV audience
+2. r/electriccars — smaller, more engaged
+3. r/teslamotors — use brand-specific mod-ask
+4. r/KiaEV — author owns EV9, authentic angle
+5. r/HyundaiIoniq — Ioniq 5/6 compare pages live
+6. r/prius — PHEV mode is directly relevant (Prius Prime)
+7. r/personalfinance — EV cost angle, not car angle
 
 ---
 
@@ -84,7 +140,8 @@ Free. No sign-up. No paywall.
 | States covered | 50 + DC |
 | Net-of-fee savings | 40 states charge BEV surcharge (NJ ~$270, ~$138 avg); 35 charge PHEV surcharge — netted out by default |
 | Fee data source | NCSL + DOE AFDC, verified May 2026 |
-| Federal credit status | §30D + §25E eliminated Oct 1, 2025 |
+| Federal credit status | §30D + §25E eliminated Oct 1, 2025; §30C home charger credit (30% / $1K cap) expires June 30, 2026 |
+| State incentives | 13 states with live programs — CO $750, MA $3,500, NY $2,000, IL $2,000, OR $2,500, NJ $1,500+, WA $9K income-only, VT $2,500, TX $2,500, CT $1,000, ME $5,000, MD $3,000, RI $1,500 |
 | Example rate spread | CA ~$0.33/kWh vs LA ~$0.13/kWh (state-level EIA) |
 | Cheapest overnight rate | Duke Energy FL ~3.5¢/kWh |
 | California SDG&E off-peak | ~12–13¢/kWh (Power Your Drive) |
