@@ -31,7 +31,7 @@ export const STATE_INCENTIVES: Record<string, StateIncentiveData> = {
       bevOnly: false,
       msrpCap: 80000,
       notes: "State income tax credit. Stepped down from $3,500 in 2025 to $750 in 2026. Extra $2,500 if vehicle MSRP ≤$35K. Expires Jan 1, 2029.",
-      url: "https://cdor.colorado.gov/taxes-and-filings/income-tax/ev-credits",
+      url: "https://energyoffice.colorado.gov/transportation/grants-incentives/electric-vehicle-tax-credits",
     }],
   },
   MA: {
@@ -66,7 +66,7 @@ export const STATE_INCENTIVES: Record<string, StateIncentiveData> = {
       bevOnly: false,
       msrpCap: 80000,
       notes: "Base $2,000; income-qualified receive additional $2,000 (total $4,000). Apply within 90 days of purchase. One rebate per person per 10 years. Available July 2025–June 2028.",
-      url: "https://illinoisEPA.illinois.gov/topics/energy/electric-vehicles.html",
+      url: "https://epa.illinois.gov/topics/ceja/electric-vehicle-rebates.html",
     }],
   },
   OR: {
@@ -77,7 +77,8 @@ export const STATE_INCENTIVES: Record<string, StateIncentiveData> = {
       type: "rebate",
       bevOnly: false,
       msrpCap: 50000,
-      notes: "Battery ≥10 kWh = $2,500; <10 kWh = $1,500. Income-qualified stack Charge Ahead ($5,000) for up to $7,500 combined. MSRP cap $50K (EVs), $60K (FCEVs).",
+      notes: "⚠️ Currently suspended — both tiers on waitlist for spring 2026. Standard Rebate ($2,500) suspended Sept 9, 2025; Charge Ahead ($7,500 income-qualified) suspended Dec 5, 2025. When active: battery ≥10 kWh = $2,500; <10 kWh = $1,500. MSRP cap $50K. Check evrebate.oregon.gov for reopening updates.",
+      expires: "Suspended — check for spring 2026 reopening",
       url: "https://evrebate.oregon.gov/",
     }],
   },
@@ -90,7 +91,7 @@ export const STATE_INCENTIVES: Record<string, StateIncentiveData> = {
       bevOnly: true,
       msrpCap: 55000,
       notes: "BEV only — PHEVs not eligible. Standard: $1,500. Income-qualified (Charge Up+): additional $2,500 (total $4,000). No expiry stated.",
-      url: "https://www.njcleanenergy.com/ev",
+      url: "https://chargeup.njcleanenergy.com/",
     }],
     noSalesTax: true,
     noSalesTaxNote: "New Jersey exempts EVs from the 6.625% state sales tax — saves $1,300–$4,600+ depending on vehicle price.",
@@ -137,7 +138,7 @@ export const STATE_INCENTIVES: Record<string, StateIncentiveData> = {
       bevOnly: false,
       msrpCap: 50000,
       notes: "Standard: $1,000 BEV / $500 PHEV. Rebate Plus (income-qualified + environmental justice municipality): $4,000 BEV / $2,000 PHEV. MSRP cap $50K.",
-      url: "https://portal.ct.gov/cheapr",
+      url: "https://portal.ct.gov/DEEP/Air/Mobile-Sources/CHEAPR/CHEAPR---Home",
     }],
   },
   ME: {
@@ -160,7 +161,7 @@ export const STATE_INCENTIVES: Record<string, StateIncentiveData> = {
       bevOnly: false,
       msrpCap: 50000,
       notes: "Excise tax credit. Min 4 kWh battery (includes PHEVs). One per individual, 10 per business. First-come, first-served. Expires July 1, 2027.",
-      url: "https://mva.maryland.gov/vehicles/Pages/electric-vehicle-excise-tax-credit.aspx",
+      url: "https://mva.maryland.gov/vehicles/Pages/27300-71T.aspx",
     }],
   },
   RI: {
@@ -172,7 +173,7 @@ export const STATE_INCENTIVES: Record<string, StateIncentiveData> = {
       bevOnly: false,
       msrpCap: 60000,
       notes: "Standard: $1,500 new BEV / $1,000 new PHEV / $1,000 used BEV / $750 used PHEV. DRIVE EV+ income-qualified bonus available. MSRP cap $60K new.",
-      url: "https://energy.ri.gov/clean-transportation/drive-ev",
+      url: "https://drive.ri.gov/drive-ev-project/drive-ev",
     }],
   },
 };
