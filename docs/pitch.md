@@ -21,7 +21,7 @@ Use the version that fits the context. All facts verified as of May 2026.
 **EV Charge Savings** ([evchargesavings.com](https://evchargesavings.com)) is a free EV cost calculator built by a Kia EV9 owner who got tired of calculators using national average electricity rates.
 
 What makes it different:
-- **Model vs model** — compare a specific EV against the specific gas car you're replacing
+- **Model vs model** — your exact EV against the exact gas car or PHEV you'd buy instead, not a segment average
 - **PHEV comparison mode** — compare an EV against a plug-in hybrid; it splits annual miles into electric (within the PHEV's EV range) and gas portions and computes the *net* registration-fee change (you escape the PHEV surcharge, gain the BEV one)
 - **Nets out the state EV registration fee** — 40 states charge a BEV surcharge (up to $270 NJ); most calculators ignore it. Toggle on by default, sourced from NCSL + DOE AFDC, all 50 states + DC
 - **State-level EIA data** — 50-state electricity + gas prices, updated from EIA actuals
