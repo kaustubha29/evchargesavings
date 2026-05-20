@@ -67,45 +67,47 @@ export function OwnerCarPicker() {
           <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute shrink-0">Your EV</div>
 
           <div className="relative flex-1 max-w-sm">
-            <input
-              ref={inputRef}
-              type="text"
-              value={query}
-              placeholder="e.g. 2023 Kia EV9, 2024 Tesla Model Y…"
-              readOnly={!!brand}
-              className={`w-full border border-line rounded-xl px-4 py-2.5 text-sm bg-paper outline-none focus:ring-2 focus:ring-emerald/30 focus:border-forest${brand ? " cursor-default select-none" : ""}`}
-              onChange={(e) => {
-                setQuery(e.target.value);
-                clearOwnerCar();
-                setOpen(true);
-              }}
-              onFocus={() => { if (query && !brand) setOpen(true); }}
-              onKeyDown={(e) => {
-                if (e.key === "Escape") setOpen(false);
-                if (e.key === "Enter" && suggestions.length > 0) pick(suggestions[0]);
-              }}
-            />
-            {brand && (
-              <button onClick={clear} aria-label="Clear" className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-mute hover:text-rust text-xs">
-                ✕
-              </button>
-            )}
-
-            {open && suggestions.length > 0 && (
-              <ul ref={listRef} className="absolute z-20 left-0 right-0 mt-1.5 bg-paper border border-line rounded-xl shadow-lg overflow-hidden">
-                {suggestions.map((opt) => (
-                  <li key={`${opt.slug}-${opt.year}`}>
-                    <button
-                      onMouseDown={(e) => { e.preventDefault(); pick(opt); }}
-                      className="w-full text-left px-4 py-2.5 text-sm hover:bg-forest/5 transition-colors flex items-baseline gap-2"
-                    >
-                      <span className="font-mono text-xs text-ink-mute">{opt.year}</span>
-                      <span className="font-medium text-ink">{opt.brand}</span>
-                      <span className="text-ink-2">{opt.model}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
+            {brand ? (
+              <div className="flex items-center w-full border border-forest/40 rounded-xl px-4 py-2.5 text-sm bg-paper">
+                <span className="flex-1 text-ink font-medium truncate">{query}</span>
+                <button onClick={clear} aria-label="Clear" className="ml-2 text-ink-mute hover:text-rust text-xs shrink-0">✕</button>
+              </div>
+            ) : (
+              <>
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={query}
+                  placeholder="e.g. 2023 Kia EV9, 2024 Tesla Model Y…"
+                  className="w-full border border-line rounded-xl px-4 py-2.5 text-sm bg-paper outline-none focus:ring-2 focus:ring-emerald/30 focus:border-forest"
+                  onChange={(e) => {
+                    setQuery(e.target.value);
+                    clearOwnerCar();
+                    setOpen(true);
+                  }}
+                  onFocus={() => { if (query && !brand) setOpen(true); }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Escape") setOpen(false);
+                    if (e.key === "Enter" && suggestions.length > 0) pick(suggestions[0]);
+                  }}
+                />
+                {open && suggestions.length > 0 && (
+                  <ul ref={listRef} className="absolute z-20 left-0 right-0 mt-1.5 bg-paper border border-line rounded-xl shadow-lg overflow-hidden">
+                    {suggestions.map((opt) => (
+                      <li key={`${opt.slug}-${opt.year}`}>
+                        <button
+                          onMouseDown={(e) => { e.preventDefault(); pick(opt); }}
+                          className="w-full text-left px-4 py-2.5 text-sm hover:bg-forest/5 transition-colors flex items-baseline gap-2"
+                        >
+                          <span className="font-mono text-xs text-ink-mute">{opt.year}</span>
+                          <span className="font-medium text-ink">{opt.brand}</span>
+                          <span className="text-ink-2">{opt.model}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </>
             )}
           </div>
 
