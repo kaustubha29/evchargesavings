@@ -10,6 +10,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { useCalculatorStore, computeSavings, computeCO2, computePHEVCost } from "@/store/calculator";
 import { evRepository, gasRepository, phevRepository } from "@/features/ev-data/repository";
 import { stateFromZip, getStateData } from "@/features/location/queries";
+import { getStateMaxIncentive } from "@/features/location/data/incentives";
 import { fmt } from "@/lib/format";
 import { FeelGoodFact } from "@/components/shared/FeelGoodFact";
 import { StatCard } from "@/components/shared/StatCard";
@@ -332,6 +333,19 @@ export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaul
           </form>
           {zipError && <span className="font-mono text-[10px] text-rust">ZIP not found</span>}
         </div>
+        {stateCode && (() => {
+          const incentive = getStateMaxIncentive(stateCode);
+          if (!incentive) return null;
+          return (
+            <div className="mt-3 pt-3 border-t border-line flex items-center gap-2 text-xs text-good-fg">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald flex-shrink-0" />
+              <span>
+                <b>{stateData.name}</b> offers up to <b className="font-mono">${incentive.toLocaleString()}</b> in EV purchase incentives —{" "}
+                <a href={`/ev-cost/${stateData.slug}#incentives`} className="underline hover:no-underline">see programs →</a>
+              </span>
+            </div>
+          );
+        })()}
       </div>
 
       {/* Hero savings card — full width */}

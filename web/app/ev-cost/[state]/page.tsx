@@ -12,6 +12,7 @@ import { StateSelector } from "@/components/features/location/StateSelector";
 import { EVMarketplaceAffiliates } from "@/components/shared/EVMarketplaceAffiliates";
 import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
 import { SiteFooter } from "@/components/shared/SiteFooter";
+import { StateIncentives } from "@/components/shared/StateIncentives";
 import { NATIONAL_AVG } from "@/features/location/data/states";
 import { fmt } from "@/lib/format";
 
@@ -205,6 +206,11 @@ export default async function StateCalculatorPage({ params }: Props) {
             <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} phevVehicles={phevVehicles} initialHomeRateKwh={stateData.kwhCents} initialGasPriceDollar={stateData.gasDollar} />
           </div>
         </section>
+
+        {/* State purchase incentives */}
+        <div id="incentives">
+          <StateIncentives stateCode={stateData.code} stateName={stateData.name} />
+        </div>
 
         {/* EV Marketplace Affiliates */}
         <EVMarketplaceAffiliates />
