@@ -27,6 +27,7 @@ export function EVOwnerHero() {
   const [query, setQuery] = useState(brand && year && model ? `${year} ${brand} ${model}` : "");
   const [open, setOpen] = useState(false);
   const [locked, setLocked] = useState(!!brand);
+  const [activeIdx, setActiveIdx] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
@@ -35,7 +36,16 @@ export function EVOwnerHero() {
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return [];
-    return ALL_OPTIONS.filter((o) => o.label.toLowerCase().includes(q)).slice(0, 8);
+    const matches = ALL_OPTIONS.filter((o) => o.label.toLowerCase().includes(q));
+    // Max 2 per brand so one brand can't flood results
+    const brandCount: Record<string, number> = {};
+    const result = [];
+    for (const o of matches) {
+      const c = brandCount[o.brand] ?? 0;
+      if (c < 2) { result.push(o); brandCount[o.brand] = c + 1; }
+      if (result.length === 8) break;
+    }
+    return result;
   }, [query]);
 
   const connector = brand && year ? deriveConnector(brand, year) : null;
@@ -45,6 +55,7 @@ export function EVOwnerHero() {
     setQuery(opt.label);
     setOpen(false);
     setLocked(true);
+    setActiveIdx(-1);
     inputRef.current?.blur();
   };
 
@@ -53,6 +64,7 @@ export function EVOwnerHero() {
     setQuery("");
     setOpen(false);
     setLocked(false);
+    setActiveIdx(-1);
     setTimeout(() => inputRef.current?.focus(), 0);
   };
 
@@ -108,13 +120,27 @@ export function EVOwnerHero() {
                   }`}
                   onChange={(e) => {
                     setQuery(e.target.value);
+                    setActiveIdx(-1);
                     clearOwnerCar();
                     setOpen(true);
                   }}
                   onFocus={() => { if (query && !brand) setOpen(true); }}
                   onKeyDown={(e) => {
-                    if (e.key === "Escape") setOpen(false);
-                    if (e.key === "Enter" && suggestions.length > 0) pick(suggestions[0]);
+                    if (e.key === "Escape") { setOpen(false); return; }
+                    if (e.key === "ArrowDown") {
+                      e.preventDefault();
+                      setActiveIdx((i) => Math.min(i + 1, suggestions.length - 1));
+                      return;
+                    }
+                    if (e.key === "ArrowUp") {
+                      e.preventDefault();
+                      setActiveIdx((i) => Math.max(i - 1, -1));
+                      return;
+                    }
+                    if (e.key === "Enter") {
+                      const target = activeIdx >= 0 ? suggestions[activeIdx] : suggestions[0];
+                      if (target) pick(target);
+                    }
                   }}
                 />
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-ink-mute">
@@ -127,11 +153,12 @@ export function EVOwnerHero() {
                     ref={listRef}
                     className="absolute z-50 left-0 right-0 mt-1 bg-paper border border-line rounded-xl shadow-lg max-h-64 overflow-y-auto py-1"
                   >
-                    {suggestions.map((opt) => (
+                    {suggestions.map((opt, i) => (
                       <li key={`${opt.slug}-${opt.year}`}>
                         <button
                           onMouseDown={(e) => { e.preventDefault(); pick(opt); }}
-                          className="w-full text-left px-4 py-2.5 text-sm hover:bg-forest/5 hover:text-ink transition-colors flex items-baseline gap-2"
+                          onMouseEnter={() => setActiveIdx(i)}
+                          className={`w-full text-left px-4 py-2.5 text-sm transition-colors flex items-baseline gap-2 ${i === activeIdx ? "bg-forest/10 text-ink" : "hover:bg-forest/5 text-ink"}`}
                         >
                           <span className="font-mono text-xs text-ink-mute shrink-0">{opt.year}</span>
                           <span className="font-medium text-ink">{opt.brand}</span>
