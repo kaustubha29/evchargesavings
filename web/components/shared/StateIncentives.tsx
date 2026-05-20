@@ -19,15 +19,15 @@ export function StateIncentives({ stateCode, stateName }: Props) {
         <h2 className="font-serif text-2xl font-medium tracking-tight text-ink mb-1">
           {stateName} EV purchase incentives
         </h2>
-        <p className="text-sm text-ink-mute mb-6 max-w-xl">
+        <p className="text-sm text-ink-mute mb-6">
           These stack on top of fuel savings. Verify eligibility and current availability at each program's official site before purchase.
         </p>
 
-        <div className="space-y-4 max-w-2xl">
+        <div className={`grid gap-4 ${data.programs.length === 1 ? "grid-cols-1" : "sm:grid-cols-2"}`}>
           {data.programs.map((p) => (
-            <div key={p.name} className="bg-paper border border-line rounded-2xl p-5">
+            <div key={p.name} className="bg-paper border border-line rounded-2xl p-5 flex flex-col">
               <div className="flex items-start justify-between gap-4 mb-2">
-                <div>
+                <div className="flex-1 min-w-0">
                   <div className="font-serif text-lg font-medium text-ink">{p.name}</div>
                   <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mt-0.5">
                     {p.type === "tax_credit" ? "State tax credit" : p.type === "instant_rebate" ? "Instant rebate at dealer" : "State rebate"}
@@ -50,18 +50,20 @@ export function StateIncentives({ stateCode, stateName }: Props) {
                   )}
                 </div>
               </div>
-              <p className="text-xs text-ink-2 leading-relaxed mb-3">{p.notes}</p>
-              <a
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center font-mono text-[11px] text-forest hover:underline"
-              >
-                Official program site →
-              </a>
-              {p.expires && (
-                <span className="ml-4 font-mono text-[10px] text-rust">Expires {p.expires}</span>
-              )}
+              <p className="text-xs text-ink-2 leading-relaxed mb-3 flex-1">{p.notes}</p>
+              <div className="flex items-center gap-4 mt-auto pt-3 border-t border-line">
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center font-mono text-[11px] text-forest hover:underline"
+                >
+                  Official program site →
+                </a>
+                {p.expires && (
+                  <span className="font-mono text-[10px] text-rust">Expires {p.expires}</span>
+                )}
+              </div>
             </div>
           ))}
 
@@ -86,7 +88,7 @@ export function StateIncentives({ stateCode, stateName }: Props) {
           )}
         </div>
 
-        <p className="text-xs text-ink-mute/60 mt-5 max-w-xl">
+        <p className="text-xs text-ink-mute/60 mt-5">
           Source: DOE Alternative Fuels Data Center (afdc.energy.gov/laws/state) + official program sites, verified May 2026.
           Program amounts, eligibility, and availability change — confirm before purchasing.
         </p>

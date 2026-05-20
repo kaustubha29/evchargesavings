@@ -78,7 +78,7 @@ export const STATE_INCENTIVES: Record<string, StateIncentiveData> = {
       bevOnly: false,
       msrpCap: 50000,
       notes: "Battery ≥10 kWh = $2,500; <10 kWh = $1,500. Income-qualified stack Charge Ahead ($5,000) for up to $7,500 combined. MSRP cap $50K (EVs), $60K (FCEVs).",
-      url: "https://www.oregon.gov/deq/aq/programs/pages/oregonevrebate.aspx",
+      url: "https://evrebate.oregon.gov/",
     }],
   },
   NJ: {
