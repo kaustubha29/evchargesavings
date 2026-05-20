@@ -30,9 +30,9 @@ What makes it different:
 - **~141 EV models, 190+ gas cars, 40 PHEVs**, ZIP code detection
 - Full methodology at [evchargesavings.com/how-we-calculate](https://evchargesavings.com/how-we-calculate)
 
-**Head-to-head compare pages** — 320 pre-built EV-vs-gas comparison pages (32 EVs × 10 gas models) with FAQPage rich-result schema, a personalized hero that hydrates from calculator state when you arrive from the homepage, and a full in-page calculator pre-loaded with the right vehicles. Example: [/compare/tesla-model-3-rwd-vs-toyota-camry](https://evchargesavings.com/compare/tesla-model-3-rwd-vs-toyota-camry).
+**Head-to-head compare pages** — 320 EV-vs-gas + 64 EV-vs-PHEV pre-built pages with FAQPage rich-result schema, a personalized hero that hydrates from calculator state when you arrive from the homepage, and a full in-page calculator pre-loaded with the right vehicles. Example: [/compare/tesla-model-3-rwd-vs-toyota-camry](https://evchargesavings.com/compare/tesla-model-3-rwd-vs-toyota-camry).
 
-Beyond the calculator: 118 guides across buying, charging, finance, and ownership — including EV charging network comparison, apartment renter charging strategies, and utility rate plans that cut charging cost to 3–13¢/kWh. Updated news section covering policy, pricing, and infrastructure. Full state-by-state dataset published at [/research](https://evchargesavings.com/research).
+Beyond the calculator: 118 guides across buying, charging, finance, and ownership — including EV charging network comparison, apartment renter charging strategies, and utility rate plans that cut charging cost to 3–13¢/kWh. **News updated daily** — policy, pricing, and infrastructure. Full state-by-state dataset published at [/research](https://evchargesavings.com/research).
 
 Free. No sign-up. No ads obscuring results.
 
@@ -50,14 +50,14 @@ Free. No sign-up. No ads obscuring results.
 
 **Why it matters now:** The $7,500 federal EV tax credit was eliminated October 1, 2025. Buyers need more accurate cost tools than ever — the break-even math changed significantly without the credit. State-level programs (Colorado: up to $9,000, Massachusetts: up to $8,700) make the picture highly location-dependent.
 
-**Content library:** 118 guides covering EV buying, financing, charging, installation, and ownership. ~20 news articles updated regularly. Recent additions include:
+**Content library:** 118 guides covering EV buying, financing, charging, installation, and ownership. News updated daily — policy changes, pricing moves, infrastructure. Recent additions include:
 - Utility rate plan guide — Georgia Power customers charge for ~6.6¢/kWh overnight; Duke Energy Florida ~3.5¢/kWh
 - Apartment renter charging guide — Right to Charge laws by state, DCFC cost strategies, workplace charging
 - Charging network comparison — Supercharger vs Electrify America vs EVgo vs ChargePoint vs IONNA
 - Most reliable EVs 2026 — brand reliability rankings, warranty comparison
 - Best used EVs to buy 2026 — picks by budget, CPO guide, post-credit market
 
-**Programmatic depth:** 750+ static pages — cost-to-charge by EV × state, EV-vs-EV comparisons, 320 EV-vs-gas + 48 EV-vs-PHEV head-to-head pages (FAQPage schema, personalized hero hydrates from calculator URL params), best-EVs-under-$X bands, per-state cost pages, per-utility rate pages.
+**Programmatic depth:** 750+ static pages — cost-to-charge by EV × state, EV-vs-EV comparisons, 320 EV-vs-gas + 64 EV-vs-PHEV head-to-head pages (FAQPage schema, personalized hero hydrates from calculator URL params), best-EVs-under-$X bands, per-state cost pages, per-utility rate pages.
 
 **Transparency:** Full methodology published at [evchargesavings.com/how-we-calculate](https://evchargesavings.com/how-we-calculate); full state dataset at [/research](https://evchargesavings.com/research). Author is a named EV owner with first-hand road trip content — including 8hr+ family trips in the Kia EV9 using Electrify America.
 
@@ -80,7 +80,7 @@ Free. No sign-up. No paywall.
 | Gas cars | 190+ |
 | PHEVs | 40 |
 | Guides | 118 across 9 categories |
-| News articles | ~20 |
+| News articles | ~20, updated daily |
 | States covered | 50 + DC |
 | Net-of-fee savings | 40 states charge BEV surcharge (NJ ~$270, ~$138 avg); 35 charge PHEV surcharge — netted out by default |
 | Fee data source | NCSL + DOE AFDC, verified May 2026 |
