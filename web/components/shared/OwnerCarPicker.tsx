@@ -72,7 +72,8 @@ export function OwnerCarPicker() {
               type="text"
               value={query}
               placeholder="e.g. 2023 Kia EV9, 2024 Tesla Model Y…"
-              className="w-full border border-line rounded-xl px-4 py-2.5 text-sm bg-paper outline-none focus:ring-2 focus:ring-emerald/30 focus:border-forest"
+              readOnly={!!brand}
+              className={`w-full border border-line rounded-xl px-4 py-2.5 text-sm bg-paper outline-none focus:ring-2 focus:ring-emerald/30 focus:border-forest${brand ? " cursor-default select-none" : ""}`}
               onChange={(e) => {
                 setQuery(e.target.value);
                 clearOwnerCar();
