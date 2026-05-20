@@ -26,8 +26,11 @@ export function EVOwnerHero() {
   const { brand, year, model, setOwnerCar, clearOwnerCar } = useOwnerStore();
   const [query, setQuery] = useState(brand && year && model ? `${year} ${brand} ${model}` : "");
   const [open, setOpen] = useState(false);
+  const [locked, setLocked] = useState(!!brand);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => { setLocked(!!brand); }, [brand]);
 
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -41,13 +44,16 @@ export function EVOwnerHero() {
     setOwnerCar(opt.brand, opt.year, opt.model, opt.slug);
     setQuery(opt.label);
     setOpen(false);
+    setLocked(true);
+    inputRef.current?.blur();
   };
 
   const clear = () => {
     clearOwnerCar();
     setQuery("");
     setOpen(false);
-    inputRef.current?.focus();
+    setLocked(false);
+    setTimeout(() => inputRef.current?.focus(), 0);
   };
 
   useEffect(() => {
@@ -79,59 +85,62 @@ export function EVOwnerHero() {
             Your EV
           </label>
           <div className="relative">
-            <input
-              ref={inputRef}
-              type="text"
-              value={query}
-              placeholder="e.g. 2023 Kia EV9, 2024 Tesla Model Y, 2022 Ford Mach-E…"
-              className={`w-full border rounded-xl px-4 py-3 pr-9 text-sm bg-paper font-sans outline-none transition-all ${
-                open ? "border-forest ring-2 ring-forest/20" : "border-line focus:ring-2 focus:ring-emerald/30 focus:border-forest"
-              }`}
-              onChange={(e) => {
-                setQuery(e.target.value);
-                clearOwnerCar();
-                setOpen(true);
-              }}
-              onFocus={() => { if (query && !brand) setOpen(true); }}
-              onKeyDown={(e) => {
-                if (e.key === "Escape") setOpen(false);
-                if (e.key === "Enter" && suggestions.length > 0) pick(suggestions[0]);
-              }}
-            />
-            {brand ? (
-              <button
-                onClick={clear}
-                aria-label="Clear"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-mute hover:text-rust transition-colors text-xs"
-              >
-                ✕
-              </button>
+            {locked ? (
+              <div className="flex items-center gap-2 border border-forest/40 rounded-xl px-4 py-3 bg-forest/5">
+                <span className="flex-1 text-sm text-ink font-medium truncate">{query}</span>
+                <button
+                  type="button"
+                  onClick={clear}
+                  aria-label="Change car"
+                  className="shrink-0 flex items-center justify-center w-5 h-5 rounded-full bg-forest/15 hover:bg-rust/20 text-ink-mute hover:text-rust transition-colors text-[10px]"
+                >✕</button>
+              </div>
             ) : (
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-ink-mute">
-                <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </span>
-            )}
-
-            {open && suggestions.length > 0 && (
-              <ul
-                ref={listRef}
-                className="absolute z-50 left-0 right-0 mt-1 bg-paper border border-line rounded-xl shadow-lg max-h-64 overflow-y-auto py-1"
-              >
-                {suggestions.map((opt) => (
-                  <li key={`${opt.slug}-${opt.year}`}>
-                    <button
-                      onMouseDown={(e) => { e.preventDefault(); pick(opt); }}
-                      className="w-full text-left px-4 py-2.5 text-sm hover:bg-forest/5 hover:text-ink transition-colors flex items-baseline gap-2"
-                    >
-                      <span className="font-mono text-xs text-ink-mute shrink-0">{opt.year}</span>
-                      <span className="font-medium text-ink">{opt.brand}</span>
-                      <span className="text-ink-2">{opt.model}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
+              <>
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={query}
+                  placeholder="e.g. 2023 Kia EV9, 2024 Tesla Model Y, 2022 Ford Mach-E…"
+                  className={`w-full border rounded-xl px-4 py-3 pr-9 text-sm bg-paper font-sans outline-none transition-all ${
+                    open ? "border-forest ring-2 ring-forest/20" : "border-line focus:ring-2 focus:ring-emerald/30 focus:border-forest"
+                  }`}
+                  onChange={(e) => {
+                    setQuery(e.target.value);
+                    clearOwnerCar();
+                    setOpen(true);
+                  }}
+                  onFocus={() => { if (query && !brand) setOpen(true); }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Escape") setOpen(false);
+                    if (e.key === "Enter" && suggestions.length > 0) pick(suggestions[0]);
+                  }}
+                />
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-ink-mute">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </span>
+                {open && suggestions.length > 0 && (
+                  <ul
+                    ref={listRef}
+                    className="absolute z-50 left-0 right-0 mt-1 bg-paper border border-line rounded-xl shadow-lg max-h-64 overflow-y-auto py-1"
+                  >
+                    {suggestions.map((opt) => (
+                      <li key={`${opt.slug}-${opt.year}`}>
+                        <button
+                          onMouseDown={(e) => { e.preventDefault(); pick(opt); }}
+                          className="w-full text-left px-4 py-2.5 text-sm hover:bg-forest/5 hover:text-ink transition-colors flex items-baseline gap-2"
+                        >
+                          <span className="font-mono text-xs text-ink-mute shrink-0">{opt.year}</span>
+                          <span className="font-medium text-ink">{opt.brand}</span>
+                          <span className="text-ink-2">{opt.model}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </>
             )}
           </div>
 
