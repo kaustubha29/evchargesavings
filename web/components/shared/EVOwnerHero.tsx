@@ -86,14 +86,15 @@ export function EVOwnerHero() {
           </label>
           <div className="relative">
             {locked ? (
-              <div className="flex items-center gap-2 border border-forest/40 rounded-xl px-4 py-3 bg-forest/5">
-                <span className="flex-1 text-sm text-ink font-medium truncate">{query}</span>
+              <div className="flex items-center gap-3 bg-forest rounded-xl px-4 py-3">
+                <span className="text-emerald text-base leading-none">✓</span>
+                <span className="flex-1 text-sm text-cream font-semibold truncate">{query}</span>
                 <button
                   type="button"
                   onClick={clear}
                   aria-label="Change car"
-                  className="shrink-0 flex items-center justify-center w-5 h-5 rounded-full bg-forest/15 hover:bg-rust/20 text-ink-mute hover:text-rust transition-colors text-[10px]"
-                >✕</button>
+                  className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-cream/50 hover:text-cream transition-colors"
+                >change</button>
               </div>
             ) : (
               <>
@@ -146,9 +147,6 @@ export function EVOwnerHero() {
 
           {connector && brand && year ? (
             <div className="mt-2.5 flex items-center gap-2 text-xs flex-wrap">
-              <span className="text-forest font-bold">✓</span>
-              <span className="text-ink font-medium">{year} {brand} {model}</span>
-              <span className="text-ink-mute">·</span>
               <span className="font-mono text-[10px] uppercase tracking-widest text-forest">
                 {CONNECTOR_LABEL[connector]} connector
               </span>
