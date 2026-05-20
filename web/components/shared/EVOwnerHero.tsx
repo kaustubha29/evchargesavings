@@ -31,7 +31,10 @@ export function EVOwnerHero() {
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
-  useEffect(() => { setLocked(!!brand); }, [brand]);
+  useEffect(() => {
+    setLocked(!!brand);
+    if (brand && year && model) setQuery(`${year} ${brand} ${model}`);
+  }, [brand, year, model]);
 
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
