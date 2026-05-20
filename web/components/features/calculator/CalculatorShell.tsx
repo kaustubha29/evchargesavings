@@ -326,7 +326,6 @@ export function CalculatorShell({ evSummaries, gasVehicles, phevVehicles, defaul
               placeholder="ZIP code"
               value={zip || ""}
               onChange={(e) => { setZip(e.target.value); setZipError(false); }}
-              onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); applyZip(zip || ""); } }}
               className={`w-24 border rounded-lg px-2.5 py-1.5 font-mono text-xs bg-paper focus:outline-none focus:ring-1 focus:ring-forest ${zipError ? "border-rust text-rust placeholder:text-rust/50" : "border-line"}`}
             />
             <button type="submit" className="font-mono text-[10px] text-ink-mute hover:text-forest px-1">→</button>

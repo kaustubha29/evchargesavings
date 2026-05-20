@@ -57,7 +57,7 @@ Free. No sign-up. No ads obscuring results.
 - Most reliable EVs 2026 — brand reliability rankings, warranty comparison
 - Best used EVs to buy 2026 — picks by budget, CPO guide, post-credit market
 
-**Programmatic depth:** 700+ static pages — cost-to-charge by EV × state, EV-vs-EV comparisons, 320 EV-vs-gas head-to-head pages (with FAQPage schema + personalized hero), best-EVs-under-$X bands, per-state cost pages, per-utility rate pages.
+**Programmatic depth:** 750+ static pages — cost-to-charge by EV × state, EV-vs-EV comparisons, 320 EV-vs-gas + 48 EV-vs-PHEV head-to-head pages (FAQPage schema, personalized hero hydrates from calculator URL params), best-EVs-under-$X bands, per-state cost pages, per-utility rate pages.
 
 **Transparency:** Full methodology published at [evchargesavings.com/how-we-calculate](https://evchargesavings.com/how-we-calculate); full state dataset at [/research](https://evchargesavings.com/research). Author is a named EV owner with first-hand road trip content — including 8hr+ family trips in the Kia EV9 using Electrify America.
 
