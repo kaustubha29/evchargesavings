@@ -12,7 +12,7 @@ Use the version that fits the context. All facts verified as of May 2026.
 
 ## Short — Reddit comment, social, DM
 
-> [evchargesavings.com](https://evchargesavings.com) — pick your EV, pick the gas car (or PHEV) you're replacing, pick your state. Live EIA electricity and gas prices per state, and it nets out the state EV registration fee most calculators skip. Shows annual savings, break-even year, CO2 saved, home vs public charging split. ~141 EVs, 190+ gas cars, 38 PHEVs, 50 states + DC. Free, no sign-up.
+> [evchargesavings.com](https://evchargesavings.com) — pick your EV, pick the gas car (or PHEV) you're replacing, pick your state. Live EIA electricity and gas prices per state, and it nets out the state EV registration fee most calculators skip. Shows annual savings, 5-year savings, CO2 saved, home vs public charging split — plus break-even year on individual head-to-head compare pages. ~141 EVs, 190+ gas cars, 38 PHEVs, 50 states + DC. Free, no sign-up.
 
 ---
 
