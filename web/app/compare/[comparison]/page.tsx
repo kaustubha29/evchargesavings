@@ -33,8 +33,9 @@ const TOP_GAS_IDS = [
   "hyundai-tucson", "jeep-grand-cherokee", "bmw-x5",
 ];
 const TOP_PHEV_IDS = [
-  "toyota-rav4-prime", "lexus-nx-450h-plus", "kia-sportage-phev",
-  "hyundai-tucson-phev", "kia-sorento-phev", "jeep-grand-cherokee-4xe",
+  "toyota-rav4-prime", "lexus-nx-450h-plus", "honda-cr-v-phev",
+  "honda-accord-phev", "kia-sportage-phev", "hyundai-tucson-phev",
+  "kia-sorento-phev", "jeep-grand-cherokee-4xe",
 ];
 // Top EVs to pair against PHEVs (segment-relevant subset)
 const TOP_EV_VS_PHEV_SLUGS = [

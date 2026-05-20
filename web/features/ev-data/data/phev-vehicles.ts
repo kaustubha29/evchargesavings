@@ -29,8 +29,10 @@ export const PHEV_MODELS: PHEVVehicle[] = [
   { id:"mercedes-gle450e",           name:"Mercedes GLE450e",            type:"SUV",     evRange:50, mpge:60,  mpgGas:23 },
   { id:"porsche-cayenne-ehybrid",    name:"Porsche Cayenne e-Hybrid",    type:"SUV",     evRange:29, mpge:53,  mpgGas:22 },
   { id:"subaru-crosstrek-hybrid",    name:"Subaru Crosstrek Hybrid",     type:"SUV",     evRange:17, mpge:90,  mpgGas:35 },
+  { id:"honda-cr-v-phev",             name:"Honda CR-V PHEV",             type:"SUV",     evRange:40, mpge:114, mpgGas:40 },
   // ── Sedans / Hatchbacks ───────────────────────────────────────────────────
   { id:"toyota-prius-prime",         name:"Toyota Prius Prime",          type:"Sedan",   evRange:45, mpge:127, mpgGas:52 },
+  { id:"honda-accord-phev",          name:"Honda Accord PHEV",           type:"Sedan",   evRange:51, mpge:126, mpgGas:47 },
   { id:"ford-escape-phev",           name:"Ford Escape PHEV",            type:"SUV",     evRange:37, mpge:101, mpgGas:40 },
   { id:"kia-niro-phev",              name:"Kia Niro PHEV",               type:"Sedan",   evRange:33, mpge:108, mpgGas:48 },
   { id:"hyundai-ioniq-phev",         name:"Hyundai Ioniq PHEV",          type:"Sedan",   evRange:29, mpge:119, mpgGas:52 },
