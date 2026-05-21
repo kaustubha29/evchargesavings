@@ -146,8 +146,8 @@ export function EVOwnerHero() {
           </div>
 
           {/* Right — car picker */}
-          <div className="hero-anim bg-white border border-line/80 border-t-[3px] border-t-forest/70 rounded-2xl shadow-[0_8px_40px_-8px_rgba(0,0,0,0.13),0_2px_6px_-2px_rgba(0,0,0,0.07)] transition-shadow hover:shadow-[0_12px_48px_-8px_rgba(0,0,0,0.16)]" style={{ animationDelay: "200ms" }}>
-            <div className="p-6">
+          <div className="hero-anim self-start bg-white border border-line/80 border-t-[3px] border-t-forest/70 rounded-2xl shadow-[0_8px_40px_-8px_rgba(0,0,0,0.13),0_2px_6px_-2px_rgba(0,0,0,0.07)] transition-shadow hover:shadow-[0_12px_48px_-8px_rgba(0,0,0,0.16)]" style={{ animationDelay: "200ms" }}>
+            <div className="px-6 pt-6 pb-4">
             <label className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-2 block">
               Your EV
             </label>
@@ -249,28 +249,28 @@ export function EVOwnerHero() {
                   { icon: "🛡", label: "Insurance", href: "#ev-insurance" },
                   { icon: "🔔", label: "Recalls", href: "#recalls" },
                 ].map((b) => (
-                  <a key={b.label} href={b.href} className="inline-flex items-center justify-center gap-1 px-2.5 py-2 rounded-full bg-cream-soft text-[10px] font-mono uppercase tracking-wide text-ink-mute hover:bg-forest/10 hover:text-forest transition-colors">
+                  <a key={b.label} href={b.href} className="h-8 flex items-center justify-center gap-1 px-2.5 rounded-full bg-cream-soft text-[10px] font-mono uppercase tracking-wide text-ink-mute hover:bg-forest/10 hover:text-forest transition-colors">
                     <span className="text-[11px]">{b.icon}</span>{b.label}
                   </a>
                 ))}
               </div>
               <div className="grid grid-cols-2 gap-1.5">
                 {stateData.hasTOU ? (
-                  <a href="#tou-rates" className="flex items-center justify-center gap-1 bg-okay-bg text-okay-fg font-mono text-[10px] px-2.5 py-2 rounded-full uppercase tracking-wide hover:bg-okay-fg hover:text-okay-bg transition-colors">
+                  <a href="#tou-rates" className="h-8 flex items-center justify-center gap-1 bg-okay-bg text-okay-fg font-mono text-[10px] px-2.5 rounded-full uppercase tracking-wide hover:bg-okay-fg hover:text-okay-bg transition-colors">
                     ⚡ TOU rates →
                   </a>
                 ) : <div />}
                 <form
                   onSubmit={(e) => { e.preventDefault(); applyZip(zip || ""); }}
-                  className={`flex items-center justify-center gap-1 px-2.5 py-2 rounded-full bg-cream-soft border font-mono text-[10px] transition-colors ${zipError ? "border-rust" : "border-line focus-within:border-forest focus-within:ring-1 focus-within:ring-forest/20"}`}
+                  className={`h-8 flex items-center justify-center gap-1 px-2.5 rounded-full bg-cream-soft border font-mono text-[10px] transition-colors ${zipError ? "border-rust" : "border-line focus-within:border-forest focus-within:ring-1 focus-within:ring-forest/20"}`}
                 >
                   <input
                     type="text" inputMode="numeric" enterKeyHint="go" maxLength={5} placeholder="ZIP"
                     value={zip || ""}
                     onChange={(e) => { setZip(e.target.value); setZipError(false); }}
-                    className={`w-10 bg-transparent outline-none font-mono text-[10px] placeholder:text-ink-mute/60 ${zipError ? "text-rust placeholder:text-rust/50" : "text-ink"}`}
+                    className={`flex-1 min-w-0 bg-transparent outline-none font-mono text-[10px] leading-none placeholder:text-ink-mute/60 ${zipError ? "text-rust placeholder:text-rust/50" : "text-ink"}`}
                   />
-                  <button type="submit" className="text-ink-mute hover:text-forest leading-none">→</button>
+                  <button type="submit" className="text-ink-mute hover:text-forest leading-none shrink-0">→</button>
                 </form>
               </div>
               {zipError && <span className="font-mono text-[10px] text-rust">ZIP not found</span>}
@@ -293,17 +293,17 @@ export function EVOwnerHero() {
                   { icon: "🔌", label: "Adapter guide", href: "#charger-gear" },
                   { icon: "🛡", label: "Insurance", href: "#ev-insurance" },
                 ].map((b) => (
-                  <a key={b.label} href={b.href} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-cream-soft text-[10px] font-mono uppercase tracking-wide text-ink-mute hover:bg-forest/10 hover:text-forest transition-colors">
-                    <span className="text-[11px]">{b.icon}</span>{b.label}
+                  <a key={b.label} href={b.href} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cream-soft text-xs font-mono uppercase tracking-wide text-ink-mute hover:bg-forest/10 hover:text-forest transition-colors">
+                    <span>{b.icon}</span>{b.label}
                   </a>
                 ))}
               </div>
-              <div className="flex flex-wrap items-center gap-2 mt-1.5">
-                <a href="#recalls" className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-cream-soft text-[10px] font-mono uppercase tracking-wide text-ink-mute hover:bg-forest/10 hover:text-forest transition-colors">
-                  <span className="text-[11px]">🔔</span>Recalls
+              <div className="flex flex-wrap items-center gap-2 mt-2">
+                <a href="#recalls" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cream-soft text-xs font-mono uppercase tracking-wide text-ink-mute hover:bg-forest/10 hover:text-forest transition-colors">
+                  🔔 Recalls
                 </a>
                 {stateData.hasTOU && (
-                  <a href="#tou-rates" className="bg-okay-bg text-okay-fg font-mono text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wide hover:bg-okay-fg hover:text-okay-bg transition-colors">
+                  <a href="#tou-rates" className="inline-flex items-center gap-1.5 bg-okay-bg text-okay-fg font-mono text-xs px-3 py-1.5 rounded-full uppercase tracking-wide hover:bg-okay-fg hover:text-okay-bg transition-colors">
                     ⚡ TOU rates →
                   </a>
                 )}
@@ -312,11 +312,11 @@ export function EVOwnerHero() {
                     type="text" inputMode="numeric" enterKeyHint="go" maxLength={5} placeholder="ZIP"
                     value={zip || ""}
                     onChange={(e) => { setZip(e.target.value); setZipError(false); }}
-                    className={`w-24 border rounded-lg px-2 py-1 font-mono text-[11px] bg-paper focus:outline-none focus:ring-1 focus:ring-forest ${zipError ? "border-rust text-rust placeholder:text-rust/50" : "border-line"}`}
+                    className={`w-24 border rounded-lg px-2.5 py-1.5 font-mono text-xs bg-paper focus:outline-none focus:ring-1 focus:ring-forest ${zipError ? "border-rust text-rust placeholder:text-rust/50" : "border-line"}`}
                   />
-                  <button type="submit" className="font-mono text-[10px] text-ink-mute hover:text-forest">→</button>
+                  <button type="submit" className="font-mono text-xs text-ink-mute hover:text-forest">→</button>
                 </form>
-                {zipError && <span className="font-mono text-[10px] text-rust">ZIP not found</span>}
+                {zipError && <span className="font-mono text-xs text-rust">ZIP not found</span>}
               </div>
               <div className="mt-2 flex items-center gap-2 flex-wrap">
                 <span className="inline-flex items-center gap-2 bg-ink text-cream text-xs font-mono px-3 py-1.5 rounded-full">
