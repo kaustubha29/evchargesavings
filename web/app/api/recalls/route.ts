@@ -26,10 +26,14 @@ export async function GET(req: NextRequest) {
       next: { revalidate: 86400 },
     });
     clearTimeout(timeout);
+    // NHTSA returns 400 for unknown vehicles — treat as no results
+    if (res.status === 400 || res.status === 404) {
+      return NextResponse.json({ results: [] });
+    }
     if (!res.ok) throw new Error(`NHTSA ${res.status}`);
     const data = await res.json();
     return NextResponse.json({ results: data.results ?? [] });
   } catch {
-    return NextResponse.json({ results: [] }, { status: 502 });
+    return NextResponse.json({ results: [], error: true });
   }
 }

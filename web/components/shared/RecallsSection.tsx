@@ -39,7 +39,11 @@ export function RecallsSection() {
       `/api/recalls?make=${encodeURIComponent(brand)}&model=${encodeURIComponent(nhtsaModel)}&year=${year}`
     )
       .then((r) => r.json())
-      .then((data) => { setRecalls(data.results ?? []); setLoading(false); })
+      .then((data) => {
+        if (data.error) { setError(true); setLoading(false); return; }
+        setRecalls(data.results ?? []);
+        setLoading(false);
+      })
       .catch(() => { setError(true); setLoading(false); });
   }, [brand, year, model]);
 
