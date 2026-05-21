@@ -135,7 +135,7 @@ export function EVOwnerHero() {
             <p className="hero-anim text-ink-3 text-lg leading-relaxed max-w-md mb-9" style={{ animationDelay: "180ms" }}>
               Home charging, TOU rates, public networks, and EV insurance — personalized for your exact car.
             </p>
-            <div className="hero-anim flex flex-wrap gap-3" style={{ animationDelay: "260ms" }}>
+            <div className="hero-anim hidden md:flex flex-wrap gap-3" style={{ animationDelay: "260ms" }}>
               <a href="#level2" className="px-6 py-3 rounded-xl text-sm font-semibold bg-forest text-white hover:bg-emerald transition-colors shadow-sm">
                 Level 2 setup →
               </a>
@@ -240,51 +240,86 @@ export function EVOwnerHero() {
                 Enter your car to personalize results below.
               </p>
             )}
-            <div className="mt-3 pt-3 border-t border-line flex flex-wrap items-center gap-1.5">
-              {[
-                { icon: "⚡", label: "Charger ROI", href: "#charger-roi" },
-                { icon: "🔌", label: "Adapter guide", href: "#charger-gear" },
-                { icon: "🛡", label: "Insurance", href: "#ev-insurance" },
-                { icon: "🔔", label: "Recalls", href: "#recalls" },
-              ].map((b) => (
-                <a key={b.label} href={b.href} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-cream-soft text-[10px] font-mono uppercase tracking-wide text-ink-mute hover:bg-forest/10 hover:text-forest transition-colors">
-                  <span className="text-[11px]">{b.icon}</span>{b.label}
-                </a>
-              ))}
-              {stateData.hasTOU && (
-                <a
-                  href="#tou-rates"
-                  className="bg-okay-bg text-okay-fg font-mono text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wide hover:bg-okay-fg hover:text-okay-bg transition-colors"
-                >
-                  ⚡ TOU rates →
-                </a>
-              )}
-              <form
-                onSubmit={(e) => { e.preventDefault(); applyZip(zip || ""); }}
-                className="flex items-center gap-1"
-              >
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  enterKeyHint="go"
-                  maxLength={5}
-                  placeholder="ZIP"
-                  value={zip || ""}
-                  onChange={(e) => { setZip(e.target.value); setZipError(false); }}
-                  className={`w-24 border rounded-lg px-2 py-1 font-mono text-[11px] bg-paper focus:outline-none focus:ring-1 focus:ring-forest ${zipError ? "border-rust text-rust placeholder:text-rust/50" : "border-line"}`}
-                />
-                <button type="submit" className="font-mono text-[10px] text-ink-mute hover:text-forest">→</button>
-              </form>
-              {zipError && <span className="font-mono text-[10px] text-rust">ZIP not found</span>}
-            </div>
-            <div className="mt-2 flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-2 bg-ink text-cream text-xs font-mono px-3 py-1.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
-                {locationLabel} · {fmt.cents1(stateData.kwhCents)}/kWh · {fmt.money2(stateData.gasDollar)}/gal
-              </span>
-              <a href="/" className="font-mono text-[11px] text-ink-mute hover:text-forest transition-colors">
+            {/* Mobile layout */}
+            <div className="md:hidden mt-3 pt-3 border-t border-line space-y-2">
+              <div className="grid grid-cols-2 gap-1.5">
+                {[
+                  { icon: "⚡", label: "Charger ROI", href: "#charger-roi" },
+                  { icon: "🔌", label: "Adapter guide", href: "#charger-gear" },
+                  { icon: "🛡", label: "Insurance", href: "#ev-insurance" },
+                  { icon: "🔔", label: "Recalls", href: "#recalls" },
+                ].map((b) => (
+                  <a key={b.label} href={b.href} className="inline-flex items-center justify-center gap-1 px-2.5 py-2 rounded-full bg-cream-soft text-[10px] font-mono uppercase tracking-wide text-ink-mute hover:bg-forest/10 hover:text-forest transition-colors">
+                    <span className="text-[11px]">{b.icon}</span>{b.label}
+                  </a>
+                ))}
+              </div>
+              <div className="flex items-center gap-1.5">
+                {stateData.hasTOU && (
+                  <a href="#tou-rates" className="bg-okay-bg text-okay-fg font-mono text-[10px] px-2.5 py-1.5 rounded-full uppercase tracking-wide hover:bg-okay-fg hover:text-okay-bg transition-colors">
+                    ⚡ TOU rates →
+                  </a>
+                )}
+                <form onSubmit={(e) => { e.preventDefault(); applyZip(zip || ""); }} className="flex items-center gap-1">
+                  <input
+                    type="text" inputMode="numeric" enterKeyHint="go" maxLength={5} placeholder="ZIP"
+                    value={zip || ""}
+                    onChange={(e) => { setZip(e.target.value); setZipError(false); }}
+                    className={`w-24 border rounded-lg px-2 py-1 font-mono text-[11px] bg-paper focus:outline-none focus:ring-1 focus:ring-forest ${zipError ? "border-rust text-rust placeholder:text-rust/50" : "border-line"}`}
+                  />
+                  <button type="submit" className="font-mono text-[10px] text-ink-mute hover:text-forest">→</button>
+                </form>
+                {zipError && <span className="font-mono text-[10px] text-rust">ZIP not found</span>}
+              </div>
+              <div>
+                <span className="inline-flex items-center gap-2 bg-ink text-cream text-xs font-mono px-3 py-1.5 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
+                  {locationLabel} · {fmt.cents1(stateData.kwhCents)}/kWh · {fmt.money2(stateData.gasDollar)}/gal
+                </span>
+              </div>
+              <a href="/" className="block font-mono text-[11px] text-ink-mute hover:text-forest transition-colors">
                 Still shopping? Try the savings calculator →
               </a>
+            </div>
+
+            {/* Desktop layout */}
+            <div className="hidden md:block mt-3 pt-3 border-t border-line">
+              <div className="flex flex-wrap items-center gap-1.5">
+                {[
+                  { icon: "⚡", label: "Charger ROI", href: "#charger-roi" },
+                  { icon: "🔌", label: "Adapter guide", href: "#charger-gear" },
+                  { icon: "🛡", label: "Insurance", href: "#ev-insurance" },
+                  { icon: "🔔", label: "Recalls", href: "#recalls" },
+                ].map((b) => (
+                  <a key={b.label} href={b.href} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-cream-soft text-[10px] font-mono uppercase tracking-wide text-ink-mute hover:bg-forest/10 hover:text-forest transition-colors">
+                    <span className="text-[11px]">{b.icon}</span>{b.label}
+                  </a>
+                ))}
+                {stateData.hasTOU && (
+                  <a href="#tou-rates" className="bg-okay-bg text-okay-fg font-mono text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wide hover:bg-okay-fg hover:text-okay-bg transition-colors">
+                    ⚡ TOU rates →
+                  </a>
+                )}
+                <form onSubmit={(e) => { e.preventDefault(); applyZip(zip || ""); }} className="flex items-center gap-1">
+                  <input
+                    type="text" inputMode="numeric" enterKeyHint="go" maxLength={5} placeholder="ZIP"
+                    value={zip || ""}
+                    onChange={(e) => { setZip(e.target.value); setZipError(false); }}
+                    className={`w-24 border rounded-lg px-2 py-1 font-mono text-[11px] bg-paper focus:outline-none focus:ring-1 focus:ring-forest ${zipError ? "border-rust text-rust placeholder:text-rust/50" : "border-line"}`}
+                  />
+                  <button type="submit" className="font-mono text-[10px] text-ink-mute hover:text-forest">→</button>
+                </form>
+                {zipError && <span className="font-mono text-[10px] text-rust">ZIP not found</span>}
+              </div>
+              <div className="mt-2 flex items-center gap-2 flex-wrap">
+                <span className="inline-flex items-center gap-2 bg-ink text-cream text-xs font-mono px-3 py-1.5 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
+                  {locationLabel} · {fmt.cents1(stateData.kwhCents)}/kWh · {fmt.money2(stateData.gasDollar)}/gal
+                </span>
+                <a href="/" className="font-mono text-[11px] text-ink-mute hover:text-forest transition-colors">
+                  Still shopping? Try the savings calculator →
+                </a>
+              </div>
             </div>
             </div>{/* end p-6 */}
           </div>
