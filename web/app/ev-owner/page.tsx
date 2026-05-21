@@ -6,6 +6,7 @@ import { QuickWinsLabel } from "@/components/shared/QuickWinsLabel";
 import { HomeChargingSection } from "@/components/shared/HomeChargingSection";
 import { EVOwnerChargerBundle } from "@/components/shared/EVOwnerChargerBundle";
 import { HomeChargerROI } from "@/components/shared/HomeChargerROI";
+import { TouRateSection } from "@/components/shared/TouRateSection";
 import { LeadCaptureBoxGate } from "@/components/shared/LeadCaptureBoxGate";
 import { EVInsuranceCTA } from "@/components/shared/EVInsuranceCTA";
 import { PublicChargingSection } from "@/components/features/networks/PublicChargingSection";
@@ -82,6 +83,9 @@ export default function EVOwnerPage() {
 
         {/* HOME CHARGER ROI */}
         <HomeChargerROI />
+
+        {/* TOU RATE FINDER */}
+        <TouRateSection />
 
         {/* HOME CHARGER PRODUCTS — connector driven by owner store */}
         <EVOwnerChargerBundle />
