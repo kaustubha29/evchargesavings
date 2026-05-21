@@ -78,9 +78,14 @@ export function RecallsSection() {
         </div>
 
         {hasRecalls && (
-          <h2 className="font-serif text-xl font-medium tracking-tight text-ink mt-4 mb-1">
-            NHTSA safety recalls
-          </h2>
+          <>
+            <h2 className="font-serif text-xl font-medium tracking-tight text-ink mt-4 mb-1">
+              NHTSA safety recalls
+            </h2>
+            <p className="text-sm text-ink-2 mt-1 mb-3">
+              Contact your dealer to schedule a free repair — recall service is always free of charge.
+            </p>
+          </>
         )}
 
         {loading && (
