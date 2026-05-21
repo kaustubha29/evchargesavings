@@ -106,7 +106,7 @@ export function EVOwnerHero() {
   }, []);
 
   return (
-    <section className="relative bg-paper border-b border-line py-16 md:py-28 overflow-hidden" id="owner-car-picker">
+    <section className="relative bg-paper border-b border-line pt-16 pb-8 md:pt-20 md:pb-10 overflow-hidden" id="owner-car-picker">
       <style>{`
         @keyframes _fadeUp {
           from { opacity: 0; transform: translateY(18px); }
@@ -292,12 +292,16 @@ export function EVOwnerHero() {
                   { icon: "⚡", label: "Charger ROI", href: "#charger-roi" },
                   { icon: "🔌", label: "Adapter guide", href: "#charger-gear" },
                   { icon: "🛡", label: "Insurance", href: "#ev-insurance" },
-                  { icon: "🔔", label: "Recalls", href: "#recalls" },
                 ].map((b) => (
                   <a key={b.label} href={b.href} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-cream-soft text-[10px] font-mono uppercase tracking-wide text-ink-mute hover:bg-forest/10 hover:text-forest transition-colors">
                     <span className="text-[11px]">{b.icon}</span>{b.label}
                   </a>
                 ))}
+              </div>
+              <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
+                <a href="#recalls" className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-cream-soft text-[10px] font-mono uppercase tracking-wide text-ink-mute hover:bg-forest/10 hover:text-forest transition-colors">
+                  <span className="text-[11px]">🔔</span>Recalls
+                </a>
                 {stateData.hasTOU && (
                   <a href="#tou-rates" className="bg-okay-bg text-okay-fg font-mono text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wide hover:bg-okay-fg hover:text-okay-bg transition-colors">
                     ⚡ TOU rates →
