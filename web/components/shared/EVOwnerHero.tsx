@@ -268,7 +268,8 @@ export function EVOwnerHero() {
                     type="text" inputMode="numeric" enterKeyHint="go" maxLength={5} placeholder="ZIP"
                     value={zip || ""}
                     onChange={(e) => { setZip(e.target.value); setZipError(false); }}
-                    className={`flex-1 min-w-0 bg-transparent outline-none font-mono text-[10px] leading-none placeholder:text-ink-mute/60 ${zipError ? "text-rust placeholder:text-rust/50" : "text-ink"}`}
+                    onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); applyZip(zip || ""); } }}
+                    className={`flex-1 min-w-0 bg-transparent outline-none font-mono text-[10px] leading-none text-center placeholder:text-ink-mute/60 ${zipError ? "text-rust placeholder:text-rust/50" : "text-ink"}`}
                   />
                   <button type="submit" className="text-ink-mute hover:text-forest leading-none shrink-0">→</button>
                 </form>
@@ -312,7 +313,8 @@ export function EVOwnerHero() {
                     type="text" inputMode="numeric" enterKeyHint="go" maxLength={5} placeholder="ZIP"
                     value={zip || ""}
                     onChange={(e) => { setZip(e.target.value); setZipError(false); }}
-                    className={`w-24 border rounded-lg px-2.5 py-1.5 font-mono text-xs bg-paper focus:outline-none focus:ring-1 focus:ring-forest ${zipError ? "border-rust text-rust placeholder:text-rust/50" : "border-line"}`}
+                    onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); applyZip(zip || ""); } }}
+                    className={`w-24 border rounded-lg px-2.5 py-1.5 font-mono text-xs text-center bg-paper focus:outline-none focus:ring-1 focus:ring-forest ${zipError ? "border-rust text-rust placeholder:text-rust/50" : "border-line"}`}
                   />
                   <button type="submit" className="font-mono text-xs text-ink-mute hover:text-forest">→</button>
                 </form>
