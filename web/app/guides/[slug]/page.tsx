@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { GUIDES, getGuideBySlug } from "@/features/guides/data";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
-import { HomeChargerProducts } from "@/components/shared/HomeChargerProducts";
+import { HomeChargerProductsPersonalized } from "@/components/shared/HomeChargerProductsPersonalized";
 import { EVMarketplaceAffiliates } from "@/components/shared/EVMarketplaceAffiliates";
 import { EVInsuranceCTA } from "@/components/shared/EVInsuranceCTA";
 
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 function AffiliateSection({ category }: { category: string }) {
   if (category === "Installation" || category === "Charging" || category === "Savings") {
-    return <HomeChargerProducts />;
+    return <HomeChargerProductsPersonalized />;
   }
   if (category === "Buying" || category === "Finance" || category === "Education") {
     return <EVMarketplaceAffiliates />;

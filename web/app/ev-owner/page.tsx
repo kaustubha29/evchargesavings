@@ -9,6 +9,7 @@ import { HomeChargerROI } from "@/components/shared/HomeChargerROI";
 import { LeadCaptureBoxGate } from "@/components/shared/LeadCaptureBoxGate";
 import { EVInsuranceCTA } from "@/components/shared/EVInsuranceCTA";
 import { PublicChargingSection } from "@/components/features/networks/PublicChargingSection";
+import { RecallsSection } from "@/components/shared/RecallsSection";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 
 export const metadata: Metadata = {
@@ -51,6 +52,9 @@ export default function EVOwnerPage() {
 
         {/* HERO — with integrated car picker */}
         <EVOwnerHero />
+
+        {/* RECALLS — only renders when car selected */}
+        <RecallsSection />
 
         {/* QUICK WINS */}
         <section className="border-b border-line py-12 bg-cream-soft">

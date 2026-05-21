@@ -15,11 +15,18 @@ const CHARGERS = [
     url: "https://amzn.to/4t6JFKi",
   },
   {
-    name: "Autel MaxiCharger",
+    name: "Autel MaxiCharger 40A",
+    tag: "Plug-in · no electrician",
+    price: null,
+    desc: "40 A, NEMA 14-50 plug-in — uses existing dryer outlet, installs in minutes. App control, scheduling, 25 ft cable.",
+    url: "https://www.awin1.com/cread.php?awinmid=72577&awinaffid=2896627&campaign=Autel+Spring+Sale+Boost&ued=https%3A%2F%2Fautelenergy.us%2Fproducts%2Fmaxicharger-ac-wallbox-home-40a-nema-14-50-ev-charger-with-separate-holster",
+  },
+  {
+    name: "Autel MaxiCharger 50A",
     tag: "High-power",
-    price: "~$449",
-    desc: "50 A hardwired, Bluetooth app, 25 ft cable. Hardwired install — highest sustained output for any EV.",
-    url: "https://www.amazon.com/dp/B0GS1J1LGJ?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2UEXKMIV15FPW&linkCode=tr1&tag=evchargesavin-20&linkId=amzn1.campaign.2UEXKMIV15FPW_1779095345424",
+    price: null,
+    desc: "50 A hardwired, max sustained output. Bluetooth app, 25 ft cable. Electrician install required.",
+    url: "https://www.awin1.com/cread.php?awinmid=72577&awinaffid=2896627&campaign=Autel+Spring+Sale+Boost&ued=https%3A%2F%2Fautelenergy.us%2Fproducts%2Fmaxicharger-ac-hardwired-wallbox-with-side-holster",
   },
   {
     name: "Tesla Wall Connector",
@@ -53,7 +60,7 @@ function ProductCard({
 }: {
   name: string;
   tag: string;
-  price?: string;
+  price?: string | null;
   desc: string;
   url: string;
   accent?: boolean;
