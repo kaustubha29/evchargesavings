@@ -259,6 +259,8 @@ export function EVOwnerHero() {
                   ⚡ TOU rates →
                 </a>
               )}
+            </div>
+            <div className="mt-2 flex items-center gap-2 flex-wrap">
               <form
                 onSubmit={(e) => { e.preventDefault(); applyZip(zip || ""); }}
                 className="flex items-center gap-1"
@@ -276,8 +278,6 @@ export function EVOwnerHero() {
                 <button type="submit" className="font-mono text-[10px] text-ink-mute hover:text-forest">→</button>
               </form>
               {zipError && <span className="font-mono text-[10px] text-rust">ZIP not found</span>}
-            </div>
-            <div className="mt-2 flex items-center gap-2 flex-wrap">
               <span className="inline-flex items-center gap-2 bg-ink text-cream text-xs font-mono px-3 py-1.5 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
                 {locationLabel} · {fmt.cents1(stateData.kwhCents)}/kWh · {fmt.money2(stateData.gasDollar)}/gal

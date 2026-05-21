@@ -114,11 +114,11 @@ export function TouRateSection() {
           <div>
             {savings && savings.saving > 0 && utility ? (
                 <div className="bg-white border border-line/80 border-t-[3px] border-t-forest/70 rounded-2xl p-6 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.08)]">
-                  <div className="flex items-start justify-between gap-3 mb-3">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-3 mb-3">
                     <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">
                       Estimated annual savings{carModel ? ` — ${carModel.brand} ${carModel.name.split(" ").slice(0, 2).join(" ")}` : ""}
                     </div>
-                    <div className="shrink-0 text-right">
+                    <div className="sm:shrink-0 sm:text-right">
                       <div className="font-mono text-[10px] uppercase tracking-widest text-forest">{utility.touProgram}</div>
                       <a href={`/utility/${utility.slug}`} className="font-mono text-[9px] text-ink-mute hover:text-forest transition-colors">
                         {utility.shortName} · rate details →
@@ -128,11 +128,11 @@ export function TouRateSection() {
                   <div className="font-mono text-5xl font-medium text-forest mb-1">
                     ${savings.saving}
                   </div>
-                  <div className="flex items-center gap-3 mb-5">
-                    <p className="text-xs text-ink-mute">
+                  <div className="mb-5">
+                    <p className="text-xs text-ink-mute mb-1">
                       vs. standard rate · {savings.annualKwh.toLocaleString()} kWh/yr · {ANNUAL_MILES.toLocaleString()} mi/yr
                     </p>
-                    <span className="shrink-0 font-mono text-[10px] text-ink-mute/60">{utility.offPeakCents}¢ off-peak · {utility.onPeakCents}¢ peak</span>
+                    <span className="font-mono text-[10px] text-ink-mute/60">{utility.offPeakCents}¢ off-peak · {utility.onPeakCents}¢ peak</span>
                   </div>
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center justify-between text-sm">

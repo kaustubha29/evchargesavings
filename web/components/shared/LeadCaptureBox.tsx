@@ -44,6 +44,9 @@ export function LeadCaptureBox({
   submitLabel = "Get EV cost report",
   successMessage = "Got it — we'll send your EV cost and installation options within 24 hours.",
 }: Props) {
+  return null; // temporarily hidden — not acting on leads yet
+
+  // eslint-disable-next-line no-unreachable
   const { zip, setZip } = useCalculatorStore();
   const [name, setName]           = useState("");
   const [email, setEmail]         = useState("");
