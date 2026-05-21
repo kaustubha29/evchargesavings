@@ -92,13 +92,23 @@ export function RecallsSection() {
                 {[...new Set(recalls.map((r) => r.Component.split(":")[0].trim().toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())))].join(", ")}.{" "}
                 Contact your dealer — repairs are always free.
               </p>
-              <button
-                type="button"
-                onClick={() => setRepaired(new Set(recalls.map((r) => r.NHTSACampaignNumber)))}
-                className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-good-bg text-good-fg hover:brightness-95 transition-all whitespace-nowrap"
-              >
-                <span className="text-[13px] leading-none">✓</span> Mark all repaired
-              </button>
+              {recalls.every((r) => repaired.has(r.NHTSACampaignNumber)) ? (
+                <button
+                  type="button"
+                  onClick={() => setRepaired(new Set())}
+                  className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-cream-soft text-ink-mute hover:text-ink transition-all whitespace-nowrap"
+                >
+                  Show recalls
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setRepaired(new Set(recalls.map((r) => r.NHTSACampaignNumber)))}
+                  className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-good-bg text-good-fg hover:brightness-95 transition-all whitespace-nowrap"
+                >
+                  <span className="text-[13px] leading-none">✓</span> Mark all repaired
+                </button>
+              )}
             </div>
           </>
         )}
