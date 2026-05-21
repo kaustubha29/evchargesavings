@@ -1035,6 +1035,45 @@ export const NEWS: NewsArticle[] = [
       { label: "Tesla Supercharger Virtual Queue Pilot — Electrek", url: "https://electrek.co/2026/05/12/tesla-supercharger-virtual-queue-pilot-5-locations/" },
     ],
   },
+  {
+    slug: "chevy-equinox-ev-2027-nacs-supercharger-access",
+    title: "2027 Chevy Equinox EV Gets Built-In NACS Port — 17,000+ Superchargers, No Adapter Needed",
+    hook: "GM's top-selling affordable EV adds native Tesla Supercharger access for 2027, keeping its $34,995 base price and 319-mile range.",
+    description: "The 2027 Chevrolet Equinox EV adds a built-in NACS charging port, eliminating the need for an adapter to reach Tesla's 17,000+ US Supercharger stations. The update also includes an upgraded Bose sound system, while the starting price stays at $34,995 with 319 miles of EPA-estimated range.",
+    readTime: "4 min read",
+    publishedAt: "2026-05-21",
+    sections: [
+      {
+        heading: "What's new for 2027",
+        body: "Chevy quietly updated the Equinox EV for the 2027 model year with two meaningful additions: a native NACS (North American Charging Standard) port and an upgraded Bose premium audio system. The NACS port is the bigger deal for most drivers — it means the 2027 Equinox EV can plug directly into Tesla Superchargers without carrying an adapter. The Bose system replaces the standard six-speaker stereo and is included in the Active Safety Package 3, which now runs $3,955 (up from $3,355 on the 2026 model). Everything else stays the same: 319 miles of EPA-estimated range on front-wheel-drive trims, a 17.7-inch infotainment screen, 102 cubic feet of interior space, and a base price of $34,995.",
+      },
+      {
+        heading: "Why NACS matters for charging costs",
+        body: "Tesla's Supercharger network has over 17,000 charging stalls across the US, making it by far the largest DC fast-charging network in the country. Until recently, non-Tesla EV owners either needed an adapter or were limited to CCS networks like Electrify America and EVgo. With a built-in NACS port, 2027 Equinox EV owners can use Superchargers natively — no adapter to forget, no compatibility worries. Supercharger pricing has generally run $0.25–$0.35 per kWh at off-peak times, which is competitive with or cheaper than many third-party DC fast-charging networks. For drivers whose home utility doesn't offer a strong TOU rate or who do frequent road trips, this direct Supercharger access meaningfully expands affordable fast-charging options.",
+      },
+      {
+        heading: "319 miles: what it means in practice",
+        body: "The 319-mile EPA range on FWD trims (307 miles AWD) is class-competitive for an EV starting under $35,000. At highway speeds, real-world range typically runs 80–85% of EPA — roughly 255–271 miles of usable highway range before a significant charge stop. That's enough for most one-tank driving days without planning around charging. On a Level 2 home charger (typically 7–11 kW), the Equinox EV can add roughly 25–35 miles of range per hour overnight, meaning a typical 40-mile daily commute is fully recovered in about 90 minutes of Level 2 charging.",
+      },
+      {
+        heading: "How it stacks up against competition",
+        body: "The Equinox EV ranked third among all US EVs sold in 2025 and held fifth place in Q1 2026 — a strong position for a mainstream non-Tesla EV at its price point. Its nearest value competitors are the 2027 Chevy Bolt at $28,595 (shorter range, smaller interior) and the Ford Mustang Mach-E starting around $39,995. The Equinox EV's combination of 319-mile range, native NACS access, and sub-$35K pricing makes it one of the stronger value cases for buyers who want to avoid the Tesla ecosystem but still want full Supercharger access.",
+        list: [
+          "2027 Equinox EV LT FWD: $34,995 — 319 miles EPA, native NACS",
+          "2027 Chevy Bolt: $28,595 — shorter range, CCS only",
+          "Ford Mustang Mach-E: ~$39,995 — NACS standard on 2024+",
+          "2026 Equinox EV inventory: $5,000 customer cash discount available now",
+        ],
+      },
+      {
+        heading: "If you're still on a 2026 — buy now",
+        body: "GM is currently offering $5,000 customer cash on 2026 Equinox EV inventory, bringing the effective price to around $29,995 before any state incentives. The 2026 model uses a CCS port, so you'd still need a $35 NACS adapter for Supercharger access — but at $5,000 less upfront, many buyers will find that trade-off worthwhile. Once 2027 inventory arrives, that discount is likely to disappear. Buyers in states with additional EV incentives (California, Colorado, New York, New Jersey, and others) can stack those on top of the cash offer.",
+      },
+    ],
+    sources: [
+      { label: "2027 Chevy Equinox EV Updates — Electrek", url: "https://electrek.co/2026/05/20/chevy-equinox-ev-gains-few-big-updates-2027/" },
+    ],
+  },
 ];
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {
