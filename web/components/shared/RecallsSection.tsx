@@ -86,11 +86,20 @@ export function RecallsSection() {
             <h2 className="font-serif text-xl font-medium tracking-tight text-ink mt-4 mb-1">
               NHTSA safety recalls
             </h2>
-            <p className="text-sm text-ink-2 mt-1 mb-3">
-              <span className="font-medium text-rust">{recalls.length} open {recalls.length === 1 ? "recall" : "recalls"}:</span>{" "}
-              {[...new Set(recalls.map((r) => r.Component.split(":")[0].trim().toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())))].join(", ")}.{" "}
-              Contact your dealer — repairs are always free.
-            </p>
+            <div className="flex items-start justify-between gap-4 mt-1 mb-3">
+              <p className="text-sm text-ink-2">
+                <span className="font-medium text-rust">{recalls.length} open {recalls.length === 1 ? "recall" : "recalls"}:</span>{" "}
+                {[...new Set(recalls.map((r) => r.Component.split(":")[0].trim().toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())))].join(", ")}.{" "}
+                Contact your dealer — repairs are always free.
+              </p>
+              <button
+                type="button"
+                onClick={() => setRepaired(new Set(recalls.map((r) => r.NHTSACampaignNumber)))}
+                className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-ink-mute hover:text-forest transition-colors whitespace-nowrap"
+              >
+                Mark all repaired
+              </button>
+            </div>
           </>
         )}
 
