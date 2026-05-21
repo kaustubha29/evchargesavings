@@ -44,12 +44,12 @@ export function EVOwnerChargerBundle() {
                   </div>
                 </div>
               ) : (
-                <div className="flex items-center gap-2 border border-line rounded-xl px-4 py-2.5 bg-paper">
-                  <span className="text-ink-mute text-sm leading-none">↑</span>
-                  <p className="text-sm text-ink-mute">
+                <a href="#owner-car-picker" className="flex items-center gap-2 border border-line rounded-xl px-4 py-2.5 bg-paper hover:border-forest/40 hover:text-forest transition-colors group">
+                  <span className="text-ink-mute text-sm leading-none group-hover:text-forest">↑</span>
+                  <p className="text-sm text-ink-mute group-hover:text-forest">
                     Enter your car above — we&apos;ll filter to native-plug chargers.
                   </p>
-                </div>
+                </a>
               )}
             </div>
 

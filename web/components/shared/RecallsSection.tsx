@@ -45,26 +45,24 @@ export function RecallsSection() {
 
   if (!brand || !year || !model) return null;
 
-  return (
-    <section className="border-b border-line py-10 bg-paper">
-      <div className="section-wrap">
-        <div className="flex items-center gap-3 mb-5">
-          <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">Safety recalls</div>
-          {!loading && !error && (
-            <span className={`font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full ${
-              recalls.length === 0
-                ? "bg-good-bg text-good-fg"
-                : "bg-rust/10 text-rust"
-            }`}>
-              {recalls.length === 0 ? "None found" : `${recalls.length} open`}
-            </span>
-          )}
-        </div>
+  const hasRecalls = !loading && !error && recalls.length > 0;
 
-        <div className="flex items-start justify-between gap-4 mb-4">
-          <h2 className="font-serif text-2xl font-medium tracking-tight text-ink">
-            NHTSA recalls · {year} {brand} {model}
-          </h2>
+  return (
+    <section className={`border-b border-line ${hasRecalls ? "py-8 bg-rust/[0.025]" : "py-6 bg-cream-soft/60"}`}>
+      <div className="section-wrap">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">Safety recalls</div>
+            {!loading && !error && (
+              <span className={`font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full ${
+                recalls.length === 0
+                  ? "bg-good-bg text-good-fg"
+                  : "bg-rust/10 text-rust"
+              }`}>
+                {recalls.length === 0 ? "None found" : `${recalls.length} open`}
+              </span>
+            )}
+          </div>
           <a
             href="https://www.nhtsa.gov/recalls"
             target="_blank"
@@ -75,12 +73,18 @@ export function RecallsSection() {
           </a>
         </div>
 
+        {hasRecalls && (
+          <h2 className="font-serif text-xl font-medium tracking-tight text-ink mt-4 mb-1">
+            NHTSA safety recalls
+          </h2>
+        )}
+
         {loading && (
-          <div className="font-mono text-xs text-ink-mute animate-pulse">Checking NHTSA database…</div>
+          <div className="font-mono text-xs text-ink-mute animate-pulse mt-3">Checking NHTSA database…</div>
         )}
 
         {error && (
-          <p className="text-sm text-ink-mute">
+          <p className="text-sm text-ink-mute mt-3">
             Couldn't reach NHTSA right now.{" "}
             <a
               href="https://www.nhtsa.gov/recalls"
@@ -92,17 +96,14 @@ export function RecallsSection() {
         )}
 
         {!loading && !error && recalls.length === 0 && (
-          <div className="flex items-center gap-3 bg-good-bg/30 border border-good-fg/20 rounded-2xl px-5 py-4">
-            <span className="text-good-fg text-lg">✓</span>
-            <div>
-              <div className="text-sm font-medium text-ink">No open recalls found</div>
-              <div className="text-xs text-ink-mute mt-0.5">Source: NHTSA database. Verify at nhtsa.gov if recently purchased.</div>
-            </div>
+          <div className="flex items-center gap-3 mt-3">
+            <span className="text-good-fg text-sm">✓</span>
+            <span className="text-sm text-ink-mute">No open recalls found · <a href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener noreferrer" className="text-forest hover:underline">Verify at NHTSA.gov</a></span>
           </div>
         )}
 
         {!loading && !error && recalls.length > 0 && (
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 mt-4">
             {recalls.map((r) => (
               <div key={r.NHTSACampaignNumber} className="border border-rust/20 rounded-2xl overflow-hidden">
                 <button
