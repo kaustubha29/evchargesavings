@@ -208,7 +208,7 @@ export function EVOwnerHero() {
             Compare insurance →
           </a>
           <a href="/" className="px-4 py-2 rounded-xl text-sm font-semibold border border-line text-ink-2 hover:border-forest/40 hover:text-forest transition-colors">
-            Still deciding? Try the calculator →
+            Calculate your fuel savings →
           </a>
         </div>
       </div>
