@@ -82,7 +82,31 @@ Push triggers Vercel redeploy → new article live. Optionally chain an IndexNow
 
 ---
 
-## 6. Data layer pattern
+## 6. Utility rate data and sync
+
+**What:** 15 utilities in `web/features/location/data/utilities.ts` with hardcoded TOU off-peak/on-peak rates, verified against each utility's official rate schedule.
+
+**Why hardcoded:** Utility rate schedules change infrequently (1–2x/year) and URDB often lags 6–12 months. Hardcoded values are always verified correct; URDB is used as a change-detection signal only.
+
+**Sync script:** `scripts/sync-rates.mjs` — runs against the NREL Utility Rate Database to flag rate changes.
+
+```bash
+OPENEI_API_KEY=<free key from openei.org/services/api/signup> node scripts/sync-rates.mjs
+```
+
+Output: comparison table (current vs URDB), suggested changes block if any utility drifted >1¢. Run quarterly. When URDB and the utility's own rate page disagree, trust the rate page.
+
+**EIA IDs:** Each entry has the EIA utility ID. Look them up or verify at: https://openei.org/apps/USURDB/
+
+**Adding a utility:**
+1. Add entry to `UTILITIES` array in `utilities.ts` (slug, name, stateCode, TOU program, rates, windows)
+2. Add matching entry to `sync-rates.mjs` UTILITIES array with EIA ID
+3. Add to `STATE_DATA` `hasTOU: true` if the state isn't already flagged
+4. Run build, test `TouRateSection` with a ZIP in that state
+
+---
+
+## 7. Data layer pattern
 
 - `features/<domain>/data/*.ts` — raw typed records (EVs, gas cars, state rates).
 - `features/<domain>/repository.ts` — query helpers (`getBySlug`, `getUnder`, `getSummaries`), slug generation. Pages + sitemap + metadata all read the repo, never the raw data directly. One slug function, used everywhere, prevents URL drift.
@@ -90,7 +114,7 @@ Push triggers Vercel redeploy → new article live. Optionally chain an IndexNow
 
 ---
 
-## 7. New-site checklist
+## 8. New-site checklist
 
 - [ ] Next 16 + TS + Tailwind scaffold; `npm run build` green
 - [ ] Vercel project, custom domain, `<Analytics/>`+`<SpeedInsights/>`
@@ -108,7 +132,7 @@ Push triggers Vercel redeploy → new article live. Optionally chain an IndexNow
 
 ---
 
-## 8. Gotchas learned
+## 9. Gotchas learned
 
 - Vercel type-checks on build → local `npm run build` is mandatory before push.
 - `Guide` vs `NewsArticle` types differ (news has `sources`, guides don't) — check the type before adding fields.

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GUIDES } from "@/features/guides/data";
 import { EVOwnerHero } from "@/components/shared/EVOwnerHero";
 import { StickyOwnerBar } from "@/components/shared/StickyOwnerBar";
+import { LocationDetector } from "@/components/features/location/LocationDetector";
 import { QuickWinsLabel } from "@/components/shared/QuickWinsLabel";
 import { HomeChargingSection } from "@/components/shared/HomeChargingSection";
 import { EVOwnerChargerBundle } from "@/components/shared/EVOwnerChargerBundle";
@@ -27,13 +28,13 @@ const QUICK_WINS = [
     num: "01",
     title: "Upgrade to Level 2",
     body: "Level 1 adds 4–5 miles per hour — fine for low mileage, painful for anything else. A Level 2 install runs $500–$1,500 and fully charges most EVs overnight. One-time cost, permanent fix.",
-    cta: { label: "Calculate your break-even →", href: "#charger-roi" },
+    cta: { label: "Best Level 2 home chargers →", href: "#charger-gear" },
   },
   {
     num: "02",
     title: "Switch to a TOU rate",
     body: "Most utilities offer time-of-use plans with overnight rates 30–60% below standard. Set your car to charge after 9 PM and your effective per-mile cost drops — often the single biggest lever after your Level 2 install.",
-    cta: { label: "How TOU rates work →", href: "/guides/time-of-use-rates" },
+    cta: { label: "Find your rate plan →", href: "#tou-rates" },
   },
   {
     num: "03",
@@ -48,6 +49,7 @@ export default function EVOwnerPage() {
 
   return (
     <>
+      <LocationDetector />
       <StickyOwnerBar />
       <main className="bg-paper min-h-screen">
 

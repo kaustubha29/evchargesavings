@@ -269,6 +269,85 @@ export default function HowWeCalculatePage() {
           </ul>
         </Section>
 
+        {/* TOU rate savings */}
+        <Section title="TOU rate savings">
+          <p className="text-ink-3 text-sm mb-6 leading-relaxed">
+            On the EV owner page, we estimate annual savings from switching to a time-of-use plan
+            vs. the standard residential rate for a given utility. We cover 18 utilities across 14 states.
+            When a user&apos;s ZIP is known and multiple utilities serve the same state (CA, NY, NC, SC),
+            we auto-select the correct utility by matching the 3-digit ZIP prefix to the utility&apos;s
+            service territory — the user can override by clicking any utility pill. Rates come from our
+            curated utility database, verified against each utility&apos;s official rate schedule and
+            cross-checked against the{" "}
+            <a href="https://openei.org/apps/USURDB/" target="_blank" rel="noopener noreferrer" className="text-forest hover:underline">
+              NREL Utility Rate Database (URDB)
+            </a>.
+          </p>
+          <Formula
+            label="Annual kWh consumed"
+            formula="annual_kwh = annual_miles / ev_efficiency_mi_per_kwh"
+            note="Default: 13,500 miles/year. Efficiency pulled from EV model data (EPA-rated mi/kWh). Falls back to 3.5 mi/kWh if the selected car has no efficiency entry."
+          />
+          <Formula
+            label="TOU savings vs standard rate"
+            formula={`standard_cost = annual_kwh × state_avg_rate_$/kwh\noff_peak_cost = annual_kwh × utility_off_peak_rate_$/kwh\nsavings = standard_cost − off_peak_cost`}
+            note="Assumes 100% of charging at the off-peak rate (overnight or weekend), which is achievable if you schedule charging after the peak window. Real savings depend on your actual charging window. State average rate from EIA; off-peak rate from the utility's TOU schedule."
+          />
+          <p className="text-ink-3 text-sm mt-4 leading-relaxed">
+            Utility data is manually verified and updated from official rate schedules. We run{" "}
+            <code className="font-mono bg-cream-soft px-1 rounded text-xs">scripts/sync-rates.mjs</code>{" "}
+            against the URDB quarterly to flag rate changes. When URDB data and the utility&apos;s
+            own rate schedule disagree, the utility&apos;s schedule takes precedence — URDB can lag
+            6–12 months on smaller utilities.
+          </p>
+        </Section>
+
+        {/* Home Charger ROI */}
+        <Section title="Home charger ROI calculator">
+          <p className="text-ink-3 text-sm mb-6 leading-relaxed">
+            The Level 2 charger ROI calculator on the EV owner page computes monthly break-even after
+            the §30C federal tax credit (30% of hardware cost, up to $1,000 — expires June 30, 2026).
+          </p>
+          <Formula
+            label="Time saved per charge vs Level 1"
+            formula={`level1_hours = battery_kwh / 1.4   (1.4 kW typical L1 output)\nlevel2_hours = battery_kwh / 7.2   (7.2 kW typical L2 output)\ntime_saved = level1_hours − level2_hours`}
+            note="Battery size from the selected EV model. Level 2 output fixed at 7.2 kW (standard 40A circuit); Level 1 at 1.4 kW (standard 120V/12A). Actual speed depends on the car's onboard charger limit."
+          />
+          <Formula
+            label="Public sessions avoided per month"
+            formula={`monthly_miles = annual_miles / 12\nfull_charges = monthly_miles / ev_range\npublic_sessions = full_charges × (1 − home_charging_pct)`}
+            note="Uses annual_miles from the calculator store (defaults 13,500 mi/yr). EV range from model data. home_charging_pct defaults to 80%."
+          />
+          <Formula
+            label="Monthly public charging cost avoided"
+            formula="monthly_public_savings = public_sessions × (battery_kwh × public_rate_$/kwh)"
+            note="public_rate = state residential rate × 2.5 (blended public estimate). Avoidance = you charge at home instead."
+          />
+          <Formula
+            label="After-credit cost and break-even"
+            formula={`credit = min(hardware_cost × 0.30, 1000)\nnet_cost = install_total − credit\nmonthly_benefit = monthly_public_savings + monthly_tou_savings\nbreak_even_months = net_cost / monthly_benefit`}
+            note="§30C credit applies to hardware only — not installation labor. TOU savings only added when a utility off-peak rate is available for the user's state. Monthly break-even rounds up."
+          />
+        </Section>
+
+        {/* NHTSA Recalls */}
+        <Section title="Safety recalls data">
+          <p className="text-ink-3 text-sm mb-4 leading-relaxed">
+            The safety recalls section on the EV owner page queries the public NHTSA complaints and
+            recalls database in real time — no data is stored on our servers.
+          </p>
+          <div className="space-y-0 border border-line rounded-xl divide-y divide-line overflow-hidden">
+            <Source
+              name="NHTSA Recalls API"
+              url="https://api.nhtsa.gov/recalls/recallsByVehicle"
+              desc="Live query: /recallsByVehicle?make={make}&model={model}&modelYear={year}. Returns open recalls with campaign number, component, summary, consequence, and remedy. Data is official NHTSA recall information — the same data shown at nhtsa.gov/recalls."
+            />
+          </div>
+          <p className="text-ink-mute text-xs font-mono mt-4">
+            Recall data is fetched on demand when a car is selected and is not cached beyond the browser session. We strip trim variants from the model name (e.g. &quot;Long Range&quot;, &quot;AWD&quot;) before querying so the NHTSA lookup matches the way NHTSA stores model names.
+          </p>
+        </Section>
+
         {/* Questions */}
         <section className="py-10">
           <div className="section-wrap max-w-3xl">

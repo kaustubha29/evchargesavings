@@ -1,6 +1,9 @@
 "use client";
 import { useState, useMemo, useRef, useEffect } from "react";
 import { useOwnerStore, deriveConnector } from "@/store/owner";
+import { useCalculatorStore } from "@/store/calculator";
+import { stateFromZip, getStateData } from "@/features/location/queries";
+import { fmt } from "@/lib/format";
 import { EV_MODELS } from "@/features/ev-data/data/evs";
 
 const YEARS = Array.from({ length: 9 }, (_, i) => 2026 - i);
@@ -24,12 +27,32 @@ const CONNECTOR_LABEL: Record<string, string> = {
 
 export function EVOwnerHero() {
   const { brand, year, model, setOwnerCar, clearOwnerCar } = useOwnerStore();
+  const { stateCode, stateData, city, isDetecting, setLocation, zip, setZip } = useCalculatorStore();
   const [query, setQuery] = useState(brand && year && model ? `${year} ${brand} ${model}` : "");
   const [open, setOpen] = useState(false);
   const [locked, setLocked] = useState(!!brand);
   const [activeIdx, setActiveIdx] = useState(-1);
+  const [zipError, setZipError] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+
+  const locationLabel = isDetecting ? "Detecting…" : (stateCode ? (city ? `${city}, ${stateData.name}` : stateData.name) : "United States");
+
+  async function applyZip(zipValue: string) {
+    const code = stateFromZip(zipValue.trim());
+    if (!code) { setZipError(true); return; }
+    setZipError(false);
+    const info = getStateData(code);
+    let cityName: string | null = null;
+    try {
+      const res = await fetch(`https://api.zippopotam.us/us/${zipValue.trim()}`, { signal: AbortSignal.timeout(2000) });
+      if (res.ok) {
+        const d = await res.json();
+        cityName = d.places?.[0]?.["place name"] || null;
+      }
+    } catch { /* ignore */ }
+    setLocation(code, info, zipValue.trim(), cityName);
+  }
 
   useEffect(() => {
     setLocked(!!brand);
@@ -217,19 +240,48 @@ export function EVOwnerHero() {
                 Enter your car to personalize results below.
               </p>
             )}
-            <div className="mt-4 pt-4 border-t border-line flex flex-wrap gap-1.5">
+            <div className="mt-3 pt-3 border-t border-line flex flex-wrap items-center gap-1.5">
               {[
-                { icon: "⚡", label: "Charger ROI" },
-                { icon: "🔌", label: "Adapter guide" },
-                { icon: "🛡", label: "Insurance" },
-                { icon: "🔔", label: "Recalls" },
+                { icon: "⚡", label: "Charger ROI", href: "#charger-roi" },
+                { icon: "🔌", label: "Adapter guide", href: "#charger-gear" },
+                { icon: "🛡", label: "Insurance", href: "#ev-insurance" },
+                { icon: "🔔", label: "Recalls", href: "#recalls" },
               ].map((b) => (
-                <span key={b.label} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-cream-soft text-[10px] font-mono uppercase tracking-wide text-ink-mute">
+                <a key={b.label} href={b.href} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-cream-soft text-[10px] font-mono uppercase tracking-wide text-ink-mute hover:bg-forest/10 hover:text-forest transition-colors">
                   <span className="text-[11px]">{b.icon}</span>{b.label}
-                </span>
+                </a>
               ))}
+              {stateData.hasTOU && (
+                <a
+                  href="#tou-rates"
+                  className="bg-okay-bg text-okay-fg font-mono text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wide hover:bg-okay-fg hover:text-okay-bg transition-colors"
+                >
+                  ⚡ TOU rates →
+                </a>
+              )}
+              <form
+                onSubmit={(e) => { e.preventDefault(); applyZip(zip || ""); }}
+                className="flex items-center gap-1"
+              >
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  enterKeyHint="go"
+                  maxLength={5}
+                  placeholder="ZIP"
+                  value={zip || ""}
+                  onChange={(e) => { setZip(e.target.value); setZipError(false); }}
+                  className={`w-24 border rounded-lg px-2 py-1 font-mono text-[11px] bg-paper focus:outline-none focus:ring-1 focus:ring-forest ${zipError ? "border-rust text-rust placeholder:text-rust/50" : "border-line"}`}
+                />
+                <button type="submit" className="font-mono text-[10px] text-ink-mute hover:text-forest">→</button>
+              </form>
+              {zipError && <span className="font-mono text-[10px] text-rust">ZIP not found</span>}
             </div>
-            <div className="mt-3">
+            <div className="mt-2 flex items-center gap-2 flex-wrap">
+              <span className="inline-flex items-center gap-2 bg-ink text-cream text-xs font-mono px-3 py-1.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
+                {locationLabel} · {fmt.cents1(stateData.kwhCents)}/kWh · {fmt.money2(stateData.gasDollar)}/gal
+              </span>
               <a href="/" className="font-mono text-[11px] text-ink-mute hover:text-forest transition-colors">
                 Still shopping? Try the savings calculator →
               </a>

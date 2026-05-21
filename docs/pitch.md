@@ -67,6 +67,10 @@ Free. No sign-up. No ads obscuring results.
 
 **Home Charger ROI:** Interactive break-even calculator on the EV owner resource page. Inputs: daily miles, charger hardware cost, total install budget. Outputs: time saved per charge, public sessions avoided per month, TOU savings, §30C credit (30% up to $1,000, expires June 30 2026), and break-even months. Converts directly to Level 2 charger product affiliate section.
 
+**TOU rate finder (18 utilities, 14 states):** On the EV owner page — reads ZIP from the shared location store, auto-selects the correct utility (states with multiple utilities — CA×3, NY×2, NC×2, SC×2 — match by 3-digit ZIP prefix), and shows a savings card with off-peak vs standard rate, estimated annual savings for the user's specific EV, and an Enroll CTA. Rate data verified against official utility rate schedules and cross-checked against the NREL Utility Rate Database. A quarterly sync script (`scripts/sync-rates.mjs`) flags changes automatically.
+
+**NHTSA safety recalls:** On the EV owner page — live query to the NHTSA recalls API when a car is selected. Shows open recalls by component, expandable summaries, one-click "Repaired" checkbox per recall (disappears when checked), and a "Mark all repaired" button. Zero additional infrastructure — public NHTSA API, no backend.
+
 **Programmatic depth:** 750+ static pages — cost-to-charge by EV × state, EV-vs-EV comparisons, 320 EV-vs-gas + 64 EV-vs-PHEV head-to-head pages (FAQPage schema, personalized hero hydrates from calculator URL params), best-EVs-under-$X bands, per-state cost pages, per-utility rate pages.
 
 **Transparency:** Full methodology published at [evchargesavings.com/how-we-calculate](https://evchargesavings.com/how-we-calculate); full state dataset at [/research](https://evchargesavings.com/research). Author is a named EV owner with first-hand road trip content — including 8hr+ family trips in the Kia EV9 using Electrify America.
@@ -145,7 +149,9 @@ Curious if the numbers line up with what you're actually seeing — evchargesavi
 | Federal credit status | §30D + §25E eliminated Oct 1, 2025; §30C home charger credit (30% / $1K cap) expires June 30, 2026 |
 | State incentives | 13 states — CO $750, MA $3,500, NY $2,000, IL $2,000, OR $2,500 (suspended — waitlist spring 2026), NJ $1,500+, WA $9K income-only, VT $2,500, TX $2,500, CT $1,000, ME $5,000, MD $3,000, RI $1,500 |
 | Example rate spread | CA ~$0.33/kWh vs LA ~$0.13/kWh (state-level EIA) |
-| Cheapest overnight rate | Duke Energy FL ~3.5¢/kWh |
-| California SDG&E off-peak | ~12–13¢/kWh (Power Your Drive) |
+| TOU utilities covered | 15 (CA×3, IL, NY×2, VA, NC, FL, GA, OR, WA, CO, MA, UT) |
+| TOU rate sync | scripts/sync-rates.mjs — NREL URDB quarterly check |
+| Cheapest overnight rate | Duke Energy NC ~7¢/kWh |
+| Portland General Electric off-peak | 9¢/kWh (9 pm–7 am + weekends); on-peak 44¢ |
 | Author vehicle | Kia EV9, Pacific Northwest |
 | Methodology page | /how-we-calculate · dataset: /research |

@@ -57,7 +57,7 @@ const RAW: Record<string, { name: string; kwh: number; gas: number; tou: boolean
   OR:{name:"Oregon",              kwh:14.64,gas:5.239,tou:true, ev:115,  phev:35},
   PA:{name:"Pennsylvania",        kwh:20.3, gas:4.537,tou:true, ev:250,  phev:50},
   RI:{name:"Rhode Island",        kwh:29.45,gas:4.496,tou:true, ev:150,  phev:100},
-  SC:{name:"South Carolina",      kwh:16.15,gas:4.217,tou:false,ev:60,   phev:60},
+  SC:{name:"South Carolina",      kwh:16.15,gas:4.217,tou:true, ev:60,   phev:60},
   SD:{name:"South Dakota",        kwh:13.24,gas:4.486,tou:false,ev:50,   phev:50},
   TN:{name:"Tennessee",           kwh:12.82,gas:4.486,tou:false,ev:200,  phev:100},
   TX:{name:"Texas",               kwh:15.41,gas:3.981,tou:true, ev:200,  phev:0},

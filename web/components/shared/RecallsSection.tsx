@@ -54,9 +54,10 @@ export function RecallsSection() {
   if (!brand || !year || !model) return null;
 
   const hasRecalls = !loading && !error && recalls.length > 0;
+  const visibleRecalls = recalls.filter(r => !repaired.has(r.NHTSACampaignNumber));
 
   return (
-    <section className={`border-b border-line ${hasRecalls ? "py-8 bg-rust/[0.025]" : "py-6 bg-cream-soft/60"}`}>
+    <section id="recalls" className={`border-b border-line ${hasRecalls ? "py-8 bg-rust/[0.025]" : "py-6 bg-cream-soft/60"}`}>
       <div className="section-wrap">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
@@ -67,7 +68,7 @@ export function RecallsSection() {
                   ? "bg-good-bg text-good-fg"
                   : "bg-rust/10 text-rust"
               }`}>
-                {recalls.length === 0 ? "None found" : `${recalls.length} open`}
+                {recalls.length === 0 ? "None found" : `${visibleRecalls.length} open`}
               </span>
             )}
           </div>
@@ -88,18 +89,31 @@ export function RecallsSection() {
             </h2>
             <div className="flex items-start justify-between gap-4 mt-1 mb-3">
               <p className="text-sm text-ink-2">
-                <span className="font-medium text-rust">{recalls.length} open {recalls.length === 1 ? "recall" : "recalls"}:</span>{" "}
-                {[...new Set(recalls.map((r) => r.Component.split(":")[0].trim().toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())))].join(", ")}.{" "}
+                <span className="font-medium text-rust">{visibleRecalls.length} open {visibleRecalls.length === 1 ? "recall" : "recalls"}:</span>{" "}
+                {[...new Set(visibleRecalls.map((r) => r.Component.split(":")[0].trim().toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())))].join(", ")}.{" "}
                 Contact your dealer — repairs are always free.
               </p>
-              <button
-                type="button"
-                onClick={() => repaired.size === recalls.length ? setRepaired(new Set()) : setRepaired(new Set(recalls.map((r) => r.NHTSACampaignNumber)))}
-                className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-forest/10 text-forest hover:bg-forest/15 transition-all whitespace-nowrap"
-              >
-                <span className="text-[13px] leading-none">{repaired.size === recalls.length ? "↺" : "✓"}</span>
-                {repaired.size === recalls.length ? "Reset" : "Mark all repaired"}
-              </button>
+              <div className="shrink-0 flex items-center gap-2">
+                {repaired.size >= 1 && (
+                  <button
+                    type="button"
+                    onClick={() => setRepaired(new Set())}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-ink/6 text-ink-2 hover:bg-ink/10 transition-all whitespace-nowrap"
+                  >
+                    Show all ({repaired.size} hidden)
+                  </button>
+                )}
+                {visibleRecalls.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => setRepaired(new Set(recalls.map((r) => r.NHTSACampaignNumber)))}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-forest/10 text-forest hover:bg-forest/15 transition-all whitespace-nowrap"
+                  >
+                    <span className="text-[13px] leading-none">✓</span>
+                    Mark all repaired
+                  </button>
+                )}
+              </div>
             </div>
           </>
         )}
@@ -129,8 +143,8 @@ export function RecallsSection() {
 
         {!loading && !error && recalls.length > 0 && (
           <div className="flex flex-col gap-3 mt-4">
-            {recalls.map((r) => (
-              <div key={r.NHTSACampaignNumber} className={`border rounded-2xl overflow-hidden transition-all ${repaired.has(r.NHTSACampaignNumber) ? "border-line opacity-50" : "border-rust/20"}`}>
+            {visibleRecalls.map((r) => (
+              <div key={r.NHTSACampaignNumber} className="border border-rust/20 rounded-2xl overflow-hidden transition-all">
                 <button
                   type="button"
                   onClick={() => setExpanded(expanded === r.NHTSACampaignNumber ? null : r.NHTSACampaignNumber)}
@@ -140,7 +154,7 @@ export function RecallsSection() {
                     <div className="font-mono text-[10px] uppercase tracking-widest text-rust mb-1">
                       {r.NHTSACampaignNumber}{parseDate(r.ReportReceivedDate) ? ` · ${parseDate(r.ReportReceivedDate)}` : ""}
                     </div>
-                    <div className={`text-sm font-medium text-ink ${repaired.has(r.NHTSACampaignNumber) ? "line-through" : ""}`}>{r.Component}</div>
+                    <div className="text-sm font-medium text-ink">{r.Component}</div>
                   </div>
                   <div className="shrink-0 flex items-center gap-3 pt-0.5">
                     <label className="flex items-center gap-1.5 cursor-pointer select-none group" onClick={(e) => e.stopPropagation()}>

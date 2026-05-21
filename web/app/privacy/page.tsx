@@ -18,7 +18,7 @@ export default function PrivacyPage() {
 
           <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">Legal</div>
           <h1 className="font-serif text-4xl font-medium tracking-tight text-ink mb-2">Privacy Policy</h1>
-          <p className="font-mono text-xs text-ink-mute mb-10">Last updated: May 1, 2026</p>
+          <p className="font-mono text-xs text-ink-mute mb-10">Last updated: May 21, 2026</p>
 
           <div className="space-y-8 text-ink-2 leading-relaxed">
 
@@ -32,20 +32,48 @@ export default function PrivacyPage() {
             </section>
 
             <section>
+              <h2 className="font-serif text-xl font-medium text-ink mb-3">What we store locally</h2>
+              <ul className="list-disc pl-5 mt-2 space-y-1 text-sm">
+                <li><b className="text-ink">Calculator preferences</b> (EV model, gas car, mileage, rate settings) — <code className="font-mono bg-cream-soft px-1 rounded">ecs-calc-v2</code> key in <code className="font-mono bg-cream-soft px-1 rounded">localStorage</code>.</li>
+                <li><b className="text-ink">EV owner car selection</b> (make, model, year) — <code className="font-mono bg-cream-soft px-1 rounded">ecs-owner-v1</code> key in <code className="font-mono bg-cream-soft px-1 rounded">localStorage</code>. Used to personalize the EV owner page across sessions.</li>
+                <li><b className="text-ink">Location</b> (state, ZIP, city) — stored in the same calculator key. Never sent to our servers.</li>
+              </ul>
+              <p className="text-sm mt-3">All locally-stored data stays in your browser. You can clear it via your browser&apos;s &quot;Clear site data&quot; option at any time.</p>
+            </section>
+
+            <section>
               <h2 className="font-serif text-xl font-medium text-ink mb-3">Location detection</h2>
               <p>
                 To show accurate electricity and gas rates, we optionally detect your approximate location
                 using your IP address via <a href="https://ipapi.co" target="_blank" rel="noopener noreferrer" className="text-forest underline">ipapi.co</a>.
                 This request is anonymous — we do not log or store your IP. The result is cached in your browser for 30 days.
+                ZIP code city names are looked up via{" "}
+                <a href="https://www.zippopotam.us" target="_blank" rel="noopener noreferrer" className="text-forest underline">zippopotam.us</a>{" "}
+                (display only — no storage).
               </p>
+            </section>
+
+            <section>
+              <h2 className="font-serif text-xl font-medium text-ink mb-3">Third-party data APIs</h2>
+              <p className="text-sm">
+                Some features query public third-party APIs on demand. No personal data is included in these requests:
+              </p>
+              <ul className="list-disc pl-5 mt-2 space-y-1 text-sm">
+                <li><b className="text-ink">NHTSA Recalls API</b> — queried in real time when you select an EV on the owner page. Request contains only the make, model, and year you entered. See <a href="https://www.nhtsa.gov/recalls" className="text-forest underline" target="_blank" rel="noopener noreferrer">nhtsa.gov/recalls</a>.</li>
+                <li><b className="text-ink">EIA electricity and gas price API</b> — server-side fetch for state rates. No user data sent.</li>
+              </ul>
             </section>
 
             <section>
               <h2 className="font-serif text-xl font-medium text-ink mb-3">Analytics</h2>
               <p>
-                We use Google Analytics to understand aggregate traffic (page views, popular EV models, state pages).
+                We use <b className="text-ink">Google Analytics 4</b> to understand aggregate traffic (page views, popular EV models, state pages).
                 Google Analytics may use cookies and your IP address (anonymised). You can opt out via the{" "}
                 <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-forest underline">Google Analytics opt-out browser add-on</a>.
+              </p>
+              <p className="text-sm mt-3">
+                We also use <b className="text-ink">Microsoft Clarity</b> for session recordings and heatmaps to understand how people use the calculator. Clarity may record mouse movements and clicks. You can opt out via Microsoft&apos;s{" "}
+                <a href="https://choice.microsoft.com" target="_blank" rel="noopener noreferrer" className="text-forest underline">privacy dashboard</a>.
               </p>
             </section>
 
@@ -75,6 +103,7 @@ export default function PrivacyPage() {
                 <li><b className="text-ink">Supabase</b> — installer lead data is stored in a Supabase database (US region). Retained for up to 24 months.</li>
                 <li><b className="text-ink">Resend</b> — used to send transactional confirmation emails when you submit the quote form.</li>
                 <li><b className="text-ink">Google AdSense / Analytics</b> — see <a href="https://policies.google.com/privacy" className="text-forest underline" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</li>
+                <li><b className="text-ink">Microsoft Clarity</b> — session recordings and heatmaps. See <a href="https://privacy.microsoft.com/privacystatement" className="text-forest underline" target="_blank" rel="noopener noreferrer">Microsoft Privacy Statement</a>.</li>
                 <li><b className="text-ink">Amazon Associates</b> — see <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=468496" className="text-forest underline" target="_blank" rel="noopener noreferrer">Amazon Privacy Notice</a>.</li>
               </ul>
             </section>
