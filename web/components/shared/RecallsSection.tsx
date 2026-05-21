@@ -83,7 +83,9 @@ export function RecallsSection() {
               NHTSA safety recalls
             </h2>
             <p className="text-sm text-ink-2 mt-1 mb-3">
-              Contact your dealer to schedule a free repair — recall service is always free of charge.
+              <span className="font-medium text-rust">{recalls.length} open {recalls.length === 1 ? "recall" : "recalls"}:</span>{" "}
+              {recalls.map((r) => r.Component.split(":")[0].trim()).join(", ")}.{" "}
+              Contact your dealer — repairs are always free.
             </p>
           </>
         )}
