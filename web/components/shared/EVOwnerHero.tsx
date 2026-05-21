@@ -39,16 +39,7 @@ export function EVOwnerHero() {
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return [];
-    const matches = ALL_OPTIONS.filter((o) => o.label.toLowerCase().includes(q));
-    // Max 2 per brand so one brand can't flood results
-    const brandCount: Record<string, number> = {};
-    const result = [];
-    for (const o of matches) {
-      const c = brandCount[o.brand] ?? 0;
-      if (c < 2) { result.push(o); brandCount[o.brand] = c + 1; }
-      if (result.length === 8) break;
-    }
-    return result;
+    return ALL_OPTIONS.filter((o) => o.label.toLowerCase().includes(q)).slice(0, 25);
   }, [query]);
 
   const connector = brand && year ? deriveConnector(brand, year) : null;
