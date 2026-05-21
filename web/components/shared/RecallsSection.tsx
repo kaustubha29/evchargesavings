@@ -131,17 +131,17 @@ export function RecallsSection() {
           <div className="flex flex-col gap-3 mt-4">
             {recalls.map((r) => (
               <div key={r.NHTSACampaignNumber} className={`border rounded-2xl overflow-hidden transition-all ${repaired.has(r.NHTSACampaignNumber) ? "border-line opacity-50" : "border-rust/20"}`}>
-                <div className="flex items-start gap-3 px-5 py-4">
-                  <button
-                    type="button"
-                    onClick={() => setExpanded(expanded === r.NHTSACampaignNumber ? null : r.NHTSACampaignNumber)}
-                    className="flex-1 min-w-0 text-left hover:bg-rust/5 -mx-1 px-1 rounded-lg transition-colors"
-                  >
+                <button
+                  type="button"
+                  onClick={() => setExpanded(expanded === r.NHTSACampaignNumber ? null : r.NHTSACampaignNumber)}
+                  className="w-full flex items-start gap-3 px-5 py-4 text-left hover:bg-rust/5 transition-colors"
+                >
+                  <div className="flex-1 min-w-0">
                     <div className="font-mono text-[10px] uppercase tracking-widest text-rust mb-1">
                       {r.NHTSACampaignNumber}{parseDate(r.ReportReceivedDate) ? ` · ${parseDate(r.ReportReceivedDate)}` : ""}
                     </div>
                     <div className={`text-sm font-medium text-ink ${repaired.has(r.NHTSACampaignNumber) ? "line-through" : ""}`}>{r.Component}</div>
-                  </button>
+                  </div>
                   <div className="shrink-0 flex items-center gap-3 pt-0.5">
                     <label className="flex items-center gap-1.5 cursor-pointer select-none group" onClick={(e) => e.stopPropagation()}>
                       <input
@@ -154,7 +154,7 @@ export function RecallsSection() {
                     </label>
                     <span className="text-ink-mute text-xs">{expanded === r.NHTSACampaignNumber ? "▲" : "▼"}</span>
                   </div>
-                </div>
+                </button>
 
                 {expanded === r.NHTSACampaignNumber && (
                   <div className="px-5 pb-5 border-t border-rust/10 pt-4 flex flex-col gap-3">
