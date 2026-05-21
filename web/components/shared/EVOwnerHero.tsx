@@ -147,7 +147,7 @@ export function EVOwnerHero() {
                     ref={inputRef}
                     type="text"
                     value={query}
-                    placeholder="e.g. 2023 Kia EV9, 2024 Tesla Model Y…"
+                    placeholder="e.g. 2024 Kia EV9, 2024 Tesla Model Y…"
                     className={`w-full border rounded-xl px-4 py-3 pr-9 text-sm bg-paper font-sans outline-none transition-all ${
                       open ? "border-forest ring-2 ring-forest/20" : "border-line focus:ring-2 focus:ring-emerald/30 focus:border-forest"
                     }`}
