@@ -118,7 +118,7 @@ export function EVOwnerHero() {
       <div className="pointer-events-none absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-forest/[0.09] blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 -left-32 w-[500px] h-[500px] rounded-full bg-forest/[0.05] blur-3xl" />
       <div className="section-wrap relative">
-        <div className="grid lg:grid-cols-[1.15fr_0.9fr] gap-14 items-center">
+        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center">
 
           {/* Left — headline + CTAs */}
           <div>
@@ -126,13 +126,13 @@ export function EVOwnerHero() {
               <span className="w-1.5 h-1.5 rounded-full bg-forest inline-block" />
               For EV owners
             </div>
-            <h1 className="hero-anim font-serif text-[3.25rem] md:text-[4.25rem] font-medium tracking-tight text-ink mb-5 leading-[1.06]" style={{ animationDelay: "80ms" }}>
+            <h1 className="hero-anim font-serif text-[2.6rem] md:text-[3.4rem] font-medium tracking-tight text-ink mb-5 leading-[1.06]" style={{ animationDelay: "80ms" }}>
               You already<br />made the switch.<br />
               <em className="not-italic text-forest underline decoration-forest/30 decoration-[3px] underline-offset-[5px]">
                 Make the most of it.
               </em>
             </h1>
-            <p className="hero-anim text-ink-3 text-lg leading-relaxed max-w-md mb-9" style={{ animationDelay: "180ms" }}>
+            <p className="hero-anim text-ink-3 text-base leading-relaxed max-w-md mb-7" style={{ animationDelay: "180ms" }}>
               Home charging, TOU rates, public networks, and EV insurance — personalized for your exact car.
             </p>
             <div className="hero-anim hidden md:flex flex-wrap gap-3" style={{ animationDelay: "260ms" }}>
