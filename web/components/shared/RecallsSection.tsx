@@ -104,7 +104,7 @@ export function RecallsSection() {
                 <button
                   type="button"
                   onClick={() => setRepaired(new Set(recalls.map((r) => r.NHTSACampaignNumber)))}
-                  className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-good-bg text-good-fg hover:brightness-95 transition-all whitespace-nowrap"
+                  className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-forest/10 text-forest hover:bg-forest/15 transition-all whitespace-nowrap"
                 >
                   <span className="text-[13px] leading-none">✓</span> Mark all repaired
                 </button>
