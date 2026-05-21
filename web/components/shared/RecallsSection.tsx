@@ -92,23 +92,14 @@ export function RecallsSection() {
                 {[...new Set(recalls.map((r) => r.Component.split(":")[0].trim().toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())))].join(", ")}.{" "}
                 Contact your dealer — repairs are always free.
               </p>
-              {recalls.every((r) => repaired.has(r.NHTSACampaignNumber)) ? (
-                <button
-                  type="button"
-                  onClick={() => setRepaired(new Set())}
-                  className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-cream-soft text-ink-mute hover:text-ink transition-all whitespace-nowrap"
-                >
-                  Show recalls
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={() => setRepaired(new Set(recalls.map((r) => r.NHTSACampaignNumber)))}
-                  className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-forest/10 text-forest hover:bg-forest/15 transition-all whitespace-nowrap"
-                >
-                  <span className="text-[13px] leading-none">✓</span> Mark all repaired
-                </button>
-              )}
+              <button
+                type="button"
+                onClick={() => repaired.size === recalls.length ? setRepaired(new Set()) : setRepaired(new Set(recalls.map((r) => r.NHTSACampaignNumber)))}
+                className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-forest/10 text-forest hover:bg-forest/15 transition-all whitespace-nowrap"
+              >
+                <span className="text-[13px] leading-none">{repaired.size === recalls.length ? "↺" : "✓"}</span>
+                {repaired.size === recalls.length ? "Reset" : "Mark all repaired"}
+              </button>
             </div>
           </>
         )}
@@ -138,8 +129,8 @@ export function RecallsSection() {
 
         {!loading && !error && recalls.length > 0 && (
           <div className="flex flex-col gap-3 mt-4">
-            {recalls.filter((r) => !repaired.has(r.NHTSACampaignNumber)).map((r) => (
-              <div key={r.NHTSACampaignNumber} className="border border-rust/20 rounded-2xl overflow-hidden">
+            {recalls.map((r) => (
+              <div key={r.NHTSACampaignNumber} className={`border rounded-2xl overflow-hidden transition-all ${repaired.has(r.NHTSACampaignNumber) ? "border-line opacity-50" : "border-rust/20"}`}>
                 <div className="flex items-start gap-3 px-5 py-4">
                   <button
                     type="button"
@@ -149,7 +140,7 @@ export function RecallsSection() {
                     <div className="font-mono text-[10px] uppercase tracking-widest text-rust mb-1">
                       {r.NHTSACampaignNumber}{parseDate(r.ReportReceivedDate) ? ` · ${parseDate(r.ReportReceivedDate)}` : ""}
                     </div>
-                    <div className="text-sm font-medium text-ink">{r.Component}</div>
+                    <div className={`text-sm font-medium text-ink ${repaired.has(r.NHTSACampaignNumber) ? "line-through" : ""}`}>{r.Component}</div>
                   </button>
                   <div className="shrink-0 flex items-center gap-3 pt-0.5">
                     <label className="flex items-center gap-1.5 cursor-pointer select-none group" onClick={(e) => e.stopPropagation()}>
@@ -197,12 +188,6 @@ export function RecallsSection() {
                 )}
               </div>
             ))}
-            {recalls.every((r) => repaired.has(r.NHTSACampaignNumber)) && (
-              <div className="flex items-center gap-3">
-                <span className="text-good-fg text-sm">✓</span>
-                <span className="text-sm text-ink-mute">All recalls marked as repaired.</span>
-              </div>
-            )}
             <p className="text-xs text-ink-mute/60 mt-1">Source: NHTSA. Check nhtsa.gov for the most current status.</p>
           </div>
         )}
