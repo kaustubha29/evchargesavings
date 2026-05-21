@@ -105,9 +105,8 @@ export function EVOwnerHero() {
             </div>
             <h1 className="hero-anim font-serif text-[3.25rem] md:text-[4.25rem] font-medium tracking-tight text-ink mb-5 leading-[1.06]" style={{ animationDelay: "80ms" }}>
               You already<br />made the switch.<br />
-              <em className="not-italic text-forest relative inline-block">
+              <em className="not-italic text-forest underline decoration-forest/30 decoration-[3px] underline-offset-[5px]">
                 Make the most of it.
-                <span className="absolute bottom-0.5 left-0 w-full h-[3px] bg-forest/25 rounded-full" />
               </em>
             </h1>
             <p className="hero-anim text-ink-3 text-lg leading-relaxed max-w-md mb-9" style={{ animationDelay: "180ms" }}>
