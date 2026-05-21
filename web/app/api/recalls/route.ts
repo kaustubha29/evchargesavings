@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
   }
 
   const url =
-    `https://api.nhtsa.dot.gov/recalls/recallsByVehicle` +
+    `https://api.nhtsa.gov/recalls/recallsByVehicle` +
     `?make=${encodeURIComponent(make)}&model=${encodeURIComponent(model)}&modelYear=${encodeURIComponent(year)}`;
 
   try {
