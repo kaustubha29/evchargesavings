@@ -29,6 +29,10 @@ export function RecallsSection() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [repaired, setRepaired] = useState<Set<string>>(new Set());
+
+  const toggleRepaired = (id: string) =>
+    setRepaired((prev) => { const next = new Set(prev); next.has(id) ? next.delete(id) : next.add(id); return next; });
 
   useEffect(() => {
     if (!brand || !year || !model) { setRecalls([]); return; }
@@ -115,7 +119,7 @@ export function RecallsSection() {
 
         {!loading && !error && recalls.length > 0 && (
           <div className="flex flex-col gap-3 mt-4">
-            {recalls.map((r) => (
+            {recalls.filter((r) => !repaired.has(r.NHTSACampaignNumber)).map((r) => (
               <div key={r.NHTSACampaignNumber} className="border border-rust/20 rounded-2xl overflow-hidden">
                 <button
                   type="button"
@@ -151,18 +155,35 @@ export function RecallsSection() {
                         <p className="text-sm text-ink-2 leading-relaxed">{r.Remedy}</p>
                       </div>
                     )}
-                    <a
-                      href={`https://www.nhtsa.gov/recalls?nhtsaId=${r.NHTSACampaignNumber}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center font-mono text-[11px] text-forest hover:underline mt-1"
-                    >
-                      View on NHTSA.gov →
-                    </a>
+                    <div className="flex items-center justify-between mt-1">
+                      <a
+                        href={`https://www.nhtsa.gov/recalls?nhtsaId=${r.NHTSACampaignNumber}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center font-mono text-[11px] text-forest hover:underline"
+                      >
+                        View on NHTSA.gov →
+                      </a>
+                      <label className="flex items-center gap-1.5 cursor-pointer select-none">
+                        <input
+                          type="checkbox"
+                          checked={repaired.has(r.NHTSACampaignNumber)}
+                          onChange={() => toggleRepaired(r.NHTSACampaignNumber)}
+                          className="w-3.5 h-3.5 accent-forest"
+                        />
+                        <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">Already repaired</span>
+                      </label>
+                    </div>
                   </div>
                 )}
               </div>
             ))}
+            {recalls.every((r) => repaired.has(r.NHTSACampaignNumber)) && (
+              <div className="flex items-center gap-3">
+                <span className="text-good-fg text-sm">✓</span>
+                <span className="text-sm text-ink-mute">All recalls marked as repaired.</span>
+              </div>
+            )}
             <p className="text-xs text-ink-mute/60 mt-1">Source: NHTSA. Check nhtsa.gov for the most current status.</p>
           </div>
         )}
