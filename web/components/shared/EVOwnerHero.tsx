@@ -118,7 +118,7 @@ export function EVOwnerHero() {
       <div className="pointer-events-none absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-forest/[0.09] blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 -left-32 w-[500px] h-[500px] rounded-full bg-forest/[0.05] blur-3xl" />
       <div className="section-wrap relative">
-        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center">
+        <div className="grid lg:grid-cols-[1.1fr_0.95fr] gap-10 items-center">
 
           {/* Left — headline + CTAs */}
           <div>
