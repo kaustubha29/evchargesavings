@@ -95,9 +95,9 @@ export function RecallsSection() {
               <button
                 type="button"
                 onClick={() => setRepaired(new Set(recalls.map((r) => r.NHTSACampaignNumber)))}
-                className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-ink-mute hover:text-forest transition-colors whitespace-nowrap"
+                className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-good-bg text-good-fg hover:brightness-95 transition-all whitespace-nowrap"
               >
-                Mark all repaired
+                <span className="text-[13px] leading-none">✓</span> Mark all repaired
               </button>
             </div>
           </>
@@ -130,19 +130,30 @@ export function RecallsSection() {
           <div className="flex flex-col gap-3 mt-4">
             {recalls.filter((r) => !repaired.has(r.NHTSACampaignNumber)).map((r) => (
               <div key={r.NHTSACampaignNumber} className="border border-rust/20 rounded-2xl overflow-hidden">
-                <button
-                  type="button"
-                  onClick={() => setExpanded(expanded === r.NHTSACampaignNumber ? null : r.NHTSACampaignNumber)}
-                  className="w-full text-left flex items-start justify-between gap-4 px-5 py-4 hover:bg-rust/5 transition-colors"
-                >
-                  <div className="flex-1 min-w-0">
+                <div className="flex items-start gap-3 px-5 py-4">
+                  <button
+                    type="button"
+                    onClick={() => setExpanded(expanded === r.NHTSACampaignNumber ? null : r.NHTSACampaignNumber)}
+                    className="flex-1 min-w-0 text-left hover:bg-rust/5 -mx-1 px-1 rounded-lg transition-colors"
+                  >
                     <div className="font-mono text-[10px] uppercase tracking-widest text-rust mb-1">
                       {r.NHTSACampaignNumber}{parseDate(r.ReportReceivedDate) ? ` · ${parseDate(r.ReportReceivedDate)}` : ""}
                     </div>
-                    <div className="text-sm font-medium text-ink truncate">{r.Component}</div>
+                    <div className="text-sm font-medium text-ink">{r.Component}</div>
+                  </button>
+                  <div className="shrink-0 flex items-center gap-3 pt-0.5">
+                    <label className="flex items-center gap-1.5 cursor-pointer select-none group" onClick={(e) => e.stopPropagation()}>
+                      <input
+                        type="checkbox"
+                        checked={repaired.has(r.NHTSACampaignNumber)}
+                        onChange={() => toggleRepaired(r.NHTSACampaignNumber)}
+                        className="w-3.5 h-3.5 accent-forest"
+                      />
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute group-hover:text-forest transition-colors">Repaired</span>
+                    </label>
+                    <span className="text-ink-mute text-xs">{expanded === r.NHTSACampaignNumber ? "▲" : "▼"}</span>
                   </div>
-                  <span className="shrink-0 text-ink-mute text-xs mt-0.5">{expanded === r.NHTSACampaignNumber ? "▲" : "▼"}</span>
-                </button>
+                </div>
 
                 {expanded === r.NHTSACampaignNumber && (
                   <div className="px-5 pb-5 border-t border-rust/10 pt-4 flex flex-col gap-3">
@@ -164,25 +175,14 @@ export function RecallsSection() {
                         <p className="text-sm text-ink-2 leading-relaxed">{r.Remedy}</p>
                       </div>
                     )}
-                    <div className="flex items-center justify-between mt-1">
-                      <a
-                        href={`https://www.nhtsa.gov/recalls?nhtsaId=${r.NHTSACampaignNumber}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center font-mono text-[11px] text-forest hover:underline"
-                      >
-                        View on NHTSA.gov →
-                      </a>
-                      <label className="flex items-center gap-1.5 cursor-pointer select-none">
-                        <input
-                          type="checkbox"
-                          checked={repaired.has(r.NHTSACampaignNumber)}
-                          onChange={() => toggleRepaired(r.NHTSACampaignNumber)}
-                          className="w-3.5 h-3.5 accent-forest"
-                        />
-                        <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute">Already repaired</span>
-                      </label>
-                    </div>
+                    <a
+                      href={`https://www.nhtsa.gov/recalls?nhtsaId=${r.NHTSACampaignNumber}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center font-mono text-[11px] text-forest hover:underline mt-1"
+                    >
+                      View on NHTSA.gov →
+                    </a>
                   </div>
                 )}
               </div>
