@@ -7,7 +7,7 @@ const YEARS = Array.from({ length: 9 }, (_, i) => 2026 - i);
 
 // Year × model combos — "2023 Kia EV9 Wind RWD" format
 const ALL_OPTIONS = EV_MODELS.flatMap((m) =>
-  YEARS.map((year) => ({
+  YEARS.filter((year) => year >= m.firstYear).map((year) => ({
     brand: m.brand,
     year,
     model: m.name,

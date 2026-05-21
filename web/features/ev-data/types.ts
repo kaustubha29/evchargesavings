@@ -8,6 +8,7 @@ export interface EVModel {
   name: string;
   fullName: string;
   modelYear: number;
+  firstYear: number;
   battery: number;
   efficiency: number;
   range: number;
