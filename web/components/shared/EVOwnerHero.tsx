@@ -60,6 +60,13 @@ export function EVOwnerHero() {
     setLocked(true);
     setActiveIdx(-1);
     inputRef.current?.blur();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).gtag?.("event", "owner_car_selected", {
+      car_brand: opt.brand,
+      car_model: opt.model,
+      car_year: opt.year,
+      car_label: opt.label,
+    });
   };
 
   const clear = () => {
@@ -69,6 +76,8 @@ export function EVOwnerHero() {
     setLocked(false);
     setActiveIdx(-1);
     setTimeout(() => inputRef.current?.focus(), 0);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).gtag?.("event", "owner_car_cleared");
   };
 
   useEffect(() => {
