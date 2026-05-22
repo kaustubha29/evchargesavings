@@ -1074,6 +1074,72 @@ export const NEWS: NewsArticle[] = [
       { label: "2027 Chevy Equinox EV Updates — Electrek", url: "https://electrek.co/2026/05/20/chevy-equinox-ev-gains-few-big-updates-2027/" },
     ],
   },
+  {
+    slug: "jd-power-ev-consideration-gas-prices-2026",
+    title: "Gas Prices Are Pushing More Shoppers Toward EVs — But Price and Charging Still Hold Buyers Back",
+    hook: "25% of US car shoppers are now 'very likely' to consider an EV — the first annual uptick since 2023. Gas prices drove a 3-point surge in April alone. The barriers haven't moved much.",
+    description: "The JD Power 2026 U.S. Electric Vehicle Consideration Study, fielded across 8,154 consumers through April 2026, found EV consideration climbing for the first time in three years — driven by rising fuel costs. Here's what the numbers actually say about where the US market stands.",
+    readTime: "4 min read",
+    publishedAt: "2026-05-22",
+    sections: [
+      {
+        heading: "The headline: first uptick in three years",
+        body: "The JD Power 2026 U.S. Electric Vehicle Consideration Study — now in its sixth year, fielded from January through April 2026 across 8,154 consumers planning to buy or lease a vehicle in the next 12 months — found that 25% of new-vehicle shoppers say they are 'very likely' to consider an EV. That is up 1 percentage point from the 2025 benchmark and the first annual uptick in top-box consideration since 2023. It isn't a surge, but it ends a two-year slide. The 'somewhat likely' bucket adds another 35%, meaning 60% of active car shoppers aren't ruling out an EV — the practical pool of persuadable buyers is considerably larger than the headline 25%.",
+        list: [
+          "25% 'very likely' to consider an EV — up 1 point year over year",
+          "35% 'somewhat likely' — 60% total open to an EV",
+          "First annual uptick in top-box consideration since 2023",
+          "Survey: 8,154 consumers, January–April 2026",
+        ],
+      },
+      {
+        heading: "Gas prices moved the needle in April",
+        body: "The most striking number in the study is the April monthly read: 26% of shoppers said they were 'very likely' to consider an EV — up 3 percentage points from March. JD Power attributes that jump directly to the rise in gas prices during that period. The connection is straightforward: when consumers feel pain at the pump, the fuel cost savings case for EVs becomes more visceral and immediate. This is the same dynamic that drove EV consideration spikes in 2022 when gas prices hit record highs. The difference now is that the $7,500 federal purchase credit is gone — so the argument has to rest on fuel economics alone, which makes accurate state-level savings data more important than ever.",
+        list: [
+          "April 2026: 26% 'very likely' — up 3 points from March",
+          "Driver: rising gas prices making fuel cost savings more tangible",
+          "Federal $7,500 EV purchase credit eliminated October 1, 2025",
+          "Savings case now rests entirely on fuel economics and state incentives",
+        ],
+      },
+      {
+        heading: "The barriers haven't moved much",
+        body: "Charging station availability remains the leading reason shoppers reject EVs, cited by 46% of those not considering a purchase — down 6 points from 2025, which is meaningful progress. Charging time is second at 44% (down 2 points). Purchase price holds at 42%. Among shoppers who are 'very unlikely' to consider an EV, the numbers get starker: 56% say they won't pay any price premium for an EV; 73% would require at least 500 miles of range before even considering one; 43% want charging availability to match gas stations. These are thresholds today's market cannot meet for the hardest-to-convert segment. For the persuadable middle — shoppers who are 'somewhat likely' — the fuel savings math is the clearest lever.",
+        list: [
+          "Charging availability: 46% cite as barrier (down 6 pts from 2025)",
+          "Charging time: 44% (down 2 pts)",
+          "Purchase price: 42% (flat year over year)",
+          "Hard rejectors: 56% won't pay any premium, 73% want 500+ mile range",
+          "Persuadable shoppers: fuel savings is the most movable argument",
+        ],
+      },
+      {
+        heading: "Who is and isn't considering EVs",
+        body: "Generational patterns persist. Gen Z and Gen Y shoppers cite purchase price as a top barrier at 32% and 35% respectively — younger buyers are more price-sensitive, which tracks with where they are in their careers and savings. Older buyers (Gen X and Boomers) weight charging time and availability more heavily, suggesting a comfort-with-infrastructure concern rather than an affordability one. The housing gap is one of the study's sharpest findings: only 18% of apartment residents and 17% of condo or townhouse residents say they are 'very likely' to consider an EV, both down year over year. Without reliable home charging, the operational case for an EV weakens considerably — and multifamily residents can't easily install a Level 2 charger.",
+        list: [
+          "Gen Z: 32% cite price as barrier; Gen Y: 35%",
+          "Older buyers: charging infrastructure concerns outweigh price",
+          "Apartment residents: only 18% 'very likely' — down 4 pts",
+          "Condo/townhouse: 17% 'very likely' — down 1 pt",
+          "Home charging access remains a structural adoption barrier for renters",
+        ],
+      },
+      {
+        heading: "What this means if you're on the fence",
+        body: "The JD Power data makes the case that rising gas prices are the single most effective trigger for moving a skeptical buyer toward an EV — more effective than new model announcements, infrastructure news, or policy changes. If you've been watching gas prices climb and wondering whether the savings math finally works for your situation, the answer depends entirely on your state's electricity rate, your annual mileage, and the specific car you'd replace. National averages are misleading in both directions: a driver in Louisiana paying 13 cents per kWh and a driver in California paying 33 cents are in completely different savings scenarios. The 25% 'very likely' figure is a national average; your personal number is worth calculating.",
+        list: [
+          "Gas price increases are the most effective EV consideration trigger",
+          "Savings math varies sharply by state — national averages mislead",
+          "California (~$0.33/kWh) vs. Louisiana (~$0.13/kWh) = very different break-even",
+          "Run your state-specific numbers to see if the math works for your situation",
+        ],
+      },
+    ],
+    sources: [
+      { label: "JD Power — More New-Vehicle Shoppers Consider EVs as Fuel Costs Rise (BusinessWire, May 14, 2026)", url: "https://www.businesswire.com/news/home/20260514586216/en/More-New-Vehicle-Shoppers-Consider-EVs-as-Fuel-Costs-Rise-JD-Power-Finds" },
+      { label: "JD Power — 2026 U.S. Electric Vehicle Consideration Study", url: "https://www.jdpower.com/business/press-releases/2026-us-electric-vehicle-consideration-evc-study" },
+    ],
+  },
 ];
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {
