@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import React from "react";
 import { SiteNav } from "@/components/shared/SiteNav";
+import { CookieNotice } from "@/components/shared/CookieNotice";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
@@ -99,6 +100,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteNav />
 
         {children}
+        <CookieNotice />
         <Analytics />
         <SpeedInsights/>
       </body>
