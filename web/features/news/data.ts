@@ -22,6 +22,80 @@ export interface NewsArticle {
 
 export const NEWS: NewsArticle[] = [
   {
+    slug: "home-ev-charger-tax-credit-expires-june-2026",
+    title: "The Home EV Charger Tax Credit Expires June 30 — 39 Days to Claim Up to $1,000",
+    hook: "The 30C federal tax credit for home EV charger installation ends June 30, 2026. It covers 30% of hardware and installation — up to $1,000. If you've been putting off installing a Level 2 charger, this is the deadline that actually costs you money to miss.",
+    description: "The One Big Beautiful Bill Act killed the $7,500 EV purchase credit last October. It left one thing standing: the 30C home charger tax credit, valid through June 30, 2026. That's 39 days. Here's exactly who qualifies, what it covers, and how to make sure your installation counts before the clock runs out.",
+    readTime: "5 min read",
+    publishedAt: "2026-05-22",
+    sections: [
+      {
+        heading: "What the 30C credit actually covers",
+        body: "The Section 30C Alternative Fuel Vehicle Refueling Property Credit gives you back 30% of the total cost of purchasing and installing a qualified Level 2 home EV charger — up to a maximum of $1,000 for residential installations. That means on a typical home install — say a $500 charger and $600 installation — you'd get $330 back as a tax credit (not a deduction, a direct reduction in what you owe the IRS). On a higher-end setup with panel work included, the full $1,000 cap is reachable. The credit applies to the charger hardware, the wiring, the outlet installation, any panel upgrade required to support it, and labor — anything on the final invoice from a licensed electrician that's tied to the charger installation.",
+        list: [
+          "30% of total hardware + installation cost, up to $1,000",
+          "Credit, not deduction — reduces your tax bill dollar for dollar",
+          "Covers: charger, wiring, outlet, panel upgrade if required, labor",
+          "Applies to primary and secondary residences",
+          "Must be a Level 2 (240V) charger — Level 1 (standard 120V outlet) does not qualify",
+          "Claim on IRS Form 8911 when you file your 2026 taxes",
+        ],
+      },
+      {
+        heading: "The deadline: June 30, 2026 — and why it's real",
+        body: "The One Big Beautiful Bill Act, signed in late 2025, eliminated the $7,500 new EV purchase credit effective October 1, 2025. It also set an expiration date for the 30C charger credit: June 30, 2026. After that date, the credit goes away entirely unless Congress acts to extend it — and there is currently no extension legislation moving through either chamber. To qualify, your charger must be purchased and installed by June 30. A purchase order placed June 28 with installation scheduled for July doesn't count. The determining date is when the property is placed in service — meaning the charger is installed, functional, and available for use — not when you ordered it or paid the deposit.",
+        list: [
+          "Deadline: June 30, 2026 — no extension currently proposed",
+          "Qualifying date: installation complete and charger placed in service",
+          "Order date and payment date do NOT determine eligibility — install date does",
+          "After June 30: no federal tax credit for residential EV charger installation",
+          "Business installations: separate credit, different deadline — consult a tax professional",
+        ],
+      },
+      {
+        heading: "Who qualifies and who doesn't",
+        body: "The credit is available to individual taxpayers who install a qualified EV charger at their primary or secondary US residence. There is no income cap for the residential 30C credit. You need to owe federal income taxes to benefit — the credit is non-refundable, meaning it can reduce your tax bill to zero but won't generate a refund if the credit exceeds what you owe. If you're in a low-income year (self-employment dip, early retirement, etc.) and expect to owe little in federal taxes, the credit is worth less or nothing. Renters cannot claim the credit — the installation must be on property you own. Condo and co-op owners should verify their HOA rules before starting installation, as approval may be required and a denial could affect timing.",
+        list: [
+          "Eligible: homeowners installing at primary or secondary residence",
+          "No income limit for the residential credit",
+          "Non-refundable: reduces taxes owed, won't create a refund",
+          "Renters: not eligible",
+          "Must owe federal income taxes to benefit — check your expected 2026 tax liability",
+          "Condos/co-ops: verify HOA approval before starting",
+        ],
+      },
+      {
+        heading: "The math: what it's actually worth",
+        body: "A typical Level 2 home charger installation in 2026 runs $800–$1,800 all-in depending on your panel setup and local labor rates. At 30%, that's $240–$540 in credit on a straightforward install. If your panel needs an upgrade to support the charger — common in older homes — total costs can reach $2,000–$3,500, putting you at or near the $1,000 cap. The credit effectively reduces the payback period on your charger investment. The Level 2 charger ROI calculator on this site lets you input your daily miles and install cost to see exactly how long payback takes — the 30C credit cuts that number directly. At 15,000 miles per year in a state with cheap electricity, many home charger installs pay back in under 18 months even without the credit; with it, that compresses further.",
+        list: [
+          "Typical install cost: $800–$1,800 (simple panel setup)",
+          "With panel upgrade: $2,000–$3,500",
+          "30% credit: $240–$1,000 depending on total cost",
+          "Use the Level 2 ROI calculator to see your personal payback timeline with the credit factored in",
+        ],
+      },
+      {
+        heading: "What to do in the next 39 days",
+        body: "Get quotes now — not next month. Licensed electricians are booking 2–4 weeks out in most markets, and EV charger installation demand typically spikes as deadlines approach. Call this week, get the quote in writing, and schedule the install for no later than mid-June to leave buffer for rescheduling if needed. Choose a charger that qualifies: any UL-listed Level 2 (240V) charger works — you don't need a specific brand. Smart chargers with scheduling (Emporia, ChargePoint, JuiceBox) let you charge at off-peak TOU rates and tend to pay back faster. Keep your receipts and the electrician's final invoice — you'll need them for Form 8911 when you file. If you're already planning a panel upgrade for any reason (EV charger, heat pump, induction range), June 30 is the reason to do it now rather than waiting until fall.",
+        list: [
+          "Book an electrician this week — 2–4 week lead times are common",
+          "Install must be complete by June 30, not just ordered",
+          "Keep all receipts: charger purchase, installation labor, materials",
+          "File IRS Form 8911 with your 2026 tax return to claim the credit",
+          "Smart charger + TOU rate = faster payback on top of the credit",
+          "Panel upgrade planned anyway? Do it before June 30 and capture the credit",
+        ],
+      },
+    ],
+    sources: [
+      { label: "Kiplinger — Federal EV Charger Tax Credit: What to Know for 2026", url: "https://www.kiplinger.com/taxes/605201/federal-tax-credit-for-electric-vehicle-chargers" },
+      { label: "Rewiring America — 30C EV Charger Tax Credit Guide for Homeowners", url: "https://homes.rewiringamerica.org/federal-incentives/30c-ev-charger-tax-credit" },
+      { label: "Electrification Coalition — EV and Charging Tax Credits After the One Big Beautiful Bill Act", url: "https://electrificationcoalition.org/resource/ev-and-charging-tax-credits-after-the-one-big-beautiful-bill-act/" },
+      { label: "Solar Reviews — EV Tax Credit 2026: The One Big Beautiful Bill Cutoff Deadline", url: "https://www.solarreviews.com/blog/ev-incentives" },
+      { label: "EV Charge Savings — Level 2 Home Charger ROI Calculator", url: "https://evchargesavings.com/ev-owner" },
+    ],
+  },
+  {
     slug: "oregon-ev-rebates-shrinking-2026",
     title: "Oregon's EV Rebates Just Got Smaller — Here's What You'll Actually Get Now",
     hook: "Standard rebate for plug-in hybrids dropped 40%. Program ran out of money three years straight. Late summer reopening expected. Oregon's cheap electricity still makes EVs a strong bet — but the upfront picture changed.",
