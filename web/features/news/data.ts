@@ -1074,6 +1074,51 @@ export const NEWS: NewsArticle[] = [
       { label: "2027 Chevy Equinox EV Updates — Electrek", url: "https://electrek.co/2026/05/20/chevy-equinox-ev-gains-few-big-updates-2027/" },
     ],
   },
+  {
+    slug: "rivian-r2-orders-open-june-9-2026",
+    title: "Rivian R2 Orders Open June 9 — Full Specs, Pricing, and What It Costs to Charge",
+    hook: "Order invites drop June 9. The R2 starts at $57,990 with 330 miles, 217 kW charging, and NACS — here's the full ownership cost picture.",
+    description: "Rivian confirmed June 9 as the R2's official order and demo launch date. With EPA-rated 330-mile range, 217 kW peak DC charging, a native NACS port, and three trims from $57,990 to $48,490, the R2 is the most affordable Rivian yet — and one of the fastest-charging SUVs at its price point.",
+    readTime: "5 min read",
+    publishedAt: "2026-05-27",
+    sections: [
+      {
+        heading: "What's happening June 9",
+        body: "Rivian officially confirmed May 27 that June 9, 2026 is the R2's launch day. On that date: order invites go out by email (eligibility based on reservation date and proximity to a Rivian Space), public demo drives open for booking at Rivian Spaces nationwide, and first deliveries begin for Launch Package buyers. The R2 has been in production since April 2026 at Rivian's Normal, Illinois plant — production started days after a tornado hit the facility, a detail that says something about the urgency to ship. If you reserved early, expect your invite in the first wave. R1 owners get accelerated delivery priority but do not automatically go first.",
+      },
+      {
+        heading: "Trims, pricing, and the $45K question",
+        body: "Rivian revealed three R2 trims with staggered availability. The R2 Performance launches first at $57,990 — 656 hp, 609 lb-ft of torque, 0-60 in 3.6 seconds, up to 330 miles of EPA range. The R2 Premium AWD follows in late 2026 at $53,990 — 450 hp, 537 lb-ft, 0-60 in 4.6 seconds, also 330 miles. The R2 Standard RWD arrives in early 2027 at $48,490 — 350 hp, 355 lb-ft, 0-60 in 5.9 seconds, with slightly longer range at 345 miles. The $45,000 starting price Rivian announced in 2024 is real — but it applies to a later Standard configuration not yet on sale, expected late 2027. The Launch Package adds a tow package rated at 4,400 lbs, a special key fob, Launch Green paint option, and a lifetime subscription to Rivian's Autonomy+ driver-assistance feature.",
+        list: [
+          "R2 Performance: $57,990 — 656 hp, 330 mi, ships June 2026",
+          "R2 Premium AWD: $53,990 — 450 hp, 330 mi, ships late 2026",
+          "R2 Standard RWD: $48,490 — 350 hp, 345 mi, ships early 2027",
+          "$45,000 base trim: not yet on sale — expected late 2027",
+        ],
+      },
+      {
+        heading: "217 kW charging and NACS — what that means in practice",
+        body: "The R2 peaks at 217 kW DC fast charging with a native NACS port, putting it ahead of most mid-priced EVs in its class. At 217 kW, EPA testing puts the 10–80% charge time at 29 minutes. For context: Tesla Model Y Long Range peaks at 250 kW, Hyundai Ioniq 5 at 220 kW, and the Chevrolet Equinox EV at 150 kW. The native NACS port means direct access to Tesla's V4 Supercharger network (up to 500 kW stations, more than the R2 can accept, but future-proofed). No adapter needed, no separate app — plug in at any of the 17,000+ US Supercharger locations. For road trips on Rivian's own Adventure Network, the R2 uses the same CCS charging infrastructure Rivian has been building for R1 owners.",
+      },
+      {
+        heading: "What home charging actually costs",
+        body: "Most R2 owners will do 95%+ of their charging at home on a Level 2 charger. The R2's 75 kWh battery (estimated usable capacity based on range and efficiency) takes about 7–8 hours to fully charge on a 48A Level 2 charger — typically overnight. At the US average electricity rate of $0.17/kWh, a full charge costs roughly $12.75. Driving 13,500 miles per year (US average) costs approximately $650–$750 annually to fuel at home — compared to $2,200–$2,800 for a comparable midsize gas SUV at $3.50/gallon. Owners in states with time-of-use (TOU) utility rates who charge off-peak can drop that home charging cost further, to $400–$550/year in some states.",
+      },
+      {
+        heading: "R2 vs R1S — is the upgrade worth $20K?",
+        body: "The R1S starts at $75,900 — roughly $18,000 more than the R2 Performance. For that premium you get a larger battery (135 kWh), longer range (410 miles), more towing capacity (7,700 lbs), and a larger interior suited for 7 passengers. The R2 seats 5, tows 4,400 lbs, and carries 75 kWh. For most buyers who don't tow regularly or need 3-row seating, the R2 is the right choice. The charging speed difference is minimal (217 kW vs 220 kW on the R1S). The R2's smaller battery actually means faster fill-to-full times at home because you're moving fewer kWh.",
+      },
+      {
+        heading: "Should you order on June 9?",
+        body: "If you reserved an R2 and want the Launch Package perks (Autonomy+ lifetime subscription alone is worth several hundred dollars/year), ordering early is the right move. The R2 Performance at $57,990 doesn't qualify for the federal EV tax credit — the credit was eliminated in October 2025. However, several states (Colorado, California, New York, New Jersey, Massachusetts) still offer EV purchase incentives up to $5,000–$9,000 that stack on top of the purchase price. Check your state's incentive status before configuring — it can meaningfully change the net cost.",
+      },
+    ],
+    sources: [
+      { label: "Rivian R2 Launch Announcement — Electrek", url: "https://electrek.co/2026/05/27/rivian-r2-officially-launches-june-9-order-invites-first-deliveries-demo-drives/" },
+      { label: "Rivian R2 EPA Specs (217 kW, 330 mi) — Electrek", url: "https://electrek.co/2026/04/06/rivian-r2-epa-numbers-out-217-kw-dc-charge-up-to-335mi-range-heat-pump/" },
+      { label: "Rivian R2 Full Lineup and Pricing — Rivian Newsroom", url: "https://www.businesswire.com/news/home/20260311180295/en/Rivian-Introduces-R2-Lineup-Sharing-Full-Trims-and-Pricing" },
+    ],
+  },
 ];
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {
