@@ -151,8 +151,7 @@ export default function AboutPage() {
               </p>
               <ul className="list-disc pl-5 space-y-1.5 text-sm">
                 <li>Affiliate commissions when readers buy home chargers or accessories through links (Amazon Associates and similar programs)</li>
-                <li>Google AdSense display advertising</li>
-                <li>Referral fees when readers request electrician quotes through the installer network</li>
+                <li>Referral fees when readers request electrician quotes or insurance comparisons through partner networks</li>
               </ul>
               <p className="mt-3">
                 None of these affect calculator results, data sources, or guide content. If the math shows gas

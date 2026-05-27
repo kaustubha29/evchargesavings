@@ -158,6 +158,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/guides`,            lastModified: NOW, changeFrequency: "weekly",  priority: 0.85 },
     { url: `${BASE}/ev-insurance`,      lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/how-we-calculate`,  lastModified: NOW, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/fastest-charging-evs`, lastModified: NOW, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/privacy`,           lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
     { url: `${BASE}/terms`,             lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
     ...newsUrls,

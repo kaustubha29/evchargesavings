@@ -77,16 +77,6 @@ export default function PrivacyPage() {
               </p>
             </section>
 
-            <section>
-              <h2 className="font-serif text-xl font-medium text-ink mb-3">Advertising</h2>
-              <p>
-                This site displays ads via Google AdSense. Google may use cookies or device identifiers to show
-                relevant ads based on your browsing history. You can opt out via{" "}
-                <a href="https://optout.aboutads.info" target="_blank" rel="noopener noreferrer" className="text-forest underline">
-                  aboutads.info
-                </a>{" "}or your browser&apos;s privacy settings.
-              </p>
-            </section>
 
             <section>
               <h2 className="font-serif text-xl font-medium text-ink mb-3">Affiliate links</h2>
@@ -102,7 +92,7 @@ export default function PrivacyPage() {
               <ul className="list-disc pl-5 space-y-1 text-sm">
                 <li><b className="text-ink">Supabase</b> — installer lead data is stored in a Supabase database (US region). Retained for up to 24 months.</li>
                 <li><b className="text-ink">Resend</b> — used to send transactional confirmation emails when you submit the quote form.</li>
-                <li><b className="text-ink">Google AdSense / Analytics</b> — see <a href="https://policies.google.com/privacy" className="text-forest underline" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</li>
+                <li><b className="text-ink">Google Analytics (GA4)</b> — see <a href="https://policies.google.com/privacy" className="text-forest underline" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</li>
                 <li><b className="text-ink">Microsoft Clarity</b> — session recordings and heatmaps. See <a href="https://privacy.microsoft.com/privacystatement" className="text-forest underline" target="_blank" rel="noopener noreferrer">Microsoft Privacy Statement</a>.</li>
                 <li><b className="text-ink">Amazon Associates</b> — see <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=468496" className="text-forest underline" target="_blank" rel="noopener noreferrer">Amazon Privacy Notice</a>.</li>
               </ul>

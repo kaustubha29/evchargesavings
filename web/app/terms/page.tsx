@@ -41,12 +41,12 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-medium text-ink mb-3">3. Affiliate and advertising disclosure</h2>
+              <h2 className="font-serif text-xl font-medium text-ink mb-3">3. Affiliate disclosure</h2>
               <p>
                 This Site participates in affiliate programs including Amazon Associates, Impact, and CJ Affiliate.
                 Product links marked with &ldquo;Amazon →&rdquo; or similar are affiliate links — we may earn a commission
                 if you make a purchase. This never affects the accuracy of our calculator or the editorial integrity
-                of our guides. Advertisements are served by Google AdSense.
+                of our guides.
               </p>
             </section>
 
