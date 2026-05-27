@@ -3,6 +3,7 @@ import { getAllStates } from "@/features/location/queries";
 import { evRepository, gasRepository } from "@/features/ev-data/repository";
 import { GUIDES } from "@/features/guides/data";
 import { NEWS } from "@/features/news/data";
+import { UTILITIES } from "@/features/location/data/utilities";
 
 const BASE = "https://www.evchargesavings.com";
 const NOW = new Date().toISOString();
@@ -159,6 +160,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/ev-insurance`,      lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/how-we-calculate`,  lastModified: NOW, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/fastest-charging-evs`, lastModified: NOW, changeFrequency: "monthly", priority: 0.85 },
+    ...UTILITIES.map((u) => ({
+      url: `${BASE}/utility/${u.slug}`,
+      lastModified: NOW,
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    })),
     { url: `${BASE}/privacy`,           lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
     { url: `${BASE}/terms`,             lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
     ...newsUrls,
