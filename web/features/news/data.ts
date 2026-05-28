@@ -22,6 +22,68 @@ export interface NewsArticle {
 
 export const NEWS: NewsArticle[] = [
   {
+    slug: "byd-self-driving-chip-what-us-ev-owners-should-know",
+    title: "BYD's $1,770 Self-Driving Chip: What US EV Owners Should Know",
+    hook: "China's largest EV maker just launched the world's most advanced automotive chip — and put it in entry-level cars for $1,770. Tesla FSD is $8,000. Here's the honest take for US owners.",
+    description: "BYD unveiled a 4nm autonomous driving chip today, already in mass production and going into entry-level cars for ~$1,770. Here's what the price gap means, why it happened, and the one EV cost US owners can control right now.",
+    readTime: "5 min read",
+    publishedAt: "2026-05-28",
+    sections: [
+      {
+        heading: "BYD built a chip the US said China couldn't",
+        body: "Today BYD — the world's largest EV maker — unveiled the Xuanji A3, China's first 4-nanometer autonomous driving chip. It's already in mass production, supports L3 and L4 self-driving, and BYD is rolling it out on entry-level cars for about $1,770. In the US, Tesla's Full Self-Driving package starts at $8,000. That gap is real, and it deserves an honest look.",
+      },
+      {
+        heading: "How BYD actually pulled this off",
+        body: "This didn't happen overnight. BYD started its chip division in 2002 — before the first iPhone existed. While most automakers outsourced chips to NVIDIA, Qualcomm, and Mobileye, BYD was quietly building fabs. When the 2021 chip shortage paralyzed GM, Ford, and Volkswagen, BYD barely flinched. The numbers behind today's announcement are staggering.",
+        list: [
+          "$14.75 billion spent on semiconductor R&D",
+          "7,000 chip engineers across four dedicated research campuses",
+          "Five wafer fabrication plants — all owned by BYD",
+          "2,000+ chip products covering vehicles and consumer electronics",
+          "Only automaker on earth that designs, fabricates, and tests its own chips end-to-end",
+        ],
+      },
+      {
+        heading: "The price gap that should bother you",
+        body: "BYD's Xuanji A3 delivers 700 TOPS of computing power per chip — 2,100 TOPS in a three-chip cluster — and is being deployed via BYD's DiPilot 300 system at roughly $1,770 USD. That puts self-driving on a $25,000 entry-level car. Compare that to the US market, where autonomous driving features remain a luxury add-on with luxury pricing.",
+        list: [
+          "Tesla Full Self-Driving: $8,000 in the US",
+          "GM Super Cruise (select trims): $2,200+/yr subscription",
+          "BYD DiPilot 300 (L3/L4 capable): ~$1,770 one-time on entry-level models",
+          "That's a 4.5× price gap for roughly comparable autonomous driving capability",
+        ],
+      },
+      {
+        heading: "What this does NOT change for US EV owners right now",
+        body: "BYD doesn't sell cars in the United States. With current tariffs on Chinese EVs sitting above 100%, that's unlikely to change in 2026. So today's chip announcement doesn't affect your driveway, your charging bill, or your car's feature set. What it does signal is medium-term competitive pressure: if trade barriers shift, US automakers will need to price self-driving features far more aggressively. That benefits buyers eventually — but not today.",
+      },
+      {
+        heading: "The one EV cost you can already control",
+        body: "Here's what stays true regardless of what BYD builds: home charging is the single biggest lever in your total EV cost of ownership, and it's entirely in your hands. The average American driving 15,000 miles a year spends about $437 charging at home — versus $1,750–$2,400 in gas at today's prices. On a Time-of-Use rate plan charging overnight, that home charging bill can drop below $250 annually. Chinese EV buyers may be getting self-driving for less. But American EV owners charging at home are already beating gas prices by a margin most people have never calculated for their specific car and state.",
+        list: [
+          "Average home charging cost: ~$437/yr at 16¢/kWh national average",
+          "Off-peak TOU charging: as low as $190–$250/yr in many states",
+          "Equivalent gas cost (28 MPG, $3.50/gal, 15k miles): ~$1,875/yr",
+          "Annual fuel savings: $1,400–$1,600 for most home-charging EV owners",
+        ],
+      },
+      {
+        heading: "The bigger picture",
+        body: "BYD's Xuanji A3 is the latest proof that China's EV industry has moved beyond copying and into genuine technology leadership. Nio has a 5nm chip, Xpeng has the Turing AI chip, Li Auto has the Mach M100 — China's EV makers are racing each other on silicon, not just price. US and European automakers still rely almost entirely on third-party chip suppliers. That's a structural efficiency gap that will take years to close. In the meantime, the difference between what Chinese EV buyers pay for self-driving and what Americans pay is real, measurable, and widening.",
+      },
+      {
+        heading: "What to actually do with this",
+        body: "If you own an EV today, nothing changes at your charger. Focus on what you control: your electricity rate, your charging schedule, and whether you're on a Time-of-Use plan. If you're shopping for an EV, watch how US automakers respond — pricing pressure on autonomy features is coming. And regardless of where the geopolitics land, the math on home charging savings is already working in your favor right now.",
+      },
+    ],
+    sources: [
+      { label: "Bloomberg — BYD Debuts China's Most Advanced Electric Car Chip", url: "https://www.bloomberg.com/news/articles/2026-05-28/byd-debuts-china-s-most-advanced-ev-chip-in-smart-driving-push" },
+      { label: "CnEVPost — BYD unveils 4nm smart driving chip Xuanji A3", url: "https://cnevpost.com/2026/05/28/byd-unveils-4nm-smart-driving-chip-xuanji-a3/" },
+      { label: "CarNewsChina — BYD released Xuanji A3 ADAS chip", url: "https://carnewschina.com/2026/05/28/byd-released-xuanji-a3-adas-chip-as-it-aims-at-accident-free-traffic/" },
+    ],
+  },
+  {
     slug: "oregon-ev-rebates-shrinking-2026",
     title: "Oregon's EV Rebates Just Got Smaller — Here's What You'll Actually Get Now",
     hook: "Standard rebate for plug-in hybrids dropped 40%. Program ran out of money three years straight. Late summer reopening expected. Oregon's cheap electricity still makes EVs a strong bet — but the upfront picture changed.",
