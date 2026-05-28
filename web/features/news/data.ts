@@ -1,7 +1,13 @@
+export interface NewsTable {
+  headers: string[];
+  rows: string[][];
+}
+
 export interface NewsSection {
   heading: string;
   body: string;
   list?: string[];
+  table?: NewsTable;
 }
 
 export interface NewsSource {
@@ -24,14 +30,14 @@ export const NEWS: NewsArticle[] = [
   {
     slug: "byd-self-driving-chip-what-us-ev-owners-should-know",
     title: "BYD's $1,770 Self-Driving Chip: What US EV Owners Should Know",
-    hook: "China's largest EV maker just launched the world's most advanced automotive chip — and put it in entry-level cars for $1,770. Tesla FSD is $8,000. Here's the honest take for US owners.",
-    description: "BYD unveiled a 4nm autonomous driving chip today, already in mass production and going into entry-level cars for ~$1,770. Here's what the price gap means, why it happened, and the one EV cost US owners can control right now.",
+    hook: "China's largest EV maker just launched the world's most advanced automotive chip — and put it in entry-level cars for a one-time $1,770. Tesla FSD is $99/month, forever. Here's the honest take for US owners.",
+    description: "BYD unveiled a 4nm autonomous driving chip today, already in mass production and going into entry-level cars for a one-time ~$1,770. Tesla killed its one-time FSD purchase in February — it's now $99/month. Here's what the gap means and what US owners can actually control.",
     readTime: "5 min read",
     publishedAt: "2026-05-28",
     sections: [
       {
         heading: "BYD built a chip the US said China couldn't",
-        body: "Today BYD — the world's largest EV maker — unveiled the Xuanji A3, China's first 4-nanometer autonomous driving chip. It's already in mass production, supports L3 and L4 self-driving, and BYD is rolling it out on entry-level cars for about $1,770. In the US, Tesla's Full Self-Driving package starts at $8,000. That gap is real, and it deserves an honest look.",
+        body: "Today BYD — the world's largest EV maker — unveiled the Xuanji A3, China's first 4-nanometer autonomous driving chip. It's already in mass production, supports L3 and L4 self-driving, and BYD is rolling it out on entry-level cars for a one-time $1,770. In the US, Tesla ended its one-time FSD purchase option in February 2026 — self-driving is now $99/month with no end date. That gap deserves an honest look.",
       },
       {
         heading: "How BYD actually pulled this off",
@@ -46,13 +52,29 @@ export const NEWS: NewsArticle[] = [
       },
       {
         heading: "The price gap that should bother you",
-        body: "BYD's Xuanji A3 delivers 700 TOPS of computing power per chip — 2,100 TOPS in a three-chip cluster — and is being deployed via BYD's DiPilot 300 system at roughly $1,770 USD. That puts self-driving on a $25,000 entry-level car. Compare that to the US market, where autonomous driving features remain a luxury add-on with luxury pricing.",
+        body: "BYD's Xuanji A3 delivers 700 TOPS of computing power per chip — 2,100 TOPS in a three-chip cluster — and is being deployed via BYD's DiPilot 300 system at roughly $1,770 USD as a one-time cost on entry-level cars. In the US, Tesla ended its one-time FSD purchase option on February 14, 2026. Self-driving is now a $99/month subscription — forever. Do the math and it gets uncomfortable fast.",
         list: [
-          "Tesla Full Self-Driving: $8,000 in the US",
-          "GM Super Cruise (select trims): $2,200+/yr subscription",
+          "Tesla FSD (Supervised): $99/month subscription — no one-time option since Feb 2026",
+          "Tesla FSD over 5 years: $5,940 total",
+          "Rivian Autonomy+: $2,500 one-time or $49.99/month ($2,999 over 5 years)",
           "BYD DiPilot 300 (L3/L4 capable): ~$1,770 one-time on entry-level models",
-          "That's a 4.5× price gap for roughly comparable autonomous driving capability",
+          "BYD is cheaper than Rivian at purchase, and cheaper than Tesla after just 18 months",
         ],
+      },
+      {
+        heading: "Self-driving cost: 5-year comparison",
+        body: "If you bought a new EV today and kept it for 5 years, here's exactly what you'd pay for autonomous driving capability across the three brands.",
+        table: {
+          headers: ["", "BYD DiPilot 300", "Rivian Autonomy+", "Tesla FSD"],
+          rows: [
+            ["Capability", "L3/L4 autonomous", "Hands-free (highway)", "Supervised FSD"],
+            ["Purchase option", "~$1,770 one-time", "$2,500 one-time", "❌ Not available"],
+            ["Monthly option", "N/A", "$49.99/mo", "$99/mo"],
+            ["Year 1 cost", "$1,770", "$600 or $2,500", "$1,188"],
+            ["5-year total", "$1,770", "$2,999 or $2,500", "$5,940"],
+            ["Available in US?", "❌ Not sold here", "✅ Yes", "✅ Yes"],
+          ],
+        },
       },
       {
         heading: "What this does NOT change for US EV owners right now",
@@ -81,6 +103,8 @@ export const NEWS: NewsArticle[] = [
       { label: "Bloomberg — BYD Debuts China's Most Advanced Electric Car Chip", url: "https://www.bloomberg.com/news/articles/2026-05-28/byd-debuts-china-s-most-advanced-ev-chip-in-smart-driving-push" },
       { label: "CnEVPost — BYD unveils 4nm smart driving chip Xuanji A3", url: "https://cnevpost.com/2026/05/28/byd-unveils-4nm-smart-driving-chip-xuanji-a3/" },
       { label: "CarNewsChina — BYD released Xuanji A3 ADAS chip", url: "https://carnewschina.com/2026/05/28/byd-released-xuanji-a3-adas-chip-as-it-aims-at-accident-free-traffic/" },
+      { label: "Yahoo Finance — Rivian Autonomy+ pricing and AI chip", url: "https://finance.yahoo.com/news/rivian-announces-2500-autonomy-self-driving-upgrade-reveals-new-ai-chip-to-keep-pace-with-rivals-183051110.html" },
+      { label: "Tesla Support — FSD Subscription pricing", url: "https://www.tesla.com/support/full-self-driving-subscriptions" },
     ],
   },
   {

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { NEWS, getNewsBySlug } from "@/features/news/data";
+import { NEWS, getNewsBySlug, type NewsTable } from "@/features/news/data";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
 import { ArticleScrollTracker } from "@/components/shared/ArticleScrollTracker";
@@ -29,6 +29,41 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: article.publishedAt,
     },
   };
+}
+
+function ComparisonTable({ table }: { table: NewsTable }) {
+  return (
+    <div className="overflow-x-auto -mx-4 sm:mx-0 mt-4">
+      <table className="w-full text-sm border-collapse min-w-[500px]">
+        <thead>
+          <tr className="bg-ink text-cream">
+            {table.headers.map((h, i) => (
+              <th
+                key={i}
+                className={`px-4 py-3 text-left font-mono text-[10px] uppercase tracking-widest font-medium ${i === 0 ? "rounded-tl-xl" : ""} ${i === table.headers.length - 1 ? "rounded-tr-xl" : ""}`}
+              >
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {table.rows.map((row, ri) => (
+            <tr key={ri} className={ri % 2 === 0 ? "bg-cream-soft" : "bg-paper"}>
+              {row.map((cell, ci) => (
+                <td
+                  key={ci}
+                  className={`px-4 py-3 text-ink-2 border-b border-line ${ci === 0 ? "font-medium text-ink" : ""} ${ri === table.rows.length - 1 && ci === 0 ? "rounded-bl-xl" : ""} ${ri === table.rows.length - 1 && ci === row.length - 1 ? "rounded-br-xl" : ""}`}
+                >
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
 function formatDate(iso: string) {
@@ -139,6 +174,7 @@ export default async function NewsArticlePage({ params }: Props) {
                     ))}
                   </ul>
                 )}
+                {section.table && <ComparisonTable table={section.table} />}
               </section>
             ))}
           </div>
