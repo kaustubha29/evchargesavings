@@ -159,7 +159,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/guides`,            lastModified: NOW, changeFrequency: "weekly",  priority: 0.85 },
     { url: `${BASE}/ev-insurance`,      lastModified: NOW, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/how-we-calculate`,  lastModified: NOW, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/fastest-charging-evs`, lastModified: NOW, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE}/fastest-charging-evs`,          lastModified: NOW, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE}/best-home-ev-charger`,           lastModified: NOW, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE}/ev-charger-installation-cost`,   lastModified: NOW, changeFrequency: "monthly", priority: 0.85 },
+    ...states.map((s) => ({
+      url: `${BASE}/ev-charger-installation-cost/${s.slug}`,
+      lastModified: NOW,
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    })),
     ...UTILITIES.map((u) => ({
       url: `${BASE}/utility/${u.slug}`,
       lastModified: NOW,
