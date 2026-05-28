@@ -27,17 +27,17 @@ export function SiteNav() {
           {" · "}
           <span className="text-cream/30">EIA data</span>
         </span>
-        <nav className="flex gap-4 sm:gap-6 overflow-x-auto whitespace-nowrap" aria-label="Top">
+        <nav className="flex gap-3 sm:gap-6 overflow-x-auto whitespace-nowrap" aria-label="Top">
           {[
-            { href: "/#calculator", label: "Calculator" },
-            { href: "/ev-compare", label: "Compare EVs" },
-            { href: "/ev-owner", label: "Own an EV?" },
-            { href: "/news", label: "News" },
-            { href: "/guides", label: "Guides" },
-            { href: "/about", label: "About" },
+            { href: "/#calculator", label: "Calculator",  short: "Calc"    },
+            { href: "/ev-compare",  label: "Compare EVs", short: "Compare" },
+            { href: "/ev-owner",    label: "Own an EV?",  short: "Owner"   },
+            { href: "/news",        label: "News"                           },
+            { href: "/guides",      label: "Guides"                         },
+            { href: "/about",       label: "About",       hideOnMobile: true },
           ].map((l) => (
-            <a key={l.href} href={l.href} className="text-cream/60 no-underline hover:text-cream transition-colors normal-case">
-              {l.label}
+            <a key={l.href} href={l.href} className={`text-cream/60 no-underline hover:text-cream transition-colors normal-case ${l.hideOnMobile ? "hidden sm:inline" : ""}`}>
+              {l.short ? <><span className="sm:hidden">{l.short}</span><span className="hidden sm:inline">{l.label}</span></> : l.label}
             </a>
           ))}
         </nav>
