@@ -10,7 +10,7 @@ interface Props {
 }
 
 export function generateStaticParams() {
-  return getAllStates().map((s) => ({ state: s.slug }));
+  return getAllStates().filter((s) => s.code !== "US").map((s) => ({ state: s.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function StateInstallCostPage({ params }: Props) {
   const { state: stateSlug } = await params;
   const stateData = getStateBySlug(stateSlug);
-  if (!stateData) notFound();
+  if (!stateData || stateData.code === "US") notFound();
 
   const cost = getInstallCost(stateData.code);
   const netLow = Math.max(0, cost.low - 1000);

@@ -9,6 +9,7 @@ import { CalculatorShell } from "@/components/features/calculator/CalculatorShel
 import { LocationDetector } from "@/components/features/location/LocationDetector";
 import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
 import { fmt } from "@/lib/format";
+import { EVBuyLinks } from "@/components/shared/EVBuyLinks";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -127,7 +128,7 @@ export default async function EVDetailPage({ params }: Props) {
                 { label: "Annual savings vs RAV4", val: fmt.money0(exSavings.annualSavings), accent: true },
                 { label: "5-year savings",          val: fmt.money0(exSavings.fiveYearSavings) },
                 { label: "CO₂ saved / yr",          val: fmt.lbs(exCo2.savedLbs) },
-                ...(breakEven ? [{ label: "Break-even vs RAV4", val: `${breakEven.years}y ${breakEven.months % 12}mo` }] : []),
+                ...(breakEven ? [{ label: "Break-even vs RAV4", val: `${Math.floor(breakEven.years)}y ${breakEven.months % 12}mo` }] : []),
               ].map((s) => (
                 <div
                   key={s.label}
@@ -153,6 +154,8 @@ export default async function EVDetailPage({ params }: Props) {
             <CalculatorShell evSummaries={evSummaries} gasVehicles={gasVehicles} phevVehicles={phevVehicles} defaultEvSlug={ev.slug} />
           </div>
         </section>
+
+        <EVBuyLinks brand={ev.brand} name={ev.name} slug={ev.slug} />
 
         {/* Similar EVs */}
         <section className="bg-paper border-t border-line py-12">
