@@ -181,8 +181,58 @@ export default function EVComparePage() {
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* Popular comparisons — internal links for SEO + AI citation anchors */}
+        <section className="border-t border-line py-12 bg-cream-soft">
+          <div className="section-wrap max-w-4xl">
+            <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">Popular comparisons</div>
+            <h2 className="font-serif text-2xl font-medium text-ink mb-6">Head-to-head matchups</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              {[
+                { label: "Model Y vs Ioniq 5",         href: "/compare-evs/tesla-model-y-long-range-awd-vs-hyundai-ioniq-5-long-range-rwd" },
+                { label: "Model 3 vs Ioniq 6",         href: "/compare-evs/tesla-model-3-long-range-rwd-vs-hyundai-ioniq-6-long-range-rwd" },
+                { label: "Ioniq 5 vs EV6",             href: "/compare-evs/hyundai-ioniq-5-long-range-rwd-vs-kia-ev6-long-range-rwd" },
+                { label: "Model Y vs Mach-E",          href: "/compare-evs/tesla-model-y-long-range-awd-vs-ford-mustang-mach-e-extended-rwd" },
+                { label: "F-150 Lightning vs R1T",     href: "/compare-evs/ford-f-150-lightning-extended-vs-rivian-r1t-dual-motor" },
+                { label: "Equinox EV vs Bolt EV",      href: "/compare-evs/chevrolet-equinox-ev-lt-fwd-vs-chevrolet-bolt-ev" },
+                { label: "Model Y vs ID.4",            href: "/compare-evs/tesla-model-y-long-range-awd-vs-volkswagen-id4-pro-rwd" },
+                { label: "EV9 vs Model X",             href: "/compare-evs/kia-ev9-wind-rwd-vs-tesla-model-x-dual-motor" },
+                { label: "Polestar 2 vs Model 3",      href: "/compare-evs/polestar-2-long-range-single-motor-vs-tesla-model-3-long-range-rwd" },
+              ].map(({ label, href }) => (
+                <a key={href} href={href}
+                  className="flex items-center gap-2 bg-paper border border-line rounded-xl px-3.5 py-2.5 text-sm font-medium text-ink hover:border-forest/40 hover:text-forest transition-colors group"
+                >
+                  <span className="text-ink-mute group-hover:text-forest transition-colors text-xs">⚡</span>
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How we compare — methodology blurb for AI citation */}
         <section className="border-t border-line py-12 bg-paper">
+          <div className="section-wrap max-w-4xl">
+            <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-3">Methodology</div>
+            <h2 className="font-serif text-2xl font-medium text-ink mb-4">How this EV comparison tool works</h2>
+            <div className="prose prose-sm max-w-none text-ink-3 space-y-3 text-sm leading-relaxed">
+              <p>
+                Annual charging cost is calculated from EPA-rated efficiency (mi/kWh), your annual miles, and the split between home and public charging. Home charging uses EIA state-level residential electricity rates updated quarterly. Public charging applies a 2.5× multiplier over the home rate — consistent with typical DC fast-charge session pricing.
+              </p>
+              <p>
+                5-year total cost of ownership (TCO) adds the starting MSRP to 5 years of estimated charging cost. It does not include depreciation, insurance, maintenance, or registration fees — those vary widely by owner and state. The federal §30D EV tax credit expired October 1, 2025, and is not included in any calculation on this tool.
+              </p>
+              <p>
+                0–60 mph times are EPA-rated or manufacturer-claimed figures. DC fast-charge speeds are manufacturer peak ratings; real-world speeds vary by battery state, temperature, and charger availability. 10–80% charge time estimates use: <em>(battery kWh × 0.70) / peak kW × 60</em>.
+              </p>
+              <p>
+                Our Pick selects the EV with the lower 5-year TCO. When the difference is under $500, we flag it as too close to call and suggest comparing range and road-trip capability instead.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="border-t border-line py-12 bg-cream-soft">
           <div className="section-wrap max-w-4xl">
             <h2 className="font-serif text-2xl font-medium text-ink mb-6">Common questions</h2>
             <div className="space-y-6">

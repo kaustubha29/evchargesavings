@@ -16,6 +16,12 @@ const PUBLIC_MULTIPLIER = 2.5;
 const LOC_KEY = "ecs-loc-v1";
 const LOC_TTL = 30 * 86400 * 1000;
 
+function gtagEvent(name: string, params: Record<string, string | number>) {
+  if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+    (window as any).gtag("event", name, params);
+  }
+}
+
 const SEG_GRAD: Record<string, [string, string]> = {
   suv:       ["#14532d", "#052e16"],
   sedan:     ["#1e3a5f", "#0c1f3d"],
@@ -49,6 +55,48 @@ function makePickNote(pick: EVModel, other: EVModel, tcoDiff: number, annualDiff
   return `${fmt.money0(tcoDiff)} less over 5 years when you factor in purchase price and charging cost.`;
 }
 
+function SegmentSilhouette({ segment }: { segment: string }) {
+  const cls = "absolute bottom-0 right-0 h-full w-auto opacity-[0.11] select-none pointer-events-none";
+  switch (segment) {
+    case "suv": return (
+      <svg className={cls} viewBox="0 0 120 56" fill="white">
+        <path d="M 4,46 C 4,38 8,34 14,32 L 20,26 L 26,10 L 70,8 L 88,8 L 96,12 L 102,24 C 108,32 112,38 116,46 L 103,46 Q 101,37 94,37 Q 87,37 85,46 L 35,46 Q 33,37 26,37 Q 19,37 17,46 Z"/>
+        <circle cx="26" cy="46" r="9"/><circle cx="94" cy="46" r="9"/>
+      </svg>
+    );
+    case "truck": return (
+      <svg className={cls} viewBox="0 0 126 56" fill="white">
+        <path d="M 4,46 C 4,38 8,34 14,32 L 20,26 L 26,10 L 58,8 L 70,10 L 74,18 L 74,30 L 118,30 L 120,36 L 122,46 L 109,46 Q 107,37 100,37 Q 93,37 91,46 L 35,46 Q 33,37 26,37 Q 19,37 17,46 Z"/>
+        <circle cx="26" cy="46" r="9"/><circle cx="100" cy="46" r="9"/>
+      </svg>
+    );
+    case "van": return (
+      <svg className={cls} viewBox="0 0 120 56" fill="white">
+        <path d="M 6,46 C 6,40 8,36 12,34 L 14,24 L 18,10 L 22,8 L 92,8 L 100,12 L 106,26 C 108,34 112,40 114,46 L 105,46 Q 103,37 96,37 Q 89,37 87,46 L 35,46 Q 33,37 26,37 Q 19,37 17,46 Z"/>
+        <circle cx="26" cy="46" r="9"/><circle cx="96" cy="46" r="9"/>
+      </svg>
+    );
+    case "sports": return (
+      <svg className={cls} viewBox="0 0 120 56" fill="white">
+        <path d="M 4,46 C 4,44 6,42 10,40 L 28,34 L 38,16 L 68,12 L 88,22 L 104,38 C 108,40 112,43 114,46 L 101,46 Q 99,37 92,37 Q 85,37 83,46 L 39,46 Q 37,37 30,37 Q 23,37 21,46 Z"/>
+        <circle cx="30" cy="46" r="9"/><circle cx="92" cy="46" r="9"/>
+      </svg>
+    );
+    case "crossover": return (
+      <svg className={cls} viewBox="0 0 120 56" fill="white">
+        <path d="M 4,46 C 4,40 8,36 12,34 L 22,28 L 28,12 L 68,10 L 88,12 L 98,22 L 110,34 C 113,38 114,42 116,46 L 101,46 Q 99,37 92,37 Q 85,37 83,46 L 37,46 Q 35,37 28,37 Q 21,37 19,46 Z"/>
+        <circle cx="28" cy="46" r="9"/><circle cx="92" cy="46" r="9"/>
+      </svg>
+    );
+    default: return (
+      <svg className={cls} viewBox="0 0 120 56" fill="white">
+        <path d="M 4,46 C 4,40 8,36 12,34 L 24,28 L 32,12 L 70,10 L 84,14 L 96,22 L 108,32 C 112,36 114,42 116,46 L 101,46 Q 99,37 92,37 Q 85,37 83,46 L 37,46 Q 35,37 28,37 Q 21,37 19,46 Z"/>
+        <circle cx="28" cy="46" r="9"/><circle cx="92" cy="46" r="9"/>
+      </svg>
+    );
+  }
+}
+
 function CardHeader({ ev }: { ev: EVModel }) {
   const [from, to] = SEG_GRAD[ev.segment] ?? SEG_GRAD.sedan;
   return (
@@ -56,9 +104,7 @@ function CardHeader({ ev }: { ev: EVModel }) {
       className="h-20 rounded-t-2xl flex items-end justify-between px-5 pb-4 relative overflow-hidden"
       style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
     >
-      <div className="absolute right-4 top-2 font-serif text-6xl font-bold text-white/[0.07] select-none leading-none">
-        {ev.brand[0]}
-      </div>
+      <SegmentSilhouette segment={ev.segment} />
       <div className="relative">
         <div className="font-mono text-[9px] uppercase tracking-widest text-white/40">{ev.modelYear} · {segmentLabel(ev.segment)}</div>
         <div className="font-serif text-base font-medium text-white leading-tight">{ev.brand}</div>
@@ -211,6 +257,20 @@ export function EVComparatorTool({ evSummaries, allEvs, states, nationalAvg, def
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ourPick?.slug]);
 
+  // GA4: fire when a valid comparison is rendered
+  useEffect(() => {
+    if (!ev1 || !ev2 || ev1Cost === null || ev2Cost === null) return;
+    gtagEvent("comparator_result_viewed", {
+      ev1: ev1.slug,
+      ev2: ev2.slug,
+      state: stateCode,
+      winner: ourPick?.slug ?? "",
+      tco_diff: Math.round(tcoDiff),
+      annual_diff: Math.round(annualDiff),
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ev1Slug, ev2Slug, stateCode]);
+
   const evOptions = useMemo<ComboOption[]>(
     () => evSummaries.map((e) => ({ value: e.slug, label: e.fullName, group: e.brand })),
     [evSummaries]
@@ -221,6 +281,7 @@ export function EVComparatorTool({ evSummaries, allEvs, states, nationalAvg, def
     navigator.clipboard.writeText(`${window.location.origin}/ev-compare?${p.toString()}`).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+    gtagEvent("comparator_share_clicked", { ev1: ev1Slug, ev2: ev2Slug, state: stateCode });
   }, [ev1Slug, ev2Slug, stateCode, miles, homePct]);
 
   const tableRows = hasResults && ev1 && ev2 && ev1Cost !== null && ev2Cost !== null ? [
@@ -246,14 +307,14 @@ export function EVComparatorTool({ evSummaries, allEvs, states, nationalAvg, def
         <div className="relative grid sm:grid-cols-[1fr_auto_1fr] gap-3 items-end mb-5">
           <div>
             <label className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-2 block">First EV</label>
-            <VehicleCombobox options={evOptions} value={ev1Slug} onChange={setEv1Slug} placeholder="Search EVs…" id="ev1" />
+            <VehicleCombobox options={evOptions} value={ev1Slug} onChange={(v) => { setEv1Slug(v); const e = allEvs.find(x => x.slug === v); gtagEvent("comparator_ev1_selected", { ev: v, brand: e?.brand ?? "", segment: e?.segment ?? "" }); }} placeholder="Search EVs…" id="ev1" />
           </div>
           <div className="flex items-center justify-center pb-1">
             <div className="w-9 h-9 rounded-full bg-ink text-cream font-serif text-sm font-medium flex items-center justify-center flex-shrink-0 shadow-sm">vs</div>
           </div>
           <div>
             <label className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-2 block">Second EV</label>
-            <VehicleCombobox options={evOptions} value={ev2Slug} onChange={setEv2Slug} placeholder="Search EVs…" id="ev2" />
+            <VehicleCombobox options={evOptions} value={ev2Slug} onChange={(v) => { setEv2Slug(v); const e = allEvs.find(x => x.slug === v); gtagEvent("comparator_ev2_selected", { ev: v, brand: e?.brand ?? "", segment: e?.segment ?? "" }); }} placeholder="Search EVs…" id="ev2" />
           </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -261,7 +322,7 @@ export function EVComparatorTool({ evSummaries, allEvs, states, nationalAvg, def
             <label className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1.5 block">State</label>
             <select
               value={stateCode}
-              onChange={(e) => setStateCode(e.target.value)}
+              onChange={(e) => { setStateCode(e.target.value); gtagEvent("comparator_state_changed", { state: e.target.value }); }}
               className="w-full border border-line rounded-lg px-2.5 py-1.5 font-mono text-xs bg-paper focus:outline-none focus:ring-1 focus:ring-forest"
             >
               <option value="US">National avg ({nationalAvg.kwhCents}¢/kWh)</option>
