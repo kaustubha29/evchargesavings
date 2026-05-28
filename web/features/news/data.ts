@@ -15,6 +15,11 @@ export interface NewsSource {
   url: string;
 }
 
+export interface NewsFAQ {
+  q: string;
+  a: string;
+}
+
 export interface NewsArticle {
   slug: string;
   title: string;
@@ -24,6 +29,7 @@ export interface NewsArticle {
   publishedAt: string;
   sections: NewsSection[];
   sources?: NewsSource[];
+  faqs?: NewsFAQ[];
 }
 
 export const NEWS: NewsArticle[] = [
@@ -105,6 +111,36 @@ export const NEWS: NewsArticle[] = [
       { label: "CarNewsChina — BYD released Xuanji A3 ADAS chip", url: "https://carnewschina.com/2026/05/28/byd-released-xuanji-a3-adas-chip-as-it-aims-at-accident-free-traffic/" },
       { label: "Yahoo Finance — Rivian Autonomy+ pricing and AI chip", url: "https://finance.yahoo.com/news/rivian-announces-2500-autonomy-self-driving-upgrade-reveals-new-ai-chip-to-keep-pace-with-rivals-183051110.html" },
       { label: "Tesla Support — FSD Subscription pricing", url: "https://www.tesla.com/support/full-self-driving-subscriptions" },
+    ],
+    faqs: [
+      {
+        q: "How much does BYD's self-driving system cost?",
+        a: "BYD's DiPilot 300 autonomous driving system, powered by the Xuanji A3 chip, costs approximately ¥12,000 — about $1,770 USD — as a one-time purchase on entry-level BYD models. It supports L3 and L4 autonomous driving capability.",
+      },
+      {
+        q: "How much does Tesla FSD cost in 2026?",
+        a: "Tesla ended its one-time FSD purchase option on February 14, 2026. Full Self-Driving (Supervised) is now only available as a $99/month subscription. Over 5 years that totals $5,940 — more than three times the cost of BYD's equivalent system.",
+      },
+      {
+        q: "How much does Rivian Autonomy+ cost?",
+        a: "Rivian Autonomy+ is available for a one-time purchase of $2,500 or a $49.99/month subscription. It includes Universal Hands-Free driving on 3.5 million miles of US and Canadian roads. All new R1S and R1T deliveries include a 60-day free trial.",
+      },
+      {
+        q: "Can you buy a BYD EV in the United States?",
+        a: "No. BYD does not currently sell passenger vehicles in the United States. Tariffs on Chinese EVs exceed 100%, making a US market entry unlikely in the near term. The BYD pricing and chip comparisons in this article are for context on global competitive pricing trends.",
+      },
+      {
+        q: "What is the BYD Xuanji A3 chip?",
+        a: "The Xuanji A3 is BYD's in-house 4-nanometer autonomous driving chip, unveiled May 28, 2026. It delivers 700 TOPS of computing power per chip (2,100 TOPS in a three-chip cluster), supports L3 and L4 self-driving, and is China's first mass-produced automotive chip at the 4nm process node. BYD is the only automaker in the world with full chip supply chain ownership — from design through fabrication and testing.",
+      },
+      {
+        q: "Is BYD's self-driving chip better than Tesla's?",
+        a: "BYD's Xuanji A3 is competitive on specs — 700 TOPS per chip vs Tesla's HW4 at roughly 350 TOPS — but the real story is cost and supply chain independence. BYD manufactures its own chips end-to-end, while Tesla sources hardware externally. Capability comparisons are difficult since BYD vehicles aren't available in the US for direct testing.",
+      },
+      {
+        q: "What is the cheapest self-driving car system you can buy in the US?",
+        a: "Among major brands available in the US, Rivian Autonomy+ is currently the most affordable at $2,500 one-time or $49.99/month. Tesla FSD is $99/month with no purchase option. GM Super Cruise is included on select trims or available as a paid subscription. None match BYD's $1,770 one-time price, which is not currently sold in the US.",
+      },
     ],
   },
   {

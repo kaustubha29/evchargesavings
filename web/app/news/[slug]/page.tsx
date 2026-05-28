@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { NEWS, getNewsBySlug, type NewsTable } from "@/features/news/data";
+import { NEWS, getNewsBySlug, type NewsTable, type NewsFAQ } from "@/features/news/data";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
 import { ArticleScrollTracker } from "@/components/shared/ArticleScrollTracker";
@@ -110,6 +110,16 @@ export default async function NewsArticlePage({ params }: Props) {
     ],
   };
 
+  const faqLd = article.faqs && article.faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: article.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  } : null;
+
   return (
     <>
       <script
@@ -120,6 +130,12 @@ export default async function NewsArticlePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
       <ArticleScrollTracker slug={slug} />
       <StickySavingsBar />
       <main className="bg-paper min-h-screen">
@@ -214,6 +230,29 @@ export default async function NewsArticlePage({ params }: Props) {
               Open calculator →
             </a>
           </div>
+
+          {/* FAQ Section */}
+          {article.faqs && article.faqs.length > 0 && (
+            <div className="mb-12">
+              <div className="font-mono text-[11px] uppercase tracking-widest text-ink-mute mb-5">Frequently asked questions</div>
+              <div className="space-y-0 border border-line rounded-2xl overflow-hidden">
+                {article.faqs.map((faq, i) => (
+                  <details
+                    key={i}
+                    className="group border-b border-line last:border-b-0"
+                  >
+                    <summary className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-cream-soft transition-colors">
+                      <span className="font-serif text-base font-medium text-ink leading-snug">{faq.q}</span>
+                      <span className="text-ink-mute group-open:rotate-45 transition-transform duration-200 flex-shrink-0 text-xl leading-none">+</span>
+                    </summary>
+                    <div className="px-5 pb-5 pt-1 text-sm text-ink-2 leading-relaxed border-t border-line/50">
+                      {faq.a}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Related news */}
           {others.length > 0 && (
