@@ -30,6 +30,7 @@ export function SiteNav() {
         <nav className="flex gap-4 sm:gap-6 overflow-x-auto whitespace-nowrap" aria-label="Top">
           {[
             { href: "/#calculator", label: "Calculator" },
+            { href: "/ev-compare", label: "Compare EVs" },
             { href: "/ev-owner", label: "Own an EV?" },
             { href: "/news", label: "News" },
             { href: "/guides", label: "Guides" },
