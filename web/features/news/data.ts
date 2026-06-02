@@ -34,6 +34,120 @@ export interface NewsArticle {
 
 export const NEWS: NewsArticle[] = [
   {
+    slug: "byd-gods-eye-crash-liability-no-cap",
+    title: "BYD Will Pay for Crashes When Its Self-Driving Is Active. Tesla Never Has.",
+    hook: "BYD just became the first automaker to accept full financial liability — no cap — for at-fault accidents under its God's Eye urban driving system. In the US, Tesla FSD drivers are still personally liable for every accident.",
+    description: "Announced June 1, BYD will cover all at-fault accident costs when God's Eye urban driving is active — repairs, third-party property damage, personal injury, unlimited payout. Tesla has never made this commitment for FSD. Here's what it means for the liability landscape and what US EV owners should know.",
+    readTime: "5 min read",
+    publishedAt: "2026-06-02",
+    sections: [
+      {
+        heading: "What BYD committed to",
+        body: "On June 1, 2026, BYD announced it will assume full financial liability for at-fault accidents that occur while its God's Eye urban driving system is active. The coverage is broad: repairs to the owner's vehicle, third-party property damage, and personal injury compensation — with no cap on the payout. The commitment was made at BYD's vehicle intelligence strategy event, where the company also unveiled the Xuanji A3 chip we covered last week. BYD framed this not as an insurance product but as a direct corporate commitment: if God's Eye causes a crash, BYD pays.",
+      },
+      {
+        heading: "The Tesla contrast",
+        body: "Tesla's Full Self-Driving — $99/month in the US — comes with no such commitment. When a Tesla on FSD is involved in an at-fault accident, the driver is legally responsible in every US state. Your insurance pays, your rates go up, and your driving record reflects it. Tesla's own insurance product (available in a handful of states) prices risk based on your FSD engagement data, but even Tesla doesn't accept liability for accidents that occur while FSD is active. NHTSA has documented over 1,500 FSD-related crashes under its Special Crash Investigation program. None resulted in Tesla accepting financial liability. BYD's announcement is the first time any automaker has voluntarily flipped that model.",
+      },
+      {
+        heading: "The fine print",
+        body: "BYD's commitment is not unconditional. Coverage applies only in China — where God's Eye is sold and deployed — and only for one year from purchase. It applies to 'compliant' use of the urban navigation function: drivers using the system correctly under applicable regulations. A driver who enabled God's Eye in violation of traffic law, or who contributed negligence beyond the system's failure, may not be covered. BYD also reserves the right to review each case. This is a deliberate commitment to absorb the first year of liability risk as a demonstration of confidence in the technology — not a blank check.",
+      },
+      {
+        heading: "Cost comparison: God's Eye vs Tesla FSD",
+        body: "The liability announcement lands alongside a significant price gap. BYD's God's Eye B system — the LiDAR-equipped tier covering L3 and L4 urban navigation — is a one-time ¥12,000 option, approximately $1,770. Tesla's equivalent system in China is ¥64,000, roughly $9,400 as a one-time purchase. In the US, Tesla eliminated the one-time FSD purchase option in February 2026 — it is now $99/month indefinitely. BYD is cheaper, accepts liability, and the coverage is bundled into the cost of the system.",
+        list: [
+          "BYD God's Eye B (China): ~$1,770 one-time — full liability coverage included",
+          "Tesla FSD (China): ~$9,400 one-time — no liability coverage",
+          "Tesla FSD (US): $99/month subscription — no liability coverage, no one-time option",
+          "Rivian Autonomy+: $2,500 one-time or $49.99/month — no liability coverage",
+        ],
+      },
+      {
+        heading: "What this changes for US EV owners",
+        body: "The direct answer is: nothing today. BYD doesn't sell vehicles in the United States, and God's Eye is unavailable to US buyers at any price. US drivers on Tesla FSD, GM Super Cruise, or any other Level 2 ADAS remain legally and financially responsible for their vehicles' actions. What changes is the competitive reference point. BYD has demonstrated that an automaker can accept liability for ADAS accidents at commercial scale. That changes the conversation about what responsible self-driving deployment looks like — and raises the question of why US automakers selling far more expensive systems haven't made the same commitment.",
+      },
+      {
+        heading: "The liability gap is the next battleground",
+        body: "Every consumer who buys Tesla FSD today is taking on risk that BYD has agreed to absorb for its customers. That asymmetry won't go unnoticed by US buyers and regulators for long. Insurance analysts note that Level 2 systems are increasingly sophisticated enough that the liability model — driver bears all risk — is becoming harder to justify ethically and commercially. When Level 3 systems arrive in US consumer vehicles (Mercedes DRIVE PILOT has limited Level 3 approval in Nevada and California), the liability structure will have to change. BYD's announcement accelerates that pressure. The gap between what the technology does and what the manufacturer accepts responsibility for is narrowing — just not yet in the US.",
+      },
+    ],
+    sources: [
+      { label: "Electrek — BYD will pay for crashes on its FSD competitor, something Tesla never has (June 1, 2026)", url: "https://electrek.co/2026/06/01/byd-gods-eye-accepts-liability-tesla-never-has/" },
+      { label: "CleanTechnica — BYD Takes On Crash Liability When Its Driver-Assist System Is Active!", url: "https://cleantechnica.com/2026/06/01/byd-takes-on-crash-liability-when-its-driver-assist-system-is-active/" },
+      { label: "Engadget — BYD is assuming financial liability if you crash while using its self-driving tech", url: "https://www.engadget.com/2185023/byd-is-assuming-financial-liability-if-you-crash-while-using-its-self-driving-tech/" },
+      { label: "Tesla Support — FSD Subscription pricing", url: "https://www.tesla.com/support/full-self-driving-subscriptions" },
+      { label: "EV Charge Savings — BYD's $1,770 Self-Driving Chip: What US EV Owners Should Know", url: "https://evchargesavings.com/news/byd-self-driving-chip-what-us-ev-owners-should-know" },
+    ],
+    faqs: [
+      {
+        q: "Does BYD's crash liability coverage apply in the United States?",
+        a: "No. BYD's full financial liability commitment applies only in China, where God's Eye vehicles are sold. BYD does not currently sell passenger vehicles in the United States, so this coverage is unavailable to US buyers.",
+      },
+      {
+        q: "Who is liable when a Tesla on Full Self-Driving gets into an accident?",
+        a: "The driver. Every US state treats the human behind the wheel as the legally responsible party for Level 2 ADAS systems like Tesla FSD. Your insurance covers an at-fault accident, your rates go up, and your record reflects the incident. Tesla has never accepted liability for accidents that occur while FSD is active.",
+      },
+      {
+        q: "How much does BYD's God's Eye self-driving system cost?",
+        a: "BYD's God's Eye B system — the LiDAR-equipped tier supporting L3/L4 urban navigation — costs approximately ¥12,000, or roughly $1,770 USD, as a one-time purchase in China. The liability coverage is bundled into this purchase price.",
+      },
+      {
+        q: "How does BYD God's Eye compare to Tesla FSD in price?",
+        a: "BYD's God's Eye B is approximately $1,770 one-time in China, with liability coverage. Tesla's equivalent system in China costs roughly $9,400 one-time, with no liability coverage. In the US, Tesla FSD is $99/month subscription only since February 2026 — also with no liability coverage.",
+      },
+    ],
+  },
+  {
+    slug: "highway-bill-nevi-ev-charging-cuts-2026",
+    title: "The New Highway Bill Would End the National EV Charging Program — What That Means for Drivers",
+    hook: "The BUILD America 250 Act doesn't reauthorize NEVI — the $5 billion program that funded highway charging in all 50 states. Private networks cover profitable corridors. Rural America and low-income communities have no backup plan.",
+    description: "The House Transportation Committee's BUILD America 250 Act would let NEVI expire without reauthorization, substantially cut the Charging and Fueling Infrastructure Grant Program, and repeal the Carbon Reduction Program. Here's the practical impact on public charging access, which states are most exposed, and what EV owners on road trips need to understand.",
+    readTime: "5 min read",
+    publishedAt: "2026-06-02",
+    sections: [
+      {
+        heading: "What NEVI actually built",
+        body: "NEVI — the National Electric Vehicle Infrastructure program — was created by the Infrastructure Investment and Jobs Act in 2021, with $5 billion in funding over FY 2022–2026. Its mandate was specific: build DC fast-charging stations along designated Alternative Fuel Corridors — the Interstate highway system and major US routes — with stations no more than 50 miles apart and no more than 1 mile from the highway exit. Every state plus DC and Puerto Rico received NEVI allocations. By early 2026, all 50 states had approved plans and hundreds of stations were open or under construction along corridors where private investment had historically been absent. The program's logic: private networks build where the economics are favorable. NEVI built everywhere else.",
+      },
+      {
+        heading: "What the highway bill proposes",
+        body: "The BUILD America 250 Act, released by the House Transportation and Infrastructure Committee in May 2026, does not reauthorize NEVI when the current authorization expires September 30, 2026. The bill also substantially cuts the Charging and Fueling Infrastructure Grant Program — discretionary grants that fund community-level charging in cities and rural areas — and eliminates the DOT's Carbon Reduction Program, which has funded charging infrastructure and transit electrification. The bill is also the vehicle for the $130 annual EV fee we covered last month, but the infrastructure cuts are the less-reported and arguably larger story for everyday drivers who depend on public charging for long-distance travel.",
+        list: [
+          "NEVI ($5B over 5 years): not reauthorized — would expire Sept 30, 2026",
+          "Charging and Fueling Infrastructure Grant Program (CFI): substantially cut",
+          "DOT Carbon Reduction Program: repealed",
+          "Reduction of Truck Emissions at Port Facilities: eliminated",
+          "$130 annual EV fee: included in same bill (covered in our separate article)",
+        ],
+      },
+      {
+        heading: "What private investment doesn't cover",
+        body: "Tesla, Electrify America, EVgo, and ChargePoint invest based on return on investment — they build where enough EVs drive often enough to pay for the hardware. That model works well in metro areas and on high-traffic interstate corridors between major cities. It does not work in rural Wyoming, the Mississippi Delta, or anywhere daily EV traffic doesn't support a profitable station. NEVI's mandate was deliberately geography-first, not profit-first. Stations in Idaho, Montana, rural Texas, and Appalachian corridors exist today because of NEVI funding, not because the market demanded them. Without a replacement program, those corridors freeze at whatever state they're in when the authorization expires — and future rural gaps won't get filled.",
+      },
+      {
+        heading: "Which states are most exposed",
+        body: "States with large highway distances between cities and limited private charging infrastructure are most at risk. Montana, Wyoming, Idaho, the Dakotas, rural Maine, and rural Texas built much of their corridor charging on NEVI funds because private networks had no economic case to build there. States with strong independent EV programs — California, Colorado, New York, Washington — have state-level funding and are less dependent on federal reauthorization. States with limited budgets and large highway systems are most vulnerable. If the bill passes without NEVI reauthorization, reliable long-distance EV travel will contract around the edges of the private network's footprint.",
+      },
+      {
+        heading: "What it means for road trips right now",
+        body: "Nothing changes immediately. NEVI-funded stations already open remain operational — they're not going anywhere. The impact is future buildout: corridors in planning or permitting stages may not get completed, and rural stations that need replacement or expansion won't be funded. The US DC fast-charging network hit 72,514 ports in May 2026 with 30% year-over-year growth — that growth trajectory slows significantly without continued federal infrastructure investment. For drivers who primarily charge at home and only use public fast charging on road trips, near-term risk is minimal. The longer-term risk is that rural charging gaps stay gaps instead of getting filled.",
+      },
+      {
+        heading: "What happens next",
+        body: "The BUILD America 250 Act must pass the full House, be reconciled with a Senate version, and be signed before or around the September 30, 2026 expiration deadline — Congress typically extends the authorization with a short-term patch if the full bill isn't ready. Opposition from EV advocates, state transportation departments, and Democratic senators is already organized. The NEVI reauthorization question is a politically negotiable item in the larger bill — it may be restored in House floor debate, Senate amendments, or conference. The $130 EV fee has gotten more press, but the NEVI reauthorization decision has larger long-term consequences for charging access in every state that doesn't have California's budget.",
+      },
+    ],
+    sources: [
+      { label: "EV Inside — America Is Killing Its Own EV Future: The New Highway Bill Explained (May 28, 2026)", url: "https://www.evinside.com/2026/05/28/us-highway-bill-ev-charging-infrastructure-cut-2026/" },
+      { label: "Electrification Coalition — House Committee Moves to Cut EV Charging Infrastructure Funding", url: "https://electrificationcoalition.org/house-committee-moves-to-cut-ev-charging-infrastructure-funding-and-increase-taxes-in-the-highway-bill/" },
+      { label: "Inside Climate News — EV Charging Program Faces the Axe in Budget Bill (Feb 2026)", url: "https://insideclimatenews.org/news/02022026/national-electric-vehicle-infrastructure-charging-funding/" },
+      { label: "AFDC — National Electric Vehicle Infrastructure (NEVI) Formula Program", url: "https://afdc.energy.gov/laws/12744" },
+      { label: "EV Charge Savings — The House Wants EV Owners to Pay a $130 Federal Fee", url: "https://evchargesavings.com/news/house-130-federal-ev-fee-proposal-2026" },
+      { label: "EV Charge Savings — America's DC Fast-Charging Network Hits 72,514 Ports", url: "https://evchargesavings.com/news/us-dc-fast-charging-72000-ports-may-2026" },
+    ],
+  },
+  {
     slug: "byd-self-driving-chip-what-us-ev-owners-should-know",
     title: "BYD's $1,770 Self-Driving Chip: What US EV Owners Should Know",
     hook: "China's largest EV maker just launched the world's most advanced automotive chip — and put it in entry-level cars for a one-time $1,770. Tesla FSD is $99/month, forever. Here's the honest take for US owners.",
