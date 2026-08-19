@@ -42,7 +42,7 @@ const faqJsonLd = {
       name: "How much does it cost to install a Level 2 EV charger at home?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A standard Level 2 charger installation costs $800–$2,500 in most parts of the US, including labor, wiring, and permits. If your electrical panel needs an upgrade to support a 240V circuit, add $1,500–$3,500 to that. The federal §30C tax credit covers 30% of charger + installation costs (up to $1,000) for eligible addresses — it expires June 30, 2026.",
+        text: "A standard Level 2 charger installation costs $800–$2,500 in most parts of the US, including labor, wiring, and permits. If your electrical panel needs an upgrade to support a 240V circuit, add $1,500–$3,500 to that. There is no longer a federal tax credit for home charger installation — the §30C credit expired for equipment placed in service after June 30, 2026. Check your utility and state for rebates, which commonly run $250–$1,000.",
       },
     },
     {
@@ -50,7 +50,7 @@ const faqJsonLd = {
       name: "Can I get a tax credit for installing a home EV charger?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes — the §30C Alternative Fuel Vehicle Refueling Property Credit covers 30% of charger and installation costs, up to $1,000 per port, for equipment placed in service by June 30, 2026. It applies to addresses in low-income or non-urban census tracts — many suburban and rural addresses qualify. Check your address eligibility at the DOE census tract tool before assuming you don't qualify.",
+        text: "No. The §30C Alternative Fuel Vehicle Refueling Property Credit ended for equipment placed in service after June 30, 2026, so a charger installed today qualifies for no federal credit. Utility and state rebates are what remain — many utilities offer $250–$1,000 toward a Level 2 charger, often tied to enrolling in a time-of-use or managed-charging program.",
       },
     },
     {
@@ -283,7 +283,7 @@ export default function BestHomeEvChargerPage() {
                 "7 chargers compared",
                 "Plug-in and hardwired",
                 "NACS + J1772 options",
-                "§30C tax credit guide",
+                "Charger rebates guide",
               ].map((s) => (
                 <span key={s} className="font-mono text-[11px] bg-cream-soft border border-line px-3 py-1.5 rounded-full text-ink-mute">
                   {s}
@@ -401,18 +401,19 @@ export default function BestHomeEvChargerPage() {
         <section className="border-b border-line py-12">
           <div className="section-wrap max-w-4xl">
             <div className="bg-forest/8 border border-forest/25 rounded-2xl p-6 md:p-8">
-              <div className="font-mono text-[10px] uppercase tracking-widest text-forest mb-3">Tax credit — expires June 30, 2026</div>
-              <h2 className="font-serif text-2xl font-medium text-ink mb-3">§30C can cover 30% of your install</h2>
+              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-3">Tax credit — expired June 30, 2026</div>
+              <h2 className="font-serif text-2xl font-medium text-ink mb-3">The §30C federal charger credit is gone</h2>
               <p className="text-sm text-ink-3 leading-relaxed mb-4">
-                The Alternative Fuel Vehicle Refueling Property Credit (§30C) covers 30% of charger hardware + installation costs,
-                up to $1,000 per port. It applies to addresses in low-income or non-urban census tracts — many suburban and
-                rural addresses qualify. It expires June 30, 2026.
+                The Alternative Fuel Vehicle Refueling Property Credit (§30C) covered 30% of charger hardware and installation
+                costs, up to $1,000 per port. It terminated for property placed in service after June 30, 2026, so a charger
+                installed today gets no federal credit. State and utility rebates are what remain — many utilities still offer
+                $250 to $1,000 toward a Level 2 charger, sometimes tied to enrolling in a managed-charging or time-of-use plan.
               </p>
               <div className="grid sm:grid-cols-3 gap-4 text-sm">
                 {[
-                  ["Credit rate", "30% of total cost"],
-                  ["Maximum credit", "$1,000 per port"],
-                  ["Expiry", "June 30, 2026"],
+                  ["Federal credit today", "None"],
+                  ["Expired", "June 30, 2026"],
+                  ["Still available", "Utility & state rebates"],
                 ].map(([k, v]) => (
                   <div key={k} className="bg-paper border border-line rounded-xl p-4">
                     <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">{k}</div>

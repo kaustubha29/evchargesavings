@@ -18,8 +18,8 @@ export async function enrichState(raw: StateData): Promise<EnrichedState> {
   if (raw.code === "US") {
     const gv = Object.values(gas.rates);
     const ev = Object.values(elec.rates);
-    gasDollar = gv.length ? +(gv.reduce((a, b) => a + b, 0) / gv.length).toFixed(2) : raw.gasDollar;
-    kwhCents  = ev.length ? +(ev.reduce((a, b) => a + b, 0) / ev.length).toFixed(1) : raw.kwhCents;
+    gasDollar = gas.rates.US ?? (gv.length ? +(gv.reduce((a, b) => a + b, 0) / gv.length).toFixed(2) : raw.gasDollar);
+    kwhCents  = elec.rates.US ?? (ev.length ? +(ev.reduce((a, b) => a + b, 0) / ev.length).toFixed(1) : raw.kwhCents);
   } else {
     gasDollar = gas.rates[raw.code] ?? raw.gasDollar;
     kwhCents  = elec.rates[raw.code] ?? raw.kwhCents;

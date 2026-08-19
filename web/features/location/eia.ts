@@ -67,7 +67,9 @@ export async function fetchStateGasPrices(): Promise<EIAResult> {
     for (const row of json.response?.data ?? []) {
       if (typeof row.duoarea !== "string" || row.value == null) continue;
       if (!latestPeriod && row.period) latestPeriod = row.period;
-      if (/^S[A-Z]{2}$/.test(row.duoarea)) {
+      if (row.duoarea === "NUS") {
+        if (!("US" in stateLevel)) stateLevel.US = parseFloat(row.value);
+      } else if (/^S[A-Z]{2}$/.test(row.duoarea)) {
         const code = row.duoarea.slice(1);
         if (!(code in stateLevel)) stateLevel[code] = parseFloat(row.value);
       } else if (/^R/.test(row.duoarea)) {

@@ -24,7 +24,7 @@ export default function InstallCostIndexPage() {
             </h1>
             <p className="text-ink-3 text-lg leading-relaxed max-w-2xl">
               Installation costs vary widely by state — labor rates, permit requirements, and panel upgrade frequency all differ.
-              Select your state for a detailed estimate including the §30C tax credit (30%, up to $1,000 — expires June 30, 2026).
+              Select your state for a detailed estimate. The federal §30C charger credit expired June 30, 2026 — utility and state rebates are what remain.
             </p>
           </div>
         </section>

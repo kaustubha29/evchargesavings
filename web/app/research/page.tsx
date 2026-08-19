@@ -3,9 +3,12 @@ import { getAllStates } from "@/features/location/queries";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { StickySavingsBar } from "@/components/shared/StickySavingsBar";
 
+import { RATES_REFRESHED_LABEL, RATES_ELEC_LABEL, RATES_GAS_LABEL } from "@/features/location/rate-meta";
+
 const BASE = "https://www.evchargesavings.com";
-const UPDATED = "May 2026";
-const EIA_SOURCE = "U.S. Energy Information Administration (EIA) Form EIA-861, residential electricity rates, May 2026 actuals.";
+
+const UPDATED = RATES_REFRESHED_LABEL;
+const EIA_SOURCE = `U.S. Energy Information Administration (EIA) Form EIA-861, residential electricity rates, ${RATES_ELEC_LABEL} actuals. Retail gasoline: EIA weekly survey, ${RATES_GAS_LABEL}.`;
 
 export const metadata: Metadata = {
   title: "EV Charging Cost by State — 2026 Data | EVChargeSavings Research",
@@ -14,7 +17,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/research" },
   openGraph: {
     title: "EV Charging Cost by State — 2026 Data",
-    description: "50-state EV charging cost data: residential electricity rates, annual charging costs, gas prices, and EV/PHEV registration fees. Source: EIA, EPA, DOE AFDC — May 2026.",
+    description: `50-state EV charging cost data: residential electricity rates, annual charging costs, gas prices, and EV/PHEV registration fees. Source: EIA, EPA, DOE AFDC — refreshed ${RATES_REFRESHED_LABEL}.`,
     url: "/research",
     type: "website",
   },
@@ -42,7 +45,7 @@ export default function ResearchPage() {
     "@context": "https://schema.org",
     "@type": "Dataset",
     name: "2026 EV Charging Cost by State",
-    description: "Residential electricity rates, annual home EV charging costs, and state EV registration fees for all 50 US states + DC, updated May 2026. Based on EIA Form EIA-861 residential rate data and NCSL state EV fee data.",
+    description: `Residential electricity rates, annual home EV charging costs, and state EV registration fees for all 50 US states + DC, refreshed ${RATES_REFRESHED_LABEL}. Based on EIA Form EIA-861 residential rate data and NCSL state EV fee data.`,
     url: `${BASE}/research`,
     creator: { "@type": "Organization", name: "EV Charge Savings", url: BASE },
     dateModified: "2026-05-19T08:00:00Z",
@@ -206,7 +209,7 @@ export default function ResearchPage() {
                 {
                   name: "EIA Form EIA-861 — Residential Electricity Rates",
                   url: "https://www.eia.gov/electricity/data/browser/",
-                  note: "State-level residential electricity rates. Updated monthly. May 2026 actuals used in this dataset.",
+                  note: `State-level residential electricity rates. Updated monthly. ${RATES_ELEC_LABEL} actuals used in this dataset.`,
                 },
                 {
                   name: "EIA Weekly Retail Gasoline Prices",

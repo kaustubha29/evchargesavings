@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cost = getInstallCost(stateData.code);
   return {
     title: `Level 2 EV Charger Installation Cost in ${stateData.name} (2026)`,
-    description: `How much does a Level 2 EV charger installation cost in ${stateData.name}? Standard installs run $${cost.low.toLocaleString()}–$${cost.high.toLocaleString()}. Panel upgrade, permit costs, and the §30C tax credit explained.`,
+    description: `How much does a Level 2 EV charger installation cost in ${stateData.name}? Standard installs run $${cost.low.toLocaleString()}–$${cost.high.toLocaleString()}. Panel upgrade and permit costs explained, plus what replaced the expired federal charger credit.`,
     alternates: { canonical: `/ev-charger-installation-cost/${stateSlug}` },
   };
 }
@@ -31,8 +31,6 @@ export default async function StateInstallCostPage({ params }: Props) {
   if (!stateData || stateData.code === "US") notFound();
 
   const cost = getInstallCost(stateData.code);
-  const netLow = Math.max(0, cost.low - 1000);
-  const netHigh = Math.max(0, cost.high - 1000);
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -51,7 +49,7 @@ export default async function StateInstallCostPage({ params }: Props) {
         name: "Does the federal tax credit apply to home EV charger installation?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes — the §30C credit covers 30% of charger hardware and installation costs, up to $1,000 per port. It applies to addresses in low-income or non-urban census tracts and expires June 30, 2026. Many suburban and rural addresses qualify — verify your address at the DOE eligibility tool.",
+          text: "No. The §30C credit ended for equipment placed in service after June 30, 2026, so there is no federal credit for a charger installed today. Many utilities and some states still offer rebates of $250–$1,000, often tied to enrolling in a time-of-use or managed-charging program.",
         },
       },
       {
@@ -59,7 +57,7 @@ export default async function StateInstallCostPage({ params }: Props) {
         name: "Do I need a permit to install a Level 2 charger?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "In most jurisdictions, yes — a licensed electrician should pull an electrical permit for any new 240V circuit installation. Permit costs typically run $50–$300 depending on your city or county. Permitted work is also required to claim the §30C tax credit.",
+          text: "In most jurisdictions, yes — a licensed electrician should pull an electrical permit for any new 240V circuit installation. Permit costs typically run $50–$300 depending on your city or county. Permitted work is also usually required to claim a utility or state charger rebate.",
         },
       },
       {
@@ -94,7 +92,7 @@ export default async function StateInstallCostPage({ params }: Props) {
             <p className="text-ink-3 text-lg leading-relaxed max-w-2xl">
               Standard installs in {stateData.name} run{" "}
               <strong className="text-ink">${cost.low.toLocaleString()}–${cost.high.toLocaleString()}</strong>.
-              Panel upgrades add $1,500–$3,500. The §30C federal tax credit can offset up to $1,000 before it expires June 30, 2026.
+              Panel upgrades add $1,500–$3,500. The federal §30C credit expired June 30, 2026, so check for utility rebates instead.
             </p>
           </div>
         </section>
@@ -162,18 +160,19 @@ export default async function StateInstallCostPage({ params }: Props) {
         <section className="border-b border-line py-12 bg-cream-soft">
           <div className="section-wrap max-w-4xl">
             <div className="bg-forest/8 border border-forest/25 rounded-2xl p-6 md:p-8">
-              <div className="font-mono text-[10px] uppercase tracking-widest text-forest mb-3">Expires June 30, 2026</div>
-              <h2 className="font-serif text-2xl font-medium text-ink mb-3">§30C tax credit: cut up to $1,000 off your install</h2>
+              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-3">Expired June 30, 2026</div>
+              <h2 className="font-serif text-2xl font-medium text-ink mb-3">The federal §30C credit no longer applies</h2>
               <p className="text-sm text-ink-3 leading-relaxed mb-6">
-                The Alternative Fuel Vehicle Refueling Property Credit covers 30% of total charger + installation costs,
-                up to $1,000 per port, for equipment placed in service by June 30, 2026. It applies to addresses in
-                low-income or non-urban census tracts — many suburban and rural addresses in {stateData.name} qualify.
+                The Alternative Fuel Vehicle Refueling Property Credit covered 30% of total charger and installation costs,
+                up to $1,000 per port. It terminated for equipment placed in service after June 30, 2026, so the prices
+                above are what you actually pay. Before booking an electrician in {stateData.name}, check your utility —
+                many still offer $250 to $1,000 toward a Level 2 charger, sometimes tied to a time-of-use rate.
               </p>
               <div className="grid sm:grid-cols-3 gap-4">
                 {[
-                  ["Standard install (after credit)", `$${netLow.toLocaleString()}–$${netHigh.toLocaleString()}*`],
-                  ["Credit amount", "30% up to $1,000"],
-                  ["Deadline", "June 30, 2026"],
+                  ["Standard install", `$${cost.low.toLocaleString()}–$${cost.high.toLocaleString()}`],
+                  ["Federal credit today", "None"],
+                  ["Still worth checking", "Utility rebates"],
                 ].map(([k, v]) => (
                   <div key={k} className="bg-paper border border-line rounded-xl p-4">
                     <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1">{k}</div>
@@ -181,7 +180,7 @@ export default async function StateInstallCostPage({ params }: Props) {
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-ink-mute mt-4">* Assumes full $1,000 credit. Verify address eligibility at the DOE census tract tool — not all addresses qualify.</p>
+              <p className="text-xs text-ink-mute mt-4">Utility rebate availability varies by provider — check your electric utility before scheduling an installer.</p>
             </div>
           </div>
         </section>

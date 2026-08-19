@@ -10,9 +10,9 @@ const L1_OVERNIGHT_MI = L1_MPH * 8;
 const PUBLIC_SESSION_MI = 80;
 const PUBLIC_SESSION_COST = 15;
 const TOU_DELTA_PER_KWH = 0.07;
-const TAX_CREDIT_RATE = 0.30;
-const TAX_CREDIT_CAP = 1000;
-const SEC_30C_EXPIRES = "June 30, 2026";
+// The federal §30C credit (30% of cost, capped at $1,000) terminated for property
+// placed in service after June 30, 2026, so it is no longer part of the ROI math.
+const SEC_30C_EXPIRED = "June 30, 2026";
 
 function lookupEfficiency(brand: string, year: number): number {
   const models = evRepository.getByBrand(brand);
@@ -94,12 +94,11 @@ export function HomeChargerROI() {
     const monthlyKwh = (milesPerDay * 30) / miPerKwh;
     const touSavings = monthlyKwh * TOU_DELTA_PER_KWH;
     const monthlySavings = publicSavingsPerMonth + touSavings;
-    const taxCredit = Math.min(hardwareCost * TAX_CREDIT_RATE, TAX_CREDIT_CAP);
-    const netCost = Math.max(0, totalCost - taxCredit);
+    const netCost = totalCost;
     const breakEvenMonths = monthlySavings > 1 ? Math.round(netCost / monthlySavings) : null;
     return {
       hrsSavedPerNight, sessionsPerMonth, publicSavingsPerMonth,
-      touSavings, monthlySavings, taxCredit, netCost, breakEvenMonths,
+      touSavings, monthlySavings, netCost, breakEvenMonths,
       monthlyKwh, hardwareCost,
     };
   }, [milesPerDay, totalCost, miPerKwh]);
@@ -122,12 +121,12 @@ export function HomeChargerROI() {
               When does a home charger pay off?
             </h2>
 
-            {/* §30C — compact inline notice */}
-            <div className="rounded-xl border border-okay-fg/20 bg-okay-bg px-4 py-2.5 mb-4 flex items-start gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-okay-fg shrink-0 mt-0.5">§30C</span>
+            {/* §30C — expired, no longer in the math */}
+            <div className="rounded-xl border border-line bg-paper px-4 py-2.5 mb-4 flex items-start gap-2">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-ink-mute shrink-0 mt-0.5">§30C</span>
               <p className="text-xs text-ink-2 leading-relaxed">
-                30% credit (up to $1,000) — <strong>census-tract restriction applies</strong>, many suburban homeowners don&apos;t qualify.
-                ~${Math.round(r.taxCredit)} estimated · expires {SEC_30C_EXPIRES}
+                The federal home charger tax credit <strong>expired {SEC_30C_EXPIRED}</strong>. These figures assume you pay
+                the full installed cost. Check your utility and state — many still offer charger rebates of $250–$1,000.
               </p>
             </div>
 
@@ -157,7 +156,7 @@ export function HomeChargerROI() {
                 onChange={setTotalCost}
               />
               <p className="font-mono text-[10px] text-ink-mute/60">
-                §30C on hardware (~${r.hardwareCost} of ${totalCost.toLocaleString()}). Verify eligibility with a tax pro.
+                Hardware is roughly ${r.hardwareCost} of the ${totalCost.toLocaleString()} total; the rest is labor and permits.
               </p>
             </div>
           </div>
@@ -183,9 +182,9 @@ export function HomeChargerROI() {
                 sub={`${Math.round(r.monthlyKwh)} kWh × $0.07 gap`}
               />
               <Stat
-                label="§30C tax credit"
-                value={`$${Math.round(r.taxCredit)}`}
-                sub={`expires ${SEC_30C_EXPIRES}`}
+                label="Total monthly savings"
+                value={`$${Math.round(r.monthlySavings)} / mo`}
+                sub="public sessions + TOU gap"
                 accent
               />
             </div>
@@ -195,14 +194,14 @@ export function HomeChargerROI() {
                 ? "border-forest/30 bg-forest/5"
                 : "border-line bg-paper"
             }`}>
-              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1.5">Break-even after §30C credit</div>
+              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-mute mb-1.5">Break-even on installed cost</div>
               {r.breakEvenMonths ? (
                 <div className="flex items-center gap-4 mb-2">
                   <div className="font-serif text-4xl font-medium text-forest leading-none shrink-0">
                     {r.breakEvenMonths} <span className="text-2xl text-ink-mute font-normal">months</span>
                   </div>
                   <div className="font-mono text-[10px] text-ink-mute leading-relaxed border-l border-line pl-4">
-                    <div>Net cost ${Math.round(r.netCost).toLocaleString()}</div>
+                    <div>Installed cost ${Math.round(r.netCost).toLocaleString()}</div>
                     <div>Monthly savings ${Math.round(r.monthlySavings)}</div>
                   </div>
                 </div>
@@ -220,7 +219,7 @@ export function HomeChargerROI() {
             </div>
             <p className="font-mono text-[10px] text-ink-mute/40 leading-relaxed">
               Estimates use {brand && model ? `${year} ${brand} ${model} data` : "national averages"} ({miPerKwh.toFixed(1)} mi/kWh),
-              $0.07/kWh TOU gap, $15/public session avg. §30C eligibility subject to IRS census-tract rules.
+              $0.07/kWh TOU gap, $15/public session avg. No federal charger credit is applied — §30C expired {SEC_30C_EXPIRED}.
             </p>
           </div>
         </div>

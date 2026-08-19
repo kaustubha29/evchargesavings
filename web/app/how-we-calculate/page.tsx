@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { RATES_REFRESHED_LABEL, RATES_ELEC_LABEL, RATES_GAS_LABEL } from "@/features/location/rate-meta";
 import { SiteFooter } from "@/components/shared/SiteFooter";
+import { RatesUpdatedNote } from "@/components/shared/RatesUpdatedNote";
 
 export const metadata: Metadata = {
   title: "How We Calculate EV Savings — Methodology & Data Sources",
@@ -73,7 +75,7 @@ export default function HowWeCalculatePage() {
                 "Net savings = comparison fuel cost − EV charging cost − (state EV fee − PHEV fee you escape). Toggle fees off for fuel-only.",
                 "PHEV mode: cost is split by daily miles vs EV range. Miles below the range run on electric, miles above run on gas.",
                 "Still excluded: insurance, maintenance, depreciation, and the proposed (not law) federal $130/$35 EV/PHEV fee.",
-                "Data: EPA efficiency ratings, EIA electricity rates (monthly), EIA gas prices (weekly), NCSL/DOE AFDC state fees (verified May 2026).",
+                `Data: EPA efficiency ratings, EIA electricity rates (monthly), EIA gas prices (weekly), NCSL/DOE AFDC state fees (verified May 2026). Rate fallbacks refreshed ${RATES_REFRESHED_LABEL} — electricity ${RATES_ELEC_LABEL}, gasoline ${RATES_GAS_LABEL}.`,
                 "Default: 13,500 miles/year (US average) · 80% home charging · 20% public (blended estimate).",
                 "Estimates may vary from real-world results by ±10% depending on driving and charging behavior.",
               ].map((line) => (
@@ -115,8 +117,9 @@ export default function HowWeCalculatePage() {
               desc="Official DOE database of state-level EV and PHEV registration surcharges, incentives, and regulations for all 50 states + DC. Cross-referenced with NCSL to verify PHEV-specific fee amounts used when computing the net registration fee change for PHEV → BEV comparisons."
             />
           </div>
-          <p className="text-ink-mute text-xs font-mono mt-4">
-            All rates are cached for 24 hours via ISR and refreshed automatically. If EIA is unavailable, we fall back to the most recent static values. Note: EIA publishes weekly gas prices (~1 week lag) but monthly residential electricity rates ~3 months in arrears — so the electricity period shown is always the latest data EIA has released, not a stale value on our end.
+          <RatesUpdatedNote className="mt-4" />
+          <p className="text-ink-mute text-xs font-mono mt-2">
+            All rates are cached for 24 hours via ISR and refreshed automatically. If EIA is unavailable, we fall back to the most recent static values, last refreshed {RATES_REFRESHED_LABEL}. Note: EIA publishes weekly gas prices (~1 week lag) but monthly residential electricity rates ~3 months in arrears — so the electricity period shown is always the latest data EIA has released, not a stale value on our end.
           </p>
           <p className="text-sm text-ink-3 mt-5">
             See the full state-by-state dataset — electricity rates, charging cost, and EV registration fees for all 50 states + DC —{" "}
@@ -305,8 +308,9 @@ export default function HowWeCalculatePage() {
         {/* Home Charger ROI */}
         <Section title="Home charger ROI calculator">
           <p className="text-ink-3 text-sm mb-6 leading-relaxed">
-            The Level 2 charger ROI calculator on the EV owner page computes monthly break-even after
-            the §30C federal tax credit (30% of hardware cost, up to $1,000 — expires June 30, 2026).
+            The Level 2 charger ROI calculator on the EV owner page computes monthly break-even on the full
+            installed cost. No federal charger credit is applied — §30C expired for equipment placed in
+            service after June 30, 2026.
           </p>
           <Formula
             label="Time saved per charge vs Level 1"
@@ -324,9 +328,9 @@ export default function HowWeCalculatePage() {
             note="public_rate = state residential rate × 2.5 (blended public estimate). Avoidance = you charge at home instead."
           />
           <Formula
-            label="After-credit cost and break-even"
-            formula={`credit = min(hardware_cost × 0.30, 1000)\nnet_cost = install_total − credit\nmonthly_benefit = monthly_public_savings + monthly_tou_savings\nbreak_even_months = net_cost / monthly_benefit`}
-            note="§30C credit applies to hardware only — not installation labor. TOU savings only added when a utility off-peak rate is available for the user's state. Monthly break-even rounds up."
+            label="Installed cost and break-even"
+            formula={`net_cost = install_total\nmonthly_benefit = monthly_public_savings + monthly_tou_savings\nbreak_even_months = net_cost / monthly_benefit`}
+            note="The federal §30C credit expired June 30, 2026 and is no longer subtracted. Utility or state charger rebates are not modelled — check yours separately. TOU savings only added when a utility off-peak rate is available for the user's state. Monthly break-even rounds up."
           />
         </Section>
 

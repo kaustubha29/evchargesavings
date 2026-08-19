@@ -13,6 +13,7 @@ import { EVMarketplaceAffiliates } from "@/components/shared/EVMarketplaceAffili
 import { SavingsSlotBand } from "@/components/shared/SavingsSlotBand";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 import { StateIncentives } from "@/components/shared/StateIncentives";
+import { RATES_ELEC_LABEL, RATES_REFRESHED_LABEL } from "@/features/location/rate-meta";
 import { NATIONAL_AVG } from "@/features/location/data/states";
 import { fmt } from "@/lib/format";
 
@@ -156,7 +157,7 @@ export default async function StateCalculatorPage({ params }: Props) {
               {((stateData.kwhCents / 100) / modelY.efficiency * 100).toFixed(1)}¢ per mile at the home rate ·{" "}
               {fmt.money2((stateData.kwhCents / 100) * modelY.battery)} for a full {modelY.battery} kWh charge ·{" "}
               {fmt.money0(exSavings.evAnnualCost)}/year at 13,500 miles.
-              The annual figure assumes 80% home charging and 20% public fast-charging (priced at 2.5× the home rate). Source: EIA {elecPeriod ?? "May 2026"} (latest published — EIA releases residential rates ~3 months in arrears) · EPA Fuel Economy Guide · DOE AFDC (state fees).
+              The annual figure assumes 80% home charging and 20% public fast-charging (priced at 2.5× the home rate). Source: EIA {elecPeriod || RATES_ELEC_LABEL} (latest published — EIA releases residential rates ~3 months in arrears) · EPA Fuel Economy Guide · DOE AFDC (state fees).
             </p>
 
             {/* Quick-stat row */}
@@ -294,6 +295,7 @@ export default async function StateCalculatorPage({ params }: Props) {
                 {elecPeriod && <> · Electricity: residential avg · {elecPeriod} (latest published; EIA releases residential rates ~3 months in arrears)</>}
                 {" · EPA Fuel Economy Guide · DOE AFDC (state fees)"}
                 {gasPeriod  && <> · Gas: retail avg · {gasPeriod}</>}
+                {` · Static fallback rates refreshed ${RATES_REFRESHED_LABEL}`}
               </p>
             )}
           </div>

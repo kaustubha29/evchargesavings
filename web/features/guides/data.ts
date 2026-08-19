@@ -72,10 +72,10 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Strategy 2: Workplace charging",
-        body: "Workplace Level 2 charging is the closest thing to home charging for renters — 8 hours plugged in during the workday is equivalent to a full overnight home charge for most EVs. Many employers offer it free or at cost. If your workplace doesn't have EV chargers yet, ask HR or facilities management — companies increasingly install chargers as a low-cost employee benefit, and the business gets a federal 30C tax credit for up to 30% of installation costs (check current status at irs.gov). Even two or three charging days per week at work dramatically reduces your DCFC dependence.",
+        body: "Workplace Level 2 charging is the closest thing to home charging for renters — 8 hours plugged in during the workday is equivalent to a full overnight home charge for most EVs. Many employers offer it free or at cost. If your workplace doesn't have EV chargers yet, ask HR or facilities management — companies increasingly install chargers as a low-cost employee benefit, though the federal 30C business credit ended for property placed in service after June 30, 2026 — utility programs are now the main offset. Even two or three charging days per week at work dramatically reduces your DCFC dependence.",
         list: [
           "Ask HR or facilities: frame it as an employee benefit request, not a personal ask",
-          "Federal 30C credit: employers can claim up to 30% of charger install cost (verify current status)",
+          "Federal 30C credit: expired June 30, 2026 — ask about utility make-ready programs instead",
           "PlugShare's workplace filter: shows who already has chargers near your office",
           "ChargePoint for Business: landlords and employers can offer ChargePoint-networked chargers",
         ],
@@ -725,7 +725,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "One federal credit remains — with a catch",
-        body: "The Alternative Fuel Vehicle Refueling Property Credit (IRC §30C) covers home EV charger installation and is still available for property placed in service by June 30, 2026. It's 30% of installation costs, max $1,000 per port. The catch: it only applies in low-income community census tracts or non-urban census tracts. Many suburban addresses qualify as non-urban — check your specific address at the DOE eligibility tool before assuming you don't qualify.",
+        body: "The Alternative Fuel Vehicle Refueling Property Credit (IRC §30C) has expired. It covered 30% of home charger installation costs, up to $1,000 per port, but only for property placed in service by June 30, 2026, and only at addresses in low-income or non-urban census tracts. A charger installed today gets no federal credit. What remains is local: many utilities offer $250–$1,000 toward a Level 2 charger, and several states run their own charger rebates.",
         list: [
           "Credit: 30% of charger + installation cost, max $1,000 per port",
           "Deadline: placed in service by June 30, 2026",
@@ -783,7 +783,7 @@ export const GUIDES: Guide[] = [
       },
       {
         question: "Is there still any federal EV-related tax credit in 2026?",
-        answer: "The only remaining one is the home EV charger credit (§30C): 30% of installation cost, max $1,000, for chargers placed in service by June 30, 2026 — but only in eligible low-income or non-urban census tracts. There is also a new car-loan interest deduction (up to $10,000/yr) for US-assembled vehicles. Confirm both at IRS.gov.",
+        answer: "There is no longer a federal purchase or charger credit. The §30D and §25E vehicle credits ended for vehicles acquired after September 30, 2025, and the §30C home charger credit ended for equipment placed in service after June 30, 2026. A car-loan interest deduction (up to $10,000/yr) for US-assembled vehicles remains — confirm current status at IRS.gov. State and utility programs are where the remaining money is.",
       },
     ],
   },
@@ -2234,7 +2234,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Federal Alternative Fuel Vehicle Refueling Property Credit",
-        body: "The §30C credit covers 30% of the cost of installing an EV charger at your home, up to $1,000 per year. This includes the charger hardware and all installation labor. Claim it on Form 8911 with your tax return. No income limit applies to individuals.",
+        body: "The §30C credit covered 30% of the cost of installing an EV charger at your home, up to $1,000, including hardware and installation labor, claimed on IRS Form 8911. It expired for property placed in service after June 30, 2026. If your charger was installed before that date you may still be able to claim it on the relevant tax year; for anything installed since, there is no federal credit.",
         list: [
           "Credit: 30% of charger + installation cost",
           "Maximum: $1,000 for personal use",
@@ -3042,9 +3042,9 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Making the business case to your employer",
-        body: "Employers benefit from EV chargers: they attract EV-driving talent, qualify for federal tax credits (Section 30C business credit: 30% of installation cost, up to $100,000), and can access utility programs that reduce installation cost. Frame the request in employer benefit language, not personal convenience.",
+        body: "Employers benefit from EV chargers: they attract EV-driving talent, can access utility make-ready programs that reduce installation cost (the Section 30C business credit ended June 30, 2026). Frame the request in employer benefit language, not personal convenience.",
         list: [
-          "Federal 30C business credit: 30% of install cost (up to $100k)",
+          "Utility make-ready programs — the 30C business credit expired June 30, 2026",
           "Utility programs: many utilities fund workplace charger installations",
           "Talent retention: increasingly expected by EV-owning employees",
           "CSG/sustainability reporting: workplace EV infrastructure counts",
@@ -3827,15 +3827,15 @@ export const GUIDES: Guide[] = [
   // ── OBBB / 2025 policy guides ────────────────────────────────────────
   {
     slug: "ev-charger-tax-credit-2026",
-    title: "Home EV charger tax credit ends June 30, 2026 — claim it now",
-    description: "The 30% home EV charger installation tax credit (up to $1,000) expires June 30, 2026. Here's exactly how to claim it before the deadline.",
+    title: "The home EV charger tax credit has expired — what it costs now",
+    description: "The 30% home EV charger installation tax credit (up to $1,000) expired June 30, 2026. What a Level 2 install costs now, and which utility and state rebates replaced it.",
     hook: "Charger install credit still alive — but only until June 30, 2026.",
     readTime: "5 min read",
     category: "Finance",
     sections: [
       {
         heading: "This credit is still alive — for now",
-        body: "While the new and used EV purchase credits ended October 1, 2025, the Alternative Fuel Vehicle Refueling Property Credit (IRC §30C) for home charger installation is still available. It covers 30% of the cost of installing a Level 2 EV charger at your home, up to a $1,000 credit. The deadline: the charger must be placed in service by June 30, 2026. After that, the One Big Beautiful Bill terminates this credit too.",
+        body: "The new and used EV purchase credits ended October 1, 2025, and the Alternative Fuel Vehicle Refueling Property Credit (IRC §30C) followed on June 30, 2026. It had covered 30% of the cost of installing a Level 2 home charger, up to a $1,000 credit. The One Big Beautiful Bill terminated it for any equipment placed in service after that date, which means there is now no federal support for home charging equipment.",
       },
       {
         heading: "What it covers",
@@ -3988,7 +3988,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Home EV charger credit: still alive until June 30, 2026",
-        body: "The Alternative Fuel Vehicle Refueling Property Credit (IRC §30C) survived — for now. The 30% credit (up to $1,000) for home EV charger installation remains claimable for work done before June 30, 2026. After that date, it's gone. If you haven't installed a Level 2 home charger yet, this is the last window to get federal help paying for it.",
+        body: "The Alternative Fuel Vehicle Refueling Property Credit (IRC §30C) is now gone too. The 30% credit (up to $1,000) for home EV charger installation applied only to work placed in service before June 30, 2026. If you installed before that date, claim it on Form 8911. If not, budget the full installed cost and look to your utility for a rebate instead.",
       },
       {
         heading: "Home solar and energy efficiency credits: eliminated",
@@ -4004,14 +4004,14 @@ export const GUIDES: Guide[] = [
   {
     slug: "ev-charger-installation-cost-2026",
     title: "Home EV charger installation cost in 2026 — what to expect",
-    description: "Real cost ranges for Level 2 EV charger installation by project complexity, plus how to use the remaining tax credit before it expires June 30, 2026.",
+    description: "Real cost ranges for Level 2 EV charger installation by project complexity, now that the federal §30C credit has expired and utility rebates are the remaining offset.",
     hook: "Level 2 install costs $500–$2,500 depending on your home. Here's the breakdown.",
     readTime: "6 min read",
     category: "Installation",
     sections: [
       {
         heading: "The short answer",
-        body: "Installing a Level 2 home EV charger typically costs $500–$1,500 for a straightforward project and $1,500–$3,000+ for complex installs requiring panel upgrades or long conduit runs. The federal charger install tax credit (30%, up to $1,000) is still available for work completed before June 30, 2026 — meaning effective out-of-pocket on a typical install is $500–$1,100 after the credit.",
+        body: "Installing a Level 2 home EV charger typically costs $500–$1,500 for a straightforward project and $1,500–$3,000+ for complex installs requiring panel upgrades or long conduit runs. The federal charger install tax credit (30%, up to $1,000) applied only to work placed in service before June 30, 2026. For an install today there is no federal credit, so budget the full $500–$3,000+ and check whether your utility offers a rebate — many run $250–$1,000.",
       },
       {
         heading: "What drives the price",
@@ -4041,7 +4041,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "The tax credit window is closing",
-        body: "The IRC §30C credit — 30% of total project cost, max $1,000 — applies to work completed before June 30, 2026. That means charger hardware + installation labor. On a $1,200 project, you get $360 back. On a $2,000 project, you get $600. On a $3,333+ project, you hit the $1,000 cap. File IRS Form 8911 with your 2026 taxes. Spring 2026 electrician schedules will fill up — don't wait until May.",
+        body: "The IRC §30C credit — 30% of total project cost, max $1,000 — applied only to work placed in service before June 30, 2026, covering charger hardware plus installation labor. If your install completed before the deadline, file IRS Form 8911 with your 2026 taxes: a $1,200 project returns $360, a $2,000 project $600, and anything above $3,333 hits the $1,000 cap. For installs after June 30, 2026 there is no federal credit at all.",
       },
     ],
   },
@@ -4379,7 +4379,7 @@ export const GUIDES: Guide[] = [
     sections: [
       {
         heading: "Set up home charging before the car arrives",
-        body: "The single biggest mistake first-time EV buyers make is waiting until after delivery to think about home charging. A Level 2 charger (240V, 40–48A) adds 25–40 miles of range per hour — enough to top off any EV overnight. Scheduling an electrician takes 1–3 weeks in most markets. Order your charger and schedule the install as soon as you place your vehicle order. The §30C federal tax credit covers 30% of installation costs up to $1,000 for work completed before June 30, 2026.",
+        body: "The single biggest mistake first-time EV buyers make is waiting until after delivery to think about home charging. A Level 2 charger (240V, 40–48A) adds 25–40 miles of range per hour — enough to top off any EV overnight. Scheduling an electrician takes 1–3 weeks in most markets. Order your charger and schedule the install as soon as you place your vehicle order. The §30C federal tax credit expired for work placed in service after June 30, 2026, so check whether your utility offers a charger rebate instead — many run $250–$1,000.",
         list: [
           "Schedule electrician 4–6 weeks before delivery, not after",
           "40A circuit is the standard — supports every EV charger sold today",
